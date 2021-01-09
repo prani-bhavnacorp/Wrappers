@@ -1,0 +1,1400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="http://www.primarypayments.com/it/nrs/root/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.primarypayments.com/it/nrs/root/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.primarypayments.com/it/nrs/root/">
+      <xsd:simpleType name="UserIDType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length should be 20.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="[\S]+" />
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="T_YesNo">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Y" />
+          <xsd:enumeration value="N" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="PasswordType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length should be 40.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="[\S]+" />
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="PlatformType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length should be 10.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="ClientIDType">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="9" />
+          <xsd:pattern value="[\S]+[\s\S]*" />
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="OrgReportingUnitType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length should be 10.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="[\S]+[\s\S]*" />
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="BranchType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length should be 10.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="CSRIDType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length should be 10.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="InquirySystemTrackingIdentifierType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length should be 15.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="RemarketerSystemTrackingIdentifierType">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="15" />
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="ReferenceNumberType">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="12" />
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="CustomerIDType">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="9" />
+          <xsd:pattern value="\S+[\S\s]*" />
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="CustomerUse1Type">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length should be 40.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="SSNType">
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="([0-9]){9}" />
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="LastNameType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length should be 40.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="[\S]+[\S\s]*" />
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="MiddleNameType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length should be 20.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="FirstNameType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length should be 40.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="[\S]+[\S\s]*" />
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="GenderType">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="M" />
+          <xsd:enumeration value="F" />
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="BirthDateType">
+        <xsd:restriction base="xsd:date">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="TypeOfIdentificationType">
+        <xsd:annotation>
+          <xsd:documentation>
+            The following are the code values and their corresponding description:
+            <code>DL - Drivers's License/ USA</code><code>ML - Military / USA</code><code>PP - Passport</code><code>RA - Resident Alien ID</code><code>ST - State Identitfication</code><code>FL - Driver's License / Foreign</code><code>CL - Driver's License / Canada</code><code>DM - Driver's License / Mexico</code><code>OF - Other Primary ID / Foreign</code><code>MC - Matricula Consular Card</code><code>SC - South America Cendula Number</code><code>XX - Unknown</code><code>CE - Credencial Electoral</code><code>CO - Columbian Business Tax ID</code><code>CR - Credit Card</code><code>EC - Employer ID Card</code><code>EM - Email Address</code><code>IC - Italian Fiscal Code</code><code>KN - Known to the Branch</code><code>NO - None</code><code>OT - Other</code><code>RC - Mexican Registro Federal de Causantes</code><code>SD - Student identification</code><code>SP - National Identity Number - Spain</code></xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="\S+[\S\s]*" />
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="IdentificationNumberType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length should be 28.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="\S+[\S\s]*" />
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="IdentificationStateType">
+        <xsd:restriction base="tns:StateType">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="IdentificationCountryType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length should be 3.</constraint>
+            <constraint>Must be a value from Internation Standards Organization Alpha-3 code.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="tns:CountryCodeType">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="IdentificationExpirationDateType">
+        <xsd:restriction base="xsd:date">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="Address1Type">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max Length should be 50.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="\S+[\S\s]*" />
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="Address2Type">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max Length should be 50.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="CityType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max Length should be 25.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="[\S]+[\S\s]*" />
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="StateType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max Length should be 2.</constraint>
+            <constraint>Value must consist of characters from A - Z.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="PostalCodeType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max Length should be 14.</constraint>
+            <constraint>Value must be a number.</constraint>
+            <constraint>Value consisting of only zeroes is invalid.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="CountryCodeType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Value must be a International Standards Organization Alpha-3 code representing a country.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="3" />
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="PhoneNumberType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length should be 10.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="BusinessNameType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max Length should be 40.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="[\S]+[\S\s]*" />
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="TaxIDNumberType">
+        <xsd:restriction base="tns:SSNType">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="ResponseCodeType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max Length should be 4.</constraint>
+            The valid response code and their description are as follows:
+            <code>0000	- Request Processed Successfully</code><code>1000	- Access Denied</code><code>1001	- Invalid Client Number</code><code>1100	- Multiple Fields Error</code><code>1101	- Invalid/Missing Name</code><code>1102	- Invalid DOB</code><code>1103	- Invalid/Missing SSN/Tax Id</code><code>1104	- Invalid Id Number</code><code>1105	- Invalid Address</code><code>1106	- Invalid Phone Number</code><code>1107	- Invalid Tracking ID</code><code>1108	- Already Used InquirySystemTrackingIdentifier</code><code>1109	- Max Attempts Exceeded</code><code>1110	- Inquiry Does Not Contain Minimum Criteria</code><code>1111	- Invalid Org Reporting Unit</code><code>1112	- Invalid Branch</code><code>1113	- Invalid CSRID</code><code>1114	- Invalid Remarketer Tracking ID</code><code>1115	- Invalid Reference Number</code><code>1116	- Invalid Customer ID</code><code>1117	- Invalid Customer Use1</code><code>1118	- Invalid Gender</code><code>1119	- Invalid Id Type</code><code>1120	- Invalid Id Expiration Date</code><code>1121	- Invalid/Missing State Code</code><code>1122	- Invalid City</code><code>1123	- Invalid State Code</code><code>1124	- Invalid Postal Code</code><code>1125	- Invalid UserID</code><code>1126	- Invalid Version</code><code>1127	- Invalid Platform</code><code>1128	- Invalid/Missing Phone Type</code><code>1134	- Invalid/Missing Country Code</code><code>2000	- Response Timed out</code><code>3000	- Communication Error</code><code>4000	- Invalid XML submitted</code><code>4001	- Unsupported Version</code><code>7000	- Identity Check Error (message is variable depending on specifics error)</code><code>9000	- Application Error  (message is variable depending on specific error)</code><code>9001	- Client Configuration Error</code><code>9002	- Client Authorization Error</code></xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="ResponseMessageType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length should be 50.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="AttemptNumberType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Maximum value should be less than 10.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:integer">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="InitialMessageType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Maximum length should be 50.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DecisionMessageType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Maximum length should be 45.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="OverallSeverityType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Maximum length should be 3.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="CumulativeLossType">
+        <xsd:restriction base="xsd:decimal">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="FCRAFlagType">
+        <xsd:annotation>
+          <xsd:documentation>
+            Valid values are as follows:
+            <code>Y - Yes</code><code>N - No</code></xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="WarningNumberType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Maximum length should be 3.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="WarningTextType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Maximum length should be 50.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="SeverityType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Maximum length should be 3.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="TypeOfMatchType">
+        <xsd:annotation>
+          <xsd:documentation>
+            Valid codes and their corresponding description are as follows:
+            <code>Similar	-	Similar match to a particular inquiry element</code><code>Exact		-	Exact match to a particular inquiry element; inquiry data exactly matches contributed data</code></xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="MatchFieldType">
+        <xsd:annotation>
+          <xsd:documentation>
+            Valid codes and their corresponding description are as follows:
+            <code>Name				 	-	Name of matched consumer (John Henry Smith) or business (Acme Auto Parts)</code><code>SSN					-	Social Security Number of matched consumer (524732182)</code><code>TaxIDNumber			-	Tax ID Number of matched consumer (524732182)</code><code>BirthDate				-	Date of birth of matched consumer (1963-07-14)</code><code>IdentificationNumber	-	Issued identification number of matched consumer or business (D01564)</code><code>Address				-	Full address of matched consumer or business (123 Main Street Suite 120 Anytown CO 67456)</code><code>PhoneNumber			-	Telephone number of matched consumer or business (4913682542)</code></xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="MatchDataType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length should be 150.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="TypeOfConsumerType">
+        <xsd:annotation>
+          <xsd:documentation>
+            The following are the valid codes and their corresponding description:
+            <code>PRI - Primary consumer account relationship</code><code>JNT - Joint consumer account relationship</code><code>BUS	- Business account relationship</code><code>UNK	- Unknown</code></xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="\S+[\s\S]*" />
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="TypeOfAddressType">
+        <xsd:annotation>
+          <xsd:documentation>
+            The following are the valid codes and their corresponding description:
+            <code>PRIM	-	Consumer's primary address</code><code>SECN	-	Consumer's secondary address</code></xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="\S+[\s\S]*" />
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="TypeOfPhoneType">
+        <xsd:annotation>
+          <xsd:documentation>
+            The following are the valid codes and their corresponding description:
+            <code>HOM	-	Consumer's home telephone number</code><code>WRK	-	Consumer's work telephone number</code><code>ALT	-	Consumer's alternate telephone number</code></xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="\S+[\s\S]*" />
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="ConsumerABANumberType">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="9" />
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="AccountNumberType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length must be 30.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="ClosureDateType">
+        <xsd:restriction base="xsd:date">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="AgeInMonthsType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length must be 3.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:integer">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="TypeOfLossType">
+        <xsd:annotation>
+          <xsd:documentation>
+            The following are the valid codes and their corresponding description:
+            <code>F	-	Fee reversal. Contribution record includes only fee reversal amount</code><code>P	-	Principal loss. Contribution record includes only principal loss amount</code><code>C	-	Combined principal loss and fee reversal. Contribution record is not separated into fee reversal or principal loss amounts. Principal loss and fee reversal amounts are combined</code><code>S	-	Separate principal loss and fee reversal. Contribution record is separated into principal loss and fee reversal amounts. Principal loss and fee reversal amounts are not combined</code></xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="CACReturnItemCountType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length should be 2.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:integer">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="ContributionSourceType">
+        <xsd:annotation>
+          <xsd:documentation>
+            The following are the valid codes and their corresponding description:
+            <code>CHGO	- Automated Charge-off</code><code>ACTA	- Account Abuse</code><code>CARD	- Card Activity</code><code>CHKF	- Checking Account Activity</code><code>IDNF	- Identity Activity</code><code>LONF	- Loan Activity</code><code>FDTF	- Fund Transfer Activity</code><code>FRDV	- Fraud Victim Record</code><code>CABD	- Collections Bank Data</code><code>CAMD	- Collections Merchant Data</code><code>HTFL  - Hot File</code></xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="PrincipalLossType">
+        <xsd:restriction base="xsd:decimal">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="FeeReversalType">
+        <xsd:restriction base="xsd:decimal">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="CombinedLossAndFeeReversalType">
+        <xsd:restriction base="xsd:decimal">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="PaidStatusType">
+        <xsd:annotation>
+          <xsd:documentation>
+            The following are the valid codes and their corresponding description:
+            <code>P	-	Account balance has been paid</code><code>U	-	Account balance is unpaid</code><code>S	-	Account balance has been settled</code><code>X -	Sold</code><code>D -	Discharged/Bankruptcy</code></xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="PaidDateType">
+        <xsd:restriction base="xsd:date">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="SettleDateType">
+        <xsd:restriction base="xsd:date">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DisputeCodeType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length should be 2.</constraint>
+            <code>01 - In Dispute</code>
+            <code>00 - No Dispute</code>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DisputeReasonType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length should be 700.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DisputeDateType">
+        <xsd:restriction base="xsd:date">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="ContributorNameType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length should be 50.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="SchemaVersion">
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="IdentityVerificationOnlyType">
+        <xsd:annotation>
+          <xsd:documentation>
+            Valid values are as follows:
+            <code>Y - Yes</code><code>N - No</code></xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="OFACPostedDateType">
+        <xsd:restriction base="xsd:date">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="OFACEntityType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length must be 1.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="OFACOrgNameType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length must be 100.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="OFACMiddleNameType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length must be 40.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="OFACIDType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length must be 4.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="OFACIDIssuerType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length must be 50.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="OFACIDNumberType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length must be 30.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="OFACAddress1Type">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length must be 30.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="OFACCityType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length must be 20.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="OFACStateType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length must be 20.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="OFACCountryNameType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length must be 50.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="OFACCountryType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length must be 3.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="OFACAliasNameType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length must be 100.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="OFACVesselOwnerType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length must be 50.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="OFACSanctionType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length must be 4.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="OFACOriginalListNameType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Max length must be 4.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="AdditionalVerificationType">
+        <xsd:sequence>
+          <xsd:element minOccurs="1" name="OFACMatch" type="tns:OFACMatchType" />
+          <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##local" processContents="skip" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="OFACMatchType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="OFACMatchRecord" type="tns:OFACMatchRecordType" />
+          <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##local" processContents="skip" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="OFACMatchRecordType">
+        <xsd:sequence>
+          <xsd:element name="Severity" type="tns:SeverityType" />
+          <xsd:element minOccurs="1" maxOccurs="unbounded" name="Match" type="tns:MatchRootType" />
+          <xsd:element minOccurs="1" name="OFACData" type="tns:OFACDataType" />
+          <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##local" processContents="skip" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="OFACDataType">
+        <xsd:sequence>
+          <xsd:element name="PostedDate" type="tns:OFACPostedDateType" />
+          <xsd:element name="EntityType" type="tns:OFACEntityType" />
+          <xsd:element minOccurs="0" name="OrgName" type="tns:OFACOrgNameType" />
+          <xsd:element minOccurs="0" name="FirstName" type="tns:FirstNameType" />
+          <xsd:element minOccurs="0" name="MiddleName" type="tns:OFACMiddleNameType" />
+          <xsd:element minOccurs="0" name="LastName" type="tns:LastNameType" />
+          <xsd:element minOccurs="0" name="SSN" type="tns:SSNType" />
+          <xsd:element minOccurs="0" name="DOB" type="tns:BirthDateType" />
+          <xsd:element minOccurs="0" name="IDType" type="tns:OFACIDType" />
+          <xsd:element minOccurs="0" name="IDIssuer" type="tns:OFACIDIssuerType" />
+          <xsd:element minOccurs="0" name="IDCountry" type="tns:CountryCodeType" />
+          <xsd:element minOccurs="0" name="IDNumber" type="tns:OFACIDNumberType" />
+          <xsd:element minOccurs="0" name="Aliases" type="tns:OFACAliasesType" />
+          <xsd:element minOccurs="0" name="Addresses" type="tns:OFACAddressRootType" />
+          <xsd:element minOccurs="0" name="OriginalListName" type="tns:OFACOriginalListNameType" />
+          <xsd:element minOccurs="0" name="SanctionTypes" type="tns:OFACSanctionTypesType" />
+          <xsd:element minOccurs="0" name="VesselOwner" type="tns:OFACVesselOwnerType" />
+          <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##local" processContents="skip" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="OFACSanctionTypesType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="SanctionType" type="tns:OFACSanctionType" />
+          <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##local" processContents="skip" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="OFACAliasesType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="AliasName" type="tns:OFACAliasNameType" />
+          <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##local" processContents="skip" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="OFACAddressRootType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Address" type="tns:OFACAddressType" />
+          <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##local" processContents="skip" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="OFACAddressType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Address1" type="tns:OFACAddress1Type" />
+          <xsd:element minOccurs="0" name="City" type="tns:OFACCityType" />
+          <xsd:element minOccurs="0" name="State" type="tns:OFACStateType" />
+          <xsd:element minOccurs="0" name="CountryName" type="tns:OFACCountryNameType" />
+          <xsd:element minOccurs="0" name="CountryCode" type="tns:CountryCodeType" />
+          <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##local" processContents="skip" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="InquiryType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="UserID" type="tns:UserIDType" />
+          <xsd:element minOccurs="0" name="Password" type="tns:PasswordType" />
+          <xsd:element minOccurs="0" name="Platform" type="tns:PlatformType" />
+          <xsd:element name="ClientID" type="tns:ClientIDType" />
+          <xsd:element minOccurs="0" name="OrgReportingUnit" type="tns:OrgReportingUnitType" />
+          <xsd:element minOccurs="0" name="Branch" type="tns:BranchType" />
+          <xsd:element minOccurs="0" name="CSRID" type="tns:CSRIDType" />
+          <xsd:element minOccurs="0" name="InquirySystemTrackingIdentifier" type="tns:InquirySystemTrackingIdentifierType" />
+          <xsd:element minOccurs="0" name="RemarketerSystemTrackingIdentifier" type="tns:RemarketerSystemTrackingIdentifierType" />
+          <xsd:element minOccurs="0" name="ReferenceNumber" type="tns:ReferenceNumberType" />
+          <xsd:element minOccurs="0" name="CustomerID" type="tns:CustomerIDType" />
+          <xsd:element minOccurs="0" name="CustomerUse1" type="tns:CustomerUse1Type" />
+          <xsd:element name="Consumer" type="tns:ConsumerRootType" />
+          <xsd:element minOccurs="0" name="IdentityVerificationOnly" type="tns:IdentityVerificationOnlyType" />
+          <xsd:element minOccurs="0" name="ProcessingID" type="tns:ProcessingIDType" />
+          <xsd:element minOccurs="0" name="OFACMatchPreferenceFlag" type="tns:T_YesNo" />
+          <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##local" processContents="skip" />
+        </xsd:sequence>
+        <xsd:attribute name="SchemaVersion" type="tns:SchemaVersion" use="optional" />
+      </xsd:complexType>
+      <xsd:complexType name="ConsumerRootType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>Last Name and First Name are required for individual inquiry.</constraint>
+            <constraint>
+              For individual inquiry, atleast one additional identification information from the following list is required :
+              SSN, BirthDate, IdentificationNumber, PhoneNumber, or Address with all required address parameters(Address1, City, State, PostalCode)
+            </constraint>
+            <constraint>When IdentificationType is "DL" or "ST", IdentificationState is required.</constraint>
+            <constraint>BusinessName and TaxID are required for a business inquiry.</constraint>
+            <constraint>
+              When individual information is sent along with the business inquiry, the individual information is ignored by the application.
+              The functionality to search on individual information sent along with business information will be added in a future release.
+            </constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="ConsumerType" type="tns:TypeOfConsumerType" />
+          <xsd:element minOccurs="0" name="SSN" type="tns:SSNType" />
+          <xsd:element minOccurs="0" name="LastName" type="tns:LastNameType" />
+          <xsd:element minOccurs="0" name="MiddleName" type="tns:MiddleNameType" />
+          <xsd:element minOccurs="0" name="FirstName" type="tns:FirstNameType" />
+          <xsd:element minOccurs="0" name="Gender" type="tns:GenderType" />
+          <xsd:element minOccurs="0" name="BirthDate" type="tns:BirthDateType" />
+          <xsd:element minOccurs="0" name="BusinessName" type="tns:BusinessNameType" />
+          <xsd:element minOccurs="0" name="TaxIDNumber" type="tns:TaxIDNumberType" />
+          <xsd:element minOccurs="0" name="IdentificationType" type="tns:TypeOfIdentificationType" />
+          <xsd:element minOccurs="0" name="IdentificationNumber" type="tns:IdentificationNumberType" />
+          <xsd:element minOccurs="0" name="IdentificationState" type="tns:IdentificationStateType" />
+          <xsd:element minOccurs="0" name="IdentificationCountry" type="tns:IdentificationCountryType" />
+          <xsd:element minOccurs="0" name="IdentificationExpirationDate" type="tns:IdentificationExpirationDateType" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Address" type="tns:AddressRootType" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Phone" type="tns:PhoneRootType" />
+          <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##local" processContents="skip" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PhoneRootType">
+        <xsd:sequence>
+          <xsd:element name="PhoneType" type="tns:TypeOfPhoneType" />
+          <xsd:element name="PhoneNumber" type="tns:PhoneNumberType" />
+          <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##local" processContents="skip" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AddressRootType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="AddressType" type="tns:TypeOfAddressType" />
+          <xsd:element name="Address1" type="tns:Address1Type" />
+          <xsd:element minOccurs="0" name="Address2" type="tns:Address2Type" />
+          <xsd:element name="City" type="tns:CityType" />
+          <xsd:element minOccurs="0" name="State" type="tns:StateType" />
+          <xsd:element minOccurs="0" name="PostalCode" type="tns:PostalCodeType" />
+          <xsd:element minOccurs="0" name="CountryCode" type="tns:CountryCodeType" />
+          <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##local" processContents="skip" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="InquiryResponseType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>The maximum number of occurrences currently allowed for MatchRecord node is 5.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element name="ResponseCode" type="tns:ResponseCodeType" />
+          <xsd:element name="ResponseMessage" type="tns:ResponseMessageType" />
+          <xsd:element minOccurs="0" name="InquirySystemTrackingIdentifier" type="tns:InquirySystemTrackingIdentifierType" />
+          <xsd:element minOccurs="0" name="RemarketerSystemTrackingIdentifier" type="tns:RemarketerSystemTrackingIdentifierType" />
+          <xsd:element minOccurs="0" name="ReferenceNumber" type="tns:ReferenceNumberType" />
+          <xsd:element minOccurs="0" name="CustomerID" type="tns:CustomerIDType" />
+          <xsd:element minOccurs="0" name="AttemptNumber" type="tns:AttemptNumberType" />
+          <xsd:element minOccurs="0" name="CustomerUse1" type="tns:CustomerUse1Type" />
+          <xsd:element minOccurs="0" name="InitialMessage" type="tns:InitialMessageType" />
+          <xsd:element minOccurs="0" name="DecisionMessage" type="tns:DecisionMessageType" />
+          <xsd:element minOccurs="0" name="OverallSeverity" type="tns:OverallSeverityType" />
+          <xsd:element minOccurs="0" name="CumulativeLoss" type="tns:CumulativeLossType" />
+          <xsd:element minOccurs="0" name="FCRAFlag" type="tns:FCRAFlagType" />
+          <xsd:element minOccurs="0" name="IdentityVerificationResult" type="tns:IdentityVerificationResultType" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="MatchRecord" type="tns:ARSMatchRecordType" />
+          <xsd:element minOccurs="0" name="AdditionalVerification" type="tns:AdditionalVerificationType" />
+          <xsd:element minOccurs="0" name="OFACMatchFlag" type="tns:T_YesNo" />
+          <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##local" processContents="skip" />
+        </xsd:sequence>
+        <xsd:attribute name="SchemaVersion" type="tns:SchemaVersion" use="optional" />
+      </xsd:complexType>
+      <xsd:complexType name="IdentityVerificationResultType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>The maximum number of occurrences currently allowed for Message node is 60.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="1" maxOccurs="unbounded" name="Message" type="tns:MessageType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="MessageType">
+        <xsd:sequence>
+          <xsd:element name="WarningNumber" type="tns:WarningNumberType" />
+          <xsd:element name="WarningText" type="tns:WarningTextType" />
+          <xsd:element minOccurs="0" name="Severity" type="tns:SeverityType" />
+          <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##local" processContents="skip" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="MatchRootType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="MatchType" type="tns:TypeOfMatchType" />
+          <xsd:element name="MatchField" type="tns:MatchFieldType" />
+          <xsd:element name="MatchData" type="tns:MatchDataType" />
+          <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##local" processContents="skip" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="MatchRecordType" abstract="true">
+        <xsd:annotation>
+          <xsd:documentation>
+            <constraint>The maximum number of occurrences currently allowed for Match node is 20.</constraint>
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element name="Severity" type="tns:SeverityType" />
+          <xsd:element minOccurs="1" maxOccurs="unbounded" name="Match" type="tns:MatchRootType" />
+          <xsd:element name="Consumer" type="tns:ConsumerRootType" />
+          <xsd:element name="Account" type="tns:AccountType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ARSMatchRecordType">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns:MatchRecordType">
+            <xsd:sequence>
+              <xsd:element name="Contributor" type="tns:ContributorType" />
+              <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##local" processContents="skip" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="AccountType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="ConsumerABANumber" type="tns:ConsumerABANumberType" />
+          <xsd:element minOccurs="0" name="AccountNumber" type="tns:AccountNumberType" />
+          <xsd:element minOccurs="0" name="ClosureDate" type="tns:ClosureDateType" />
+          <xsd:element minOccurs="0" name="AgeInMonths" type="tns:AgeInMonthsType" />
+          <xsd:element minOccurs="0" name="LossType" type="tns:TypeOfLossType" />
+          <xsd:element minOccurs="0" name="CACReturnItemCount" type="tns:CACReturnItemCountType" />
+          <xsd:element minOccurs="0" name="ContributionSource" type="tns:ContributionSourceType" />
+          <xsd:element minOccurs="0" name="PrincipalLoss" type="tns:PrincipalLossType" />
+          <xsd:element minOccurs="0" name="FeeReversal" type="tns:FeeReversalType" />
+          <xsd:element minOccurs="0" name="CombinedLossAndFeeReversal" type="tns:CombinedLossAndFeeReversalType" />
+          <xsd:element minOccurs="0" name="PaidStatus" type="tns:PaidStatusType" />
+          <xsd:element minOccurs="0" name="PaidDate" type="tns:PaidDateType" />
+          <xsd:element minOccurs="0" name="SettleDate" type="tns:SettleDateType" />
+          <xsd:element minOccurs="0" name="Dispute" type="tns:DisputeType" />
+          <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##local" processContents="skip" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DisputeType">
+        <xsd:sequence>
+          <xsd:element name="DisputeCode" type="tns:DisputeCodeType" />
+          <xsd:element minOccurs="0" name="DisputeReason" type="tns:DisputeReasonType" />
+          <xsd:element minOccurs="0" name="DisputeDate" type="tns:DisputeDateType" />
+          <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##local" processContents="skip" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ContributorType">
+        <xsd:sequence>
+          <xsd:element name="ContributorName" type="tns:ContributorNameType" />
+          <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##local" processContents="skip" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TranInputType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Inquiry" type="tns:InquiryType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ProcessTransactionType">
+        <xsd:sequence>
+          <xsd:element name="TranInput" type="tns:TranInputType" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="SecurityToken" type="tns:T_SecurityToken" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TranOutputType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="InquiryResponse" type="tns:InquiryResponseType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ProcessTransactionResponseType">
+        <xsd:sequence>
+          <xsd:element name="ProcessTransactionReturn" type="tns:ProcessTransactionReturnType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ProcessTransactionReturnType">
+        <xsd:sequence>
+          <xsd:element name="TranOutput" type="tns:TranOutputType" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ProcessTransaction" type="tns:ProcessTransactionType" />
+      <xsd:element name="ProcessTransactionResponse" type="tns:ProcessTransactionResponseType" />
+      <xsd:complexType name="ProcessOutOfWalletTransactionType">
+        <xsd:sequence>
+          <xsd:choice>
+            <xsd:element ref="tns:OutOfWalletIDScoreRequest" />
+            <xsd:element ref="tns:OutOfWalletScoreQuizRequest" />
+          </xsd:choice>
+          <xsd:element minOccurs="0" maxOccurs="1" name="SecurityToken" type="tns:T_SecurityToken" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ProcessOutOfWalletTransactionResponseType">
+        <xsd:choice>
+          <xsd:element ref="tns:OutOfWalletQuizResponse" />
+          <xsd:element ref="tns:OutOfWalletError" />
+        </xsd:choice>
+      </xsd:complexType>
+      <xsd:element name="OutOfWalletIDScoreRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="FI">
+              <xsd:complexType>
+                <xsd:attribute name="FIEmployeeID" type="xsd:string" use="optional" />
+                <xsd:attribute name="BranchID" type="xsd:string" use="optional" />
+                <xsd:attribute name="IdentityMethod" use="required">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:annotation>
+                        <xsd:documentation>I = In Branch</xsd:documentation>
+                        <xsd:documentation>O = Online</xsd:documentation>
+                      </xsd:annotation>
+                      <xsd:enumeration value="I" />
+                      <xsd:enumeration value="O" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:attribute>
+                <xsd:attribute name="ClientID" use="required">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:pattern value="[0-9]{9}" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:attribute>
+                <xsd:attribute name="ProcessingID" type="tns:ProcessingIDType" use="optional" />
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="1" maxOccurs="1" name="Person">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element minOccurs="1" maxOccurs="1" name="Name" type="tns:T_PersonName" />
+                  <xsd:element minOccurs="1" maxOccurs="1" name="Address" type="tns:T_Address" />
+                  <xsd:element minOccurs="0" maxOccurs="1" name="HomePhone" type="tns:T_Phone" />
+                  <xsd:element minOccurs="0" maxOccurs="1" name="AlternatePhone" type="tns:T_Phone" />
+                </xsd:sequence>
+                <xsd:attribute name="DateOfBirth" type="xsd:date" use="required" />
+                <xsd:attribute name="SocialSecurityNumber" use="required">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:pattern value="[0-9]{9}" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:attribute>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+          <xsd:attribute name="ServiceVersion" type="tns:T_ServiceVersion" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="T_Address">
+        <xsd:attribute name="AddressLine1Txt" type="xsd:string" use="required" />
+        <xsd:attribute name="AddressLine2Txt" type="xsd:string" use="optional" />
+        <xsd:attribute name="CityName" use="required">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="22" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="StateProvinceCode" use="required">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:minLength value="2" />
+              <xsd:maxLength value="2" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="PostalCd" use="required">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:minLength value="5" />
+              <xsd:maxLength value="9" />
+              <xsd:pattern value="[0-9]{5}|[0-9]{9}" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+      </xsd:complexType>
+      <xsd:complexType name="T_PersonName">
+        <xsd:attribute name="FirstName" use="required">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="16" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="MiddleName" use="optional">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="24" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="LastName" use="required">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="24" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+      </xsd:complexType>
+      <xsd:complexType name="T_Phone">
+        <xsd:attribute name="PhoneNbr" use="required">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:length value="10" />
+              <xsd:pattern value="[0-9]{10}" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+      </xsd:complexType>
+      <xsd:simpleType name="T_ServiceVersion">
+        <xsd:restriction base="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>
+              1.0 - Base Service Version
+            </xsd:documentation>
+          </xsd:annotation>
+          <xsd:enumeration value="1.0" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="OutOfWalletScoreQuizRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ClientID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:pattern value="[0-9]{9}" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="RequestAppID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:maxLength value="10" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="RequestSequenceID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:maxLength value="10" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="RequestClientID">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:maxLength value="53" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="IdentityMethod">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:annotation>
+                    <xsd:documentation>I = In Branch</xsd:documentation>
+                    <xsd:documentation>O = Online</xsd:documentation>
+                  </xsd:annotation>
+                  <xsd:enumeration value="I" />
+                  <xsd:enumeration value="O" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="Quiz">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="QuizID">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:string">
+                        <xsd:maxLength value="16" />
+                      </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element minOccurs="1" maxOccurs="unbounded" name="Answer">
+                    <xsd:complexType>
+                      <xsd:attribute name="QuestionID" type="xsd:integer" use="required" />
+                      <xsd:attribute name="Choice" type="xsd:string" use="required" />
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+          <xsd:attribute name="ServiceVersion" type="tns:T_ServiceVersion" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="OutOfWalletQuizResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="1" name="Quiz">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="QuizID">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:string">
+                        <xsd:maxLength value="16" />
+                      </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element minOccurs="1" maxOccurs="unbounded" name="Question">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element minOccurs="2" maxOccurs="unbounded" name="Choice" type="xsd:string" />
+                        <xsd:element name="QuestionID" type="xsd:integer" />
+                        <xsd:element name="QuestionText" type="xsd:string" />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="OutOfWalletScoreQuizRequest">
+              <xsd:complexType>
+                <xsd:attribute name="RequestSequenceID">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="10" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:attribute>
+                <xsd:attribute name="RequestClientID">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="53" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:attribute>
+                <xsd:attribute name="RequestProcessDate" type="xsd:dateTime" />
+                <xsd:attribute name="RequestStatusCode" type="xsd:integer" />
+                <xsd:attribute name="RequestResult" type="xsd:string" />
+                <xsd:attribute name="RequestQuizState" type="xsd:string" />
+                <xsd:attribute name="RequestNumberWrong" type="xsd:integer" />
+                <xsd:attribute name="RequestAppID" type="xsd:integer" />
+                <xsd:attribute name="ClientID" use="required">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:pattern value="[0-9]{9}" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:attribute>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+          <xsd:attribute name="ServiceVersion" type="tns:T_ServiceVersion" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="OutOfWalletError">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="Error">
+              <xsd:complexType>
+                <xsd:attribute name="ErrorCode" type="xsd:string" />
+                <xsd:attribute name="ErrorMessage" type="xsd:string" />
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+          <xsd:attribute name="ServiceVersion" type="tns:T_ServiceVersion" />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ProcessOutOfWalletTransaction" type="tns:ProcessOutOfWalletTransactionType" />
+      <xsd:element name="ProcessOutOfWalletTransactionResponse" type="tns:ProcessOutOfWalletTransactionResponseType" />
+      <xsd:simpleType name="ProcessingIDType">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="8" />
+          <xsd:minLength value="8" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="T_SecurityToken">
+        <xsd:attribute name="FIID" type="xsd:string" use="required" />
+        <xsd:attribute name="Token" type="xsd:string" />
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="ProcessOutOfWalletTransactionSoapOut">
+    <part name="messagePart" element="tns:ProcessOutOfWalletTransactionResponse" />
+  </message>
+  <message name="ProcessOutOfWalletTransactionSoapIn">
+    <part name="messagePart" element="tns:ProcessOutOfWalletTransaction" />
+  </message>
+  <message name="ProcessTransactionSoapOut">
+    <part name="messagePart" element="tns:ProcessTransactionResponse" />
+  </message>
+  <message name="ProcessTransactionSoapIn">
+    <part name="messagePart" element="tns:ProcessTransaction" />
+  </message>
+  <portType name="NRSServiceSoap">
+    <operation name="ProcessTransaction">
+      <input message="tns:ProcessTransactionSoapIn" />
+      <output message="tns:ProcessTransactionSoapOut" />
+    </operation>
+    <operation name="ProcessOutofWalletTransaction">
+      <input message="tns:ProcessOutOfWalletTransactionSoapIn" />
+      <output message="tns:ProcessOutOfWalletTransactionSoapOut" />
+    </operation>
+  </portType>
+  <binding name="NRSServiceSoap" type="tns:NRSServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="ProcessTransaction">
+      <soap:operation soapAction="http://www.primarypayments.com/it/nrs/root/ProcessTransaction" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="ProcessOutofWalletTransaction">
+      <soap:operation soapAction="http://www.primarypayments.com/it/nrs/root/ProcessOutofWalletTransaction" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="DeluxePPSService">
+    <port name="NRSServiceSoap" binding="tns:NRSServiceSoap">
+      <soap:address location="https://deluxedetect-webservice.deluxe.com/ddws/services/DeluxePPSService" />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:tns="http://www.americafirst.com/20070315/Delinquency" xmlns:hdr="http://www.americafirst.com/20070315/AFCUHeader" xmlns:ctl="http://www.americafirst.com/20070315/CommonTypesLib" xmlns:cm="http://www.americafirst.com/20070315/CommonTypes" targetNamespace="http://www.americafirst.com/20070315/Delinquency" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema">
+  <import schemaLocation="../afcuheader/AFCUHeader.xsd" namespace="http://www.americafirst.com/20070315/AFCUHeader" />
+  <import schemaLocation="../commontypes/CommonTypes.xsd" namespace="http://www.americafirst.com/20070315/CommonTypes" />
+  <import schemaLocation="../commontypeslib/CommonTypesLib.xsd" namespace="http://www.americafirst.com/20070315/CommonTypesLib" />
+  <annotation>
+    <documentation>
+			This web service exposes the host functions SOA2019 and
+			SOA2011. It containes 3 operations: 1)
+			inquireCurrentDelinquency 2) inquireFiveYearDelinquency 3)
+			maintainFiveYearDelinquency
+
+			Maintain and Inquire Five Year delinquency share the same
+			response
+		</documentation>
+  </annotation>
+  <element name="inquireFiveYearDelinquencyRequest" type="tns:InquireFiveYearDelinquencyRequest" />
+  <element name="maintainFiveYearDelinquencyRequest" type="tns:MaintainFiveYearDelinquencyRequest" />
+  <element name="inquireCurrentDelinquencyRequest" type="tns:InquireCurrentDelinquencyRequest" />
+  <element name="inquireDelinquencySSNListRequest" type="tns:InquireDelinquencySSNListRequest" />
+  <element name="fiveYearDelinquencyResponse" type="tns:FiveYearDelinquencyResponse" />
+  <element name="inquireCurrentDelinquencyResponse" type="tns:InquireCurrentDelinquencyResponse" />
+  <element name="inquireDelinquencySSNListResponse" type="tns:InquireDelinquencySSNListResponse" />
+  <complexType name="InquireFiveYearDelinquencyRequest">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="header" type="hdr:AFCUHeaderRequest" />
+      <element minOccurs="1" maxOccurs="1" name="request" type="tns:InquireFiveYearRequest" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireFiveYearRequest">
+    <sequence minOccurs="1" maxOccurs="1">
+      <element minOccurs="1" maxOccurs="1" name="accountID" type="cm:AccountID" />
+      <element minOccurs="0" maxOccurs="1" name="subAccountID" type="cm:SubAccountID" />
+    </sequence>
+  </complexType>
+  <complexType name="MaintainFiveYearDelinquencyRequest">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="header" type="hdr:AFCUHeaderRequest" />
+      <element minOccurs="1" maxOccurs="1" name="request" type="tns:MaintainFiveYearRequest" />
+    </sequence>
+  </complexType>
+  <complexType name="MaintainFiveYearRequest">
+    <sequence minOccurs="1" maxOccurs="1">
+      <element minOccurs="1" maxOccurs="1" name="accountID" type="cm:AccountID" />
+      <element minOccurs="0" maxOccurs="1" name="subAccountID" type="cm:SubAccountID" />
+      <element minOccurs="1" maxOccurs="1" name="delinquency" type="tns:Delinquency" />
+    </sequence>
+  </complexType>
+  <complexType name="FiveYearDelinquencyResponse">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="status" type="hdr:AFCUHeaderResponse" />
+      <element minOccurs="0" maxOccurs="1" name="data" type="tns:FiveYearResponse" />
+    </sequence>
+  </complexType>
+  <complexType name="FiveYearResponse">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="accountID" type="cm:AccountID" />
+      <element minOccurs="0" maxOccurs="1" name="subAccountID" type="cm:SubAccountID" />
+      <element minOccurs="0" maxOccurs="1" name="delinquencies">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="unbounded" name="delinquency" type="tns:Delinquency" />
+          </sequence>
+          <attribute name="count" type="int" />
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="Delinquency">
+    <sequence>
+      <element name="daysDelinquent" type="ctl:NonNegativeInteger_3" />
+      <element name="month" type="tns:Month" />
+      <element name="year" type="ctl:NonNegativeInteger_4" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireCurrentDelinquencyRequest">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="header" type="hdr:AFCUHeaderRequest" />
+      <element minOccurs="1" maxOccurs="1" name="request" type="tns:InquireCurrentRequest" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireCurrentRequest">
+    <sequence minOccurs="1" maxOccurs="1">
+      <element minOccurs="1" maxOccurs="1" name="accountID" type="cm:AccountID" />
+      <element minOccurs="0" maxOccurs="1" name="subAccountID" type="cm:SubAccountID" />
+      <element minOccurs="1" maxOccurs="1" name="delinquentAsOfDate" type="date" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireDelinquencySSNListRequest">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="header" type="hdr:AFCUHeaderRequest" />
+      <element minOccurs="1" maxOccurs="1" name="request" type="tns:DSSNLRequest" />
+    </sequence>
+  </complexType>
+  <complexType name="DSSNLRequest" />
+  <complexType name="InquireCurrentDelinquencyResponse">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="status" type="hdr:AFCUHeaderResponse" />
+      <element minOccurs="0" maxOccurs="1" name="data" type="tns:InquireCurrentResponse" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireCurrentResponse">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="accountID" type="cm:AccountID" />
+      <element minOccurs="0" maxOccurs="1" name="subAccountID" type="cm:SubAccountID" />
+      <element minOccurs="0" maxOccurs="1" name="currentDelinquency" type="tns:CurrentDelinquency" />
+    </sequence>
+  </complexType>
+  <complexType name="CurrentDelinquency">
+    <sequence>
+      <element name="warningCode1" type="ctl:String_1" />
+      <element name="daysDelinquentForSubAccount" type="ctl:NonNegativeInteger_3" />
+      <element name="daysDelinquentForAccount" type="ctl:NonNegativeInteger_3" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireDelinquencySSNListResponse">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="status" type="hdr:AFCUHeaderResponse" />
+      <element minOccurs="0" maxOccurs="1" name="data" type="tns:DSSNLResponse" />
+    </sequence>
+  </complexType>
+  <complexType name="DSSNLResponse">
+    <sequence>
+      <element minOccurs="0" maxOccurs="unbounded" name="ssn" type="cm:SsnType" />
+    </sequence>
+    <attribute name="count" type="long" use="optional" />
+  </complexType>
+  <simpleType name="Month">
+    <restriction base="short">
+      <maxInclusive value="12" />
+      <minInclusive value="1" />
+    </restriction>
+  </simpleType>
+</schema>

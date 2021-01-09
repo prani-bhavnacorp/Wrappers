@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.cudirect.com/ExtCUDLComm" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.cudirect.com/ExtCUDLComm" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.cudirect.com/ExtCUDLComm">
+      <s:element name="CommunicationIn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExternalCUDLCommunicationXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CommunicationInResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CommunicationInResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CommunicationInSoapIn">
+    <wsdl:part name="parameters" element="tns:CommunicationIn" />
+  </wsdl:message>
+  <wsdl:message name="CommunicationInSoapOut">
+    <wsdl:part name="parameters" element="tns:CommunicationInResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ExtCUDLCommSoap">
+    <wsdl:operation name="CommunicationIn">
+      <wsdl:input message="tns:CommunicationInSoapIn" />
+      <wsdl:output message="tns:CommunicationInSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ExtCUDLCommSoap" type="tns:ExtCUDLCommSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CommunicationIn">
+      <soap:operation soapAction="http://www.cudirect.com/ExtCUDLComm/CommunicationIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ExtCUDLCommSoap12" type="tns:ExtCUDLCommSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CommunicationIn">
+      <soap12:operation soapAction="http://www.cudirect.com/ExtCUDLComm/CommunicationIn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ExtCUDLComm">
+    <wsdl:port name="ExtCUDLCommSoap" binding="tns:ExtCUDLCommSoap">
+      <soap:address location="https://dp.cudl.com/ExternalCUDLCommWSE3/ExtCUDLComm.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ExtCUDLCommSoap12" binding="tns:ExtCUDLCommSoap12">
+      <soap12:address location="https://dp.cudl.com/ExternalCUDLCommWSE3/ExtCUDLComm.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

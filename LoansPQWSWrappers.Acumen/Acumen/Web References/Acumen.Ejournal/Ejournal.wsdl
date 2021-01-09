@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:connections.ispectrum.summitsite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:connections.ispectrum.summitsite.com" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="https://gocucorvallis.acumen.fiserv.com:443/ispectrum-webservices/Ejournal?xsd=1" namespace="urn:connections.ispectrum.summitsite.com" />
+    </xsd:schema>
+  </types>
+  <message name="createMemo">
+    <part name="parameters" element="tns:createMemo" />
+  </message>
+  <message name="createMemoResponse">
+    <part name="parameters" element="tns:createMemoResponse" />
+  </message>
+  <message name="SOAPException">
+    <part name="fault" element="tns:SOAPException" />
+  </message>
+  <message name="getCustomerMemosByConnection">
+    <part name="parameters" element="tns:getCustomerMemosByConnection" />
+  </message>
+  <message name="getCustomerMemosByConnectionResponse">
+    <part name="parameters" element="tns:getCustomerMemosByConnectionResponse" />
+  </message>
+  <message name="getCustomerActiveCriticalMemos">
+    <part name="parameters" element="tns:getCustomerActiveCriticalMemos" />
+  </message>
+  <message name="getCustomerActiveCriticalMemosResponse">
+    <part name="parameters" element="tns:getCustomerActiveCriticalMemosResponse" />
+  </message>
+  <message name="getAllMemosByCustomerId">
+    <part name="parameters" element="tns:getAllMemosByCustomerId" />
+  </message>
+  <message name="getAllMemosByCustomerIdResponse">
+    <part name="parameters" element="tns:getAllMemosByCustomerIdResponse" />
+  </message>
+  <message name="getAllUserMemos">
+    <part name="parameters" element="tns:getAllUserMemos" />
+  </message>
+  <message name="getAllUserMemosResponse">
+    <part name="parameters" element="tns:getAllUserMemosResponse" />
+  </message>
+  <message name="getAllMemosIncludingExpiryDateByCustomerId">
+    <part name="parameters" element="tns:getAllMemosIncludingExpiryDateByCustomerId" />
+  </message>
+  <message name="getAllMemosIncludingExpiryDateByCustomerIdResponse">
+    <part name="parameters" element="tns:getAllMemosIncludingExpiryDateByCustomerIdResponse" />
+  </message>
+  <message name="getEJournalSliderInfo">
+    <part name="parameters" element="tns:getEJournalSliderInfo" />
+  </message>
+  <message name="getEJournalSliderInfoResponse">
+    <part name="parameters" element="tns:getEJournalSliderInfoResponse" />
+  </message>
+  <message name="getEJournalIconColor">
+    <part name="parameters" element="tns:getEJournalIconColor" />
+  </message>
+  <message name="getEJournalIconColorResponse">
+    <part name="parameters" element="tns:getEJournalIconColorResponse" />
+  </message>
+  <message name="isLoanStatusPreDecision">
+    <part name="parameters" element="tns:isLoanStatusPreDecision" />
+  </message>
+  <message name="isLoanStatusPreDecisionResponse">
+    <part name="parameters" element="tns:isLoanStatusPreDecisionResponse" />
+  </message>
+  <message name="isAutoQuery">
+    <part name="parameters" element="tns:isAutoQuery" />
+  </message>
+  <message name="isAutoQueryResponse">
+    <part name="parameters" element="tns:isAutoQueryResponse" />
+  </message>
+  <message name="getEJournalLoanAppStatus">
+    <part name="parameters" element="tns:getEJournalLoanAppStatus" />
+  </message>
+  <message name="getEJournalLoanAppStatusResponse">
+    <part name="parameters" element="tns:getEJournalLoanAppStatusResponse" />
+  </message>
+  <message name="getAllMemosByJobInstanceId">
+    <part name="parameters" element="tns:getAllMemosByJobInstanceId" />
+  </message>
+  <message name="getAllMemosByJobInstanceIdResponse">
+    <part name="parameters" element="tns:getAllMemosByJobInstanceIdResponse" />
+  </message>
+  <message name="getAllMemosByFilterId">
+    <part name="parameters" element="tns:getAllMemosByFilterId" />
+  </message>
+  <message name="getAllMemosByFilterIdResponse">
+    <part name="parameters" element="tns:getAllMemosByFilterIdResponse" />
+  </message>
+  <message name="createUpdateMonitorEvent">
+    <part name="parameters" element="tns:createUpdateMonitorEvent" />
+  </message>
+  <message name="createUpdateMonitorEventResponse">
+    <part name="parameters" element="tns:createUpdateMonitorEventResponse" />
+  </message>
+  <message name="getAllMonitorEvents">
+    <part name="parameters" element="tns:getAllMonitorEvents" />
+  </message>
+  <message name="getAllMonitorEventsResponse">
+    <part name="parameters" element="tns:getAllMonitorEventsResponse" />
+  </message>
+  <message name="getEJournalEventActionByMonitorEventId">
+    <part name="parameters" element="tns:getEJournalEventActionByMonitorEventId" />
+  </message>
+  <message name="getEJournalEventActionByMonitorEventIdResponse">
+    <part name="parameters" element="tns:getEJournalEventActionByMonitorEventIdResponse" />
+  </message>
+  <message name="getEmailEventActionByMonitorEventId">
+    <part name="parameters" element="tns:getEmailEventActionByMonitorEventId" />
+  </message>
+  <message name="getEmailEventActionByMonitorEventIdResponse">
+    <part name="parameters" element="tns:getEmailEventActionByMonitorEventIdResponse" />
+  </message>
+  <message name="createUpdateEmailEventAction">
+    <part name="parameters" element="tns:createUpdateEmailEventAction" />
+  </message>
+  <message name="createUpdateEmailEventActionResponse">
+    <part name="parameters" element="tns:createUpdateEmailEventActionResponse" />
+  </message>
+  <message name="createUpdateEJournalEventAction">
+    <part name="parameters" element="tns:createUpdateEJournalEventAction" />
+  </message>
+  <message name="createUpdateEJournalEventActionResponse">
+    <part name="parameters" element="tns:createUpdateEJournalEventActionResponse" />
+  </message>
+  <message name="createUpdateWebServiceEventAction">
+    <part name="parameters" element="tns:createUpdateWebServiceEventAction" />
+  </message>
+  <message name="createUpdateWebServiceEventActionResponse">
+    <part name="parameters" element="tns:createUpdateWebServiceEventActionResponse" />
+  </message>
+  <message name="getWebServiceEventActionByMonitorEventId">
+    <part name="parameters" element="tns:getWebServiceEventActionByMonitorEventId" />
+  </message>
+  <message name="getWebServiceEventActionByMonitorEventIdResponse">
+    <part name="parameters" element="tns:getWebServiceEventActionByMonitorEventIdResponse" />
+  </message>
+  <message name="getWebServiceXML">
+    <part name="parameters" element="tns:getWebServiceXML" />
+  </message>
+  <message name="getWebServiceXMLResponse">
+    <part name="parameters" element="tns:getWebServiceXMLResponse" />
+  </message>
+  <message name="getMonitorEventInputActionInfos">
+    <part name="parameters" element="tns:getMonitorEventInputActionInfos" />
+  </message>
+  <message name="getMonitorEventInputActionInfosResponse">
+    <part name="parameters" element="tns:getMonitorEventInputActionInfosResponse" />
+  </message>
+  <message name="createUpdateViewConfig">
+    <part name="parameters" element="tns:createUpdateViewConfig" />
+  </message>
+  <message name="createUpdateViewConfigResponse">
+    <part name="parameters" element="tns:createUpdateViewConfigResponse" />
+  </message>
+  <message name="getAllRecords">
+    <part name="parameters" element="tns:getAllRecords" />
+  </message>
+  <message name="getAllRecordsResponse">
+    <part name="parameters" element="tns:getAllRecordsResponse" />
+  </message>
+  <message name="getAllViewFiltersByType">
+    <part name="parameters" element="tns:getAllViewFiltersByType" />
+  </message>
+  <message name="getAllViewFiltersByTypeResponse">
+    <part name="parameters" element="tns:getAllViewFiltersByTypeResponse" />
+  </message>
+  <message name="updateMemo">
+    <part name="parameters" element="tns:updateMemo" />
+  </message>
+  <message name="updateMemoResponse">
+    <part name="parameters" element="tns:updateMemoResponse" />
+  </message>
+  <message name="findMemoByMemoId">
+    <part name="parameters" element="tns:findMemoByMemoId" />
+  </message>
+  <message name="findMemoByMemoIdResponse">
+    <part name="parameters" element="tns:findMemoByMemoIdResponse" />
+  </message>
+  <message name="deleteMemo">
+    <part name="parameters" element="tns:deleteMemo" />
+  </message>
+  <message name="deleteMemoResponse">
+    <part name="parameters" element="tns:deleteMemoResponse" />
+  </message>
+  <message name="getCustomerActiveCriticalMemosById">
+    <part name="parameters" element="tns:getCustomerActiveCriticalMemosById" />
+  </message>
+  <message name="getCustomerActiveCriticalMemosByIdResponse">
+    <part name="parameters" element="tns:getCustomerActiveCriticalMemosByIdResponse" />
+  </message>
+  <message name="getAllMemosByCustomerIdUser">
+    <part name="parameters" element="tns:getAllMemosByCustomerIdUser" />
+  </message>
+  <message name="getAllMemosByCustomerIdUserResponse">
+    <part name="parameters" element="tns:getAllMemosByCustomerIdUserResponse" />
+  </message>
+  <message name="createUpdateMemoInfoObject">
+    <part name="parameters" element="tns:createUpdateMemoInfoObject" />
+  </message>
+  <message name="createUpdateMemoInfoObjectResponse">
+    <part name="parameters" element="tns:createUpdateMemoInfoObjectResponse" />
+  </message>
+  <message name="findMonitorEventByPrimaryKeyWithDBLock">
+    <part name="parameters" element="tns:findMonitorEventByPrimaryKeyWithDBLock" />
+  </message>
+  <message name="findMonitorEventByPrimaryKeyWithDBLockResponse">
+    <part name="parameters" element="tns:findMonitorEventByPrimaryKeyWithDBLockResponse" />
+  </message>
+  <message name="findMonitorEventByPrimaryKey">
+    <part name="parameters" element="tns:findMonitorEventByPrimaryKey" />
+  </message>
+  <message name="findMonitorEventByPrimaryKeyResponse">
+    <part name="parameters" element="tns:findMonitorEventByPrimaryKeyResponse" />
+  </message>
+  <message name="findViewConfigByPrimaryKey">
+    <part name="parameters" element="tns:findViewConfigByPrimaryKey" />
+  </message>
+  <message name="findViewConfigByPrimaryKeyResponse">
+    <part name="parameters" element="tns:findViewConfigByPrimaryKeyResponse" />
+  </message>
+  <message name="findViewConfigByPrimaryKeyWithDBLock">
+    <part name="parameters" element="tns:findViewConfigByPrimaryKeyWithDBLock" />
+  </message>
+  <message name="findViewConfigByPrimaryKeyWithDBLockResponse">
+    <part name="parameters" element="tns:findViewConfigByPrimaryKeyWithDBLockResponse" />
+  </message>
+  <portType name="Ejournal">
+    <operation name="createMemo">
+      <input message="tns:createMemo" />
+      <output message="tns:createMemoResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getCustomerMemosByConnection">
+      <input message="tns:getCustomerMemosByConnection" />
+      <output message="tns:getCustomerMemosByConnectionResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getCustomerActiveCriticalMemos">
+      <input message="tns:getCustomerActiveCriticalMemos" />
+      <output message="tns:getCustomerActiveCriticalMemosResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllMemosByCustomerId">
+      <input message="tns:getAllMemosByCustomerId" />
+      <output message="tns:getAllMemosByCustomerIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllUserMemos">
+      <input message="tns:getAllUserMemos" />
+      <output message="tns:getAllUserMemosResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllMemosIncludingExpiryDateByCustomerId">
+      <input message="tns:getAllMemosIncludingExpiryDateByCustomerId" />
+      <output message="tns:getAllMemosIncludingExpiryDateByCustomerIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getEJournalSliderInfo">
+      <input message="tns:getEJournalSliderInfo" />
+      <output message="tns:getEJournalSliderInfoResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getEJournalIconColor">
+      <input message="tns:getEJournalIconColor" />
+      <output message="tns:getEJournalIconColorResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="isLoanStatusPreDecision">
+      <input message="tns:isLoanStatusPreDecision" />
+      <output message="tns:isLoanStatusPreDecisionResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="isAutoQuery">
+      <input message="tns:isAutoQuery" />
+      <output message="tns:isAutoQueryResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getEJournalLoanAppStatus">
+      <input message="tns:getEJournalLoanAppStatus" />
+      <output message="tns:getEJournalLoanAppStatusResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllMemosByJobInstanceId">
+      <input message="tns:getAllMemosByJobInstanceId" />
+      <output message="tns:getAllMemosByJobInstanceIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllMemosByFilterId">
+      <input message="tns:getAllMemosByFilterId" />
+      <output message="tns:getAllMemosByFilterIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateMonitorEvent">
+      <input message="tns:createUpdateMonitorEvent" />
+      <output message="tns:createUpdateMonitorEventResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllMonitorEvents">
+      <input message="tns:getAllMonitorEvents" />
+      <output message="tns:getAllMonitorEventsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getEJournalEventActionByMonitorEventId">
+      <input message="tns:getEJournalEventActionByMonitorEventId" />
+      <output message="tns:getEJournalEventActionByMonitorEventIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getEmailEventActionByMonitorEventId">
+      <input message="tns:getEmailEventActionByMonitorEventId" />
+      <output message="tns:getEmailEventActionByMonitorEventIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateEmailEventAction">
+      <input message="tns:createUpdateEmailEventAction" />
+      <output message="tns:createUpdateEmailEventActionResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateEJournalEventAction">
+      <input message="tns:createUpdateEJournalEventAction" />
+      <output message="tns:createUpdateEJournalEventActionResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateWebServiceEventAction">
+      <input message="tns:createUpdateWebServiceEventAction" />
+      <output message="tns:createUpdateWebServiceEventActionResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getWebServiceEventActionByMonitorEventId">
+      <input message="tns:getWebServiceEventActionByMonitorEventId" />
+      <output message="tns:getWebServiceEventActionByMonitorEventIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getWebServiceXML">
+      <input message="tns:getWebServiceXML" />
+      <output message="tns:getWebServiceXMLResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getMonitorEventInputActionInfos">
+      <input message="tns:getMonitorEventInputActionInfos" />
+      <output message="tns:getMonitorEventInputActionInfosResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateViewConfig">
+      <input message="tns:createUpdateViewConfig" />
+      <output message="tns:createUpdateViewConfigResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllRecords">
+      <input message="tns:getAllRecords" />
+      <output message="tns:getAllRecordsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllViewFiltersByType">
+      <input message="tns:getAllViewFiltersByType" />
+      <output message="tns:getAllViewFiltersByTypeResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="updateMemo">
+      <input message="tns:updateMemo" />
+      <output message="tns:updateMemoResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findMemoByMemoId">
+      <input message="tns:findMemoByMemoId" />
+      <output message="tns:findMemoByMemoIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="deleteMemo">
+      <input message="tns:deleteMemo" />
+      <output message="tns:deleteMemoResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getCustomerActiveCriticalMemosById">
+      <input message="tns:getCustomerActiveCriticalMemosById" />
+      <output message="tns:getCustomerActiveCriticalMemosByIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllMemosByCustomerIdUser">
+      <input message="tns:getAllMemosByCustomerIdUser" />
+      <output message="tns:getAllMemosByCustomerIdUserResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateMemoInfoObject">
+      <input message="tns:createUpdateMemoInfoObject" />
+      <output message="tns:createUpdateMemoInfoObjectResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findMonitorEventByPrimaryKeyWithDBLock">
+      <input message="tns:findMonitorEventByPrimaryKeyWithDBLock" />
+      <output message="tns:findMonitorEventByPrimaryKeyWithDBLockResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findMonitorEventByPrimaryKey">
+      <input message="tns:findMonitorEventByPrimaryKey" />
+      <output message="tns:findMonitorEventByPrimaryKeyResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findViewConfigByPrimaryKey">
+      <input message="tns:findViewConfigByPrimaryKey" />
+      <output message="tns:findViewConfigByPrimaryKeyResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findViewConfigByPrimaryKeyWithDBLock">
+      <input message="tns:findViewConfigByPrimaryKeyWithDBLock" />
+      <output message="tns:findViewConfigByPrimaryKeyWithDBLockResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+  </portType>
+</definitions>

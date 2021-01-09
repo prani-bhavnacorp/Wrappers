@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://americafirst.com/EServicesValidation" xmlns:evs="http://www.americafirst.com/20070315/EServicesValidation" name="EServicesValidation" targetNamespace="http://americafirst.com/EServicesValidation" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns:mrm="http://americafirst.com/EServicesValidation" targetNamespace="http://americafirst.com/EServicesValidation">
+      <xsd:import schemaLocation="com/americafirst/www/_20070315/eservicesvalidation/EServicesValidation.xsd" namespace="http://www.americafirst.com/20070315/EServicesValidation" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="addBillPayUser_in">
+    <wsdl:part name="addBillPayUserRequest" element="evs:addBillPayUserRequest" />
+  </wsdl:message>
+  <wsdl:message name="addBillPayUser_out">
+    <wsdl:part name="addBillPayUserResponse" element="evs:addBillPayUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="inquireAcctOptions_in">
+    <wsdl:part name="inquireAcctOptionsRequest" element="evs:inquireAcctOptionsRequest" />
+  </wsdl:message>
+  <wsdl:message name="inquireAcctOptions_out">
+    <wsdl:part name="inquireAcctOptionsResponse" element="evs:inquireAcctOptionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="inquireServices_in">
+    <wsdl:part name="inquireServicesRequest" element="evs:inquireServicesRequest" />
+  </wsdl:message>
+  <wsdl:message name="inquireServices_out">
+    <wsdl:part name="inquireServicesResponse" element="evs:inquireServicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="maintainDoNotCall_in">
+    <wsdl:part name="maintainDoNotCallRequest" element="evs:maintainDoNotCallRequest" />
+  </wsdl:message>
+  <wsdl:message name="maintainDoNotCall_out">
+    <wsdl:part name="maintainResponse" element="evs:maintainResponse" />
+  </wsdl:message>
+  <wsdl:message name="maintainFICO_in">
+    <wsdl:part name="maintainFICORequest" element="evs:maintainFICORequest" />
+  </wsdl:message>
+  <wsdl:message name="maintainFICO_out">
+    <wsdl:part name="maintainResponse" element="evs:maintainResponse" />
+  </wsdl:message>
+  <wsdl:message name="maintainTCPA_in">
+    <wsdl:part name="maintainTCPARequest" element="evs:maintainTCPARequest" />
+  </wsdl:message>
+  <wsdl:message name="maintainTCPA_out">
+    <wsdl:part name="maintainResponse" element="evs:maintainResponse" />
+  </wsdl:message>
+  <wsdl:message name="removeBillPayUser_in">
+    <wsdl:part name="removeBillPayUserRequest" element="evs:removeBillPayUserRequest" />
+  </wsdl:message>
+  <wsdl:message name="removeBillPayUser_out">
+    <wsdl:part name="removeBillPayUserResponse" element="evs:removeBillPayUserResponse" />
+  </wsdl:message>
+  <wsdl:portType name="EServicesValidation_MSPortType">
+    <wsdl:operation name="addBillPayUser">
+      <wsdl:input name="addBillPayUser_addBillPayUserRequest" message="tns:addBillPayUser_in" />
+      <wsdl:output name="addBillPayUser_addBillPayUserResponse" message="tns:addBillPayUser_out" />
+    </wsdl:operation>
+    <wsdl:operation name="inquireAcctOptions">
+      <wsdl:input name="inquireAcctOptions_inquireAcctOptionsRequest" message="tns:inquireAcctOptions_in" />
+      <wsdl:output name="inquireAcctOptions_inquireAcctOptionsResponse" message="tns:inquireAcctOptions_out" />
+    </wsdl:operation>
+    <wsdl:operation name="inquireServices">
+      <wsdl:input name="inquireServices_inquireServicesRequest" message="tns:inquireServices_in" />
+      <wsdl:output name="inquireServices_inquireServicesResponse" message="tns:inquireServices_out" />
+    </wsdl:operation>
+    <wsdl:operation name="maintainDoNotCall">
+      <wsdl:input name="maintainDoNotCall_maintainDoNotCallRequest" message="tns:maintainDoNotCall_in" />
+      <wsdl:output name="maintainDoNotCall_maintainResponse" message="tns:maintainDoNotCall_out" />
+    </wsdl:operation>
+    <wsdl:operation name="maintainFICO">
+      <wsdl:input name="maintainFICO_maintainFICORequest" message="tns:maintainFICO_in" />
+      <wsdl:output name="maintainFICO_maintainResponse" message="tns:maintainFICO_out" />
+    </wsdl:operation>
+    <wsdl:operation name="maintainTCPA">
+      <wsdl:input name="maintainTCPA_maintainTCPARequest" message="tns:maintainTCPA_in" />
+      <wsdl:output name="maintainTCPA_maintainResponse" message="tns:maintainTCPA_out" />
+    </wsdl:operation>
+    <wsdl:operation name="removeBillPayUser">
+      <wsdl:input name="removeBillPayUser_removeBillPayUserRequest" message="tns:removeBillPayUser_in" />
+      <wsdl:output name="removeBillPayUser_removeBillPayUserResponse" message="tns:removeBillPayUser_out" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EServicesValidation_MSSOAP_HTTP_Binding" type="tns:EServicesValidation_MSPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="addBillPayUser">
+      <soap:operation soapAction="" />
+      <wsdl:input name="addBillPayUser_addBillPayUserRequest">
+        <soap:body use="literal" parts="addBillPayUserRequest" />
+      </wsdl:input>
+      <wsdl:output name="addBillPayUser_addBillPayUserResponse">
+        <soap:body use="literal" parts="addBillPayUserResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inquireAcctOptions">
+      <soap:operation soapAction="" />
+      <wsdl:input name="inquireAcctOptions_inquireAcctOptionsRequest">
+        <soap:body use="literal" parts="inquireAcctOptionsRequest" />
+      </wsdl:input>
+      <wsdl:output name="inquireAcctOptions_inquireAcctOptionsResponse">
+        <soap:body use="literal" parts="inquireAcctOptionsResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inquireServices">
+      <soap:operation soapAction="" />
+      <wsdl:input name="inquireServices_inquireServicesRequest">
+        <soap:body use="literal" parts="inquireServicesRequest" />
+      </wsdl:input>
+      <wsdl:output name="inquireServices_inquireServicesResponse">
+        <soap:body use="literal" parts="inquireServicesResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="maintainDoNotCall">
+      <soap:operation soapAction="" />
+      <wsdl:input name="maintainDoNotCall_maintainDoNotCallRequest">
+        <soap:body use="literal" parts="maintainDoNotCallRequest" />
+      </wsdl:input>
+      <wsdl:output name="maintainDoNotCall_maintainResponse">
+        <soap:body use="literal" parts="maintainResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="maintainFICO">
+      <soap:operation soapAction="" />
+      <wsdl:input name="maintainFICO_maintainFICORequest">
+        <soap:body use="literal" parts="maintainFICORequest" />
+      </wsdl:input>
+      <wsdl:output name="maintainFICO_maintainResponse">
+        <soap:body use="literal" parts="maintainResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="maintainTCPA">
+      <soap:operation soapAction="" />
+      <wsdl:input name="maintainTCPA_maintainTCPARequest">
+        <soap:body use="literal" parts="maintainTCPARequest" />
+      </wsdl:input>
+      <wsdl:output name="maintainTCPA_maintainResponse">
+        <soap:body use="literal" parts="maintainResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeBillPayUser">
+      <soap:operation soapAction="" />
+      <wsdl:input name="removeBillPayUser_removeBillPayUserRequest">
+        <soap:body use="literal" parts="removeBillPayUserRequest" />
+      </wsdl:input>
+      <wsdl:output name="removeBillPayUser_removeBillPayUserResponse">
+        <soap:body use="literal" parts="removeBillPayUserResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EServicesValidationService">
+    <wsdl:port name="SOAP_HTTP_Port" binding="tns:EServicesValidation_MSSOAP_HTTP_Binding">
+      <soap:address location="http://lnxm2dev.americafirst.com:7080/account/EServicesValidationService/20070315" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

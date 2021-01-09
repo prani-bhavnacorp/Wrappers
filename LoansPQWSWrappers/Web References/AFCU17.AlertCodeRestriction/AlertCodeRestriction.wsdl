@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns="http://americafirst.com/AlertCodeRestriction" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns2="http://www.americafirst.com/20070315/AlertCodeRestriction" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AlertCodeRestriction" targetNamespace="http://americafirst.com/AlertCodeRestriction" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns:mrm="http://americafirst.com/AlertCodeRestriction" xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://americafirst.com/AlertCodeRestriction">
+      <xsd:import schemaLocation="com/americafirst/www/_20070315/alertcoderestriction/AlertCodeRestriction.xsd" namespace="http://www.americafirst.com/20070315/AlertCodeRestriction" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="addAlertCode_in">
+    <wsdl:part name="addAlertCodeRequest" element="tns2:addAlertCodeRequest" />
+  </wsdl:message>
+  <wsdl:message name="addAlertCode_out">
+    <wsdl:part name="addAlertCodeResponse" element="tns2:addAlertCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="inquireAlertCode_in">
+    <wsdl:part name="inquireAlertCodeRequest" element="tns2:inquireAlertCodeRequest" />
+  </wsdl:message>
+  <wsdl:message name="inquireAlertCode_out">
+    <wsdl:part name="inquireAlertCodeResponse" element="tns2:inquireAlertCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="inquireChangeHistory_in">
+    <wsdl:part name="inquireChangeHistoryRequest" element="tns2:inquireChangeHistoryRequest" />
+  </wsdl:message>
+  <wsdl:message name="inquireChangeHistory_out">
+    <wsdl:part name="inquireChangeHistoryResponse" element="tns2:inquireChangeHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="inquireStatusCode_in">
+    <wsdl:part name="inquireStatusCodeRequest" element="tns2:inquireStatusCodeRequest" />
+  </wsdl:message>
+  <wsdl:message name="inquireStatusCode_out">
+    <wsdl:part name="inquireStatusCodeResponse" element="tns2:inquireStatusCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="maintainStatusCode_in">
+    <wsdl:part name="maintainStatusCodeRequest" element="tns2:maintainStatusCodeRequest" />
+  </wsdl:message>
+  <wsdl:message name="maintainStatusCode_out">
+    <wsdl:part name="maintainStatusCodeResponse" element="tns2:maintainStatusCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="removeAlertCode_in">
+    <wsdl:part name="removeAlertCodeRequest" element="tns2:removeAlertCodeRequest" />
+  </wsdl:message>
+  <wsdl:message name="removeAlertCode_out">
+    <wsdl:part name="removeAlertCodeResponse" element="tns2:removeAlertCodeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AlertCodeRestriction_MSPortType">
+    <wsdl:operation name="addAlertCode">
+      <wsdl:input name="addAlertCode_addAlertCodeRequest" message="tns:addAlertCode_in" />
+      <wsdl:output name="addAlertCode_addAlertCodeResponse" message="tns:addAlertCode_out" />
+    </wsdl:operation>
+    <wsdl:operation name="inquireAlertCode">
+      <wsdl:input name="inquireAlertCode_inquireAlertCodeRequest" message="tns:inquireAlertCode_in" />
+      <wsdl:output name="inquireAlertCode_inquireAlertCodeResponse" message="tns:inquireAlertCode_out" />
+    </wsdl:operation>
+    <wsdl:operation name="inquireChangeHistory">
+      <wsdl:input name="inquireChangeHistory_inquireChangeHistoryRequest" message="tns:inquireChangeHistory_in" />
+      <wsdl:output name="inquireChangeHistory_inquireChangeHistoryResponse" message="tns:inquireChangeHistory_out" />
+    </wsdl:operation>
+    <wsdl:operation name="inquireStatusCode">
+      <wsdl:input name="inquireStatusCode_inquireStatusCodeRequest" message="tns:inquireStatusCode_in" />
+      <wsdl:output name="inquireStatusCode_inquireStatusCodeResponse" message="tns:inquireStatusCode_out" />
+    </wsdl:operation>
+    <wsdl:operation name="maintainStatusCode">
+      <wsdl:input name="maintainStatusCode_maintainStatusCodeRequest" message="tns:maintainStatusCode_in" />
+      <wsdl:output name="maintainStatusCode_maintainStatusCodeResponse" message="tns:maintainStatusCode_out" />
+    </wsdl:operation>
+    <wsdl:operation name="removeAlertCode">
+      <wsdl:input name="removeAlertCode_removeAlertCodeRequest" message="tns:removeAlertCode_in" />
+      <wsdl:output name="removeAlertCode_removeAlertCodeResponse" message="tns:removeAlertCode_out" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AlertCodeRestriction_MSSOAP_HTTP_Binding" type="tns:AlertCodeRestriction_MSPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="addAlertCode">
+      <soap:operation soapAction="" />
+      <wsdl:input name="addAlertCode_addAlertCodeRequest">
+        <soap:body use="literal" parts="addAlertCodeRequest" />
+      </wsdl:input>
+      <wsdl:output name="addAlertCode_addAlertCodeResponse">
+        <soap:body use="literal" parts="addAlertCodeResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inquireAlertCode">
+      <soap:operation soapAction="" />
+      <wsdl:input name="inquireAlertCode_inquireAlertCodeRequest">
+        <soap:body use="literal" parts="inquireAlertCodeRequest" />
+      </wsdl:input>
+      <wsdl:output name="inquireAlertCode_inquireAlertCodeResponse">
+        <soap:body use="literal" parts="inquireAlertCodeResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inquireChangeHistory">
+      <soap:operation soapAction="" />
+      <wsdl:input name="inquireChangeHistory_inquireChangeHistoryRequest">
+        <soap:body use="literal" parts="inquireChangeHistoryRequest" />
+      </wsdl:input>
+      <wsdl:output name="inquireChangeHistory_inquireChangeHistoryResponse">
+        <soap:body use="literal" parts="inquireChangeHistoryResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inquireStatusCode">
+      <soap:operation soapAction="" />
+      <wsdl:input name="inquireStatusCode_inquireStatusCodeRequest">
+        <soap:body use="literal" parts="inquireStatusCodeRequest" />
+      </wsdl:input>
+      <wsdl:output name="inquireStatusCode_inquireStatusCodeResponse">
+        <soap:body use="literal" parts="inquireStatusCodeResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="maintainStatusCode">
+      <soap:operation soapAction="" />
+      <wsdl:input name="maintainStatusCode_maintainStatusCodeRequest">
+        <soap:body use="literal" parts="maintainStatusCodeRequest" />
+      </wsdl:input>
+      <wsdl:output name="maintainStatusCode_maintainStatusCodeResponse">
+        <soap:body use="literal" parts="maintainStatusCodeResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeAlertCode">
+      <soap:operation soapAction="" />
+      <wsdl:input name="removeAlertCode_removeAlertCodeRequest">
+        <soap:body use="literal" parts="removeAlertCodeRequest" />
+      </wsdl:input>
+      <wsdl:output name="removeAlertCode_removeAlertCodeResponse">
+        <soap:body use="literal" parts="removeAlertCodeResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AlertCodeRestrictionService">
+    <wsdl:port name="SOAP_HTTP_Port" binding="tns:AlertCodeRestriction_MSSOAP_HTTP_Binding">
+      <soap:address location="http://lnxmqdev:7080/account/AlertCodeRestriction/20070315" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

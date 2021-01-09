@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://lbss.com/PhoenixXM/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://lbss.com/PhoenixXM/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://lbss.com/PhoenixXM/">
+      <s:element name="GetSchema">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSchemaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSchemaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDBActionSchema">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pTableName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDBActionSchemaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDBActionSchemaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessXML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pInputXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessXMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcessXMLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XmDebugHeader" type="tns:XmDebugHeader" />
+      <s:complexType name="XmDebugHeader">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="NoCommitMode" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="WarningLevel" type="tns:LogLevel" />
+          <s:element minOccurs="1" maxOccurs="1" name="SqlLevel" type="tns:LogLevel" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsLogEnabled" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="DebugLevel" type="tns:LogLevel" />
+          <s:element minOccurs="1" maxOccurs="1" name="InfoLevel" type="tns:LogLevel" />
+          <s:element minOccurs="1" maxOccurs="1" name="LogInResponse" type="s:boolean" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:simpleType name="LogLevel">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="Normal" />
+          <s:enumeration value="Detailed" />
+          <s:enumeration value="MoreDetailed" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="ProcessEx">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pConnString" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pInputXML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcessExResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="relGroupName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dbDefName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="otherInfo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHash">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="requestHash" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="requestMachine" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetHashResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetHashResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReloadConfig">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="appHash" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReloadConfigResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAdapterStatus">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAdapterStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAdapterStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartAdapter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="appHash" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="adapterName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartAdapterResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="StopAdapter">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="appHash" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="adapterName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="threadId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StopAdapterResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetSchemaSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSchema" />
+  </wsdl:message>
+  <wsdl:message name="GetSchemaSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSchemaResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDBActionSchemaSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDBActionSchema" />
+  </wsdl:message>
+  <wsdl:message name="GetDBActionSchemaSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDBActionSchemaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessXML" />
+  </wsdl:message>
+  <wsdl:message name="ProcessXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessXMLXmDebugHeader">
+    <wsdl:part name="XmDebugHeader" element="tns:XmDebugHeader" />
+  </wsdl:message>
+  <wsdl:message name="ProcessExSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessEx" />
+  </wsdl:message>
+  <wsdl:message name="ProcessExSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessExResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessExXmDebugHeader">
+    <wsdl:part name="XmDebugHeader" element="tns:XmDebugHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetHashSoapIn">
+    <wsdl:part name="parameters" element="tns:GetHash" />
+  </wsdl:message>
+  <wsdl:message name="GetHashSoapOut">
+    <wsdl:part name="parameters" element="tns:GetHashResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReloadConfigSoapIn">
+    <wsdl:part name="parameters" element="tns:ReloadConfig" />
+  </wsdl:message>
+  <wsdl:message name="ReloadConfigSoapOut">
+    <wsdl:part name="parameters" element="tns:ReloadConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAdapterStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAdapterStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetAdapterStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAdapterStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="StartAdapterSoapIn">
+    <wsdl:part name="parameters" element="tns:StartAdapter" />
+  </wsdl:message>
+  <wsdl:message name="StartAdapterSoapOut">
+    <wsdl:part name="parameters" element="tns:StartAdapterResponse" />
+  </wsdl:message>
+  <wsdl:message name="StopAdapterSoapIn">
+    <wsdl:part name="parameters" element="tns:StopAdapter" />
+  </wsdl:message>
+  <wsdl:message name="StopAdapterSoapOut">
+    <wsdl:part name="parameters" element="tns:StopAdapterResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PhoenixXMSoap">
+    <wsdl:operation name="GetSchema">
+      <wsdl:input message="tns:GetSchemaSoapIn" />
+      <wsdl:output message="tns:GetSchemaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDBActionSchema">
+      <wsdl:input message="tns:GetDBActionSchemaSoapIn" />
+      <wsdl:output message="tns:GetDBActionSchemaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessXML">
+      <wsdl:input message="tns:ProcessXMLSoapIn" />
+      <wsdl:output message="tns:ProcessXMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessEx">
+      <wsdl:input message="tns:ProcessExSoapIn" />
+      <wsdl:output message="tns:ProcessExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <wsdl:input message="tns:GetStatusSoapIn" />
+      <wsdl:output message="tns:GetStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHash">
+      <wsdl:input message="tns:GetHashSoapIn" />
+      <wsdl:output message="tns:GetHashSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReloadConfig">
+      <wsdl:input message="tns:ReloadConfigSoapIn" />
+      <wsdl:output message="tns:ReloadConfigSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAdapterStatus">
+      <wsdl:input message="tns:GetAdapterStatusSoapIn" />
+      <wsdl:output message="tns:GetAdapterStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StartAdapter">
+      <wsdl:input message="tns:StartAdapterSoapIn" />
+      <wsdl:output message="tns:StartAdapterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StopAdapter">
+      <wsdl:input message="tns:StopAdapterSoapIn" />
+      <wsdl:output message="tns:StopAdapterSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PhoenixXMSoap" type="tns:PhoenixXMSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSchema">
+      <soap:operation soapAction="http://lbss.com/PhoenixXM/GetSchema" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDBActionSchema">
+      <soap:operation soapAction="http://lbss.com/PhoenixXM/GetDBActionSchema" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessXML">
+      <soap:operation soapAction="http://lbss.com/PhoenixXM/ProcessXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ProcessXMLXmDebugHeader" part="XmDebugHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:ProcessXMLXmDebugHeader" part="XmDebugHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessEx">
+      <soap:operation soapAction="http://lbss.com/PhoenixXM/ProcessEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ProcessExXmDebugHeader" part="XmDebugHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+        <soap:header message="tns:ProcessExXmDebugHeader" part="XmDebugHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <soap:operation soapAction="http://lbss.com/PhoenixXM/GetStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHash">
+      <soap:operation soapAction="http://lbss.com/PhoenixXM/GetHash" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReloadConfig">
+      <soap:operation soapAction="http://lbss.com/PhoenixXM/ReloadConfig" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdapterStatus">
+      <soap:operation soapAction="http://lbss.com/PhoenixXM/GetAdapterStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartAdapter">
+      <soap:operation soapAction="http://lbss.com/PhoenixXM/StartAdapter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopAdapter">
+      <soap:operation soapAction="http://lbss.com/PhoenixXM/StopAdapter" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PhoenixXMSoap12" type="tns:PhoenixXMSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSchema">
+      <soap12:operation soapAction="http://lbss.com/PhoenixXM/GetSchema" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDBActionSchema">
+      <soap12:operation soapAction="http://lbss.com/PhoenixXM/GetDBActionSchema" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessXML">
+      <soap12:operation soapAction="http://lbss.com/PhoenixXM/ProcessXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ProcessXMLXmDebugHeader" part="XmDebugHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ProcessXMLXmDebugHeader" part="XmDebugHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessEx">
+      <soap12:operation soapAction="http://lbss.com/PhoenixXM/ProcessEx" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ProcessExXmDebugHeader" part="XmDebugHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ProcessExXmDebugHeader" part="XmDebugHeader" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatus">
+      <soap12:operation soapAction="http://lbss.com/PhoenixXM/GetStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHash">
+      <soap12:operation soapAction="http://lbss.com/PhoenixXM/GetHash" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReloadConfig">
+      <soap12:operation soapAction="http://lbss.com/PhoenixXM/ReloadConfig" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdapterStatus">
+      <soap12:operation soapAction="http://lbss.com/PhoenixXM/GetAdapterStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartAdapter">
+      <soap12:operation soapAction="http://lbss.com/PhoenixXM/StartAdapter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopAdapter">
+      <soap12:operation soapAction="http://lbss.com/PhoenixXM/StopAdapter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PhoenixXM">
+    <wsdl:port name="PhoenixXMSoap" binding="tns:PhoenixXMSoap">
+      <soap:address location="http://192.168.50.152/phoenixws/staging2xm/phoenixxm.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PhoenixXMSoap12" binding="tns:PhoenixXMSoap12">
+      <soap12:address location="http://192.168.50.152/phoenixws/staging2xm/phoenixxm.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="mtvnCWLNFeePmtResData" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="mtvnCWLNFeePmtResData" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="LNFeePmtResData">
+    <xs:annotation>
+      <xs:documentation>Loan Fee Payment (LNFPM) - This function is used to post a fee payment to a particular note, commitment, or account.  This function cannot be used for loans that are partially or fully charged off.  For those loans, use the Charge-Off Payment (LNCFP) screen in the Loans online processing system.  For more information, see "Posting Fee Payments" in Chapter 6 of the Loans General Procedures Manual.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="E30051" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Account Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E30054" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Note Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E33214" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Fee ID</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E33215" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Batch Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E33216" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Amount</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E30053" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Account Name</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E33217" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Old Fee Balance</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E33219" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>New Fee Balance</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="ErrCde" type="xs:string" />
+        <xs:element minOccurs="0" name="ErrResnCde" type="xs:string" />
+        <xs:element minOccurs="0" name="ApplMsgLst">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="ApplMsg">
+                <xs:complexType>
+                  <xs:all>
+                    <xs:element minOccurs="0" name="ApplMsgApplId" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgNbr" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgTxt" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgErrInd" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgFld" type="xs:string" />
+                  </xs:all>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

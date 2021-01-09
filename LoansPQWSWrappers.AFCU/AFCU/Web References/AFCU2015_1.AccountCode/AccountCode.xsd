@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:hdr="http://www.americafirst.com/20070315/AFCUHeader" xmlns:tns="http://www.americafirst.com/20070315/AccountCode" xmlns:cm="http://www.americafirst.com/20070315/CommonTypes" xmlns:ctl="http://www.americafirst.com/20070315/CommonTypesLib" targetNamespace="http://www.americafirst.com/20070315/AccountCode" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema">
+  <import schemaLocation="../afcuheader/AFCUHeader.xsd" namespace="http://www.americafirst.com/20070315/AFCUHeader" />
+  <import schemaLocation="../commontypeslib/CommonTypesLib.xsd" namespace="http://www.americafirst.com/20070315/CommonTypesLib" />
+  <import schemaLocation="../commontypes/CommonTypes.xsd" namespace="http://www.americafirst.com/20070315/CommonTypes" />
+  <annotation>
+    <appinfo>Account Codes, author: Sandeepkumar Rane</appinfo>
+    <documentation>
+			This interface defines SOAP operations to: 
+			1) Inquire All Account Codes and SubAccount Codes
+			2) Inquire Account Codes and Sub Codes for each AccountID
+			3) Maintain Account Codes and Subcodes for AccountID suffix 1
+			4) Sync Account Codes and Subcodes for other AccountID suffix
+			This Schema supports the Web Service and Message Broker Flow to provide account Codes and sub-account codes
+		</documentation>
+  </annotation>
+  <element name="inquireAccountCodeListRequest" type="tns:InquireAccountCodeListRequest" />
+  <element name="inquireAccountCodeListResponse" type="tns:InquireAccountCodeListResponse" />
+  <element name="inquireAccountCodeRequest" type="tns:InquireAccountCodeRequest" />
+  <element name="maintainAccountCodeRequest" type="tns:MaintainAccountCodeRequest" />
+  <element name="syncAccountCodeRequest" type="tns:SyncAccountCodeRequest" />
+  <element name="accountCodeResponse" type="tns:AccountCodeResponse" />
+  <complexType name="InquireAccountCodeListRequest">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireAccountCodeListResponse">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderResponse" />
+      <element minOccurs="0" name="response" type="tns:Response" />
+    </sequence>
+  </complexType>
+  <complexType name="Response">
+    <sequence>
+      <element name="accountCodes">
+        <complexType>
+          <sequence>
+            <element maxOccurs="unbounded" name="accountCode" type="tns:AccountCode" />
+          </sequence>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="AccountCode">
+    <sequence>
+      <element name="acctCode" type="ctl:String_2" />
+      <element name="acctDescription" type="string" />
+      <element minOccurs="0" name="subAccountCodes">
+        <complexType>
+          <sequence>
+            <element minOccurs="0" maxOccurs="unbounded" name="subAccountCode" type="tns:SubAccountCode" />
+          </sequence>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="SubAccountCode">
+    <sequence>
+      <element name="subAcctCode" type="ctl:String_3" />
+      <element name="subAcctDescription" type="string" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireAccountCodeRequest">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="tns:InquireAccountCode" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireAccountCode">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <element minOccurs="0" name="subAccountID" type="cm:SubAccountID" />
+    </sequence>
+  </complexType>
+  <complexType name="MaintainAccountCodeRequest">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="tns:MaintainAccountCode" />
+    </sequence>
+  </complexType>
+  <complexType name="MaintainAccountCode">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <element minOccurs="0" name="subAccountID" type="cm:SubAccountID" />
+      <choice>
+        <element name="acctCategory" type="tns:AFCUAcctCategory" />
+        <element name="vendorAcctCategory" type="tns:VendorAcctCategory" />
+      </choice>
+    </sequence>
+  </complexType>
+  <complexType name="AFCUAcctCategory">
+    <sequence>
+      <element name="acctCode" type="ctl:String_2" />
+      <element name="subAcctCode" type="ctl:String_3" />
+    </sequence>
+  </complexType>
+  <complexType name="VendorAcctCategory">
+    <sequence>
+      <element name="acctCode" type="string" />
+      <element name="subAcctCode" type="string" />
+    </sequence>
+  </complexType>
+  <complexType name="SyncAccountCodeRequest">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="tns:SyncAccountCode" />
+    </sequence>
+  </complexType>
+  <complexType name="SyncAccountCode">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <element minOccurs="0" name="subAccountID" type="cm:SubAccountID" />
+    </sequence>
+  </complexType>
+  <complexType name="AccountCodeResponse">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderResponse" />
+      <element minOccurs="0" name="response" type="tns:AccountClassCode" />
+    </sequence>
+  </complexType>
+  <complexType name="AccountClassCode">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <element minOccurs="0" name="subAccountID" type="cm:SubAccountID" />
+      <element name="acctCode" nillable="true" type="ctl:String_2" />
+      <element name="subAcctCode" nillable="true" type="ctl:String_3" />
+      <element name="acctDesc" nillable="true" type="string" />
+      <element name="subAcctDesc" nillable="true" type="string" />
+    </sequence>
+  </complexType>
+</schema>

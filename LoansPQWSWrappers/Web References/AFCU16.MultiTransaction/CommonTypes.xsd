@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:tns="http://www.americafirst.com/20070315/CommonTypes" xmlns:ctl="http://www.americafirst.com/20070315/CommonTypesLib" targetNamespace="http://www.americafirst.com/20070315/CommonTypes" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema">
+  <import schemaLocation="../commontypeslib/CommonTypesLib.xsd" namespace="http://www.americafirst.com/20070315/CommonTypesLib" />
+  <complexType name="OverrideData">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="overrideBranchID" type="ctl:NonNegativeInteger_7" />
+      <element minOccurs="1" maxOccurs="1" name="overrideTellerID" type="ctl:NonNegativeInteger_7" />
+      <element minOccurs="1" maxOccurs="1" name="overrideEmployeeID" type="ctl:NonNegativeInteger_7" />
+    </sequence>
+  </complexType>
+  <simpleType name="AccountID">
+    <restriction base="long">
+      <minInclusive value="0" />
+      <maxInclusive value="9999999999" />
+    </restriction>
+  </simpleType>
+  <simpleType name="SubAccountID">
+    <restriction base="int">
+      <minInclusive value="0" />
+      <maxInclusive value="9" />
+    </restriction>
+  </simpleType>
+  <simpleType name="CertificateNo">
+    <restriction base="int">
+      <minInclusive value="0" />
+      <maxInclusive value="9999999" />
+    </restriction>
+  </simpleType>
+  <simpleType name="CertificateID">
+    <restriction base="nonNegativeInteger">
+      <totalDigits value="7" />
+    </restriction>
+  </simpleType>
+  <simpleType name="RequestType">
+    <restriction base="string">
+      <enumeration value="Process" />
+      <enumeration value="Test" />
+    </restriction>
+  </simpleType>
+  <complexType name="TransactionErrors">
+    <sequence>
+      <element minOccurs="0" maxOccurs="unbounded" name="transactionError">
+        <complexType>
+          <simpleContent>
+            <extension base="string">
+              <attribute name="errorCode" type="int" />
+            </extension>
+          </simpleContent>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+  <simpleType name="AccountType">
+    <restriction base="string">
+      <enumeration value="Share" />
+      <enumeration value="Loan" />
+      <enumeration value="Certificate" />
+      <enumeration value="General Ledger" />
+      <enumeration value="Mortgage" />
+    </restriction>
+  </simpleType>
+  <simpleType name="empty-string">
+    <restriction base="string">
+      <enumeration value="" />
+    </restriction>
+  </simpleType>
+  <simpleType name="AccountDesignation">
+    <restriction base="string">
+      <enumeration value="Primary" />
+      <enumeration value="Secondary" />
+    </restriction>
+  </simpleType>
+  <simpleType name="SsnType">
+    <restriction base="nonNegativeInteger">
+      <maxInclusive value="999999999" />
+    </restriction>
+  </simpleType>
+</schema>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="mtvnCWDPKywrdReqData" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="mtvnCWDPKywrdReqData" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="DPKywrdReqData">
+    <xs:annotation>
+      <xs:documentation>Deposit Keyword Change (DLKEY) -  This function is used to do maintenance to an individual field for a deposit account.  Each field has its own keyword.  To change a field's contents, enter the field's keyword and the new data.  All keyword changes are listed on the Account Master Changes Report (R-2030).</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="E20007" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Account Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E20010" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Transaction Code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21001" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Keyword Segment ID</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E21002" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Keyword Code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E21003" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Keyword Value</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

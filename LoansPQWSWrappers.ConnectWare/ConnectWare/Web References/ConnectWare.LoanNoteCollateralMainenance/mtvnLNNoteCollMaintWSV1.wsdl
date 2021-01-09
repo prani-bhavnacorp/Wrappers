@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="mtvnLNNoteCollMaintWSV1" xmlns:import0="mtvnCWLNNoteCollMaintSvcReq" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:import1="mtvnCWLNNoteCollMaintSvcRes" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="mtvnLNNoteCollMaintWSV1" targetNamespace="mtvnLNNoteCollMaintWSV1" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Connectware Web Service Interface</documentation>
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="./LNNoteCollMaintWSV1SvcReq.xsd" namespace="mtvnCWLNNoteCollMaintSvcReq" />
+      <xsd:import schemaLocation="./LNNoteCollMaintWSV1SvcRes.xsd" namespace="mtvnCWLNNoteCollMaintSvcRes" />
+    </xsd:schema>
+  </types>
+  <message name="LNNoteCollMaintMtvnSvcReqMsg">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <part name="messagePart" element="import0:LNNoteCollMaintMtvnSvcReq" />
+  </message>
+  <message name="LNNoteCollMaintMtvnSvcResMsg">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <part name="messagePart" element="import1:LNNoteCollMaintMtvnSvcRes" />
+  </message>
+  <portType name="mtvnCWLNNoteCollMaintWSV1Interface">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">LNNoteCollMaintWSV1</documentation>
+    <operation name="LNNoteCollMaint">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+      <input message="tns:LNNoteCollMaintMtvnSvcReqMsg" />
+      <output message="tns:LNNoteCollMaintMtvnSvcResMsg" />
+    </operation>
+  </portType>
+  <binding name="mtvnCWLNNoteCollMaintWSV1" type="tns:mtvnCWLNNoteCollMaintWSV1Interface">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="LNNoteCollMaint">
+      <soap:operation soapAction="LNNoteCollMaintWSV1:LNNoteCollMaintMtvnSvcReqMsg" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="mtvnCWLNNoteCollMaintWSV1">
+    <port name="mtvnCWLNNoteCollMaintWSV1Port" binding="tns:mtvnCWLNNoteCollMaintWSV1">
+      <soap:address location="https://xmlgateway.metavante.org/ConnectwareWS/LNNoteCollMaintWSV1" />
+    </port>
+  </service>
+</definitions>

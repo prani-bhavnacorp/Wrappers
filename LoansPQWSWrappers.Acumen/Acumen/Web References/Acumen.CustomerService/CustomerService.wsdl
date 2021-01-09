@@ -1,0 +1,1608 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:connections.ispectrum.summitsite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:connections.ispectrum.summitsite.com" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="https://gocucorvallis.acumen.fiserv.com:443/ispectrum-webservices/CustomerService?xsd=1" namespace="urn:connections.ispectrum.summitsite.com" />
+    </xsd:schema>
+  </types>
+  <message name="checkAccess">
+    <part name="parameters" element="tns:checkAccess" />
+  </message>
+  <message name="checkAccessResponse">
+    <part name="parameters" element="tns:checkAccessResponse" />
+  </message>
+  <message name="SOAPException">
+    <part name="fault" element="tns:SOAPException" />
+  </message>
+  <message name="getGenericCounters">
+    <part name="parameters" element="tns:getGenericCounters" />
+  </message>
+  <message name="getGenericCountersResponse">
+    <part name="parameters" element="tns:getGenericCountersResponse" />
+  </message>
+  <message name="findById">
+    <part name="parameters" element="tns:findById" />
+  </message>
+  <message name="findByIdResponse">
+    <part name="parameters" element="tns:findByIdResponse" />
+  </message>
+  <message name="getAllQuestions">
+    <part name="parameters" element="tns:getAllQuestions" />
+  </message>
+  <message name="getAllQuestionsResponse">
+    <part name="parameters" element="tns:getAllQuestionsResponse" />
+  </message>
+  <message name="getAllQuestionsByQuestionCategoriesId">
+    <part name="parameters" element="tns:getAllQuestionsByQuestionCategoriesId" />
+  </message>
+  <message name="getAllQuestionsByQuestionCategoriesIdResponse">
+    <part name="parameters" element="tns:getAllQuestionsByQuestionCategoriesIdResponse" />
+  </message>
+  <message name="getAllQuestionsByCustomerId">
+    <part name="parameters" element="tns:getAllQuestionsByCustomerId" />
+  </message>
+  <message name="getAllQuestionsByCustomerIdResponse">
+    <part name="parameters" element="tns:getAllQuestionsByCustomerIdResponse" />
+  </message>
+  <message name="getAllOptionalQuestionsByCustomerId">
+    <part name="parameters" element="tns:getAllOptionalQuestionsByCustomerId" />
+  </message>
+  <message name="getAllOptionalQuestionsByCustomerIdResponse">
+    <part name="parameters" element="tns:getAllOptionalQuestionsByCustomerIdResponse" />
+  </message>
+  <message name="getQuestionByQuestionId">
+    <part name="parameters" element="tns:getQuestionByQuestionId" />
+  </message>
+  <message name="getQuestionByQuestionIdResponse">
+    <part name="parameters" element="tns:getQuestionByQuestionIdResponse" />
+  </message>
+  <message name="createUpdateQuestionsForCustomer">
+    <part name="parameters" element="tns:createUpdateQuestionsForCustomer" />
+  </message>
+  <message name="createUpdateQuestionsForCustomerResponse">
+    <part name="parameters" element="tns:createUpdateQuestionsForCustomerResponse" />
+  </message>
+  <message name="getAllRequiredQuestions">
+    <part name="parameters" element="tns:getAllRequiredQuestions" />
+  </message>
+  <message name="getAllRequiredQuestionsResponse">
+    <part name="parameters" element="tns:getAllRequiredQuestionsResponse" />
+  </message>
+  <message name="getAllOptionalQuestions">
+    <part name="parameters" element="tns:getAllOptionalQuestions" />
+  </message>
+  <message name="getAllOptionalQuestionsResponse">
+    <part name="parameters" element="tns:getAllOptionalQuestionsResponse" />
+  </message>
+  <message name="getCreditBureauReportsForCustomer">
+    <part name="parameters" element="tns:getCreditBureauReportsForCustomer" />
+  </message>
+  <message name="getCreditBureauReportsForCustomerResponse">
+    <part name="parameters" element="tns:getCreditBureauReportsForCustomerResponse" />
+  </message>
+  <message name="getCreditBureauReportFromEquifax">
+    <part name="parameters" element="tns:getCreditBureauReportFromEquifax" />
+  </message>
+  <message name="getCreditBureauReportFromEquifaxResponse">
+    <part name="parameters" element="tns:getCreditBureauReportFromEquifaxResponse" />
+  </message>
+  <message name="getIDManagerOverrideResponse">
+    <part name="parameters" element="tns:getIDManagerOverrideResponse" />
+  </message>
+  <message name="getIDManagerOverrideResponseResponse">
+    <part name="parameters" element="tns:getIDManagerOverrideResponseResponse" />
+  </message>
+  <message name="getCustAccessByCustId">
+    <part name="parameters" element="tns:getCustAccessByCustId" />
+  </message>
+  <message name="getCustAccessByCustIdResponse">
+    <part name="parameters" element="tns:getCustAccessByCustIdResponse" />
+  </message>
+  <message name="getHBCustAccessByHBCustAccessId">
+    <part name="parameters" element="tns:getHBCustAccessByHBCustAccessId" />
+  </message>
+  <message name="getHBCustAccessByHBCustAccessIdResponse">
+    <part name="parameters" element="tns:getHBCustAccessByHBCustAccessIdResponse" />
+  </message>
+  <message name="getTBCustAccessByTBCustAccessId">
+    <part name="parameters" element="tns:getTBCustAccessByTBCustAccessId" />
+  </message>
+  <message name="getTBCustAccessByTBCustAccessIdResponse">
+    <part name="parameters" element="tns:getTBCustAccessByTBCustAccessIdResponse" />
+  </message>
+  <message name="retrieveFinancialStatementInfo">
+    <part name="parameters" element="tns:retrieveFinancialStatementInfo" />
+  </message>
+  <message name="retrieveFinancialStatementInfoResponse">
+    <part name="parameters" element="tns:retrieveFinancialStatementInfoResponse" />
+  </message>
+  <message name="retrieveFSIndicatorsByCustomerID">
+    <part name="parameters" element="tns:retrieveFSIndicatorsByCustomerID" />
+  </message>
+  <message name="retrieveFSIndicatorsByCustomerIDResponse">
+    <part name="parameters" element="tns:retrieveFSIndicatorsByCustomerIDResponse" />
+  </message>
+  <message name="getFSHistoryByCustomerID">
+    <part name="parameters" element="tns:getFSHistoryByCustomerID" />
+  </message>
+  <message name="getFSHistoryByCustomerIDResponse">
+    <part name="parameters" element="tns:getFSHistoryByCustomerIDResponse" />
+  </message>
+  <message name="getFSHistoryDetailsByID">
+    <part name="parameters" element="tns:getFSHistoryDetailsByID" />
+  </message>
+  <message name="getFSHistoryDetailsByIDResponse">
+    <part name="parameters" element="tns:getFSHistoryDetailsByIDResponse" />
+  </message>
+  <message name="requestNewCreditReport">
+    <part name="parameters" element="tns:requestNewCreditReport" />
+  </message>
+  <message name="requestNewCreditReportResponse">
+    <part name="parameters" element="tns:requestNewCreditReportResponse" />
+  </message>
+  <message name="getAllReceiptByCustId">
+    <part name="parameters" element="tns:getAllReceiptByCustId" />
+  </message>
+  <message name="getAllReceiptByCustIdResponse">
+    <part name="parameters" element="tns:getAllReceiptByCustIdResponse" />
+  </message>
+  <message name="createUpdateACHOrignationSetUp">
+    <part name="parameters" element="tns:createUpdateACHOrignationSetUp" />
+  </message>
+  <message name="createUpdateACHOrignationSetUpResponse">
+    <part name="parameters" element="tns:createUpdateACHOrignationSetUpResponse" />
+  </message>
+  <message name="getAllOrigination">
+    <part name="parameters" element="tns:getAllOrigination" />
+  </message>
+  <message name="getAllOriginationResponse">
+    <part name="parameters" element="tns:getAllOriginationResponse" />
+  </message>
+  <message name="getAchBatchOrigination">
+    <part name="parameters" element="tns:getAchBatchOrigination" />
+  </message>
+  <message name="getAchBatchOriginationResponse">
+    <part name="parameters" element="tns:getAchBatchOriginationResponse" />
+  </message>
+  <message name="updateAchBatchOriginationWithAddenda">
+    <part name="parameters" element="tns:updateAchBatchOriginationWithAddenda" />
+  </message>
+  <message name="updateAchBatchOriginationWithAddendaResponse">
+    <part name="parameters" element="tns:updateAchBatchOriginationWithAddendaResponse" />
+  </message>
+  <message name="updateIATBatchOriginationWithAddendas">
+    <part name="parameters" element="tns:updateIATBatchOriginationWithAddendas" />
+  </message>
+  <message name="updateIATBatchOriginationWithAddendasResponse">
+    <part name="parameters" element="tns:updateIATBatchOriginationWithAddendasResponse" />
+  </message>
+  <message name="findGovFormSummaryItemInfosByCriteria">
+    <part name="parameters" element="tns:findGovFormSummaryItemInfosByCriteria" />
+  </message>
+  <message name="findGovFormSummaryItemInfosByCriteriaResponse">
+    <part name="parameters" element="tns:findGovFormSummaryItemInfosByCriteriaResponse" />
+  </message>
+  <message name="editTaxReceipt">
+    <part name="parameters" element="tns:editTaxReceipt" />
+  </message>
+  <message name="editTaxReceiptResponse">
+    <part name="parameters" element="tns:editTaxReceiptResponse" />
+  </message>
+  <message name="calculateCustBondRedemption">
+    <part name="parameters" element="tns:calculateCustBondRedemption" />
+  </message>
+  <message name="calculateCustBondRedemptionResponse">
+    <part name="parameters" element="tns:calculateCustBondRedemptionResponse" />
+  </message>
+  <message name="findCustBondRedemptionByCustomerId">
+    <part name="parameters" element="tns:findCustBondRedemptionByCustomerId" />
+  </message>
+  <message name="findCustBondRedemptionByCustomerIdResponse">
+    <part name="parameters" element="tns:findCustBondRedemptionByCustomerIdResponse" />
+  </message>
+  <message name="getCustBondHeaderInfoByMonId">
+    <part name="parameters" element="tns:getCustBondHeaderInfoByMonId" />
+  </message>
+  <message name="getCustBondHeaderInfoByMonIdResponse">
+    <part name="parameters" element="tns:getCustBondHeaderInfoByMonIdResponse" />
+  </message>
+  <message name="getAllCalendars">
+    <part name="parameters" element="tns:getAllCalendars" />
+  </message>
+  <message name="getAllCalendarsResponse">
+    <part name="parameters" element="tns:getAllCalendarsResponse" />
+  </message>
+  <message name="getAllHoliday">
+    <part name="parameters" element="tns:getAllHoliday" />
+  </message>
+  <message name="getAllHolidayResponse">
+    <part name="parameters" element="tns:getAllHolidayResponse" />
+  </message>
+  <message name="populateCalendarDateInfos">
+    <part name="parameters" element="tns:populateCalendarDateInfos" />
+  </message>
+  <message name="populateCalendarDateInfosResponse">
+    <part name="parameters" element="tns:populateCalendarDateInfosResponse" />
+  </message>
+  <message name="findStatementOptionById">
+    <part name="parameters" element="tns:findStatementOptionById" />
+  </message>
+  <message name="findStatementOptionByIdResponse">
+    <part name="parameters" element="tns:findStatementOptionByIdResponse" />
+  </message>
+  <message name="findStatementOptionByCustId">
+    <part name="parameters" element="tns:findStatementOptionByCustId" />
+  </message>
+  <message name="findStatementOptionByCustIdResponse">
+    <part name="parameters" element="tns:findStatementOptionByCustIdResponse" />
+  </message>
+  <message name="createStatementOptions">
+    <part name="parameters" element="tns:createStatementOptions" />
+  </message>
+  <message name="createStatementOptionsResponse">
+    <part name="parameters" element="tns:createStatementOptionsResponse" />
+  </message>
+  <message name="createUpdateStatementOption">
+    <part name="parameters" element="tns:createUpdateStatementOption" />
+  </message>
+  <message name="createUpdateStatementOptionResponse">
+    <part name="parameters" element="tns:createUpdateStatementOptionResponse" />
+  </message>
+  <message name="isOnline">
+    <part name="parameters" element="tns:isOnline" />
+  </message>
+  <message name="isOnlineResponse">
+    <part name="parameters" element="tns:isOnlineResponse" />
+  </message>
+  <message name="syncGenericCounters">
+    <part name="parameters" element="tns:syncGenericCounters" />
+  </message>
+  <message name="syncGenericCountersResponse">
+    <part name="parameters" element="tns:syncGenericCountersResponse" />
+  </message>
+  <message name="createUpadteHBCustLimits">
+    <part name="parameters" element="tns:createUpadteHBCustLimits" />
+  </message>
+  <message name="createUpadteHBCustLimitsResponse">
+    <part name="parameters" element="tns:createUpadteHBCustLimitsResponse" />
+  </message>
+  <message name="getQuestions">
+    <part name="parameters" element="tns:getQuestions" />
+  </message>
+  <message name="getQuestionsResponse">
+    <part name="parameters" element="tns:getQuestionsResponse" />
+  </message>
+  <message name="persistQuestions">
+    <part name="parameters" element="tns:persistQuestions" />
+  </message>
+  <message name="persistQuestionsResponse">
+    <part name="parameters" element="tns:persistQuestionsResponse" />
+  </message>
+  <message name="isRequiredQuestionsPending">
+    <part name="parameters" element="tns:isRequiredQuestionsPending" />
+  </message>
+  <message name="isRequiredQuestionsPendingResponse">
+    <part name="parameters" element="tns:isRequiredQuestionsPendingResponse" />
+  </message>
+  <message name="createUpdateHBNetworkNode">
+    <part name="parameters" element="tns:createUpdateHBNetworkNode" />
+  </message>
+  <message name="createUpdateHBNetworkNodeResponse">
+    <part name="parameters" element="tns:createUpdateHBNetworkNodeResponse" />
+  </message>
+  <message name="findAllHBNetworkNodes">
+    <part name="parameters" element="tns:findAllHBNetworkNodes" />
+  </message>
+  <message name="findAllHBNetworkNodesResponse">
+    <part name="parameters" element="tns:findAllHBNetworkNodesResponse" />
+  </message>
+  <message name="findByCode">
+    <part name="parameters" element="tns:findByCode" />
+  </message>
+  <message name="findByCodeResponse">
+    <part name="parameters" element="tns:findByCodeResponse" />
+  </message>
+  <message name="getAllNetworkNodes">
+    <part name="parameters" element="tns:getAllNetworkNodes" />
+  </message>
+  <message name="getAllNetworkNodesResponse">
+    <part name="parameters" element="tns:getAllNetworkNodesResponse" />
+  </message>
+  <message name="getAllNetworkNodesWithNoPagination">
+    <part name="parameters" element="tns:getAllNetworkNodesWithNoPagination" />
+  </message>
+  <message name="getAllNetworkNodesWithNoPaginationResponse">
+    <part name="parameters" element="tns:getAllNetworkNodesWithNoPaginationResponse" />
+  </message>
+  <message name="getStylesheetText">
+    <part name="parameters" element="tns:getStylesheetText" />
+  </message>
+  <message name="getStylesheetTextResponse">
+    <part name="parameters" element="tns:getStylesheetTextResponse" />
+  </message>
+  <message name="findSafetyDepositBox">
+    <part name="parameters" element="tns:findSafetyDepositBox" />
+  </message>
+  <message name="findSafetyDepositBoxResponse">
+    <part name="parameters" element="tns:findSafetyDepositBoxResponse" />
+  </message>
+  <message name="findSafetyDepositBoxesForCustomer">
+    <part name="parameters" element="tns:findSafetyDepositBoxesForCustomer" />
+  </message>
+  <message name="findSafetyDepositBoxesForCustomerResponse">
+    <part name="parameters" element="tns:findSafetyDepositBoxesForCustomerResponse" />
+  </message>
+  <message name="findSafetyDepositBoxesForCustomerByIncludeClosed">
+    <part name="parameters" element="tns:findSafetyDepositBoxesForCustomerByIncludeClosed" />
+  </message>
+  <message name="findSafetyDepositBoxesForCustomerByIncludeClosedResponse">
+    <part name="parameters" element="tns:findSafetyDepositBoxesForCustomerByIncludeClosedResponse" />
+  </message>
+  <message name="createUpdateSafetyDepositBox">
+    <part name="parameters" element="tns:createUpdateSafetyDepositBox" />
+  </message>
+  <message name="createUpdateSafetyDepositBoxResponse">
+    <part name="parameters" element="tns:createUpdateSafetyDepositBoxResponse" />
+  </message>
+  <message name="createUpdateQuestionsForAll">
+    <part name="parameters" element="tns:createUpdateQuestionsForAll" />
+  </message>
+  <message name="createUpdateQuestionsForAllResponse">
+    <part name="parameters" element="tns:createUpdateQuestionsForAllResponse" />
+  </message>
+  <message name="getCreditBureauReport">
+    <part name="parameters" element="tns:getCreditBureauReport" />
+  </message>
+  <message name="getCreditBureauReportResponse">
+    <part name="parameters" element="tns:getCreditBureauReportResponse" />
+  </message>
+  <message name="importLiabilitiesFromCreditBureauReport">
+    <part name="parameters" element="tns:importLiabilitiesFromCreditBureauReport" />
+  </message>
+  <message name="importLiabilitiesFromCreditBureauReportResponse">
+    <part name="parameters" element="tns:importLiabilitiesFromCreditBureauReportResponse" />
+  </message>
+  <message name="getAncillaryProductByBureau">
+    <part name="parameters" element="tns:getAncillaryProductByBureau" />
+  </message>
+  <message name="getAncillaryProductByBureauResponse">
+    <part name="parameters" element="tns:getAncillaryProductByBureauResponse" />
+  </message>
+  <message name="getCustAccessByCustAccessId">
+    <part name="parameters" element="tns:getCustAccessByCustAccessId" />
+  </message>
+  <message name="getCustAccessByCustAccessIdResponse">
+    <part name="parameters" element="tns:getCustAccessByCustAccessIdResponse" />
+  </message>
+  <message name="getHBCustAccessByLogonName">
+    <part name="parameters" element="tns:getHBCustAccessByLogonName" />
+  </message>
+  <message name="getHBCustAccessByLogonNameResponse">
+    <part name="parameters" element="tns:getHBCustAccessByLogonNameResponse" />
+  </message>
+  <message name="createUpdateCustAccess">
+    <part name="parameters" element="tns:createUpdateCustAccess" />
+  </message>
+  <message name="createUpdateCustAccessResponse">
+    <part name="parameters" element="tns:createUpdateCustAccessResponse" />
+  </message>
+  <message name="createUpdateFinancialStatementInfo">
+    <part name="parameters" element="tns:createUpdateFinancialStatementInfo" />
+  </message>
+  <message name="createUpdateFinancialStatementInfoResponse">
+    <part name="parameters" element="tns:createUpdateFinancialStatementInfoResponse" />
+  </message>
+  <message name="createUpdateLiability">
+    <part name="parameters" element="tns:createUpdateLiability" />
+  </message>
+  <message name="createUpdateLiabilityResponse">
+    <part name="parameters" element="tns:createUpdateLiabilityResponse" />
+  </message>
+  <message name="getCurrentEligibility">
+    <part name="parameters" element="tns:getCurrentEligibility" />
+  </message>
+  <message name="getCurrentEligibilityResponse">
+    <part name="parameters" element="tns:getCurrentEligibilityResponse" />
+  </message>
+  <message name="getAllReceiptByCustIdWithSorting">
+    <part name="parameters" element="tns:getAllReceiptByCustIdWithSorting" />
+  </message>
+  <message name="getAllReceiptByCustIdWithSortingResponse">
+    <part name="parameters" element="tns:getAllReceiptByCustIdWithSortingResponse" />
+  </message>
+  <message name="findACHOriginationSetUpByPrimaryKey">
+    <part name="parameters" element="tns:findACHOriginationSetUpByPrimaryKey" />
+  </message>
+  <message name="findACHOriginationSetUpByPrimaryKeyResponse">
+    <part name="parameters" element="tns:findACHOriginationSetUpByPrimaryKeyResponse" />
+  </message>
+  <message name="findACHOriginationSetUpByPrimaryKeyWithDBLock">
+    <part name="parameters" element="tns:findACHOriginationSetUpByPrimaryKeyWithDBLock" />
+  </message>
+  <message name="findACHOriginationSetUpByPrimaryKeyWithDBLockResponse">
+    <part name="parameters" element="tns:findACHOriginationSetUpByPrimaryKeyWithDBLockResponse" />
+  </message>
+  <message name="findExternalHistoryByPrimaryKey">
+    <part name="parameters" element="tns:findExternalHistoryByPrimaryKey" />
+  </message>
+  <message name="findExternalHistoryByPrimaryKeyResponse">
+    <part name="parameters" element="tns:findExternalHistoryByPrimaryKeyResponse" />
+  </message>
+  <message name="findExternalHistoryByPrimaryKeyWithDBLock">
+    <part name="parameters" element="tns:findExternalHistoryByPrimaryKeyWithDBLock" />
+  </message>
+  <message name="findExternalHistoryByPrimaryKeyWithDBLockResponse">
+    <part name="parameters" element="tns:findExternalHistoryByPrimaryKeyWithDBLockResponse" />
+  </message>
+  <message name="getGovernmentFormInfo">
+    <part name="parameters" element="tns:getGovernmentFormInfo" />
+  </message>
+  <message name="getGovernmentFormInfoResponse">
+    <part name="parameters" element="tns:getGovernmentFormInfoResponse" />
+  </message>
+  <message name="printGovernmentForm">
+    <part name="parameters" element="tns:printGovernmentForm" />
+  </message>
+  <message name="printGovernmentFormResponse">
+    <part name="parameters" element="tns:printGovernmentFormResponse" />
+  </message>
+  <message name="generateGovernmentForm">
+    <part name="parameters" element="tns:generateGovernmentForm" />
+  </message>
+  <message name="generateGovernmentFormResponse">
+    <part name="parameters" element="tns:generateGovernmentFormResponse" />
+  </message>
+  <message name="exemptGovernmentForm">
+    <part name="parameters" element="tns:exemptGovernmentForm" />
+  </message>
+  <message name="exemptGovernmentFormResponse">
+    <part name="parameters" element="tns:exemptGovernmentFormResponse" />
+  </message>
+  <message name="amendGovernmentForm">
+    <part name="parameters" element="tns:amendGovernmentForm" />
+  </message>
+  <message name="amendGovernmentFormResponse">
+    <part name="parameters" element="tns:amendGovernmentFormResponse" />
+  </message>
+  <message name="saveGovernmentForm">
+    <part name="parameters" element="tns:saveGovernmentForm" />
+  </message>
+  <message name="saveGovernmentFormResponse">
+    <part name="parameters" element="tns:saveGovernmentFormResponse" />
+  </message>
+  <message name="generateAdHocSlip">
+    <part name="parameters" element="tns:generateAdHocSlip" />
+  </message>
+  <message name="generateAdHocSlipResponse">
+    <part name="parameters" element="tns:generateAdHocSlipResponse" />
+  </message>
+  <message name="createUpdateTaxReceiptUS">
+    <part name="parameters" element="tns:createUpdateTaxReceiptUS" />
+  </message>
+  <message name="createUpdateTaxReceiptUSResponse">
+    <part name="parameters" element="tns:createUpdateTaxReceiptUSResponse" />
+  </message>
+  <message name="findCustBondRedemptionByPrimaryKey">
+    <part name="parameters" element="tns:findCustBondRedemptionByPrimaryKey" />
+  </message>
+  <message name="findCustBondRedemptionByPrimaryKeyResponse">
+    <part name="parameters" element="tns:findCustBondRedemptionByPrimaryKeyResponse" />
+  </message>
+  <message name="findCustBondRedemptionByPrimaryKeyWithLock">
+    <part name="parameters" element="tns:findCustBondRedemptionByPrimaryKeyWithLock" />
+  </message>
+  <message name="findCustBondRedemptionByPrimaryKeyWithLockResponse">
+    <part name="parameters" element="tns:findCustBondRedemptionByPrimaryKeyWithLockResponse" />
+  </message>
+  <message name="createUpdateCustBondRedemption">
+    <part name="parameters" element="tns:createUpdateCustBondRedemption" />
+  </message>
+  <message name="createUpdateCustBondRedemptionResponse">
+    <part name="parameters" element="tns:createUpdateCustBondRedemptionResponse" />
+  </message>
+  <message name="getCalendarDatesByHolidayCalendarId">
+    <part name="parameters" element="tns:getCalendarDatesByHolidayCalendarId" />
+  </message>
+  <message name="getCalendarDatesByHolidayCalendarIdResponse">
+    <part name="parameters" element="tns:getCalendarDatesByHolidayCalendarIdResponse" />
+  </message>
+  <message name="createUpdateCalendars">
+    <part name="parameters" element="tns:createUpdateCalendars" />
+  </message>
+  <message name="createUpdateCalendarsResponse">
+    <part name="parameters" element="tns:createUpdateCalendarsResponse" />
+  </message>
+  <message name="findCalendarsByPrimaryKey">
+    <part name="parameters" element="tns:findCalendarsByPrimaryKey" />
+  </message>
+  <message name="findCalendarsByPrimaryKeyResponse">
+    <part name="parameters" element="tns:findCalendarsByPrimaryKeyResponse" />
+  </message>
+  <message name="findCalendarsByPrimaryKeyWithLock">
+    <part name="parameters" element="tns:findCalendarsByPrimaryKeyWithLock" />
+  </message>
+  <message name="findCalendarsByPrimaryKeyWithLockResponse">
+    <part name="parameters" element="tns:findCalendarsByPrimaryKeyWithLockResponse" />
+  </message>
+  <message name="findCalendarsByPrimaryKeyHolidayDateId">
+    <part name="parameters" element="tns:findCalendarsByPrimaryKeyHolidayDateId" />
+  </message>
+  <message name="findCalendarsByPrimaryKeyHolidayDateIdResponse">
+    <part name="parameters" element="tns:findCalendarsByPrimaryKeyHolidayDateIdResponse" />
+  </message>
+  <message name="findCalendarsByPrimaryKeyCalendarDateId">
+    <part name="parameters" element="tns:findCalendarsByPrimaryKeyCalendarDateId" />
+  </message>
+  <message name="findCalendarsByPrimaryKeyCalendarDateIdResponse">
+    <part name="parameters" element="tns:findCalendarsByPrimaryKeyCalendarDateIdResponse" />
+  </message>
+  <message name="memberPasswordValidation">
+    <part name="parameters" element="tns:memberPasswordValidation" />
+  </message>
+  <message name="memberPasswordValidationResponse">
+    <part name="parameters" element="tns:memberPasswordValidationResponse" />
+  </message>
+  <message name="getCrossAccountsHomeBanking">
+    <part name="parameters" element="tns:getCrossAccountsHomeBanking" />
+  </message>
+  <message name="getCrossAccountsHomeBankingResponse">
+    <part name="parameters" element="tns:getCrossAccountsHomeBankingResponse" />
+  </message>
+  <message name="memberPasswordChange">
+    <part name="parameters" element="tns:memberPasswordChange" />
+  </message>
+  <message name="memberPasswordChangeResponse">
+    <part name="parameters" element="tns:memberPasswordChangeResponse" />
+  </message>
+  <message name="getTemparoryPinHomeBanking">
+    <part name="parameters" element="tns:getTemparoryPinHomeBanking" />
+  </message>
+  <message name="getTemparoryPinHomeBankingResponse">
+    <part name="parameters" element="tns:getTemparoryPinHomeBankingResponse" />
+  </message>
+  <message name="validateWebRequestHomeBanking">
+    <part name="parameters" element="tns:validateWebRequestHomeBanking" />
+  </message>
+  <message name="validateWebRequestHomeBankingResponse">
+    <part name="parameters" element="tns:validateWebRequestHomeBankingResponse" />
+  </message>
+  <message name="stopPaymentOnCheckTeleBanking">
+    <part name="parameters" element="tns:stopPaymentOnCheckTeleBanking" />
+  </message>
+  <message name="stopPaymentOnCheckTeleBankingResponse">
+    <part name="parameters" element="tns:stopPaymentOnCheckTeleBankingResponse" />
+  </message>
+  <message name="billPaymentTransactionTeleBanking">
+    <part name="parameters" element="tns:billPaymentTransactionTeleBanking" />
+  </message>
+  <message name="billPaymentTransactionTeleBankingResponse">
+    <part name="parameters" element="tns:billPaymentTransactionTeleBankingResponse" />
+  </message>
+  <message name="isOnlineTeleBanking">
+    <part name="parameters" element="tns:isOnlineTeleBanking" />
+  </message>
+  <message name="isOnlineTeleBankingResponse">
+    <part name="parameters" element="tns:isOnlineTeleBankingResponse" />
+  </message>
+  <message name="memberPinValidation">
+    <part name="parameters" element="tns:memberPinValidation" />
+  </message>
+  <message name="memberPinValidationResponse">
+    <part name="parameters" element="tns:memberPinValidationResponse" />
+  </message>
+  <message name="memberPinChange">
+    <part name="parameters" element="tns:memberPinChange" />
+  </message>
+  <message name="memberPinChangeResponse">
+    <part name="parameters" element="tns:memberPinChangeResponse" />
+  </message>
+  <message name="getTemparoryPinTeleBanking">
+    <part name="parameters" element="tns:getTemparoryPinTeleBanking" />
+  </message>
+  <message name="getTemparoryPinTeleBankingResponse">
+    <part name="parameters" element="tns:getTemparoryPinTeleBankingResponse" />
+  </message>
+  <message name="validateWebRequestTeleBanking">
+    <part name="parameters" element="tns:validateWebRequestTeleBanking" />
+  </message>
+  <message name="validateWebRequestTeleBankingResponse">
+    <part name="parameters" element="tns:validateWebRequestTeleBankingResponse" />
+  </message>
+  <message name="isOnlineByServiceType">
+    <part name="parameters" element="tns:isOnlineByServiceType" />
+  </message>
+  <message name="isOnlineByServiceTypeResponse">
+    <part name="parameters" element="tns:isOnlineByServiceTypeResponse" />
+  </message>
+  <message name="getCardByCardNumber">
+    <part name="parameters" element="tns:getCardByCardNumber" />
+  </message>
+  <message name="getCardByCardNumberResponse">
+    <part name="parameters" element="tns:getCardByCardNumberResponse" />
+  </message>
+  <message name="getCardByCardNumberReversal">
+    <part name="parameters" element="tns:getCardByCardNumberReversal" />
+  </message>
+  <message name="getCardByCardNumberReversalResponse">
+    <part name="parameters" element="tns:getCardByCardNumberReversalResponse" />
+  </message>
+  <message name="getATMAccountBalances">
+    <part name="parameters" element="tns:getATMAccountBalances" />
+  </message>
+  <message name="getATMAccountBalancesResponse">
+    <part name="parameters" element="tns:getATMAccountBalancesResponse" />
+  </message>
+  <message name="getATMAccountBalancesReversal">
+    <part name="parameters" element="tns:getATMAccountBalancesReversal" />
+  </message>
+  <message name="getATMAccountBalancesReversalResponse">
+    <part name="parameters" element="tns:getATMAccountBalancesReversalResponse" />
+  </message>
+  <message name="doWithdrawal">
+    <part name="parameters" element="tns:doWithdrawal" />
+  </message>
+  <message name="doWithdrawalResponse">
+    <part name="parameters" element="tns:doWithdrawalResponse" />
+  </message>
+  <message name="doWithdrawalReversal">
+    <part name="parameters" element="tns:doWithdrawalReversal" />
+  </message>
+  <message name="doWithdrawalReversalResponse">
+    <part name="parameters" element="tns:doWithdrawalReversalResponse" />
+  </message>
+  <message name="doDeposit">
+    <part name="parameters" element="tns:doDeposit" />
+  </message>
+  <message name="doDepositResponse">
+    <part name="parameters" element="tns:doDepositResponse" />
+  </message>
+  <message name="doDepositReversal">
+    <part name="parameters" element="tns:doDepositReversal" />
+  </message>
+  <message name="doDepositReversalResponse">
+    <part name="parameters" element="tns:doDepositReversalResponse" />
+  </message>
+  <message name="doTransfer">
+    <part name="parameters" element="tns:doTransfer" />
+  </message>
+  <message name="doTransferResponse">
+    <part name="parameters" element="tns:doTransferResponse" />
+  </message>
+  <message name="doTransferReversal">
+    <part name="parameters" element="tns:doTransferReversal" />
+  </message>
+  <message name="doTransferReversalResponse">
+    <part name="parameters" element="tns:doTransferReversalResponse" />
+  </message>
+  <message name="doPreAuth">
+    <part name="parameters" element="tns:doPreAuth" />
+  </message>
+  <message name="doPreAuthResponse">
+    <part name="parameters" element="tns:doPreAuthResponse" />
+  </message>
+  <message name="doPreAuthReversal">
+    <part name="parameters" element="tns:doPreAuthReversal" />
+  </message>
+  <message name="doPreAuthReversalResponse">
+    <part name="parameters" element="tns:doPreAuthReversalResponse" />
+  </message>
+  <message name="doGoodsServices">
+    <part name="parameters" element="tns:doGoodsServices" />
+  </message>
+  <message name="doGoodsServicesResponse">
+    <part name="parameters" element="tns:doGoodsServicesResponse" />
+  </message>
+  <message name="doGoodsServicesReversal">
+    <part name="parameters" element="tns:doGoodsServicesReversal" />
+  </message>
+  <message name="doGoodsServicesReversalResponse">
+    <part name="parameters" element="tns:doGoodsServicesReversalResponse" />
+  </message>
+  <message name="doReturnsAdj">
+    <part name="parameters" element="tns:doReturnsAdj" />
+  </message>
+  <message name="doReturnsAdjResponse">
+    <part name="parameters" element="tns:doReturnsAdjResponse" />
+  </message>
+  <message name="doReturnsAdjReversal">
+    <part name="parameters" element="tns:doReturnsAdjReversal" />
+  </message>
+  <message name="doReturnsAdjReversalResponse">
+    <part name="parameters" element="tns:doReturnsAdjReversalResponse" />
+  </message>
+  <message name="doReturns">
+    <part name="parameters" element="tns:doReturns" />
+  </message>
+  <message name="doReturnsResponse">
+    <part name="parameters" element="tns:doReturnsResponse" />
+  </message>
+  <message name="doReturnsReversal">
+    <part name="parameters" element="tns:doReturnsReversal" />
+  </message>
+  <message name="doReturnsReversalResponse">
+    <part name="parameters" element="tns:doReturnsReversalResponse" />
+  </message>
+  <message name="doGoodsServicesAdj">
+    <part name="parameters" element="tns:doGoodsServicesAdj" />
+  </message>
+  <message name="doGoodsServicesAdjResponse">
+    <part name="parameters" element="tns:doGoodsServicesAdjResponse" />
+  </message>
+  <message name="doGoodsServicesAdjReversal">
+    <part name="parameters" element="tns:doGoodsServicesAdjReversal" />
+  </message>
+  <message name="doGoodsServicesAdjReversalResponse">
+    <part name="parameters" element="tns:doGoodsServicesAdjReversalResponse" />
+  </message>
+  <message name="doAuthorization">
+    <part name="parameters" element="tns:doAuthorization" />
+  </message>
+  <message name="doAuthorizationResponse">
+    <part name="parameters" element="tns:doAuthorizationResponse" />
+  </message>
+  <message name="doAuthorizationReversal">
+    <part name="parameters" element="tns:doAuthorizationReversal" />
+  </message>
+  <message name="doAuthorizationReversalResponse">
+    <part name="parameters" element="tns:doAuthorizationReversalResponse" />
+  </message>
+  <message name="doUpdateCardStatus">
+    <part name="parameters" element="tns:doUpdateCardStatus" />
+  </message>
+  <message name="doUpdateCardStatusResponse">
+    <part name="parameters" element="tns:doUpdateCardStatusResponse" />
+  </message>
+  <message name="addThirdPartyStatusLog">
+    <part name="parameters" element="tns:addThirdPartyStatusLog" />
+  </message>
+  <message name="addThirdPartyStatusLogResponse">
+    <part name="parameters" element="tns:addThirdPartyStatusLogResponse" />
+  </message>
+  <message name="getThirdPartyStatusLog">
+    <part name="parameters" element="tns:getThirdPartyStatusLog" />
+  </message>
+  <message name="getThirdPartyStatusLogResponse">
+    <part name="parameters" element="tns:getThirdPartyStatusLogResponse" />
+  </message>
+  <message name="updateAndGetNextNetworkUpdateInfo">
+    <part name="parameters" element="tns:updateAndGetNextNetworkUpdateInfo" />
+  </message>
+  <message name="updateAndGetNextNetworkUpdateInfoResponse">
+    <part name="parameters" element="tns:updateAndGetNextNetworkUpdateInfoResponse" />
+  </message>
+  <message name="getRecordsForATM">
+    <part name="parameters" element="tns:getRecordsForATM" />
+  </message>
+  <message name="getRecordsForATMResponse">
+    <part name="parameters" element="tns:getRecordsForATMResponse" />
+  </message>
+  <message name="processPostForATM">
+    <part name="parameters" element="tns:processPostForATM" />
+  </message>
+  <message name="processPostForATMResponse">
+    <part name="parameters" element="tns:processPostForATMResponse" />
+  </message>
+  <message name="processResolveForATM">
+    <part name="parameters" element="tns:processResolveForATM" />
+  </message>
+  <message name="processResolveForATMResponse">
+    <part name="parameters" element="tns:processResolveForATMResponse" />
+  </message>
+  <message name="processUndoForATM">
+    <part name="parameters" element="tns:processUndoForATM" />
+  </message>
+  <message name="processUndoForATMResponse">
+    <part name="parameters" element="tns:processUndoForATMResponse" />
+  </message>
+  <message name="processManualAddForATM">
+    <part name="parameters" element="tns:processManualAddForATM" />
+  </message>
+  <message name="processManualAddForATMResponse">
+    <part name="parameters" element="tns:processManualAddForATMResponse" />
+  </message>
+  <message name="getATMNetworkNodeList">
+    <part name="parameters" element="tns:getATMNetworkNodeList" />
+  </message>
+  <message name="getATMNetworkNodeListResponse">
+    <part name="parameters" element="tns:getATMNetworkNodeListResponse" />
+  </message>
+  <message name="getATMStatusList">
+    <part name="parameters" element="tns:getATMStatusList" />
+  </message>
+  <message name="getATMStatusListResponse">
+    <part name="parameters" element="tns:getATMStatusListResponse" />
+  </message>
+  <message name="getATMTransactionTypeList">
+    <part name="parameters" element="tns:getATMTransactionTypeList" />
+  </message>
+  <message name="getATMTransactionTypeListResponse">
+    <part name="parameters" element="tns:getATMTransactionTypeListResponse" />
+  </message>
+  <message name="getATMTransactionTypeListForAddPage">
+    <part name="parameters" element="tns:getATMTransactionTypeListForAddPage" />
+  </message>
+  <message name="getATMTransactionTypeListForAddPageResponse">
+    <part name="parameters" element="tns:getATMTransactionTypeListForAddPageResponse" />
+  </message>
+  <message name="getAccountSummaryHomeBanking">
+    <part name="parameters" element="tns:getAccountSummaryHomeBanking" />
+  </message>
+  <message name="getAccountSummaryHomeBankingResponse">
+    <part name="parameters" element="tns:getAccountSummaryHomeBankingResponse" />
+  </message>
+  <message name="getAccountDetailHomeBanking">
+    <part name="parameters" element="tns:getAccountDetailHomeBanking" />
+  </message>
+  <message name="getAccountDetailHomeBankingResponse">
+    <part name="parameters" element="tns:getAccountDetailHomeBankingResponse" />
+  </message>
+  <message name="getAccountHistoryHomeBanking">
+    <part name="parameters" element="tns:getAccountHistoryHomeBanking" />
+  </message>
+  <message name="getAccountHistoryHomeBankingResponse">
+    <part name="parameters" element="tns:getAccountHistoryHomeBankingResponse" />
+  </message>
+  <message name="getAccountSummaryTeleBanking">
+    <part name="parameters" element="tns:getAccountSummaryTeleBanking" />
+  </message>
+  <message name="getAccountSummaryTeleBankingResponse">
+    <part name="parameters" element="tns:getAccountSummaryTeleBankingResponse" />
+  </message>
+  <message name="getAccountDetailTeleBanking">
+    <part name="parameters" element="tns:getAccountDetailTeleBanking" />
+  </message>
+  <message name="getAccountDetailTeleBankingResponse">
+    <part name="parameters" element="tns:getAccountDetailTeleBankingResponse" />
+  </message>
+  <message name="getAccountHistoryTeleBanking">
+    <part name="parameters" element="tns:getAccountHistoryTeleBanking" />
+  </message>
+  <message name="getAccountHistoryTeleBankingResponse">
+    <part name="parameters" element="tns:getAccountHistoryTeleBankingResponse" />
+  </message>
+  <message name="getCrossAccountsTeleBanking">
+    <part name="parameters" element="tns:getCrossAccountsTeleBanking" />
+  </message>
+  <message name="getCrossAccountsTeleBankingResponse">
+    <part name="parameters" element="tns:getCrossAccountsTeleBankingResponse" />
+  </message>
+  <message name="getByPrimaryKey">
+    <part name="parameters" element="tns:getByPrimaryKey" />
+  </message>
+  <message name="getByPrimaryKeyResponse">
+    <part name="parameters" element="tns:getByPrimaryKeyResponse" />
+  </message>
+  <message name="getAllHBNetworkNodesWithNoPaginationByIncludeAll">
+    <part name="parameters" element="tns:getAllHBNetworkNodesWithNoPaginationByIncludeAll" />
+  </message>
+  <message name="getAllHBNetworkNodesWithNoPaginationByIncludeAllResponse">
+    <part name="parameters" element="tns:getAllHBNetworkNodesWithNoPaginationByIncludeAllResponse" />
+  </message>
+  <portType name="CustomerService">
+    <operation name="checkAccess">
+      <input message="tns:checkAccess" />
+      <output message="tns:checkAccessResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getGenericCounters">
+      <input message="tns:getGenericCounters" />
+      <output message="tns:getGenericCountersResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findById">
+      <input message="tns:findById" />
+      <output message="tns:findByIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllQuestions">
+      <input message="tns:getAllQuestions" />
+      <output message="tns:getAllQuestionsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllQuestionsByQuestionCategoriesId">
+      <input message="tns:getAllQuestionsByQuestionCategoriesId" />
+      <output message="tns:getAllQuestionsByQuestionCategoriesIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllQuestionsByCustomerId">
+      <input message="tns:getAllQuestionsByCustomerId" />
+      <output message="tns:getAllQuestionsByCustomerIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllOptionalQuestionsByCustomerId">
+      <input message="tns:getAllOptionalQuestionsByCustomerId" />
+      <output message="tns:getAllOptionalQuestionsByCustomerIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getQuestionByQuestionId">
+      <input message="tns:getQuestionByQuestionId" />
+      <output message="tns:getQuestionByQuestionIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateQuestionsForCustomer">
+      <input message="tns:createUpdateQuestionsForCustomer" />
+      <output message="tns:createUpdateQuestionsForCustomerResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllRequiredQuestions">
+      <input message="tns:getAllRequiredQuestions" />
+      <output message="tns:getAllRequiredQuestionsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllOptionalQuestions">
+      <input message="tns:getAllOptionalQuestions" />
+      <output message="tns:getAllOptionalQuestionsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getCreditBureauReportsForCustomer">
+      <input message="tns:getCreditBureauReportsForCustomer" />
+      <output message="tns:getCreditBureauReportsForCustomerResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getCreditBureauReportFromEquifax">
+      <input message="tns:getCreditBureauReportFromEquifax" />
+      <output message="tns:getCreditBureauReportFromEquifaxResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getIDManagerOverrideResponse">
+      <input message="tns:getIDManagerOverrideResponse" />
+      <output message="tns:getIDManagerOverrideResponseResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getCustAccessByCustId">
+      <input message="tns:getCustAccessByCustId" />
+      <output message="tns:getCustAccessByCustIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getHBCustAccessByHBCustAccessId">
+      <input message="tns:getHBCustAccessByHBCustAccessId" />
+      <output message="tns:getHBCustAccessByHBCustAccessIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getTBCustAccessByTBCustAccessId">
+      <input message="tns:getTBCustAccessByTBCustAccessId" />
+      <output message="tns:getTBCustAccessByTBCustAccessIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="retrieveFinancialStatementInfo">
+      <input message="tns:retrieveFinancialStatementInfo" />
+      <output message="tns:retrieveFinancialStatementInfoResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="retrieveFSIndicatorsByCustomerID">
+      <input message="tns:retrieveFSIndicatorsByCustomerID" />
+      <output message="tns:retrieveFSIndicatorsByCustomerIDResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getFSHistoryByCustomerID">
+      <input message="tns:getFSHistoryByCustomerID" />
+      <output message="tns:getFSHistoryByCustomerIDResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getFSHistoryDetailsByID">
+      <input message="tns:getFSHistoryDetailsByID" />
+      <output message="tns:getFSHistoryDetailsByIDResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="requestNewCreditReport">
+      <input message="tns:requestNewCreditReport" />
+      <output message="tns:requestNewCreditReportResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllReceiptByCustId">
+      <input message="tns:getAllReceiptByCustId" />
+      <output message="tns:getAllReceiptByCustIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateACHOrignationSetUp">
+      <input message="tns:createUpdateACHOrignationSetUp" />
+      <output message="tns:createUpdateACHOrignationSetUpResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllOrigination">
+      <input message="tns:getAllOrigination" />
+      <output message="tns:getAllOriginationResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAchBatchOrigination">
+      <input message="tns:getAchBatchOrigination" />
+      <output message="tns:getAchBatchOriginationResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="updateAchBatchOriginationWithAddenda">
+      <input message="tns:updateAchBatchOriginationWithAddenda" />
+      <output message="tns:updateAchBatchOriginationWithAddendaResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="updateIATBatchOriginationWithAddendas">
+      <input message="tns:updateIATBatchOriginationWithAddendas" />
+      <output message="tns:updateIATBatchOriginationWithAddendasResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findGovFormSummaryItemInfosByCriteria">
+      <input message="tns:findGovFormSummaryItemInfosByCriteria" />
+      <output message="tns:findGovFormSummaryItemInfosByCriteriaResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="editTaxReceipt">
+      <input message="tns:editTaxReceipt" />
+      <output message="tns:editTaxReceiptResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="calculateCustBondRedemption">
+      <input message="tns:calculateCustBondRedemption" />
+      <output message="tns:calculateCustBondRedemptionResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findCustBondRedemptionByCustomerId">
+      <input message="tns:findCustBondRedemptionByCustomerId" />
+      <output message="tns:findCustBondRedemptionByCustomerIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getCustBondHeaderInfoByMonId">
+      <input message="tns:getCustBondHeaderInfoByMonId" />
+      <output message="tns:getCustBondHeaderInfoByMonIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllCalendars">
+      <input message="tns:getAllCalendars" />
+      <output message="tns:getAllCalendarsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllHoliday">
+      <input message="tns:getAllHoliday" />
+      <output message="tns:getAllHolidayResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="populateCalendarDateInfos">
+      <input message="tns:populateCalendarDateInfos" />
+      <output message="tns:populateCalendarDateInfosResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findStatementOptionById">
+      <input message="tns:findStatementOptionById" />
+      <output message="tns:findStatementOptionByIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findStatementOptionByCustId">
+      <input message="tns:findStatementOptionByCustId" />
+      <output message="tns:findStatementOptionByCustIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createStatementOptions">
+      <input message="tns:createStatementOptions" />
+      <output message="tns:createStatementOptionsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateStatementOption">
+      <input message="tns:createUpdateStatementOption" />
+      <output message="tns:createUpdateStatementOptionResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="isOnline">
+      <input message="tns:isOnline" />
+      <output message="tns:isOnlineResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="syncGenericCounters">
+      <input message="tns:syncGenericCounters" />
+      <output message="tns:syncGenericCountersResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpadteHBCustLimits">
+      <input message="tns:createUpadteHBCustLimits" />
+      <output message="tns:createUpadteHBCustLimitsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getQuestions">
+      <input message="tns:getQuestions" />
+      <output message="tns:getQuestionsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="persistQuestions">
+      <input message="tns:persistQuestions" />
+      <output message="tns:persistQuestionsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="isRequiredQuestionsPending">
+      <input message="tns:isRequiredQuestionsPending" />
+      <output message="tns:isRequiredQuestionsPendingResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateHBNetworkNode">
+      <input message="tns:createUpdateHBNetworkNode" />
+      <output message="tns:createUpdateHBNetworkNodeResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findAllHBNetworkNodes">
+      <input message="tns:findAllHBNetworkNodes" />
+      <output message="tns:findAllHBNetworkNodesResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findByCode">
+      <input message="tns:findByCode" />
+      <output message="tns:findByCodeResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllNetworkNodes">
+      <input message="tns:getAllNetworkNodes" />
+      <output message="tns:getAllNetworkNodesResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllNetworkNodesWithNoPagination">
+      <input message="tns:getAllNetworkNodesWithNoPagination" />
+      <output message="tns:getAllNetworkNodesWithNoPaginationResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getStylesheetText">
+      <input message="tns:getStylesheetText" />
+      <output message="tns:getStylesheetTextResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findSafetyDepositBox">
+      <input message="tns:findSafetyDepositBox" />
+      <output message="tns:findSafetyDepositBoxResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findSafetyDepositBoxesForCustomer">
+      <input message="tns:findSafetyDepositBoxesForCustomer" />
+      <output message="tns:findSafetyDepositBoxesForCustomerResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findSafetyDepositBoxesForCustomerByIncludeClosed">
+      <input message="tns:findSafetyDepositBoxesForCustomerByIncludeClosed" />
+      <output message="tns:findSafetyDepositBoxesForCustomerByIncludeClosedResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateSafetyDepositBox">
+      <input message="tns:createUpdateSafetyDepositBox" />
+      <output message="tns:createUpdateSafetyDepositBoxResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateQuestionsForAll">
+      <input message="tns:createUpdateQuestionsForAll" />
+      <output message="tns:createUpdateQuestionsForAllResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getCreditBureauReport">
+      <input message="tns:getCreditBureauReport" />
+      <output message="tns:getCreditBureauReportResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="importLiabilitiesFromCreditBureauReport">
+      <input message="tns:importLiabilitiesFromCreditBureauReport" />
+      <output message="tns:importLiabilitiesFromCreditBureauReportResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAncillaryProductByBureau">
+      <input message="tns:getAncillaryProductByBureau" />
+      <output message="tns:getAncillaryProductByBureauResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getCustAccessByCustAccessId">
+      <input message="tns:getCustAccessByCustAccessId" />
+      <output message="tns:getCustAccessByCustAccessIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getHBCustAccessByLogonName">
+      <input message="tns:getHBCustAccessByLogonName" />
+      <output message="tns:getHBCustAccessByLogonNameResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateCustAccess">
+      <input message="tns:createUpdateCustAccess" />
+      <output message="tns:createUpdateCustAccessResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateFinancialStatementInfo">
+      <input message="tns:createUpdateFinancialStatementInfo" />
+      <output message="tns:createUpdateFinancialStatementInfoResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateLiability">
+      <input message="tns:createUpdateLiability" />
+      <output message="tns:createUpdateLiabilityResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getCurrentEligibility">
+      <input message="tns:getCurrentEligibility" />
+      <output message="tns:getCurrentEligibilityResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllReceiptByCustIdWithSorting">
+      <input message="tns:getAllReceiptByCustIdWithSorting" />
+      <output message="tns:getAllReceiptByCustIdWithSortingResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findACHOriginationSetUpByPrimaryKey">
+      <input message="tns:findACHOriginationSetUpByPrimaryKey" />
+      <output message="tns:findACHOriginationSetUpByPrimaryKeyResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findACHOriginationSetUpByPrimaryKeyWithDBLock">
+      <input message="tns:findACHOriginationSetUpByPrimaryKeyWithDBLock" />
+      <output message="tns:findACHOriginationSetUpByPrimaryKeyWithDBLockResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findExternalHistoryByPrimaryKey">
+      <input message="tns:findExternalHistoryByPrimaryKey" />
+      <output message="tns:findExternalHistoryByPrimaryKeyResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findExternalHistoryByPrimaryKeyWithDBLock">
+      <input message="tns:findExternalHistoryByPrimaryKeyWithDBLock" />
+      <output message="tns:findExternalHistoryByPrimaryKeyWithDBLockResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getGovernmentFormInfo">
+      <input message="tns:getGovernmentFormInfo" />
+      <output message="tns:getGovernmentFormInfoResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="printGovernmentForm">
+      <input message="tns:printGovernmentForm" />
+      <output message="tns:printGovernmentFormResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="generateGovernmentForm">
+      <input message="tns:generateGovernmentForm" />
+      <output message="tns:generateGovernmentFormResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="exemptGovernmentForm">
+      <input message="tns:exemptGovernmentForm" />
+      <output message="tns:exemptGovernmentFormResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="amendGovernmentForm">
+      <input message="tns:amendGovernmentForm" />
+      <output message="tns:amendGovernmentFormResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="saveGovernmentForm">
+      <input message="tns:saveGovernmentForm" />
+      <output message="tns:saveGovernmentFormResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="generateAdHocSlip">
+      <input message="tns:generateAdHocSlip" />
+      <output message="tns:generateAdHocSlipResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateTaxReceiptUS">
+      <input message="tns:createUpdateTaxReceiptUS" />
+      <output message="tns:createUpdateTaxReceiptUSResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findCustBondRedemptionByPrimaryKey">
+      <input message="tns:findCustBondRedemptionByPrimaryKey" />
+      <output message="tns:findCustBondRedemptionByPrimaryKeyResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findCustBondRedemptionByPrimaryKeyWithLock">
+      <input message="tns:findCustBondRedemptionByPrimaryKeyWithLock" />
+      <output message="tns:findCustBondRedemptionByPrimaryKeyWithLockResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateCustBondRedemption">
+      <input message="tns:createUpdateCustBondRedemption" />
+      <output message="tns:createUpdateCustBondRedemptionResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getCalendarDatesByHolidayCalendarId">
+      <input message="tns:getCalendarDatesByHolidayCalendarId" />
+      <output message="tns:getCalendarDatesByHolidayCalendarIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateCalendars">
+      <input message="tns:createUpdateCalendars" />
+      <output message="tns:createUpdateCalendarsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findCalendarsByPrimaryKey">
+      <input message="tns:findCalendarsByPrimaryKey" />
+      <output message="tns:findCalendarsByPrimaryKeyResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findCalendarsByPrimaryKeyWithLock">
+      <input message="tns:findCalendarsByPrimaryKeyWithLock" />
+      <output message="tns:findCalendarsByPrimaryKeyWithLockResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findCalendarsByPrimaryKeyHolidayDateId">
+      <input message="tns:findCalendarsByPrimaryKeyHolidayDateId" />
+      <output message="tns:findCalendarsByPrimaryKeyHolidayDateIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findCalendarsByPrimaryKeyCalendarDateId">
+      <input message="tns:findCalendarsByPrimaryKeyCalendarDateId" />
+      <output message="tns:findCalendarsByPrimaryKeyCalendarDateIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="memberPasswordValidation">
+      <input message="tns:memberPasswordValidation" />
+      <output message="tns:memberPasswordValidationResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getCrossAccountsHomeBanking">
+      <input message="tns:getCrossAccountsHomeBanking" />
+      <output message="tns:getCrossAccountsHomeBankingResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="memberPasswordChange">
+      <input message="tns:memberPasswordChange" />
+      <output message="tns:memberPasswordChangeResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getTemparoryPinHomeBanking">
+      <input message="tns:getTemparoryPinHomeBanking" />
+      <output message="tns:getTemparoryPinHomeBankingResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="validateWebRequestHomeBanking">
+      <input message="tns:validateWebRequestHomeBanking" />
+      <output message="tns:validateWebRequestHomeBankingResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="stopPaymentOnCheckTeleBanking">
+      <input message="tns:stopPaymentOnCheckTeleBanking" />
+      <output message="tns:stopPaymentOnCheckTeleBankingResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="billPaymentTransactionTeleBanking">
+      <input message="tns:billPaymentTransactionTeleBanking" />
+      <output message="tns:billPaymentTransactionTeleBankingResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="isOnlineTeleBanking">
+      <input message="tns:isOnlineTeleBanking" />
+      <output message="tns:isOnlineTeleBankingResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="memberPinValidation">
+      <input message="tns:memberPinValidation" />
+      <output message="tns:memberPinValidationResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="memberPinChange">
+      <input message="tns:memberPinChange" />
+      <output message="tns:memberPinChangeResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getTemparoryPinTeleBanking">
+      <input message="tns:getTemparoryPinTeleBanking" />
+      <output message="tns:getTemparoryPinTeleBankingResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="validateWebRequestTeleBanking">
+      <input message="tns:validateWebRequestTeleBanking" />
+      <output message="tns:validateWebRequestTeleBankingResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="isOnlineByServiceType">
+      <input message="tns:isOnlineByServiceType" />
+      <output message="tns:isOnlineByServiceTypeResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getCardByCardNumber">
+      <input message="tns:getCardByCardNumber" />
+      <output message="tns:getCardByCardNumberResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getCardByCardNumberReversal">
+      <input message="tns:getCardByCardNumberReversal" />
+      <output message="tns:getCardByCardNumberReversalResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getATMAccountBalances">
+      <input message="tns:getATMAccountBalances" />
+      <output message="tns:getATMAccountBalancesResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getATMAccountBalancesReversal">
+      <input message="tns:getATMAccountBalancesReversal" />
+      <output message="tns:getATMAccountBalancesReversalResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="doWithdrawal">
+      <input message="tns:doWithdrawal" />
+      <output message="tns:doWithdrawalResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="doWithdrawalReversal">
+      <input message="tns:doWithdrawalReversal" />
+      <output message="tns:doWithdrawalReversalResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="doDeposit">
+      <input message="tns:doDeposit" />
+      <output message="tns:doDepositResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="doDepositReversal">
+      <input message="tns:doDepositReversal" />
+      <output message="tns:doDepositReversalResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="doTransfer">
+      <input message="tns:doTransfer" />
+      <output message="tns:doTransferResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="doTransferReversal">
+      <input message="tns:doTransferReversal" />
+      <output message="tns:doTransferReversalResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="doPreAuth">
+      <input message="tns:doPreAuth" />
+      <output message="tns:doPreAuthResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="doPreAuthReversal">
+      <input message="tns:doPreAuthReversal" />
+      <output message="tns:doPreAuthReversalResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="doGoodsServices">
+      <input message="tns:doGoodsServices" />
+      <output message="tns:doGoodsServicesResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="doGoodsServicesReversal">
+      <input message="tns:doGoodsServicesReversal" />
+      <output message="tns:doGoodsServicesReversalResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="doReturnsAdj">
+      <input message="tns:doReturnsAdj" />
+      <output message="tns:doReturnsAdjResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="doReturnsAdjReversal">
+      <input message="tns:doReturnsAdjReversal" />
+      <output message="tns:doReturnsAdjReversalResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="doReturns">
+      <input message="tns:doReturns" />
+      <output message="tns:doReturnsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="doReturnsReversal">
+      <input message="tns:doReturnsReversal" />
+      <output message="tns:doReturnsReversalResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="doGoodsServicesAdj">
+      <input message="tns:doGoodsServicesAdj" />
+      <output message="tns:doGoodsServicesAdjResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="doGoodsServicesAdjReversal">
+      <input message="tns:doGoodsServicesAdjReversal" />
+      <output message="tns:doGoodsServicesAdjReversalResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="doAuthorization">
+      <input message="tns:doAuthorization" />
+      <output message="tns:doAuthorizationResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="doAuthorizationReversal">
+      <input message="tns:doAuthorizationReversal" />
+      <output message="tns:doAuthorizationReversalResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="doUpdateCardStatus">
+      <input message="tns:doUpdateCardStatus" />
+      <output message="tns:doUpdateCardStatusResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="addThirdPartyStatusLog">
+      <input message="tns:addThirdPartyStatusLog" />
+      <output message="tns:addThirdPartyStatusLogResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getThirdPartyStatusLog">
+      <input message="tns:getThirdPartyStatusLog" />
+      <output message="tns:getThirdPartyStatusLogResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="updateAndGetNextNetworkUpdateInfo">
+      <input message="tns:updateAndGetNextNetworkUpdateInfo" />
+      <output message="tns:updateAndGetNextNetworkUpdateInfoResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getRecordsForATM">
+      <input message="tns:getRecordsForATM" />
+      <output message="tns:getRecordsForATMResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="processPostForATM">
+      <input message="tns:processPostForATM" />
+      <output message="tns:processPostForATMResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="processResolveForATM">
+      <input message="tns:processResolveForATM" />
+      <output message="tns:processResolveForATMResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="processUndoForATM">
+      <input message="tns:processUndoForATM" />
+      <output message="tns:processUndoForATMResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="processManualAddForATM">
+      <input message="tns:processManualAddForATM" />
+      <output message="tns:processManualAddForATMResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getATMNetworkNodeList">
+      <input message="tns:getATMNetworkNodeList" />
+      <output message="tns:getATMNetworkNodeListResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getATMStatusList">
+      <input message="tns:getATMStatusList" />
+      <output message="tns:getATMStatusListResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getATMTransactionTypeList">
+      <input message="tns:getATMTransactionTypeList" />
+      <output message="tns:getATMTransactionTypeListResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getATMTransactionTypeListForAddPage">
+      <input message="tns:getATMTransactionTypeListForAddPage" />
+      <output message="tns:getATMTransactionTypeListForAddPageResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAccountSummaryHomeBanking">
+      <input message="tns:getAccountSummaryHomeBanking" />
+      <output message="tns:getAccountSummaryHomeBankingResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAccountDetailHomeBanking">
+      <input message="tns:getAccountDetailHomeBanking" />
+      <output message="tns:getAccountDetailHomeBankingResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAccountHistoryHomeBanking">
+      <input message="tns:getAccountHistoryHomeBanking" />
+      <output message="tns:getAccountHistoryHomeBankingResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAccountSummaryTeleBanking">
+      <input message="tns:getAccountSummaryTeleBanking" />
+      <output message="tns:getAccountSummaryTeleBankingResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAccountDetailTeleBanking">
+      <input message="tns:getAccountDetailTeleBanking" />
+      <output message="tns:getAccountDetailTeleBankingResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAccountHistoryTeleBanking">
+      <input message="tns:getAccountHistoryTeleBanking" />
+      <output message="tns:getAccountHistoryTeleBankingResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getCrossAccountsTeleBanking">
+      <input message="tns:getCrossAccountsTeleBanking" />
+      <output message="tns:getCrossAccountsTeleBankingResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getByPrimaryKey">
+      <input message="tns:getByPrimaryKey" />
+      <output message="tns:getByPrimaryKeyResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllHBNetworkNodesWithNoPaginationByIncludeAll">
+      <input message="tns:getAllHBNetworkNodesWithNoPaginationByIncludeAll" />
+      <output message="tns:getAllHBNetworkNodesWithNoPaginationByIncludeAllResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+  </portType>
+</definitions>

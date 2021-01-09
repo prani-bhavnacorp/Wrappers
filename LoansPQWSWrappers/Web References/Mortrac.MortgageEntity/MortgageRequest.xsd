@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:mortgageReq="http://com.fsb.domain/services/mortgage/MortgageRequest" xmlns:Q1="http://www.example.org/Address" elementFormDefault="qualified" targetNamespace="http://com.fsb.domain/services/mortgage/MortgageRequest" xmlns="http://www.w3.org/2001/XMLSchema">
+  <element name="MortgageRequest" type="mortgageReq:RequestType" />
+  <complexType name="RequestType">
+    <sequence>
+      <element name="LoanNumber">
+        <simpleType>
+          <restriction base="string">
+            <pattern value="\d{9,10}" />
+          </restriction>
+        </simpleType>
+      </element>
+    </sequence>
+  </complexType>
+</schema>

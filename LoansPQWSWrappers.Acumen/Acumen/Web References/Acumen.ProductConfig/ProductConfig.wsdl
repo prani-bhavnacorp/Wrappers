@@ -1,0 +1,1201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:connections.ispectrum.summitsite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:connections.ispectrum.summitsite.com" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="https://gocucorvallis.acumen.fiserv.com:443/ispectrum-webservices/ProductConfig?xsd=1" namespace="urn:connections.ispectrum.summitsite.com" />
+    </xsd:schema>
+  </types>
+  <message name="findById">
+    <part name="parameters" element="tns:findById" />
+  </message>
+  <message name="findByIdResponse">
+    <part name="parameters" element="tns:findByIdResponse" />
+  </message>
+  <message name="SOAPException">
+    <part name="fault" element="tns:SOAPException" />
+  </message>
+  <message name="findByTypeAndCode">
+    <part name="parameters" element="tns:findByTypeAndCode" />
+  </message>
+  <message name="findByTypeAndCodeResponse">
+    <part name="parameters" element="tns:findByTypeAndCodeResponse" />
+  </message>
+  <message name="getControlCodes">
+    <part name="parameters" element="tns:getControlCodes" />
+  </message>
+  <message name="getControlCodesResponse">
+    <part name="parameters" element="tns:getControlCodesResponse" />
+  </message>
+  <message name="createUpdateControlCode">
+    <part name="parameters" element="tns:createUpdateControlCode" />
+  </message>
+  <message name="createUpdateControlCodeResponse">
+    <part name="parameters" element="tns:createUpdateControlCodeResponse" />
+  </message>
+  <message name="getAllControlCode">
+    <part name="parameters" element="tns:getAllControlCode" />
+  </message>
+  <message name="getAllControlCodeResponse">
+    <part name="parameters" element="tns:getAllControlCodeResponse" />
+  </message>
+  <message name="getAllPackages">
+    <part name="parameters" element="tns:getAllPackages" />
+  </message>
+  <message name="getAllPackagesResponse">
+    <part name="parameters" element="tns:getAllPackagesResponse" />
+  </message>
+  <message name="getAllServiceLevelConfig">
+    <part name="parameters" element="tns:getAllServiceLevelConfig" />
+  </message>
+  <message name="getAllServiceLevelConfigResponse">
+    <part name="parameters" element="tns:getAllServiceLevelConfigResponse" />
+  </message>
+  <message name="getActiveSavingsProducts">
+    <part name="parameters" element="tns:getActiveSavingsProducts" />
+  </message>
+  <message name="getActiveSavingsProductsResponse">
+    <part name="parameters" element="tns:getActiveSavingsProductsResponse" />
+  </message>
+  <message name="getAllSavingsProducts">
+    <part name="parameters" element="tns:getAllSavingsProducts" />
+  </message>
+  <message name="getAllSavingsProductsResponse">
+    <part name="parameters" element="tns:getAllSavingsProductsResponse" />
+  </message>
+  <message name="getLoanRateCategories">
+    <part name="parameters" element="tns:getLoanRateCategories" />
+  </message>
+  <message name="getLoanRateCategoriesResponse">
+    <part name="parameters" element="tns:getLoanRateCategoriesResponse" />
+  </message>
+  <message name="getSavingsRateCategories">
+    <part name="parameters" element="tns:getSavingsRateCategories" />
+  </message>
+  <message name="getSavingsRateCategoriesResponse">
+    <part name="parameters" element="tns:getSavingsRateCategoriesResponse" />
+  </message>
+  <message name="getLoanRateTypeDisplay">
+    <part name="parameters" element="tns:getLoanRateTypeDisplay" />
+  </message>
+  <message name="getLoanRateTypeDisplayResponse">
+    <part name="parameters" element="tns:getLoanRateTypeDisplayResponse" />
+  </message>
+  <message name="getSavingsRateTypeDisplay">
+    <part name="parameters" element="tns:getSavingsRateTypeDisplay" />
+  </message>
+  <message name="getSavingsRateTypeDisplayResponse">
+    <part name="parameters" element="tns:getSavingsRateTypeDisplayResponse" />
+  </message>
+  <message name="getRateType">
+    <part name="parameters" element="tns:getRateType" />
+  </message>
+  <message name="getRateTypeResponse">
+    <part name="parameters" element="tns:getRateTypeResponse" />
+  </message>
+  <message name="getSavingsProduct">
+    <part name="parameters" element="tns:getSavingsProduct" />
+  </message>
+  <message name="getSavingsProductResponse">
+    <part name="parameters" element="tns:getSavingsProductResponse" />
+  </message>
+  <message name="getRateDetailsForProduct">
+    <part name="parameters" element="tns:getRateDetailsForProduct" />
+  </message>
+  <message name="getRateDetailsForProductResponse">
+    <part name="parameters" element="tns:getRateDetailsForProductResponse" />
+  </message>
+  <message name="createSavingsProduct">
+    <part name="parameters" element="tns:createSavingsProduct" />
+  </message>
+  <message name="createSavingsProductResponse">
+    <part name="parameters" element="tns:createSavingsProductResponse" />
+  </message>
+  <message name="updateSavingsProduct">
+    <part name="parameters" element="tns:updateSavingsProduct" />
+  </message>
+  <message name="updateSavingsProductResponse">
+    <part name="parameters" element="tns:updateSavingsProductResponse" />
+  </message>
+  <message name="getTermProduct">
+    <part name="parameters" element="tns:getTermProduct" />
+  </message>
+  <message name="getTermProductResponse">
+    <part name="parameters" element="tns:getTermProductResponse" />
+  </message>
+  <message name="getTermProductByCode">
+    <part name="parameters" element="tns:getTermProductByCode" />
+  </message>
+  <message name="getTermProductByCodeResponse">
+    <part name="parameters" element="tns:getTermProductByCodeResponse" />
+  </message>
+  <message name="createTermProduct">
+    <part name="parameters" element="tns:createTermProduct" />
+  </message>
+  <message name="createTermProductResponse">
+    <part name="parameters" element="tns:createTermProductResponse" />
+  </message>
+  <message name="updateTermProduct">
+    <part name="parameters" element="tns:updateTermProduct" />
+  </message>
+  <message name="updateTermProductResponse">
+    <part name="parameters" element="tns:updateTermProductResponse" />
+  </message>
+  <message name="getLoanProduct">
+    <part name="parameters" element="tns:getLoanProduct" />
+  </message>
+  <message name="getLoanProductResponse">
+    <part name="parameters" element="tns:getLoanProductResponse" />
+  </message>
+  <message name="getLoanProductByCode">
+    <part name="parameters" element="tns:getLoanProductByCode" />
+  </message>
+  <message name="getLoanProductByCodeResponse">
+    <part name="parameters" element="tns:getLoanProductByCodeResponse" />
+  </message>
+  <message name="createLoanProduct">
+    <part name="parameters" element="tns:createLoanProduct" />
+  </message>
+  <message name="createLoanProductResponse">
+    <part name="parameters" element="tns:createLoanProductResponse" />
+  </message>
+  <message name="updateLoanProduct">
+    <part name="parameters" element="tns:updateLoanProduct" />
+  </message>
+  <message name="updateLoanProductResponse">
+    <part name="parameters" element="tns:updateLoanProductResponse" />
+  </message>
+  <message name="getProductList">
+    <part name="parameters" element="tns:getProductList" />
+  </message>
+  <message name="getProductListResponse">
+    <part name="parameters" element="tns:getProductListResponse" />
+  </message>
+  <message name="getProductListByType">
+    <part name="parameters" element="tns:getProductListByType" />
+  </message>
+  <message name="getProductListByTypeResponse">
+    <part name="parameters" element="tns:getProductListByTypeResponse" />
+  </message>
+  <message name="getProductTypes">
+    <part name="parameters" element="tns:getProductTypes" />
+  </message>
+  <message name="getProductTypesResponse">
+    <part name="parameters" element="tns:getProductTypesResponse" />
+  </message>
+  <message name="getLoanControlCodesByProductIdAndType">
+    <part name="parameters" element="tns:getLoanControlCodesByProductIdAndType" />
+  </message>
+  <message name="getLoanControlCodesByProductIdAndTypeResponse">
+    <part name="parameters" element="tns:getLoanControlCodesByProductIdAndTypeResponse" />
+  </message>
+  <message name="getAllLoanControlCodes">
+    <part name="parameters" element="tns:getAllLoanControlCodes" />
+  </message>
+  <message name="getAllLoanControlCodesResponse">
+    <part name="parameters" element="tns:getAllLoanControlCodesResponse" />
+  </message>
+  <message name="getActiveProductList">
+    <part name="parameters" element="tns:getActiveProductList" />
+  </message>
+  <message name="getActiveProductListResponse">
+    <part name="parameters" element="tns:getActiveProductListResponse" />
+  </message>
+  <message name="getActiveProductListForType">
+    <part name="parameters" element="tns:getActiveProductListForType" />
+  </message>
+  <message name="getActiveProductListForTypeResponse">
+    <part name="parameters" element="tns:getActiveProductListForTypeResponse" />
+  </message>
+  <message name="getFeeProduct">
+    <part name="parameters" element="tns:getFeeProduct" />
+  </message>
+  <message name="getFeeProductResponse">
+    <part name="parameters" element="tns:getFeeProductResponse" />
+  </message>
+  <message name="getFeeProductByCode">
+    <part name="parameters" element="tns:getFeeProductByCode" />
+  </message>
+  <message name="getFeeProductByCodeResponse">
+    <part name="parameters" element="tns:getFeeProductByCodeResponse" />
+  </message>
+  <message name="createUpdateFeeProduct">
+    <part name="parameters" element="tns:createUpdateFeeProduct" />
+  </message>
+  <message name="createUpdateFeeProductResponse">
+    <part name="parameters" element="tns:createUpdateFeeProductResponse" />
+  </message>
+  <message name="createUpdateFeePackage">
+    <part name="parameters" element="tns:createUpdateFeePackage" />
+  </message>
+  <message name="createUpdateFeePackageResponse">
+    <part name="parameters" element="tns:createUpdateFeePackageResponse" />
+  </message>
+  <message name="getMiscProduct">
+    <part name="parameters" element="tns:getMiscProduct" />
+  </message>
+  <message name="getMiscProductResponse">
+    <part name="parameters" element="tns:getMiscProductResponse" />
+  </message>
+  <message name="getMiscProductByCode">
+    <part name="parameters" element="tns:getMiscProductByCode" />
+  </message>
+  <message name="getMiscProductByCodeResponse">
+    <part name="parameters" element="tns:getMiscProductByCodeResponse" />
+  </message>
+  <message name="createUpdateMiscProduct">
+    <part name="parameters" element="tns:createUpdateMiscProduct" />
+  </message>
+  <message name="createUpdateMiscProductResponse">
+    <part name="parameters" element="tns:createUpdateMiscProductResponse" />
+  </message>
+  <message name="getFeeProductListByProductId">
+    <part name="parameters" element="tns:getFeeProductListByProductId" />
+  </message>
+  <message name="getFeeProductListByProductIdResponse">
+    <part name="parameters" element="tns:getFeeProductListByProductIdResponse" />
+  </message>
+  <message name="getFeeProductList">
+    <part name="parameters" element="tns:getFeeProductList" />
+  </message>
+  <message name="getFeeProductListResponse">
+    <part name="parameters" element="tns:getFeeProductListResponse" />
+  </message>
+  <message name="getLoanProductsByRateTypeId">
+    <part name="parameters" element="tns:getLoanProductsByRateTypeId" />
+  </message>
+  <message name="getLoanProductsByRateTypeIdResponse">
+    <part name="parameters" element="tns:getLoanProductsByRateTypeIdResponse" />
+  </message>
+  <message name="getSavingsProductsByRateTypeId">
+    <part name="parameters" element="tns:getSavingsProductsByRateTypeId" />
+  </message>
+  <message name="getSavingsProductsByRateTypeIdResponse">
+    <part name="parameters" element="tns:getSavingsProductsByRateTypeIdResponse" />
+  </message>
+  <message name="getAllLoanProducts">
+    <part name="parameters" element="tns:getAllLoanProducts" />
+  </message>
+  <message name="getAllLoanProductsResponse">
+    <part name="parameters" element="tns:getAllLoanProductsResponse" />
+  </message>
+  <message name="getInstitutionMemosByProductId">
+    <part name="parameters" element="tns:getInstitutionMemosByProductId" />
+  </message>
+  <message name="getInstitutionMemosByProductIdResponse">
+    <part name="parameters" element="tns:getInstitutionMemosByProductIdResponse" />
+  </message>
+  <message name="getActiveProductsOfSameTypeAndCurrency">
+    <part name="parameters" element="tns:getActiveProductsOfSameTypeAndCurrency" />
+  </message>
+  <message name="getActiveProductsOfSameTypeAndCurrencyResponse">
+    <part name="parameters" element="tns:getActiveProductsOfSameTypeAndCurrencyResponse" />
+  </message>
+  <message name="getActiveLoanProductsOfSameTypeAndCurrency">
+    <part name="parameters" element="tns:getActiveLoanProductsOfSameTypeAndCurrency" />
+  </message>
+  <message name="getActiveLoanProductsOfSameTypeAndCurrencyResponse">
+    <part name="parameters" element="tns:getActiveLoanProductsOfSameTypeAndCurrencyResponse" />
+  </message>
+  <message name="getRateHistory">
+    <part name="parameters" element="tns:getRateHistory" />
+  </message>
+  <message name="getRateHistoryResponse">
+    <part name="parameters" element="tns:getRateHistoryResponse" />
+  </message>
+  <message name="getRIFProductAtRSPAgeLimit">
+    <part name="parameters" element="tns:getRIFProductAtRSPAgeLimit" />
+  </message>
+  <message name="getRIFProductAtRSPAgeLimitResponse">
+    <part name="parameters" element="tns:getRIFProductAtRSPAgeLimitResponse" />
+  </message>
+  <message name="getAsOfDateRateDetailsInfo">
+    <part name="parameters" element="tns:getAsOfDateRateDetailsInfo" />
+  </message>
+  <message name="getAsOfDateRateDetailsInfoResponse">
+    <part name="parameters" element="tns:getAsOfDateRateDetailsInfoResponse" />
+  </message>
+  <message name="getSavDepAndLoanProductTypes">
+    <part name="parameters" element="tns:getSavDepAndLoanProductTypes" />
+  </message>
+  <message name="getSavDepAndLoanProductTypesResponse">
+    <part name="parameters" element="tns:getSavDepAndLoanProductTypesResponse" />
+  </message>
+  <message name="createUpdateProductRoleIds">
+    <part name="parameters" element="tns:createUpdateProductRoleIds" />
+  </message>
+  <message name="createUpdateProductRoleIdsResponse">
+    <part name="parameters" element="tns:createUpdateProductRoleIdsResponse" />
+  </message>
+  <message name="deleteProduct">
+    <part name="parameters" element="tns:deleteProduct" />
+  </message>
+  <message name="deleteProductResponse">
+    <part name="parameters" element="tns:deleteProductResponse" />
+  </message>
+  <message name="getSavingsProductByCode">
+    <part name="parameters" element="tns:getSavingsProductByCode" />
+  </message>
+  <message name="getSavingsProductByCodeResponse">
+    <part name="parameters" element="tns:getSavingsProductByCodeResponse" />
+  </message>
+  <message name="getLoanPmtComponentDetails">
+    <part name="parameters" element="tns:getLoanPmtComponentDetails" />
+  </message>
+  <message name="getLoanPmtComponentDetailsResponse">
+    <part name="parameters" element="tns:getLoanPmtComponentDetailsResponse" />
+  </message>
+  <message name="getLoanPmtComponentDetailsByLoanCode">
+    <part name="parameters" element="tns:getLoanPmtComponentDetailsByLoanCode" />
+  </message>
+  <message name="getLoanPmtComponentDetailsByLoanCodeResponse">
+    <part name="parameters" element="tns:getLoanPmtComponentDetailsByLoanCodeResponse" />
+  </message>
+  <message name="getLoanPmtComponentDetailsByLoanPmtComponentId">
+    <part name="parameters" element="tns:getLoanPmtComponentDetailsByLoanPmtComponentId" />
+  </message>
+  <message name="getLoanPmtComponentDetailsByLoanPmtComponentIdResponse">
+    <part name="parameters" element="tns:getLoanPmtComponentDetailsByLoanPmtComponentIdResponse" />
+  </message>
+  <message name="isLateChargeCalcMethodDifferentFromNone">
+    <part name="parameters" element="tns:isLateChargeCalcMethodDifferentFromNone" />
+  </message>
+  <message name="isLateChargeCalcMethodDifferentFromNoneResponse">
+    <part name="parameters" element="tns:isLateChargeCalcMethodDifferentFromNoneResponse" />
+  </message>
+  <message name="findAllLoanRenewalOptionsByProductId">
+    <part name="parameters" element="tns:findAllLoanRenewalOptionsByProductId" />
+  </message>
+  <message name="findAllLoanRenewalOptionsByProductIdResponse">
+    <part name="parameters" element="tns:findAllLoanRenewalOptionsByProductIdResponse" />
+  </message>
+  <message name="findUniqueLoanRenewalOptionsByProductId">
+    <part name="parameters" element="tns:findUniqueLoanRenewalOptionsByProductId" />
+  </message>
+  <message name="findUniqueLoanRenewalOptionsByProductIdResponse">
+    <part name="parameters" element="tns:findUniqueLoanRenewalOptionsByProductIdResponse" />
+  </message>
+  <message name="findAllLoanRenewalDetailsByAccountId">
+    <part name="parameters" element="tns:findAllLoanRenewalDetailsByAccountId" />
+  </message>
+  <message name="findAllLoanRenewalDetailsByAccountIdResponse">
+    <part name="parameters" element="tns:findAllLoanRenewalDetailsByAccountIdResponse" />
+  </message>
+  <message name="getActiveLoanProductsOfSameCurrency">
+    <part name="parameters" element="tns:getActiveLoanProductsOfSameCurrency" />
+  </message>
+  <message name="getActiveLoanProductsOfSameCurrencyResponse">
+    <part name="parameters" element="tns:getActiveLoanProductsOfSameCurrencyResponse" />
+  </message>
+  <message name="getIndLoanAmtList">
+    <part name="parameters" element="tns:getIndLoanAmtList" />
+  </message>
+  <message name="getIndLoanAmtListResponse">
+    <part name="parameters" element="tns:getIndLoanAmtListResponse" />
+  </message>
+  <message name="findPackageByProductId">
+    <part name="parameters" element="tns:findPackageByProductId" />
+  </message>
+  <message name="findPackageByProductIdResponse">
+    <part name="parameters" element="tns:findPackageByProductIdResponse" />
+  </message>
+  <message name="findPackageById">
+    <part name="parameters" element="tns:findPackageById" />
+  </message>
+  <message name="findPackageByIdResponse">
+    <part name="parameters" element="tns:findPackageByIdResponse" />
+  </message>
+  <message name="findAllChannelTranTypes">
+    <part name="parameters" element="tns:findAllChannelTranTypes" />
+  </message>
+  <message name="findAllChannelTranTypesResponse">
+    <part name="parameters" element="tns:findAllChannelTranTypesResponse" />
+  </message>
+  <message name="duplicateFeePackage">
+    <part name="parameters" element="tns:duplicateFeePackage" />
+  </message>
+  <message name="duplicateFeePackageResponse">
+    <part name="parameters" element="tns:duplicateFeePackageResponse" />
+  </message>
+  <message name="getFeePackageConfigResources">
+    <part name="parameters" element="tns:getFeePackageConfigResources" />
+  </message>
+  <message name="getFeePackageConfigResourcesResponse">
+    <part name="parameters" element="tns:getFeePackageConfigResourcesResponse" />
+  </message>
+  <message name="getAllChqOrderProducts">
+    <part name="parameters" element="tns:getAllChqOrderProducts" />
+  </message>
+  <message name="getAllChqOrderProductsResponse">
+    <part name="parameters" element="tns:getAllChqOrderProductsResponse" />
+  </message>
+  <message name="getAllChqOrderProductsByOrderType">
+    <part name="parameters" element="tns:getAllChqOrderProductsByOrderType" />
+  </message>
+  <message name="getAllChqOrderProductsByOrderTypeResponse">
+    <part name="parameters" element="tns:getAllChqOrderProductsByOrderTypeResponse" />
+  </message>
+  <message name="getAllChqOrderTypes">
+    <part name="parameters" element="tns:getAllChqOrderTypes" />
+  </message>
+  <message name="getAllChqOrderTypesResponse">
+    <part name="parameters" element="tns:getAllChqOrderTypesResponse" />
+  </message>
+  <message name="getAllProductPackages">
+    <part name="parameters" element="tns:getAllProductPackages" />
+  </message>
+  <message name="getAllProductPackagesResponse">
+    <part name="parameters" element="tns:getAllProductPackagesResponse" />
+  </message>
+  <message name="createUpdateProductPackage">
+    <part name="parameters" element="tns:createUpdateProductPackage" />
+  </message>
+  <message name="createUpdateProductPackageResponse">
+    <part name="parameters" element="tns:createUpdateProductPackageResponse" />
+  </message>
+  <message name="getProductListInfosForAllProductPackageTypes">
+    <part name="parameters" element="tns:getProductListInfosForAllProductPackageTypes" />
+  </message>
+  <message name="getProductListInfosForAllProductPackageTypesResponse">
+    <part name="parameters" element="tns:getProductListInfosForAllProductPackageTypesResponse" />
+  </message>
+  <message name="getProductPackageById">
+    <part name="parameters" element="tns:getProductPackageById" />
+  </message>
+  <message name="getProductPackageByIdResponse">
+    <part name="parameters" element="tns:getProductPackageByIdResponse" />
+  </message>
+  <message name="duplicateProductPackage">
+    <part name="parameters" element="tns:duplicateProductPackage" />
+  </message>
+  <message name="duplicateProductPackageResponse">
+    <part name="parameters" element="tns:duplicateProductPackageResponse" />
+  </message>
+  <message name="findProductPackagesByProductId">
+    <part name="parameters" element="tns:findProductPackagesByProductId" />
+  </message>
+  <message name="findProductPackagesByProductIdResponse">
+    <part name="parameters" element="tns:findProductPackagesByProductIdResponse" />
+  </message>
+  <message name="getAllFinancialControlGLs">
+    <part name="parameters" element="tns:getAllFinancialControlGLs" />
+  </message>
+  <message name="getAllFinancialControlGLsResponse">
+    <part name="parameters" element="tns:getAllFinancialControlGLsResponse" />
+  </message>
+  <message name="getProductListForLoanAndSubAccount">
+    <part name="parameters" element="tns:getProductListForLoanAndSubAccount" />
+  </message>
+  <message name="getProductListForLoanAndSubAccountResponse">
+    <part name="parameters" element="tns:getProductListForLoanAndSubAccountResponse" />
+  </message>
+  <message name="createUpdateCourtesyPay">
+    <part name="parameters" element="tns:createUpdateCourtesyPay" />
+  </message>
+  <message name="createUpdateCourtesyPayResponse">
+    <part name="parameters" element="tns:createUpdateCourtesyPayResponse" />
+  </message>
+  <message name="findAllCourtesyPay">
+    <part name="parameters" element="tns:findAllCourtesyPay" />
+  </message>
+  <message name="findAllCourtesyPayResponse">
+    <part name="parameters" element="tns:findAllCourtesyPayResponse" />
+  </message>
+  <message name="findAllCourtesyPaybyProductId">
+    <part name="parameters" element="tns:findAllCourtesyPaybyProductId" />
+  </message>
+  <message name="findAllCourtesyPaybyProductIdResponse">
+    <part name="parameters" element="tns:findAllCourtesyPaybyProductIdResponse" />
+  </message>
+  <message name="findAllProductbyCourtesyPayId">
+    <part name="parameters" element="tns:findAllProductbyCourtesyPayId" />
+  </message>
+  <message name="findAllProductbyCourtesyPayIdResponse">
+    <part name="parameters" element="tns:findAllProductbyCourtesyPayIdResponse" />
+  </message>
+  <message name="findCourtesyFinControlMappingbyProductId">
+    <part name="parameters" element="tns:findCourtesyFinControlMappingbyProductId" />
+  </message>
+  <message name="findCourtesyFinControlMappingbyProductIdResponse">
+    <part name="parameters" element="tns:findCourtesyFinControlMappingbyProductIdResponse" />
+  </message>
+  <message name="getMiscProductList">
+    <part name="parameters" element="tns:getMiscProductList" />
+  </message>
+  <message name="getMiscProductListResponse">
+    <part name="parameters" element="tns:getMiscProductListResponse" />
+  </message>
+  <message name="getProductListWithAll">
+    <part name="parameters" element="tns:getProductListWithAll" />
+  </message>
+  <message name="getProductListWithAllResponse">
+    <part name="parameters" element="tns:getProductListWithAllResponse" />
+  </message>
+  <message name="getLinkableProducts">
+    <part name="parameters" element="tns:getLinkableProducts" />
+  </message>
+  <message name="getLinkableProductsResponse">
+    <part name="parameters" element="tns:getLinkableProductsResponse" />
+  </message>
+  <message name="getAllFeePackages">
+    <part name="parameters" element="tns:getAllFeePackages" />
+  </message>
+  <message name="getAllFeePackagesResponse">
+    <part name="parameters" element="tns:getAllFeePackagesResponse" />
+  </message>
+  <message name="getFeeSchedulesByFeeChannelId">
+    <part name="parameters" element="tns:getFeeSchedulesByFeeChannelId" />
+  </message>
+  <message name="getFeeSchedulesByFeeChannelIdResponse">
+    <part name="parameters" element="tns:getFeeSchedulesByFeeChannelIdResponse" />
+  </message>
+  <message name="createUpdateServiceLevelConfig">
+    <part name="parameters" element="tns:createUpdateServiceLevelConfig" />
+  </message>
+  <message name="createUpdateServiceLevelConfigResponse">
+    <part name="parameters" element="tns:createUpdateServiceLevelConfigResponse" />
+  </message>
+  <message name="getMiscProductWithCustomerSpecificFee">
+    <part name="parameters" element="tns:getMiscProductWithCustomerSpecificFee" />
+  </message>
+  <message name="getMiscProductWithCustomerSpecificFeeResponse">
+    <part name="parameters" element="tns:getMiscProductWithCustomerSpecificFeeResponse" />
+  </message>
+  <message name="createUpdateRateType">
+    <part name="parameters" element="tns:createUpdateRateType" />
+  </message>
+  <message name="createUpdateRateTypeResponse">
+    <part name="parameters" element="tns:createUpdateRateTypeResponse" />
+  </message>
+  <message name="getControlCodeIncludingDeleted">
+    <part name="parameters" element="tns:getControlCodeIncludingDeleted" />
+  </message>
+  <message name="getControlCodeIncludingDeletedResponse">
+    <part name="parameters" element="tns:getControlCodeIncludingDeletedResponse" />
+  </message>
+  <message name="getSavingsProductWithDetails">
+    <part name="parameters" element="tns:getSavingsProductWithDetails" />
+  </message>
+  <message name="getSavingsProductWithDetailsResponse">
+    <part name="parameters" element="tns:getSavingsProductWithDetailsResponse" />
+  </message>
+  <message name="getTermProductRateDetails">
+    <part name="parameters" element="tns:getTermProductRateDetails" />
+  </message>
+  <message name="getTermProductRateDetailsResponse">
+    <part name="parameters" element="tns:getTermProductRateDetailsResponse" />
+  </message>
+  <message name="getProductTypesWithPsuedoProducts">
+    <part name="parameters" element="tns:getProductTypesWithPsuedoProducts" />
+  </message>
+  <message name="getProductTypesWithPsuedoProductsResponse">
+    <part name="parameters" element="tns:getProductTypesWithPsuedoProductsResponse" />
+  </message>
+  <message name="getAllLoanProductsIncludingInactive">
+    <part name="parameters" element="tns:getAllLoanProductsIncludingInactive" />
+  </message>
+  <message name="getAllLoanProductsIncludingInactiveResponse">
+    <part name="parameters" element="tns:getAllLoanProductsIncludingInactiveResponse" />
+  </message>
+  <message name="getAllLoanProductsWithDetails">
+    <part name="parameters" element="tns:getAllLoanProductsWithDetails" />
+  </message>
+  <message name="getAllLoanProductsWithDetailsResponse">
+    <part name="parameters" element="tns:getAllLoanProductsWithDetailsResponse" />
+  </message>
+  <message name="findAllChannelTranTypesByinclDescription">
+    <part name="parameters" element="tns:findAllChannelTranTypesByinclDescription" />
+  </message>
+  <message name="findAllChannelTranTypesByinclDescriptionResponse">
+    <part name="parameters" element="tns:findAllChannelTranTypesByinclDescriptionResponse" />
+  </message>
+  <message name="getFeePackageConfigResourcesExcludingSharedBranches">
+    <part name="parameters" element="tns:getFeePackageConfigResourcesExcludingSharedBranches" />
+  </message>
+  <message name="getFeePackageConfigResourcesExcludingSharedBranchesResponse">
+    <part name="parameters" element="tns:getFeePackageConfigResourcesExcludingSharedBranchesResponse" />
+  </message>
+  <message name="getAllChqOrderProductsForVendorCode">
+    <part name="parameters" element="tns:getAllChqOrderProductsForVendorCode" />
+  </message>
+  <message name="getAllChqOrderProductsForVendorCodeResponse">
+    <part name="parameters" element="tns:getAllChqOrderProductsForVendorCodeResponse" />
+  </message>
+  <message name="getChqOrderProductOptions">
+    <part name="parameters" element="tns:getChqOrderProductOptions" />
+  </message>
+  <message name="getChqOrderProductOptionsResponse">
+    <part name="parameters" element="tns:getChqOrderProductOptionsResponse" />
+  </message>
+  <message name="createUpdateChqOrderProduct">
+    <part name="parameters" element="tns:createUpdateChqOrderProduct" />
+  </message>
+  <message name="createUpdateChqOrderProductResponse">
+    <part name="parameters" element="tns:createUpdateChqOrderProductResponse" />
+  </message>
+  <message name="findChqOrderProductByChqOrderProductId">
+    <part name="parameters" element="tns:findChqOrderProductByChqOrderProductId" />
+  </message>
+  <message name="findChqOrderProductByChqOrderProductIdResponse">
+    <part name="parameters" element="tns:findChqOrderProductByChqOrderProductIdResponse" />
+  </message>
+  <message name="getProductListForLoanAndSubAccountByType">
+    <part name="parameters" element="tns:getProductListForLoanAndSubAccountByType" />
+  </message>
+  <message name="getProductListForLoanAndSubAccountByTypeResponse">
+    <part name="parameters" element="tns:getProductListForLoanAndSubAccountByTypeResponse" />
+  </message>
+  <message name="createUpdateCourtesyPays">
+    <part name="parameters" element="tns:createUpdateCourtesyPays" />
+  </message>
+  <message name="createUpdateCourtesyPaysResponse">
+    <part name="parameters" element="tns:createUpdateCourtesyPaysResponse" />
+  </message>
+  <message name="findByCourtesyPayPrimaryKey">
+    <part name="parameters" element="tns:findByCourtesyPayPrimaryKey" />
+  </message>
+  <message name="findByCourtesyPayPrimaryKeyResponse">
+    <part name="parameters" element="tns:findByCourtesyPayPrimaryKeyResponse" />
+  </message>
+  <portType name="ProductConfig">
+    <operation name="findById">
+      <input message="tns:findById" />
+      <output message="tns:findByIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findByTypeAndCode">
+      <input message="tns:findByTypeAndCode" />
+      <output message="tns:findByTypeAndCodeResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getControlCodes">
+      <input message="tns:getControlCodes" />
+      <output message="tns:getControlCodesResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateControlCode">
+      <input message="tns:createUpdateControlCode" />
+      <output message="tns:createUpdateControlCodeResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllControlCode">
+      <input message="tns:getAllControlCode" />
+      <output message="tns:getAllControlCodeResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllPackages">
+      <input message="tns:getAllPackages" />
+      <output message="tns:getAllPackagesResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllServiceLevelConfig">
+      <input message="tns:getAllServiceLevelConfig" />
+      <output message="tns:getAllServiceLevelConfigResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getActiveSavingsProducts">
+      <input message="tns:getActiveSavingsProducts" />
+      <output message="tns:getActiveSavingsProductsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllSavingsProducts">
+      <input message="tns:getAllSavingsProducts" />
+      <output message="tns:getAllSavingsProductsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getLoanRateCategories">
+      <input message="tns:getLoanRateCategories" />
+      <output message="tns:getLoanRateCategoriesResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getSavingsRateCategories">
+      <input message="tns:getSavingsRateCategories" />
+      <output message="tns:getSavingsRateCategoriesResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getLoanRateTypeDisplay">
+      <input message="tns:getLoanRateTypeDisplay" />
+      <output message="tns:getLoanRateTypeDisplayResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getSavingsRateTypeDisplay">
+      <input message="tns:getSavingsRateTypeDisplay" />
+      <output message="tns:getSavingsRateTypeDisplayResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getRateType">
+      <input message="tns:getRateType" />
+      <output message="tns:getRateTypeResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getSavingsProduct">
+      <input message="tns:getSavingsProduct" />
+      <output message="tns:getSavingsProductResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getRateDetailsForProduct">
+      <input message="tns:getRateDetailsForProduct" />
+      <output message="tns:getRateDetailsForProductResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createSavingsProduct">
+      <input message="tns:createSavingsProduct" />
+      <output message="tns:createSavingsProductResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="updateSavingsProduct">
+      <input message="tns:updateSavingsProduct" />
+      <output message="tns:updateSavingsProductResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getTermProduct">
+      <input message="tns:getTermProduct" />
+      <output message="tns:getTermProductResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getTermProductByCode">
+      <input message="tns:getTermProductByCode" />
+      <output message="tns:getTermProductByCodeResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createTermProduct">
+      <input message="tns:createTermProduct" />
+      <output message="tns:createTermProductResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="updateTermProduct">
+      <input message="tns:updateTermProduct" />
+      <output message="tns:updateTermProductResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getLoanProduct">
+      <input message="tns:getLoanProduct" />
+      <output message="tns:getLoanProductResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getLoanProductByCode">
+      <input message="tns:getLoanProductByCode" />
+      <output message="tns:getLoanProductByCodeResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createLoanProduct">
+      <input message="tns:createLoanProduct" />
+      <output message="tns:createLoanProductResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="updateLoanProduct">
+      <input message="tns:updateLoanProduct" />
+      <output message="tns:updateLoanProductResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getProductList">
+      <input message="tns:getProductList" />
+      <output message="tns:getProductListResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getProductListByType">
+      <input message="tns:getProductListByType" />
+      <output message="tns:getProductListByTypeResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getProductTypes">
+      <input message="tns:getProductTypes" />
+      <output message="tns:getProductTypesResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getLoanControlCodesByProductIdAndType">
+      <input message="tns:getLoanControlCodesByProductIdAndType" />
+      <output message="tns:getLoanControlCodesByProductIdAndTypeResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllLoanControlCodes">
+      <input message="tns:getAllLoanControlCodes" />
+      <output message="tns:getAllLoanControlCodesResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getActiveProductList">
+      <input message="tns:getActiveProductList" />
+      <output message="tns:getActiveProductListResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getActiveProductListForType">
+      <input message="tns:getActiveProductListForType" />
+      <output message="tns:getActiveProductListForTypeResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getFeeProduct">
+      <input message="tns:getFeeProduct" />
+      <output message="tns:getFeeProductResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getFeeProductByCode">
+      <input message="tns:getFeeProductByCode" />
+      <output message="tns:getFeeProductByCodeResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateFeeProduct">
+      <input message="tns:createUpdateFeeProduct" />
+      <output message="tns:createUpdateFeeProductResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateFeePackage">
+      <input message="tns:createUpdateFeePackage" />
+      <output message="tns:createUpdateFeePackageResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getMiscProduct">
+      <input message="tns:getMiscProduct" />
+      <output message="tns:getMiscProductResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getMiscProductByCode">
+      <input message="tns:getMiscProductByCode" />
+      <output message="tns:getMiscProductByCodeResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateMiscProduct">
+      <input message="tns:createUpdateMiscProduct" />
+      <output message="tns:createUpdateMiscProductResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getFeeProductListByProductId">
+      <input message="tns:getFeeProductListByProductId" />
+      <output message="tns:getFeeProductListByProductIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getFeeProductList">
+      <input message="tns:getFeeProductList" />
+      <output message="tns:getFeeProductListResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getLoanProductsByRateTypeId">
+      <input message="tns:getLoanProductsByRateTypeId" />
+      <output message="tns:getLoanProductsByRateTypeIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getSavingsProductsByRateTypeId">
+      <input message="tns:getSavingsProductsByRateTypeId" />
+      <output message="tns:getSavingsProductsByRateTypeIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllLoanProducts">
+      <input message="tns:getAllLoanProducts" />
+      <output message="tns:getAllLoanProductsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getInstitutionMemosByProductId">
+      <input message="tns:getInstitutionMemosByProductId" />
+      <output message="tns:getInstitutionMemosByProductIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getActiveProductsOfSameTypeAndCurrency">
+      <input message="tns:getActiveProductsOfSameTypeAndCurrency" />
+      <output message="tns:getActiveProductsOfSameTypeAndCurrencyResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getActiveLoanProductsOfSameTypeAndCurrency">
+      <input message="tns:getActiveLoanProductsOfSameTypeAndCurrency" />
+      <output message="tns:getActiveLoanProductsOfSameTypeAndCurrencyResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getRateHistory">
+      <input message="tns:getRateHistory" />
+      <output message="tns:getRateHistoryResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getRIFProductAtRSPAgeLimit">
+      <input message="tns:getRIFProductAtRSPAgeLimit" />
+      <output message="tns:getRIFProductAtRSPAgeLimitResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAsOfDateRateDetailsInfo">
+      <input message="tns:getAsOfDateRateDetailsInfo" />
+      <output message="tns:getAsOfDateRateDetailsInfoResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getSavDepAndLoanProductTypes">
+      <input message="tns:getSavDepAndLoanProductTypes" />
+      <output message="tns:getSavDepAndLoanProductTypesResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateProductRoleIds">
+      <input message="tns:createUpdateProductRoleIds" />
+      <output message="tns:createUpdateProductRoleIdsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="deleteProduct">
+      <input message="tns:deleteProduct" />
+      <output message="tns:deleteProductResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getSavingsProductByCode">
+      <input message="tns:getSavingsProductByCode" />
+      <output message="tns:getSavingsProductByCodeResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getLoanPmtComponentDetails">
+      <input message="tns:getLoanPmtComponentDetails" />
+      <output message="tns:getLoanPmtComponentDetailsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getLoanPmtComponentDetailsByLoanCode">
+      <input message="tns:getLoanPmtComponentDetailsByLoanCode" />
+      <output message="tns:getLoanPmtComponentDetailsByLoanCodeResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getLoanPmtComponentDetailsByLoanPmtComponentId">
+      <input message="tns:getLoanPmtComponentDetailsByLoanPmtComponentId" />
+      <output message="tns:getLoanPmtComponentDetailsByLoanPmtComponentIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="isLateChargeCalcMethodDifferentFromNone">
+      <input message="tns:isLateChargeCalcMethodDifferentFromNone" />
+      <output message="tns:isLateChargeCalcMethodDifferentFromNoneResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findAllLoanRenewalOptionsByProductId">
+      <input message="tns:findAllLoanRenewalOptionsByProductId" />
+      <output message="tns:findAllLoanRenewalOptionsByProductIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findUniqueLoanRenewalOptionsByProductId">
+      <input message="tns:findUniqueLoanRenewalOptionsByProductId" />
+      <output message="tns:findUniqueLoanRenewalOptionsByProductIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findAllLoanRenewalDetailsByAccountId">
+      <input message="tns:findAllLoanRenewalDetailsByAccountId" />
+      <output message="tns:findAllLoanRenewalDetailsByAccountIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getActiveLoanProductsOfSameCurrency">
+      <input message="tns:getActiveLoanProductsOfSameCurrency" />
+      <output message="tns:getActiveLoanProductsOfSameCurrencyResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getIndLoanAmtList">
+      <input message="tns:getIndLoanAmtList" />
+      <output message="tns:getIndLoanAmtListResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findPackageByProductId">
+      <input message="tns:findPackageByProductId" />
+      <output message="tns:findPackageByProductIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findPackageById">
+      <input message="tns:findPackageById" />
+      <output message="tns:findPackageByIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findAllChannelTranTypes">
+      <input message="tns:findAllChannelTranTypes" />
+      <output message="tns:findAllChannelTranTypesResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="duplicateFeePackage">
+      <input message="tns:duplicateFeePackage" />
+      <output message="tns:duplicateFeePackageResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getFeePackageConfigResources">
+      <input message="tns:getFeePackageConfigResources" />
+      <output message="tns:getFeePackageConfigResourcesResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllChqOrderProducts">
+      <input message="tns:getAllChqOrderProducts" />
+      <output message="tns:getAllChqOrderProductsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllChqOrderProductsByOrderType">
+      <input message="tns:getAllChqOrderProductsByOrderType" />
+      <output message="tns:getAllChqOrderProductsByOrderTypeResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllChqOrderTypes">
+      <input message="tns:getAllChqOrderTypes" />
+      <output message="tns:getAllChqOrderTypesResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllProductPackages">
+      <input message="tns:getAllProductPackages" />
+      <output message="tns:getAllProductPackagesResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateProductPackage">
+      <input message="tns:createUpdateProductPackage" />
+      <output message="tns:createUpdateProductPackageResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getProductListInfosForAllProductPackageTypes">
+      <input message="tns:getProductListInfosForAllProductPackageTypes" />
+      <output message="tns:getProductListInfosForAllProductPackageTypesResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getProductPackageById">
+      <input message="tns:getProductPackageById" />
+      <output message="tns:getProductPackageByIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="duplicateProductPackage">
+      <input message="tns:duplicateProductPackage" />
+      <output message="tns:duplicateProductPackageResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findProductPackagesByProductId">
+      <input message="tns:findProductPackagesByProductId" />
+      <output message="tns:findProductPackagesByProductIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllFinancialControlGLs">
+      <input message="tns:getAllFinancialControlGLs" />
+      <output message="tns:getAllFinancialControlGLsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getProductListForLoanAndSubAccount">
+      <input message="tns:getProductListForLoanAndSubAccount" />
+      <output message="tns:getProductListForLoanAndSubAccountResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateCourtesyPay">
+      <input message="tns:createUpdateCourtesyPay" />
+      <output message="tns:createUpdateCourtesyPayResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findAllCourtesyPay">
+      <input message="tns:findAllCourtesyPay" />
+      <output message="tns:findAllCourtesyPayResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findAllCourtesyPaybyProductId">
+      <input message="tns:findAllCourtesyPaybyProductId" />
+      <output message="tns:findAllCourtesyPaybyProductIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findAllProductbyCourtesyPayId">
+      <input message="tns:findAllProductbyCourtesyPayId" />
+      <output message="tns:findAllProductbyCourtesyPayIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findCourtesyFinControlMappingbyProductId">
+      <input message="tns:findCourtesyFinControlMappingbyProductId" />
+      <output message="tns:findCourtesyFinControlMappingbyProductIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getMiscProductList">
+      <input message="tns:getMiscProductList" />
+      <output message="tns:getMiscProductListResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getProductListWithAll">
+      <input message="tns:getProductListWithAll" />
+      <output message="tns:getProductListWithAllResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getLinkableProducts">
+      <input message="tns:getLinkableProducts" />
+      <output message="tns:getLinkableProductsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllFeePackages">
+      <input message="tns:getAllFeePackages" />
+      <output message="tns:getAllFeePackagesResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getFeeSchedulesByFeeChannelId">
+      <input message="tns:getFeeSchedulesByFeeChannelId" />
+      <output message="tns:getFeeSchedulesByFeeChannelIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateServiceLevelConfig">
+      <input message="tns:createUpdateServiceLevelConfig" />
+      <output message="tns:createUpdateServiceLevelConfigResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getMiscProductWithCustomerSpecificFee">
+      <input message="tns:getMiscProductWithCustomerSpecificFee" />
+      <output message="tns:getMiscProductWithCustomerSpecificFeeResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateRateType">
+      <input message="tns:createUpdateRateType" />
+      <output message="tns:createUpdateRateTypeResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getControlCodeIncludingDeleted">
+      <input message="tns:getControlCodeIncludingDeleted" />
+      <output message="tns:getControlCodeIncludingDeletedResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getSavingsProductWithDetails">
+      <input message="tns:getSavingsProductWithDetails" />
+      <output message="tns:getSavingsProductWithDetailsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getTermProductRateDetails">
+      <input message="tns:getTermProductRateDetails" />
+      <output message="tns:getTermProductRateDetailsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getProductTypesWithPsuedoProducts">
+      <input message="tns:getProductTypesWithPsuedoProducts" />
+      <output message="tns:getProductTypesWithPsuedoProductsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllLoanProductsIncludingInactive">
+      <input message="tns:getAllLoanProductsIncludingInactive" />
+      <output message="tns:getAllLoanProductsIncludingInactiveResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllLoanProductsWithDetails">
+      <input message="tns:getAllLoanProductsWithDetails" />
+      <output message="tns:getAllLoanProductsWithDetailsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findAllChannelTranTypesByinclDescription">
+      <input message="tns:findAllChannelTranTypesByinclDescription" />
+      <output message="tns:findAllChannelTranTypesByinclDescriptionResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getFeePackageConfigResourcesExcludingSharedBranches">
+      <input message="tns:getFeePackageConfigResourcesExcludingSharedBranches" />
+      <output message="tns:getFeePackageConfigResourcesExcludingSharedBranchesResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllChqOrderProductsForVendorCode">
+      <input message="tns:getAllChqOrderProductsForVendorCode" />
+      <output message="tns:getAllChqOrderProductsForVendorCodeResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getChqOrderProductOptions">
+      <input message="tns:getChqOrderProductOptions" />
+      <output message="tns:getChqOrderProductOptionsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateChqOrderProduct">
+      <input message="tns:createUpdateChqOrderProduct" />
+      <output message="tns:createUpdateChqOrderProductResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findChqOrderProductByChqOrderProductId">
+      <input message="tns:findChqOrderProductByChqOrderProductId" />
+      <output message="tns:findChqOrderProductByChqOrderProductIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getProductListForLoanAndSubAccountByType">
+      <input message="tns:getProductListForLoanAndSubAccountByType" />
+      <output message="tns:getProductListForLoanAndSubAccountByTypeResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateCourtesyPays">
+      <input message="tns:createUpdateCourtesyPays" />
+      <output message="tns:createUpdateCourtesyPaysResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findByCourtesyPayPrimaryKey">
+      <input message="tns:findByCourtesyPayPrimaryKey" />
+      <output message="tns:findByCourtesyPayPrimaryKeyResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+  </portType>
+</definitions>

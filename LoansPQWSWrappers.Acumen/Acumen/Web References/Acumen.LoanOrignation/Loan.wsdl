@@ -1,0 +1,1046 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="http://api.webservice.loan.ispectrum.summitsite.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Loan" targetNamespace="http://api.webservice.loan.ispectrum.summitsite.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <wsp1_2:Policy xmlns:wsapw3c="http://www.w3.org/2006/05/addressing/wsdl" xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" wsu:Id="LoanImplPortBindingPolicy">
+    <wsp1_2:ExactlyOne>
+      <wsp1_2:All>
+        <sp:SupportingTokens>
+          <wsp1_2:Policy>
+            <wsp1_2:ExactlyOne>
+              <wsp1_2:All>
+                <sp:UsernameToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+                  <wsp1_2:Policy>
+                    <wsp1_2:ExactlyOne>
+                      <wsp1_2:All>
+                        <sp:WssUsernameToken10 />
+                      </wsp1_2:All>
+                    </wsp1_2:ExactlyOne>
+                  </wsp1_2:Policy>
+                </sp:UsernameToken>
+              </wsp1_2:All>
+            </wsp1_2:ExactlyOne>
+          </wsp1_2:Policy>
+        </sp:SupportingTokens>
+        <wsapw3c:UsingAddressing wsp1_2:Optional="true" />
+      </wsp1_2:All>
+    </wsp1_2:ExactlyOne>
+  </wsp1_2:Policy>
+  <import namespace="urn:connections.ispectrum.summitsite.com" location="https://gocucorvallis.acumen.fiserv.com:443/ispectrum-webservices/Loan?wsdl=1" />
+  <types />
+  <binding xmlns:ns1="urn:connections.ispectrum.summitsite.com" name="LoanImplPortBinding" type="ns1:Loan">
+    <ns2:PolicyReference xmlns:ns2="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#LoanImplPortBindingPolicy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="getLoanLimits">
+      <soap:operation soapAction="urn:getLoanLimits" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="persistHMDADetail">
+      <soap:operation soapAction="urn:persistHMDADetail" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getLoanInsuranceDetails">
+      <soap:operation soapAction="urn:getLoanInsuranceDetails" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getLoanApplication">
+      <soap:operation soapAction="urn:getLoanApplication" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getWorkQueueList">
+      <soap:operation soapAction="urn:getWorkQueueList" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getWorkQueueDefinationsByUser">
+      <soap:operation soapAction="urn:getWorkQueueDefinationsByUser" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getWorkQueueDefinationByDescription">
+      <soap:operation soapAction="urn:getWorkQueueDefinationByDescription" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="calculateLendingValue">
+      <soap:operation soapAction="urn:calculateLendingValue" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="generateDecision">
+      <soap:operation soapAction="urn:generateDecision" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getLoanStatus">
+      <soap:operation soapAction="urn:getLoanStatus" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getLoanApplicationsByCustomerId">
+      <soap:operation soapAction="urn:getLoanApplicationsByCustomerId" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getCompleteLoanApplicationDetails">
+      <soap:operation soapAction="urn:getCompleteLoanApplicationDetails" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getCoApplicantList">
+      <soap:operation soapAction="urn:getCoApplicantList" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="createUpdateApplicationEscrowDetails">
+      <soap:operation soapAction="urn:createUpdateApplicationEscrowDetails" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="persistLoanPaymentOptions">
+      <soap:operation soapAction="urn:persistLoanPaymentOptions" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getLoanApplicationIdsByCustomerId">
+      <soap:operation soapAction="urn:getLoanApplicationIdsByCustomerId" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getAllLoanApplicationIdsByCustomerId">
+      <soap:operation soapAction="urn:getAllLoanApplicationIdsByCustomerId" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getLoanDescriptionsByCustomerId">
+      <soap:operation soapAction="urn:getLoanDescriptionsByCustomerId" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getCustomerIdByLoanApplicationId">
+      <soap:operation soapAction="urn:getCustomerIdByLoanApplicationId" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getLoanProductIdByLoanApplicationId">
+      <soap:operation soapAction="urn:getLoanProductIdByLoanApplicationId" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getApplicantsForApplication">
+      <soap:operation soapAction="urn:getApplicantsForApplication" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getInsuranceForLoanApplicationFromLoanAccount">
+      <soap:operation soapAction="urn:getInsuranceForLoanApplicationFromLoanAccount" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="calculateLoanRateVariance">
+      <soap:operation soapAction="urn:calculateLoanRateVariance" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findVehicleByAssetId">
+      <soap:operation soapAction="urn:findVehicleByAssetId" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findRealEstateByAssetId">
+      <soap:operation soapAction="urn:findRealEstateByAssetId" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findPledgeAccountByAssetId">
+      <soap:operation soapAction="urn:findPledgeAccountByAssetId" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findObligationByAssetId">
+      <soap:operation soapAction="urn:findObligationByAssetId" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findAssetInfoForAccount">
+      <soap:operation soapAction="urn:findAssetInfoForAccount" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findCULiabilitiesForAsset">
+      <soap:operation soapAction="urn:findCULiabilitiesForAsset" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getSavDepAccountListByCustomerId">
+      <soap:operation soapAction="urn:getSavDepAccountListByCustomerId" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findVRLChgHistoryInfosByAccountId">
+      <soap:operation soapAction="urn:findVRLChgHistoryInfosByAccountId" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findManualVRLChgHistoryInfosByAccountId">
+      <soap:operation soapAction="urn:findManualVRLChgHistoryInfosByAccountId" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getManualVRLChgHistoryInfosByAccountId">
+      <soap:operation soapAction="urn:getManualVRLChgHistoryInfosByAccountId" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="calculateAvgDailyMonthlyIntChg">
+      <soap:operation soapAction="urn:calculateAvgDailyMonthlyIntChg" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="checkOverrideBadAddress">
+      <soap:operation soapAction="urn:checkOverrideBadAddress" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="checkModifiedLoanApplNotBooked">
+      <soap:operation soapAction="urn:checkModifiedLoanApplNotBooked" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getOnUsLiabBreakdownInfo">
+      <soap:operation soapAction="urn:getOnUsLiabBreakdownInfo" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="CalcOnUsLiabBreakdownPercentage">
+      <soap:operation soapAction="urn:CalcOnUsLiabBreakdownPercentage" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="updateOnUsLiabBreakdownInfo">
+      <soap:operation soapAction="urn:updateOnUsLiabBreakdownInfo" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="fetchCurrentAssetForAllApplicant">
+      <soap:operation soapAction="urn:fetchCurrentAssetForAllApplicant" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="persistHMDADecisionDetails">
+      <soap:operation soapAction="urn:persistHMDADecisionDetails" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getHMDADetailByLoanApplicationID">
+      <soap:operation soapAction="urn:getHMDADetailByLoanApplicationID" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="createLoanApplication">
+      <soap:operation soapAction="urn:createLoanApplication" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="updateLoanApplication">
+      <soap:operation soapAction="urn:updateLoanApplication" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getRequiredLoanApplicationDetails">
+      <soap:operation soapAction="urn:getRequiredLoanApplicationDetails" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="createLoanCoApplicant">
+      <soap:operation soapAction="urn:createLoanCoApplicant" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="updateLoanApplicants">
+      <soap:operation soapAction="urn:updateLoanApplicants" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="updateLoanApplicantsAndInsurance">
+      <soap:operation soapAction="urn:updateLoanApplicantsAndInsurance" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="updateLoanApplicant">
+      <soap:operation soapAction="urn:updateLoanApplicant" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getLoanApplicant">
+      <soap:operation soapAction="urn:getLoanApplicant" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="bookLoan">
+      <soap:operation soapAction="urn:bookLoan" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getFirstApplicant">
+      <soap:operation soapAction="urn:getFirstApplicant" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getNextApplicant">
+      <soap:operation soapAction="urn:getNextApplicant" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getPreviousApplicant">
+      <soap:operation soapAction="urn:getPreviousApplicant" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getLastApplicant">
+      <soap:operation soapAction="urn:getLastApplicant" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getKeyIndicators">
+      <soap:operation soapAction="urn:getKeyIndicators" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="reAssignLoanApplications">
+      <soap:operation soapAction="urn:reAssignLoanApplications" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="undoStatus">
+      <soap:operation soapAction="urn:undoStatus" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getAllApplicantsSavDepAccountList">
+      <soap:operation soapAction="urn:getAllApplicantsSavDepAccountList" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getAllAssociatesSavDepAccountList">
+      <soap:operation soapAction="urn:getAllAssociatesSavDepAccountList" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="constructLoanCalcFromLoanApp">
+      <soap:operation soapAction="urn:constructLoanCalcFromLoanApp" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="updateAndFetchSecurityDetails">
+      <soap:operation soapAction="urn:updateAndFetchSecurityDetails" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="initiateWebPlusTransaction">
+      <soap:operation soapAction="urn:initiateWebPlusTransaction" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getPropTaxPerPmtForLoanAccount">
+      <soap:operation soapAction="urn:getPropTaxPerPmtForLoanAccount" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getPropTaxPerPmtForLoanApplication">
+      <soap:operation soapAction="urn:getPropTaxPerPmtForLoanApplication" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="createWebLoanApplication">
+      <soap:operation soapAction="urn:createWebLoanApplication" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getApplicantsWithPortfoliosAndAggregatesForApplication">
+      <soap:operation soapAction="urn:getApplicantsWithPortfoliosAndAggregatesForApplication" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="changeCustomerIdForLoanApplicant">
+      <soap:operation soapAction="urn:changeCustomerIdForLoanApplicant" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="populateAggregatesFromCustomer">
+      <soap:operation soapAction="urn:populateAggregatesFromCustomer" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="setCustomerLoanAggregates">
+      <soap:operation soapAction="urn:setCustomerLoanAggregates" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="addWebLoanCoApplicant">
+      <soap:operation soapAction="urn:addWebLoanCoApplicant" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="addWebLoanCoApplicantNonMember">
+      <soap:operation soapAction="urn:addWebLoanCoApplicantNonMember" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="vinExists">
+      <soap:operation soapAction="urn:vinExists" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="fetchCurrentLiabilitiesForApplicant">
+      <soap:operation soapAction="urn:fetchCurrentLiabilitiesForApplicant" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="fetchCurrentAssetForApplicant">
+      <soap:operation soapAction="urn:fetchCurrentAssetForApplicant" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findVehicleBySecurityAddendumId">
+      <soap:operation soapAction="urn:findVehicleBySecurityAddendumId" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getLoanApplicationInfoByApplicationNo">
+      <soap:operation soapAction="urn:getLoanApplicationInfoByApplicationNo" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getLoanAppControlCodesDetails">
+      <soap:operation soapAction="urn:getLoanAppControlCodesDetails" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="submitRequest">
+      <soap:operation soapAction="urn:submitRequest" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="createUpdateLoanWorkQueueDef">
+      <soap:operation soapAction="urn:createUpdateLoanWorkQueueDef" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getCompleteLoanApplicationDetailsByLastWorked">
+      <soap:operation soapAction="urn:getCompleteLoanApplicationDetailsByLastWorked" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getRequiredLoanApplicationDetailsWithisStepSixLoaded">
+      <soap:operation soapAction="urn:getRequiredLoanApplicationDetailsWithisStepSixLoaded" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="generateRequest">
+      <soap:operation soapAction="urn:generateRequest" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="fetchInsuranceDetailsFromEmili">
+      <soap:operation soapAction="urn:fetchInsuranceDetailsFromEmili" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="Loan">
+    <port name="LoanImplPort" binding="tns:LoanImplPortBinding">
+      <soap:address location="https://gocucorvallis.acumen.fiserv.com:443/ispectrum-webservices/Loan" />
+    </port>
+  </service>
+</definitions>

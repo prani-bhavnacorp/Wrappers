@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:money="http://com.fsb.domain/services/Money" elementFormDefault="qualified" targetNamespace="http://com.fsb.domain/services/Money" xmlns="http://www.w3.org/2001/XMLSchema">
+  <element name="Money" type="money:MoneyType" />
+  <simpleType name="MoneyType">
+    <restriction base="decimal">
+      <pattern value="^-?\d*(\.)\d{2}$" />
+    </restriction>
+  </simpleType>
+</schema>

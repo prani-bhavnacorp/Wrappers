@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="mtvnCWDPNewCDReqData" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="mtvnCWDPNewCDReqData" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="DPNewCDReqData">
+    <xs:annotation>
+      <xs:documentation>Deposit New Certificate of Deposit (DLTNC) -  This function is used to create a new certificate of deposit (CD).  All CDs must be opened under an existing Deposit System account.  Indicated fields may be left blank, allowing them to default to the interest plan on Bank Control.  However, it is recommended that only the interest calculation method and basis days be allowed to default.  This function can also be used to do an intraday reversal of a new certificate.  The effects of this  function are:  the certificate is added to the Account Master Database; the transaction appears on the TD Dollar Transaction report  (R-4010); the transaction appears on the New Time Deposit report (R-4020); if transaction was an intraday reversal, it appears on the On-line Dollar Reversal report (R-0270).</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="E1001" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DLTNC Override Error Level Indicator</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E20007" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Account Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E312" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Transaction Security Indicator</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21153" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Time Deposit Log Type</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20018" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Transaction Source Code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20026" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Transaction Control Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20665" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Time Deposit ID</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20126" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Time Deposit Transaction Type</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20037" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Retirement Account Transaction Code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E20680" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Time Deposit Original Deposit Amount</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20685" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Time Deposit Original Deposit Date</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20666" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Time Deposit Interest Plan</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20677" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Time Deposit Interest Rate</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20673" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Time Deposit Term</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20674" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Time Deposit Term Indicator</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20675" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Time Deposit Interest Frequency</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20676" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Time Deposit Interest Frequency Indicator</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20668" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Time Deposit Renewal Code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20688" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Time Deposit Interest Payment Method</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20702" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Time Deposit  Interest Transfer To Account</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20850" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Time Deposit ABA Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20851" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Time Deposit Transfer Account Type Code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20689" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Time Deposit Final Maturity Date</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20683" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Time Deposit Interest Calculation Method</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20686" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Time Deposit Interest Basis Days</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20697" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Time Deposit Penalty Calculation Formula</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20709" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Time Deposit Original Issue Discount Indicator</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20728" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Time Deposit Principal Disposition Option</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20729" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Time Deposit Fixed Principal Amount</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20730" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Time Deposit Principal Transfer To Account</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20852" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Time Deposit Principal Disposition ABA Bank Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20853" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Time Deposit Principal Disposition Transfer Account Type Code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21180" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Time Deposit Trailer Description 1</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21181" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Time Deposit Trailer Description 2</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21182" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Time Deposit Trailer Description 3</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21183" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Time Deposit Trailer Description 4</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21154" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Time Deposit General Ledger Account Number Offset</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21174" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Time Deposit General Ledger Cost Center Offset</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20006" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Override Information</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

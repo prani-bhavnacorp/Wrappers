@@ -1,0 +1,1309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="https://www.blackbookws.com/PowerSportsWS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="https://www.blackbookws.com/PowerSportsWS" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="https://www.blackbookws.com/PowerSportsWS">
+      <s:element name="Years">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sCountryCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sVehicleClass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="YearsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="YearsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserCredentials" type="tns:UserCredentials" />
+      <s:complexType name="UserCredentials">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="customer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="producttype" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="returncode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="returnmessage" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="Makes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sCountryCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sVehicleClass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sYear" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MakesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MakesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Models">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sCountryCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sVehicleClass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sYear" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sMake" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModelsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ModelsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HistoricalValues">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sCountryCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sYear" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sMake" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sModel" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="bFillDrilldown" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="dHistoricalDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HistoricalValuesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HistoricalValuesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CurrentValues">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sCountryCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sYear" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sMake" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sModel" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="bFillDrilldown" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CurrentValuesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CurrentValuesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HistoricalVINValues">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sCountryCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sVIN" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="bFillDrilldown" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="dHistoricalDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HistoricalVINValuesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HistoricalVINValuesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CurrentVINUVCValues">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sCountryCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sVIN" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sUVC" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="bFillDrilldown" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CurrentVINUVCValuesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CurrentVINUVCValuesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HistoricalVINUVCValues">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sCountryCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sVIN" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sUVC" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="bFillDrilldown" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="dHistoricalDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HistoricalVINUVCValuesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HistoricalVINUVCValuesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CurrentVINValues">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sCountryCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sVIN" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="bFillDrilldown" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CurrentVINValuesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CurrentVINValuesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TrendAnalysis">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sCountryCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sUVC" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sAnnualOrMonthly" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dStartDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="dEndDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TrendAnalysisResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TrendAnalysisResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VehicleClassifications">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sCountryCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VehicleClassificationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VehicleClassificationsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IPAddress">
+        <s:complexType />
+      </s:element>
+      <s:element name="IPAddressResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IPAddressResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DataSet" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:element ref="s:schema" />
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="YearsSoapIn">
+    <wsdl:part name="parameters" element="tns:Years" />
+  </wsdl:message>
+  <wsdl:message name="YearsSoapOut">
+    <wsdl:part name="parameters" element="tns:YearsResponse" />
+  </wsdl:message>
+  <wsdl:message name="YearsUserCredentials">
+    <wsdl:part name="UserCredentials" element="tns:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="MakesSoapIn">
+    <wsdl:part name="parameters" element="tns:Makes" />
+  </wsdl:message>
+  <wsdl:message name="MakesSoapOut">
+    <wsdl:part name="parameters" element="tns:MakesResponse" />
+  </wsdl:message>
+  <wsdl:message name="MakesUserCredentials">
+    <wsdl:part name="UserCredentials" element="tns:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="ModelsSoapIn">
+    <wsdl:part name="parameters" element="tns:Models" />
+  </wsdl:message>
+  <wsdl:message name="ModelsSoapOut">
+    <wsdl:part name="parameters" element="tns:ModelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModelsUserCredentials">
+    <wsdl:part name="UserCredentials" element="tns:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="HistoricalValuesSoapIn">
+    <wsdl:part name="parameters" element="tns:HistoricalValues" />
+  </wsdl:message>
+  <wsdl:message name="HistoricalValuesSoapOut">
+    <wsdl:part name="parameters" element="tns:HistoricalValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="HistoricalValuesUserCredentials">
+    <wsdl:part name="UserCredentials" element="tns:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="CurrentValuesSoapIn">
+    <wsdl:part name="parameters" element="tns:CurrentValues" />
+  </wsdl:message>
+  <wsdl:message name="CurrentValuesSoapOut">
+    <wsdl:part name="parameters" element="tns:CurrentValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CurrentValuesUserCredentials">
+    <wsdl:part name="UserCredentials" element="tns:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="HistoricalVINValuesSoapIn">
+    <wsdl:part name="parameters" element="tns:HistoricalVINValues" />
+  </wsdl:message>
+  <wsdl:message name="HistoricalVINValuesSoapOut">
+    <wsdl:part name="parameters" element="tns:HistoricalVINValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="HistoricalVINValuesUserCredentials">
+    <wsdl:part name="UserCredentials" element="tns:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="CurrentVINUVCValuesSoapIn">
+    <wsdl:part name="parameters" element="tns:CurrentVINUVCValues" />
+  </wsdl:message>
+  <wsdl:message name="CurrentVINUVCValuesSoapOut">
+    <wsdl:part name="parameters" element="tns:CurrentVINUVCValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CurrentVINUVCValuesUserCredentials">
+    <wsdl:part name="UserCredentials" element="tns:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="HistoricalVINUVCValuesSoapIn">
+    <wsdl:part name="parameters" element="tns:HistoricalVINUVCValues" />
+  </wsdl:message>
+  <wsdl:message name="HistoricalVINUVCValuesSoapOut">
+    <wsdl:part name="parameters" element="tns:HistoricalVINUVCValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="HistoricalVINUVCValuesUserCredentials">
+    <wsdl:part name="UserCredentials" element="tns:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="CurrentVINValuesSoapIn">
+    <wsdl:part name="parameters" element="tns:CurrentVINValues" />
+  </wsdl:message>
+  <wsdl:message name="CurrentVINValuesSoapOut">
+    <wsdl:part name="parameters" element="tns:CurrentVINValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CurrentVINValuesUserCredentials">
+    <wsdl:part name="UserCredentials" element="tns:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="TrendAnalysisSoapIn">
+    <wsdl:part name="parameters" element="tns:TrendAnalysis" />
+  </wsdl:message>
+  <wsdl:message name="TrendAnalysisSoapOut">
+    <wsdl:part name="parameters" element="tns:TrendAnalysisResponse" />
+  </wsdl:message>
+  <wsdl:message name="TrendAnalysisUserCredentials">
+    <wsdl:part name="UserCredentials" element="tns:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="VehicleClassificationsSoapIn">
+    <wsdl:part name="parameters" element="tns:VehicleClassifications" />
+  </wsdl:message>
+  <wsdl:message name="VehicleClassificationsSoapOut">
+    <wsdl:part name="parameters" element="tns:VehicleClassificationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="VehicleClassificationsUserCredentials">
+    <wsdl:part name="UserCredentials" element="tns:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="IPAddressSoapIn">
+    <wsdl:part name="parameters" element="tns:IPAddress" />
+  </wsdl:message>
+  <wsdl:message name="IPAddressSoapOut">
+    <wsdl:part name="parameters" element="tns:IPAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="YearsHttpGetIn">
+    <wsdl:part name="sCountryCode" type="s:string" />
+    <wsdl:part name="sVehicleClass" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="YearsHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="MakesHttpGetIn">
+    <wsdl:part name="sCountryCode" type="s:string" />
+    <wsdl:part name="sVehicleClass" type="s:string" />
+    <wsdl:part name="sYear" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MakesHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ModelsHttpGetIn">
+    <wsdl:part name="sCountryCode" type="s:string" />
+    <wsdl:part name="sVehicleClass" type="s:string" />
+    <wsdl:part name="sYear" type="s:string" />
+    <wsdl:part name="sMake" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ModelsHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="HistoricalValuesHttpGetIn">
+    <wsdl:part name="sCountryCode" type="s:string" />
+    <wsdl:part name="sYear" type="s:string" />
+    <wsdl:part name="sMake" type="s:string" />
+    <wsdl:part name="sModel" type="s:string" />
+    <wsdl:part name="bFillDrilldown" type="s:string" />
+    <wsdl:part name="dHistoricalDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="HistoricalValuesHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="CurrentValuesHttpGetIn">
+    <wsdl:part name="sCountryCode" type="s:string" />
+    <wsdl:part name="sYear" type="s:string" />
+    <wsdl:part name="sMake" type="s:string" />
+    <wsdl:part name="sModel" type="s:string" />
+    <wsdl:part name="bFillDrilldown" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CurrentValuesHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="HistoricalVINValuesHttpGetIn">
+    <wsdl:part name="sCountryCode" type="s:string" />
+    <wsdl:part name="sVIN" type="s:string" />
+    <wsdl:part name="bFillDrilldown" type="s:string" />
+    <wsdl:part name="dHistoricalDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="HistoricalVINValuesHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="CurrentVINUVCValuesHttpGetIn">
+    <wsdl:part name="sCountryCode" type="s:string" />
+    <wsdl:part name="sVIN" type="s:string" />
+    <wsdl:part name="sUVC" type="s:string" />
+    <wsdl:part name="bFillDrilldown" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CurrentVINUVCValuesHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="HistoricalVINUVCValuesHttpGetIn">
+    <wsdl:part name="sCountryCode" type="s:string" />
+    <wsdl:part name="sVIN" type="s:string" />
+    <wsdl:part name="sUVC" type="s:string" />
+    <wsdl:part name="bFillDrilldown" type="s:string" />
+    <wsdl:part name="dHistoricalDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="HistoricalVINUVCValuesHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="CurrentVINValuesHttpGetIn">
+    <wsdl:part name="sCountryCode" type="s:string" />
+    <wsdl:part name="sVIN" type="s:string" />
+    <wsdl:part name="bFillDrilldown" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CurrentVINValuesHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="TrendAnalysisHttpGetIn">
+    <wsdl:part name="sCountryCode" type="s:string" />
+    <wsdl:part name="sUVC" type="s:string" />
+    <wsdl:part name="sAnnualOrMonthly" type="s:string" />
+    <wsdl:part name="dStartDate" type="s:string" />
+    <wsdl:part name="dEndDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TrendAnalysisHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="VehicleClassificationsHttpGetIn">
+    <wsdl:part name="sCountryCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="VehicleClassificationsHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="IPAddressHttpGetIn" />
+  <wsdl:message name="IPAddressHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="YearsHttpPostIn">
+    <wsdl:part name="sCountryCode" type="s:string" />
+    <wsdl:part name="sVehicleClass" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="YearsHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="MakesHttpPostIn">
+    <wsdl:part name="sCountryCode" type="s:string" />
+    <wsdl:part name="sVehicleClass" type="s:string" />
+    <wsdl:part name="sYear" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MakesHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ModelsHttpPostIn">
+    <wsdl:part name="sCountryCode" type="s:string" />
+    <wsdl:part name="sVehicleClass" type="s:string" />
+    <wsdl:part name="sYear" type="s:string" />
+    <wsdl:part name="sMake" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ModelsHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="HistoricalValuesHttpPostIn">
+    <wsdl:part name="sCountryCode" type="s:string" />
+    <wsdl:part name="sYear" type="s:string" />
+    <wsdl:part name="sMake" type="s:string" />
+    <wsdl:part name="sModel" type="s:string" />
+    <wsdl:part name="bFillDrilldown" type="s:string" />
+    <wsdl:part name="dHistoricalDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="HistoricalValuesHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="CurrentValuesHttpPostIn">
+    <wsdl:part name="sCountryCode" type="s:string" />
+    <wsdl:part name="sYear" type="s:string" />
+    <wsdl:part name="sMake" type="s:string" />
+    <wsdl:part name="sModel" type="s:string" />
+    <wsdl:part name="bFillDrilldown" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CurrentValuesHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="HistoricalVINValuesHttpPostIn">
+    <wsdl:part name="sCountryCode" type="s:string" />
+    <wsdl:part name="sVIN" type="s:string" />
+    <wsdl:part name="bFillDrilldown" type="s:string" />
+    <wsdl:part name="dHistoricalDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="HistoricalVINValuesHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="CurrentVINUVCValuesHttpPostIn">
+    <wsdl:part name="sCountryCode" type="s:string" />
+    <wsdl:part name="sVIN" type="s:string" />
+    <wsdl:part name="sUVC" type="s:string" />
+    <wsdl:part name="bFillDrilldown" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CurrentVINUVCValuesHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="HistoricalVINUVCValuesHttpPostIn">
+    <wsdl:part name="sCountryCode" type="s:string" />
+    <wsdl:part name="sVIN" type="s:string" />
+    <wsdl:part name="sUVC" type="s:string" />
+    <wsdl:part name="bFillDrilldown" type="s:string" />
+    <wsdl:part name="dHistoricalDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="HistoricalVINUVCValuesHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="CurrentVINValuesHttpPostIn">
+    <wsdl:part name="sCountryCode" type="s:string" />
+    <wsdl:part name="sVIN" type="s:string" />
+    <wsdl:part name="bFillDrilldown" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CurrentVINValuesHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="TrendAnalysisHttpPostIn">
+    <wsdl:part name="sCountryCode" type="s:string" />
+    <wsdl:part name="sUVC" type="s:string" />
+    <wsdl:part name="sAnnualOrMonthly" type="s:string" />
+    <wsdl:part name="dStartDate" type="s:string" />
+    <wsdl:part name="dEndDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TrendAnalysisHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="VehicleClassificationsHttpPostIn">
+    <wsdl:part name="sCountryCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="VehicleClassificationsHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="IPAddressHttpPostIn" />
+  <wsdl:message name="IPAddressHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="PowerSportsWS">
+    <wsdl:operation name="getYears">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve years</wsdl:documentation>
+      <wsdl:input name="Years" message="tns:YearsSoapIn" />
+      <wsdl:output name="Years" message="tns:YearsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getMakes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve makes</wsdl:documentation>
+      <wsdl:input name="Makes" message="tns:MakesSoapIn" />
+      <wsdl:output name="Makes" message="tns:MakesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getModels">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve models</wsdl:documentation>
+      <wsdl:input name="Models" message="tns:ModelsSoapIn" />
+      <wsdl:output name="Models" message="tns:ModelsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve historical values by vehicle description</wsdl:documentation>
+      <wsdl:input name="HistoricalValues" message="tns:HistoricalValuesSoapIn" />
+      <wsdl:output name="HistoricalValues" message="tns:HistoricalValuesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve current values by vehicle description</wsdl:documentation>
+      <wsdl:input name="CurrentValues" message="tns:CurrentValuesSoapIn" />
+      <wsdl:output name="CurrentValues" message="tns:CurrentValuesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getVINValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve historical values by VIN</wsdl:documentation>
+      <wsdl:input name="HistoricalVINValues" message="tns:HistoricalVINValuesSoapIn" />
+      <wsdl:output name="HistoricalVINValues" message="tns:HistoricalVINValuesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getVINValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve current values by VIN and UVC</wsdl:documentation>
+      <wsdl:input name="CurrentVINUVCValues" message="tns:CurrentVINUVCValuesSoapIn" />
+      <wsdl:output name="CurrentVINUVCValues" message="tns:CurrentVINUVCValuesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getVINValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve historical values by VIN and UVC</wsdl:documentation>
+      <wsdl:input name="HistoricalVINUVCValues" message="tns:HistoricalVINUVCValuesSoapIn" />
+      <wsdl:output name="HistoricalVINUVCValues" message="tns:HistoricalVINUVCValuesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getVINValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve current values by VIN</wsdl:documentation>
+      <wsdl:input name="CurrentVINValues" message="tns:CurrentVINValuesSoapIn" />
+      <wsdl:output name="CurrentVINValues" message="tns:CurrentVINValuesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTrendAnalysisValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve vehicle trend analysis values</wsdl:documentation>
+      <wsdl:input name="TrendAnalysis" message="tns:TrendAnalysisSoapIn" />
+      <wsdl:output name="TrendAnalysis" message="tns:TrendAnalysisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getVehicleClasses">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve vehicle classifications</wsdl:documentation>
+      <wsdl:input name="VehicleClassifications" message="tns:VehicleClassificationsSoapIn" />
+      <wsdl:output name="VehicleClassifications" message="tns:VehicleClassificationsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="PowerSportsWSSoap">
+    <wsdl:operation name="getIPAddress">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve my server IP address</wsdl:documentation>
+      <wsdl:input name="IPAddress" message="tns:IPAddressSoapIn" />
+      <wsdl:output name="IPAddress" message="tns:IPAddressSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="PowerSportsWSHttpGet">
+    <wsdl:operation name="getYears">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve years</wsdl:documentation>
+      <wsdl:input name="Years" message="tns:YearsHttpGetIn" />
+      <wsdl:output name="Years" message="tns:YearsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getMakes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve makes</wsdl:documentation>
+      <wsdl:input name="Makes" message="tns:MakesHttpGetIn" />
+      <wsdl:output name="Makes" message="tns:MakesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getModels">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve models</wsdl:documentation>
+      <wsdl:input name="Models" message="tns:ModelsHttpGetIn" />
+      <wsdl:output name="Models" message="tns:ModelsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve historical values by vehicle description</wsdl:documentation>
+      <wsdl:input name="HistoricalValues" message="tns:HistoricalValuesHttpGetIn" />
+      <wsdl:output name="HistoricalValues" message="tns:HistoricalValuesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve current values by vehicle description</wsdl:documentation>
+      <wsdl:input name="CurrentValues" message="tns:CurrentValuesHttpGetIn" />
+      <wsdl:output name="CurrentValues" message="tns:CurrentValuesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getVINValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve historical values by VIN</wsdl:documentation>
+      <wsdl:input name="HistoricalVINValues" message="tns:HistoricalVINValuesHttpGetIn" />
+      <wsdl:output name="HistoricalVINValues" message="tns:HistoricalVINValuesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getVINValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve current values by VIN and UVC</wsdl:documentation>
+      <wsdl:input name="CurrentVINUVCValues" message="tns:CurrentVINUVCValuesHttpGetIn" />
+      <wsdl:output name="CurrentVINUVCValues" message="tns:CurrentVINUVCValuesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getVINValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve historical values by VIN and UVC</wsdl:documentation>
+      <wsdl:input name="HistoricalVINUVCValues" message="tns:HistoricalVINUVCValuesHttpGetIn" />
+      <wsdl:output name="HistoricalVINUVCValues" message="tns:HistoricalVINUVCValuesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getVINValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve current values by VIN</wsdl:documentation>
+      <wsdl:input name="CurrentVINValues" message="tns:CurrentVINValuesHttpGetIn" />
+      <wsdl:output name="CurrentVINValues" message="tns:CurrentVINValuesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTrendAnalysisValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve vehicle trend analysis values</wsdl:documentation>
+      <wsdl:input name="TrendAnalysis" message="tns:TrendAnalysisHttpGetIn" />
+      <wsdl:output name="TrendAnalysis" message="tns:TrendAnalysisHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getVehicleClasses">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve vehicle classifications</wsdl:documentation>
+      <wsdl:input name="VehicleClassifications" message="tns:VehicleClassificationsHttpGetIn" />
+      <wsdl:output name="VehicleClassifications" message="tns:VehicleClassificationsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getIPAddress">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve my server IP address</wsdl:documentation>
+      <wsdl:input name="IPAddress" message="tns:IPAddressHttpGetIn" />
+      <wsdl:output name="IPAddress" message="tns:IPAddressHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="PowerSportsWSHttpPost">
+    <wsdl:operation name="getYears">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve years</wsdl:documentation>
+      <wsdl:input name="Years" message="tns:YearsHttpPostIn" />
+      <wsdl:output name="Years" message="tns:YearsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getMakes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve makes</wsdl:documentation>
+      <wsdl:input name="Makes" message="tns:MakesHttpPostIn" />
+      <wsdl:output name="Makes" message="tns:MakesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getModels">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve models</wsdl:documentation>
+      <wsdl:input name="Models" message="tns:ModelsHttpPostIn" />
+      <wsdl:output name="Models" message="tns:ModelsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve historical values by vehicle description</wsdl:documentation>
+      <wsdl:input name="HistoricalValues" message="tns:HistoricalValuesHttpPostIn" />
+      <wsdl:output name="HistoricalValues" message="tns:HistoricalValuesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve current values by vehicle description</wsdl:documentation>
+      <wsdl:input name="CurrentValues" message="tns:CurrentValuesHttpPostIn" />
+      <wsdl:output name="CurrentValues" message="tns:CurrentValuesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getVINValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve historical values by VIN</wsdl:documentation>
+      <wsdl:input name="HistoricalVINValues" message="tns:HistoricalVINValuesHttpPostIn" />
+      <wsdl:output name="HistoricalVINValues" message="tns:HistoricalVINValuesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getVINValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve current values by VIN and UVC</wsdl:documentation>
+      <wsdl:input name="CurrentVINUVCValues" message="tns:CurrentVINUVCValuesHttpPostIn" />
+      <wsdl:output name="CurrentVINUVCValues" message="tns:CurrentVINUVCValuesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getVINValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve historical values by VIN and UVC</wsdl:documentation>
+      <wsdl:input name="HistoricalVINUVCValues" message="tns:HistoricalVINUVCValuesHttpPostIn" />
+      <wsdl:output name="HistoricalVINUVCValues" message="tns:HistoricalVINUVCValuesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getVINValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve current values by VIN</wsdl:documentation>
+      <wsdl:input name="CurrentVINValues" message="tns:CurrentVINValuesHttpPostIn" />
+      <wsdl:output name="CurrentVINValues" message="tns:CurrentVINValuesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTrendAnalysisValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve vehicle trend analysis values</wsdl:documentation>
+      <wsdl:input name="TrendAnalysis" message="tns:TrendAnalysisHttpPostIn" />
+      <wsdl:output name="TrendAnalysis" message="tns:TrendAnalysisHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getVehicleClasses">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve vehicle classifications</wsdl:documentation>
+      <wsdl:input name="VehicleClassifications" message="tns:VehicleClassificationsHttpPostIn" />
+      <wsdl:output name="VehicleClassifications" message="tns:VehicleClassificationsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getIPAddress">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve my server IP address</wsdl:documentation>
+      <wsdl:input name="IPAddress" message="tns:IPAddressHttpPostIn" />
+      <wsdl:output name="IPAddress" message="tns:IPAddressHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PowerSportsWS" type="tns:PowerSportsWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getYears">
+      <soap:operation soapAction="https://www.blackbookws.com/PowerSportsWS/Years" style="document" />
+      <wsdl:input name="Years">
+        <soap:body use="literal" />
+        <soap:header message="tns:YearsUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Years">
+        <soap:body use="literal" />
+        <soap:header message="tns:YearsUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMakes">
+      <soap:operation soapAction="https://www.blackbookws.com/PowerSportsWS/Makes" style="document" />
+      <wsdl:input name="Makes">
+        <soap:body use="literal" />
+        <soap:header message="tns:MakesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Makes">
+        <soap:body use="literal" />
+        <soap:header message="tns:MakesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getModels">
+      <soap:operation soapAction="https://www.blackbookws.com/PowerSportsWS/Models" style="document" />
+      <wsdl:input name="Models">
+        <soap:body use="literal" />
+        <soap:header message="tns:ModelsUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Models">
+        <soap:body use="literal" />
+        <soap:header message="tns:ModelsUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getValues">
+      <soap:operation soapAction="https://www.blackbookws.com/PowerSportsWS/HistoricalValues" style="document" />
+      <wsdl:input name="HistoricalValues">
+        <soap:body use="literal" />
+        <soap:header message="tns:HistoricalValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="HistoricalValues">
+        <soap:body use="literal" />
+        <soap:header message="tns:HistoricalValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getValues">
+      <soap:operation soapAction="https://www.blackbookws.com/PowerSportsWS/CurrentValues" style="document" />
+      <wsdl:input name="CurrentValues">
+        <soap:body use="literal" />
+        <soap:header message="tns:CurrentValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CurrentValues">
+        <soap:body use="literal" />
+        <soap:header message="tns:CurrentValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVINValues">
+      <soap:operation soapAction="https://www.blackbookws.com/PowerSportsWS/HistoricalVINValues" style="document" />
+      <wsdl:input name="HistoricalVINValues">
+        <soap:body use="literal" />
+        <soap:header message="tns:HistoricalVINValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="HistoricalVINValues">
+        <soap:body use="literal" />
+        <soap:header message="tns:HistoricalVINValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVINValues">
+      <soap:operation soapAction="https://www.blackbookws.com/PowerSportsWS/CurrentVINUVCValues" style="document" />
+      <wsdl:input name="CurrentVINUVCValues">
+        <soap:body use="literal" />
+        <soap:header message="tns:CurrentVINUVCValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CurrentVINUVCValues">
+        <soap:body use="literal" />
+        <soap:header message="tns:CurrentVINUVCValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVINValues">
+      <soap:operation soapAction="https://www.blackbookws.com/PowerSportsWS/HistoricalVINUVCValues" style="document" />
+      <wsdl:input name="HistoricalVINUVCValues">
+        <soap:body use="literal" />
+        <soap:header message="tns:HistoricalVINUVCValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="HistoricalVINUVCValues">
+        <soap:body use="literal" />
+        <soap:header message="tns:HistoricalVINUVCValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVINValues">
+      <soap:operation soapAction="https://www.blackbookws.com/PowerSportsWS/CurrentVINValues" style="document" />
+      <wsdl:input name="CurrentVINValues">
+        <soap:body use="literal" />
+        <soap:header message="tns:CurrentVINValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CurrentVINValues">
+        <soap:body use="literal" />
+        <soap:header message="tns:CurrentVINValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTrendAnalysisValues">
+      <soap:operation soapAction="https://www.blackbookws.com/PowerSportsWS/TrendAnalysis" style="document" />
+      <wsdl:input name="TrendAnalysis">
+        <soap:body use="literal" />
+        <soap:header message="tns:TrendAnalysisUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="TrendAnalysis">
+        <soap:body use="literal" />
+        <soap:header message="tns:TrendAnalysisUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVehicleClasses">
+      <soap:operation soapAction="https://www.blackbookws.com/PowerSportsWS/VehicleClassifications" style="document" />
+      <wsdl:input name="VehicleClassifications">
+        <soap:body use="literal" />
+        <soap:header message="tns:VehicleClassificationsUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="VehicleClassifications">
+        <soap:body use="literal" />
+        <soap:header message="tns:VehicleClassificationsUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PowerSportsWSSoap" type="tns:PowerSportsWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getIPAddress">
+      <soap:operation soapAction="https://www.blackbookws.com/PowerSportsWS/IPAddress" style="document" />
+      <wsdl:input name="IPAddress">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="IPAddress">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PowerSportsWS1" type="tns:PowerSportsWS">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getYears">
+      <soap12:operation soapAction="https://www.blackbookws.com/PowerSportsWS/Years" style="document" />
+      <wsdl:input name="Years">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:YearsUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Years">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:YearsUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMakes">
+      <soap12:operation soapAction="https://www.blackbookws.com/PowerSportsWS/Makes" style="document" />
+      <wsdl:input name="Makes">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:MakesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Makes">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:MakesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getModels">
+      <soap12:operation soapAction="https://www.blackbookws.com/PowerSportsWS/Models" style="document" />
+      <wsdl:input name="Models">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ModelsUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Models">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ModelsUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getValues">
+      <soap12:operation soapAction="https://www.blackbookws.com/PowerSportsWS/HistoricalValues" style="document" />
+      <wsdl:input name="HistoricalValues">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:HistoricalValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="HistoricalValues">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:HistoricalValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getValues">
+      <soap12:operation soapAction="https://www.blackbookws.com/PowerSportsWS/CurrentValues" style="document" />
+      <wsdl:input name="CurrentValues">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CurrentValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CurrentValues">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CurrentValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVINValues">
+      <soap12:operation soapAction="https://www.blackbookws.com/PowerSportsWS/HistoricalVINValues" style="document" />
+      <wsdl:input name="HistoricalVINValues">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:HistoricalVINValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="HistoricalVINValues">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:HistoricalVINValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVINValues">
+      <soap12:operation soapAction="https://www.blackbookws.com/PowerSportsWS/CurrentVINUVCValues" style="document" />
+      <wsdl:input name="CurrentVINUVCValues">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CurrentVINUVCValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CurrentVINUVCValues">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CurrentVINUVCValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVINValues">
+      <soap12:operation soapAction="https://www.blackbookws.com/PowerSportsWS/HistoricalVINUVCValues" style="document" />
+      <wsdl:input name="HistoricalVINUVCValues">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:HistoricalVINUVCValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="HistoricalVINUVCValues">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:HistoricalVINUVCValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVINValues">
+      <soap12:operation soapAction="https://www.blackbookws.com/PowerSportsWS/CurrentVINValues" style="document" />
+      <wsdl:input name="CurrentVINValues">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CurrentVINValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CurrentVINValues">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CurrentVINValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTrendAnalysisValues">
+      <soap12:operation soapAction="https://www.blackbookws.com/PowerSportsWS/TrendAnalysis" style="document" />
+      <wsdl:input name="TrendAnalysis">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:TrendAnalysisUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="TrendAnalysis">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:TrendAnalysisUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVehicleClasses">
+      <soap12:operation soapAction="https://www.blackbookws.com/PowerSportsWS/VehicleClassifications" style="document" />
+      <wsdl:input name="VehicleClassifications">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:VehicleClassificationsUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="VehicleClassifications">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:VehicleClassificationsUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PowerSportsWSSoap12" type="tns:PowerSportsWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getIPAddress">
+      <soap12:operation soapAction="https://www.blackbookws.com/PowerSportsWS/IPAddress" style="document" />
+      <wsdl:input name="IPAddress">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="IPAddress">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PowerSportsWSHttpGet" type="tns:PowerSportsWSHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="getYears">
+      <http:operation location="/Years" />
+      <wsdl:input name="Years">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="Years">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMakes">
+      <http:operation location="/Makes" />
+      <wsdl:input name="Makes">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="Makes">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getModels">
+      <http:operation location="/Models" />
+      <wsdl:input name="Models">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="Models">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getValues">
+      <http:operation location="/HistoricalValues" />
+      <wsdl:input name="HistoricalValues">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="HistoricalValues">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getValues">
+      <http:operation location="/CurrentValues" />
+      <wsdl:input name="CurrentValues">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="CurrentValues">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVINValues">
+      <http:operation location="/HistoricalVINValues" />
+      <wsdl:input name="HistoricalVINValues">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="HistoricalVINValues">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVINValues">
+      <http:operation location="/CurrentVINUVCValues" />
+      <wsdl:input name="CurrentVINUVCValues">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="CurrentVINUVCValues">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVINValues">
+      <http:operation location="/HistoricalVINUVCValues" />
+      <wsdl:input name="HistoricalVINUVCValues">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="HistoricalVINUVCValues">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVINValues">
+      <http:operation location="/CurrentVINValues" />
+      <wsdl:input name="CurrentVINValues">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="CurrentVINValues">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTrendAnalysisValues">
+      <http:operation location="/TrendAnalysis" />
+      <wsdl:input name="TrendAnalysis">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="TrendAnalysis">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVehicleClasses">
+      <http:operation location="/VehicleClassifications" />
+      <wsdl:input name="VehicleClassifications">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="VehicleClassifications">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getIPAddress">
+      <http:operation location="/IPAddress" />
+      <wsdl:input name="IPAddress">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="IPAddress">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PowerSportsWSHttpPost" type="tns:PowerSportsWSHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="getYears">
+      <http:operation location="/Years" />
+      <wsdl:input name="Years">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="Years">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMakes">
+      <http:operation location="/Makes" />
+      <wsdl:input name="Makes">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="Makes">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getModels">
+      <http:operation location="/Models" />
+      <wsdl:input name="Models">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="Models">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getValues">
+      <http:operation location="/HistoricalValues" />
+      <wsdl:input name="HistoricalValues">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="HistoricalValues">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getValues">
+      <http:operation location="/CurrentValues" />
+      <wsdl:input name="CurrentValues">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="CurrentValues">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVINValues">
+      <http:operation location="/HistoricalVINValues" />
+      <wsdl:input name="HistoricalVINValues">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="HistoricalVINValues">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVINValues">
+      <http:operation location="/CurrentVINUVCValues" />
+      <wsdl:input name="CurrentVINUVCValues">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="CurrentVINUVCValues">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVINValues">
+      <http:operation location="/HistoricalVINUVCValues" />
+      <wsdl:input name="HistoricalVINUVCValues">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="HistoricalVINUVCValues">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVINValues">
+      <http:operation location="/CurrentVINValues" />
+      <wsdl:input name="CurrentVINValues">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="CurrentVINValues">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTrendAnalysisValues">
+      <http:operation location="/TrendAnalysis" />
+      <wsdl:input name="TrendAnalysis">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="TrendAnalysis">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVehicleClasses">
+      <http:operation location="/VehicleClassifications" />
+      <wsdl:input name="VehicleClassifications">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="VehicleClassifications">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getIPAddress">
+      <http:operation location="/IPAddress" />
+      <wsdl:input name="IPAddress">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="IPAddress">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PowerSportsWS">
+    <wsdl:port name="PowerSportsWS" binding="tns:PowerSportsWS">
+      <soap:address location="https://www.blackbookws.com/PowerSportsWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PowerSportsWSSoap" binding="tns:PowerSportsWSSoap">
+      <soap:address location="https://www.blackbookws.com/PowerSportsWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PowerSportsWS1" binding="tns:PowerSportsWS1">
+      <soap12:address location="https://www.blackbookws.com/PowerSportsWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PowerSportsWSSoap12" binding="tns:PowerSportsWSSoap12">
+      <soap12:address location="https://www.blackbookws.com/PowerSportsWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PowerSportsWSHttpGet" binding="tns:PowerSportsWSHttpGet">
+      <http:address location="https://www.blackbookws.com/PowerSportsWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PowerSportsWSHttpPost" binding="tns:PowerSportsWSHttpPost">
+      <http:address location="https://www.blackbookws.com/PowerSportsWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

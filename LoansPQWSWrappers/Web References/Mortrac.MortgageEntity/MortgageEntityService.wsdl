@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:insMtgCommentsReq="http://com.fsb.domain/services/mortgage/InsertMortgageCommentsRequest" xmlns:insMtgCommentsRes="http://com.fsb.domain/services/mortgage/InsertMortgageCommentsResponse" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:mortgageOriginator="http://com.fsb.domain/services/mortgage/MortgageOriginator" xmlns:mortgageStatus="http://com.fsb.domain/services/mortgage/MortgageStatus" xmlns:mortgageStatusHistory="http://com.fsb.domain/services/mortgage/MortgageStatusHistory" xmlns:mortgageSecondaryFinancing="http://com.fsb.domain/services/mortgage/MortgageSecondaryFinancing" xmlns:mortgageRequest="http://com.fsb.domain/services/mortgage/MortgageRequest" xmlns:mortgageOriginatorList="http://com.fsb.domain/services/mortgage/MortgageOriginatorList" xmlns:excep="http://com.fsb.domain/services/FaultInfo" xmlns:mortgageCommentHistory="http://com.fsb.domain/services/mortgage/MortgageCommentHistory" xmlns:mortgageservice="http://com.fsb.domain/services/mortgage/" xmlns:mortgageIdentity="http://com.fsb.domain/services/mortgage/MortgageCore" name="MortgageEntityService" targetNamespace="http://com.fsb.domain/services/mortgage/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://com.fsb.domain/services/mortgage/">
+      <xsd:import schemaLocation="MortgageRequest.xsd" namespace="http://com.fsb.domain/services/mortgage/MortgageRequest" />
+      <xsd:import schemaLocation="MortgageCore.xsd" namespace="http://com.fsb.domain/services/mortgage/MortgageCore" />
+      <xsd:import schemaLocation="MortgageStatus.xsd" namespace="http://com.fsb.domain/services/mortgage/MortgageStatus" />
+      <xsd:import schemaLocation="MortgageStatusHistory.xsd" namespace="http://com.fsb.domain/services/mortgage/MortgageStatusHistory" />
+      <xsd:import schemaLocation="MortgageCommentHistory.xsd" namespace="http://com.fsb.domain/services/mortgage/MortgageCommentHistory" />
+      <xsd:import schemaLocation="MortgageSecondaryFinancing.xsd" namespace="http://com.fsb.domain/services/mortgage/MortgageSecondaryFinancing" />
+      <xsd:import schemaLocation="MortgageOriginator.xsd" namespace="http://com.fsb.domain/services/mortgage/MortgageOriginator" />
+      <xsd:import schemaLocation="MortgageOriginatorList.xsd" namespace="http://com.fsb.domain/services/mortgage/MortgageOriginatorList" />
+      <xsd:import schemaLocation="InsertMortgageCommentsReq.xsd" namespace="http://com.fsb.domain/services/mortgage/InsertMortgageCommentsRequest" />
+      <xsd:import schemaLocation="InsertMortgageCommentsResponse.xsd" namespace="http://com.fsb.domain/services/mortgage/InsertMortgageCommentsResponse" />
+      <xsd:element name="MortgageCoreRequest" type="mortgageRequest:RequestType" />
+      <xsd:element name="MortgageStatusRequest" type="mortgageRequest:RequestType" />
+      <xsd:element name="MortgageStatusHistRequest" type="mortgageRequest:RequestType" />
+      <xsd:element name="MortgageProdCoreRequest" type="mortgageRequest:RequestType" />
+      <xsd:element name="MortgageCommentRequest" type="mortgageRequest:RequestType" />
+      <xsd:element name="MortgageSecondaryFinancingRequest" type="mortgageRequest:RequestType" />
+      <xsd:element name="MortgageOriginatorRequest" type="mortgageRequest:RequestType" />
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://com.fsb.domain/services/mortgage/">
+      <xsd:import schemaLocation="FaultInfo.xsd" namespace="http://com.fsb.domain/services/FaultInfo" />
+      <xsd:element name="InvalidLoanException" type="excep:FaultInfo" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="MortgageCoreRequestMessage">
+    <wsdl:part name="MortgageCoreRequestPart" element="mortgageservice:MortgageCoreRequest" />
+  </wsdl:message>
+  <wsdl:message name="MortgageStatusMessage">
+    <wsdl:part name="MortgageStatusResponsePart" element="mortgageStatus:MortgageStatus" />
+  </wsdl:message>
+  <wsdl:message name="MortgageStatusRequestMessage">
+    <wsdl:part name="MortgageStatusRequestPart" element="mortgageservice:MortgageStatusRequest" />
+  </wsdl:message>
+  <wsdl:message name="MortgageSecondaryFinancingMessage">
+    <wsdl:part name="MortgageSecondaryFinancingResponsePart" element="mortgageSecondaryFinancing:MortgageSecondaryFinancing" />
+  </wsdl:message>
+  <wsdl:message name="InsertMortgageCommentsResponseMessage">
+    <wsdl:part name="InsertMortgageCommentsResponsePart" element="insMtgCommentsRes:InsertMortgageCommentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="MortgageCommentRequestMessage">
+    <wsdl:part name="MortgageCommentRequestPart" element="mortgageservice:MortgageCommentRequest" />
+  </wsdl:message>
+  <wsdl:message name="MortgageOriginatorMessage">
+    <wsdl:part name="MortgageOriginatorResponsePart" element="mortgageOriginatorList:MortgageOriginatorList" />
+  </wsdl:message>
+  <wsdl:message name="MortgageSecondaryFinancingRequestMessage">
+    <wsdl:part name="MortgageSecondaryFinancingRequestPart" element="mortgageservice:MortgageSecondaryFinancingRequest" />
+  </wsdl:message>
+  <wsdl:message name="MortgageCoreMessage">
+    <wsdl:part name="MortgageResponsePart" element="mortgageIdentity:MortgageCore" />
+  </wsdl:message>
+  <wsdl:message name="InvalidLoanException">
+    <wsdl:part name="InvalidLoanExceptionPart" element="mortgageservice:InvalidLoanException" />
+  </wsdl:message>
+  <wsdl:message name="MortgageOriginatorRequestMessage">
+    <wsdl:part name="MortgageOriginatorRequestPart" element="mortgageservice:MortgageOriginatorRequest" />
+  </wsdl:message>
+  <wsdl:message name="MortgageStatusHistoryMessage">
+    <wsdl:part name="MortgageStatusHistoryResponsePart" element="mortgageStatusHistory:MortgageStatusHistory" />
+  </wsdl:message>
+  <wsdl:message name="MortgageCommentHistoryMessage">
+    <wsdl:part name="MortgageCommentHistoryResponsePart" element="mortgageCommentHistory:MortgageCommentHistory" />
+  </wsdl:message>
+  <wsdl:message name="MortgageStatusHistoryRequestMessage">
+    <wsdl:part name="MortgageStatusHistRequestPart" element="mortgageservice:MortgageStatusHistRequest" />
+  </wsdl:message>
+  <wsdl:message name="InsertMortgageCommentsRequestMessage">
+    <wsdl:part name="InsertMortgageCommentsRequestPart" element="insMtgCommentsReq:InsertMortgageCommentsRequest" />
+  </wsdl:message>
+  <wsdl:portType name="MortgageEntityServicePort">
+    <wsdl:operation name="GetMortgageCoreByLoanNumber">
+      <wsdl:input name="MortgageCoreRequestInput" message="mortgageservice:MortgageCoreRequestMessage" />
+      <wsdl:output name="MortgageCoreOutput" message="mortgageservice:MortgageCoreMessage" />
+      <wsdl:fault name="InvalidLoanException" message="mortgageservice:InvalidLoanException" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMortgageStatusByLoanNumberCurrent">
+      <wsdl:input name="MortgageStatusRequestInput" message="mortgageservice:MortgageStatusRequestMessage" />
+      <wsdl:output name="MortgageStatusOutput" message="mortgageservice:MortgageStatusMessage" />
+      <wsdl:fault name="InvalidLoanException" message="mortgageservice:InvalidLoanException" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMortgageStatusByLoanNumber">
+      <wsdl:input name="MortgageStatusHistoryRequestInput" message="mortgageservice:MortgageStatusHistoryRequestMessage" />
+      <wsdl:output name="MortgageStatusHistoryOutput" message="mortgageservice:MortgageStatusHistoryMessage" />
+      <wsdl:fault name="InvalidLoanException" message="mortgageservice:InvalidLoanException" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMortgageCommentByLoanNumber">
+      <wsdl:input name="MortgageCommentRequestInput" message="mortgageservice:MortgageCommentRequestMessage" />
+      <wsdl:output name="MortgageCommentOutput" message="mortgageservice:MortgageCommentHistoryMessage" />
+      <wsdl:fault name="InvalidLoanException" message="mortgageservice:InvalidLoanException" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMortgageSecondaryFinancingByLoanNumber">
+      <wsdl:input name="MortgageSecondaryFinancingRequestInput" message="mortgageservice:MortgageSecondaryFinancingRequestMessage" />
+      <wsdl:output name="MortgageSecondaryFinancingOutput" message="mortgageservice:MortgageSecondaryFinancingMessage" />
+      <wsdl:fault name="InvalidLoanException" message="mortgageservice:InvalidLoanException" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMortgageOriginatorByLoanNumber">
+      <wsdl:input name="MortgageOriginatorInput" message="mortgageservice:MortgageOriginatorRequestMessage" />
+      <wsdl:output name="MortgageOriginatorOutput" message="mortgageservice:MortgageOriginatorMessage" />
+      <wsdl:fault name="InvalidLoanException" message="mortgageservice:InvalidLoanException" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertMortgageComments">
+      <wsdl:input name="InsertMortgageCommentsInput" message="mortgageservice:InsertMortgageCommentsRequestMessage" />
+      <wsdl:output name="InsertMortgageCommentsOutput" message="mortgageservice:InsertMortgageCommentsResponseMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MortgageEntityServiceSOAPBinding" type="mortgageservice:MortgageEntityServicePort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMortgageCoreByLoanNumber">
+      <soap:operation soapAction="http://com.fsb.mortgage/services/mortgage/GetMortgageCoreByLoanNumber" />
+      <wsdl:input name="MortgageCoreRequestInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="MortgageCoreOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvalidLoanException">
+        <soap:fault use="literal" name="InvalidLoanException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetMortgageStatusByLoanNumberCurrent">
+      <soap:operation soapAction="http://com.fsb.mortgage/services/mortgage/GetMortgageStatusByLoanNumberCurrent" />
+      <wsdl:input name="MortgageStatusRequestInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="MortgageStatusOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvalidLoanException">
+        <soap:fault use="literal" name="InvalidLoanException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetMortgageStatusByLoanNumber">
+      <soap:operation soapAction="http://com.fsb.mortgage/services/mortgage/GetMortgageStatusByLoanNumber" />
+      <wsdl:input name="MortgageStatusHistoryRequestInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="MortgageStatusHistoryOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvalidLoanException">
+        <soap:fault use="literal" name="InvalidLoanException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetMortgageCommentByLoanNumber">
+      <soap:operation soapAction="http://com.fsb.mortgage/services/mortgage/GetMortgageCommentByLoanNumber" />
+      <wsdl:input name="MortgageCommentRequestInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="MortgageCommentOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvalidLoanException">
+        <soap:fault use="literal" name="InvalidLoanException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetMortgageSecondaryFinancingByLoanNumber">
+      <soap:operation soapAction="http://com.fsb.mortgage/services/mortgage/GetMortgageSecondaryFinancingByLoanNumber" />
+      <wsdl:input name="MortgageSecondaryFinancingRequestInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="MortgageSecondaryFinancingOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvalidLoanException">
+        <soap:fault use="literal" name="InvalidLoanException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetMortgageOriginatorByLoanNumber">
+      <soap:operation soapAction="http://com.fsb.mortgage/services/mortgage/GetMortgageOriginatorByLoanNumber" />
+      <wsdl:input name="MortgageOriginatorInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="MortgageOriginatorOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="InvalidLoanException">
+        <soap:fault use="literal" name="InvalidLoanException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertMortgageComments">
+      <soap:operation soapAction="http://com.fsb.mortgage/services/mortgage/InsertMortgageComments" />
+      <wsdl:input name="InsertMortgageCommentsInput">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="InsertMortgageCommentsOutput">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MortgageEntityService">
+    <wsdl:port name="MortgageEntityServiceSOAP" binding="mortgageservice:MortgageEntityServiceSOAPBinding">
+      <soap:address location="https://websvct.test.flagstar.com/fsb-domainservice/dev/MortgageEntityService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

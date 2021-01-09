@@ -1,0 +1,168 @@
+<?xml version="1.0" ?>
+
+<wsdl:definitions name="Vais"
+             targetNamespace="http://acxiom.com/visacontrolservice/ws/vais"
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:tns="http://acxiom.com/visacontrolservice/ws/vais"
+             xmlns:messagens="http://acxiom.com/visacontrolservice/ws/vaismessages"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns="http://acxiom.com/visacontrolservice/ws/vais">
+             
+  <wsdl:import namespace="http://acxiom.com/visacontrolservice/ws/vaismessages"
+          location="VaisMessages.wsdl" />
+               
+  <!-- port type declns -->
+  <wsdl:portType name="VaisPort">
+    <wsdl:operation name="addDeclinedApplication">
+      <wsdl:input message="messagens:AddDeclinedApplicationRequest"/>
+      <wsdl:output message="messagens:AddDeclinedApplicationResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="addApplication">
+      <wsdl:input message="messagens:AddApplicationRequest"/>
+      <wsdl:output message="messagens:AddApplicationResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="addUnauthorizedUse">
+      <wsdl:input message="messagens:AddUnauthorizedUseRequest"/>
+      <wsdl:output message="messagens:AddUnauthorizedUseResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="addInquiry">
+      <wsdl:input message="messagens:AddInquiryRequest"/>
+      <wsdl:output message="messagens:AddInquiryResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="retroactiveInquiry">
+      <wsdl:input message="messagens:RetroactiveInquiryRequest"/>
+      <wsdl:output message="messagens:RetroactiveInquiryResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="debitInquiry">
+      <wsdl:input message="messagens:DebitInquiryRequest"/>
+      <wsdl:output message="messagens:DebitInquiryResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="nonBankcardInquiry">
+      <wsdl:input message="messagens:NonBankcardInquiryRequest"/>
+      <wsdl:output message="messagens:NonBankcardInquiryResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="addDelete">
+      <wsdl:input message="messagens:AddDeleteRequest"/>
+      <wsdl:output message="messagens:AddDeleteResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+
+  <!-- binding declns -->
+  <wsdl:binding name="VaisPortSOAPBinding" type="tns:VaisPort">
+    <soap:binding style="document"
+                  transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="addDeclinedApplication">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"
+                   namespace="http://acxiom.com/visacontrolservice/ws/vais"
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"
+                   namespace="http://acxiom.com/visacontrolservice/ws/vais"
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addApplication">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"
+                   namespace="http://acxiom.com/visacontrolservice/ws/vais"
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"
+                   namespace="http://acxiom.com/visacontrolservice/ws/vais"
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addUnauthorizedUse">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"
+                   namespace="http://acxiom.com/visacontrolservice/ws/vais"
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"
+                   namespace="http://acxiom.com/visacontrolservice/ws/vais"
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addInquiry">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"
+                   namespace="http://acxiom.com/visacontrolservice/ws/vais"
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"
+                   namespace="http://acxiom.com/visacontrolservice/ws/vais"
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="retroactiveInquiry">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"
+                   namespace="http://acxiom.com/visacontrolservice/ws/vais"
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"
+                   namespace="http://acxiom.com/visacontrolservice/ws/vais"
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="debitInquiry">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"
+                   namespace="http://acxiom.com/visacontrolservice/ws/vais"
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"
+                   namespace="http://acxiom.com/visacontrolservice/ws/vais"
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="nonBankcardInquiry">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"
+                   namespace="http://acxiom.com/visacontrolservice/ws/vais"
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"
+                   namespace="http://acxiom.com/visacontrolservice/ws/vais"
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addDelete">
+      <soap:operation soapAction=""/>
+      <wsdl:input>
+        <soap:body use="literal"
+                   namespace="http://acxiom.com/visacontrolservice/ws/vais"
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"
+                   namespace="http://acxiom.com/visacontrolservice/ws/vais"
+                   encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+
+  <!-- service decln -->
+  <wsdl:service name="VaisService">
+    <wsdl:port name="VaisPort" binding="tns:VaisPortSOAPBinding">
+      <soap:address location="http://vdev01:8538/vaisws/services/VaisPort"/>
+    </wsdl:port>
+  </wsdl:service>
+
+</wsdl:definitions>

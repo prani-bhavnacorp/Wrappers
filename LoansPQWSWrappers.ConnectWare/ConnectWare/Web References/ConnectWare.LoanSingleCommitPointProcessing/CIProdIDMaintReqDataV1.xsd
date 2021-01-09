@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="mtvnCWCIProdIDMaintReqData" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="mtvnCWCIProdIDMaintReqData" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="CIProdIDMaintReqData">
+    <xs:annotation>
+      <xs:documentation>CIS Product ID Maintenance (CI080) -  This function is used to add and change an account or sub-account's associated product.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="E16054" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Application Code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E16055" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Application Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="CIProdIDMaintProdDataLst">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="1" maxOccurs="unbounded" name="CIProdIDMaintProdData">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="E16921" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Maintenance Code</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E16917" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Sub Account Number</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E16918" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Product ID</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E16930" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>External Product ID</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

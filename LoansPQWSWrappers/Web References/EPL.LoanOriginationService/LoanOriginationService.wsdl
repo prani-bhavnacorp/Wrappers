@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.eplinc.com/services/LoanOriginationService/2006-05-01/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:type="http://www.eplinc.com/services/LoanOriginationService/2006-05-01/schema" targetNamespace="http://www.eplinc.com/services/LoanOriginationService/2006-05-01/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://www.eplinc.com/services/LoanOriginationService/2006-05-01/schema">
+      <xsd:include schemaLocation="LoanOriginationService.xsd" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="LendingProfileRequest">
+    <wsdl:part name="LendingProfileReq" element="type:LendingProfileReq" />
+  </wsdl:message>
+  <wsdl:message name="LendingProfileResponse">
+    <wsdl:part name="LendingProfileResp" element="type:LendingProfileResp" />
+  </wsdl:message>
+  <wsdl:message name="AccountProfileRequest">
+    <wsdl:part name="AccountProfileReq" element="type:AccountProfileReq" />
+  </wsdl:message>
+  <wsdl:message name="AccountProfileResponse">
+    <wsdl:part name="AccountProfileResp" element="type:AccountProfileResp" />
+  </wsdl:message>
+  <wsdl:message name="ApplicantProfileRequest">
+    <wsdl:part name="ApplicantProfileReq" element="type:ApplicantProfileReq" />
+  </wsdl:message>
+  <wsdl:message name="ApplicantProfileResponse">
+    <wsdl:part name="ApplicantProfileResp" element="type:ApplicantProfileResp" />
+  </wsdl:message>
+  <wsdl:message name="NewLoanRequest">
+    <wsdl:part name="NewLoanReq" element="type:NewLoanReq" />
+  </wsdl:message>
+  <wsdl:message name="NewLoanResponse">
+    <wsdl:part name="NewLoanResp" element="type:NewLoanResp" />
+  </wsdl:message>
+  <wsdl:message name="LoanProfileRequest">
+    <wsdl:part name="LoanProfileReq" element="type:LoanProfileReq" />
+  </wsdl:message>
+  <wsdl:message name="LoanProfileResponse">
+    <wsdl:part name="LoanProfileResp" element="type:LoanProfileResp" />
+  </wsdl:message>
+  <wsdl:message name="AddOnRequest">
+    <wsdl:part name="AddOnReq" element="type:AddOnReq" />
+  </wsdl:message>
+  <wsdl:message name="AddOnResponse">
+    <wsdl:part name="AddOnResp" element="type:AddOnResp" />
+  </wsdl:message>
+  <wsdl:portType name="LoanOriginationServicePortType">
+    <wsdl:operation name="GetLendingProfile">
+      <wsdl:input name="LendingProfileRequest" message="tns:LendingProfileRequest" />
+      <wsdl:output name="LendingProfileResponse" message="tns:LendingProfileResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountProfile">
+      <wsdl:input name="AccountProfileRequest" message="tns:AccountProfileRequest" />
+      <wsdl:output name="AccountProfileResponse" message="tns:AccountProfileResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicantProfile">
+      <wsdl:input name="ApplicantProfileRequest" message="tns:ApplicantProfileRequest" />
+      <wsdl:output name="ApplicantProfileResponse" message="tns:ApplicantProfileResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="PostNewLoan">
+      <wsdl:input name="NewLoanRequest" message="tns:NewLoanRequest" />
+      <wsdl:output name="NewLoanResponse" message="tns:NewLoanResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLoanProfile">
+      <wsdl:input name="LoanProfileRequest" message="tns:LoanProfileRequest" />
+      <wsdl:output name="LoanProfileResponse" message="tns:LoanProfileResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="PostAddOn">
+      <wsdl:input name="AddOnRequest" message="tns:AddOnRequest" />
+      <wsdl:output name="AddOnResponse" message="tns:AddOnResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LoanOriginationServiceBinding" type="tns:LoanOriginationServicePortType">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLendingProfile">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="LendingProfileRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="LendingProfileResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountProfile">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="AccountProfileRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AccountProfileResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicantProfile">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="ApplicantProfileRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ApplicantProfileResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostNewLoan">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="NewLoanRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="NewLoanResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLoanProfile">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="LoanProfileRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="LoanProfileResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostAddOn">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="AddOnRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AddOnResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LoanOriginationService">
+    <wsdl:port name="LoanOriginationServicePort" binding="tns:LoanOriginationServiceBinding">
+      <wsdlsoap:address location="http://localhost:9989/webserv/services/LoanOriginationService/2006-05-01" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

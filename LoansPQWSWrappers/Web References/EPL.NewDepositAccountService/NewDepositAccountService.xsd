@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:msg="http://ws.eplinc.com/common/MessageHeader/2008-08-01/" xmlns:cust="http://ws.eplinc.com/common/Customer/2008-08-01/" xmlns:tns="http://ws.eplinc.com/NewDepositAccountService/2008-08-01/" elementFormDefault="qualified" targetNamespace="http://ws.eplinc.com/NewDepositAccountService/2008-08-01/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="Customer.xsd" namespace="http://ws.eplinc.com/common/Customer/2008-08-01/" />
+  <xsd:import schemaLocation="MessageHeader.xsd" namespace="http://ws.eplinc.com/common/MessageHeader/2008-08-01/" />
+  <xsd:element name="CalculateMICRRequest">
+    <xsd:complexType>
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="msg:RequestMessage">
+          <xsd:sequence>
+            <xsd:element name="AccountNumber" type="xsd:long" />
+            <xsd:element name="SuffixNumber" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="CalculateMICRResponse">
+    <xsd:complexType>
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="msg:ResponseMessage">
+          <xsd:sequence>
+            <xsd:element name="AccountNumber" type="xsd:long" />
+            <xsd:element name="SuffixNumber" type="xsd:int" />
+            <xsd:element name="MICR" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="CertificateClass">
+    <xsd:sequence>
+      <xsd:element name="ProductClassId" type="xsd:int" />
+      <xsd:element name="ProductClassDescription" type="xsd:string" />
+      <xsd:element name="AnnualRate" type="xsd:decimal" />
+      <xsd:element name="TermInMonths" type="xsd:int" />
+      <xsd:element name="MinimumDepositAmount" type="xsd:decimal" />
+      <xsd:element name="APY" type="xsd:decimal" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="GetAvailableSuffixesRequest">
+    <xsd:complexType>
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="msg:RequestMessage">
+          <xsd:sequence>
+            <xsd:element name="AccountNumber" type="xsd:long" />
+            <xsd:element name="SuffixGroup" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="GetAvailableSuffixesResponse">
+    <xsd:complexType>
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="msg:ResponseMessage">
+          <xsd:sequence>
+            <xsd:element name="AccountNumber" type="xsd:long" />
+            <xsd:element name="SuffixGroup" type="xsd:string" />
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="SuffixNumber" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="GetCertificateRateRequest">
+    <xsd:complexType>
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="msg:RequestMessage">
+          <xsd:sequence>
+            <xsd:element name="ProductClassId" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="GetCertificateRateResponse">
+    <xsd:complexType>
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="msg:ResponseMessage">
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="CertificateClass" type="tns:CertificateClass" />
+          </xsd:sequence>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="GetCertificateRatesRequest">
+    <xsd:complexType>
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="msg:RequestMessage" />
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="GetCertificateRatesResponse">
+    <xsd:complexType>
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="msg:ResponseMessage">
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="CertificateClass" type="tns:CertificateClass" />
+          </xsd:sequence>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="GetNextAccountNumberRequest">
+    <xsd:complexType>
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="msg:RequestMessage" />
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="GetNextAccountNumberResponse">
+    <xsd:complexType>
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="msg:ResponseMessage">
+          <xsd:sequence>
+            <xsd:element name="AccountNumber" type="xsd:long" />
+          </xsd:sequence>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="GetOverdraftSourcesRequest">
+    <xsd:complexType>
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="msg:RequestMessage">
+          <xsd:sequence>
+            <xsd:element name="AccountSuffix" type="tns:AccountSuffix" />
+          </xsd:sequence>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="GetOverdraftSourcesResponse">
+    <xsd:complexType>
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="msg:ResponseMessage">
+          <xsd:sequence>
+            <xsd:element name="AccountSuffix" type="tns:AccountSuffix" />
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="OverdraftSource" type="tns:AccountSuffix" />
+          </xsd:sequence>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="AccountSuffix">
+    <xsd:sequence>
+      <xsd:element name="AccountNumber" type="xsd:long" />
+      <xsd:element name="SuffixNumber" type="xsd:int" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="NewAccountRequest">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="msg:RequestMessage">
+        <xsd:sequence>
+          <xsd:element name="ProductClass" type="xsd:string" />
+          <xsd:element name="AccountNumber" type="xsd:long" />
+          <xsd:element name="SuffixNumber" type="xsd:int" />
+          <xsd:element name="Member" type="cust:DetailedCustomerProfile" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="JointOwner" type="cust:DetailedCustomerProfile" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="PODBenificiary" type="cust:DetailedCustomerProfile" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="NewAccountResponse">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="msg:ResponseMessage">
+        <xsd:sequence>
+          <xsd:element name="AccountNumber" type="xsd:long" />
+          <xsd:element name="SuffixNumber" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="NewCertificateRequest">
+    <xsd:complexType>
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="tns:NewAccountRequest">
+          <xsd:sequence>
+            <xsd:element name="IssueDate" type="xsd:string" />
+            <xsd:element name="MaturityDate" type="xsd:string" />
+            <xsd:element name="MaturityOption" type="xsd:string" />
+            <xsd:element name="MaturityAccount" type="xsd:long" />
+            <xsd:element name="MaturitySuffix" type="xsd:int" />
+            <xsd:element name="NCUSIFCode" type="xsd:string" />
+            <xsd:element name="StatementMailingOption" type="xsd:string" />
+            <xsd:element name="DividendPaymentFrequency" type="xsd:string" />
+            <xsd:element name="DividendPaymentMethod" type="xsd:string" />
+            <xsd:element name="DividendPaymentTransferAccount" type="xsd:long" />
+            <xsd:element name="DividendPaymentTransferSuffix" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="NewCertificateResponse">
+    <xsd:complexType>
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="tns:NewAccountResponse" />
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="NewClubRequest">
+    <xsd:complexType>
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="tns:NewAccountRequest">
+          <xsd:sequence>
+            <xsd:element name="LiquidationMethod" type="xsd:string" />
+            <xsd:element name="LiquidationSuffix" type="xsd:int" />
+            <xsd:element name="NCUSIFCode" type="xsd:string" />
+            <xsd:element name="ExemptFromExcessWithdrawalFee" type="xsd:boolean" />
+            <xsd:element name="StatementMailingOption" type="xsd:string" />
+            <xsd:element name="DividendPaymentMethod" type="xsd:string" />
+            <xsd:element name="DividendPaymentTransferAccount" type="xsd:long" />
+            <xsd:element name="DividendPaymentTransferSuffix" type="xsd:int" />
+            <xsd:element name="DividendPostingOption" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="NewClubResponse">
+    <xsd:complexType>
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="tns:NewAccountResponse" />
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="NewESACertificateRequest">
+    <xsd:complexType>
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="tns:NewAccountRequest">
+          <xsd:sequence>
+            <xsd:element name="IssueDate" type="xsd:string" />
+            <xsd:element name="MaturityDate" type="xsd:string" />
+            <xsd:element name="DividendPaymentFrequency" type="xsd:string" />
+            <xsd:element name="IRADepositType" type="xsd:string" />
+            <xsd:element minOccurs="0" name="SpousalAccount" type="xsd:long" />
+            <xsd:element minOccurs="0" name="SpousalSuffix" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="NewESACertificateResponse">
+    <xsd:complexType>
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="tns:NewAccountResponse" />
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="NewESAClubRequest">
+    <xsd:complexType>
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="tns:NewAccountRequest">
+          <xsd:sequence>
+            <xsd:element name="IRADepositType" type="xsd:string" />
+            <xsd:element minOccurs="0" name="SpousalAccount" type="xsd:long" />
+            <xsd:element minOccurs="0" name="SpousalSuffix" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="NewESAClubResponse">
+    <xsd:complexType>
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="tns:NewAccountResponse" />
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="NewHSACertificateRequest">
+    <xsd:complexType>
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="tns:NewAccountRequest">
+          <xsd:sequence>
+            <xsd:element name="IssueDate" type="xsd:string" />
+            <xsd:element name="MaturityDate" type="xsd:string" />
+            <xsd:element name="DividendPaymentFrequency" type="xsd:string" />
+            <xsd:element name="HSAType" type="xsd:string" />
+            <xsd:element name="HSADepositType" type="xsd:string" />
+            <xsd:element name="ExemptFromHSAMaintenanceFee" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="NewHSACertificateResponse">
+    <xsd:complexType>
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="tns:NewAccountResponse" />
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="NewHSAClubRequest">
+    <xsd:complexType>
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="tns:NewAccountRequest">
+          <xsd:sequence>
+            <xsd:element name="HSAType" type="xsd:string" />
+            <xsd:element name="HSADepositType" type="xsd:string" />
+            <xsd:element name="ExemptFromHSAMaintenanceFee" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="NewHSAClubResponse">
+    <xsd:complexType>
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="tns:NewAccountResponse" />
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="NewIRACertificateRequest">
+    <xsd:complexType>
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="tns:NewAccountRequest">
+          <xsd:sequence>
+            <xsd:element name="IssueDate" type="xsd:string" />
+            <xsd:element name="MaturityDate" type="xsd:string" />
+            <xsd:element name="DividendPaymentFrequency" type="xsd:string" />
+            <xsd:element name="IRAType" type="xsd:string" />
+            <xsd:element name="IRADepositType" type="xsd:string" />
+            <xsd:element minOccurs="0" name="SpousalAccount" type="xsd:long" />
+            <xsd:element minOccurs="0" name="SpousalSuffix" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="NewIRACertificateResponse">
+    <xsd:complexType>
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="tns:NewAccountResponse" />
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="NewIRAClubRequest">
+    <xsd:complexType>
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="tns:NewAccountRequest">
+          <xsd:sequence>
+            <xsd:element name="IRAType" type="xsd:string" />
+            <xsd:element name="IRADepositType" type="xsd:string" />
+            <xsd:element minOccurs="0" name="SpousalAccount" type="xsd:long" />
+            <xsd:element minOccurs="0" name="SpousalSuffix" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="NewIRAClubResponse">
+    <xsd:complexType>
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="tns:NewAccountResponse" />
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="NewRothIRACertificateRequest">
+    <xsd:complexType>
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="tns:NewAccountRequest">
+          <xsd:sequence>
+            <xsd:element name="IssueDate" type="xsd:string" />
+            <xsd:element name="MaturityDate" type="xsd:string" />
+            <xsd:element name="DividendPaymentFrequency" type="xsd:string" />
+            <xsd:element name="IRADepositType" type="xsd:string" />
+            <xsd:element minOccurs="0" name="SpousalAccount" type="xsd:long" />
+            <xsd:element minOccurs="0" name="SpousalSuffix" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="NewRothIRACertificateResponse">
+    <xsd:complexType>
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="tns:NewAccountResponse" />
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="NewRothIRAClubRequest">
+    <xsd:complexType>
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="tns:NewAccountRequest">
+          <xsd:sequence>
+            <xsd:element name="IRADepositType" type="xsd:string" />
+            <xsd:element minOccurs="0" name="SpousalAccount" type="xsd:long" />
+            <xsd:element minOccurs="0" name="SpousalSuffix" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="NewRothIRAClubResponse">
+    <xsd:complexType>
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="tns:NewAccountResponse" />
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="NewShareDraftRequest">
+    <xsd:complexType>
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="tns:NewAccountRequest">
+          <xsd:sequence>
+            <xsd:element name="MICR" type="xsd:string" />
+            <xsd:element name="NCUSIFCode" type="xsd:string" />
+            <xsd:element name="ExemptServiceChargeCode" type="xsd:string" />
+            <xsd:element name="StatementMailingOption" type="xsd:string" />
+            <xsd:element name="DividendPaymentMethod" type="xsd:string" />
+            <xsd:element name="DividendPaymentTransferAccount" type="xsd:long" />
+            <xsd:element name="DividendPaymentTransferSuffix" type="xsd:int" />
+            <xsd:element name="DividendPostingOption" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="NewShareDraftResponse">
+    <xsd:complexType>
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="tns:NewAccountResponse" />
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="NewShareRequest">
+    <xsd:complexType>
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="tns:NewAccountRequest">
+          <xsd:sequence>
+            <xsd:element name="PayrollSourceNumber" type="xsd:long" />
+            <xsd:element name="BasicPayrollDistribution" type="xsd:boolean" />
+            <xsd:element name="NCUSIFCode" type="xsd:string" />
+            <xsd:element name="WaiveMembershipFee" type="xsd:boolean" />
+            <xsd:element name="ExemptFromExcessWithdrawalFee" type="xsd:boolean" />
+            <xsd:element name="ExcludeFromMarketingMail" type="xsd:boolean" />
+            <xsd:element name="AuditFlag" type="xsd:string" />
+            <xsd:element name="OwnershipCode" type="xsd:string" />
+            <xsd:element name="MinimumBalanceExemptCode" type="xsd:string" />
+            <xsd:element name="StatementMailingOption" type="xsd:string" />
+            <xsd:element name="ServiceCenterFeePlan" type="xsd:string" />
+            <xsd:element name="AllowAccessToServiceCenter" type="xsd:boolean" />
+            <xsd:element name="DividendPaymentMethod" type="xsd:string" />
+            <xsd:element name="DividendPaymentTransferAccount" type="xsd:long" />
+            <xsd:element name="DividendPaymentTransferSuffix" type="xsd:int" />
+            <xsd:element name="DividendPostingOption" type="xsd:string" />
+            <xsd:element name="DividendBackupWithholdingCode" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:extension>
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="NewShareResponse">
+    <xsd:complexType>
+      <xsd:complexContent mixed="false">
+        <xsd:extension base="tns:NewAccountResponse" />
+      </xsd:complexContent>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://americafirst.com/StatementMaint" xmlns:tns2="http://www.americafirst.com/20070315/StatementMaint" name="StatementMaint" targetNamespace="http://americafirst.com/StatementMaint" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns:mrm="http://americafirst.com/StatementMaint" targetNamespace="http://americafirst.com/StatementMaint">
+      <xsd:import schemaLocation="com/americafirst/www/_20070315/statementmaint/StatementMaint.xsd" namespace="http://www.americafirst.com/20070315/StatementMaint" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="inquireStatementOptions_in">
+    <wsdl:part name="inquireStatementOptionsRequest" element="tns2:inquireStatementOptionsRequest" />
+  </wsdl:message>
+  <wsdl:message name="inquireStatementOptions_out">
+    <wsdl:part name="inquireStatementOptionsResponse" element="tns2:inquireStatementOptionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="maintainStatementOptions_in">
+    <wsdl:part name="maintainStatementOptionsRequest" element="tns2:maintainStatementOptionsRequest" />
+  </wsdl:message>
+  <wsdl:message name="maintainStatementOptions_out">
+    <wsdl:part name="maintainStatementOptionsResponse" element="tns2:maintainStatementOptionsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="StatementMaint_MSPortType">
+    <wsdl:operation name="inquireStatementOptions">
+      <wsdl:input name="inquireStatementOptions_inquireStatementOptionsRequest" message="tns:inquireStatementOptions_in" />
+      <wsdl:output name="inquireStatementOptions_inquireStatementOptionsResponse" message="tns:inquireStatementOptions_out" />
+    </wsdl:operation>
+    <wsdl:operation name="maintainStatementOptions">
+      <wsdl:input name="maintainStatementOptions_maintainStatementOptionsRequest" message="tns:maintainStatementOptions_in" />
+      <wsdl:output name="maintainStatementOptions_maintainStatementOptionsResponse" message="tns:maintainStatementOptions_out" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="StatementMaint_MSSOAP_HTTP_Binding" type="tns:StatementMaint_MSPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="inquireStatementOptions">
+      <soap:operation soapAction="" />
+      <wsdl:input name="inquireStatementOptions_inquireStatementOptionsRequest">
+        <soap:body use="literal" parts="inquireStatementOptionsRequest" />
+      </wsdl:input>
+      <wsdl:output name="inquireStatementOptions_inquireStatementOptionsResponse">
+        <soap:body use="literal" parts="inquireStatementOptionsResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="maintainStatementOptions">
+      <soap:operation soapAction="" />
+      <wsdl:input name="maintainStatementOptions_maintainStatementOptionsRequest">
+        <soap:body use="literal" parts="maintainStatementOptionsRequest" />
+      </wsdl:input>
+      <wsdl:output name="maintainStatementOptions_maintainStatementOptionsResponse">
+        <soap:body use="literal" parts="maintainStatementOptionsResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="StatementMaintService">
+    <wsdl:port name="SOAP_HTTP_Port" binding="tns:StatementMaint_MSSOAP_HTTP_Binding">
+      <soap:address location="http://10.215.141.46:7080/account/StatementMaintService/20070315" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

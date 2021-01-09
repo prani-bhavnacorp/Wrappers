@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:Cred="urn:cunamutual:loanliner:credentials:v1.0" xmlns="urn:cunamutual:loanliner:GatewaySecured:Utility:v1.0" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:cunamutual:loanliner:GatewaySecured:Utility:v1.0" version="1.0" id="GatewaySecuredUtilityMessages" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="CredentialsV10.xsd" id="Cred" namespace="urn:cunamutual:loanliner:credentials:v1.0" />
+  <xs:element name="EncryptPasswordRequest" type="EncryptPasswordRequestType">
+    <xs:annotation>
+      <xs:documentation>Validate the user and role and if it passes validation encrypt the passed password.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="EncryptPasswordResponse" type="EncryptPasswordResponseType">
+    <xs:annotation>
+      <xs:documentation>Response element for encrypting the password</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="EncryptPasswordRequestType">
+    <xs:sequence>
+      <xs:element ref="Cred:UserId" />
+      <xs:element ref="Cred:Password" />
+      <xs:element minOccurs="0" ref="Cred:Domain" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EncryptPasswordResponseType">
+    <xs:sequence>
+      <xs:element ref="Cred:EncryptedPassword" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

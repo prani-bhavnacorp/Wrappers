@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="mtvnCWCIMiscAcctMaintResData" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="mtvnCWCIMiscAcctMaintResData" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="CIMiscAcctMaintResData">
+    <xs:annotation>
+      <xs:documentation>CIS Miscellaneous Account Maintenance (CI027) - This function allows you to make changes to the current demographic information for miscellaneous accounts. This function is not used for accounts that reside on the Deposit, Loan, Safe Deposit, or Cardbase Management Systems. The parameters set on Account Demographics Option Segment 630 of Bank Control determine in which fields information is required and/or verified by the system. </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ErrCde" type="xs:string" />
+        <xs:element minOccurs="0" name="ErrResnCde" type="xs:string" />
+        <xs:element minOccurs="0" name="ApplMsgLst">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="ApplMsg">
+                <xs:complexType>
+                  <xs:all>
+                    <xs:element minOccurs="0" name="ApplMsgApplId" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgNbr" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgTxt" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgErrInd" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgFld" type="xs:string" />
+                  </xs:all>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

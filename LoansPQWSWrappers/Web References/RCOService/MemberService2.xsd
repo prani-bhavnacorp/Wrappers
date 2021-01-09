@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://rco.loanorigination.common.services.datatypes/2007/08/serialization" elementFormDefault="qualified" targetNamespace="http://rco.loanorigination.common.services.datatypes/2007/08/serialization" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ServiceError">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ExceptionType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Error" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServiceError" nillable="true" type="tns:ServiceError" />
+  <xs:complexType name="Address">
+    <xs:sequence>
+      <xs:element name="StreetAddress" nillable="true" type="xs:string" />
+      <xs:element name="City" nillable="true" type="xs:string" />
+      <xs:element name="State" nillable="true" type="xs:string" />
+      <xs:element name="Zip" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Address" nillable="true" type="tns:Address" />
+  <xs:complexType name="Contact">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="HomePhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CellPhone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailAddress" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Contact" nillable="true" type="tns:Contact" />
+  <xs:complexType name="Employment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EmployerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsEmployee" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsBODMember" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSeniorManagement" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Employment" nillable="true" type="tns:Employment" />
+</xs:schema>

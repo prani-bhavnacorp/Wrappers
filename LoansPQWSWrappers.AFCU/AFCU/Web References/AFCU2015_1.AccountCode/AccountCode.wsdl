@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://americafirst.com/AccountCode" xmlns:tns2="http://www.americafirst.com/20070315/AccountCode" name="AccountCode" targetNamespace="http://americafirst.com/AccountCode" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns:mrm="http://americafirst.com/AccountCode" targetNamespace="http://americafirst.com/AccountCode">
+      <xsd:import schemaLocation="com/americafirst/www/_20070315/accountcode/AccountCode.xsd" namespace="http://www.americafirst.com/20070315/AccountCode" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="inquireAccountCode_in">
+    <wsdl:part name="inquireAccountCodeRequest" element="tns2:inquireAccountCodeRequest" />
+  </wsdl:message>
+  <wsdl:message name="inquireAccountCode_out">
+    <wsdl:part name="accountCodeResponse" element="tns2:accountCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="inquireAccountCodeList_in">
+    <wsdl:part name="inquireAccountCodeListRequest" element="tns2:inquireAccountCodeListRequest" />
+  </wsdl:message>
+  <wsdl:message name="inquireAccountCodeList_out">
+    <wsdl:part name="inquireAccountCodeListResponse" element="tns2:inquireAccountCodeListResponse" />
+  </wsdl:message>
+  <wsdl:message name="maintainAccountCode_in">
+    <wsdl:part name="maintainAccountCodeRequest" element="tns2:maintainAccountCodeRequest" />
+  </wsdl:message>
+  <wsdl:message name="maintainAccountCode_out">
+    <wsdl:part name="accountCodeResponse" element="tns2:accountCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="syncAccountCode_in">
+    <wsdl:part name="syncAccountCodeRequest" element="tns2:syncAccountCodeRequest" />
+  </wsdl:message>
+  <wsdl:message name="syncAccountCode_out">
+    <wsdl:part name="accountCodeResponse" element="tns2:accountCodeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AccountCode_MSPortType">
+    <wsdl:operation name="inquireAccountCode">
+      <wsdl:input name="inquireAccountCode_inquireAccountCodeRequest" message="tns:inquireAccountCode_in" />
+      <wsdl:output name="inquireAccountCode_accountCodeResponse" message="tns:inquireAccountCode_out" />
+    </wsdl:operation>
+    <wsdl:operation name="inquireAccountCodeList">
+      <wsdl:input name="inquireAccountCodeList_inquireAccountCodeListRequest" message="tns:inquireAccountCodeList_in" />
+      <wsdl:output name="inquireAccountCodeList_inquireAccountCodeListResponse" message="tns:inquireAccountCodeList_out" />
+    </wsdl:operation>
+    <wsdl:operation name="maintainAccountCode">
+      <wsdl:input name="maintainAccountCode_maintainAccountCodeRequest" message="tns:maintainAccountCode_in" />
+      <wsdl:output name="maintainAccountCode_accountCodeResponse" message="tns:maintainAccountCode_out" />
+    </wsdl:operation>
+    <wsdl:operation name="syncAccountCode">
+      <wsdl:input name="syncAccountCode_syncAccountCodeRequest" message="tns:syncAccountCode_in" />
+      <wsdl:output name="syncAccountCode_accountCodeResponse" message="tns:syncAccountCode_out" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AccountCode_MSSOAP_HTTP_Binding" type="tns:AccountCode_MSPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="inquireAccountCode">
+      <soap:operation soapAction="" />
+      <wsdl:input name="inquireAccountCode_inquireAccountCodeRequest">
+        <soap:body use="literal" parts="inquireAccountCodeRequest" />
+      </wsdl:input>
+      <wsdl:output name="inquireAccountCode_accountCodeResponse">
+        <soap:body use="literal" parts="accountCodeResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inquireAccountCodeList">
+      <soap:operation soapAction="" />
+      <wsdl:input name="inquireAccountCodeList_inquireAccountCodeListRequest">
+        <soap:body use="literal" parts="inquireAccountCodeListRequest" />
+      </wsdl:input>
+      <wsdl:output name="inquireAccountCodeList_inquireAccountCodeListResponse">
+        <soap:body use="literal" parts="inquireAccountCodeListResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="maintainAccountCode">
+      <soap:operation soapAction="" />
+      <wsdl:input name="maintainAccountCode_maintainAccountCodeRequest">
+        <soap:body use="literal" parts="maintainAccountCodeRequest" />
+      </wsdl:input>
+      <wsdl:output name="maintainAccountCode_accountCodeResponse">
+        <soap:body use="literal" parts="accountCodeResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="syncAccountCode">
+      <soap:operation soapAction="" />
+      <wsdl:input name="syncAccountCode_syncAccountCodeRequest">
+        <soap:body use="literal" parts="syncAccountCodeRequest" />
+      </wsdl:input>
+      <wsdl:output name="syncAccountCode_accountCodeResponse">
+        <soap:body use="literal" parts="accountCodeResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AccountCodeService">
+    <wsdl:port name="SOAP_HTTP_Port" binding="tns:AccountCode_MSSOAP_HTTP_Binding">
+      <soap:address location="http://10.215.141.46:7080/account/AccountCodeService/20070315" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

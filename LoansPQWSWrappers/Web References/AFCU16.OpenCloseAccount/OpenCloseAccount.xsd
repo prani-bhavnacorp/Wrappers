@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:tns="http://www.americafirst.com/20070315/OpenCloseAccount" xmlns:hdr="http://www.americafirst.com/20070315/AFCUHeader" xmlns:ctl="http://www.americafirst.com/20070315/CommonTypesLib" xmlns:cm="http://www.americafirst.com/20070315/CommonTypes" targetNamespace="http://www.americafirst.com/20070315/OpenCloseAccount" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema">
+  <import schemaLocation="../afcuheader/AFCUHeader.xsd" namespace="http://www.americafirst.com/20070315/AFCUHeader" />
+  <import schemaLocation="../commontypes/CommonTypes.xsd" namespace="http://www.americafirst.com/20070315/CommonTypes" />
+  <import schemaLocation="../commontypeslib/CommonTypesLib.xsd" namespace="http://www.americafirst.com/20070315/CommonTypesLib" />
+  <annotation>
+    <documentation>
+			Open/Close Accounts, for the host system.
+		</documentation>
+  </annotation>
+  <element name="closeAccountRequest" type="tns:CloseAccountRequest" />
+  <element name="closeAccountResponse" type="tns:CloseAccountResponse" />
+  <element name="openShareAccountRequest" type="tns:OpenShareAccountRequest" />
+  <element name="openShareAccountResponse" type="tns:OpenShareAccountResponse" />
+  <complexType name="CloseAccountRequest">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element minOccurs="0" maxOccurs="1" name="overrideData" type="cm:OverrideData" />
+      <element name="request" type="tns:CloseRequest" />
+    </sequence>
+  </complexType>
+  <complexType name="CloseRequest">
+    <sequence minOccurs="1" maxOccurs="1">
+      <element minOccurs="1" maxOccurs="1" name="accountID" type="cm:AccountID" />
+      <element minOccurs="1" maxOccurs="1" name="subAccountID" type="cm:SubAccountID" />
+      <element minOccurs="1" maxOccurs="1" name="accountType" type="cm:AccountType">
+        <annotation>
+          <documentation>Share or Loan Only</documentation>
+        </annotation>
+      </element>
+      <element name="hasBalance" type="boolean">
+        <annotation>
+          <documentation>
+						Indication of balance left on the account.
+					</documentation>
+        </annotation>
+      </element>
+      <element name="reasonForClosing" type="tns:ReasonForClosing">
+        <annotation>
+          <documentation>
+						Why is member closing account?
+					</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="1" maxOccurs="1" name="expectation" type="boolean">
+        <annotation>
+          <documentation>
+						Did member's experience with AFCU meet their
+						expectation?
+					</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" maxOccurs="1" name="badExpectationComment" type="string">
+        <annotation>
+          <documentation>
+						If expectation is NO, why?
+					</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="1" maxOccurs="1" name="reopen" type="boolean">
+        <annotation>
+          <documentation>
+						Does member plan to re-open in the future?
+					</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="1" maxOccurs="1" name="requestType" type="cm:RequestType" />
+    </sequence>
+  </complexType>
+  <complexType name="ReasonForClosing">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="moveInState" type="boolean">
+        <annotation>
+          <documentation>
+						Moving within the state?
+					</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="1" maxOccurs="1" name="moveOutState" type="boolean">
+        <annotation>
+          <documentation>Moving out of state?</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="1" maxOccurs="1" name="inactive" type="boolean">
+        <annotation>
+          <documentation>Not Using / Inactive</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="1" maxOccurs="1" name="consolidateHere" type="boolean">
+        <annotation>
+          <documentation>
+						Consolidating Accounts at AFCU?
+					</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="1" maxOccurs="1" name="consolidateElsewhere" type="boolean">
+        <annotation>
+          <documentation>
+						Consolidating Accounts elsewhere?
+					</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="1" maxOccurs="1" name="blocation" type="boolean">
+        <annotation>
+          <documentation>
+						Inconvenience of branch location?
+					</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="1" maxOccurs="1" name="funds" type="boolean">
+        <annotation>
+          <documentation>Paid off loan?</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="1" maxOccurs="1" name="ploan" type="boolean">
+        <annotation>
+          <documentation>
+						Need all remaining funds?
+					</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="1" maxOccurs="1" name="mservice" type="boolean">
+        <annotation>
+          <documentation>
+						Dissatisfied with Member Service
+					</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="1" maxOccurs="1" name="services" type="boolean">
+        <annotation>
+          <documentation>
+						Dissatisfied with products/services
+					</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="1" maxOccurs="1" name="deceased" type="boolean">
+        <annotation>
+          <documentation>Deceased?</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="1" maxOccurs="1" name="security" type="boolean">
+        <annotation>
+          <documentation>Security?</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="1" maxOccurs="1" name="collections" type="boolean">
+        <annotation>
+          <documentation>Collections?</documentation>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="CloseAccountResponse">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="status" type="hdr:AFCUHeaderResponse" />
+      <element minOccurs="0" maxOccurs="1" name="data" type="tns:CloseResponse" />
+    </sequence>
+  </complexType>
+  <complexType name="CloseResponse">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="accountID" type="cm:AccountID" />
+      <element minOccurs="1" maxOccurs="1" name="subAccountID" type="cm:SubAccountID" />
+      <element minOccurs="0" maxOccurs="1" name="transactionErrors" type="cm:TransactionErrors" />
+    </sequence>
+  </complexType>
+  <complexType name="OpenShareAccountRequest">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="header" type="hdr:AFCUHeaderRequest" />
+      <element minOccurs="0" maxOccurs="1" name="overrideData" type="cm:OverrideData" />
+      <element minOccurs="1" maxOccurs="1" name="request" type="tns:OpenShareRequest" />
+    </sequence>
+  </complexType>
+  <complexType name="OpenShareRequest">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="accountID" type="cm:AccountID" />
+      <element minOccurs="1" maxOccurs="1" name="subAccountID" type="cm:SubAccountID" />
+      <element minOccurs="0" maxOccurs="1" name="typeCode" type="ctl:String_1" />
+      <element minOccurs="0" maxOccurs="1" name="rateCode" type="ctl:String_1" />
+      <element minOccurs="1" maxOccurs="1" name="requestType" type="cm:RequestType" />
+    </sequence>
+  </complexType>
+  <complexType name="OpenShareAccountResponse">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="status" type="hdr:AFCUHeaderResponse" />
+      <element minOccurs="0" maxOccurs="1" name="data" type="tns:OpenShareResponse" />
+    </sequence>
+  </complexType>
+  <complexType name="OpenShareResponse">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="accountID" type="cm:AccountID" />
+      <element minOccurs="1" maxOccurs="1" name="subAccountID" type="cm:SubAccountID" />
+      <element minOccurs="1" maxOccurs="1" name="transactionDescription" type="string" />
+      <element minOccurs="1" maxOccurs="1" name="accountDescription" type="string" />
+      <element minOccurs="0" maxOccurs="1" name="transactionErrors" type="cm:TransactionErrors" />
+    </sequence>
+  </complexType>
+</schema>

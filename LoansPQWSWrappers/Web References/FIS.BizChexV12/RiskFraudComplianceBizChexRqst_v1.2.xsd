@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns="http://www.fisglobal.com/soa/riskfraudcomplianceRqst"    
+    xmlns:hdr="FisCommonRqstHdr"
+    targetNamespace="http://www.fisglobal.com/soa/riskfraudcomplianceRqst"
+    elementFormDefault="unqualified" attributeFormDefault="unqualified">
+
+    <xs:import namespace="FisCommonRqstHdr" schemaLocation="FISCommonRqstHdr_v1.2.xsd"/>
+    <xs:include schemaLocation="BizChexRequestTypes_v1.2.xsd"/>    
+
+    <xs:element name="RiskFraudComplianceBizChexRqst" type="tRiskFraudComplianceBizChexRqst"/>
+    <xs:element name="RiskFraudCompliancePrncplOwnrAddIDVOverrideRqst" type="tRiskFraudComplianceAddIDVOverrideRqst"/>
+    <xs:element name="RiskFraudComplianceAuthSgnr2AddIDVOverrideRqst" type="tRiskFraudComplianceAddIDVOverrideRqst"/>
+	<xs:element name="RiskFraudComplianceAuthSgnr3AddIDVOverrideRqst" type="tRiskFraudComplianceAddIDVOverrideRqst"/>
+	<xs:element name="RiskFraudComplianceAuthSgnr4AddIDVOverrideRqst" type="tRiskFraudComplianceAddIDVOverrideRqst"/>
+	<xs:element name="RiskFraudComplianceAuthSgnr5AddIDVOverrideRqst" type="tRiskFraudComplianceAddIDVOverrideRqst"/>
+	<xs:element name="RiskFraudCompliancePrncplOwnrAddOFACOverrideRqst" type="tRiskFraudComplianceAddOFACOverrideRqst"/>
+	<xs:element name="RiskFraudComplianceAuthSgnr2AddOFACOverrideRqst" type="tRiskFraudComplianceAddOFACOverrideRqst"/>
+	<xs:element name="RiskFraudComplianceAuthSgnr3AddOFACOverrideRqst" type="tRiskFraudComplianceAddOFACOverrideRqst"/>
+	<xs:element name="RiskFraudComplianceAuthSgnr4AddOFACOverrideRqst" type="tRiskFraudComplianceAddOFACOverrideRqst"/>
+	<xs:element name="RiskFraudComplianceAuthSgnr5AddOFACOverrideRqst" type="tRiskFraudComplianceAddOFACOverrideRqst"/>
+	<xs:element name="RiskFraudComplianceBusnAddOFACOverrideRqst" type="tRiskFraudComplianceAddOFACOverrideRqst"/>
+	<xs:element name="RiskFraudCompliancePrncplOwnrAddActionsRqst" type="tRiskFraudComplianceAddActionsRqst"/>
+	<xs:element name="RiskFraudComplianceAuthSgnr2AddActionsRqst" type="tRiskFraudComplianceAddActionsRqst"/>
+	<xs:element name="RiskFraudComplianceAuthSgnr3AddActionsRqst" type="tRiskFraudComplianceAddActionsRqst"/>
+	<xs:element name="RiskFraudComplianceAuthSgnr4AddActionsRqst" type="tRiskFraudComplianceAddActionsRqst"/>
+	<xs:element name="RiskFraudComplianceAuthSgnr5AddActionsRqst" type="tRiskFraudComplianceAddActionsRqst"/>
+
+	<xs:complexType name="tRiskFraudComplianceBizChexRqst">
+		<xs:sequence>
+			<xs:element ref="hdr:RqstHdr" minOccurs="1" maxOccurs="1" />
+			<xs:element name="BizChexOsi" minOccurs="1" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="BizChexSvc" type="tBizChexRqst"
+							minOccurs="1" maxOccurs="1" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="tRiskFraudComplianceAddIDVOverrideRqst">
+		<xs:sequence>
+			<xs:element ref="hdr:RqstHdr" minOccurs="1" maxOccurs="1" />
+			<xs:element name="BizChexOsi" minOccurs="1" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="BizChexSvc" type="tAddIDVOverrideRqst"
+							minOccurs="1" maxOccurs="1" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="tRiskFraudComplianceAddOFACOverrideRqst">
+		<xs:sequence>
+			<xs:element ref="hdr:RqstHdr" minOccurs="1" maxOccurs="1" />
+			<xs:element name="BizChexOsi" minOccurs="1" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="BizChexSvc" type="tAddOFACOverrideRqst"
+							minOccurs="1" maxOccurs="1" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="tRiskFraudComplianceAddActionsRqst">
+		<xs:sequence>
+			<xs:element ref="hdr:RqstHdr" minOccurs="1" maxOccurs="1" />
+			<xs:element name="BizChexOsi" minOccurs="1" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="BizChexSvc" type="tAddActionsRqst"
+							minOccurs="1" maxOccurs="1" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

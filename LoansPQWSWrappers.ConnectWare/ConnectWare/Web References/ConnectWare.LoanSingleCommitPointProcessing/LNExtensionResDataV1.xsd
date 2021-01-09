@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="mtvnCWLNExtensionResData" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="mtvnCWLNExtensionResData" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="LNExtensionResData">
+    <xs:annotation>
+      <xs:documentation>Loan Extension (LNEXT) - This function is used to extend a payment of a loan.  Only billed payments can be extended.  An extension transaction cannot be backdated over other payments and cannot be used for interest-only, matured or bill type F floor plan loans</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="E30051" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Account Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E30054" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Note Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E31702" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Batch Nbr</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E33200" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Effective Date</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E33201" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Months to Extend</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="ErrCde" type="xs:string" />
+        <xs:element minOccurs="0" name="ErrResnCde" type="xs:string" />
+        <xs:element minOccurs="0" name="ApplMsgLst">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="ApplMsg">
+                <xs:complexType>
+                  <xs:all>
+                    <xs:element minOccurs="0" name="ApplMsgApplId" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgNbr" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgTxt" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgErrInd" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgFld" type="xs:string" />
+                  </xs:all>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

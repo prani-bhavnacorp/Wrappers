@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="http://api.webservice.configuration.ispectrum.summitsite.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CardConfig" targetNamespace="http://api.webservice.configuration.ispectrum.summitsite.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <wsp1_2:Policy xmlns:wsapw3c="http://www.w3.org/2006/05/addressing/wsdl" xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" wsu:Id="CardConfigImplPortBindingPolicy">
+    <wsp1_2:ExactlyOne>
+      <wsp1_2:All>
+        <sp:SupportingTokens>
+          <wsp1_2:Policy>
+            <wsp1_2:ExactlyOne>
+              <wsp1_2:All>
+                <sp:UsernameToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+                  <wsp1_2:Policy>
+                    <wsp1_2:ExactlyOne>
+                      <wsp1_2:All>
+                        <sp:WssUsernameToken10 />
+                      </wsp1_2:All>
+                    </wsp1_2:ExactlyOne>
+                  </wsp1_2:Policy>
+                </sp:UsernameToken>
+              </wsp1_2:All>
+            </wsp1_2:ExactlyOne>
+          </wsp1_2:Policy>
+        </sp:SupportingTokens>
+        <wsapw3c:UsingAddressing wsp1_2:Optional="true" />
+      </wsp1_2:All>
+    </wsp1_2:ExactlyOne>
+  </wsp1_2:Policy>
+  <import namespace="urn:connections.ispectrum.summitsite.com" location="https://gocuCorvallis.acumenasp.fiserv.com:443/ispectrum-webservices/CardConfig?wsdl=1" />
+  <types />
+  <binding xmlns:ns1="urn:connections.ispectrum.summitsite.com" name="CardConfigImplPortBinding" type="ns1:CardConfig">
+    <ns2:PolicyReference xmlns:ns2="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#CardConfigImplPortBindingPolicy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="getAllNetworkNodes">
+      <soap:operation soapAction="urn:getAllNetworkNodes" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getAllNetworkNodesWithNoPagination">
+      <soap:operation soapAction="urn:getAllNetworkNodesWithNoPagination" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getAllUnassignedCards">
+      <soap:operation soapAction="urn:getAllUnassignedCards" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getFilteredATMNetworkUpdateInfos">
+      <soap:operation soapAction="urn:getFilteredATMNetworkUpdateInfos" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findAllATMNetworkNodes">
+      <soap:operation soapAction="urn:findAllATMNetworkNodes" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="createUpdateATMNetworkNode">
+      <soap:operation soapAction="urn:createUpdateATMNetworkNode" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getAllCardBase">
+      <soap:operation soapAction="urn:getAllCardBase" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="createUpdateCardBase">
+      <soap:operation soapAction="urn:createUpdateCardBase" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findCardBaseByCardBaseId">
+      <soap:operation soapAction="urn:findCardBaseByCardBaseId" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getAllCardOrders">
+      <soap:operation soapAction="urn:getAllCardOrders" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getAllCardOrderProps">
+      <soap:operation soapAction="urn:getAllCardOrderProps" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getAllCardOrdersById">
+      <soap:operation soapAction="urn:getAllCardOrdersById" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getAllCardOrderPropsById">
+      <soap:operation soapAction="urn:getAllCardOrderPropsById" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getCardOrderByOrderId">
+      <soap:operation soapAction="urn:getCardOrderByOrderId" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getCardOrderPropsByPropsId">
+      <soap:operation soapAction="urn:getCardOrderPropsByPropsId" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="createUpdateCardOrder">
+      <soap:operation soapAction="urn:createUpdateCardOrder" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="createUpdateCardOrderProps">
+      <soap:operation soapAction="urn:createUpdateCardOrderProps" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findATMNetworkNodeById">
+      <soap:operation soapAction="urn:findATMNetworkNodeById" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findATMNetworkNodeByCode">
+      <soap:operation soapAction="urn:findATMNetworkNodeByCode" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="createUpdateATMNetworkUpdate">
+      <soap:operation soapAction="urn:createUpdateATMNetworkUpdate" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findATMNetworkUpdateByPrimaryKey">
+      <soap:operation soapAction="urn:findATMNetworkUpdateByPrimaryKey" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findATMNetworkUpdateByPrimaryKeyWithDBLock">
+      <soap:operation soapAction="urn:findATMNetworkUpdateByPrimaryKeyWithDBLock" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="CardConfig">
+    <port name="CardConfigImplPort" binding="tns:CardConfigImplPortBinding">
+      <soap:address location="https://gocuCorvallis.acumenasp.fiserv.com:443/ispectrum-webservices/CardConfig" />
+    </port>
+  </service>
+</definitions>

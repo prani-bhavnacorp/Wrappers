@@ -1,0 +1,3126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://odysseyservices.net/automatedui/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://odysseyservices.net/automatedui/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://odysseyservices.net/automatedui/">
+      <s:import namespace="http://tempuri.org/ItemDetail.xsd" />
+      <s:import namespace="http://tempuri.org/ItemDetail2.xsd" />
+      <s:import namespace="http://tempuri.org/JobDataEx.xsd" />
+      <s:import namespace="http://tempuri.org/JobData.xsd" />
+      <s:import schemaLocation="ItemDetail.xsd" namespace="http://tempuri.org/ItemDetail.xsd" />
+      <s:import schemaLocation="ItemDetail2.xsd" namespace="http://tempuri.org/ItemDetail2.xsd" />
+      <s:import schemaLocation="JobDataEx.xsd" namespace="http://tempuri.org/JobDataEx.xsd" />
+      <s:import schemaLocation="JobData.xsd" namespace="http://tempuri.org/JobData.xsd" />
+      <s:element name="GetReceivedFoldersRS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReceivedFoldersRSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReceivedFoldersRSResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetReceivedFolders">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetReceivedFoldersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReceivedFoldersResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReceivedFileNamesRS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="folder" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReceivedFileNamesRSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReceivedFileNamesRSResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReceivedFileNames">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="folder" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReceivedFileNamesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReceivedFileNamesResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownLoadFilesFromReceivedFolderRS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="folder" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="names" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownLoadFilesFromReceivedFolderRSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DownLoadFilesFromReceivedFolderRSResult" type="tns:ArrayOfFileReference" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfFileReference">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FileReference" nillable="true" type="tns:FileReference" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FileReference">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="contents" type="s:base64Binary" />
+          <s:element minOccurs="1" maxOccurs="1" name="hosted" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="mimeType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="attachToEmail" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DownLoadFilesFromReceivedFolder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="folder" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="names" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownLoadFilesFromReceivedFolderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DownLoadFilesFromReceivedFolderResult" type="tns:ArrayOfFileReference" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteFilesFromReceivedFolderRS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="folder" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="names" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteFilesFromReceivedFolderRSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteFilesFromReceivedFolderRSResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteFilesFromReceivedFolder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="folder" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="names" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteFilesFromReceivedFolderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteFilesFromReceivedFolderResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getJobDetail3">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Job" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderByDisposition" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="FilterFailed" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getJobDetail3Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getJobDetail3Result" type="tns:ArrayOfDeliveryItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="Tid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Items" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDeliveryItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DeliveryItem" nillable="true" type="tns:DeliveryItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DeliveryItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Job" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Item" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Outcome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Recipient" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pages" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Attempts" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FinishDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FinishTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FaxBytes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailBytes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AnswerBack" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Calltime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UD1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CallAnalysis" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getJobDetail3RS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Job" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="OrderByDisposition" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="FilterFailed" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getJobDetail3RSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getJobDetail3RSResult" type="tns:ArrayOfDeliveryItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="Tid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Items" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getJobDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Job" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getJobDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getJobDetailResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/ItemDetail.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Tid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Items" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getJobDetailRS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Job" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getJobDetailRSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getJobDetailRSResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/ItemDetail.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Tid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Items" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getJobDetail2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Job" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="orderByDisposition" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="filterFailed" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getJobDetail2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getJobDetail2Result">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/ItemDetail.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Tid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Items" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getJobDetail2RS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Job" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="orderByDisposition" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="filterFailed" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getJobDetail2RSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getJobDetail2RSResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/ItemDetail.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Tid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Items" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getItemDetailByDates">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="startDateTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDateTime" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="TID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="filterFailed" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getItemDetailByDatesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getItemDetailByDatesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/ItemDetail2.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getItemDetailByDatesRS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="startDateTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="endDateTime" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="TID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="filterFailed" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getItemDetailByDatesRSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getItemDetailByDatesRSResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/ItemDetail2.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getItemDetailByDates2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="startDateTimeString" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="endDateTimeString" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="filterFailed" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getItemDetailByDates2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getItemDetailByDates2Result" type="tns:ArrayOfDeliveryItem2" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDeliveryItem2">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DeliveryItem2" nillable="true" type="tns:DeliveryItem2" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DeliveryItem2">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Job" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Item" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Disposition" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Recipient" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Pages" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Attempts" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstDateTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FinishDateTime" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FaxBytes" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="EmailBytes" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BaudRate" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FaxResCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AnswerBack" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Calltime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Outcome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Outcomes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UD1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UD2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UD3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UD4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UD5" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CallAnalysis" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getItemDetailByDates2RS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="startDateTimeString" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="endDateTimeString" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="filterFailed" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getItemDetailByDates2RSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getItemDetailByDates2RSResult" type="tns:ArrayOfDeliveryItem2" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetJobTypeDocs">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="JobType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetJobTypeDocsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetJobTypeDocsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetJobTypeDocsRS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="JobType" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetJobTypeDocsRSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetJobTypeDocsRSResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetJobTypeLists">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="JobType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetJobTypeListsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetJobTypeListsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetJobTypeListsRS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="JobType" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetJobTypeListsRSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetJobTypeListsRSResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDefaultMode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Jobtype" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDefaultModeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetDefaultModeResult" type="tns:Faxmode" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="Faxmode">
+        <s:restriction base="s:string">
+          <s:enumeration value="low" />
+          <s:enumeration value="high" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetDefaultModeRS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Jobtype" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDefaultModeRSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetDefaultModeRSResult" type="tns:Faxmode" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetShouldSuppressFaxConversion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Jobtype" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetShouldSuppressFaxConversionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetShouldSuppressFaxConversionResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetShouldSuppressFaxConversionRS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Jobtype" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetShouldSuppressFaxConversionRSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetShouldSuppressFaxConversionRSResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StatusEx">
+        <s:complexType />
+      </s:element>
+      <s:element name="StatusExResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StatusExResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/JobDataEx.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Status">
+        <s:complexType />
+      </s:element>
+      <s:element name="StatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StatusResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/JobData.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StatusForJob">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="JobNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="JobType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StatusForJobResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StatusForJobResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/JobDataEx.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StatusForJob2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="JobNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="JobType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StatusForJob2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StatusForJob2Result" type="tns:JobStats" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="JobStats">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Job" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Date" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="JobType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Total" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sent" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Failed" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Retries" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Remaining" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstList" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstDoc" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetJobTypes">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetJobTypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetJobTypesResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartBroadcast">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="b" type="tns:Broadcast" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Broadcast">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="jobType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="documents" type="tns:ArrayOfFileReference" />
+          <s:element minOccurs="0" maxOccurs="1" name="lists" type="tns:ArrayOfFileReference" />
+          <s:element minOccurs="0" maxOccurs="1" name="csid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="emailFrom" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="emailEnvelopeSender" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="emailBody" type="tns:FileReference" />
+          <s:element minOccurs="0" maxOccurs="1" name="emailAltBody" type="tns:FileReference" />
+          <s:element minOccurs="0" maxOccurs="1" name="emailSubject" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="trackingID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="scheduledStartTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="adhocs" type="tns:ArrayOfRecipient" />
+          <s:element minOccurs="0" maxOccurs="1" name="memo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="faxMode" type="tns:Faxmode" />
+          <s:element minOccurs="0" maxOccurs="1" name="applicationName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="applicationArgs" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfRecipient">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Recipient" nillable="true" type="tns:Recipient" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Recipient">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="address" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="StartBroadcastResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StartBroadcastResult" type="tns:BroadcastReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BroadcastReturn">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="outcome" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="messages" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="StartPreview">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="b" type="tns:Broadcast" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartPreviewResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StartPreviewResult" type="tns:BroadcastReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroup">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGroupResult" type="tns:ArrayOfGroupMember" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfGroupMember">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="GroupMember" nillable="true" type="tns:GroupMember" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="GroupMember">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompanyName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Value" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DownLoadFilesFromFolders">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="c" type="tns:HostedFileCollection" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="HostedFileCollection">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="documents" type="tns:ArrayOfFileReference" />
+          <s:element minOccurs="0" maxOccurs="1" name="lists" type="tns:ArrayOfFileReference" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DownLoadFilesFromFoldersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DownLoadFilesFromFoldersResult" type="tns:ArrayOfFileReference" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Job" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReportResult" type="tns:FileReference" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteFilesFromFolders">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="c" type="tns:HostedFileCollection" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteFilesFromFoldersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteFilesFromFoldersResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadFilesToFolders">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="c" type="tns:HostedFileCollection" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadFilesToFoldersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UploadFilesToFoldersResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDocuments">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDocumentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDocumentsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLists">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetListsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelJob">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Job" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="jobType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelJobResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CancelJobResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownLoadFilesFromFoldersRS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="c" type="tns:HostedFileCollection" />
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownLoadFilesFromFoldersRSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DownLoadFilesFromFoldersRSResult" type="tns:ArrayOfFileReference" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportRS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Job" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportRSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReportRSResult" type="tns:FileReference" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteFilesFromFoldersRS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="c" type="tns:HostedFileCollection" />
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteFilesFromFoldersRSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteFilesFromFoldersRSResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadFilesToFoldersRS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="c" type="tns:HostedFileCollection" />
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadFilesToFoldersRSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UploadFilesToFoldersRSResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustomerNumber">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCustomerNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetCustomerNumberResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDocumentsRS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDocumentsRSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDocumentsRSResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelJobRS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Job" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="jobType" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelJobRSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CancelJobRSResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ApprovePreview">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Job" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="jobType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ApprovePreviewResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ApprovePreviewResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ApprovePreviewRS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Job" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="jobType" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ApprovePreviewRSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ApprovePreviewRSResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPreview">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Job" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="jobType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPreviewResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPreviewResult" type="tns:FileReference" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPreviewRS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Job" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="jobType" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPreviewRSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPreviewRSResult" type="tns:FileReference" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListsRS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetListsRSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetListsRSResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetJobTypesRS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetJobTypesRSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetJobTypesRSResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StatusRS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StatusRSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StatusRSResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/JobData.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StatusForJobRS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Job" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="JobType" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StatusForJobRSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StatusForJobRSResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/JobDataEx.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StatusForJob2RS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Job" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="JobType" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StatusForJob2RSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StatusForJob2RSResult" type="tns:JobStats" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StatusExRS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StatusExRSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StatusExRSResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any namespace="http://tempuri.org/JobDataEx.xsd" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StatusEx2">
+        <s:complexType />
+      </s:element>
+      <s:element name="StatusEx2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StatusEx2Result" type="tns:ArrayOfJobStats" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfJobStats">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="JobStats" nillable="true" type="tns:JobStats" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="StatusEx2RS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StatusEx2RSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StatusEx2RSResult" type="tns:ArrayOfJobStats" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartBroadcastRS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="b" type="tns:Broadcast" />
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartBroadcastRSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StartBroadcastRSResult" type="tns:BroadcastReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartHtmlMerge">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="b" type="tns:Broadcast" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartHtmlMergeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StartHtmlMergeResult" type="tns:BroadcastReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartHtmlMergeRS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="b" type="tns:Broadcast" />
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartHtmlMergeRSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StartHtmlMergeRSResult" type="tns:BroadcastReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartPreviewRS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="b" type="tns:Broadcast" />
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StartPreviewRSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StartPreviewRSResult" type="tns:BroadcastReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="f" type="tns:SubmitFileInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SubmitFileInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="jobType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="files" type="tns:ArrayOfFileReference" />
+          <s:element minOccurs="0" maxOccurs="1" name="csid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="emailFrom" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="emailEnvelopeSender" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="emailBody" type="tns:FileReference" />
+          <s:element minOccurs="0" maxOccurs="1" name="emailAltBody" type="tns:FileReference" />
+          <s:element minOccurs="0" maxOccurs="1" name="emailSubject" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="trackingID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="scheduledStartTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="memo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="faxMode" type="tns:Faxmode" />
+          <s:element minOccurs="0" maxOccurs="1" name="applicationName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="applicationArgs" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SubmitFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubmitFileResult" type="tns:BroadcastReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitFileRS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="f" type="tns:SubmitFileInfo" />
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitFileRSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubmitFileRSResult" type="tns:BroadcastReturn" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInboundFaxActivityRS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CustomerNumber" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="fromDateTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="toDateTime" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInboundFaxActivityRSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInboundFaxActivityRSResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInboundFaxActivity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="fromDateTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="toDateTime" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInboundFaxActivityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInboundFaxActivityResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetReceivedFoldersRSSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReceivedFoldersRS" />
+  </wsdl:message>
+  <wsdl:message name="GetReceivedFoldersRSSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReceivedFoldersRSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReceivedFoldersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReceivedFolders" />
+  </wsdl:message>
+  <wsdl:message name="GetReceivedFoldersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReceivedFoldersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReceivedFileNamesRSSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReceivedFileNamesRS" />
+  </wsdl:message>
+  <wsdl:message name="GetReceivedFileNamesRSSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReceivedFileNamesRSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReceivedFileNamesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReceivedFileNames" />
+  </wsdl:message>
+  <wsdl:message name="GetReceivedFileNamesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReceivedFileNamesResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownLoadFilesFromReceivedFolderRSSoapIn">
+    <wsdl:part name="parameters" element="tns:DownLoadFilesFromReceivedFolderRS" />
+  </wsdl:message>
+  <wsdl:message name="DownLoadFilesFromReceivedFolderRSSoapOut">
+    <wsdl:part name="parameters" element="tns:DownLoadFilesFromReceivedFolderRSResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownLoadFilesFromReceivedFolderSoapIn">
+    <wsdl:part name="parameters" element="tns:DownLoadFilesFromReceivedFolder" />
+  </wsdl:message>
+  <wsdl:message name="DownLoadFilesFromReceivedFolderSoapOut">
+    <wsdl:part name="parameters" element="tns:DownLoadFilesFromReceivedFolderResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFilesFromReceivedFolderRSSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteFilesFromReceivedFolderRS" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFilesFromReceivedFolderRSSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteFilesFromReceivedFolderRSResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFilesFromReceivedFolderSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteFilesFromReceivedFolder" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFilesFromReceivedFolderSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteFilesFromReceivedFolderResponse" />
+  </wsdl:message>
+  <wsdl:message name="getJobDetail3SoapIn">
+    <wsdl:part name="parameters" element="tns:getJobDetail3" />
+  </wsdl:message>
+  <wsdl:message name="getJobDetail3SoapOut">
+    <wsdl:part name="parameters" element="tns:getJobDetail3Response" />
+  </wsdl:message>
+  <wsdl:message name="getJobDetail3RSSoapIn">
+    <wsdl:part name="parameters" element="tns:getJobDetail3RS" />
+  </wsdl:message>
+  <wsdl:message name="getJobDetail3RSSoapOut">
+    <wsdl:part name="parameters" element="tns:getJobDetail3RSResponse" />
+  </wsdl:message>
+  <wsdl:message name="getJobDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:getJobDetail" />
+  </wsdl:message>
+  <wsdl:message name="getJobDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:getJobDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="getJobDetailRSSoapIn">
+    <wsdl:part name="parameters" element="tns:getJobDetailRS" />
+  </wsdl:message>
+  <wsdl:message name="getJobDetailRSSoapOut">
+    <wsdl:part name="parameters" element="tns:getJobDetailRSResponse" />
+  </wsdl:message>
+  <wsdl:message name="getJobDetail2SoapIn">
+    <wsdl:part name="parameters" element="tns:getJobDetail2" />
+  </wsdl:message>
+  <wsdl:message name="getJobDetail2SoapOut">
+    <wsdl:part name="parameters" element="tns:getJobDetail2Response" />
+  </wsdl:message>
+  <wsdl:message name="getJobDetail2RSSoapIn">
+    <wsdl:part name="parameters" element="tns:getJobDetail2RS" />
+  </wsdl:message>
+  <wsdl:message name="getJobDetail2RSSoapOut">
+    <wsdl:part name="parameters" element="tns:getJobDetail2RSResponse" />
+  </wsdl:message>
+  <wsdl:message name="getItemDetailByDatesSoapIn">
+    <wsdl:part name="parameters" element="tns:getItemDetailByDates" />
+  </wsdl:message>
+  <wsdl:message name="getItemDetailByDatesSoapOut">
+    <wsdl:part name="parameters" element="tns:getItemDetailByDatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getItemDetailByDatesRSSoapIn">
+    <wsdl:part name="parameters" element="tns:getItemDetailByDatesRS" />
+  </wsdl:message>
+  <wsdl:message name="getItemDetailByDatesRSSoapOut">
+    <wsdl:part name="parameters" element="tns:getItemDetailByDatesRSResponse" />
+  </wsdl:message>
+  <wsdl:message name="getItemDetailByDates2SoapIn">
+    <wsdl:part name="parameters" element="tns:getItemDetailByDates2" />
+  </wsdl:message>
+  <wsdl:message name="getItemDetailByDates2SoapOut">
+    <wsdl:part name="parameters" element="tns:getItemDetailByDates2Response" />
+  </wsdl:message>
+  <wsdl:message name="getItemDetailByDates2RSSoapIn">
+    <wsdl:part name="parameters" element="tns:getItemDetailByDates2RS" />
+  </wsdl:message>
+  <wsdl:message name="getItemDetailByDates2RSSoapOut">
+    <wsdl:part name="parameters" element="tns:getItemDetailByDates2RSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetJobTypeDocsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetJobTypeDocs" />
+  </wsdl:message>
+  <wsdl:message name="GetJobTypeDocsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetJobTypeDocsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetJobTypeDocsRSSoapIn">
+    <wsdl:part name="parameters" element="tns:GetJobTypeDocsRS" />
+  </wsdl:message>
+  <wsdl:message name="GetJobTypeDocsRSSoapOut">
+    <wsdl:part name="parameters" element="tns:GetJobTypeDocsRSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetJobTypeListsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetJobTypeLists" />
+  </wsdl:message>
+  <wsdl:message name="GetJobTypeListsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetJobTypeListsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetJobTypeListsRSSoapIn">
+    <wsdl:part name="parameters" element="tns:GetJobTypeListsRS" />
+  </wsdl:message>
+  <wsdl:message name="GetJobTypeListsRSSoapOut">
+    <wsdl:part name="parameters" element="tns:GetJobTypeListsRSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDefaultModeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDefaultMode" />
+  </wsdl:message>
+  <wsdl:message name="GetDefaultModeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDefaultModeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDefaultModeRSSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDefaultModeRS" />
+  </wsdl:message>
+  <wsdl:message name="GetDefaultModeRSSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDefaultModeRSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetShouldSuppressFaxConversionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetShouldSuppressFaxConversion" />
+  </wsdl:message>
+  <wsdl:message name="GetShouldSuppressFaxConversionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetShouldSuppressFaxConversionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetShouldSuppressFaxConversionRSSoapIn">
+    <wsdl:part name="parameters" element="tns:GetShouldSuppressFaxConversionRS" />
+  </wsdl:message>
+  <wsdl:message name="GetShouldSuppressFaxConversionRSSoapOut">
+    <wsdl:part name="parameters" element="tns:GetShouldSuppressFaxConversionRSResponse" />
+  </wsdl:message>
+  <wsdl:message name="StatusExSoapIn">
+    <wsdl:part name="parameters" element="tns:StatusEx" />
+  </wsdl:message>
+  <wsdl:message name="StatusExSoapOut">
+    <wsdl:part name="parameters" element="tns:StatusExResponse" />
+  </wsdl:message>
+  <wsdl:message name="StatusSoapIn">
+    <wsdl:part name="parameters" element="tns:Status" />
+  </wsdl:message>
+  <wsdl:message name="StatusSoapOut">
+    <wsdl:part name="parameters" element="tns:StatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="StatusForJobSoapIn">
+    <wsdl:part name="parameters" element="tns:StatusForJob" />
+  </wsdl:message>
+  <wsdl:message name="StatusForJobSoapOut">
+    <wsdl:part name="parameters" element="tns:StatusForJobResponse" />
+  </wsdl:message>
+  <wsdl:message name="StatusForJob2SoapIn">
+    <wsdl:part name="parameters" element="tns:StatusForJob2" />
+  </wsdl:message>
+  <wsdl:message name="StatusForJob2SoapOut">
+    <wsdl:part name="parameters" element="tns:StatusForJob2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetJobTypesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetJobTypes" />
+  </wsdl:message>
+  <wsdl:message name="GetJobTypesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetJobTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="StartBroadcastSoapIn">
+    <wsdl:part name="parameters" element="tns:StartBroadcast" />
+  </wsdl:message>
+  <wsdl:message name="StartBroadcastSoapOut">
+    <wsdl:part name="parameters" element="tns:StartBroadcastResponse" />
+  </wsdl:message>
+  <wsdl:message name="StartPreviewSoapIn">
+    <wsdl:part name="parameters" element="tns:StartPreview" />
+  </wsdl:message>
+  <wsdl:message name="StartPreviewSoapOut">
+    <wsdl:part name="parameters" element="tns:StartPreviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGroup" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownLoadFilesFromFoldersSoapIn">
+    <wsdl:part name="parameters" element="tns:DownLoadFilesFromFolders" />
+  </wsdl:message>
+  <wsdl:message name="DownLoadFilesFromFoldersSoapOut">
+    <wsdl:part name="parameters" element="tns:DownLoadFilesFromFoldersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReportSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReport" />
+  </wsdl:message>
+  <wsdl:message name="GetReportSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFilesFromFoldersSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteFilesFromFolders" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFilesFromFoldersSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteFilesFromFoldersResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadFilesToFoldersSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadFilesToFolders" />
+  </wsdl:message>
+  <wsdl:message name="UploadFilesToFoldersSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadFilesToFoldersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDocuments" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLists" />
+  </wsdl:message>
+  <wsdl:message name="GetListsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelJobSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelJob" />
+  </wsdl:message>
+  <wsdl:message name="CancelJobSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelJobResponse" />
+  </wsdl:message>
+  <wsdl:message name="DownLoadFilesFromFoldersRSSoapIn">
+    <wsdl:part name="parameters" element="tns:DownLoadFilesFromFoldersRS" />
+  </wsdl:message>
+  <wsdl:message name="DownLoadFilesFromFoldersRSSoapOut">
+    <wsdl:part name="parameters" element="tns:DownLoadFilesFromFoldersRSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReportRSSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportRS" />
+  </wsdl:message>
+  <wsdl:message name="GetReportRSSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportRSResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFilesFromFoldersRSSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteFilesFromFoldersRS" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFilesFromFoldersRSSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteFilesFromFoldersRSResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadFilesToFoldersRSSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadFilesToFoldersRS" />
+  </wsdl:message>
+  <wsdl:message name="UploadFilesToFoldersRSSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadFilesToFoldersRSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCustomerNumber" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCustomerNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentsRSSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDocumentsRS" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentsRSSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDocumentsRSResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelJobRSSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelJobRS" />
+  </wsdl:message>
+  <wsdl:message name="CancelJobRSSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelJobRSResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApprovePreviewSoapIn">
+    <wsdl:part name="parameters" element="tns:ApprovePreview" />
+  </wsdl:message>
+  <wsdl:message name="ApprovePreviewSoapOut">
+    <wsdl:part name="parameters" element="tns:ApprovePreviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApprovePreviewRSSoapIn">
+    <wsdl:part name="parameters" element="tns:ApprovePreviewRS" />
+  </wsdl:message>
+  <wsdl:message name="ApprovePreviewRSSoapOut">
+    <wsdl:part name="parameters" element="tns:ApprovePreviewRSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPreviewSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPreview" />
+  </wsdl:message>
+  <wsdl:message name="GetPreviewSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPreviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPreviewRSSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPreviewRS" />
+  </wsdl:message>
+  <wsdl:message name="GetPreviewRSSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPreviewRSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetListsRSSoapIn">
+    <wsdl:part name="parameters" element="tns:GetListsRS" />
+  </wsdl:message>
+  <wsdl:message name="GetListsRSSoapOut">
+    <wsdl:part name="parameters" element="tns:GetListsRSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetJobTypesRSSoapIn">
+    <wsdl:part name="parameters" element="tns:GetJobTypesRS" />
+  </wsdl:message>
+  <wsdl:message name="GetJobTypesRSSoapOut">
+    <wsdl:part name="parameters" element="tns:GetJobTypesRSResponse" />
+  </wsdl:message>
+  <wsdl:message name="StatusRSSoapIn">
+    <wsdl:part name="parameters" element="tns:StatusRS" />
+  </wsdl:message>
+  <wsdl:message name="StatusRSSoapOut">
+    <wsdl:part name="parameters" element="tns:StatusRSResponse" />
+  </wsdl:message>
+  <wsdl:message name="StatusForJobRSSoapIn">
+    <wsdl:part name="parameters" element="tns:StatusForJobRS" />
+  </wsdl:message>
+  <wsdl:message name="StatusForJobRSSoapOut">
+    <wsdl:part name="parameters" element="tns:StatusForJobRSResponse" />
+  </wsdl:message>
+  <wsdl:message name="StatusForJob2RSSoapIn">
+    <wsdl:part name="parameters" element="tns:StatusForJob2RS" />
+  </wsdl:message>
+  <wsdl:message name="StatusForJob2RSSoapOut">
+    <wsdl:part name="parameters" element="tns:StatusForJob2RSResponse" />
+  </wsdl:message>
+  <wsdl:message name="StatusExRSSoapIn">
+    <wsdl:part name="parameters" element="tns:StatusExRS" />
+  </wsdl:message>
+  <wsdl:message name="StatusExRSSoapOut">
+    <wsdl:part name="parameters" element="tns:StatusExRSResponse" />
+  </wsdl:message>
+  <wsdl:message name="StatusEx2SoapIn">
+    <wsdl:part name="parameters" element="tns:StatusEx2" />
+  </wsdl:message>
+  <wsdl:message name="StatusEx2SoapOut">
+    <wsdl:part name="parameters" element="tns:StatusEx2Response" />
+  </wsdl:message>
+  <wsdl:message name="StatusEx2RSSoapIn">
+    <wsdl:part name="parameters" element="tns:StatusEx2RS" />
+  </wsdl:message>
+  <wsdl:message name="StatusEx2RSSoapOut">
+    <wsdl:part name="parameters" element="tns:StatusEx2RSResponse" />
+  </wsdl:message>
+  <wsdl:message name="StartBroadcastRSSoapIn">
+    <wsdl:part name="parameters" element="tns:StartBroadcastRS" />
+  </wsdl:message>
+  <wsdl:message name="StartBroadcastRSSoapOut">
+    <wsdl:part name="parameters" element="tns:StartBroadcastRSResponse" />
+  </wsdl:message>
+  <wsdl:message name="StartHtmlMergeSoapIn">
+    <wsdl:part name="parameters" element="tns:StartHtmlMerge" />
+  </wsdl:message>
+  <wsdl:message name="StartHtmlMergeSoapOut">
+    <wsdl:part name="parameters" element="tns:StartHtmlMergeResponse" />
+  </wsdl:message>
+  <wsdl:message name="StartHtmlMergeRSSoapIn">
+    <wsdl:part name="parameters" element="tns:StartHtmlMergeRS" />
+  </wsdl:message>
+  <wsdl:message name="StartHtmlMergeRSSoapOut">
+    <wsdl:part name="parameters" element="tns:StartHtmlMergeRSResponse" />
+  </wsdl:message>
+  <wsdl:message name="StartPreviewRSSoapIn">
+    <wsdl:part name="parameters" element="tns:StartPreviewRS" />
+  </wsdl:message>
+  <wsdl:message name="StartPreviewRSSoapOut">
+    <wsdl:part name="parameters" element="tns:StartPreviewRSResponse" />
+  </wsdl:message>
+  <wsdl:message name="SubmitFileSoapIn">
+    <wsdl:part name="parameters" element="tns:SubmitFile" />
+  </wsdl:message>
+  <wsdl:message name="SubmitFileSoapOut">
+    <wsdl:part name="parameters" element="tns:SubmitFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="SubmitFileRSSoapIn">
+    <wsdl:part name="parameters" element="tns:SubmitFileRS" />
+  </wsdl:message>
+  <wsdl:message name="SubmitFileRSSoapOut">
+    <wsdl:part name="parameters" element="tns:SubmitFileRSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInboundFaxActivityRSSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInboundFaxActivityRS" />
+  </wsdl:message>
+  <wsdl:message name="GetInboundFaxActivityRSSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInboundFaxActivityRSResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInboundFaxActivitySoapIn">
+    <wsdl:part name="parameters" element="tns:GetInboundFaxActivity" />
+  </wsdl:message>
+  <wsdl:message name="GetInboundFaxActivitySoapOut">
+    <wsdl:part name="parameters" element="tns:GetInboundFaxActivityResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="GetReceivedFoldersRS">
+      <wsdl:input message="tns:GetReceivedFoldersRSSoapIn" />
+      <wsdl:output message="tns:GetReceivedFoldersRSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReceivedFolders">
+      <wsdl:input message="tns:GetReceivedFoldersSoapIn" />
+      <wsdl:output message="tns:GetReceivedFoldersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReceivedFileNamesRS">
+      <wsdl:input message="tns:GetReceivedFileNamesRSSoapIn" />
+      <wsdl:output message="tns:GetReceivedFileNamesRSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReceivedFileNames">
+      <wsdl:input message="tns:GetReceivedFileNamesSoapIn" />
+      <wsdl:output message="tns:GetReceivedFileNamesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownLoadFilesFromReceivedFolderRS">
+      <wsdl:input message="tns:DownLoadFilesFromReceivedFolderRSSoapIn" />
+      <wsdl:output message="tns:DownLoadFilesFromReceivedFolderRSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownLoadFilesFromReceivedFolder">
+      <wsdl:input message="tns:DownLoadFilesFromReceivedFolderSoapIn" />
+      <wsdl:output message="tns:DownLoadFilesFromReceivedFolderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFilesFromReceivedFolderRS">
+      <wsdl:input message="tns:DeleteFilesFromReceivedFolderRSSoapIn" />
+      <wsdl:output message="tns:DeleteFilesFromReceivedFolderRSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFilesFromReceivedFolder">
+      <wsdl:input message="tns:DeleteFilesFromReceivedFolderSoapIn" />
+      <wsdl:output message="tns:DeleteFilesFromReceivedFolderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getJobDetail3">
+      <wsdl:input message="tns:getJobDetail3SoapIn" />
+      <wsdl:output message="tns:getJobDetail3SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getJobDetail3RS">
+      <wsdl:input message="tns:getJobDetail3RSSoapIn" />
+      <wsdl:output message="tns:getJobDetail3RSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getJobDetail">
+      <wsdl:input message="tns:getJobDetailSoapIn" />
+      <wsdl:output message="tns:getJobDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getJobDetailRS">
+      <wsdl:input message="tns:getJobDetailRSSoapIn" />
+      <wsdl:output message="tns:getJobDetailRSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getJobDetail2">
+      <wsdl:input message="tns:getJobDetail2SoapIn" />
+      <wsdl:output message="tns:getJobDetail2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getJobDetail2RS">
+      <wsdl:input message="tns:getJobDetail2RSSoapIn" />
+      <wsdl:output message="tns:getJobDetail2RSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getItemDetailByDates">
+      <wsdl:input message="tns:getItemDetailByDatesSoapIn" />
+      <wsdl:output message="tns:getItemDetailByDatesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getItemDetailByDatesRS">
+      <wsdl:input message="tns:getItemDetailByDatesRSSoapIn" />
+      <wsdl:output message="tns:getItemDetailByDatesRSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getItemDetailByDates2">
+      <wsdl:input message="tns:getItemDetailByDates2SoapIn" />
+      <wsdl:output message="tns:getItemDetailByDates2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getItemDetailByDates2RS">
+      <wsdl:input message="tns:getItemDetailByDates2RSSoapIn" />
+      <wsdl:output message="tns:getItemDetailByDates2RSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobTypeDocs">
+      <wsdl:input message="tns:GetJobTypeDocsSoapIn" />
+      <wsdl:output message="tns:GetJobTypeDocsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobTypeDocsRS">
+      <wsdl:input message="tns:GetJobTypeDocsRSSoapIn" />
+      <wsdl:output message="tns:GetJobTypeDocsRSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobTypeLists">
+      <wsdl:input message="tns:GetJobTypeListsSoapIn" />
+      <wsdl:output message="tns:GetJobTypeListsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobTypeListsRS">
+      <wsdl:input message="tns:GetJobTypeListsRSSoapIn" />
+      <wsdl:output message="tns:GetJobTypeListsRSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultMode">
+      <wsdl:input message="tns:GetDefaultModeSoapIn" />
+      <wsdl:output message="tns:GetDefaultModeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultModeRS">
+      <wsdl:input message="tns:GetDefaultModeRSSoapIn" />
+      <wsdl:output message="tns:GetDefaultModeRSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShouldSuppressFaxConversion">
+      <wsdl:input message="tns:GetShouldSuppressFaxConversionSoapIn" />
+      <wsdl:output message="tns:GetShouldSuppressFaxConversionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetShouldSuppressFaxConversionRS">
+      <wsdl:input message="tns:GetShouldSuppressFaxConversionRSSoapIn" />
+      <wsdl:output message="tns:GetShouldSuppressFaxConversionRSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StatusEx">
+      <wsdl:input message="tns:StatusExSoapIn" />
+      <wsdl:output message="tns:StatusExSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Status">
+      <wsdl:input message="tns:StatusSoapIn" />
+      <wsdl:output message="tns:StatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StatusForJob">
+      <wsdl:input message="tns:StatusForJobSoapIn" />
+      <wsdl:output message="tns:StatusForJobSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StatusForJob2">
+      <wsdl:input message="tns:StatusForJob2SoapIn" />
+      <wsdl:output message="tns:StatusForJob2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobTypes">
+      <wsdl:input message="tns:GetJobTypesSoapIn" />
+      <wsdl:output message="tns:GetJobTypesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StartBroadcast">
+      <wsdl:input message="tns:StartBroadcastSoapIn" />
+      <wsdl:output message="tns:StartBroadcastSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StartPreview">
+      <wsdl:input message="tns:StartPreviewSoapIn" />
+      <wsdl:output message="tns:StartPreviewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroup">
+      <wsdl:input message="tns:GetGroupSoapIn" />
+      <wsdl:output message="tns:GetGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownLoadFilesFromFolders">
+      <wsdl:input message="tns:DownLoadFilesFromFoldersSoapIn" />
+      <wsdl:output message="tns:DownLoadFilesFromFoldersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReport">
+      <wsdl:input message="tns:GetReportSoapIn" />
+      <wsdl:output message="tns:GetReportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFilesFromFolders">
+      <wsdl:input message="tns:DeleteFilesFromFoldersSoapIn" />
+      <wsdl:output message="tns:DeleteFilesFromFoldersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadFilesToFolders">
+      <wsdl:input message="tns:UploadFilesToFoldersSoapIn" />
+      <wsdl:output message="tns:UploadFilesToFoldersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocuments">
+      <wsdl:input message="tns:GetDocumentsSoapIn" />
+      <wsdl:output message="tns:GetDocumentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLists">
+      <wsdl:input message="tns:GetListsSoapIn" />
+      <wsdl:output message="tns:GetListsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelJob">
+      <wsdl:input message="tns:CancelJobSoapIn" />
+      <wsdl:output message="tns:CancelJobSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DownLoadFilesFromFoldersRS">
+      <wsdl:input message="tns:DownLoadFilesFromFoldersRSSoapIn" />
+      <wsdl:output message="tns:DownLoadFilesFromFoldersRSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportRS">
+      <wsdl:input message="tns:GetReportRSSoapIn" />
+      <wsdl:output message="tns:GetReportRSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFilesFromFoldersRS">
+      <wsdl:input message="tns:DeleteFilesFromFoldersRSSoapIn" />
+      <wsdl:output message="tns:DeleteFilesFromFoldersRSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadFilesToFoldersRS">
+      <wsdl:input message="tns:UploadFilesToFoldersRSSoapIn" />
+      <wsdl:output message="tns:UploadFilesToFoldersRSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerNumber">
+      <wsdl:input message="tns:GetCustomerNumberSoapIn" />
+      <wsdl:output message="tns:GetCustomerNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentsRS">
+      <wsdl:input message="tns:GetDocumentsRSSoapIn" />
+      <wsdl:output message="tns:GetDocumentsRSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelJobRS">
+      <wsdl:input message="tns:CancelJobRSSoapIn" />
+      <wsdl:output message="tns:CancelJobRSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ApprovePreview">
+      <wsdl:input message="tns:ApprovePreviewSoapIn" />
+      <wsdl:output message="tns:ApprovePreviewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ApprovePreviewRS">
+      <wsdl:input message="tns:ApprovePreviewRSSoapIn" />
+      <wsdl:output message="tns:ApprovePreviewRSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPreview">
+      <wsdl:input message="tns:GetPreviewSoapIn" />
+      <wsdl:output message="tns:GetPreviewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPreviewRS">
+      <wsdl:input message="tns:GetPreviewRSSoapIn" />
+      <wsdl:output message="tns:GetPreviewRSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetListsRS">
+      <wsdl:input message="tns:GetListsRSSoapIn" />
+      <wsdl:output message="tns:GetListsRSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJobTypesRS">
+      <wsdl:input message="tns:GetJobTypesRSSoapIn" />
+      <wsdl:output message="tns:GetJobTypesRSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StatusRS">
+      <wsdl:input message="tns:StatusRSSoapIn" />
+      <wsdl:output message="tns:StatusRSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StatusForJobRS">
+      <wsdl:input message="tns:StatusForJobRSSoapIn" />
+      <wsdl:output message="tns:StatusForJobRSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StatusForJob2RS">
+      <wsdl:input message="tns:StatusForJob2RSSoapIn" />
+      <wsdl:output message="tns:StatusForJob2RSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StatusExRS">
+      <wsdl:input message="tns:StatusExRSSoapIn" />
+      <wsdl:output message="tns:StatusExRSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StatusEx2">
+      <wsdl:input message="tns:StatusEx2SoapIn" />
+      <wsdl:output message="tns:StatusEx2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StatusEx2RS">
+      <wsdl:input message="tns:StatusEx2RSSoapIn" />
+      <wsdl:output message="tns:StatusEx2RSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StartBroadcastRS">
+      <wsdl:input message="tns:StartBroadcastRSSoapIn" />
+      <wsdl:output message="tns:StartBroadcastRSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StartHtmlMerge">
+      <wsdl:input message="tns:StartHtmlMergeSoapIn" />
+      <wsdl:output message="tns:StartHtmlMergeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StartHtmlMergeRS">
+      <wsdl:input message="tns:StartHtmlMergeRSSoapIn" />
+      <wsdl:output message="tns:StartHtmlMergeRSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StartPreviewRS">
+      <wsdl:input message="tns:StartPreviewRSSoapIn" />
+      <wsdl:output message="tns:StartPreviewRSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitFile">
+      <wsdl:input message="tns:SubmitFileSoapIn" />
+      <wsdl:output message="tns:SubmitFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitFileRS">
+      <wsdl:input message="tns:SubmitFileRSSoapIn" />
+      <wsdl:output message="tns:SubmitFileRSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInboundFaxActivityRS">
+      <wsdl:input message="tns:GetInboundFaxActivityRSSoapIn" />
+      <wsdl:output message="tns:GetInboundFaxActivityRSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInboundFaxActivity">
+      <wsdl:input message="tns:GetInboundFaxActivitySoapIn" />
+      <wsdl:output message="tns:GetInboundFaxActivitySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetReceivedFoldersRS">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/GetReceivedFoldersRS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReceivedFolders">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/GetReceivedFolders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReceivedFileNamesRS">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/GetReceivedFileNamesRS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReceivedFileNames">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/GetReceivedFileNames" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownLoadFilesFromReceivedFolderRS">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/DownLoadFilesFromReceivedFolderRS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownLoadFilesFromReceivedFolder">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/DownLoadFilesFromReceivedFolder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFilesFromReceivedFolderRS">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/DeleteFilesFromReceivedFolderRS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFilesFromReceivedFolder">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/DeleteFilesFromReceivedFolder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getJobDetail3">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/getJobDetail3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getJobDetail3RS">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/getJobDetail3RS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getJobDetail">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/getJobDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getJobDetailRS">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/getJobDetailRS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getJobDetail2">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/getJobDetail2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getJobDetail2RS">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/getJobDetail2RS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getItemDetailByDates">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/getItemDetailByDates" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getItemDetailByDatesRS">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/getItemDetailByDatesRS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getItemDetailByDates2">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/getItemDetailByDates2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getItemDetailByDates2RS">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/getItemDetailByDates2RS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobTypeDocs">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/GetJobTypeDocs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobTypeDocsRS">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/GetJobTypeDocsRS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobTypeLists">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/GetJobTypeLists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobTypeListsRS">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/GetJobTypeListsRS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultMode">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/GetDefaultMode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultModeRS">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/GetDefaultModeRS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShouldSuppressFaxConversion">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/GetShouldSuppressFaxConversion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShouldSuppressFaxConversionRS">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/GetShouldSuppressFaxConversionRS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StatusEx">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/StatusEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Status">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/Status" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StatusForJob">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/StatusForJob" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StatusForJob2">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/StatusForJob2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobTypes">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/GetJobTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartBroadcast">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/StartBroadcast" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartPreview">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/StartPreview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroup">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/GetGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownLoadFilesFromFolders">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/DownLoadFilesFromFolders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReport">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/GetReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFilesFromFolders">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/DeleteFilesFromFolders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadFilesToFolders">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/UploadFilesToFolders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocuments">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/GetDocuments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLists">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/GetLists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelJob">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/CancelJob" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownLoadFilesFromFoldersRS">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/DownLoadFilesFromFoldersRS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportRS">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/GetReportRS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFilesFromFoldersRS">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/DeleteFilesFromFoldersRS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadFilesToFoldersRS">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/UploadFilesToFoldersRS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerNumber">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/GetCustomerNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentsRS">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/GetDocumentsRS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelJobRS">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/CancelJobRS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApprovePreview">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/ApprovePreview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApprovePreviewRS">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/ApprovePreviewRS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPreview">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/GetPreview" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPreviewRS">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/GetPreviewRS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListsRS">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/GetListsRS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobTypesRS">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/GetJobTypesRS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StatusRS">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/StatusRS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StatusForJobRS">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/StatusForJobRS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StatusForJob2RS">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/StatusForJob2RS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StatusExRS">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/StatusExRS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StatusEx2">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/StatusEx2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StatusEx2RS">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/StatusEx2RS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartBroadcastRS">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/StartBroadcastRS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartHtmlMerge">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/StartHtmlMerge" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartHtmlMergeRS">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/StartHtmlMergeRS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartPreviewRS">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/StartPreviewRS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitFile">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/SubmitFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitFileRS">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/SubmitFileRS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInboundFaxActivityRS">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/GetInboundFaxActivityRS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInboundFaxActivity">
+      <soap:operation soapAction="http://odysseyservices.net/automatedui/GetInboundFaxActivity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetReceivedFoldersRS">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReceivedFolders">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReceivedFileNamesRS">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReceivedFileNames">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownLoadFilesFromReceivedFolderRS">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownLoadFilesFromReceivedFolder">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFilesFromReceivedFolderRS">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFilesFromReceivedFolder">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getJobDetail3">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getJobDetail3RS">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getJobDetail">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getJobDetailRS">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getJobDetail2">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getJobDetail2RS">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getItemDetailByDates">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getItemDetailByDatesRS">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getItemDetailByDates2">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getItemDetailByDates2RS">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobTypeDocs">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobTypeDocsRS">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobTypeLists">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobTypeListsRS">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultMode">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDefaultModeRS">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShouldSuppressFaxConversion">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetShouldSuppressFaxConversionRS">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StatusEx">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Status">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StatusForJob">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StatusForJob2">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobTypes">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartBroadcast">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartPreview">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroup">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownLoadFilesFromFolders">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReport">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFilesFromFolders">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadFilesToFolders">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocuments">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLists">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelJob">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownLoadFilesFromFoldersRS">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportRS">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFilesFromFoldersRS">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadFilesToFoldersRS">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerNumber">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentsRS">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelJobRS">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApprovePreview">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApprovePreviewRS">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPreview">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPreviewRS">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetListsRS">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJobTypesRS">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StatusRS">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StatusForJobRS">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StatusForJob2RS">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StatusExRS">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StatusEx2">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StatusEx2RS">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartBroadcastRS">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartHtmlMerge">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartHtmlMergeRS">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartPreviewRS">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitFile">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitFileRS">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInboundFaxActivityRS">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInboundFaxActivity">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="https://www.odysseyservices.net/owspreview/service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="https://www.odysseyservices.net/owspreview/service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

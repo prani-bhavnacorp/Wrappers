@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:import0="mtvnCWCICustDueDiligenceSvcReq" xmlns:import1="mtvnCWCICustDueDiligenceSvcRes" xmlns:tns="mtvnCICustDueDiligenceWSV1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="mtvnCICustDueDiligenceWSV1" targetNamespace="mtvnCICustDueDiligenceWSV1" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Connectware Web Service Interface</documentation>
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="./CICustDueDiligenceWSV1SvcReq.xsd" namespace="mtvnCWCICustDueDiligenceSvcReq" />
+      <xsd:import schemaLocation="./CICustDueDiligenceWSV1SvcRes.xsd" namespace="mtvnCWCICustDueDiligenceSvcRes" />
+    </xsd:schema>
+  </types>
+  <message name="CICustDueDiligenceMtvnSvcReqMsg">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <part name="messagePart" element="import0:CICustDueDiligenceMtvnSvcReq" />
+  </message>
+  <message name="CICustDueDiligenceMtvnSvcResMsg">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <part name="messagePart" element="import1:CICustDueDiligenceMtvnSvcRes" />
+  </message>
+  <portType name="mtvnCWCICustDueDiligenceWSV1Interface">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">CICustDueDiligenceWSV1</documentation>
+    <operation name="CICustDueDiligence">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+      <input message="tns:CICustDueDiligenceMtvnSvcReqMsg" />
+      <output message="tns:CICustDueDiligenceMtvnSvcResMsg" />
+    </operation>
+  </portType>
+  <binding name="mtvnCWCICustDueDiligenceWSV1" type="tns:mtvnCWCICustDueDiligenceWSV1Interface">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="CICustDueDiligence">
+      <soap:operation soapAction="CICustDueDiligenceWSV1:CICustDueDiligenceMtvnSvcReqMsg" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="mtvnCWCICustDueDiligenceWSV1">
+    <port name="mtvnCWCICustDueDiligenceWSV1Port" binding="tns:mtvnCWCICustDueDiligenceWSV1">
+      <soap:address location="https://ih-excust-other.fisglobal.com/ConnectwareWS/CICustDueDiligenceWSV1" />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:insMtgCommentsReq="http://com.fsb.domain/services/mortgage/InsertMortgageCommentsRequest" elementFormDefault="qualified" targetNamespace="http://com.fsb.domain/services/mortgage/InsertMortgageCommentsRequest" xmlns="http://www.w3.org/2001/XMLSchema">
+  <complexType name="InsertMortgageCommentsRequestType">
+    <sequence>
+      <element name="LoanNumber" type="string" />
+      <element name="CommentType" type="insMtgCommentsReq:CommentTypeEnum" />
+      <element name="CommentSubType" type="insMtgCommentsReq:CommentSubTypeEnum" />
+      <element name="ShortText" type="string" />
+    </sequence>
+  </complexType>
+  <simpleType name="CommentTypeEnum">
+    <restriction base="string">
+      <enumeration value="PSCT" />
+    </restriction>
+  </simpleType>
+  <simpleType name="CommentSubTypeEnum">
+    <restriction base="string">
+      <enumeration value="PSFT" />
+    </restriction>
+  </simpleType>
+  <element name="InsertMortgageCommentsRequest" type="insMtgCommentsReq:InsertMortgageCommentsRequestType" />
+</schema>

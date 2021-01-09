@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="http://api.webservice.customer.ispectrum.summitsite.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Card" targetNamespace="http://api.webservice.customer.ispectrum.summitsite.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <wsp1_2:Policy xmlns:wsapw3c="http://www.w3.org/2006/05/addressing/wsdl" xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" wsu:Id="CardImplPortBindingPolicy">
+    <wsp1_2:ExactlyOne>
+      <wsp1_2:All>
+        <sp:SupportingTokens>
+          <wsp1_2:Policy>
+            <wsp1_2:ExactlyOne>
+              <wsp1_2:All>
+                <sp:UsernameToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+                  <wsp1_2:Policy>
+                    <wsp1_2:ExactlyOne>
+                      <wsp1_2:All>
+                        <sp:WssUsernameToken10 />
+                      </wsp1_2:All>
+                    </wsp1_2:ExactlyOne>
+                  </wsp1_2:Policy>
+                </sp:UsernameToken>
+              </wsp1_2:All>
+            </wsp1_2:ExactlyOne>
+          </wsp1_2:Policy>
+        </sp:SupportingTokens>
+        <wsapw3c:UsingAddressing wsp1_2:Optional="true" />
+      </wsp1_2:All>
+    </wsp1_2:ExactlyOne>
+  </wsp1_2:Policy>
+  <import namespace="urn:connections.ispectrum.summitsite.com" location="https://gocucorvallis.acumen.fiserv.com:443/ispectrum-webservices/Card?wsdl=1" />
+  <types />
+  <binding xmlns:ns1="urn:connections.ispectrum.summitsite.com" name="CardImplPortBinding" type="ns1:Card">
+    <ns2:PolicyReference xmlns:ns2="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#CardImplPortBindingPolicy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="getAllCardAcctType">
+      <soap:operation soapAction="urn:getAllCardAcctType" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getAllCardsForCustomer">
+      <soap:operation soapAction="urn:getAllCardsForCustomer" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getCardByCardId">
+      <soap:operation soapAction="urn:getCardByCardId" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="createUpdateCardByPortfolioNumber">
+      <soap:operation soapAction="urn:createUpdateCardByPortfolioNumber" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="createUpdateCard">
+      <soap:operation soapAction="urn:createUpdateCard" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getNextAvailableCardNumberForCustomer">
+      <soap:operation soapAction="urn:getNextAvailableCardNumberForCustomer" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getNextAvailableVersionNumberForPortfolio">
+      <soap:operation soapAction="urn:getNextAvailableVersionNumberForPortfolio" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SOAPException">
+        <soap:fault use="literal" name="SOAPException" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="Card">
+    <port name="CardImplPort" binding="tns:CardImplPortBinding">
+      <soap:address location="https://gocucorvallis.acumen.fiserv.com:443/ispectrum-webservices/Card" />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:mortStatusHist="http://com.fsb.domain/services/mortgage/MortgageStatusHistory" xmlns:mortStatus="http://com.fsb.domain/services/mortgage/MortgageStatus" elementFormDefault="qualified" targetNamespace="http://com.fsb.domain/services/mortgage/MortgageStatusHistory" xmlns="http://www.w3.org/2001/XMLSchema">
+  <import schemaLocation="MortgageStatus.xsd" namespace="http://com.fsb.domain/services/mortgage/MortgageStatus" />
+  <element name="MortgageStatusHistory" type="mortStatusHist:MortgageStatusHistoryType" />
+  <complexType name="MortgageStatusHistoryType">
+    <sequence>
+      <element minOccurs="1" maxOccurs="unbounded" name="statusArr" type="mortStatus:MortgageStatusType" />
+    </sequence>
+  </complexType>
+</schema>

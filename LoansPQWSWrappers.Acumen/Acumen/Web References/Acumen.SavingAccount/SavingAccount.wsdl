@@ -1,0 +1,1322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:connections.ispectrum.summitsite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:connections.ispectrum.summitsite.com" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="https://gocucorvallis.acumen.fiserv.com:443/ispectrum-webservices/SavingAccount?xsd=1" namespace="urn:connections.ispectrum.summitsite.com" />
+    </xsd:schema>
+  </types>
+  <message name="findAcctsByAccountPortfolioNumber">
+    <part name="parameters" element="tns:findAcctsByAccountPortfolioNumber" />
+  </message>
+  <message name="findAcctsByAccountPortfolioNumberResponse">
+    <part name="parameters" element="tns:findAcctsByAccountPortfolioNumberResponse" />
+  </message>
+  <message name="SOAPException">
+    <part name="fault" element="tns:SOAPException" />
+  </message>
+  <message name="findAssociatesByAccountHolderCustomerId">
+    <part name="parameters" element="tns:findAssociatesByAccountHolderCustomerId" />
+  </message>
+  <message name="findAssociatesByAccountHolderCustomerIdResponse">
+    <part name="parameters" element="tns:findAssociatesByAccountHolderCustomerIdResponse" />
+  </message>
+  <message name="getAssociateHoverTextByCustomerId">
+    <part name="parameters" element="tns:getAssociateHoverTextByCustomerId" />
+  </message>
+  <message name="getAssociateHoverTextByCustomerIdResponse">
+    <part name="parameters" element="tns:getAssociateHoverTextByCustomerIdResponse" />
+  </message>
+  <message name="getAccountAssociateMap">
+    <part name="parameters" element="tns:getAccountAssociateMap" />
+  </message>
+  <message name="getAccountAssociateMapResponse">
+    <part name="parameters" element="tns:getAccountAssociateMapResponse" />
+  </message>
+  <message name="getAssociationTypeInfos">
+    <part name="parameters" element="tns:getAssociationTypeInfos" />
+  </message>
+  <message name="getAssociationTypeInfosResponse">
+    <part name="parameters" element="tns:getAssociationTypeInfosResponse" />
+  </message>
+  <message name="findAccountByAccountId">
+    <part name="parameters" element="tns:findAccountByAccountId" />
+  </message>
+  <message name="findAccountByAccountIdResponse">
+    <part name="parameters" element="tns:findAccountByAccountIdResponse" />
+  </message>
+  <message name="findAccountListInfoByPortfolioSuffix">
+    <part name="parameters" element="tns:findAccountListInfoByPortfolioSuffix" />
+  </message>
+  <message name="findAccountListInfoByPortfolioSuffixResponse">
+    <part name="parameters" element="tns:findAccountListInfoByPortfolioSuffixResponse" />
+  </message>
+  <message name="findTermAccountByAccountId">
+    <part name="parameters" element="tns:findTermAccountByAccountId" />
+  </message>
+  <message name="findTermAccountByAccountIdResponse">
+    <part name="parameters" element="tns:findTermAccountByAccountIdResponse" />
+  </message>
+  <message name="findRegisteredAccountByAccountId">
+    <part name="parameters" element="tns:findRegisteredAccountByAccountId" />
+  </message>
+  <message name="findRegisteredAccountByAccountIdResponse">
+    <part name="parameters" element="tns:findRegisteredAccountByAccountIdResponse" />
+  </message>
+  <message name="findRegisteredTermAccountByAccountId">
+    <part name="parameters" element="tns:findRegisteredTermAccountByAccountId" />
+  </message>
+  <message name="findRegisteredTermAccountByAccountIdResponse">
+    <part name="parameters" element="tns:findRegisteredTermAccountByAccountIdResponse" />
+  </message>
+  <message name="findRegisteredSavingAccountByAccountId">
+    <part name="parameters" element="tns:findRegisteredSavingAccountByAccountId" />
+  </message>
+  <message name="findRegisteredSavingAccountByAccountIdResponse">
+    <part name="parameters" element="tns:findRegisteredSavingAccountByAccountIdResponse" />
+  </message>
+  <message name="findRSPSavingAccountsByPlanId">
+    <part name="parameters" element="tns:findRSPSavingAccountsByPlanId" />
+  </message>
+  <message name="findRSPSavingAccountsByPlanIdResponse">
+    <part name="parameters" element="tns:findRSPSavingAccountsByPlanIdResponse" />
+  </message>
+  <message name="findRegSavingAccountsByAccountId">
+    <part name="parameters" element="tns:findRegSavingAccountsByAccountId" />
+  </message>
+  <message name="findRegSavingAccountsByAccountIdResponse">
+    <part name="parameters" element="tns:findRegSavingAccountsByAccountIdResponse" />
+  </message>
+  <message name="findRegisteredAccountsByAccountId">
+    <part name="parameters" element="tns:findRegisteredAccountsByAccountId" />
+  </message>
+  <message name="findRegisteredAccountsByAccountIdResponse">
+    <part name="parameters" element="tns:findRegisteredAccountsByAccountIdResponse" />
+  </message>
+  <message name="findRegisteredAccountsByPlanId">
+    <part name="parameters" element="tns:findRegisteredAccountsByPlanId" />
+  </message>
+  <message name="findRegisteredAccountsByPlanIdResponse">
+    <part name="parameters" element="tns:findRegisteredAccountsByPlanIdResponse" />
+  </message>
+  <message name="findChequeAccountByAccountId">
+    <part name="parameters" element="tns:findChequeAccountByAccountId" />
+  </message>
+  <message name="findChequeAccountByAccountIdResponse">
+    <part name="parameters" element="tns:findChequeAccountByAccountIdResponse" />
+  </message>
+  <message name="findLoanAccountByAccountId">
+    <part name="parameters" element="tns:findLoanAccountByAccountId" />
+  </message>
+  <message name="findLoanAccountByAccountIdResponse">
+    <part name="parameters" element="tns:findLoanAccountByAccountIdResponse" />
+  </message>
+  <message name="findLoanAccountByApplicationId">
+    <part name="parameters" element="tns:findLoanAccountByApplicationId" />
+  </message>
+  <message name="findLoanAccountByApplicationIdResponse">
+    <part name="parameters" element="tns:findLoanAccountByApplicationIdResponse" />
+  </message>
+  <message name="updateLoanAccount">
+    <part name="parameters" element="tns:updateLoanAccount" />
+  </message>
+  <message name="updateLoanAccountResponse">
+    <part name="parameters" element="tns:updateLoanAccountResponse" />
+  </message>
+  <message name="getMonetaryHoldsByAccountId">
+    <part name="parameters" element="tns:getMonetaryHoldsByAccountId" />
+  </message>
+  <message name="getMonetaryHoldsByAccountIdResponse">
+    <part name="parameters" element="tns:getMonetaryHoldsByAccountIdResponse" />
+  </message>
+  <message name="findAccountPortfoliosByCustomerId">
+    <part name="parameters" element="tns:findAccountPortfoliosByCustomerId" />
+  </message>
+  <message name="findAccountPortfoliosByCustomerIdResponse">
+    <part name="parameters" element="tns:findAccountPortfoliosByCustomerIdResponse" />
+  </message>
+  <message name="getNonResidentWithholdingTax">
+    <part name="parameters" element="tns:getNonResidentWithholdingTax" />
+  </message>
+  <message name="getNonResidentWithholdingTaxResponse">
+    <part name="parameters" element="tns:getNonResidentWithholdingTaxResponse" />
+  </message>
+  <message name="getGenericCounters">
+    <part name="parameters" element="tns:getGenericCounters" />
+  </message>
+  <message name="getGenericCountersResponse">
+    <part name="parameters" element="tns:getGenericCountersResponse" />
+  </message>
+  <message name="getPortfolioGenerationProps">
+    <part name="parameters" element="tns:getPortfolioGenerationProps" />
+  </message>
+  <message name="getPortfolioGenerationPropsResponse">
+    <part name="parameters" element="tns:getPortfolioGenerationPropsResponse" />
+  </message>
+  <message name="getNextSystemGeneratedPortfolio">
+    <part name="parameters" element="tns:getNextSystemGeneratedPortfolio" />
+  </message>
+  <message name="getNextSystemGeneratedPortfolioResponse">
+    <part name="parameters" element="tns:getNextSystemGeneratedPortfolioResponse" />
+  </message>
+  <message name="getPremiumDetailsByCertificate">
+    <part name="parameters" element="tns:getPremiumDetailsByCertificate" />
+  </message>
+  <message name="getPremiumDetailsByCertificateResponse">
+    <part name="parameters" element="tns:getPremiumDetailsByCertificateResponse" />
+  </message>
+  <message name="getCheckDigitAlogTypes">
+    <part name="parameters" element="tns:getCheckDigitAlogTypes" />
+  </message>
+  <message name="getCheckDigitAlogTypesResponse">
+    <part name="parameters" element="tns:getCheckDigitAlogTypesResponse" />
+  </message>
+  <message name="getPrevMonthsLowAcctBalance">
+    <part name="parameters" element="tns:getPrevMonthsLowAcctBalance" />
+  </message>
+  <message name="getPrevMonthsLowAcctBalanceResponse">
+    <part name="parameters" element="tns:getPrevMonthsLowAcctBalanceResponse" />
+  </message>
+  <message name="findAvailableSweepSourcesForAccountId">
+    <part name="parameters" element="tns:findAvailableSweepSourcesForAccountId" />
+  </message>
+  <message name="findAvailableSweepSourcesForAccountIdResponse">
+    <part name="parameters" element="tns:findAvailableSweepSourcesForAccountIdResponse" />
+  </message>
+  <message name="findSweepSourcesForAccountId">
+    <part name="parameters" element="tns:findSweepSourcesForAccountId" />
+  </message>
+  <message name="findSweepSourcesForAccountIdResponse">
+    <part name="parameters" element="tns:findSweepSourcesForAccountIdResponse" />
+  </message>
+  <message name="getUnlinkedChqAcctOptionForCustomerLoanId">
+    <part name="parameters" element="tns:getUnlinkedChqAcctOptionForCustomerLoanId" />
+  </message>
+  <message name="getUnlinkedChqAcctOptionForCustomerLoanIdResponse">
+    <part name="parameters" element="tns:getUnlinkedChqAcctOptionForCustomerLoanIdResponse" />
+  </message>
+  <message name="getUnLinkedLoanAcctOverdraftOptionList">
+    <part name="parameters" element="tns:getUnLinkedLoanAcctOverdraftOptionList" />
+  </message>
+  <message name="getUnLinkedLoanAcctOverdraftOptionListResponse">
+    <part name="parameters" element="tns:getUnLinkedLoanAcctOverdraftOptionListResponse" />
+  </message>
+  <message name="getLinkableLoanAcctOverdraftOptions">
+    <part name="parameters" element="tns:getLinkableLoanAcctOverdraftOptions" />
+  </message>
+  <message name="getLinkableLoanAcctOverdraftOptionsResponse">
+    <part name="parameters" element="tns:getLinkableLoanAcctOverdraftOptionsResponse" />
+  </message>
+  <message name="getAccruedInterestByAccountId">
+    <part name="parameters" element="tns:getAccruedInterestByAccountId" />
+  </message>
+  <message name="getAccruedInterestByAccountIdResponse">
+    <part name="parameters" element="tns:getAccruedInterestByAccountIdResponse" />
+  </message>
+  <message name="findIRASavingAccountByAccountId">
+    <part name="parameters" element="tns:findIRASavingAccountByAccountId" />
+  </message>
+  <message name="findIRASavingAccountByAccountIdResponse">
+    <part name="parameters" element="tns:findIRASavingAccountByAccountIdResponse" />
+  </message>
+  <message name="findIRASavingAccountsByAccountId">
+    <part name="parameters" element="tns:findIRASavingAccountsByAccountId" />
+  </message>
+  <message name="findIRASavingAccountsByAccountIdResponse">
+    <part name="parameters" element="tns:findIRASavingAccountsByAccountIdResponse" />
+  </message>
+  <message name="findIRASavingAccountsByPlanId">
+    <part name="parameters" element="tns:findIRASavingAccountsByPlanId" />
+  </message>
+  <message name="findIRASavingAccountsByPlanIdResponse">
+    <part name="parameters" element="tns:findIRASavingAccountsByPlanIdResponse" />
+  </message>
+  <message name="findIRATermAccountByAccountId">
+    <part name="parameters" element="tns:findIRATermAccountByAccountId" />
+  </message>
+  <message name="findIRATermAccountByAccountIdResponse">
+    <part name="parameters" element="tns:findIRATermAccountByAccountIdResponse" />
+  </message>
+  <message name="findIRATermAccountsByAccountId">
+    <part name="parameters" element="tns:findIRATermAccountsByAccountId" />
+  </message>
+  <message name="findIRATermAccountsByAccountIdResponse">
+    <part name="parameters" element="tns:findIRATermAccountsByAccountIdResponse" />
+  </message>
+  <message name="findIRATermAccountsByPlanId">
+    <part name="parameters" element="tns:findIRATermAccountsByPlanId" />
+  </message>
+  <message name="findIRATermAccountsByPlanIdResponse">
+    <part name="parameters" element="tns:findIRATermAccountsByPlanIdResponse" />
+  </message>
+  <message name="getSAVDEPAccountInfoForLinkedLoan">
+    <part name="parameters" element="tns:getSAVDEPAccountInfoForLinkedLoan" />
+  </message>
+  <message name="getSAVDEPAccountInfoForLinkedLoanResponse">
+    <part name="parameters" element="tns:getSAVDEPAccountInfoForLinkedLoanResponse" />
+  </message>
+  <message name="getUnAvailableFunds">
+    <part name="parameters" element="tns:getUnAvailableFunds" />
+  </message>
+  <message name="getUnAvailableFundsResponse">
+    <part name="parameters" element="tns:getUnAvailableFundsResponse" />
+  </message>
+  <message name="recalcNextInterestDate">
+    <part name="parameters" element="tns:recalcNextInterestDate" />
+  </message>
+  <message name="recalcNextInterestDateResponse">
+    <part name="parameters" element="tns:recalcNextInterestDateResponse" />
+  </message>
+  <message name="validatePortfolioNumber">
+    <part name="parameters" element="tns:validatePortfolioNumber" />
+  </message>
+  <message name="validatePortfolioNumberResponse">
+    <part name="parameters" element="tns:validatePortfolioNumberResponse" />
+  </message>
+  <message name="getAcctAssociateSignerCount">
+    <part name="parameters" element="tns:getAcctAssociateSignerCount" />
+  </message>
+  <message name="getAcctAssociateSignerCountResponse">
+    <part name="parameters" element="tns:getAcctAssociateSignerCountResponse" />
+  </message>
+  <message name="calculateSavDepRateVariance">
+    <part name="parameters" element="tns:calculateSavDepRateVariance" />
+  </message>
+  <message name="calculateSavDepRateVarianceResponse">
+    <part name="parameters" element="tns:calculateSavDepRateVarianceResponse" />
+  </message>
+  <message name="checkVarianceForCreateAccount">
+    <part name="parameters" element="tns:checkVarianceForCreateAccount" />
+  </message>
+  <message name="checkVarianceForCreateAccountResponse">
+    <part name="parameters" element="tns:checkVarianceForCreateAccountResponse" />
+  </message>
+  <message name="getTranTypeCustNameByAccountNumber">
+    <part name="parameters" element="tns:getTranTypeCustNameByAccountNumber" />
+  </message>
+  <message name="getTranTypeCustNameByAccountNumberResponse">
+    <part name="parameters" element="tns:getTranTypeCustNameByAccountNumberResponse" />
+  </message>
+  <message name="getCardsForCustomer">
+    <part name="parameters" element="tns:getCardsForCustomer" />
+  </message>
+  <message name="getCardsForCustomerResponse">
+    <part name="parameters" element="tns:getCardsForCustomerResponse" />
+  </message>
+  <message name="getAccWithSuffixAndDesc">
+    <part name="parameters" element="tns:getAccWithSuffixAndDesc" />
+  </message>
+  <message name="getAccWithSuffixAndDescResponse">
+    <part name="parameters" element="tns:getAccWithSuffixAndDescResponse" />
+  </message>
+  <message name="findDelinquentLoanAccountByMonetaryHoldId">
+    <part name="parameters" element="tns:findDelinquentLoanAccountByMonetaryHoldId" />
+  </message>
+  <message name="findDelinquentLoanAccountByMonetaryHoldIdResponse">
+    <part name="parameters" element="tns:findDelinquentLoanAccountByMonetaryHoldIdResponse" />
+  </message>
+  <message name="getLoanAccountsByUmbrellaAccountId">
+    <part name="parameters" element="tns:getLoanAccountsByUmbrellaAccountId" />
+  </message>
+  <message name="getLoanAccountsByUmbrellaAccountIdResponse">
+    <part name="parameters" element="tns:getLoanAccountsByUmbrellaAccountIdResponse" />
+  </message>
+  <message name="getPackageCreditAcctInfoByFeePackageId">
+    <part name="parameters" element="tns:getPackageCreditAcctInfoByFeePackageId" />
+  </message>
+  <message name="getPackageCreditAcctInfoByFeePackageIdResponse">
+    <part name="parameters" element="tns:getPackageCreditAcctInfoByFeePackageIdResponse" />
+  </message>
+  <message name="getAccountRatesByAccountId">
+    <part name="parameters" element="tns:getAccountRatesByAccountId" />
+  </message>
+  <message name="getAccountRatesByAccountIdResponse">
+    <part name="parameters" element="tns:getAccountRatesByAccountIdResponse" />
+  </message>
+  <message name="findPackageCreditAcctInfoByAccountId">
+    <part name="parameters" element="tns:findPackageCreditAcctInfoByAccountId" />
+  </message>
+  <message name="findPackageCreditAcctInfoByAccountIdResponse">
+    <part name="parameters" element="tns:findPackageCreditAcctInfoByAccountIdResponse" />
+  </message>
+  <message name="getSpecificCommercialAccountsByCustomerIdAndFeePackageId">
+    <part name="parameters" element="tns:getSpecificCommercialAccountsByCustomerIdAndFeePackageId" />
+  </message>
+  <message name="getSpecificCommercialAccountsByCustomerIdAndFeePackageIdResponse">
+    <part name="parameters" element="tns:getSpecificCommercialAccountsByCustomerIdAndFeePackageIdResponse" />
+  </message>
+  <message name="getAccountReAssignHistoryByAcctPortfolioId">
+    <part name="parameters" element="tns:getAccountReAssignHistoryByAcctPortfolioId" />
+  </message>
+  <message name="getAccountReAssignHistoryByAcctPortfolioIdResponse">
+    <part name="parameters" element="tns:getAccountReAssignHistoryByAcctPortfolioIdResponse" />
+  </message>
+  <message name="createAccountReassignment">
+    <part name="parameters" element="tns:createAccountReassignment" />
+  </message>
+  <message name="createAccountReassignmentResponse">
+    <part name="parameters" element="tns:createAccountReassignmentResponse" />
+  </message>
+  <message name="getAllUnprintedPassbooksQueued">
+    <part name="parameters" element="tns:getAllUnprintedPassbooksQueued" />
+  </message>
+  <message name="getAllUnprintedPassbooksQueuedResponse">
+    <part name="parameters" element="tns:getAllUnprintedPassbooksQueuedResponse" />
+  </message>
+  <message name="getStopPayments">
+    <part name="parameters" element="tns:getStopPayments" />
+  </message>
+  <message name="getStopPaymentsResponse">
+    <part name="parameters" element="tns:getStopPaymentsResponse" />
+  </message>
+  <message name="createUpdateStopPayment">
+    <part name="parameters" element="tns:createUpdateStopPayment" />
+  </message>
+  <message name="createUpdateStopPaymentResponse">
+    <part name="parameters" element="tns:createUpdateStopPaymentResponse" />
+  </message>
+  <message name="getAllReceiptByPortfolioId">
+    <part name="parameters" element="tns:getAllReceiptByPortfolioId" />
+  </message>
+  <message name="getAllReceiptByPortfolioIdResponse">
+    <part name="parameters" element="tns:getAllReceiptByPortfolioIdResponse" />
+  </message>
+  <message name="amendTaxReceipt">
+    <part name="parameters" element="tns:amendTaxReceipt" />
+  </message>
+  <message name="amendTaxReceiptResponse">
+    <part name="parameters" element="tns:amendTaxReceiptResponse" />
+  </message>
+  <message name="amendTaxReceiptUS">
+    <part name="parameters" element="tns:amendTaxReceiptUS" />
+  </message>
+  <message name="amendTaxReceiptUSResponse">
+    <part name="parameters" element="tns:amendTaxReceiptUSResponse" />
+  </message>
+  <message name="getTaxReceiptDetail">
+    <part name="parameters" element="tns:getTaxReceiptDetail" />
+  </message>
+  <message name="getTaxReceiptDetailResponse">
+    <part name="parameters" element="tns:getTaxReceiptDetailResponse" />
+  </message>
+  <message name="printTaxReceipt">
+    <part name="parameters" element="tns:printTaxReceipt" />
+  </message>
+  <message name="printTaxReceiptResponse">
+    <part name="parameters" element="tns:printTaxReceiptResponse" />
+  </message>
+  <message name="getReceiptTypes">
+    <part name="parameters" element="tns:getReceiptTypes" />
+  </message>
+  <message name="getReceiptTypesResponse">
+    <part name="parameters" element="tns:getReceiptTypesResponse" />
+  </message>
+  <message name="cancelTaxReceipt">
+    <part name="parameters" element="tns:cancelTaxReceipt" />
+  </message>
+  <message name="cancelTaxReceiptResponse">
+    <part name="parameters" element="tns:cancelTaxReceiptResponse" />
+  </message>
+  <message name="updateSubAccountSecurityEscrowDetails">
+    <part name="parameters" element="tns:updateSubAccountSecurityEscrowDetails" />
+  </message>
+  <message name="updateSubAccountSecurityEscrowDetailsResponse">
+    <part name="parameters" element="tns:updateSubAccountSecurityEscrowDetailsResponse" />
+  </message>
+  <message name="createRolloverAccountRateInfos">
+    <part name="parameters" element="tns:createRolloverAccountRateInfos" />
+  </message>
+  <message name="createRolloverAccountRateInfosResponse">
+    <part name="parameters" element="tns:createRolloverAccountRateInfosResponse" />
+  </message>
+  <message name="updateMICRGenProps">
+    <part name="parameters" element="tns:updateMICRGenProps" />
+  </message>
+  <message name="updateMICRGenPropsResponse">
+    <part name="parameters" element="tns:updateMICRGenPropsResponse" />
+  </message>
+  <message name="findExistingLinks">
+    <part name="parameters" element="tns:findExistingLinks" />
+  </message>
+  <message name="findExistingLinksResponse">
+    <part name="parameters" element="tns:findExistingLinksResponse" />
+  </message>
+  <message name="validateAndSetBalloonDateTerm">
+    <part name="parameters" element="tns:validateAndSetBalloonDateTerm" />
+  </message>
+  <message name="validateAndSetBalloonDateTermResponse">
+    <part name="parameters" element="tns:validateAndSetBalloonDateTermResponse" />
+  </message>
+  <message name="validateMaturityDate">
+    <part name="parameters" element="tns:validateMaturityDate" />
+  </message>
+  <message name="validateMaturityDateResponse">
+    <part name="parameters" element="tns:validateMaturityDateResponse" />
+  </message>
+  <message name="persistHMDADetail">
+    <part name="parameters" element="tns:persistHMDADetail" />
+  </message>
+  <message name="persistHMDADetailResponse">
+    <part name="parameters" element="tns:persistHMDADetailResponse" />
+  </message>
+  <message name="persistAccountSecurity">
+    <part name="parameters" element="tns:persistAccountSecurity" />
+  </message>
+  <message name="persistAccountSecurityResponse">
+    <part name="parameters" element="tns:persistAccountSecurityResponse" />
+  </message>
+  <message name="getDefaultTitleExpectedDate">
+    <part name="parameters" element="tns:getDefaultTitleExpectedDate" />
+  </message>
+  <message name="getDefaultTitleExpectedDateResponse">
+    <part name="parameters" element="tns:getDefaultTitleExpectedDateResponse" />
+  </message>
+  <message name="createUpdateAccountPortfolio">
+    <part name="parameters" element="tns:createUpdateAccountPortfolio" />
+  </message>
+  <message name="createUpdateAccountPortfolioResponse">
+    <part name="parameters" element="tns:createUpdateAccountPortfolioResponse" />
+  </message>
+  <message name="createUpdateAccount">
+    <part name="parameters" element="tns:createUpdateAccount" />
+  </message>
+  <message name="createUpdateAccountResponse">
+    <part name="parameters" element="tns:createUpdateAccountResponse" />
+  </message>
+  <message name="initiateWebPlusTransaction">
+    <part name="parameters" element="tns:initiateWebPlusTransaction" />
+  </message>
+  <message name="initiateWebPlusTransactionResponse">
+    <part name="parameters" element="tns:initiateWebPlusTransactionResponse" />
+  </message>
+  <message name="createUpdateMonetaryHold">
+    <part name="parameters" element="tns:createUpdateMonetaryHold" />
+  </message>
+  <message name="createUpdateMonetaryHoldResponse">
+    <part name="parameters" element="tns:createUpdateMonetaryHoldResponse" />
+  </message>
+  <message name="calcAccrInterestToEffectiveDate">
+    <part name="parameters" element="tns:calcAccrInterestToEffectiveDate" />
+  </message>
+  <message name="calcAccrInterestToEffectiveDateResponse">
+    <part name="parameters" element="tns:calcAccrInterestToEffectiveDateResponse" />
+  </message>
+  <message name="createUpdateLoanAccount">
+    <part name="parameters" element="tns:createUpdateLoanAccount" />
+  </message>
+  <message name="createUpdateLoanAccountResponse">
+    <part name="parameters" element="tns:createUpdateLoanAccountResponse" />
+  </message>
+  <message name="createUpdateRegTermAccount">
+    <part name="parameters" element="tns:createUpdateRegTermAccount" />
+  </message>
+  <message name="createUpdateRegTermAccountResponse">
+    <part name="parameters" element="tns:createUpdateRegTermAccountResponse" />
+  </message>
+  <message name="createUpdateRegSavingAccount">
+    <part name="parameters" element="tns:createUpdateRegSavingAccount" />
+  </message>
+  <message name="createUpdateRegSavingAccountResponse">
+    <part name="parameters" element="tns:createUpdateRegSavingAccountResponse" />
+  </message>
+  <message name="createUpdateTermAccount">
+    <part name="parameters" element="tns:createUpdateTermAccount" />
+  </message>
+  <message name="createUpdateTermAccountResponse">
+    <part name="parameters" element="tns:createUpdateTermAccountResponse" />
+  </message>
+  <message name="createUpdateChequeAccount">
+    <part name="parameters" element="tns:createUpdateChequeAccount" />
+  </message>
+  <message name="createUpdateChequeAccountResponse">
+    <part name="parameters" element="tns:createUpdateChequeAccountResponse" />
+  </message>
+  <message name="getMonetaryHoldById">
+    <part name="parameters" element="tns:getMonetaryHoldById" />
+  </message>
+  <message name="getMonetaryHoldByIdResponse">
+    <part name="parameters" element="tns:getMonetaryHoldByIdResponse" />
+  </message>
+  <message name="getSavingsAccruedInterest">
+    <part name="parameters" element="tns:getSavingsAccruedInterest" />
+  </message>
+  <message name="getSavingsAccruedInterestResponse">
+    <part name="parameters" element="tns:getSavingsAccruedInterestResponse" />
+  </message>
+  <message name="createPropTaxAcct">
+    <part name="parameters" element="tns:createPropTaxAcct" />
+  </message>
+  <message name="createPropTaxAcctResponse">
+    <part name="parameters" element="tns:createPropTaxAcctResponse" />
+  </message>
+  <message name="updatePortfolioGenProps">
+    <part name="parameters" element="tns:updatePortfolioGenProps" />
+  </message>
+  <message name="updatePortfolioGenPropsResponse">
+    <part name="parameters" element="tns:updatePortfolioGenPropsResponse" />
+  </message>
+  <message name="isLoanAcctDelinquent">
+    <part name="parameters" element="tns:isLoanAcctDelinquent" />
+  </message>
+  <message name="isLoanAcctDelinquentResponse">
+    <part name="parameters" element="tns:isLoanAcctDelinquentResponse" />
+  </message>
+  <message name="isInterestPaidNotCurrent">
+    <part name="parameters" element="tns:isInterestPaidNotCurrent" />
+  </message>
+  <message name="isInterestPaidNotCurrentResponse">
+    <part name="parameters" element="tns:isInterestPaidNotCurrentResponse" />
+  </message>
+  <message name="createUpdateIRASavingAccount">
+    <part name="parameters" element="tns:createUpdateIRASavingAccount" />
+  </message>
+  <message name="createUpdateIRASavingAccountResponse">
+    <part name="parameters" element="tns:createUpdateIRASavingAccountResponse" />
+  </message>
+  <message name="createUpdateIRATermAccount">
+    <part name="parameters" element="tns:createUpdateIRATermAccount" />
+  </message>
+  <message name="createUpdateIRATermAccountResponse">
+    <part name="parameters" element="tns:createUpdateIRATermAccountResponse" />
+  </message>
+  <message name="getNextSystemGeneratedMICR">
+    <part name="parameters" element="tns:getNextSystemGeneratedMICR" />
+  </message>
+  <message name="getNextSystemGeneratedMICRResponse">
+    <part name="parameters" element="tns:getNextSystemGeneratedMICRResponse" />
+  </message>
+  <message name="generateAdHocSlip">
+    <part name="parameters" element="tns:generateAdHocSlip" />
+  </message>
+  <message name="generateAdHocSlipResponse">
+    <part name="parameters" element="tns:generateAdHocSlipResponse" />
+  </message>
+  <message name="getAccountInfo">
+    <part name="parameters" element="tns:getAccountInfo" />
+  </message>
+  <message name="getAccountInfoResponse">
+    <part name="parameters" element="tns:getAccountInfoResponse" />
+  </message>
+  <message name="updateAccountInfo">
+    <part name="parameters" element="tns:updateAccountInfo" />
+  </message>
+  <message name="updateAccountInfoResponse">
+    <part name="parameters" element="tns:updateAccountInfoResponse" />
+  </message>
+  <message name="createAccountWithAutoSuffix">
+    <part name="parameters" element="tns:createAccountWithAutoSuffix" />
+  </message>
+  <message name="createAccountWithAutoSuffixResponse">
+    <part name="parameters" element="tns:createAccountWithAutoSuffixResponse" />
+  </message>
+  <message name="createUpdateAccountAssociates">
+    <part name="parameters" element="tns:createUpdateAccountAssociates" />
+  </message>
+  <message name="createUpdateAccountAssociatesResponse">
+    <part name="parameters" element="tns:createUpdateAccountAssociatesResponse" />
+  </message>
+  <message name="findAccountByAccountIdInDetail">
+    <part name="parameters" element="tns:findAccountByAccountIdInDetail" />
+  </message>
+  <message name="findAccountByAccountIdInDetailResponse">
+    <part name="parameters" element="tns:findAccountByAccountIdInDetailResponse" />
+  </message>
+  <message name="findAccountByAccountPortSuffix">
+    <part name="parameters" element="tns:findAccountByAccountPortSuffix" />
+  </message>
+  <message name="findAccountByAccountPortSuffixResponse">
+    <part name="parameters" element="tns:findAccountByAccountPortSuffixResponse" />
+  </message>
+  <message name="findLoanAccountByAccountIdAndDetailed">
+    <part name="parameters" element="tns:findLoanAccountByAccountIdAndDetailed" />
+  </message>
+  <message name="findLoanAccountByAccountIdAndDetailedResponse">
+    <part name="parameters" element="tns:findLoanAccountByAccountIdAndDetailedResponse" />
+  </message>
+  <message name="findLoanAccountByApplicationIdAndDetailed">
+    <part name="parameters" element="tns:findLoanAccountByApplicationIdAndDetailed" />
+  </message>
+  <message name="findLoanAccountByApplicationIdAndDetailedResponse">
+    <part name="parameters" element="tns:findLoanAccountByApplicationIdAndDetailedResponse" />
+  </message>
+  <message name="getEarlyWithdrawalPenalty">
+    <part name="parameters" element="tns:getEarlyWithdrawalPenalty" />
+  </message>
+  <message name="getEarlyWithdrawalPenaltyResponse">
+    <part name="parameters" element="tns:getEarlyWithdrawalPenaltyResponse" />
+  </message>
+  <message name="createUpdateLOCWithSweepSources">
+    <part name="parameters" element="tns:createUpdateLOCWithSweepSources" />
+  </message>
+  <message name="createUpdateLOCWithSweepSourcesResponse">
+    <part name="parameters" element="tns:createUpdateLOCWithSweepSourcesResponse" />
+  </message>
+  <message name="createAcctRateInfoFromProduct">
+    <part name="parameters" element="tns:createAcctRateInfoFromProduct" />
+  </message>
+  <message name="createAcctRateInfoFromProductResponse">
+    <part name="parameters" element="tns:createAcctRateInfoFromProductResponse" />
+  </message>
+  <message name="createAcctRateInfoFromProductByProdId">
+    <part name="parameters" element="tns:createAcctRateInfoFromProductByProdId" />
+  </message>
+  <message name="createAcctRateInfoFromProductByProdIdResponse">
+    <part name="parameters" element="tns:createAcctRateInfoFromProductByProdIdResponse" />
+  </message>
+  <message name="calcInterestToEffectiveDate">
+    <part name="parameters" element="tns:calcInterestToEffectiveDate" />
+  </message>
+  <message name="calcInterestToEffectiveDateResponse">
+    <part name="parameters" element="tns:calcInterestToEffectiveDateResponse" />
+  </message>
+  <message name="getPassbookQueued">
+    <part name="parameters" element="tns:getPassbookQueued" />
+  </message>
+  <message name="getPassbookQueuedResponse">
+    <part name="parameters" element="tns:getPassbookQueuedResponse" />
+  </message>
+  <message name="createUpdatePassbooksQueued">
+    <part name="parameters" element="tns:createUpdatePassbooksQueued" />
+  </message>
+  <message name="createUpdatePassbooksQueuedResponse">
+    <part name="parameters" element="tns:createUpdatePassbooksQueuedResponse" />
+  </message>
+  <message name="checkTransHistoryForAccount">
+    <part name="parameters" element="tns:checkTransHistoryForAccount" />
+  </message>
+  <message name="checkTransHistoryForAccountResponse">
+    <part name="parameters" element="tns:checkTransHistoryForAccountResponse" />
+  </message>
+  <message name="createPassbookQueuedByTransactionRange">
+    <part name="parameters" element="tns:createPassbookQueuedByTransactionRange" />
+  </message>
+  <message name="createPassbookQueuedByTransactionRangeResponse">
+    <part name="parameters" element="tns:createPassbookQueuedByTransactionRangeResponse" />
+  </message>
+  <message name="getStopPaymentsByAccountId">
+    <part name="parameters" element="tns:getStopPaymentsByAccountId" />
+  </message>
+  <message name="getStopPaymentsByAccountIdResponse">
+    <part name="parameters" element="tns:getStopPaymentsByAccountIdResponse" />
+  </message>
+  <message name="getStopPaymentById">
+    <part name="parameters" element="tns:getStopPaymentById" />
+  </message>
+  <message name="getStopPaymentByIdResponse">
+    <part name="parameters" element="tns:getStopPaymentByIdResponse" />
+  </message>
+  <message name="duplicateTaxReceipt">
+    <part name="parameters" element="tns:duplicateTaxReceipt" />
+  </message>
+  <message name="duplicateTaxReceiptResponse">
+    <part name="parameters" element="tns:duplicateTaxReceiptResponse" />
+  </message>
+  <message name="getMICRGenerationProps">
+    <part name="parameters" element="tns:getMICRGenerationProps" />
+  </message>
+  <message name="getMICRGenerationPropsResponse">
+    <part name="parameters" element="tns:getMICRGenerationPropsResponse" />
+  </message>
+  <message name="findRolloverAccountRateInfos">
+    <part name="parameters" element="tns:findRolloverAccountRateInfos" />
+  </message>
+  <message name="findRolloverAccountRateInfosResponse">
+    <part name="parameters" element="tns:findRolloverAccountRateInfosResponse" />
+  </message>
+  <portType name="SavingAccount">
+    <operation name="findAcctsByAccountPortfolioNumber">
+      <input message="tns:findAcctsByAccountPortfolioNumber" />
+      <output message="tns:findAcctsByAccountPortfolioNumberResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findAssociatesByAccountHolderCustomerId">
+      <input message="tns:findAssociatesByAccountHolderCustomerId" />
+      <output message="tns:findAssociatesByAccountHolderCustomerIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAssociateHoverTextByCustomerId">
+      <input message="tns:getAssociateHoverTextByCustomerId" />
+      <output message="tns:getAssociateHoverTextByCustomerIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAccountAssociateMap">
+      <input message="tns:getAccountAssociateMap" />
+      <output message="tns:getAccountAssociateMapResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAssociationTypeInfos">
+      <input message="tns:getAssociationTypeInfos" />
+      <output message="tns:getAssociationTypeInfosResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findAccountByAccountId">
+      <input message="tns:findAccountByAccountId" />
+      <output message="tns:findAccountByAccountIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findAccountListInfoByPortfolioSuffix">
+      <input message="tns:findAccountListInfoByPortfolioSuffix" />
+      <output message="tns:findAccountListInfoByPortfolioSuffixResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findTermAccountByAccountId">
+      <input message="tns:findTermAccountByAccountId" />
+      <output message="tns:findTermAccountByAccountIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findRegisteredAccountByAccountId">
+      <input message="tns:findRegisteredAccountByAccountId" />
+      <output message="tns:findRegisteredAccountByAccountIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findRegisteredTermAccountByAccountId">
+      <input message="tns:findRegisteredTermAccountByAccountId" />
+      <output message="tns:findRegisteredTermAccountByAccountIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findRegisteredSavingAccountByAccountId">
+      <input message="tns:findRegisteredSavingAccountByAccountId" />
+      <output message="tns:findRegisteredSavingAccountByAccountIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findRSPSavingAccountsByPlanId">
+      <input message="tns:findRSPSavingAccountsByPlanId" />
+      <output message="tns:findRSPSavingAccountsByPlanIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findRegSavingAccountsByAccountId">
+      <input message="tns:findRegSavingAccountsByAccountId" />
+      <output message="tns:findRegSavingAccountsByAccountIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findRegisteredAccountsByAccountId">
+      <input message="tns:findRegisteredAccountsByAccountId" />
+      <output message="tns:findRegisteredAccountsByAccountIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findRegisteredAccountsByPlanId">
+      <input message="tns:findRegisteredAccountsByPlanId" />
+      <output message="tns:findRegisteredAccountsByPlanIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findChequeAccountByAccountId">
+      <input message="tns:findChequeAccountByAccountId" />
+      <output message="tns:findChequeAccountByAccountIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findLoanAccountByAccountId">
+      <input message="tns:findLoanAccountByAccountId" />
+      <output message="tns:findLoanAccountByAccountIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findLoanAccountByApplicationId">
+      <input message="tns:findLoanAccountByApplicationId" />
+      <output message="tns:findLoanAccountByApplicationIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="updateLoanAccount">
+      <input message="tns:updateLoanAccount" />
+      <output message="tns:updateLoanAccountResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getMonetaryHoldsByAccountId">
+      <input message="tns:getMonetaryHoldsByAccountId" />
+      <output message="tns:getMonetaryHoldsByAccountIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findAccountPortfoliosByCustomerId">
+      <input message="tns:findAccountPortfoliosByCustomerId" />
+      <output message="tns:findAccountPortfoliosByCustomerIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getNonResidentWithholdingTax">
+      <input message="tns:getNonResidentWithholdingTax" />
+      <output message="tns:getNonResidentWithholdingTaxResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getGenericCounters">
+      <input message="tns:getGenericCounters" />
+      <output message="tns:getGenericCountersResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getPortfolioGenerationProps">
+      <input message="tns:getPortfolioGenerationProps" />
+      <output message="tns:getPortfolioGenerationPropsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getNextSystemGeneratedPortfolio">
+      <input message="tns:getNextSystemGeneratedPortfolio" />
+      <output message="tns:getNextSystemGeneratedPortfolioResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getPremiumDetailsByCertificate">
+      <input message="tns:getPremiumDetailsByCertificate" />
+      <output message="tns:getPremiumDetailsByCertificateResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getCheckDigitAlogTypes">
+      <input message="tns:getCheckDigitAlogTypes" />
+      <output message="tns:getCheckDigitAlogTypesResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getPrevMonthsLowAcctBalance">
+      <input message="tns:getPrevMonthsLowAcctBalance" />
+      <output message="tns:getPrevMonthsLowAcctBalanceResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findAvailableSweepSourcesForAccountId">
+      <input message="tns:findAvailableSweepSourcesForAccountId" />
+      <output message="tns:findAvailableSweepSourcesForAccountIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findSweepSourcesForAccountId">
+      <input message="tns:findSweepSourcesForAccountId" />
+      <output message="tns:findSweepSourcesForAccountIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getUnlinkedChqAcctOptionForCustomerLoanId">
+      <input message="tns:getUnlinkedChqAcctOptionForCustomerLoanId" />
+      <output message="tns:getUnlinkedChqAcctOptionForCustomerLoanIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getUnLinkedLoanAcctOverdraftOptionList">
+      <input message="tns:getUnLinkedLoanAcctOverdraftOptionList" />
+      <output message="tns:getUnLinkedLoanAcctOverdraftOptionListResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getLinkableLoanAcctOverdraftOptions">
+      <input message="tns:getLinkableLoanAcctOverdraftOptions" />
+      <output message="tns:getLinkableLoanAcctOverdraftOptionsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAccruedInterestByAccountId">
+      <input message="tns:getAccruedInterestByAccountId" />
+      <output message="tns:getAccruedInterestByAccountIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findIRASavingAccountByAccountId">
+      <input message="tns:findIRASavingAccountByAccountId" />
+      <output message="tns:findIRASavingAccountByAccountIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findIRASavingAccountsByAccountId">
+      <input message="tns:findIRASavingAccountsByAccountId" />
+      <output message="tns:findIRASavingAccountsByAccountIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findIRASavingAccountsByPlanId">
+      <input message="tns:findIRASavingAccountsByPlanId" />
+      <output message="tns:findIRASavingAccountsByPlanIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findIRATermAccountByAccountId">
+      <input message="tns:findIRATermAccountByAccountId" />
+      <output message="tns:findIRATermAccountByAccountIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findIRATermAccountsByAccountId">
+      <input message="tns:findIRATermAccountsByAccountId" />
+      <output message="tns:findIRATermAccountsByAccountIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findIRATermAccountsByPlanId">
+      <input message="tns:findIRATermAccountsByPlanId" />
+      <output message="tns:findIRATermAccountsByPlanIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getSAVDEPAccountInfoForLinkedLoan">
+      <input message="tns:getSAVDEPAccountInfoForLinkedLoan" />
+      <output message="tns:getSAVDEPAccountInfoForLinkedLoanResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getUnAvailableFunds">
+      <input message="tns:getUnAvailableFunds" />
+      <output message="tns:getUnAvailableFundsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="recalcNextInterestDate">
+      <input message="tns:recalcNextInterestDate" />
+      <output message="tns:recalcNextInterestDateResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="validatePortfolioNumber">
+      <input message="tns:validatePortfolioNumber" />
+      <output message="tns:validatePortfolioNumberResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAcctAssociateSignerCount">
+      <input message="tns:getAcctAssociateSignerCount" />
+      <output message="tns:getAcctAssociateSignerCountResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="calculateSavDepRateVariance">
+      <input message="tns:calculateSavDepRateVariance" />
+      <output message="tns:calculateSavDepRateVarianceResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="checkVarianceForCreateAccount">
+      <input message="tns:checkVarianceForCreateAccount" />
+      <output message="tns:checkVarianceForCreateAccountResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getTranTypeCustNameByAccountNumber">
+      <input message="tns:getTranTypeCustNameByAccountNumber" />
+      <output message="tns:getTranTypeCustNameByAccountNumberResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getCardsForCustomer">
+      <input message="tns:getCardsForCustomer" />
+      <output message="tns:getCardsForCustomerResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAccWithSuffixAndDesc">
+      <input message="tns:getAccWithSuffixAndDesc" />
+      <output message="tns:getAccWithSuffixAndDescResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findDelinquentLoanAccountByMonetaryHoldId">
+      <input message="tns:findDelinquentLoanAccountByMonetaryHoldId" />
+      <output message="tns:findDelinquentLoanAccountByMonetaryHoldIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getLoanAccountsByUmbrellaAccountId">
+      <input message="tns:getLoanAccountsByUmbrellaAccountId" />
+      <output message="tns:getLoanAccountsByUmbrellaAccountIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getPackageCreditAcctInfoByFeePackageId">
+      <input message="tns:getPackageCreditAcctInfoByFeePackageId" />
+      <output message="tns:getPackageCreditAcctInfoByFeePackageIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAccountRatesByAccountId">
+      <input message="tns:getAccountRatesByAccountId" />
+      <output message="tns:getAccountRatesByAccountIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findPackageCreditAcctInfoByAccountId">
+      <input message="tns:findPackageCreditAcctInfoByAccountId" />
+      <output message="tns:findPackageCreditAcctInfoByAccountIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getSpecificCommercialAccountsByCustomerIdAndFeePackageId">
+      <input message="tns:getSpecificCommercialAccountsByCustomerIdAndFeePackageId" />
+      <output message="tns:getSpecificCommercialAccountsByCustomerIdAndFeePackageIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAccountReAssignHistoryByAcctPortfolioId">
+      <input message="tns:getAccountReAssignHistoryByAcctPortfolioId" />
+      <output message="tns:getAccountReAssignHistoryByAcctPortfolioIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createAccountReassignment">
+      <input message="tns:createAccountReassignment" />
+      <output message="tns:createAccountReassignmentResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllUnprintedPassbooksQueued">
+      <input message="tns:getAllUnprintedPassbooksQueued" />
+      <output message="tns:getAllUnprintedPassbooksQueuedResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getStopPayments">
+      <input message="tns:getStopPayments" />
+      <output message="tns:getStopPaymentsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateStopPayment">
+      <input message="tns:createUpdateStopPayment" />
+      <output message="tns:createUpdateStopPaymentResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllReceiptByPortfolioId">
+      <input message="tns:getAllReceiptByPortfolioId" />
+      <output message="tns:getAllReceiptByPortfolioIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="amendTaxReceipt">
+      <input message="tns:amendTaxReceipt" />
+      <output message="tns:amendTaxReceiptResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="amendTaxReceiptUS">
+      <input message="tns:amendTaxReceiptUS" />
+      <output message="tns:amendTaxReceiptUSResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getTaxReceiptDetail">
+      <input message="tns:getTaxReceiptDetail" />
+      <output message="tns:getTaxReceiptDetailResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="printTaxReceipt">
+      <input message="tns:printTaxReceipt" />
+      <output message="tns:printTaxReceiptResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getReceiptTypes">
+      <input message="tns:getReceiptTypes" />
+      <output message="tns:getReceiptTypesResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="cancelTaxReceipt">
+      <input message="tns:cancelTaxReceipt" />
+      <output message="tns:cancelTaxReceiptResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="updateSubAccountSecurityEscrowDetails">
+      <input message="tns:updateSubAccountSecurityEscrowDetails" />
+      <output message="tns:updateSubAccountSecurityEscrowDetailsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createRolloverAccountRateInfos">
+      <input message="tns:createRolloverAccountRateInfos" />
+      <output message="tns:createRolloverAccountRateInfosResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="updateMICRGenProps">
+      <input message="tns:updateMICRGenProps" />
+      <output message="tns:updateMICRGenPropsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findExistingLinks">
+      <input message="tns:findExistingLinks" />
+      <output message="tns:findExistingLinksResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="validateAndSetBalloonDateTerm">
+      <input message="tns:validateAndSetBalloonDateTerm" />
+      <output message="tns:validateAndSetBalloonDateTermResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="validateMaturityDate">
+      <input message="tns:validateMaturityDate" />
+      <output message="tns:validateMaturityDateResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="persistHMDADetail">
+      <input message="tns:persistHMDADetail" />
+      <output message="tns:persistHMDADetailResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="persistAccountSecurity">
+      <input message="tns:persistAccountSecurity" />
+      <output message="tns:persistAccountSecurityResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getDefaultTitleExpectedDate">
+      <input message="tns:getDefaultTitleExpectedDate" />
+      <output message="tns:getDefaultTitleExpectedDateResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateAccountPortfolio">
+      <input message="tns:createUpdateAccountPortfolio" />
+      <output message="tns:createUpdateAccountPortfolioResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateAccount">
+      <input message="tns:createUpdateAccount" />
+      <output message="tns:createUpdateAccountResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="initiateWebPlusTransaction">
+      <input message="tns:initiateWebPlusTransaction" />
+      <output message="tns:initiateWebPlusTransactionResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateMonetaryHold">
+      <input message="tns:createUpdateMonetaryHold" />
+      <output message="tns:createUpdateMonetaryHoldResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="calcAccrInterestToEffectiveDate">
+      <input message="tns:calcAccrInterestToEffectiveDate" />
+      <output message="tns:calcAccrInterestToEffectiveDateResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateLoanAccount">
+      <input message="tns:createUpdateLoanAccount" />
+      <output message="tns:createUpdateLoanAccountResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateRegTermAccount">
+      <input message="tns:createUpdateRegTermAccount" />
+      <output message="tns:createUpdateRegTermAccountResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateRegSavingAccount">
+      <input message="tns:createUpdateRegSavingAccount" />
+      <output message="tns:createUpdateRegSavingAccountResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateTermAccount">
+      <input message="tns:createUpdateTermAccount" />
+      <output message="tns:createUpdateTermAccountResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateChequeAccount">
+      <input message="tns:createUpdateChequeAccount" />
+      <output message="tns:createUpdateChequeAccountResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getMonetaryHoldById">
+      <input message="tns:getMonetaryHoldById" />
+      <output message="tns:getMonetaryHoldByIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getSavingsAccruedInterest">
+      <input message="tns:getSavingsAccruedInterest" />
+      <output message="tns:getSavingsAccruedInterestResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createPropTaxAcct">
+      <input message="tns:createPropTaxAcct" />
+      <output message="tns:createPropTaxAcctResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="updatePortfolioGenProps">
+      <input message="tns:updatePortfolioGenProps" />
+      <output message="tns:updatePortfolioGenPropsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="isLoanAcctDelinquent">
+      <input message="tns:isLoanAcctDelinquent" />
+      <output message="tns:isLoanAcctDelinquentResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="isInterestPaidNotCurrent">
+      <input message="tns:isInterestPaidNotCurrent" />
+      <output message="tns:isInterestPaidNotCurrentResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateIRASavingAccount">
+      <input message="tns:createUpdateIRASavingAccount" />
+      <output message="tns:createUpdateIRASavingAccountResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateIRATermAccount">
+      <input message="tns:createUpdateIRATermAccount" />
+      <output message="tns:createUpdateIRATermAccountResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getNextSystemGeneratedMICR">
+      <input message="tns:getNextSystemGeneratedMICR" />
+      <output message="tns:getNextSystemGeneratedMICRResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="generateAdHocSlip">
+      <input message="tns:generateAdHocSlip" />
+      <output message="tns:generateAdHocSlipResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAccountInfo">
+      <input message="tns:getAccountInfo" />
+      <output message="tns:getAccountInfoResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="updateAccountInfo">
+      <input message="tns:updateAccountInfo" />
+      <output message="tns:updateAccountInfoResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createAccountWithAutoSuffix">
+      <input message="tns:createAccountWithAutoSuffix" />
+      <output message="tns:createAccountWithAutoSuffixResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateAccountAssociates">
+      <input message="tns:createUpdateAccountAssociates" />
+      <output message="tns:createUpdateAccountAssociatesResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findAccountByAccountIdInDetail">
+      <input message="tns:findAccountByAccountIdInDetail" />
+      <output message="tns:findAccountByAccountIdInDetailResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findAccountByAccountPortSuffix">
+      <input message="tns:findAccountByAccountPortSuffix" />
+      <output message="tns:findAccountByAccountPortSuffixResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findLoanAccountByAccountIdAndDetailed">
+      <input message="tns:findLoanAccountByAccountIdAndDetailed" />
+      <output message="tns:findLoanAccountByAccountIdAndDetailedResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findLoanAccountByApplicationIdAndDetailed">
+      <input message="tns:findLoanAccountByApplicationIdAndDetailed" />
+      <output message="tns:findLoanAccountByApplicationIdAndDetailedResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getEarlyWithdrawalPenalty">
+      <input message="tns:getEarlyWithdrawalPenalty" />
+      <output message="tns:getEarlyWithdrawalPenaltyResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateLOCWithSweepSources">
+      <input message="tns:createUpdateLOCWithSweepSources" />
+      <output message="tns:createUpdateLOCWithSweepSourcesResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createAcctRateInfoFromProduct">
+      <input message="tns:createAcctRateInfoFromProduct" />
+      <output message="tns:createAcctRateInfoFromProductResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createAcctRateInfoFromProductByProdId">
+      <input message="tns:createAcctRateInfoFromProductByProdId" />
+      <output message="tns:createAcctRateInfoFromProductByProdIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="calcInterestToEffectiveDate">
+      <input message="tns:calcInterestToEffectiveDate" />
+      <output message="tns:calcInterestToEffectiveDateResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getPassbookQueued">
+      <input message="tns:getPassbookQueued" />
+      <output message="tns:getPassbookQueuedResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdatePassbooksQueued">
+      <input message="tns:createUpdatePassbooksQueued" />
+      <output message="tns:createUpdatePassbooksQueuedResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="checkTransHistoryForAccount">
+      <input message="tns:checkTransHistoryForAccount" />
+      <output message="tns:checkTransHistoryForAccountResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createPassbookQueuedByTransactionRange">
+      <input message="tns:createPassbookQueuedByTransactionRange" />
+      <output message="tns:createPassbookQueuedByTransactionRangeResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getStopPaymentsByAccountId">
+      <input message="tns:getStopPaymentsByAccountId" />
+      <output message="tns:getStopPaymentsByAccountIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getStopPaymentById">
+      <input message="tns:getStopPaymentById" />
+      <output message="tns:getStopPaymentByIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="duplicateTaxReceipt">
+      <input message="tns:duplicateTaxReceipt" />
+      <output message="tns:duplicateTaxReceiptResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getMICRGenerationProps">
+      <input message="tns:getMICRGenerationProps" />
+      <output message="tns:getMICRGenerationPropsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findRolloverAccountRateInfos">
+      <input message="tns:findRolloverAccountRateInfos" />
+      <output message="tns:findRolloverAccountRateInfosResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+  </portType>
+</definitions>

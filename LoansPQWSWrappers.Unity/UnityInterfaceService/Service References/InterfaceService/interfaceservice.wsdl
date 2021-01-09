@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="https://unitynet.swbc.com/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="https://unitynet.swbc.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SWBC Unity LOS Web Service</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="https://unitynet.swbc.com/">
+      <s:element name="GetLoanData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ARequest" type="tns:UnityRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UnityRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LOSID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetLoanDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLoanDataResult" type="tns:UnityResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UnityResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DS">
+            <s:complexType>
+              <s:sequence>
+                <s:element ref="s:schema" />
+                <s:any />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetFormData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ARequest" type="tns:UnityRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFormDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFormDataResult" type="tns:FormDataResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="FormDataResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FormNames" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="DS">
+            <s:complexType>
+              <s:sequence>
+                <s:element ref="s:schema" />
+                <s:any />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetLoanStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ARequest" type="tns:UnityRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLoanStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLoanStatusResult" type="tns:LoanStatusResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LoanStatusResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoanStatus" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetLoanDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLoanData" />
+  </wsdl:message>
+  <wsdl:message name="GetLoanDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLoanDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFormDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFormData" />
+  </wsdl:message>
+  <wsdl:message name="GetFormDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFormDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLoanStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLoanStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetLoanStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLoanStatusResponse" />
+  </wsdl:message>
+  <wsdl:portType name="InterfaceServiceSoap">
+    <wsdl:operation name="GetLoanData">
+      <wsdl:input message="tns:GetLoanDataSoapIn" />
+      <wsdl:output message="tns:GetLoanDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFormData">
+      <wsdl:input message="tns:GetFormDataSoapIn" />
+      <wsdl:output message="tns:GetFormDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLoanStatus">
+      <wsdl:input message="tns:GetLoanStatusSoapIn" />
+      <wsdl:output message="tns:GetLoanStatusSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="InterfaceServiceHttpGet" />
+  <wsdl:portType name="InterfaceServiceHttpPost" />
+  <wsdl:binding name="InterfaceServiceSoap" type="tns:InterfaceServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLoanData">
+      <soap:operation soapAction="https://unitynet.swbc.com/GetLoanData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFormData">
+      <soap:operation soapAction="https://unitynet.swbc.com/GetFormData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLoanStatus">
+      <soap:operation soapAction="https://unitynet.swbc.com/GetLoanStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="InterfaceServiceSoap12" type="tns:InterfaceServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLoanData">
+      <soap12:operation soapAction="https://unitynet.swbc.com/GetLoanData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFormData">
+      <soap12:operation soapAction="https://unitynet.swbc.com/GetFormData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLoanStatus">
+      <soap12:operation soapAction="https://unitynet.swbc.com/GetLoanStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="InterfaceServiceHttpGet" type="tns:InterfaceServiceHttpGet">
+    <http:binding verb="GET" />
+  </wsdl:binding>
+  <wsdl:binding name="InterfaceServiceHttpPost" type="tns:InterfaceServiceHttpPost">
+    <http:binding verb="POST" />
+  </wsdl:binding>
+  <wsdl:service name="InterfaceService">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SWBC Unity LOS Web Service</wsdl:documentation>
+    <wsdl:port name="InterfaceServiceSoap" binding="tns:InterfaceServiceSoap">
+      <soap:address location="https://unitynet.swbc.com/interfaceservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="InterfaceServiceSoap12" binding="tns:InterfaceServiceSoap12">
+      <soap12:address location="https://unitynet.swbc.com/interfaceservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="InterfaceServiceHttpGet" binding="tns:InterfaceServiceHttpGet">
+      <http:address location="https://unitynet.swbc.com/interfaceservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="InterfaceServiceHttpPost" binding="tns:InterfaceServiceHttpPost">
+      <http:address location="https://unitynet.swbc.com/interfaceservice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

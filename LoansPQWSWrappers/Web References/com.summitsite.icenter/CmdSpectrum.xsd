@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="urn:connections.spectrum.summitsite.com" targetNamespace="urn:connections.spectrum.summitsite.com" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="SpectrumException" type="tns:SpectrumException" />
+  <xs:element name="getTellerIds" type="tns:getTellerIds" />
+  <xs:element name="getTellerIdsResponse" type="tns:getTellerIdsResponse" />
+  <xs:element name="submitFiAPI" type="tns:submitFiAPI" />
+  <xs:element name="submitFiAPIResponse" type="tns:submitFiAPIResponse" />
+  <xs:element name="submitSIM" type="tns:submitSIM" />
+  <xs:element name="submitSIMResponse" type="tns:submitSIMResponse" />
+  <xs:element name="submitSSP1" type="tns:submitSSP1" />
+  <xs:element name="submitSSP1Response" type="tns:submitSSP1Response" />
+  <xs:element name="submitSSP2" type="tns:submitSSP2" />
+  <xs:element name="submitSSP2Response" type="tns:submitSSP2Response" />
+  <xs:element name="submitSTTI" type="tns:submitSTTI" />
+  <xs:element name="submitSTTIResponse" type="tns:submitSTTIResponse" />
+  <xs:element name="submitXML" type="tns:submitXML" />
+  <xs:element name="submitXMLCntl" type="tns:submitXMLCntl" />
+  <xs:element name="submitXMLCntlResponse" type="tns:submitXMLCntlResponse" />
+  <xs:element name="submitXMLCommand" type="tns:submitXMLCommand" />
+  <xs:element name="submitXMLCommandResponse" type="tns:submitXMLCommandResponse" />
+  <xs:element name="submitXMLResponse" type="tns:submitXMLResponse" />
+  <xs:complexType name="submitSSP1">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="serviceContext" type="tns:serviceContext" />
+      <xs:element minOccurs="0" name="request" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="serviceContext">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="stationId" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="submitSSP1Response">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="submitSSP1Response" type="tns:spectrumResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="spectrumResponse">
+    <xs:sequence>
+      <xs:element name="continuableError" type="xs:boolean" />
+      <xs:element minOccurs="0" name="date" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="missingMessages" nillable="true" type="xs:string" />
+      <xs:element name="moreOutput" type="xs:boolean" />
+      <xs:element name="overridableError" type="xs:boolean" />
+      <xs:element name="overrideAuthorized" type="xs:boolean" />
+      <xs:element name="prefixWord8" type="xs:int" />
+      <xs:element name="previousOutput" type="xs:boolean" />
+      <xs:element minOccurs="0" name="response" type="xs:string" />
+      <xs:element minOccurs="0" name="sequenceNum" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ticklers" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="time" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SpectrumException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+      <xs:element minOccurs="0" name="errorMessage" type="xs:string" />
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="submitSIM">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="request" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="submitSIMResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="submitSIMResponse" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="submitSTTI">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="trhVerNum" type="xs:string" />
+      <xs:element minOccurs="0" name="moduleNum" type="xs:string" />
+      <xs:element minOccurs="0" name="tranCode" type="xs:string" />
+      <xs:element minOccurs="0" name="tranVerNum" type="xs:string" />
+      <xs:element minOccurs="0" name="tranByteMap" type="xs:string" />
+      <xs:element minOccurs="0" name="requestData" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="submitSTTIResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="submitSTTIResponse" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="submitSSP2">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="request" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="submitSSP2Response">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="submitSSP2Response" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="submitFiAPI">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="request" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="submitFiAPIResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="submitFiAPIResponse" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="submitXMLCommand">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="xmlRequest" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="submitXMLCommandResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="submitXMLCommandResponse" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getTellerIds">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getTellerIdsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="getTellerIdsResponse" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="submitXMLCntl">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="request" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="submitXMLCntlResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="submitXMLCntlResponse" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="submitXML">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="request" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="submitXMLResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="submitXMLResponse" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

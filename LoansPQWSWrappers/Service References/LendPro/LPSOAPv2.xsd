@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://v2.soap.webservice.xml.core/" targetNamespace="http://v2.soap.webservice.xml.core/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="AuthHeader" nillable="true" type="tns:authHeader" />
+  <xs:element name="aggregatorSource" type="tns:aggregatorSource" />
+  <xs:element name="certifyLendersProtectionApplication" type="tns:certifyLendersProtectionApplication" />
+  <xs:element name="certifyLendersProtectionApplicationResponse" type="tns:certifyLendersProtectionApplicationResponse" />
+  <xs:element name="lpCertificationRequest" type="tns:lpCertificationRequest" />
+  <xs:element name="lpLoanRequest" type="tns:lpLoanRequest" />
+  <xs:element name="lpLoanResponse" type="tns:lpLoanResponse" />
+  <xs:element name="pingLendersProtectionSOAPService" type="tns:pingLendersProtectionSOAPService" />
+  <xs:element name="pingLendersProtectionSOAPServiceResponse" type="tns:pingLendersProtectionSOAPServiceResponse" />
+  <xs:element name="processLendersProtectionApplication" type="tns:processLendersProtectionApplication" />
+  <xs:element name="processLendersProtectionApplicationResponse" type="tns:processLendersProtectionApplicationResponse" />
+  <xs:complexType name="certifyLendersProtectionApplication">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:lpLoanRequest" />
+      <xs:element minOccurs="0" name="arg1" type="tns:lpCertificationRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="lpLoanRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="creditBureau" type="tns:creditBureau" />
+      <xs:element name="externalApplicationID" type="xs:string" />
+      <xs:element name="institutionID" type="xs:string" />
+      <xs:element minOccurs="0" name="loanInformation" type="tns:loanRequestInformation" />
+      <xs:element maxOccurs="unbounded" name="platformSourceIDChain" type="tns:aggregatorSource" />
+      <xs:element name="primaryApplicant" type="tns:applicantInformation" />
+      <xs:element minOccurs="0" name="secondaryApplicant" type="tns:applicantInformation" />
+      <xs:element minOccurs="0" name="submittingUserEmail" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="loanRequestInformation">
+    <xs:sequence>
+      <xs:element name="applicationOrigin" type="tns:origin" />
+      <xs:element minOccurs="0" name="branchIdentifier" type="xs:string" />
+      <xs:element minOccurs="0" name="collateralInformation" type="tns:collateralInformation" />
+      <xs:element minOccurs="0" name="dealerInformation" type="tns:dealerInformation" />
+      <xs:element minOccurs="0" name="paymentRemovedByThisLoan" type="xs:float" />
+      <xs:element name="requestedCreditDisabilityAmount" type="xs:float" />
+      <xs:element name="requestedCreditLifeAmount" type="xs:float" />
+      <xs:element name="requestedGAPAmount" type="xs:float" />
+      <xs:element name="requestedLoanAmount" type="xs:float" />
+      <xs:element name="requestedLoanAmountIncludingBackends" type="xs:float" />
+      <xs:element name="requestedLoanTerm" type="xs:int" />
+      <xs:element name="requestedServiceContractAmount" type="xs:float" />
+      <xs:element minOccurs="0" name="reservationCode" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="collateralInformation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="collateralMake" type="xs:string" />
+      <xs:element minOccurs="0" name="collateralMileage" type="xs:int" />
+      <xs:element minOccurs="0" name="collateralModel" type="xs:string" />
+      <xs:element minOccurs="0" name="collateralVIN" type="xs:string" />
+      <xs:element minOccurs="0" name="collateralValueRetail" type="xs:string" />
+      <xs:element minOccurs="0" name="collateralValueTrade" type="xs:string" />
+      <xs:element minOccurs="0" name="collateralValueUnknownType" type="xs:string" />
+      <xs:element minOccurs="0" name="collateralYear" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="optionList" nillable="true" type="tns:optionInformation" />
+      <xs:element minOccurs="0" name="valueLookupBook" type="tns:vehicleValueBook" />
+      <xs:element name="vehicleNewUsed" type="tns:vehicleNewUsed" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="optionInformation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="optionDescription" type="xs:string" />
+      <xs:element minOccurs="0" name="optionValue" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dealerInformation">
+    <xs:sequence>
+      <xs:element name="dealerCity" type="xs:string" />
+      <xs:element name="dealerName" type="xs:string" />
+      <xs:element name="dealerState" type="tns:state" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="aggregatorSource">
+    <xs:sequence>
+      <xs:element name="ordinality" type="xs:int" />
+      <xs:element name="sourceID" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="applicantInformation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="accountNumber" type="xs:string" />
+      <xs:element name="address1" type="xs:string" />
+      <xs:element minOccurs="0" name="address2" type="xs:string" />
+      <xs:element name="city" type="xs:string" />
+      <xs:element minOccurs="0" name="clientSuppliedScore" type="tns:clientSuppliedScore" />
+      <xs:element name="dateOfBirth" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="emailAddress" type="xs:string" />
+      <xs:element name="firstName" type="xs:string" />
+      <xs:element name="housing" type="tns:housingOwnershipType" />
+      <xs:element maxOccurs="unbounded" name="incomeSourceList" type="tns:incomeSource" />
+      <xs:element name="lastName" type="xs:string" />
+      <xs:element name="membership" type="tns:membership" />
+      <xs:element minOccurs="0" name="middleName" type="xs:string" />
+      <xs:element name="monthlyHousingPayment" type="xs:float" />
+      <xs:element minOccurs="0" name="monthsResidence" type="xs:int" />
+      <xs:element name="socialSecurityNumber" type="xs:string" />
+      <xs:element name="state" type="xs:string" />
+      <xs:element minOccurs="0" name="suffix" type="xs:string" />
+      <xs:element name="telephoneNumber" type="xs:string" />
+      <xs:element minOccurs="0" name="yearsResidence" type="xs:int" />
+      <xs:element name="zipCode" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="clientSuppliedScore">
+    <xs:sequence>
+      <xs:element name="code" type="xs:string" />
+      <xs:element name="creditBureauName" type="tns:creditBureau" />
+      <xs:element name="creditScore" type="xs:int" />
+      <xs:element name="description" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="incomeSource">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="employmentMonths" type="xs:int" />
+      <xs:element name="employmentType" type="tns:employmentType" />
+      <xs:element minOccurs="0" name="employmentYears" type="xs:int" />
+      <xs:element name="incomeSourceMonthlyPayAmount" type="xs:float" />
+      <xs:element name="incomeSourceName" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="lpCertificationRequest">
+    <xs:sequence>
+      <xs:element name="allStipsAgreed" type="xs:boolean" />
+      <xs:element minOccurs="0" name="contractDate" type="xs:dateTime" />
+      <xs:element name="finalRate" type="xs:decimal" />
+      <xs:element minOccurs="0" name="fundedDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="institutionNameToCertify" type="xs:string" />
+      <xs:element minOccurs="0" name="primaryAccountNumber" type="xs:string" />
+      <xs:element minOccurs="0" name="userEmail" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="authHeader">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="password" type="xs:string" />
+      <xs:element minOccurs="0" name="username" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="certifyLendersProtectionApplicationResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:lpLoanResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="lpLoanResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="applicationStatus" type="tns:soapApplicationStatus" />
+      <xs:element minOccurs="0" name="approvedResponse" type="tns:approvedResponse" />
+      <xs:element minOccurs="0" name="certifiedResponse" type="tns:certifiedResponse" />
+      <xs:element name="creditScoreUsed" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="deniedResponse" type="tns:deniedResponse" />
+      <xs:element minOccurs="0" name="eligibleResponse" type="tns:eligibleResponse" />
+      <xs:element minOccurs="0" name="errorResponse" type="tns:errorResponse" />
+      <xs:element minOccurs="0" name="failedResponse" type="tns:failedResponse" />
+      <xs:element minOccurs="0" name="originalRequest" type="tns:lpLoanRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="approvedResponse">
+    <xs:sequence>
+      <xs:element name="approvedTerm" type="xs:int" />
+      <xs:element name="backendOverage" type="xs:float" />
+      <xs:element minOccurs="0" name="callbackTable" type="tns:soapCallbackTable" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="counterReasons" type="xs:string" />
+      <xs:element name="dti" type="xs:float" />
+      <xs:element name="finalLTV" type="xs:float" />
+      <xs:element name="finalRate" type="xs:float" />
+      <xs:element name="htmlResponse" type="xs:string" />
+      <xs:element name="isCounter" type="xs:boolean" />
+      <xs:element name="isVehicleValueEstimated" type="xs:boolean" />
+      <xs:element name="maxAllowedBackend" type="xs:float" />
+      <xs:element name="modifiedLTV" type="xs:float" />
+      <xs:element name="monthlyPayment" type="xs:float" />
+      <xs:element name="pti" type="xs:float" />
+      <xs:element maxOccurs="unbounded" name="stips" type="xs:string" />
+      <xs:element maxOccurs="unbounded" name="termsAndConditions" type="xs:string" />
+      <xs:element name="totalLoanAmount" type="xs:float" />
+      <xs:element name="totalLoanAmountWithoutBackends" type="xs:float" />
+      <xs:element name="vehicleValue" type="xs:float" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="soapCallbackTable">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="tableRow" type="tns:callbackTableRow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="callbackTableRow">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="tableCell" type="tns:callbackTableCell" />
+    </xs:sequence>
+    <xs:attribute name="isSelected" type="xs:boolean" />
+    <xs:attribute name="maxLTV" type="xs:decimal" />
+    <xs:attribute name="maxLoan" type="xs:string" />
+    <xs:attribute name="term" type="xs:int" />
+  </xs:complexType>
+  <xs:complexType name="callbackTableCell">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="monthlyPayment" type="xs:decimal" />
+      <xs:element name="rate" type="xs:decimal" />
+    </xs:sequence>
+    <xs:attribute name="isSelected" type="xs:boolean" />
+    <xs:attribute name="ltv" type="xs:int" />
+    <xs:attribute name="term" type="xs:int" />
+  </xs:complexType>
+  <xs:complexType name="certifiedResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="certificateNumber" type="xs:string" />
+      <xs:element minOccurs="0" name="certificationDate" type="xs:dateTime" />
+      <xs:element name="certifyStatus" type="tns:soapCertifyStatus" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="certifyStatusInformation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="htmlResponse" type="xs:string" />
+      <xs:element minOccurs="0" name="insuranceCompany" type="xs:string" />
+      <xs:element minOccurs="0" name="insuredLender" type="xs:string" />
+      <xs:element minOccurs="0" name="policyNumber" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="premiumPayments" nillable="true" type="tns:premiumPayment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="premiumPayment">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="paymentDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="premium" type="xs:decimal" />
+      <xs:element minOccurs="0" name="premiumTax" type="xs:decimal" />
+      <xs:element minOccurs="0" name="stampingFee" type="xs:decimal" />
+      <xs:element minOccurs="0" name="techFee" type="xs:decimal" />
+      <xs:element minOccurs="0" name="totalLoanAmount" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="deniedResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="denialReasonList" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="htmlResponse" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eligibleResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="htmlResponse" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="insuranceApplicationErrorList" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isInsuranceApplicationError" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="errorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="errorMsg" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="failedResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="failedReasonList" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="htmlResponse" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pingLendersProtectionSOAPService">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:authHeader" />
+      <xs:element minOccurs="0" name="arg1" type="tns:aggregatorSource" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pingLendersProtectionSOAPServiceResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="processLendersProtectionApplication">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:lpLoanRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="processLendersProtectionApplicationResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:lpLoanResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="creditBureau">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="EQUIFAX" />
+      <xs:enumeration value="EXPERIAN" />
+      <xs:enumeration value="TRANSUNION" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="origin">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DIRECT" />
+      <xs:enumeration value="INDIRECT" />
+      <xs:enumeration value="RECAPTURE" />
+      <xs:enumeration value="REFINANCE" />
+      <xs:enumeration value="LPREFINANCE" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="vehicleValueBook">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NADA" />
+      <xs:enumeration value="CHROME" />
+      <xs:enumeration value="KBB" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="vehicleNewUsed">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NEW" />
+      <xs:enumeration value="USED" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="state">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AL" />
+      <xs:enumeration value="AK" />
+      <xs:enumeration value="AZ" />
+      <xs:enumeration value="AR" />
+      <xs:enumeration value="CA" />
+      <xs:enumeration value="CO" />
+      <xs:enumeration value="CT" />
+      <xs:enumeration value="DE" />
+      <xs:enumeration value="DC" />
+      <xs:enumeration value="FL" />
+      <xs:enumeration value="GA" />
+      <xs:enumeration value="GU" />
+      <xs:enumeration value="HI" />
+      <xs:enumeration value="ID" />
+      <xs:enumeration value="IL" />
+      <xs:enumeration value="IN" />
+      <xs:enumeration value="IA" />
+      <xs:enumeration value="KS" />
+      <xs:enumeration value="KY" />
+      <xs:enumeration value="LA" />
+      <xs:enumeration value="ME" />
+      <xs:enumeration value="MD" />
+      <xs:enumeration value="MA" />
+      <xs:enumeration value="MI" />
+      <xs:enumeration value="MN" />
+      <xs:enumeration value="MS" />
+      <xs:enumeration value="MO" />
+      <xs:enumeration value="MT" />
+      <xs:enumeration value="NE" />
+      <xs:enumeration value="NV" />
+      <xs:enumeration value="NH" />
+      <xs:enumeration value="NJ" />
+      <xs:enumeration value="NM" />
+      <xs:enumeration value="NY" />
+      <xs:enumeration value="NC" />
+      <xs:enumeration value="ND" />
+      <xs:enumeration value="OH" />
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="OR" />
+      <xs:enumeration value="PA" />
+      <xs:enumeration value="PR" />
+      <xs:enumeration value="RI" />
+      <xs:enumeration value="SC" />
+      <xs:enumeration value="SD" />
+      <xs:enumeration value="TN" />
+      <xs:enumeration value="TX" />
+      <xs:enumeration value="UT" />
+      <xs:enumeration value="VT" />
+      <xs:enumeration value="VA" />
+      <xs:enumeration value="VI" />
+      <xs:enumeration value="WA" />
+      <xs:enumeration value="WV" />
+      <xs:enumeration value="WI" />
+      <xs:enumeration value="WY" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="housingOwnershipType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OWN" />
+      <xs:enumeration value="RENT" />
+      <xs:enumeration value="OTHER" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="employmentType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="EMPLOYMENTW2" />
+      <xs:enumeration value="EMPLOYMENT1099" />
+      <xs:enumeration value="EMPLOYMENTRENTAL" />
+      <xs:enumeration value="EMPLOYMENTRETIRMENT" />
+      <xs:enumeration value="EMPLOYMENTCHILDSUPPORT" />
+      <xs:enumeration value="EMPLOYMENTOTHER" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="membership">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NEW" />
+      <xs:enumeration value="EXISTING" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="soapApplicationStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FAILED" />
+      <xs:enumeration value="ELIGIBLE" />
+      <xs:enumeration value="ERROR" />
+      <xs:enumeration value="DENIED" />
+      <xs:enumeration value="CERTIFIED" />
+      <xs:enumeration value="APPROVED" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="soapCertifyStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="INELIGIBLE" />
+      <xs:enumeration value="ERROR" />
+      <xs:enumeration value="CERTIFIED" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

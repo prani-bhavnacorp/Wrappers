@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.lendersoffice.com/los/webservices/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.lendersoffice.com/los/webservices/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.lendersoffice.com/los/webservices/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="GetUserAuthTicket">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passWord" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserAuthTicketResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserAuthTicketResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPmlUserAuthTicket">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passWord" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPmlUserAuthTicketResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPmlUserAuthTicketResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBrokerPartnerAuthTicket">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sSecretKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="brokerId" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBrokerPartnerAuthTicketResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBrokerPartnerAuthTicketResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetUserAuthTicketSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserAuthTicket" />
+  </wsdl:message>
+  <wsdl:message name="GetUserAuthTicketSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserAuthTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPmlUserAuthTicketSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPmlUserAuthTicket" />
+  </wsdl:message>
+  <wsdl:message name="GetPmlUserAuthTicketSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPmlUserAuthTicketResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBrokerPartnerAuthTicketSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBrokerPartnerAuthTicket" />
+  </wsdl:message>
+  <wsdl:message name="GetBrokerPartnerAuthTicketSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBrokerPartnerAuthTicketResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AuthServiceSoap">
+    <wsdl:operation name="GetUserAuthTicket">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Convert a Lender's Office user's login and password into an auth-ticket.</wsdl:documentation>
+      <wsdl:input message="tns:GetUserAuthTicketSoapIn" />
+      <wsdl:output message="tns:GetUserAuthTicketSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPmlUserAuthTicket">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Convert a PriceMyLoan.com user's login and password into an auth-ticket. [customerCode] Your PML Support Engineer can provide you with your company's customer code if you do not know what it is. The format for this customer code is PML#### (i.e., PML0445)</wsdl:documentation>
+      <wsdl:input message="tns:GetPmlUserAuthTicketSoapIn" />
+      <wsdl:output message="tns:GetPmlUserAuthTicketSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBrokerPartnerAuthTicket">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method is for vendor-partners only.</wsdl:documentation>
+      <wsdl:input message="tns:GetBrokerPartnerAuthTicketSoapIn" />
+      <wsdl:output message="tns:GetBrokerPartnerAuthTicketSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AuthServiceSoap" type="tns:AuthServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUserAuthTicket">
+      <soap:operation soapAction="http://www.lendersoffice.com/los/webservices/GetUserAuthTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPmlUserAuthTicket">
+      <soap:operation soapAction="http://www.lendersoffice.com/los/webservices/GetPmlUserAuthTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBrokerPartnerAuthTicket">
+      <soap:operation soapAction="http://www.lendersoffice.com/los/webservices/GetBrokerPartnerAuthTicket" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AuthServiceSoap12" type="tns:AuthServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUserAuthTicket">
+      <soap12:operation soapAction="http://www.lendersoffice.com/los/webservices/GetUserAuthTicket" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPmlUserAuthTicket">
+      <soap12:operation soapAction="http://www.lendersoffice.com/los/webservices/GetPmlUserAuthTicket" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBrokerPartnerAuthTicket">
+      <soap12:operation soapAction="http://www.lendersoffice.com/los/webservices/GetBrokerPartnerAuthTicket" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AuthService">
+    <wsdl:port name="AuthServiceSoap" binding="tns:AuthServiceSoap">
+      <soap:address location="https://secure.lendersoffice.com/los/webservice/AuthService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AuthServiceSoap12" binding="tns:AuthServiceSoap12">
+      <soap12:address location="https://secure.lendersoffice.com/los/webservice/AuthService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

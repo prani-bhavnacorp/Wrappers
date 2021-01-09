@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:connections.ispectrum.summitsite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:connections.ispectrum.summitsite.com" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="https://gocucorvallis.acumen.fiserv.com:443/ispectrum-webservices/Monetary?xsd=1" namespace="urn:connections.ispectrum.summitsite.com" />
+    </xsd:schema>
+  </types>
+  <message name="doMonetaryTransaction">
+    <part name="parameters" element="tns:doMonetaryTransaction" />
+  </message>
+  <message name="doMonetaryTransactionResponse">
+    <part name="parameters" element="tns:doMonetaryTransactionResponse" />
+  </message>
+  <message name="SOAPException">
+    <part name="fault" element="tns:SOAPException" />
+  </message>
+  <message name="undoMonetaryTransaction">
+    <part name="parameters" element="tns:undoMonetaryTransaction" />
+  </message>
+  <message name="undoMonetaryTransactionResponse">
+    <part name="parameters" element="tns:undoMonetaryTransactionResponse" />
+  </message>
+  <message name="getWithholdingTaxRates">
+    <part name="parameters" element="tns:getWithholdingTaxRates" />
+  </message>
+  <message name="getWithholdingTaxRatesResponse">
+    <part name="parameters" element="tns:getWithholdingTaxRatesResponse" />
+  </message>
+  <message name="getAllWithholdingTaxRates">
+    <part name="parameters" element="tns:getAllWithholdingTaxRates" />
+  </message>
+  <message name="getAllWithholdingTaxRatesResponse">
+    <part name="parameters" element="tns:getAllWithholdingTaxRatesResponse" />
+  </message>
+  <message name="updateWithholdingTaxRates">
+    <part name="parameters" element="tns:updateWithholdingTaxRates" />
+  </message>
+  <message name="updateWithholdingTaxRatesResponse">
+    <part name="parameters" element="tns:updateWithholdingTaxRatesResponse" />
+  </message>
+  <message name="getLoanDisbursalDetails">
+    <part name="parameters" element="tns:getLoanDisbursalDetails" />
+  </message>
+  <message name="getLoanDisbursalDetailsResponse">
+    <part name="parameters" element="tns:getLoanDisbursalDetailsResponse" />
+  </message>
+  <message name="calculateSavDepUnpaidInterest">
+    <part name="parameters" element="tns:calculateSavDepUnpaidInterest" />
+  </message>
+  <message name="calculateSavDepUnpaidInterestResponse">
+    <part name="parameters" element="tns:calculateSavDepUnpaidInterestResponse" />
+  </message>
+  <message name="getLoanPaymentDetails">
+    <part name="parameters" element="tns:getLoanPaymentDetails" />
+  </message>
+  <message name="getLoanPaymentDetailsResponse">
+    <part name="parameters" element="tns:getLoanPaymentDetailsResponse" />
+  </message>
+  <message name="markTransactionTransmitted">
+    <part name="parameters" element="tns:markTransactionTransmitted" />
+  </message>
+  <message name="markTransactionTransmittedResponse">
+    <part name="parameters" element="tns:markTransactionTransmittedResponse" />
+  </message>
+  <message name="markCentralMonTransId">
+    <part name="parameters" element="tns:markCentralMonTransId" />
+  </message>
+  <message name="markCentralMonTransIdResponse">
+    <part name="parameters" element="tns:markCentralMonTransIdResponse" />
+  </message>
+  <message name="getRedoMonHistTransId">
+    <part name="parameters" element="tns:getRedoMonHistTransId" />
+  </message>
+  <message name="getRedoMonHistTransIdResponse">
+    <part name="parameters" element="tns:getRedoMonHistTransIdResponse" />
+  </message>
+  <message name="processODInterestCalc">
+    <part name="parameters" element="tns:processODInterestCalc" />
+  </message>
+  <message name="processODInterestCalcResponse">
+    <part name="parameters" element="tns:processODInterestCalcResponse" />
+  </message>
+  <message name="calcWdrlComponents">
+    <part name="parameters" element="tns:calcWdrlComponents" />
+  </message>
+  <message name="calcWdrlComponentsResponse">
+    <part name="parameters" element="tns:calcWdrlComponentsResponse" />
+  </message>
+  <message name="calculateGSTForFeeProduct">
+    <part name="parameters" element="tns:calculateGSTForFeeProduct" />
+  </message>
+  <message name="calculateGSTForFeeProductResponse">
+    <part name="parameters" element="tns:calculateGSTForFeeProductResponse" />
+  </message>
+  <message name="calculateGSTForMiscProduct">
+    <part name="parameters" element="tns:calculateGSTForMiscProduct" />
+  </message>
+  <message name="calculateGSTForMiscProductResponse">
+    <part name="parameters" element="tns:calculateGSTForMiscProductResponse" />
+  </message>
+  <message name="calculateSavDepInterest">
+    <part name="parameters" element="tns:calculateSavDepInterest" />
+  </message>
+  <message name="calculateSavDepInterestResponse">
+    <part name="parameters" element="tns:calculateSavDepInterestResponse" />
+  </message>
+  <message name="getChequeReleaseDate">
+    <part name="parameters" element="tns:getChequeReleaseDate" />
+  </message>
+  <message name="getChequeReleaseDateResponse">
+    <part name="parameters" element="tns:getChequeReleaseDateResponse" />
+  </message>
+  <message name="findLoanFees">
+    <part name="parameters" element="tns:findLoanFees" />
+  </message>
+  <message name="findLoanFeesResponse">
+    <part name="parameters" element="tns:findLoanFeesResponse" />
+  </message>
+  <message name="getMonhistIdbyAccountId">
+    <part name="parameters" element="tns:getMonhistIdbyAccountId" />
+  </message>
+  <message name="getMonhistIdbyAccountIdResponse">
+    <part name="parameters" element="tns:getMonhistIdbyAccountIdResponse" />
+  </message>
+  <message name="onUsFundsVerification">
+    <part name="parameters" element="tns:onUsFundsVerification" />
+  </message>
+  <message name="onUsFundsVerificationResponse">
+    <part name="parameters" element="tns:onUsFundsVerificationResponse" />
+  </message>
+  <message name="getTransactionInfoForOnlineRealTimeFee">
+    <part name="parameters" element="tns:getTransactionInfoForOnlineRealTimeFee" />
+  </message>
+  <message name="getTransactionInfoForOnlineRealTimeFeeResponse">
+    <part name="parameters" element="tns:getTransactionInfoForOnlineRealTimeFeeResponse" />
+  </message>
+  <message name="getPaymentDetails">
+    <part name="parameters" element="tns:getPaymentDetails" />
+  </message>
+  <message name="getPaymentDetailsResponse">
+    <part name="parameters" element="tns:getPaymentDetailsResponse" />
+  </message>
+  <message name="getMonetaryTransactionInfos">
+    <part name="parameters" element="tns:getMonetaryTransactionInfos" />
+  </message>
+  <message name="getMonetaryTransactionInfosResponse">
+    <part name="parameters" element="tns:getMonetaryTransactionInfosResponse" />
+  </message>
+  <message name="getJobCodesForBatchEFT">
+    <part name="parameters" element="tns:getJobCodesForBatchEFT" />
+  </message>
+  <message name="getJobCodesForBatchEFTResponse">
+    <part name="parameters" element="tns:getJobCodesForBatchEFTResponse" />
+  </message>
+  <message name="getRecordsForBatch">
+    <part name="parameters" element="tns:getRecordsForBatch" />
+  </message>
+  <message name="getRecordsForBatchResponse">
+    <part name="parameters" element="tns:getRecordsForBatchResponse" />
+  </message>
+  <message name="processPostForBatch">
+    <part name="parameters" element="tns:processPostForBatch" />
+  </message>
+  <message name="processPostForBatchResponse">
+    <part name="parameters" element="tns:processPostForBatchResponse" />
+  </message>
+  <message name="processReturnForBatch">
+    <part name="parameters" element="tns:processReturnForBatch" />
+  </message>
+  <message name="processReturnForBatchResponse">
+    <part name="parameters" element="tns:processReturnForBatchResponse" />
+  </message>
+  <message name="processResolveForBatch">
+    <part name="parameters" element="tns:processResolveForBatch" />
+  </message>
+  <message name="processResolveForBatchResponse">
+    <part name="parameters" element="tns:processResolveForBatchResponse" />
+  </message>
+  <message name="createUpdateManualChqClearingDetailsInfos">
+    <part name="parameters" element="tns:createUpdateManualChqClearingDetailsInfos" />
+  </message>
+  <message name="createUpdateManualChqClearingDetailsInfosResponse">
+    <part name="parameters" element="tns:createUpdateManualChqClearingDetailsInfosResponse" />
+  </message>
+  <message name="getAllChqClearingDetails">
+    <part name="parameters" element="tns:getAllChqClearingDetails" />
+  </message>
+  <message name="getAllChqClearingDetailsResponse">
+    <part name="parameters" element="tns:getAllChqClearingDetailsResponse" />
+  </message>
+  <message name="findChqClearingDetailsByStatus">
+    <part name="parameters" element="tns:findChqClearingDetailsByStatus" />
+  </message>
+  <message name="findChqClearingDetailsByStatusResponse">
+    <part name="parameters" element="tns:findChqClearingDetailsByStatusResponse" />
+  </message>
+  <message name="validateManualChequeEntry">
+    <part name="parameters" element="tns:validateManualChequeEntry" />
+  </message>
+  <message name="validateManualChequeEntryResponse">
+    <part name="parameters" element="tns:validateManualChequeEntryResponse" />
+  </message>
+  <message name="sendRequestForMonetaryOverride">
+    <part name="parameters" element="tns:sendRequestForMonetaryOverride" />
+  </message>
+  <message name="sendRequestForMonetaryOverrideResponse">
+    <part name="parameters" element="tns:sendRequestForMonetaryOverrideResponse" />
+  </message>
+  <message name="getMonetaryOverrideQueueById">
+    <part name="parameters" element="tns:getMonetaryOverrideQueueById" />
+  </message>
+  <message name="getMonetaryOverrideQueueByIdResponse">
+    <part name="parameters" element="tns:getMonetaryOverrideQueueByIdResponse" />
+  </message>
+  <message name="findOverrideQueueByPrimaryKey">
+    <part name="parameters" element="tns:findOverrideQueueByPrimaryKey" />
+  </message>
+  <message name="findOverrideQueueByPrimaryKeyResponse">
+    <part name="parameters" element="tns:findOverrideQueueByPrimaryKeyResponse" />
+  </message>
+  <message name="findOverrideQueueWithOverrides">
+    <part name="parameters" element="tns:findOverrideQueueWithOverrides" />
+  </message>
+  <message name="findOverrideQueueWithOverridesResponse">
+    <part name="parameters" element="tns:findOverrideQueueWithOverridesResponse" />
+  </message>
+  <message name="doExpressTransaction">
+    <part name="parameters" element="tns:doExpressTransaction" />
+  </message>
+  <message name="doExpressTransactionResponse">
+    <part name="parameters" element="tns:doExpressTransactionResponse" />
+  </message>
+  <message name="getGroupTransactionHistories">
+    <part name="parameters" element="tns:getGroupTransactionHistories" />
+  </message>
+  <message name="getGroupTransactionHistoriesResponse">
+    <part name="parameters" element="tns:getGroupTransactionHistoriesResponse" />
+  </message>
+  <message name="createUpdateMonHistGroup">
+    <part name="parameters" element="tns:createUpdateMonHistGroup" />
+  </message>
+  <message name="createUpdateMonHistGroupResponse">
+    <part name="parameters" element="tns:createUpdateMonHistGroupResponse" />
+  </message>
+  <message name="getTellerBuySellInfoByUserId">
+    <part name="parameters" element="tns:getTellerBuySellInfoByUserId" />
+  </message>
+  <message name="getTellerBuySellInfoByUserIdResponse">
+    <part name="parameters" element="tns:getTellerBuySellInfoByUserIdResponse" />
+  </message>
+  <message name="doGroupTransaction">
+    <part name="parameters" element="tns:doGroupTransaction" />
+  </message>
+  <message name="doGroupTransactionResponse">
+    <part name="parameters" element="tns:doGroupTransactionResponse" />
+  </message>
+  <message name="isAnyBuySellPendingForTeller">
+    <part name="parameters" element="tns:isAnyBuySellPendingForTeller" />
+  </message>
+  <message name="isAnyBuySellPendingForTellerResponse">
+    <part name="parameters" element="tns:isAnyBuySellPendingForTellerResponse" />
+  </message>
+  <message name="doFinancialControlTransaction">
+    <part name="parameters" element="tns:doFinancialControlTransaction" />
+  </message>
+  <message name="doFinancialControlTransactionResponse">
+    <part name="parameters" element="tns:doFinancialControlTransactionResponse" />
+  </message>
+  <message name="doMonetaryTransactionWithOverrides">
+    <part name="parameters" element="tns:doMonetaryTransactionWithOverrides" />
+  </message>
+  <message name="doMonetaryTransactionWithOverridesResponse">
+    <part name="parameters" element="tns:doMonetaryTransactionWithOverridesResponse" />
+  </message>
+  <message name="doFinancialTransactionSharedBranch">
+    <part name="parameters" element="tns:doFinancialTransactionSharedBranch" />
+  </message>
+  <message name="doFinancialTransactionSharedBranchResponse">
+    <part name="parameters" element="tns:doFinancialTransactionSharedBranchResponse" />
+  </message>
+  <message name="undoMonetaryTransactionById">
+    <part name="parameters" element="tns:undoMonetaryTransactionById" />
+  </message>
+  <message name="undoMonetaryTransactionByIdResponse">
+    <part name="parameters" element="tns:undoMonetaryTransactionByIdResponse" />
+  </message>
+  <message name="processLoanPaymentsWithEffectiveDate">
+    <part name="parameters" element="tns:processLoanPaymentsWithEffectiveDate" />
+  </message>
+  <message name="processLoanPaymentsWithEffectiveDateResponse">
+    <part name="parameters" element="tns:processLoanPaymentsWithEffectiveDateResponse" />
+  </message>
+  <message name="processLoanPaymentsNoTrans">
+    <part name="parameters" element="tns:processLoanPaymentsNoTrans" />
+  </message>
+  <message name="processLoanPaymentsNoTransResponse">
+    <part name="parameters" element="tns:processLoanPaymentsNoTransResponse" />
+  </message>
+  <message name="getRegisteredCalcDetails">
+    <part name="parameters" element="tns:getRegisteredCalcDetails" />
+  </message>
+  <message name="getRegisteredCalcDetailsResponse">
+    <part name="parameters" element="tns:getRegisteredCalcDetailsResponse" />
+  </message>
+  <message name="getChequeImageByID">
+    <part name="parameters" element="tns:getChequeImageByID" />
+  </message>
+  <message name="getChequeImageByIDResponse">
+    <part name="parameters" element="tns:getChequeImageByIDResponse" />
+  </message>
+  <message name="undoMonetaryTransactionWithUndoMonetaryIdInfo">
+    <part name="parameters" element="tns:undoMonetaryTransactionWithUndoMonetaryIdInfo" />
+  </message>
+  <message name="undoMonetaryTransactionWithUndoMonetaryIdInfoResponse">
+    <part name="parameters" element="tns:undoMonetaryTransactionWithUndoMonetaryIdInfoResponse" />
+  </message>
+  <message name="getTransCodeCreditsDebits">
+    <part name="parameters" element="tns:getTransCodeCreditsDebits" />
+  </message>
+  <message name="getTransCodeCreditsDebitsResponse">
+    <part name="parameters" element="tns:getTransCodeCreditsDebitsResponse" />
+  </message>
+  <message name="getStatusForMonetaryOverride">
+    <part name="parameters" element="tns:getStatusForMonetaryOverride" />
+  </message>
+  <message name="getStatusForMonetaryOverrideResponse">
+    <part name="parameters" element="tns:getStatusForMonetaryOverrideResponse" />
+  </message>
+  <message name="updateStatusForMonetaryOverride">
+    <part name="parameters" element="tns:updateStatusForMonetaryOverride" />
+  </message>
+  <message name="updateStatusForMonetaryOverrideResponse">
+    <part name="parameters" element="tns:updateStatusForMonetaryOverrideResponse" />
+  </message>
+  <message name="getOverrideQueueByMonHistId">
+    <part name="parameters" element="tns:getOverrideQueueByMonHistId" />
+  </message>
+  <message name="getOverrideQueueByMonHistIdResponse">
+    <part name="parameters" element="tns:getOverrideQueueByMonHistIdResponse" />
+  </message>
+  <message name="cancelMonetaryOverrideRequest">
+    <part name="parameters" element="tns:cancelMonetaryOverrideRequest" />
+  </message>
+  <message name="cancelMonetaryOverrideRequestResponse">
+    <part name="parameters" element="tns:cancelMonetaryOverrideRequestResponse" />
+  </message>
+  <message name="getListOfUsersByOverrides">
+    <part name="parameters" element="tns:getListOfUsersByOverrides" />
+  </message>
+  <message name="getListOfUsersByOverridesResponse">
+    <part name="parameters" element="tns:getListOfUsersByOverridesResponse" />
+  </message>
+  <message name="reAssignSupervisor">
+    <part name="parameters" element="tns:reAssignSupervisor" />
+  </message>
+  <message name="reAssignSupervisorResponse">
+    <part name="parameters" element="tns:reAssignSupervisorResponse" />
+  </message>
+  <message name="getStatusForOverride">
+    <part name="parameters" element="tns:getStatusForOverride" />
+  </message>
+  <message name="getStatusForOverrideResponse">
+    <part name="parameters" element="tns:getStatusForOverrideResponse" />
+  </message>
+  <message name="updateStatusForOverride">
+    <part name="parameters" element="tns:updateStatusForOverride" />
+  </message>
+  <message name="updateStatusForOverrideResponse">
+    <part name="parameters" element="tns:updateStatusForOverrideResponse" />
+  </message>
+  <message name="cancelOverrideRequest">
+    <part name="parameters" element="tns:cancelOverrideRequest" />
+  </message>
+  <message name="cancelOverrideRequestResponse">
+    <part name="parameters" element="tns:cancelOverrideRequestResponse" />
+  </message>
+  <message name="getOverrideQueueById">
+    <part name="parameters" element="tns:getOverrideQueueById" />
+  </message>
+  <message name="getOverrideQueueByIdResponse">
+    <part name="parameters" element="tns:getOverrideQueueByIdResponse" />
+  </message>
+  <message name="getRSPReceiptInfo">
+    <part name="parameters" element="tns:getRSPReceiptInfo" />
+  </message>
+  <message name="getRSPReceiptInfoResponse">
+    <part name="parameters" element="tns:getRSPReceiptInfoResponse" />
+  </message>
+  <message name="getDocumentByMonetaryHistoryId">
+    <part name="parameters" element="tns:getDocumentByMonetaryHistoryId" />
+  </message>
+  <message name="getDocumentByMonetaryHistoryIdResponse">
+    <part name="parameters" element="tns:getDocumentByMonetaryHistoryIdResponse" />
+  </message>
+  <message name="getReceiptForMonetaryHstoryIds">
+    <part name="parameters" element="tns:getReceiptForMonetaryHstoryIds" />
+  </message>
+  <message name="getReceiptForMonetaryHstoryIdsResponse">
+    <part name="parameters" element="tns:getReceiptForMonetaryHstoryIdsResponse" />
+  </message>
+  <message name="getReceiptForMonetaryHstoryIdWithSignature">
+    <part name="parameters" element="tns:getReceiptForMonetaryHstoryIdWithSignature" />
+  </message>
+  <message name="getReceiptForMonetaryHstoryIdWithSignatureResponse">
+    <part name="parameters" element="tns:getReceiptForMonetaryHstoryIdWithSignatureResponse" />
+  </message>
+  <message name="getReceiptForMonetaryHstoryIdsWithSignature">
+    <part name="parameters" element="tns:getReceiptForMonetaryHstoryIdsWithSignature" />
+  </message>
+  <message name="getReceiptForMonetaryHstoryIdsWithSignatureResponse">
+    <part name="parameters" element="tns:getReceiptForMonetaryHstoryIdsWithSignatureResponse" />
+  </message>
+  <message name="getTextOnlyReceiptForMonetaryHstoryId">
+    <part name="parameters" element="tns:getTextOnlyReceiptForMonetaryHstoryId" />
+  </message>
+  <message name="getTextOnlyReceiptForMonetaryHstoryIdResponse">
+    <part name="parameters" element="tns:getTextOnlyReceiptForMonetaryHstoryIdResponse" />
+  </message>
+  <message name="getReprintReceiptForMonetaryHstoryId">
+    <part name="parameters" element="tns:getReprintReceiptForMonetaryHstoryId" />
+  </message>
+  <message name="getReprintReceiptForMonetaryHstoryIdResponse">
+    <part name="parameters" element="tns:getReprintReceiptForMonetaryHstoryIdResponse" />
+  </message>
+  <message name="getReceiptForMonetaryHstoryIdByReprint">
+    <part name="parameters" element="tns:getReceiptForMonetaryHstoryIdByReprint" />
+  </message>
+  <message name="getReceiptForMonetaryHstoryIdByReprintResponse">
+    <part name="parameters" element="tns:getReceiptForMonetaryHstoryIdByReprintResponse" />
+  </message>
+  <message name="getReceiptForMonetaryHstoryId">
+    <part name="parameters" element="tns:getReceiptForMonetaryHstoryId" />
+  </message>
+  <message name="getReceiptForMonetaryHstoryIdResponse">
+    <part name="parameters" element="tns:getReceiptForMonetaryHstoryIdResponse" />
+  </message>
+  <message name="doMonetaryTransferTeleBank">
+    <part name="parameters" element="tns:doMonetaryTransferTeleBank" />
+  </message>
+  <message name="doMonetaryTransferTeleBankResponse">
+    <part name="parameters" element="tns:doMonetaryTransferTeleBankResponse" />
+  </message>
+  <message name="doMonetaryTransferHomeBanking">
+    <part name="parameters" element="tns:doMonetaryTransferHomeBanking" />
+  </message>
+  <message name="doMonetaryTransferHomeBankingResponse">
+    <part name="parameters" element="tns:doMonetaryTransferHomeBankingResponse" />
+  </message>
+  <portType name="Monetary">
+    <operation name="doMonetaryTransaction">
+      <input message="tns:doMonetaryTransaction" />
+      <output message="tns:doMonetaryTransactionResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="undoMonetaryTransaction">
+      <input message="tns:undoMonetaryTransaction" />
+      <output message="tns:undoMonetaryTransactionResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getWithholdingTaxRates">
+      <input message="tns:getWithholdingTaxRates" />
+      <output message="tns:getWithholdingTaxRatesResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllWithholdingTaxRates">
+      <input message="tns:getAllWithholdingTaxRates" />
+      <output message="tns:getAllWithholdingTaxRatesResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="updateWithholdingTaxRates">
+      <input message="tns:updateWithholdingTaxRates" />
+      <output message="tns:updateWithholdingTaxRatesResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getLoanDisbursalDetails">
+      <input message="tns:getLoanDisbursalDetails" />
+      <output message="tns:getLoanDisbursalDetailsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="calculateSavDepUnpaidInterest">
+      <input message="tns:calculateSavDepUnpaidInterest" />
+      <output message="tns:calculateSavDepUnpaidInterestResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getLoanPaymentDetails">
+      <input message="tns:getLoanPaymentDetails" />
+      <output message="tns:getLoanPaymentDetailsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="markTransactionTransmitted">
+      <input message="tns:markTransactionTransmitted" />
+      <output message="tns:markTransactionTransmittedResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="markCentralMonTransId">
+      <input message="tns:markCentralMonTransId" />
+      <output message="tns:markCentralMonTransIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getRedoMonHistTransId">
+      <input message="tns:getRedoMonHistTransId" />
+      <output message="tns:getRedoMonHistTransIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="processODInterestCalc">
+      <input message="tns:processODInterestCalc" />
+      <output message="tns:processODInterestCalcResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="calcWdrlComponents">
+      <input message="tns:calcWdrlComponents" />
+      <output message="tns:calcWdrlComponentsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="calculateGSTForFeeProduct">
+      <input message="tns:calculateGSTForFeeProduct" />
+      <output message="tns:calculateGSTForFeeProductResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="calculateGSTForMiscProduct">
+      <input message="tns:calculateGSTForMiscProduct" />
+      <output message="tns:calculateGSTForMiscProductResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="calculateSavDepInterest">
+      <input message="tns:calculateSavDepInterest" />
+      <output message="tns:calculateSavDepInterestResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getChequeReleaseDate">
+      <input message="tns:getChequeReleaseDate" />
+      <output message="tns:getChequeReleaseDateResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findLoanFees">
+      <input message="tns:findLoanFees" />
+      <output message="tns:findLoanFeesResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getMonhistIdbyAccountId">
+      <input message="tns:getMonhistIdbyAccountId" />
+      <output message="tns:getMonhistIdbyAccountIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="onUsFundsVerification">
+      <input message="tns:onUsFundsVerification" />
+      <output message="tns:onUsFundsVerificationResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getTransactionInfoForOnlineRealTimeFee">
+      <input message="tns:getTransactionInfoForOnlineRealTimeFee" />
+      <output message="tns:getTransactionInfoForOnlineRealTimeFeeResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getPaymentDetails">
+      <input message="tns:getPaymentDetails" />
+      <output message="tns:getPaymentDetailsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getMonetaryTransactionInfos">
+      <input message="tns:getMonetaryTransactionInfos" />
+      <output message="tns:getMonetaryTransactionInfosResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getJobCodesForBatchEFT">
+      <input message="tns:getJobCodesForBatchEFT" />
+      <output message="tns:getJobCodesForBatchEFTResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getRecordsForBatch">
+      <input message="tns:getRecordsForBatch" />
+      <output message="tns:getRecordsForBatchResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="processPostForBatch">
+      <input message="tns:processPostForBatch" />
+      <output message="tns:processPostForBatchResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="processReturnForBatch">
+      <input message="tns:processReturnForBatch" />
+      <output message="tns:processReturnForBatchResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="processResolveForBatch">
+      <input message="tns:processResolveForBatch" />
+      <output message="tns:processResolveForBatchResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateManualChqClearingDetailsInfos">
+      <input message="tns:createUpdateManualChqClearingDetailsInfos" />
+      <output message="tns:createUpdateManualChqClearingDetailsInfosResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllChqClearingDetails">
+      <input message="tns:getAllChqClearingDetails" />
+      <output message="tns:getAllChqClearingDetailsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findChqClearingDetailsByStatus">
+      <input message="tns:findChqClearingDetailsByStatus" />
+      <output message="tns:findChqClearingDetailsByStatusResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="validateManualChequeEntry">
+      <input message="tns:validateManualChequeEntry" />
+      <output message="tns:validateManualChequeEntryResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="sendRequestForMonetaryOverride">
+      <input message="tns:sendRequestForMonetaryOverride" />
+      <output message="tns:sendRequestForMonetaryOverrideResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getMonetaryOverrideQueueById">
+      <input message="tns:getMonetaryOverrideQueueById" />
+      <output message="tns:getMonetaryOverrideQueueByIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findOverrideQueueByPrimaryKey">
+      <input message="tns:findOverrideQueueByPrimaryKey" />
+      <output message="tns:findOverrideQueueByPrimaryKeyResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findOverrideQueueWithOverrides">
+      <input message="tns:findOverrideQueueWithOverrides" />
+      <output message="tns:findOverrideQueueWithOverridesResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="doExpressTransaction">
+      <input message="tns:doExpressTransaction" />
+      <output message="tns:doExpressTransactionResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getGroupTransactionHistories">
+      <input message="tns:getGroupTransactionHistories" />
+      <output message="tns:getGroupTransactionHistoriesResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateMonHistGroup">
+      <input message="tns:createUpdateMonHistGroup" />
+      <output message="tns:createUpdateMonHistGroupResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getTellerBuySellInfoByUserId">
+      <input message="tns:getTellerBuySellInfoByUserId" />
+      <output message="tns:getTellerBuySellInfoByUserIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="doGroupTransaction">
+      <input message="tns:doGroupTransaction" />
+      <output message="tns:doGroupTransactionResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="isAnyBuySellPendingForTeller">
+      <input message="tns:isAnyBuySellPendingForTeller" />
+      <output message="tns:isAnyBuySellPendingForTellerResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="doFinancialControlTransaction">
+      <input message="tns:doFinancialControlTransaction" />
+      <output message="tns:doFinancialControlTransactionResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="doMonetaryTransactionWithOverrides">
+      <input message="tns:doMonetaryTransactionWithOverrides" />
+      <output message="tns:doMonetaryTransactionWithOverridesResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="doFinancialTransactionSharedBranch">
+      <input message="tns:doFinancialTransactionSharedBranch" />
+      <output message="tns:doFinancialTransactionSharedBranchResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="undoMonetaryTransactionById">
+      <input message="tns:undoMonetaryTransactionById" />
+      <output message="tns:undoMonetaryTransactionByIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="processLoanPaymentsWithEffectiveDate">
+      <input message="tns:processLoanPaymentsWithEffectiveDate" />
+      <output message="tns:processLoanPaymentsWithEffectiveDateResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="processLoanPaymentsNoTrans">
+      <input message="tns:processLoanPaymentsNoTrans" />
+      <output message="tns:processLoanPaymentsNoTransResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getRegisteredCalcDetails">
+      <input message="tns:getRegisteredCalcDetails" />
+      <output message="tns:getRegisteredCalcDetailsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getChequeImageByID">
+      <input message="tns:getChequeImageByID" />
+      <output message="tns:getChequeImageByIDResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="undoMonetaryTransactionWithUndoMonetaryIdInfo">
+      <input message="tns:undoMonetaryTransactionWithUndoMonetaryIdInfo" />
+      <output message="tns:undoMonetaryTransactionWithUndoMonetaryIdInfoResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getTransCodeCreditsDebits">
+      <input message="tns:getTransCodeCreditsDebits" />
+      <output message="tns:getTransCodeCreditsDebitsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getStatusForMonetaryOverride">
+      <input message="tns:getStatusForMonetaryOverride" />
+      <output message="tns:getStatusForMonetaryOverrideResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="updateStatusForMonetaryOverride">
+      <input message="tns:updateStatusForMonetaryOverride" />
+      <output message="tns:updateStatusForMonetaryOverrideResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getOverrideQueueByMonHistId">
+      <input message="tns:getOverrideQueueByMonHistId" />
+      <output message="tns:getOverrideQueueByMonHistIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="cancelMonetaryOverrideRequest">
+      <input message="tns:cancelMonetaryOverrideRequest" />
+      <output message="tns:cancelMonetaryOverrideRequestResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getListOfUsersByOverrides">
+      <input message="tns:getListOfUsersByOverrides" />
+      <output message="tns:getListOfUsersByOverridesResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="reAssignSupervisor">
+      <input message="tns:reAssignSupervisor" />
+      <output message="tns:reAssignSupervisorResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getStatusForOverride">
+      <input message="tns:getStatusForOverride" />
+      <output message="tns:getStatusForOverrideResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="updateStatusForOverride">
+      <input message="tns:updateStatusForOverride" />
+      <output message="tns:updateStatusForOverrideResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="cancelOverrideRequest">
+      <input message="tns:cancelOverrideRequest" />
+      <output message="tns:cancelOverrideRequestResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getOverrideQueueById">
+      <input message="tns:getOverrideQueueById" />
+      <output message="tns:getOverrideQueueByIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getRSPReceiptInfo">
+      <input message="tns:getRSPReceiptInfo" />
+      <output message="tns:getRSPReceiptInfoResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getDocumentByMonetaryHistoryId">
+      <input message="tns:getDocumentByMonetaryHistoryId" />
+      <output message="tns:getDocumentByMonetaryHistoryIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getReceiptForMonetaryHstoryIds">
+      <input message="tns:getReceiptForMonetaryHstoryIds" />
+      <output message="tns:getReceiptForMonetaryHstoryIdsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getReceiptForMonetaryHstoryIdWithSignature">
+      <input message="tns:getReceiptForMonetaryHstoryIdWithSignature" />
+      <output message="tns:getReceiptForMonetaryHstoryIdWithSignatureResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getReceiptForMonetaryHstoryIdsWithSignature">
+      <input message="tns:getReceiptForMonetaryHstoryIdsWithSignature" />
+      <output message="tns:getReceiptForMonetaryHstoryIdsWithSignatureResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getTextOnlyReceiptForMonetaryHstoryId">
+      <input message="tns:getTextOnlyReceiptForMonetaryHstoryId" />
+      <output message="tns:getTextOnlyReceiptForMonetaryHstoryIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getReprintReceiptForMonetaryHstoryId">
+      <input message="tns:getReprintReceiptForMonetaryHstoryId" />
+      <output message="tns:getReprintReceiptForMonetaryHstoryIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getReceiptForMonetaryHstoryIdByReprint">
+      <input message="tns:getReceiptForMonetaryHstoryIdByReprint" />
+      <output message="tns:getReceiptForMonetaryHstoryIdByReprintResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getReceiptForMonetaryHstoryId">
+      <input message="tns:getReceiptForMonetaryHstoryId" />
+      <output message="tns:getReceiptForMonetaryHstoryIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="doMonetaryTransferTeleBank">
+      <input message="tns:doMonetaryTransferTeleBank" />
+      <output message="tns:doMonetaryTransferTeleBankResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="doMonetaryTransferHomeBanking">
+      <input message="tns:doMonetaryTransferHomeBanking" />
+      <output message="tns:doMonetaryTransferHomeBankingResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+  </portType>
+</definitions>

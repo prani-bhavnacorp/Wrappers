@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="mtvnDPAcctInqWSV8" xmlns:import0="mtvnCWDPAcctInqSvcReq" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:import1="mtvnCWDPAcctInqSvcRes" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="mtvnDPAcctInqWSV8" targetNamespace="mtvnDPAcctInqWSV8" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Connectware Web Service Interface</documentation>
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="./DPAcctInqWSV8SvcReq.xsd" namespace="mtvnCWDPAcctInqSvcReq" />
+      <xsd:import schemaLocation="./DPAcctInqWSV8SvcRes.xsd" namespace="mtvnCWDPAcctInqSvcRes" />
+    </xsd:schema>
+  </types>
+  <message name="DPAcctInqMtvnSvcReqMsg">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <part name="messagePart" element="import0:DPAcctInqMtvnSvcReq" />
+  </message>
+  <message name="DPAcctInqMtvnSvcResMsg">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <part name="messagePart" element="import1:DPAcctInqMtvnSvcRes" />
+  </message>
+  <portType name="mtvnCWDPAcctInqWSV8Interface">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">DPAcctInqWSV8</documentation>
+    <operation name="DPAcctInq">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+      <input message="tns:DPAcctInqMtvnSvcReqMsg" />
+      <output message="tns:DPAcctInqMtvnSvcResMsg" />
+    </operation>
+  </portType>
+  <binding name="mtvnCWDPAcctInqWSV8" type="tns:mtvnCWDPAcctInqWSV8Interface">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="DPAcctInq">
+      <soap:operation soapAction="DPAcctInqWSV8:DPAcctInqMtvnSvcReqMsg" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="mtvnCWDPAcctInqWSV8">
+    <port name="mtvnCWDPAcctInqWSV8Port" binding="tns:mtvnCWDPAcctInqWSV8">
+      <soap:address location="https://xmlgateway.metavante.org/ConnectwareWS/DPAcctInqWSV8" />
+    </port>
+  </service>
+</definitions>

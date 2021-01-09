@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:s0="http://www.cudirect.com/IntegrationConfirmWSE2" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.cudirect.com/IntegrationConfirmWSE2" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.cudirect.com/IntegrationConfirmWSE2">
+      <s:element name="Confirmation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConfirmBod" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfirmationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConfirmationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </types>
+  <message name="ConfirmationSoapIn">
+    <part name="parameters" element="s0:Confirmation" />
+  </message>
+  <message name="ConfirmationSoapOut">
+    <part name="parameters" element="s0:ConfirmationResponse" />
+  </message>
+  <portType name="IntegrationConfirmSoap">
+    <operation name="Confirmation">
+      <input message="s0:ConfirmationSoapIn" />
+      <output message="s0:ConfirmationSoapOut" />
+    </operation>
+  </portType>
+  <binding name="IntegrationConfirmSoap" type="s0:IntegrationConfirmSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="Confirmation">
+      <soap:operation soapAction="http://www.cudirect.com/IntegrationConfirmWSE2/Confirmation" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="IntegrationConfirm">
+    <port name="IntegrationConfirmSoap" binding="s0:IntegrationConfirmSoap">
+      <soap:address location="https://65.200.30.29/IntegrationConfirmWSE2/Confirm.asmx" />
+    </port>
+  </service>
+</definitions>

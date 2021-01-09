@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://www.fisglobal.com/soa/riskfraudcomplianceRsp" xmlns:xdb="http://xmlns.oracle.com/xdb" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://www.fisglobal.com/soa/riskfraudcomplianceRsp" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="BizChexTypes_v1.2.xsd" />
+  <xs:complexType name="tBizChexSvc">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="FisTxnTrckId" type="tSoaTxnId" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CustId" type="tCustId" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProdCde" type="tProdCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ChnlId" type="tChnlId" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TxnTyp" type="tTxnTyp" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SourceSvcNm" type="tStringType30" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CnsmrDataAsEntd" type="tCnsmrDataAsEntd" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BusCIP" type="tBusCIP" />
+      <xs:element minOccurs="0" maxOccurs="1" name="IdRspMsg" type="tIdRspMsg" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrevAcctInqSumm" type="tPrevAcctInqSumm" />
+      <xs:element minOccurs="0" maxOccurs="1" name="MyFIPrevAcctInqSumm" type="tMyFIPrevAcctInqSumm" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OthrFIPrevAcctInqSumm" type="tOthrFIPrevAcctInqSumm" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AcctClsrsSumm" type="tAcctClsrsSumm" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AcctClsrsFrdSumm" type="tAcctClsrsFrdSumm" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AcctClsrsAbsSumm" type="tAcctClsrsAbsSumm" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrchdDebtSumm" type="tPrchdDebtSumm" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CkOrdSumm" type="tCkOrdSumm" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrevAcctInqDtls" type="tPrevAcctInqDtls" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AcctClsrsDtls" type="tAcctClsrsDtls" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrchdDebtDtls" type="tPrchdDebtDtls" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CkOrdDtls" type="tCkOrdDtls" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CnsmrStmt" type="tCnsmrStmt" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrdStrtgyCd" type="tPrdStrtgyCd" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BizChexDecsnScrgDtls" type="tBizChexDecsnScrgDtls" />
+      <xs:element minOccurs="0" maxOccurs="1" name="UsrGdnceTxt" type="tUsrGdnceTxt" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrdOffrs" type="tPrdOffrs" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BusPblcRcdDtls" type="tBusPblcRcdDtls" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BusAlrtMsgs" type="tBusAlrtMsgs" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TxtRpt" type="tTxtRpt" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrDtls" type="tErrDtls" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SubsystemRspDtl" type="tSubsystemRspDtl" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RspCde" type="tRspCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RspMsg" type="tRspMsg" />
+    </xs:sequence>
+    <xs:attribute fixed="BizChexSvc" name="service" use="required" />
+    <xs:attribute name="version" type="tVersion" use="required" />
+  </xs:complexType>
+  <xs:complexType name="tIDVSvc">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="FisTxnTrckId" type="tSoaTxnId" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CustId" type="tCustId" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProdCde" type="tProdCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ChnlId" type="tChnlId" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TxnTyp" type="tTxnTyp" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SourceSvcNm" type="tStringType30" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrncplOwnrIDVRsp" type="tSgnrIDVRsp" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr2IDVRsp" type="tSgnrIDVRsp" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr3IDVRsp" type="tSgnrIDVRsp" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr4IDVRsp" type="tSgnrIDVRsp" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr5IDVRsp" type="tSgnrIDVRsp" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SubsystemRspDtl" type="tSubsystemRspDtl" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RspCde" type="tRspCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RspMsg" type="tRspMsg" />
+    </xs:sequence>
+    <xs:attribute fixed="IDVSvc" name="service" use="required" />
+    <xs:attribute name="version" type="tVersion" use="required" />
+  </xs:complexType>
+  <xs:complexType name="tBusOFACSvc">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="FisTxnTrckId" type="tSoaTxnId" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CustId" type="tCustId" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProdCde" type="tProdCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ChnlId" type="tChnlId" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TxnTyp" type="tTxnTyp" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SourceSvcNm" type="tStringType30" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OFACRsp" type="tOFACRsp" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SubsystemRspDtl" type="tSubsystemRspDtl" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RspCde" type="tRspCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RspMsg" type="tRspMsg" />
+    </xs:sequence>
+    <xs:attribute fixed="BusOFACSvc" name="service" use="required" />
+    <xs:attribute name="version" type="tVersion" use="required" />
+  </xs:complexType>
+  <xs:complexType name="tOFACSvc">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="FisTxnTrckId" type="tSoaTxnId" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CustId" type="tCustId" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProdCde" type="tProdCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ChnlId" type="tChnlId" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TxnTyp" type="tTxnTyp" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SourceSvcNm" type="tStringType30" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrncplOwnrOFACRsp" type="tSgnrOFACRsp" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr2OFACRsp" type="tSgnrOFACRsp" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr3OFACRsp" type="tSgnrOFACRsp" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr4OFACRsp" type="tSgnrOFACRsp" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr5OFACRsp" type="tSgnrOFACRsp" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SubsystemRspDtl" type="tSubsystemRspDtl" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RspCde" type="tRspCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RspMsg" type="tRspMsg" />
+    </xs:sequence>
+    <xs:attribute fixed="OFACSvc" name="service" use="required" />
+    <xs:attribute name="version" type="tVersion" use="required" />
+  </xs:complexType>
+  <xs:complexType name="tSplMsgs">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="SplMsgsBizChex" type="tSplMsgsBizChex" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SplMsgsIDVOFAC" type="tSplMsgsIDVOFAC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tRefDtl">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="RefDtlBizChex" type="tRefDtlBizChex" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RefDtlIDVOFAC" type="tRefDtlIDVOFAC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tAddIDVOverrideRsp">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="FisTxnTrckId" type="tSoaTxnId" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CustId" type="tCustId" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProdCde" type="tProdCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ChnlId" type="tChnlId" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TxnTyp" type="tTxnTyp" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SourceSvcNm" type="tStringType30" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AddIDVOverrideRtn" type="tAddRtn" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SubsystemRspDtl" type="tSubsystemRspDtl" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RspCde" type="tRspCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RspMsg" type="tRspMsg" />
+    </xs:sequence>
+    <xs:attribute fixed="BizChexSvc" name="service" use="required" />
+    <xs:attribute name="version" type="tVersion" use="required" />
+  </xs:complexType>
+  <xs:complexType name="tAddOFACOverrideRsp">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="FisTxnTrckId" type="tSoaTxnId" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CustId" type="tCustId" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProdCde" type="tProdCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ChnlId" type="tChnlId" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TxnTyp" type="tTxnTyp" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SourceSvcNm" type="tStringType30" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AddOFACOverrideRtn" type="tAddRtn" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SubsystemRspDtl" type="tSubsystemRspDtl" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RspCde" type="tRspCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RspMsg" type="tRspMsg" />
+    </xs:sequence>
+    <xs:attribute fixed="BizChexSvc" name="service" use="required" />
+    <xs:attribute name="version" type="tVersion" use="required" />
+  </xs:complexType>
+  <xs:complexType name="tAddActionsRsp">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="FisTxnTrckId" type="tSoaTxnId" />
+      <xs:element minOccurs="1" maxOccurs="1" name="CustId" type="tCustId" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ProdCde" type="tProdCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ChnlId" type="tChnlId" />
+      <xs:element minOccurs="1" maxOccurs="1" name="TxnTyp" type="tTxnTyp" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SourceSvcNm" type="tStringType30" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AddActionsRtn" type="tAddRtn" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SubsystemRspDtl" type="tSubsystemRspDtl" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RspCde" type="tRspCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RspMsg" type="tRspMsg" />
+    </xs:sequence>
+    <xs:attribute fixed="BizChexSvc" name="service" use="required" />
+    <xs:attribute name="version" type="tVersion" use="required" />
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="https://unitynet.swbc.com/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="https://unitynet.swbc.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SWBC Unity Meridian Link Web Service</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="https://unitynet.swbc.com/">
+      <s:element name="GetLoanData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ARequest" type="tns:UnityRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UnityRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MLID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetLoanDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLoanDataResult" type="tns:UnityResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UnityResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DS">
+            <s:complexType>
+              <s:sequence>
+                <s:element ref="s:schema" />
+                <s:any />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetFilledFormsTestNoRequest">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetFilledFormsTestNoRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFilledFormsTestNoRequestResult" type="tns:UnityFormsResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UnityFormsResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:UnityResponse">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="UnityForms" type="s:base64Binary" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetFilledForms">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ARequest" type="tns:UnityRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFilledFormsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFilledFormsResult" type="tns:UnityFormsResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UnityFormsResponse" nillable="true" type="tns:UnityFormsResponse" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetLoanDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLoanData" />
+  </wsdl:message>
+  <wsdl:message name="GetLoanDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLoanDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFilledFormsTestNoRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFilledFormsTestNoRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetFilledFormsTestNoRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFilledFormsTestNoRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFilledFormsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFilledForms" />
+  </wsdl:message>
+  <wsdl:message name="GetFilledFormsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFilledFormsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFilledFormsTestNoRequestHttpGetIn" />
+  <wsdl:message name="GetFilledFormsTestNoRequestHttpGetOut">
+    <wsdl:part name="Body" element="tns:UnityFormsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFilledFormsTestNoRequestHttpPostIn" />
+  <wsdl:message name="GetFilledFormsTestNoRequestHttpPostOut">
+    <wsdl:part name="Body" element="tns:UnityFormsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MeridianLinkWSSoap">
+    <wsdl:operation name="GetLoanData">
+      <wsdl:input message="tns:GetLoanDataSoapIn" />
+      <wsdl:output message="tns:GetLoanDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFilledFormsTestNoRequest">
+      <wsdl:input message="tns:GetFilledFormsTestNoRequestSoapIn" />
+      <wsdl:output message="tns:GetFilledFormsTestNoRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFilledForms">
+      <wsdl:input message="tns:GetFilledFormsSoapIn" />
+      <wsdl:output message="tns:GetFilledFormsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="MeridianLinkWSHttpGet">
+    <wsdl:operation name="GetFilledFormsTestNoRequest">
+      <wsdl:input message="tns:GetFilledFormsTestNoRequestHttpGetIn" />
+      <wsdl:output message="tns:GetFilledFormsTestNoRequestHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="MeridianLinkWSHttpPost">
+    <wsdl:operation name="GetFilledFormsTestNoRequest">
+      <wsdl:input message="tns:GetFilledFormsTestNoRequestHttpPostIn" />
+      <wsdl:output message="tns:GetFilledFormsTestNoRequestHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MeridianLinkWSSoap" type="tns:MeridianLinkWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLoanData">
+      <soap:operation soapAction="https://unitynet.swbc.com/GetLoanData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFilledFormsTestNoRequest">
+      <soap:operation soapAction="https://unitynet.swbc.com/GetFilledFormsTestNoRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFilledForms">
+      <soap:operation soapAction="https://unitynet.swbc.com/GetFilledForms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MeridianLinkWSSoap12" type="tns:MeridianLinkWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetLoanData">
+      <soap12:operation soapAction="https://unitynet.swbc.com/GetLoanData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFilledFormsTestNoRequest">
+      <soap12:operation soapAction="https://unitynet.swbc.com/GetFilledFormsTestNoRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFilledForms">
+      <soap12:operation soapAction="https://unitynet.swbc.com/GetFilledForms" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MeridianLinkWSHttpGet" type="tns:MeridianLinkWSHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetFilledFormsTestNoRequest">
+      <http:operation location="/GetFilledFormsTestNoRequest" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MeridianLinkWSHttpPost" type="tns:MeridianLinkWSHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetFilledFormsTestNoRequest">
+      <http:operation location="/GetFilledFormsTestNoRequest" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MeridianLinkWS">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">SWBC Unity Meridian Link Web Service</wsdl:documentation>
+    <wsdl:port name="MeridianLinkWSSoap" binding="tns:MeridianLinkWSSoap">
+      <soap:address location="http://beta.swbc.com/unitynetmlpdf/meridianlinkws.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MeridianLinkWSSoap12" binding="tns:MeridianLinkWSSoap12">
+      <soap12:address location="http://beta.swbc.com/unitynetmlpdf/meridianlinkws.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MeridianLinkWSHttpGet" binding="tns:MeridianLinkWSHttpGet">
+      <http:address location="http://beta.swbc.com/unitynetmlpdf/meridianlinkws.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MeridianLinkWSHttpPost" binding="tns:MeridianLinkWSHttpPost">
+      <http:address location="http://beta.swbc.com/unitynetmlpdf/meridianlinkws.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

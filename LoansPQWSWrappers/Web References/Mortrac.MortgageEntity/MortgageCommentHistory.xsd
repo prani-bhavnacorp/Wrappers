@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:mortComment="http://com.fsb.domain/services/mortgage/MortgageComment" xmlns:mortCommentHist="http://com.fsb.domain/services/mortgage/MortgageCommentHistory" elementFormDefault="qualified" targetNamespace="http://com.fsb.domain/services/mortgage/MortgageCommentHistory" xmlns="http://www.w3.org/2001/XMLSchema">
+  <import schemaLocation="MortgageComment.xsd" namespace="http://com.fsb.domain/services/mortgage/MortgageComment" />
+  <element name="MortgageCommentHistory" type="mortCommentHist:MortgageCommentHistoryType" />
+  <complexType name="MortgageCommentHistoryType">
+    <sequence>
+      <element minOccurs="1" maxOccurs="unbounded" name="CommentArr" nillable="true" type="mortComment:MortgageCommentType" />
+    </sequence>
+  </complexType>
+</schema>

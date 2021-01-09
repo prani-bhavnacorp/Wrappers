@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:s0="http://scorex.com/webservices/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://scorex.com/webservices/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://scorex.com/webservices/">
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </types>
+  <message name="ProcessCallHttpPostIn">
+    <part name="xmlInput" type="s:string" />
+    <part name="arfInput" type="s:string" />
+  </message>
+  <message name="ProcessCallHttpPostOut">
+    <part name="Body" element="s0:string" />
+  </message>
+  <portType name="FastStartWebServiceHttpPost">
+    <operation name="ProcessCall">
+      <input message="s0:ProcessCallHttpPostIn" />
+      <output message="s0:ProcessCallHttpPostOut" />
+    </operation>
+  </portType>
+  <binding name="FastStartWebServiceHttpPost" type="s0:FastStartWebServiceHttpPost">
+    <http:binding verb="POST" />
+    <operation name="ProcessCall">
+      <http:operation location="/ProcessCall" />
+      <input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </input>
+      <output>
+        <mime:mimeXml part="Body" />
+      </output>
+    </operation>
+  </binding>
+  <service name="FastStartWebService">
+    <port name="FastStartWebServiceHttpPost" binding="s0:FastStartWebServiceHttpPost">
+      <http:address location="https://65.200.30.29/IntegrationConfirmWSE2/Confirm.asmx" />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,898 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.name-searching.com/CaddressASP" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.name-searching.com/CaddressASP" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.name-searching.com/CaddressASP">
+      <s:element name="getAccountAccess">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAccountAccessResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAccountAccessResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAccountInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getAccountInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getAccountInfoResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="callTSearch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="street" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="country" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="score_threshold" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="maximum_results" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="search_lists" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="callTSearchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="callTSearchResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="callTSearch2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="street" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="country" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="score_threshold" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="maximum_results" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="search_lists" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="callTSearch2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="callTSearch2Result">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="callTASearch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="street" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="country" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="score_threshold" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="maximum_results" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="search_lists" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="callTASearchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="callTASearchResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="callTASearch2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="street" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="country" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="score_threshold" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="maximum_results" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="search_lists" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="callTASearch2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="callTASearch2Result">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="callTSearchStd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="street" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="country" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="score_threshold" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="maximum_results" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="search_lists" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="search_rulebase" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="exclude_vessel" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="include_alias" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="extended_search" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="search_range" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="callTSearchStdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="callTSearchStdResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="callSTSearchStd">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="street" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="country" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="score_threshold" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="maximum_results" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="search_lists" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="search_rulebase" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="exclude_vessel" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="include_alias" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="extended_search" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="search_range" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="callSTSearchStdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="callSTSearchStdResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getBuildDate">
+        <s:complexType />
+      </s:element>
+      <s:element name="getBuildDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getBuildDateResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getAccountAccessSoapIn">
+    <wsdl:part name="parameters" element="tns:getAccountAccess" />
+  </wsdl:message>
+  <wsdl:message name="getAccountAccessSoapOut">
+    <wsdl:part name="parameters" element="tns:getAccountAccessResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAccountInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:getAccountInfo" />
+  </wsdl:message>
+  <wsdl:message name="getAccountInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:getAccountInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="callTSearchSoapIn">
+    <wsdl:part name="parameters" element="tns:callTSearch" />
+  </wsdl:message>
+  <wsdl:message name="callTSearchSoapOut">
+    <wsdl:part name="parameters" element="tns:callTSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="callTSearch2SoapIn">
+    <wsdl:part name="parameters" element="tns:callTSearch2" />
+  </wsdl:message>
+  <wsdl:message name="callTSearch2SoapOut">
+    <wsdl:part name="parameters" element="tns:callTSearch2Response" />
+  </wsdl:message>
+  <wsdl:message name="callTASearchSoapIn">
+    <wsdl:part name="parameters" element="tns:callTASearch" />
+  </wsdl:message>
+  <wsdl:message name="callTASearchSoapOut">
+    <wsdl:part name="parameters" element="tns:callTASearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="callTASearch2SoapIn">
+    <wsdl:part name="parameters" element="tns:callTASearch2" />
+  </wsdl:message>
+  <wsdl:message name="callTASearch2SoapOut">
+    <wsdl:part name="parameters" element="tns:callTASearch2Response" />
+  </wsdl:message>
+  <wsdl:message name="callTSearchStdSoapIn">
+    <wsdl:part name="parameters" element="tns:callTSearchStd" />
+  </wsdl:message>
+  <wsdl:message name="callTSearchStdSoapOut">
+    <wsdl:part name="parameters" element="tns:callTSearchStdResponse" />
+  </wsdl:message>
+  <wsdl:message name="callSTSearchStdSoapIn">
+    <wsdl:part name="parameters" element="tns:callSTSearchStd" />
+  </wsdl:message>
+  <wsdl:message name="callSTSearchStdSoapOut">
+    <wsdl:part name="parameters" element="tns:callSTSearchStdResponse" />
+  </wsdl:message>
+  <wsdl:message name="getBuildDateSoapIn">
+    <wsdl:part name="parameters" element="tns:getBuildDate" />
+  </wsdl:message>
+  <wsdl:message name="getBuildDateSoapOut">
+    <wsdl:part name="parameters" element="tns:getBuildDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="getAccountAccessHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getAccountAccessHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="getAccountInfoHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getAccountInfoHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="callTSearchHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="name" type="s:string" />
+    <wsdl:part name="street" type="s:string" />
+    <wsdl:part name="city" type="s:string" />
+    <wsdl:part name="country" type="s:string" />
+    <wsdl:part name="score_threshold" type="s:string" />
+    <wsdl:part name="maximum_results" type="s:string" />
+    <wsdl:part name="search_lists" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="callTSearchHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="callTSearch2HttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="name" type="s:string" />
+    <wsdl:part name="street" type="s:string" />
+    <wsdl:part name="city" type="s:string" />
+    <wsdl:part name="country" type="s:string" />
+    <wsdl:part name="score_threshold" type="s:string" />
+    <wsdl:part name="maximum_results" type="s:string" />
+    <wsdl:part name="search_lists" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="callTSearch2HttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="callTASearchHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="name" type="s:string" />
+    <wsdl:part name="street" type="s:string" />
+    <wsdl:part name="city" type="s:string" />
+    <wsdl:part name="country" type="s:string" />
+    <wsdl:part name="score_threshold" type="s:string" />
+    <wsdl:part name="maximum_results" type="s:string" />
+    <wsdl:part name="search_lists" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="callTASearchHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="callTASearch2HttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="name" type="s:string" />
+    <wsdl:part name="street" type="s:string" />
+    <wsdl:part name="city" type="s:string" />
+    <wsdl:part name="country" type="s:string" />
+    <wsdl:part name="score_threshold" type="s:string" />
+    <wsdl:part name="maximum_results" type="s:string" />
+    <wsdl:part name="search_lists" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="callTASearch2HttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="callTSearchStdHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="name" type="s:string" />
+    <wsdl:part name="street" type="s:string" />
+    <wsdl:part name="city" type="s:string" />
+    <wsdl:part name="country" type="s:string" />
+    <wsdl:part name="score_threshold" type="s:string" />
+    <wsdl:part name="maximum_results" type="s:string" />
+    <wsdl:part name="search_lists" type="s:string" />
+    <wsdl:part name="search_rulebase" type="s:string" />
+    <wsdl:part name="exclude_vessel" type="s:string" />
+    <wsdl:part name="include_alias" type="s:string" />
+    <wsdl:part name="extended_search" type="s:string" />
+    <wsdl:part name="search_range" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="callTSearchStdHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="callSTSearchStdHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="name" type="s:string" />
+    <wsdl:part name="street" type="s:string" />
+    <wsdl:part name="city" type="s:string" />
+    <wsdl:part name="country" type="s:string" />
+    <wsdl:part name="score_threshold" type="s:string" />
+    <wsdl:part name="maximum_results" type="s:string" />
+    <wsdl:part name="search_lists" type="s:string" />
+    <wsdl:part name="search_rulebase" type="s:string" />
+    <wsdl:part name="exclude_vessel" type="s:string" />
+    <wsdl:part name="include_alias" type="s:string" />
+    <wsdl:part name="extended_search" type="s:string" />
+    <wsdl:part name="search_range" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="callSTSearchStdHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="getBuildDateHttpGetIn" />
+  <wsdl:message name="getBuildDateHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="getAccountAccessHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getAccountAccessHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="getAccountInfoHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getAccountInfoHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="callTSearchHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="name" type="s:string" />
+    <wsdl:part name="street" type="s:string" />
+    <wsdl:part name="city" type="s:string" />
+    <wsdl:part name="country" type="s:string" />
+    <wsdl:part name="score_threshold" type="s:string" />
+    <wsdl:part name="maximum_results" type="s:string" />
+    <wsdl:part name="search_lists" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="callTSearchHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="callTSearch2HttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="name" type="s:string" />
+    <wsdl:part name="street" type="s:string" />
+    <wsdl:part name="city" type="s:string" />
+    <wsdl:part name="country" type="s:string" />
+    <wsdl:part name="score_threshold" type="s:string" />
+    <wsdl:part name="maximum_results" type="s:string" />
+    <wsdl:part name="search_lists" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="callTSearch2HttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="callTASearchHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="name" type="s:string" />
+    <wsdl:part name="street" type="s:string" />
+    <wsdl:part name="city" type="s:string" />
+    <wsdl:part name="country" type="s:string" />
+    <wsdl:part name="score_threshold" type="s:string" />
+    <wsdl:part name="maximum_results" type="s:string" />
+    <wsdl:part name="search_lists" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="callTASearchHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="callTASearch2HttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="name" type="s:string" />
+    <wsdl:part name="street" type="s:string" />
+    <wsdl:part name="city" type="s:string" />
+    <wsdl:part name="country" type="s:string" />
+    <wsdl:part name="score_threshold" type="s:string" />
+    <wsdl:part name="maximum_results" type="s:string" />
+    <wsdl:part name="search_lists" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="callTASearch2HttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="callTSearchStdHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="name" type="s:string" />
+    <wsdl:part name="street" type="s:string" />
+    <wsdl:part name="city" type="s:string" />
+    <wsdl:part name="country" type="s:string" />
+    <wsdl:part name="score_threshold" type="s:string" />
+    <wsdl:part name="maximum_results" type="s:string" />
+    <wsdl:part name="search_lists" type="s:string" />
+    <wsdl:part name="search_rulebase" type="s:string" />
+    <wsdl:part name="exclude_vessel" type="s:string" />
+    <wsdl:part name="include_alias" type="s:string" />
+    <wsdl:part name="extended_search" type="s:string" />
+    <wsdl:part name="search_range" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="callTSearchStdHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="callSTSearchStdHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="name" type="s:string" />
+    <wsdl:part name="street" type="s:string" />
+    <wsdl:part name="city" type="s:string" />
+    <wsdl:part name="country" type="s:string" />
+    <wsdl:part name="score_threshold" type="s:string" />
+    <wsdl:part name="maximum_results" type="s:string" />
+    <wsdl:part name="search_lists" type="s:string" />
+    <wsdl:part name="search_rulebase" type="s:string" />
+    <wsdl:part name="exclude_vessel" type="s:string" />
+    <wsdl:part name="include_alias" type="s:string" />
+    <wsdl:part name="extended_search" type="s:string" />
+    <wsdl:part name="search_range" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="callSTSearchStdHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="getBuildDateHttpPostIn" />
+  <wsdl:message name="getBuildDateHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:portType name="ISTWatchServicesSoap">
+    <wsdl:operation name="getAccountAccess">
+      <wsdl:input message="tns:getAccountAccessSoapIn" />
+      <wsdl:output message="tns:getAccountAccessSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAccountInfo">
+      <wsdl:input message="tns:getAccountInfoSoapIn" />
+      <wsdl:output message="tns:getAccountInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="callTSearch">
+      <wsdl:input message="tns:callTSearchSoapIn" />
+      <wsdl:output message="tns:callTSearchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="callTSearch2">
+      <wsdl:input message="tns:callTSearch2SoapIn" />
+      <wsdl:output message="tns:callTSearch2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="callTASearch">
+      <wsdl:input message="tns:callTASearchSoapIn" />
+      <wsdl:output message="tns:callTASearchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="callTASearch2">
+      <wsdl:input message="tns:callTASearch2SoapIn" />
+      <wsdl:output message="tns:callTASearch2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="callTSearchStd">
+      <wsdl:input message="tns:callTSearchStdSoapIn" />
+      <wsdl:output message="tns:callTSearchStdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="callSTSearchStd">
+      <wsdl:input message="tns:callSTSearchStdSoapIn" />
+      <wsdl:output message="tns:callSTSearchStdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getBuildDate">
+      <wsdl:input message="tns:getBuildDateSoapIn" />
+      <wsdl:output message="tns:getBuildDateSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ISTWatchServicesHttpGet">
+    <wsdl:operation name="getAccountAccess">
+      <wsdl:input message="tns:getAccountAccessHttpGetIn" />
+      <wsdl:output message="tns:getAccountAccessHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAccountInfo">
+      <wsdl:input message="tns:getAccountInfoHttpGetIn" />
+      <wsdl:output message="tns:getAccountInfoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="callTSearch">
+      <wsdl:input message="tns:callTSearchHttpGetIn" />
+      <wsdl:output message="tns:callTSearchHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="callTSearch2">
+      <wsdl:input message="tns:callTSearch2HttpGetIn" />
+      <wsdl:output message="tns:callTSearch2HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="callTASearch">
+      <wsdl:input message="tns:callTASearchHttpGetIn" />
+      <wsdl:output message="tns:callTASearchHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="callTASearch2">
+      <wsdl:input message="tns:callTASearch2HttpGetIn" />
+      <wsdl:output message="tns:callTASearch2HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="callTSearchStd">
+      <wsdl:input message="tns:callTSearchStdHttpGetIn" />
+      <wsdl:output message="tns:callTSearchStdHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="callSTSearchStd">
+      <wsdl:input message="tns:callSTSearchStdHttpGetIn" />
+      <wsdl:output message="tns:callSTSearchStdHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getBuildDate">
+      <wsdl:input message="tns:getBuildDateHttpGetIn" />
+      <wsdl:output message="tns:getBuildDateHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ISTWatchServicesHttpPost">
+    <wsdl:operation name="getAccountAccess">
+      <wsdl:input message="tns:getAccountAccessHttpPostIn" />
+      <wsdl:output message="tns:getAccountAccessHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getAccountInfo">
+      <wsdl:input message="tns:getAccountInfoHttpPostIn" />
+      <wsdl:output message="tns:getAccountInfoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="callTSearch">
+      <wsdl:input message="tns:callTSearchHttpPostIn" />
+      <wsdl:output message="tns:callTSearchHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="callTSearch2">
+      <wsdl:input message="tns:callTSearch2HttpPostIn" />
+      <wsdl:output message="tns:callTSearch2HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="callTASearch">
+      <wsdl:input message="tns:callTASearchHttpPostIn" />
+      <wsdl:output message="tns:callTASearchHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="callTASearch2">
+      <wsdl:input message="tns:callTASearch2HttpPostIn" />
+      <wsdl:output message="tns:callTASearch2HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="callTSearchStd">
+      <wsdl:input message="tns:callTSearchStdHttpPostIn" />
+      <wsdl:output message="tns:callTSearchStdHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="callSTSearchStd">
+      <wsdl:input message="tns:callSTSearchStdHttpPostIn" />
+      <wsdl:output message="tns:callSTSearchStdHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getBuildDate">
+      <wsdl:input message="tns:getBuildDateHttpPostIn" />
+      <wsdl:output message="tns:getBuildDateHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ISTWatchServicesSoap" type="tns:ISTWatchServicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getAccountAccess">
+      <soap:operation soapAction="http://www.name-searching.com/CaddressASP/getAccountAccess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountInfo">
+      <soap:operation soapAction="http://www.name-searching.com/CaddressASP/getAccountInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="callTSearch">
+      <soap:operation soapAction="http://www.name-searching.com/CaddressASP/callTSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="callTSearch2">
+      <soap:operation soapAction="http://www.name-searching.com/CaddressASP/callTSearch2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="callTASearch">
+      <soap:operation soapAction="http://www.name-searching.com/CaddressASP/callTASearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="callTASearch2">
+      <soap:operation soapAction="http://www.name-searching.com/CaddressASP/callTASearch2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="callTSearchStd">
+      <soap:operation soapAction="http://www.name-searching.com/CaddressASP/callTSearchStd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="callSTSearchStd">
+      <soap:operation soapAction="http://www.name-searching.com/CaddressASP/callSTSearchStd" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBuildDate">
+      <soap:operation soapAction="http://www.name-searching.com/CaddressASP/getBuildDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ISTWatchServicesHttpGet" type="tns:ISTWatchServicesHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="getAccountAccess">
+      <http:operation location="/getAccountAccess" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountInfo">
+      <http:operation location="/getAccountInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="callTSearch">
+      <http:operation location="/callTSearch" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="callTSearch2">
+      <http:operation location="/callTSearch2" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="callTASearch">
+      <http:operation location="/callTASearch" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="callTASearch2">
+      <http:operation location="/callTASearch2" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="callTSearchStd">
+      <http:operation location="/callTSearchStd" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="callSTSearchStd">
+      <http:operation location="/callSTSearchStd" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBuildDate">
+      <http:operation location="/getBuildDate" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ISTWatchServicesHttpPost" type="tns:ISTWatchServicesHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="getAccountAccess">
+      <http:operation location="/getAccountAccess" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAccountInfo">
+      <http:operation location="/getAccountInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="callTSearch">
+      <http:operation location="/callTSearch" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="callTSearch2">
+      <http:operation location="/callTSearch2" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="callTASearch">
+      <http:operation location="/callTASearch" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="callTASearch2">
+      <http:operation location="/callTASearch2" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="callTSearchStd">
+      <http:operation location="/callTSearchStd" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="callSTSearchStd">
+      <http:operation location="/callSTSearchStd" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBuildDate">
+      <http:operation location="/getBuildDate" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ISTWatchServices">
+    <wsdl:port name="ISTWatchServicesSoap" binding="tns:ISTWatchServicesSoap">
+      <soap:address location="http://www.name-searching.com/CaddressASP/ISTWatchWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ISTWatchServicesHttpGet" binding="tns:ISTWatchServicesHttpGet">
+      <http:address location="http://www.name-searching.com/CaddressASP/ISTWatchWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ISTWatchServicesHttpPost" binding="tns:ISTWatchServicesHttpPost">
+      <http:address location="http://www.name-searching.com/CaddressASP/ISTWatchWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

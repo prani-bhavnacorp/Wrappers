@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:import0="mtvnCWLNUsrDefFldsSvcReq" xmlns:import1="mtvnCWLNUsrDefFldsSvcRes" xmlns:tns="mtvnLNUsrDefFldsWSV2" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="mtvnLNUsrDefFldsWSV2" targetNamespace="mtvnLNUsrDefFldsWSV2" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Connectware Web Service Interface</documentation>
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="./LNUsrDefFldsWSV2SvcReq.xsd" namespace="mtvnCWLNUsrDefFldsSvcReq" />
+      <xsd:import schemaLocation="./LNUsrDefFldsWSV2SvcRes.xsd" namespace="mtvnCWLNUsrDefFldsSvcRes" />
+    </xsd:schema>
+  </types>
+  <message name="LNUsrDefFldsMtvnSvcReqMsg">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <part name="messagePart" element="import0:LNUsrDefFldsMtvnSvcReq" />
+  </message>
+  <message name="LNUsrDefFldsMtvnSvcResMsg">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <part name="messagePart" element="import1:LNUsrDefFldsMtvnSvcRes" />
+  </message>
+  <portType name="mtvnCWLNUsrDefFldsWSV2Interface">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">LNUsrDefFldsWSV2</documentation>
+    <operation name="LNUsrDefFlds">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+      <input message="tns:LNUsrDefFldsMtvnSvcReqMsg" />
+      <output message="tns:LNUsrDefFldsMtvnSvcResMsg" />
+    </operation>
+  </portType>
+  <binding name="mtvnCWLNUsrDefFldsWSV2" type="tns:mtvnCWLNUsrDefFldsWSV2Interface">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="LNUsrDefFlds">
+      <soap:operation soapAction="LNUsrDefFldsWSV2:LNUsrDefFldsMtvnSvcReqMsg" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="mtvnCWLNUsrDefFldsWSV2">
+    <port name="mtvnCWLNUsrDefFldsWSV2Port" binding="tns:mtvnCWLNUsrDefFldsWSV2">
+      <soap:address location="https://ih-excust-other.fisglobal.com/ConnectwareWS/LNUsrDefFldsWSV2" />
+    </port>
+  </service>
+</definitions>

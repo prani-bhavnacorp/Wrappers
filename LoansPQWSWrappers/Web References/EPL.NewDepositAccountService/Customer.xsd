@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:tns="http://ws.eplinc.com/common/Customer/2008-08-01/" elementFormDefault="qualified" targetNamespace="http://ws.eplinc.com/common/Customer/2008-08-01/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="Address">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="ForeignAddress" type="xsd:boolean" />
+      <xsd:element name="AddressLine1" type="xsd:string" />
+      <xsd:element minOccurs="0" name="AddressLine2" type="xsd:string" />
+      <xsd:element name="City" type="xsd:string" />
+      <xsd:element minOccurs="0" name="State" type="xsd:string" />
+      <xsd:element minOccurs="0" name="StateOrProvince" type="xsd:string" />
+      <xsd:element name="PostalCode" type="xsd:string" />
+      <xsd:element minOccurs="0" name="County" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Country" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="BasicCustomerProfile">
+    <xsd:sequence>
+      <xsd:element name="SSN" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Name" type="tns:CustomerName" />
+      <xsd:element name="FullName" type="xsd:string" />
+      <xsd:element minOccurs="0" name="ShortName" type="xsd:string" />
+      <xsd:element name="USCitizen" type="xsd:boolean" />
+      <xsd:element name="BirthDate" type="xsd:string" />
+      <xsd:element minOccurs="0" name="DeathDate" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Phone" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Mobile" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Pager" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Email" type="xsd:string" />
+      <xsd:element minOccurs="0" name="DriversLicense" type="tns:DriversLicense" />
+      <xsd:element minOccurs="0" name="CurrentHome" type="tns:Residence" />
+      <xsd:element minOccurs="0" name="CurrentEmployment" type="tns:Employment" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DetailedCustomerProfile">
+    <xsd:sequence>
+      <xsd:element name="SSN" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Name" type="tns:CustomerName" />
+      <xsd:element name="FullName" type="xsd:string" />
+      <xsd:element minOccurs="0" name="ShortName" type="xsd:string" />
+      <xsd:element name="USCitizen" type="xsd:boolean" />
+      <xsd:element name="BirthDate" type="xsd:string" />
+      <xsd:element minOccurs="0" name="DeathDate" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Phone" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="InternationalPhone" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="Mobile" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="InternationalMobile" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="Pager" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Email" type="xsd:string" />
+      <xsd:element minOccurs="0" name="DriversLicense" type="tns:DriversLicense" />
+      <xsd:element minOccurs="0" name="CurrentHome" type="tns:Residence" />
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="PreviousHome" type="tns:Residence" />
+      <xsd:element minOccurs="0" name="CurrentEmployment" type="tns:Employment" />
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="PreviousEmployment" type="tns:Employment" />
+      <xsd:element minOccurs="0" name="TemporaryMailing" type="tns:TemporaryMailing" />
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="Identification" type="tns:Identification" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="Relationship" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CustomerName">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="Prefix" type="xsd:string" />
+      <xsd:element name="FirstName" type="xsd:string" />
+      <xsd:element minOccurs="0" name="MiddleInitial" type="xsd:string" />
+      <xsd:element minOccurs="0" name="MiddleName" type="xsd:string" />
+      <xsd:element name="LastName" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Suffix" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DriversLicense">
+    <xsd:sequence>
+      <xsd:element name="LicenseNumber" type="xsd:string" />
+      <xsd:element name="State" type="xsd:string" />
+      <xsd:element minOccurs="0" name="IssuedDate" type="xsd:string" />
+      <xsd:element minOccurs="0" name="ExpirationDate" type="xsd:string" />
+      <xsd:element minOccurs="0" name="VerificationDate" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Description" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Employment">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="EmployerName" type="xsd:string" />
+      <xsd:element minOccurs="0" name="EmployerAddress" type="tns:Address" />
+      <xsd:element minOccurs="0" name="Occupation" type="xsd:string" />
+      <xsd:element minOccurs="0" name="DateHired" type="xsd:string" />
+      <xsd:element minOccurs="0" name="YearsEmployed" type="xsd:int" />
+      <xsd:element minOccurs="0" name="MonthsEmployed" type="xsd:int" />
+      <xsd:element minOccurs="0" name="Phone" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="InternationalPhone" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="Extension" type="xsd:int" />
+      <xsd:element minOccurs="0" name="Mobile" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="InternationalMobile" type="xsd:boolean" />
+      <xsd:element minOccurs="0" name="Email" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Identification">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="DocumentaryFlag" type="xsd:string" />
+      <xsd:element name="Type" type="xsd:int" />
+      <xsd:element minOccurs="0" name="Number" type="xsd:long" />
+      <xsd:element minOccurs="0" name="IssuedDate" type="xsd:string" />
+      <xsd:element minOccurs="0" name="ExpirationDate" type="xsd:string" />
+      <xsd:element minOccurs="0" name="VerificationDate" type="xsd:string" />
+      <xsd:element minOccurs="0" name="Description" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Residence">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="Address" type="tns:Address" />
+      <xsd:element minOccurs="0" name="Years" type="xsd:int" />
+      <xsd:element minOccurs="0" name="Months" type="xsd:int" />
+      <xsd:element minOccurs="0" name="ResidencyType" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TemporaryMailing">
+    <xsd:sequence>
+      <xsd:element name="Address" type="tns:Address" />
+      <xsd:element minOccurs="0" name="Phone" type="xsd:string" />
+      <xsd:element name="StartDate" type="xsd:string" />
+      <xsd:element name="EndDate" type="xsd:string" />
+      <xsd:element name="NeverExpire" type="xsd:boolean" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

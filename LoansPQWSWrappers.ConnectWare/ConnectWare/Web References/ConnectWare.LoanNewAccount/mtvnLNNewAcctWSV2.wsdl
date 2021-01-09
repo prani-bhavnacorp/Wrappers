@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="mtvnLNNewAcctWSV2" xmlns:import0="mtvnCWLNNewAcctSvcReq" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:import1="mtvnCWLNNewAcctSvcRes" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="mtvnLNNewAcctWSV2" targetNamespace="mtvnLNNewAcctWSV2" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Connectware Web Service Interface</documentation>
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="./LNNewAcctWSV2SvcReq.xsd" namespace="mtvnCWLNNewAcctSvcReq" />
+      <xsd:import schemaLocation="./LNNewAcctWSV2SvcRes.xsd" namespace="mtvnCWLNNewAcctSvcRes" />
+    </xsd:schema>
+  </types>
+  <message name="LNNewAcctMtvnSvcReqMsg">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <part name="messagePart" element="import0:LNNewAcctMtvnSvcReq" />
+  </message>
+  <message name="LNNewAcctMtvnSvcResMsg">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <part name="messagePart" element="import1:LNNewAcctMtvnSvcRes" />
+  </message>
+  <portType name="mtvnCWLNNewAcctWSV2Interface">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">LNNewAcctWSV2</documentation>
+    <operation name="LNNewAcct">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+      <input message="tns:LNNewAcctMtvnSvcReqMsg" />
+      <output message="tns:LNNewAcctMtvnSvcResMsg" />
+    </operation>
+  </portType>
+  <binding name="mtvnCWLNNewAcctWSV2" type="tns:mtvnCWLNNewAcctWSV2Interface">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="LNNewAcct">
+      <soap:operation soapAction="LNNewAcctWSV2:LNNewAcctMtvnSvcReqMsg" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="mtvnCWLNNewAcctWSV2">
+    <port name="mtvnCWLNNewAcctWSV2Port" binding="tns:mtvnCWLNNewAcctWSV2">
+      <soap:address location="https://xmlgateway.metavante.org/ConnectwareWS/LNNewAcctWSV2" />
+    </port>
+  </service>
+</definitions>

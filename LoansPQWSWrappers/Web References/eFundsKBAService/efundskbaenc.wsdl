@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:tns5="http://V002.replyobjects.soap.penleyinc.com" xmlns:tns3="http://V001.replyobjects.soap.penleyinc.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns2="http://V001.queryobjects.soap.penleyinc.com" xmlns:impl="urn:efundskba" xmlns:tns4="http://V002.queryobjects.soap.penleyinc.com" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:intf="urn:efundskba" targetNamespace="urn:efundskba" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://V001.queryobjects.soap.penleyinc.com">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="KBAIdentification">
+        <xsd:sequence>
+          <xsd:element name="acquirerid" nillable="true" type="xsd:string" />
+          <xsd:element name="configkey" nillable="true" type="xsd:string" />
+          <xsd:element name="customerid" nillable="true" type="xsd:string" />
+          <xsd:element name="locationid" nillable="true" type="xsd:string" />
+          <xsd:element name="productcd" nillable="true" type="xsd:string" />
+          <xsd:element name="productversionbr" nillable="true" type="xsd:string" />
+          <xsd:element name="staging" type="xsd:boolean" />
+          <xsd:element name="userdefinedtransactiontext1" nillable="true" type="xsd:string" />
+          <xsd:element name="userdefinedtransactiontext2" nillable="true" type="xsd:string" />
+          <xsd:element name="userdefinedtransactiontext3" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="KBAPerson">
+        <xsd:sequence>
+          <xsd:element name="address" nillable="true" type="xsd:string" />
+          <xsd:element name="city" nillable="true" type="xsd:string" />
+          <xsd:element name="dob" nillable="true" type="xsd:string" />
+          <xsd:element name="firstname" nillable="true" type="xsd:string" />
+          <xsd:element name="lastname" nillable="true" type="xsd:string" />
+          <xsd:element name="ssn" nillable="true" type="xsd:string" />
+          <xsd:element name="state" nillable="true" type="xsd:string" />
+          <xsd:element name="zip" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="KBAAnswers">
+        <xsd:sequence>
+          <xsd:element name="answer1QuestionId" nillable="true" type="xsd:string" />
+          <xsd:element name="answer1ResponseId" nillable="true" type="xsd:string" />
+          <xsd:element name="answer2QuestionId" nillable="true" type="xsd:string" />
+          <xsd:element name="answer2ResponseId" nillable="true" type="xsd:string" />
+          <xsd:element name="answer3QuestionId" nillable="true" type="xsd:string" />
+          <xsd:element name="answer3ResponseId" nillable="true" type="xsd:string" />
+          <xsd:element name="answer4QuestionId" nillable="true" type="xsd:string" />
+          <xsd:element name="answer4ResponseId" nillable="true" type="xsd:string" />
+          <xsd:element name="answer5QuestionId" nillable="true" type="xsd:string" />
+          <xsd:element name="answer5ResponseId" nillable="true" type="xsd:string" />
+          <xsd:element name="answer6QuestionId" nillable="true" type="xsd:string" />
+          <xsd:element name="answer6ResponseId" nillable="true" type="xsd:string" />
+          <xsd:element name="quizid" nillable="true" type="xsd:string" />
+          <xsd:element name="transid" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://V001.replyobjects.soap.penleyinc.com">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="KBAQuestion">
+        <xsd:sequence>
+          <xsd:element name="answer1id" nillable="true" type="xsd:string" />
+          <xsd:element name="answer1text" nillable="true" type="xsd:string" />
+          <xsd:element name="answer2id" nillable="true" type="xsd:string" />
+          <xsd:element name="answer2text" nillable="true" type="xsd:string" />
+          <xsd:element name="answer3id" nillable="true" type="xsd:string" />
+          <xsd:element name="answer3text" nillable="true" type="xsd:string" />
+          <xsd:element name="answer4id" nillable="true" type="xsd:string" />
+          <xsd:element name="answer4text" nillable="true" type="xsd:string" />
+          <xsd:element name="answer5id" nillable="true" type="xsd:string" />
+          <xsd:element name="answer5text" nillable="true" type="xsd:string" />
+          <xsd:element name="answer6id" nillable="true" type="xsd:string" />
+          <xsd:element name="answer6text" nillable="true" type="xsd:string" />
+          <xsd:element name="id" nillable="true" type="xsd:string" />
+          <xsd:element name="questiontext" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="KBAQuestions">
+        <xsd:sequence>
+          <xsd:element name="KBAQuestion1" nillable="true" type="tns3:KBAQuestion" />
+          <xsd:element name="KBAQuestion2" nillable="true" type="tns3:KBAQuestion" />
+          <xsd:element name="KBAQuestion3" nillable="true" type="tns3:KBAQuestion" />
+          <xsd:element name="KBAQuestion4" nillable="true" type="tns3:KBAQuestion" />
+          <xsd:element name="KBAQuestion5" nillable="true" type="tns3:KBAQuestion" />
+          <xsd:element name="KBAQuestion6" nillable="true" type="tns3:KBAQuestion" />
+          <xsd:element name="KBAQuestion7" nillable="true" type="tns3:KBAQuestion" />
+          <xsd:element name="KBAQuestion8" nillable="true" type="tns3:KBAQuestion" />
+          <xsd:element name="KBAQuestion9" nillable="true" type="tns3:KBAQuestion" />
+          <xsd:element name="quizid" nillable="true" type="xsd:string" />
+          <xsd:element name="quizremain" nillable="true" type="xsd:string" />
+          <xsd:element name="quiztime" nillable="true" type="xsd:string" />
+          <xsd:element name="transid" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="KBADecision">
+        <xsd:sequence>
+          <xsd:element name="base" type="xsd:int" />
+          <xsd:element name="decision" nillable="true" type="xsd:string" />
+          <xsd:element name="score" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://V002.queryobjects.soap.penleyinc.com">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="KBAPerson">
+        <xsd:sequence>
+          <xsd:element name="idvoid" type="xsd:int" />
+          <xsd:element name="address" nillable="true" type="xsd:string" />
+          <xsd:element name="city" nillable="true" type="xsd:string" />
+          <xsd:element name="dob" nillable="true" type="xsd:string" />
+          <xsd:element name="firstname" nillable="true" type="xsd:string" />
+          <xsd:element name="lastname" nillable="true" type="xsd:string" />
+          <xsd:element name="ssn" nillable="true" type="xsd:string" />
+          <xsd:element name="state" nillable="true" type="xsd:string" />
+          <xsd:element name="zip" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://V002.replyobjects.soap.penleyinc.com">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="KBADecision">
+        <xsd:sequence>
+          <xsd:element name="base" type="xsd:int" />
+          <xsd:element name="decision" nillable="true" type="xsd:string" />
+          <xsd:element name="score" type="xsd:int" />
+          <xsd:element name="kbaoid" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="kbaAnswerV002Request">
+    <wsdl:part name="in0" type="xsd:string" />
+    <wsdl:part name="in1" type="tns2:KBAAnswers" />
+  </wsdl:message>
+  <wsdl:message name="kbaAnswerResponse">
+    <wsdl:part name="kbaAnswerReturn" type="tns3:KBADecision" />
+  </wsdl:message>
+  <wsdl:message name="kbaQuestionV002Request">
+    <wsdl:part name="in0" type="xsd:string" />
+    <wsdl:part name="in1" type="tns2:KBAIdentification" />
+    <wsdl:part name="in2" type="tns4:KBAPerson" />
+  </wsdl:message>
+  <wsdl:message name="kbaQuestionRequest">
+    <wsdl:part name="in0" type="xsd:string" />
+    <wsdl:part name="in1" type="tns2:KBAIdentification" />
+    <wsdl:part name="in2" type="tns2:KBAPerson" />
+  </wsdl:message>
+  <wsdl:message name="kbaQuestionV002Response">
+    <wsdl:part name="kbaQuestionV002Return" type="tns3:KBAQuestions" />
+  </wsdl:message>
+  <wsdl:message name="kbaAuthenticateResponse">
+    <wsdl:part name="kbaAuthenticateReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="kbaAuthenticateRequest">
+    <wsdl:part name="in0" type="xsd:string" />
+    <wsdl:part name="in1" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="kbaQuestionResponse">
+    <wsdl:part name="kbaQuestionReturn" type="tns3:KBAQuestions" />
+  </wsdl:message>
+  <wsdl:message name="kbaAnswerV002Response">
+    <wsdl:part name="kbaAnswerV002Return" type="tns5:KBADecision" />
+  </wsdl:message>
+  <wsdl:message name="kbaAnswerRequest">
+    <wsdl:part name="in0" type="xsd:string" />
+    <wsdl:part name="in1" type="tns2:KBAAnswers" />
+  </wsdl:message>
+  <wsdl:portType name="KbaService">
+    <wsdl:operation name="kbaQuestion" parameterOrder="in0 in1 in2">
+      <wsdl:input name="kbaQuestionRequest" message="intf:kbaQuestionRequest" />
+      <wsdl:output name="kbaQuestionResponse" message="intf:kbaQuestionResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="kbaAnswer" parameterOrder="in0 in1">
+      <wsdl:input name="kbaAnswerRequest" message="intf:kbaAnswerRequest" />
+      <wsdl:output name="kbaAnswerResponse" message="intf:kbaAnswerResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="kbaAuthenticate" parameterOrder="in0 in1">
+      <wsdl:input name="kbaAuthenticateRequest" message="intf:kbaAuthenticateRequest" />
+      <wsdl:output name="kbaAuthenticateResponse" message="intf:kbaAuthenticateResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="kbaQuestionV002" parameterOrder="in0 in1 in2">
+      <wsdl:input name="kbaQuestionV002Request" message="intf:kbaQuestionV002Request" />
+      <wsdl:output name="kbaQuestionV002Response" message="intf:kbaQuestionV002Response" />
+    </wsdl:operation>
+    <wsdl:operation name="kbaAnswerV002" parameterOrder="in0 in1">
+      <wsdl:input name="kbaAnswerV002Request" message="intf:kbaAnswerV002Request" />
+      <wsdl:output name="kbaAnswerV002Response" message="intf:kbaAnswerV002Response" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="efundskbaSoapBinding" type="intf:KbaService">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="kbaQuestion">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="kbaQuestionRequest">
+        <wsdlsoap:body use="encoded" namespace="urn:efundskba" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="kbaQuestionResponse">
+        <wsdlsoap:body use="encoded" namespace="urn:efundskba" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="kbaAnswer">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="kbaAnswerRequest">
+        <wsdlsoap:body use="encoded" namespace="urn:efundskba" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="kbaAnswerResponse">
+        <wsdlsoap:body use="encoded" namespace="urn:efundskba" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="kbaAuthenticate">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="kbaAuthenticateRequest">
+        <wsdlsoap:body use="encoded" namespace="urn:efundskba" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="kbaAuthenticateResponse">
+        <wsdlsoap:body use="encoded" namespace="urn:efundskba" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="kbaQuestionV002">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="kbaQuestionV002Request">
+        <wsdlsoap:body use="encoded" namespace="urn:efundskba" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="kbaQuestionV002Response">
+        <wsdlsoap:body use="encoded" namespace="urn:efundskba" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="kbaAnswerV002">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="kbaAnswerV002Request">
+        <wsdlsoap:body use="encoded" namespace="urn:efundskba" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="kbaAnswerV002Response">
+        <wsdlsoap:body use="encoded" namespace="urn:efundskba" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="KbaServiceService">
+    <wsdl:port name="efundskba" binding="intf:efundskbaSoapBinding">
+      <wsdlsoap:address location="https://penleyincqa.penleyinc.com/penleysoap3/services/efundskba" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

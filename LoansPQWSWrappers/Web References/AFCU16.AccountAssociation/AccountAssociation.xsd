@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:tns="http://www.americafirst.com/20070315/AccountAssociation" xmlns:hdr="http://www.americafirst.com/20070315/AFCUHeader" xmlns:ctl="http://www.americafirst.com/20070315/CommonTypesLib" xmlns:cm="http://www.americafirst.com/20070315/CommonTypes" targetNamespace="http://www.americafirst.com/20070315/AccountAssociation" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema">
+  <import schemaLocation="../commontypeslib/CommonTypesLib.xsd" namespace="http://www.americafirst.com/20070315/CommonTypesLib" />
+  <import schemaLocation="../commontypes/CommonTypes.xsd" namespace="http://www.americafirst.com/20070315/CommonTypes" />
+  <import schemaLocation="../afcuheader/AFCUHeader.xsd" namespace="http://www.americafirst.com/20070315/AFCUHeader" />
+  <annotation>
+    <documentation>
+			This webservice inquires and maintaines account's associated members or no memebers. It
+			exposes SOA 2035 host function. There are 3 types of association Joint Owners, CoMakers
+			and Benficiaries. There are 4 operations: 1. inquireAccountAssociation: Returns all the
+			associated referenced members or non members to this account 2.
+			updateAccountAssociation: Amends the associated referenced members or non members to
+			this account 3. addAccountAssociation: Add the associated referenced members or non
+			members to this account 4. removeAccountAssociation: Remove the associated referenced
+			members or non members to this account
+
+			All the operations share common reponse associationResponse.
+		</documentation>
+  </annotation>
+  <element name="inquireAssociationRequest" type="tns:InquireAssociationRequest" />
+  <element name="updateAssociationRequest" type="tns:UpdateAssociationRequest" />
+  <element name="addAssociationRequest" type="tns:AddAssociationRequest" />
+  <element name="removeAssociationRequest" type="tns:RemoveAssociationRequest" />
+  <element name="associationResponse" type="tns:AssociationResponse" />
+  <complexType name="AssociationResponse">
+    <sequence>
+      <element minOccurs="1" name="header" type="hdr:AFCUHeaderResponse" />
+      <element minOccurs="0" name="response" type="tns:Response" />
+    </sequence>
+  </complexType>
+  <complexType name="Response">
+    <sequence>
+      <element minOccurs="1" name="accountID" type="cm:AccountID" />
+      <element minOccurs="0" name="subAccountID" type="cm:SubAccountID" />
+      <element minOccurs="0" name="created" type="date" />
+      <element minOccurs="0" name="createBranchID" type="ctl:NonNegativeInteger_7" />
+      <element minOccurs="0" name="createTellerID" type="ctl:NonNegativeInteger_7" />
+      <element minOccurs="0" name="updated" type="date" />
+      <element minOccurs="0" name="updateBranchID" type="ctl:NonNegativeInteger_7" />
+      <element minOccurs="0" name="updateTellerID" type="ctl:NonNegativeInteger_7" />
+      <element minOccurs="0" name="associationType" type="tns:AssociationType" />
+      <element minOccurs="0" name="certificateNo" type="cm:CertificateNo" />
+      <element minOccurs="0" name="imagedDataFlag" type="boolean" />
+      <element minOccurs="0" name="associates" type="tns:AssociatesResponse" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireAssociationRequest">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="tns:InquireRequest" />
+    </sequence>
+  </complexType>
+  <complexType name="UpdateAssociationRequest">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="tns:UpdateRequest" />
+    </sequence>
+  </complexType>
+  <complexType name="AddAssociationRequest">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="tns:AddRequest" />
+    </sequence>
+  </complexType>
+  <complexType name="RemoveAssociationRequest">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="tns:RemoveRequest" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireRequest">
+    <sequence>
+      <element minOccurs="1" name="accountID" type="cm:AccountID" />
+      <element minOccurs="0" name="subAccountID" type="cm:SubAccountID" />
+      <element minOccurs="1" name="associationType" type="tns:AssociationType" />
+      <element minOccurs="0" name="certificateNo" type="cm:CertificateNo" />
+    </sequence>
+  </complexType>
+  <complexType name="UpdateRequest">
+    <sequence>
+      <element minOccurs="1" name="associationType" type="tns:AssociationType" />
+      <element minOccurs="1" name="accountID" type="cm:AccountID" />
+      <element minOccurs="0" name="subAccountID" type="cm:SubAccountID" />
+      <element minOccurs="0" name="certificateNo" type="cm:CertificateNo" />
+      <element name="imagedDataFlag" type="boolean" />
+      <element name="associateDetail" type="tns:AssociateDetailRequest" />
+    </sequence>
+  </complexType>
+  <complexType name="AddRequest">
+    <sequence>
+      <element minOccurs="1" name="associationType" type="tns:AssociationType" />
+      <element minOccurs="1" name="accountID" type="cm:AccountID" />
+      <element minOccurs="0" name="subAccountID" type="cm:SubAccountID" />
+      <element minOccurs="0" name="certificateNo" type="cm:CertificateNo" />
+      <element name="imagedDataFlag" type="boolean" />
+      <element name="associateDetail" type="tns:AssociateDetailRequest" />
+    </sequence>
+  </complexType>
+  <complexType name="RemoveRequest">
+    <sequence>
+      <element minOccurs="1" name="associationType" type="tns:AssociationType" />
+      <element minOccurs="1" name="accountID" type="cm:AccountID" />
+      <element minOccurs="0" name="subAccountID" type="cm:SubAccountID" />
+      <element minOccurs="0" name="certificateNo" type="cm:CertificateNo" />
+      <element name="imagedDataFlag" type="boolean" />
+      <element minOccurs="1" name="sequenceID" type="ctl:NonNegativeInteger_1" />
+    </sequence>
+  </complexType>
+  <complexType name="AssociateDetailRequest">
+    <sequence>
+      <element minOccurs="1" name="sequenceID" type="ctl:NonNegativeInteger_1" />
+      <element minOccurs="1" name="accountID" type="cm:AccountID" />
+      <element minOccurs="1" name="subAccountID" type="cm:SubAccountID" />
+      <element minOccurs="0" name="firstName" type="ctl:String_24" />
+      <element minOccurs="0" name="middleName" type="ctl:String_24" />
+      <element minOccurs="1" name="lastName" type="ctl:String_24" />
+      <element minOccurs="0" name="suffixName" type="tns:SuffixName" />
+      <element minOccurs="0" name="address1" type="ctl:String_25" />
+      <element minOccurs="0" name="address2" type="ctl:String_25" />
+      <element minOccurs="0" name="city" type="ctl:String_16" />
+      <element minOccurs="0" name="state" type="ctl:String_2" />
+      <element minOccurs="0" name="zip" type="ctl:NonNegativeInteger_5" />
+      <element minOccurs="0" name="zip4" type="ctl:NonNegativeInteger_4" />
+      <element minOccurs="0" name="homePhone" type="ctl:Long_10" />
+      <element minOccurs="0" name="workPhone" type="ctl:Long_10" />
+      <element minOccurs="0" name="workPhoneExt" type="ctl:String_4" />
+      <element minOccurs="0" name="ssn" type="ctl:NonNegativeInteger_9" />
+      <element minOccurs="0" name="sex" type="ctl:String_1" />
+      <element minOccurs="0" name="birthdate" nillable="true" type="date" />
+      <element minOccurs="0" name="driverLicense" type="ctl:String_10" />
+      <element minOccurs="0" name="driverLicenseState" type="ctl:String_2" />
+      <element minOccurs="0" name="relationship" type="ctl:String_5" />
+      <element minOccurs="0" name="message1" type="ctl:String_25" />
+      <element minOccurs="0" name="message2" type="ctl:String_25" />
+      <element name="responsibleIndividualFlag" type="boolean" />
+      <element minOccurs="0" name="designationCode" type="ctl:String_1" />
+      <element name="atMajorityFlag" type="boolean" />
+      <element name="changeBeneficaryFlag" type="boolean" />
+      <element name="businessFlag" type="boolean" />
+      <element minOccurs="0" name="notify" type="ctl:String_1" />
+      <element minOccurs="0" name="bankrupt" type="ctl:String_1" />
+      <element minOccurs="0" name="accocCode" type="ctl:String_1" />
+    </sequence>
+  </complexType>
+  <complexType name="AssociatesResponse">
+    <sequence>
+      <element minOccurs="0" maxOccurs="4" name="associateDetail" type="tns:AssociateDetailResponse" />
+    </sequence>
+  </complexType>
+  <complexType name="AssociateDetailResponse">
+    <sequence>
+      <element minOccurs="1" name="sequenceID" type="ctl:NonNegativeInteger_1" />
+      <element minOccurs="1" name="accountID" type="cm:AccountID" />
+      <element minOccurs="1" name="subAccountID" type="cm:SubAccountID" />
+      <element minOccurs="0" name="firstName" type="ctl:String_24" />
+      <element minOccurs="0" name="middleName" type="ctl:String_24" />
+      <element minOccurs="0" name="lastName" type="ctl:String_24" />
+      <element minOccurs="0" name="suffixName" type="tns:SuffixName" />
+      <element minOccurs="0" name="address1" type="ctl:String_25" />
+      <element minOccurs="0" name="address2" type="ctl:String_25" />
+      <element minOccurs="0" name="city" type="ctl:String_16" />
+      <element minOccurs="0" name="state" type="ctl:String_2" />
+      <element minOccurs="0" name="zip" type="ctl:NonNegativeInteger_5" />
+      <element minOccurs="0" name="zip4" type="ctl:NonNegativeInteger_4" />
+      <element minOccurs="0" name="homePhone" type="ctl:Long_10" />
+      <element minOccurs="0" name="workPhone" type="ctl:Long_10" />
+      <element minOccurs="0" name="workPhoneExt" type="ctl:String_4" />
+      <element minOccurs="0" name="ssn" type="ctl:NonNegativeInteger_9" />
+      <element minOccurs="0" name="sex" type="ctl:String_1" />
+      <element minOccurs="0" name="birthdate" nillable="true" type="date" />
+      <element minOccurs="0" name="driverLicense" type="ctl:String_10" />
+      <element minOccurs="0" name="driverLicenseState" type="ctl:String_2" />
+      <element minOccurs="0" name="relationship" type="ctl:String_5" />
+      <element minOccurs="0" name="message1" type="ctl:String_25" />
+      <element minOccurs="0" name="message2" type="ctl:String_25" />
+      <element name="responsibleIndividualFlag" type="boolean" />
+      <element minOccurs="0" name="designationCode" type="ctl:String_1" />
+      <element name="atMajorityFlag" type="boolean" />
+      <element name="changeBeneficaryFlag" type="boolean" />
+      <element name="businessFlag" type="boolean" />
+      <element minOccurs="0" name="notify" type="ctl:String_1" />
+      <element minOccurs="0" name="bankrupt" type="ctl:String_1" />
+      <element minOccurs="0" name="crci" type="ctl:String_4" />
+      <element minOccurs="0" name="accocCode" type="ctl:String_1" />
+      <element minOccurs="0" name="fullName" type="ctl:String_25" />
+    </sequence>
+  </complexType>
+  <simpleType name="AssociationType">
+    <restriction base="string">
+      <enumeration value="Joint Owners" />
+      <enumeration value="CoMakers" />
+      <enumeration value="Beneficiaries" />
+    </restriction>
+  </simpleType>
+  <simpleType name="SuffixName">
+    <restriction base="string">
+      <enumeration value="Jr." />
+      <enumeration value="Sr." />
+      <enumeration value="I" />
+      <enumeration value="II" />
+      <enumeration value="III" />
+      <enumeration value="IV" />
+    </restriction>
+  </simpleType>
+</schema>

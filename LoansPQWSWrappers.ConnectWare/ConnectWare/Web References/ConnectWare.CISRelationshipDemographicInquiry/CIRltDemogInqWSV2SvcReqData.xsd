@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="mtvnCWCIRltDemogInqReqData" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="mtvnCWCIRltDemogInqReqData" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="CIRltDemogInqReqData">
+    <xs:annotation>
+      <xs:documentation>CIS Relationship Demographic Inquiry (CI077) -  This function will retrieve a customer-to-account relationship's demographic value data.  </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="E10032" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>CIS Application Code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E10033" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>CIS Application Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E10760" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>CIS Sub Account Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E10018" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>CIS Related Application Code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E10216" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>CIS Related Account Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E10761" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>CIS Related Sub Account Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E10178" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>CIS Entity 1 to Entity 2 Relationship Code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E10179" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>CIS Entity 2 to Entity 1 Relationship Code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E10180" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>CIS Effective Date</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E10184" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>CIS Relationship Type</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="CIRltDemogInqTypeDataLst">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="1" maxOccurs="unbounded" name="CIRltDemogInqTypeData">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="E10765" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>CIS Relationship Demographic Data Element</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

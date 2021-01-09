@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.cudirect.com/ExtFunding" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.cudirect.com/ExtFunding" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.cudirect.com/ExtFunding">
+      <s:element name="Fund">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FundingXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FundResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FundResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="FundSoapIn">
+    <wsdl:part name="parameters" element="tns:Fund" />
+  </wsdl:message>
+  <wsdl:message name="FundSoapOut">
+    <wsdl:part name="parameters" element="tns:FundResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ExtFundingSoap">
+    <wsdl:operation name="Fund">
+      <wsdl:input message="tns:FundSoapIn" />
+      <wsdl:output message="tns:FundSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ExtFundingSoap" type="tns:ExtFundingSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Fund">
+      <soap:operation soapAction="http://www.cudirect.com/ExtFunding/Fund" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ExtFundingSoap12" type="tns:ExtFundingSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Fund">
+      <soap12:operation soapAction="http://www.cudirect.com/ExtFunding/Fund" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ExtFunding">
+    <wsdl:port name="ExtFundingSoap" binding="tns:ExtFundingSoap">
+      <soap:address location="https://dp.cudl.com/ExternalFundingWSE3/FundingWSE3.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ExtFundingSoap12" binding="tns:ExtFundingSoap12">
+      <soap12:address location="https://dp.cudl.com/ExternalFundingWSE3/FundingWSE3.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

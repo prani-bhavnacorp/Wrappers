@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2E9DB9AC-DF10-45FE-B49A-D3B4178BA43B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>LoansPQ.WebServices.Wrappers</RootNamespace>
+    <AssemblyName>LoansPQWSWrappers.AFCU</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>None</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.Services3, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Microsoft WSE\v3.0\Microsoft.Web.Services3.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Web References\AFCU2015_1.AccountCode\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\AFCU2015_1.EServicesValidation\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\AFCU2015_1.LoanScoreService\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\AFCU2015_1.StatementMaint\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\AFCU2018_1.BusinessRelationsService\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\AFCU2015_1.AccountCode\AccountCode.wsdl" />
+    <None Include="Web References\AFCU2015_1.AccountCode\AccountCode.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\AFCU2015_1.AccountCode\AccountCodeResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AFCU2015_1.AccountCode\AFCUHeader.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\AFCU2015_1.AccountCode\CommonTypes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\AFCU2015_1.AccountCode\CommonTypesLib.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\AFCU2015_1.AccountCode\InquireAccountCodeListResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AFCU2015_1.AccountCode\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\AFCU2015_1.EServicesValidation\AFCUHeader.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\AFCU2015_1.EServicesValidation\BillPayUserResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AFCU2015_1.EServicesValidation\CommonTypes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\AFCU2015_1.EServicesValidation\CommonTypesLib.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\AFCU2015_1.EServicesValidation\EServicesValidation.wsdl" />
+    <None Include="Web References\AFCU2015_1.EServicesValidation\EServicesValidation.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\AFCU2015_1.EServicesValidation\InquireAcctOptionsResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AFCU2015_1.EServicesValidation\InquireServicesResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AFCU2015_1.EServicesValidation\MaintainResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AFCU2015_1.EServicesValidation\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\AFCU2015_1.LoanScoreService\AFCUHeader.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\AFCU2015_1.LoanScoreService\CommonTypes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\AFCU2015_1.LoanScoreService\CommonTypesLib.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\AFCU2015_1.LoanScoreService\InquireLoanScoreResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AFCU2015_1.LoanScoreService\LoanScore.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\AFCU2015_1.LoanScoreService\LoanScore_MS.wsdl" />
+    <None Include="Web References\AFCU2015_1.LoanScoreService\MaintainLoanScoreResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AFCU2015_1.LoanScoreService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\AFCU2015_1.StatementMaint\AFCUHeader.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\AFCU2015_1.StatementMaint\CommonTypes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\AFCU2015_1.StatementMaint\CommonTypesLib.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\AFCU2015_1.StatementMaint\InquireStatementOptionsResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AFCU2015_1.StatementMaint\MaintainStatementOptionsResponseType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AFCU2015_1.StatementMaint\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\AFCU2015_1.StatementMaint\StatementMaint.wsdl" />
+    <None Include="Web References\AFCU2015_1.StatementMaint\StatementMaint.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\AFCU2018_1.BusinessRelationsService\AFCUHeader.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\AFCU2018_1.BusinessRelationsService\AuthorizedSignersResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AFCU2018_1.BusinessRelationsService\BeneficialOwnersResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\AFCU2018_1.BusinessRelationsService\BusinessRelation.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\AFCU2018_1.BusinessRelationsService\BusinessRelations.wsdl" />
+    <None Include="Web References\AFCU2018_1.BusinessRelationsService\CommonTypes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\AFCU2018_1.BusinessRelationsService\CommonTypesLib.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\AFCU2018_1.BusinessRelationsService\EntityCommon.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\AFCU2018_1.BusinessRelationsService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="C:\temp\afcu-wsdl\AccountCode\wsdl\AccountCodeService.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\AFCU2015_1.AccountCode\</RelPath>
+      <UpdateFromURL>C:\temp\afcu-wsdl\AccountCode\wsdl\AccountCodeService.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_AFCU_AFCU2015_1_AccountCode_AccountCodeService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="c:\temp\afcu-wsdl\wsdl\EServicesValidationService.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\AFCU2015_1.EServicesValidation\</RelPath>
+      <UpdateFromURL>c:\temp\afcu-wsdl\wsdl\EServicesValidationService.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_AFCU_AFCU2015_1_EServicesValidation_EServicesValidationService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="c:\temp\afcu-wsdl\StatementMainNew\StatementMaintService.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\AFCU2015_1.StatementMaint\</RelPath>
+      <UpdateFromURL>c:\temp\afcu-wsdl\StatementMainNew\StatementMaintService.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_AFCU_AFCU2015_1_StatementMaint_StatementMaint_MSSOAP_HTTP_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="C:\temp\afcu\wsdl\BusinessRelationsService.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\AFCU2018_1.BusinessRelationsService\</RelPath>
+      <UpdateFromURL>C:\temp\afcu\wsdl\BusinessRelationsService.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_AFCU_AFCU2018_1_BusinessRelationsService_BusinessRelationsService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="C:\Users\chinhd\Desktop\AFCU WDLS\wspLoanScoreService\wspLoanScoreService\wsdl\LoanScoreService.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\AFCU2015_1.LoanScoreService\</RelPath>
+      <UpdateFromURL>C:\Users\chinhd\Desktop\AFCU WDLS\wspLoanScoreService\wspLoanScoreService\wsdl\LoanScoreService.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_AFCU_AFCU2015_1_LoanScoreService_LoanScore_MSSOAP_HTTP_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

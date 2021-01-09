@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:s0="http://util.spectrum.summitsite.com" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s1="urn:CmdSpectrum" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="urn:CmdSpectrum" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <s:schema targetNamespace="http://util.spectrum.summitsite.com">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="SpectrumException">
+        <s:sequence>
+          <s:element name="errorCode" nillable="true" type="s:string" />
+          <s:element name="errorMessage" nillable="true" type="s:string" />
+          <s:element name="message" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema targetNamespace="urn:CmdSpectrum">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="Station">
+        <s:sequence>
+          <s:element name="hostName" nillable="true" type="s:string" />
+          <s:element name="ipAddress" nillable="true" type="s:string" />
+          <s:element name="stationName" nillable="true" type="s:string" />
+          <s:element name="status" type="s:int" />
+          <s:element name="userName" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ServiceContext">
+        <s:sequence>
+          <s:element name="stationId" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOf_xsd_string">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:attribute xmlns:d7p1="http://schemas.xmlsoap.org/wsdl/" d7p1:arrayType="s:string[]" ref="soapenc:arrayType" />
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="SpectrumResponse">
+        <s:sequence>
+          <s:element name="continuableError" type="s:boolean" />
+          <s:element name="missingMessages" nillable="true" type="s1:ArrayOf_xsd_string" />
+          <s:element name="moreOutput" type="s:boolean" />
+          <s:element name="overridableError" type="s:boolean" />
+          <s:element name="overrideAuthorized" type="s:boolean" />
+          <s:element name="prefixWord8" type="s:int" />
+          <s:element name="previousOutput" type="s:boolean" />
+          <s:element name="response" nillable="true" type="s:string" />
+          <s:element name="ticklers" nillable="true" type="s1:ArrayOf_xsd_string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfStation">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:attribute xmlns:d7p1="http://schemas.xmlsoap.org/wsdl/" d7p1:arrayType="s1:Station[]" ref="soapenc:arrayType" />
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </types>
+  <message name="submitSIMRequest">
+    <part name="request" type="s:string" />
+  </message>
+  <message name="getStationResponse">
+    <part name="getStationReturn" type="s1:Station" />
+  </message>
+  <message name="getStationsRequest" />
+  <message name="getPathwaysVersionResponse">
+    <part name="getPathwaysVersionReturn" type="s:string" />
+  </message>
+  <message name="submitXMLRequest">
+    <part name="request" type="s:string" />
+  </message>
+  <message name="getTellerIdsRequest" />
+  <message name="reserveStationResponse" />
+  <message name="getTellerIdsResponse">
+    <part name="getTellerIdsReturn" type="s1:ArrayOf_xsd_string" />
+  </message>
+  <message name="submitSTTIRequest">
+    <part name="serviceContext" type="s1:ServiceContext" />
+    <part name="trhVerNum" type="s:string" />
+    <part name="moduleNum" type="s:string" />
+    <part name="tranCode" type="s:string" />
+    <part name="tranVerNum" type="s:string" />
+    <part name="tranByteMap" type="s:string" />
+    <part name="requestData" type="s:string" />
+  </message>
+  <message name="getStationRequest">
+    <part name="stationName" type="s:string" />
+  </message>
+  <message name="submitSSPResponse">
+    <part name="submitSSPReturn" type="s1:SpectrumResponse" />
+  </message>
+  <message name="submitXMLResponse">
+    <part name="submitXMLReturn" type="s:string" />
+  </message>
+  <message name="submitSIMResponse">
+    <part name="submitSIMReturn" type="s:string" />
+  </message>
+  <message name="submitSTTIResponse">
+    <part name="submitSTTIReturn" type="s:string" />
+  </message>
+  <message name="releaseStationRequest">
+    <part name="station" type="s1:Station" />
+  </message>
+  <message name="getTellerStationsResponse">
+    <part name="getTellerStationsReturn" type="s1:ArrayOf_xsd_string" />
+  </message>
+  <message name="getPathwaysVersionRequest" />
+  <message name="reserveStationRequest">
+    <part name="station" type="s1:Station" />
+    <part name="force" type="s:boolean" />
+  </message>
+  <message name="submitSTTIResponse1">
+    <part name="submitSTTIReturn" type="s:string" />
+  </message>
+  <message name="getTellerStationsRequest" />
+  <message name="submitSTTIRequest1">
+    <part name="trhVerNum" type="s:string" />
+    <part name="moduleNum" type="s:string" />
+    <part name="tranCode" type="s:string" />
+    <part name="tranVerNum" type="s:string" />
+    <part name="tranByteMap" type="s:string" />
+    <part name="requestData" type="s:string" />
+  </message>
+  <message name="releaseStationResponse" />
+  <message name="getStationsResponse">
+    <part name="getStationsReturn" type="s1:ArrayOfStation" />
+  </message>
+  <message name="SpectrumException">
+    <part name="fault" type="s0:SpectrumException" />
+  </message>
+  <message name="submitSSPResponse1">
+    <part name="submitSSPReturn" type="s:string" />
+  </message>
+  <message name="submitSSPRequest1">
+    <part name="request" type="s:string" />
+  </message>
+  <message name="submitSSPRequest">
+    <part name="serviceContext" type="s1:ServiceContext" />
+    <part name="request" type="s:string" />
+  </message>
+  <portType name="CmdSpectrum">
+    <operation name="submitSIM" parameterOrder="request">
+      <input name="submitSIMRequest" message="s1:submitSIMRequest" />
+      <output name="submitSIMResponse" message="s1:submitSIMResponse" />
+    </operation>
+    <operation name="submitSSP" parameterOrder="serviceContext request">
+      <input name="submitSSPRequest" message="s1:submitSSPRequest" />
+      <output name="submitSSPResponse" message="s1:submitSSPResponse" />
+      <fault name="SpectrumException" message="s1:SpectrumException" />
+    </operation>
+    <operation name="submitSSP" parameterOrder="request">
+      <input name="submitSSPRequest1" message="s1:submitSSPRequest1" />
+      <output name="submitSSPResponse1" message="s1:submitSSPResponse1" />
+    </operation>
+    <operation name="submitSTTI" parameterOrder="serviceContext trhVerNum moduleNum tranCode tranVerNum tranByteMap requestData">
+      <input name="submitSTTIRequest" message="s1:submitSTTIRequest" />
+      <output name="submitSTTIResponse" message="s1:submitSTTIResponse" />
+      <fault name="SpectrumException" message="s1:SpectrumException" />
+    </operation>
+    <operation name="submitSTTI" parameterOrder="trhVerNum moduleNum tranCode tranVerNum tranByteMap requestData">
+      <input name="submitSTTIRequest1" message="s1:submitSTTIRequest1" />
+      <output name="submitSTTIResponse1" message="s1:submitSTTIResponse1" />
+    </operation>
+    <operation name="submitXML" parameterOrder="request">
+      <input name="submitXMLRequest" message="s1:submitXMLRequest" />
+      <output name="submitXMLResponse" message="s1:submitXMLResponse" />
+    </operation>
+    <operation name="getPathwaysVersion">
+      <input name="getPathwaysVersionRequest" message="s1:getPathwaysVersionRequest" />
+      <output name="getPathwaysVersionResponse" message="s1:getPathwaysVersionResponse" />
+    </operation>
+    <operation name="getTellerStations">
+      <input name="getTellerStationsRequest" message="s1:getTellerStationsRequest" />
+      <output name="getTellerStationsResponse" message="s1:getTellerStationsResponse" />
+    </operation>
+    <operation name="getStations">
+      <input name="getStationsRequest" message="s1:getStationsRequest" />
+      <output name="getStationsResponse" message="s1:getStationsResponse" />
+    </operation>
+    <operation name="getStation" parameterOrder="stationName">
+      <input name="getStationRequest" message="s1:getStationRequest" />
+      <output name="getStationResponse" message="s1:getStationResponse" />
+    </operation>
+    <operation name="reserveStation" parameterOrder="station force">
+      <input name="reserveStationRequest" message="s1:reserveStationRequest" />
+      <output name="reserveStationResponse" message="s1:reserveStationResponse" />
+      <fault name="SpectrumException" message="s1:SpectrumException" />
+    </operation>
+    <operation name="releaseStation" parameterOrder="station">
+      <input name="releaseStationRequest" message="s1:releaseStationRequest" />
+      <output name="releaseStationResponse" message="s1:releaseStationResponse" />
+      <fault name="SpectrumException" message="s1:SpectrumException" />
+    </operation>
+    <operation name="getTellerIds">
+      <input name="getTellerIdsRequest" message="s1:getTellerIdsRequest" />
+      <output name="getTellerIdsResponse" message="s1:getTellerIdsResponse" />
+    </operation>
+  </portType>
+  <binding name="CmdSpectrumSoapBinding" type="s1:CmdSpectrum">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <operation name="submitSIM">
+      <soap:operation soapAction="" />
+      <input name="submitSIMRequest">
+        <soap:body use="encoded" namespace="urn:CmdSpectrum" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output name="submitSIMResponse">
+        <soap:body use="encoded" namespace="urn:CmdSpectrum" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="submitSSP">
+      <soap:operation soapAction="" />
+      <input name="submitSSPRequest">
+        <soap:body use="encoded" namespace="urn:CmdSpectrum" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output name="submitSSPResponse">
+        <soap:body use="encoded" namespace="urn:CmdSpectrum" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+      <fault name="SpectrumException">
+        <soap:fault use="encoded" namespace="urn:CmdSpectrum" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </fault>
+    </operation>
+    <operation name="submitSSP">
+      <soap:operation soapAction="" />
+      <input name="submitSSPRequest1">
+        <soap:body use="encoded" namespace="urn:CmdSpectrum" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output name="submitSSPResponse1">
+        <soap:body use="encoded" namespace="urn:CmdSpectrum" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="submitSTTI">
+      <soap:operation soapAction="" />
+      <input name="submitSTTIRequest">
+        <soap:body use="encoded" namespace="urn:CmdSpectrum" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output name="submitSTTIResponse">
+        <soap:body use="encoded" namespace="urn:CmdSpectrum" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+      <fault name="SpectrumException">
+        <soap:fault use="encoded" namespace="urn:CmdSpectrum" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </fault>
+    </operation>
+    <operation name="submitSTTI">
+      <soap:operation soapAction="" />
+      <input name="submitSTTIRequest1">
+        <soap:body use="encoded" namespace="urn:CmdSpectrum" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output name="submitSTTIResponse1">
+        <soap:body use="encoded" namespace="urn:CmdSpectrum" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="submitXML">
+      <soap:operation soapAction="" />
+      <input name="submitXMLRequest">
+        <soap:body use="encoded" namespace="urn:CmdSpectrum" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output name="submitXMLResponse">
+        <soap:body use="encoded" namespace="urn:CmdSpectrum" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="getPathwaysVersion">
+      <soap:operation soapAction="" />
+      <input name="getPathwaysVersionRequest">
+        <soap:body use="encoded" namespace="urn:CmdSpectrum" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output name="getPathwaysVersionResponse">
+        <soap:body use="encoded" namespace="urn:CmdSpectrum" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="getTellerStations">
+      <soap:operation soapAction="" />
+      <input name="getTellerStationsRequest">
+        <soap:body use="encoded" namespace="urn:CmdSpectrum" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output name="getTellerStationsResponse">
+        <soap:body use="encoded" namespace="urn:CmdSpectrum" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="getStations">
+      <soap:operation soapAction="" />
+      <input name="getStationsRequest">
+        <soap:body use="encoded" namespace="urn:CmdSpectrum" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output name="getStationsResponse">
+        <soap:body use="encoded" namespace="urn:CmdSpectrum" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="getStation">
+      <soap:operation soapAction="" />
+      <input name="getStationRequest">
+        <soap:body use="encoded" namespace="urn:CmdSpectrum" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output name="getStationResponse">
+        <soap:body use="encoded" namespace="urn:CmdSpectrum" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="reserveStation">
+      <soap:operation soapAction="" />
+      <input name="reserveStationRequest">
+        <soap:body use="encoded" namespace="urn:CmdSpectrum" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output name="reserveStationResponse">
+        <soap:body use="encoded" namespace="urn:CmdSpectrum" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+      <fault name="SpectrumException">
+        <soap:fault use="encoded" namespace="urn:CmdSpectrum" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </fault>
+    </operation>
+    <operation name="releaseStation">
+      <soap:operation soapAction="" />
+      <input name="releaseStationRequest">
+        <soap:body use="encoded" namespace="urn:CmdSpectrum" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output name="releaseStationResponse">
+        <soap:body use="encoded" namespace="urn:CmdSpectrum" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+      <fault name="SpectrumException">
+        <soap:fault use="encoded" namespace="urn:CmdSpectrum" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </fault>
+    </operation>
+    <operation name="getTellerIds">
+      <soap:operation soapAction="" />
+      <input name="getTellerIdsRequest">
+        <soap:body use="encoded" namespace="urn:CmdSpectrum" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output name="getTellerIdsResponse">
+        <soap:body use="encoded" namespace="urn:CmdSpectrum" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="CmdSpectrumService">
+    <port name="CmdSpectrum" binding="s1:CmdSpectrumSoapBinding">
+      <soap:address location="http://192.168.25.20:8216/mfcu/pathways/services/CmdSpectrum" />
+    </port>
+  </service>
+</definitions>

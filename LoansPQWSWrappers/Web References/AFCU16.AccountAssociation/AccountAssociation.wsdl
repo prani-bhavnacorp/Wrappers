@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns="http://americafirst.com/AccountAssociation" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns2="http://www.americafirst.com/20070315/AccountAssociation" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AccountAssociation" targetNamespace="http://americafirst.com/AccountAssociation" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns:mrm="http://americafirst.com/AccountAssociation" xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://americafirst.com/AccountAssociation">
+      <xsd:import schemaLocation="com/americafirst/www/_20070315/accountassociation/AccountAssociation.xsd" namespace="http://www.americafirst.com/20070315/AccountAssociation" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="addAccountAssociation_in">
+    <wsdl:part name="addAssociationRequest" element="tns2:addAssociationRequest" />
+  </wsdl:message>
+  <wsdl:message name="addAccountAssociation_out">
+    <wsdl:part name="associationResponse" element="tns2:associationResponse" />
+  </wsdl:message>
+  <wsdl:message name="inquireAccountAssociation_in">
+    <wsdl:part name="inquireAssociationRequest" element="tns2:inquireAssociationRequest" />
+  </wsdl:message>
+  <wsdl:message name="inquireAccountAssociation_out">
+    <wsdl:part name="associationResponse" element="tns2:associationResponse" />
+  </wsdl:message>
+  <wsdl:message name="removeAccountAssociation_in">
+    <wsdl:part name="removeAssociationRequest" element="tns2:removeAssociationRequest" />
+  </wsdl:message>
+  <wsdl:message name="removeAccountAssociation_out">
+    <wsdl:part name="associationResponse" element="tns2:associationResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateAccountAssociation_in">
+    <wsdl:part name="updateAssociationRequest" element="tns2:updateAssociationRequest" />
+  </wsdl:message>
+  <wsdl:message name="updateAccountAssociation_out">
+    <wsdl:part name="associationResponse" element="tns2:associationResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AccountAssociation_MSPortType">
+    <wsdl:operation name="addAccountAssociation">
+      <wsdl:input name="addAccountAssociation_addAssociationRequest" message="tns:addAccountAssociation_in" />
+      <wsdl:output name="addAccountAssociation_associationResponse" message="tns:addAccountAssociation_out" />
+    </wsdl:operation>
+    <wsdl:operation name="inquireAccountAssociation">
+      <wsdl:input name="inquireAccountAssociation_inquireAssociationRequest" message="tns:inquireAccountAssociation_in" />
+      <wsdl:output name="inquireAccountAssociation_associationResponse" message="tns:inquireAccountAssociation_out" />
+    </wsdl:operation>
+    <wsdl:operation name="removeAccountAssociation">
+      <wsdl:input name="removeAccountAssociation_removeAssociationRequest" message="tns:removeAccountAssociation_in" />
+      <wsdl:output name="removeAccountAssociation_associationResponse" message="tns:removeAccountAssociation_out" />
+    </wsdl:operation>
+    <wsdl:operation name="updateAccountAssociation">
+      <wsdl:input name="updateAccountAssociation_updateAssociationRequest" message="tns:updateAccountAssociation_in" />
+      <wsdl:output name="updateAccountAssociation_associationResponse" message="tns:updateAccountAssociation_out" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AccountAssociation_MSSOAP_HTTP_Binding" type="tns:AccountAssociation_MSPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="addAccountAssociation">
+      <soap:operation soapAction="" />
+      <wsdl:input name="addAccountAssociation_addAssociationRequest">
+        <soap:body use="literal" parts="addAssociationRequest" />
+      </wsdl:input>
+      <wsdl:output name="addAccountAssociation_associationResponse">
+        <soap:body use="literal" parts="associationResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inquireAccountAssociation">
+      <soap:operation soapAction="" />
+      <wsdl:input name="inquireAccountAssociation_inquireAssociationRequest">
+        <soap:body use="literal" parts="inquireAssociationRequest" />
+      </wsdl:input>
+      <wsdl:output name="inquireAccountAssociation_associationResponse">
+        <soap:body use="literal" parts="associationResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeAccountAssociation">
+      <soap:operation soapAction="" />
+      <wsdl:input name="removeAccountAssociation_removeAssociationRequest">
+        <soap:body use="literal" parts="removeAssociationRequest" />
+      </wsdl:input>
+      <wsdl:output name="removeAccountAssociation_associationResponse">
+        <soap:body use="literal" parts="associationResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateAccountAssociation">
+      <soap:operation soapAction="" />
+      <wsdl:input name="updateAccountAssociation_updateAssociationRequest">
+        <soap:body use="literal" parts="updateAssociationRequest" />
+      </wsdl:input>
+      <wsdl:output name="updateAccountAssociation_associationResponse">
+        <soap:body use="literal" parts="associationResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AccountAssociationService">
+    <wsdl:port name="SOAP_HTTP_Port" binding="tns:AccountAssociation_MSSOAP_HTTP_Binding">
+      <soap:address location="http://lnxmqdev:7080/member/AccountAssociationService/20070315" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

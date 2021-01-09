@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="mtvnCWCICustToCustRltMaintReqData" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="mtvnCWCICustToCustRltMaintReqData" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="CICustToCustRltMaintReqData">
+    <xs:annotation>
+      <xs:documentation>CIS Customer to Customer Relationship Maintenance (CI025) - This function allows you to create and delete date-sensitive customer-to-customer relationships.  If a relationship is to be changed, you must delete the old relationship and create a new one.  </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="E10033" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Customer Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="CICustToCustRltMaintRltDataLst">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="1" maxOccurs="unbounded" name="CICustToCustRltMaintRltData">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="E10017" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Add Delete Code</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="E10176" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Related Customer Number</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E10180" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Relationship Effective Date</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E10181" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Expiration Date</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="E10178" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Relationship To Code</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="E10179" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Relationship From Code</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

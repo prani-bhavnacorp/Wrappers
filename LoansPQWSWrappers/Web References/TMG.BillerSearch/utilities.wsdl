@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://AccountViews.secure.themembersgroup.com" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://AccountViews.secure.themembersgroup.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://AccountViews.secure.themembersgroup.com">
+      <s:element name="BillerSearch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="tns:BillerSearchParameters" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BillerSearchParameters">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BillingAccountNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BillerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BillerAddressLine1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BillerAddressLine2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BillerCity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BillerState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BillerZip" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BillerSearchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BillerSearchResult" type="tns:BillerSearchResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BillerSearchResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResultBaseOfBillerSearchIssues">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="MatchingBillers" type="tns:ArrayOfBiller" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ResultBaseOfBillerSearchIssues">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Issues" type="tns:ArrayOfBillerSearchIssues" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBillerSearchIssues">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BillerSearchIssues" type="tns:BillerSearchIssues" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="BillerSearchIssues">
+        <s:restriction base="s:string">
+          <s:enumeration value="UnspecifiedError" />
+          <s:enumeration value="InvalidSecureHeader" />
+          <s:enumeration value="InvalidSessionToken" />
+          <s:enumeration value="BillingAccountNotProvided" />
+          <s:enumeration value="NoMatchingBillersFound" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfBiller">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Biller" nillable="true" type="tns:Biller" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Biller">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AKAs" type="tns:ArrayOfBillerAKA" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressKey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressLine1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressLine2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Zip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SearchResultType" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBillerAKA">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BillerAKA" nillable="true" type="tns:BillerAKA" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BillerAKA">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Key" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SecureHeader" type="tns:SecureHeader" />
+      <s:complexType name="SecureHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SessionKey" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="BillerSearchSoapIn">
+    <wsdl:part name="parameters" element="tns:BillerSearch" />
+  </wsdl:message>
+  <wsdl:message name="BillerSearchSoapOut">
+    <wsdl:part name="parameters" element="tns:BillerSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="BillerSearchSecureHeader">
+    <wsdl:part name="SecureHeader" element="tns:SecureHeader" />
+  </wsdl:message>
+  <wsdl:portType name="UtilitiesSoap">
+    <wsdl:operation name="BillerSearch">
+      <wsdl:input message="tns:BillerSearchSoapIn" />
+      <wsdl:output message="tns:BillerSearchSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UtilitiesSoap" type="tns:UtilitiesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BillerSearch">
+      <soap:operation soapAction="http://AccountViews.secure.themembersgroup.com/BillerSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:BillerSearchSecureHeader" part="SecureHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Utilities">
+    <wsdl:port name="UtilitiesSoap" binding="tns:UtilitiesSoap">
+      <soap:address location="https://openservices.themembersgroup.com/utilities.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

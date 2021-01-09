@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.libertysite.com/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.libertysite.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.libertysite.com/">
+      <s:element name="DP2LDWebOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strXMLOrder" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DP2LDWebOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DP2LDWebOrderResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="DP2LDWebOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:DP2LDWebOrder" />
+  </wsdl:message>
+  <wsdl:message name="DP2LDWebOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:DP2LDWebOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="DP2LDWebOrderHttpGetIn">
+    <wsdl:part name="strXMLOrder" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DP2LDWebOrderHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DP2LDWebOrderHttpPostIn">
+    <wsdl:part name="strXMLOrder" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DP2LDWebOrderHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="LibertyOrdersSoap">
+    <wsdl:operation name="DP2LDWebOrder">
+      <wsdl:input message="tns:DP2LDWebOrderSoapIn" />
+      <wsdl:output message="tns:DP2LDWebOrderSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="LibertyOrdersHttpGet">
+    <wsdl:operation name="DP2LDWebOrder">
+      <wsdl:input message="tns:DP2LDWebOrderHttpGetIn" />
+      <wsdl:output message="tns:DP2LDWebOrderHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="LibertyOrdersHttpPost">
+    <wsdl:operation name="DP2LDWebOrder">
+      <wsdl:input message="tns:DP2LDWebOrderHttpPostIn" />
+      <wsdl:output message="tns:DP2LDWebOrderHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LibertyOrdersSoap" type="tns:LibertyOrdersSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DP2LDWebOrder">
+      <soap:operation soapAction="http://www.libertysite.com/DP2LDWebOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="LibertyOrdersHttpGet" type="tns:LibertyOrdersHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="DP2LDWebOrder">
+      <http:operation location="/DP2LDWebOrder" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="LibertyOrdersHttpPost" type="tns:LibertyOrdersHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="DP2LDWebOrder">
+      <http:operation location="/DP2LDWebOrder" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LibertyOrders">
+    <wsdl:port name="LibertyOrdersSoap" binding="tns:LibertyOrdersSoap">
+      <soap:address location="https://b2b.libertysite.com/webservices/DP2LDWeb/LibertyOrders.asmx" />
+    </wsdl:port>
+    <wsdl:port name="LibertyOrdersHttpGet" binding="tns:LibertyOrdersHttpGet">
+      <http:address location="https://b2b.libertysite.com/webservices/DP2LDWeb/LibertyOrders.asmx" />
+    </wsdl:port>
+    <wsdl:port name="LibertyOrdersHttpPost" binding="tns:LibertyOrdersHttpPost">
+      <http:address location="https://b2b.libertysite.com/webservices/DP2LDWeb/LibertyOrders.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

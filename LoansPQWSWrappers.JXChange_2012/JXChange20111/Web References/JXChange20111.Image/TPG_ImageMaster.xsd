@@ -1,0 +1,1151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns="http://jackhenry.com/jxchange/TPG/2008" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://jackhenry.com/jxchange/TPG/2008" version="R2011.1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="oasis-200401-wss-wssecurity-secext-1.0.xsd" namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" />
+  <xsd:group name="Main">
+    <xsd:sequence>
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">JHA Image Messages</xsd:documentation>
+      </xsd:annotation>
+      <xsd:element ref="Ping" />
+      <xsd:element ref="PingResponse" />
+      <xsd:element ref="HdrFault" />
+      <xsd:element ref="ChkImgInq" />
+      <xsd:element ref="ChkImgInqResponse" />
+      <xsd:element ref="DocImgAdd" />
+      <xsd:element ref="DocImgAddResponse" />
+      <xsd:element ref="DocImgSrch" />
+      <xsd:element ref="DocImgSrchResponse" />
+    </xsd:sequence>
+  </xsd:group>
+  <xsd:element name="Ping" type="PingRq_MType" />
+  <xsd:complexType name="PingRq_MType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">This is a common Ping request for checking, testing,
+                and keep alive</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="PingRq" type="PingRq_Type" />
+      <xsd:sequence minOccurs="0">
+        <xsd:element name="Ver_1" type="Ver_1_CType" />
+        <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##targetNamespace" processContents="lax" />
+      </xsd:sequence>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="PingRq_Type">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">Generic Text for the ping request</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:complexType name="Ver_1_CType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">The object tag that represents the first iteration of
+                the object</xsd:documentation>
+    </xsd:annotation>
+  </xsd:complexType>
+  <xsd:element name="PingResponse" type="PingRs_MType" />
+  <xsd:complexType name="PingRs_MType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">This is a common Ping response which should echo back
+                the string that was sent in the PingRq</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="PingRs" type="PingRs_Type" />
+      <xsd:sequence minOccurs="0">
+        <xsd:element name="Ver_1" type="Ver_1_CType" />
+        <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##targetNamespace" processContents="lax" />
+      </xsd:sequence>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="PingRs_Type">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">String echoed back from the PingRq.  The element value will contain Error when the Ping request to a service provider is not successful
+                <Jx xmlns="http://jackhenry.com/jxchange/TPG/2008"><CanonicalVal>Error</CanonicalVal></Jx></xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="OpenEnum_Type" />
+  </xsd:simpleType>
+  <xsd:simpleType name="OpenEnum_Type">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">Defines a string type which is Enum but is Bank defined
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:element name="HdrFault" type="HdrFault_MType" />
+  <xsd:complexType name="HdrFault_MType">
+    <xsd:sequence>
+      <xsd:element name="FaultHdr" nillable="true" type="FaultHdr_CType" />
+      <xsd:element minOccurs="0" name="FaultRecInfoArray" nillable="true" type="FaultRecInfoArray_AType" />
+      <xsd:sequence minOccurs="0">
+        <xsd:element name="Ver_1" type="FaultVer_1_CType" />
+        <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##targetNamespace" processContents="lax" />
+      </xsd:sequence>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="FaultHdr_CType">
+    <xsd:annotation>
+      <xsd:documentation>Jxchange header for soap envelop</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="JxVer" type="FaultJxVer_Type" />
+      <xsd:element name="AuditUsrId" type="FaultAuditUsrId_Type" />
+      <xsd:element name="AuditWsId" type="FaultAuditWsId_Type" />
+      <xsd:element minOccurs="0" name="AuthenUsrId" type="FaultAuthenUsrId_Type" />
+      <xsd:element minOccurs="0" name="ConsumerName" type="FaultConsumerName_Type" />
+      <xsd:element minOccurs="0" name="ConsumerProd" type="FaultConsumerProd_Type" />
+      <xsd:sequence minOccurs="0">
+        <xsd:element name="Ver_1" type="FaultVer_1_CType" />
+        <xsd:element minOccurs="0" name="jXLogTrackingId" type="FaultjXLogTrackingId_Type" />
+        <xsd:sequence minOccurs="0">
+          <xsd:element name="Ver_2" type="FaultVer_2_CType" />
+          <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##targetNamespace" processContents="lax" />
+        </xsd:sequence>
+      </xsd:sequence>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="FaultJxVer_Type">
+    <xsd:annotation>
+      <xsd:documentation>
+        <Jx xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemDesc>The element will contain the version Jx is running for Soap Header
+                        Fault</ElemDesc>
+        </Jx>
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:simpleType name="FaultAuditUsrId_Type">
+    <xsd:annotation>
+      <xsd:documentation>
+        <Jx xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemDesc>This is the User Id which the consumer would like written to the audit
+                        as performing the requested service. It will vary but could be down to the
+                        user id. It will not be use to authenticate however just audit for Soap
+                        Header Fault .</ElemDesc>
+        </Jx>
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:simpleType name="FaultAuditWsId_Type">
+    <xsd:annotation>
+      <xsd:documentation>
+        <Jx xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemDesc>This is the WorkStation Id which the consumer would like written to
+                        the audit as performing the requested service for Soap Header Fault . It
+                        will vary but could be down to the user id.</ElemDesc>
+        </Jx>
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:simpleType name="FaultAuthenUsrId_Type">
+    <xsd:annotation>
+      <xsd:documentation>
+        <Jx xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemDesc>This is the User Id which the consumer would like the service provider
+                        to use to authenticate with for Soap Header Fault . It is a user id which
+                        the provider will understand</ElemDesc>
+        </Jx>
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:simpleType name="FaultConsumerName_Type">
+    <xsd:annotation>
+      <xsd:documentation>
+        <Jx xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemDesc>The name of the service consumer (Business name) for Soap Header
+                        Fault</ElemDesc>
+        </Jx>
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:simpleType name="FaultConsumerProd_Type">
+    <xsd:annotation>
+      <xsd:documentation>
+        <Jx xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemDesc>The name of the product which is consuming the service (Business
+                        Product Name) for Soap Header Fault</ElemDesc>
+        </Jx>
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:complexType name="FaultVer_1_CType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">The object tag that represents the first iteration of
+                the object for Soap Fault Header</xsd:documentation>
+    </xsd:annotation>
+  </xsd:complexType>
+  <xsd:simpleType name="FaultjXLogTrackingId_Type">
+    <xsd:annotation>
+      <xsd:documentation>
+        <Jx xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemDesc>An identification provided by jXchange to be able to trace the request
+                        and response of a message from the third party gateway, internal gateway,
+                        and service provider for Soap Header Fault</ElemDesc>
+        </Jx>
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:complexType name="FaultVer_2_CType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">The object tag that represents the second iteration of
+                the object for Soap Fault Header</xsd:documentation>
+    </xsd:annotation>
+  </xsd:complexType>
+  <xsd:complexType name="FaultRecInfoArray_AType">
+    <xsd:annotation>
+      <xsd:documentation>Array of messages that can be returned in a fault message
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="FaultMsgRec" type="FaultMsgRec_CType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="FaultMsgRec_CType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">Message Record includes the Error responses for the
+                soap envelope - can occur multiple times</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="ErrCode" type="FaultErrCode_Type" />
+      <xsd:element name="ErrCat" type="FaultErrCat_Type" />
+      <xsd:element name="ErrDesc" type="FaultErrDesc_Type" />
+      <xsd:element minOccurs="0" name="ErrElem" type="FaultErrElem_Type" />
+      <xsd:element minOccurs="0" name="ErrElemVal" type="FaultErrElemVal_Type" />
+      <xsd:element minOccurs="0" name="ErrLoc" type="FaultErrLoc_Type" />
+      <xsd:sequence minOccurs="0">
+        <xsd:element name="Ver_1" type="FaultVer_1_CType" />
+        <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##targetNamespace" processContents="lax" />
+      </xsd:sequence>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="FaultErrCode_Type">
+    <xsd:annotation>
+      <xsd:documentation>
+        <Jx xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemDesc>Soap Header Fault Error Code</ElemDesc>
+        </Jx>
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:simpleType name="FaultErrCat_Type">
+    <xsd:annotation>
+      <xsd:documentation>
+        <Jx xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemDesc>Soap Header Fault Error Catagory</ElemDesc>
+        </Jx>
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:simpleType name="FaultErrDesc_Type">
+    <xsd:annotation>
+      <xsd:documentation>
+        <Jx xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemDesc>Soap Header Fault Error Description</ElemDesc>
+        </Jx>
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:simpleType name="FaultErrElem_Type">
+    <xsd:annotation>
+      <xsd:documentation>
+        <Jx xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemDesc>Soap Header Fault when an Error or Fault occurs this optional element
+                        will contain the element which is causing the error condition</ElemDesc>
+        </Jx>
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:simpleType name="FaultErrElemVal_Type">
+    <xsd:annotation>
+      <xsd:documentation>
+        <Jx xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemDesc>Soap Header Fault when an Error or Fault occurs this optional element
+                        will contain the value of the element which is causing the error
+                        condition</ElemDesc>
+        </Jx>
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:simpleType name="FaultErrLoc_Type">
+    <xsd:annotation>
+      <xsd:documentation>
+        <Jx xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemDesc>Soap Header Fault Error Location - This is typically the program that
+                        generated the error condition</ElemDesc>
+        </Jx>
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:element name="ChkImgInq" type="ChkImgInqRq_MType" />
+  <xsd:complexType name="ChkImgInqRq_MType">
+    <xsd:sequence>
+      <xsd:element name="MsgRqHdr" type="MsgRqHdr_CType" />
+      <xsd:element name="ChkImgId" type="ChkImgId_Type" />
+      <xsd:element minOccurs="0" name="ChkImgFormat" nillable="true" type="ChkImgFormat_Type" />
+      <xsd:element minOccurs="0" name="ChkImgSide" nillable="true" type="ChkImgSide_Type" />
+      <xsd:element minOccurs="0" name="Custom" nillable="true" type="Custom_CType" />
+      <xsd:sequence minOccurs="0">
+        <xsd:element name="Ver_1" type="Ver_1_CType" />
+        <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##targetNamespace" processContents="lax" />
+      </xsd:sequence>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="MsgRqHdr_CType">
+    <xsd:annotation>
+      <xsd:documentation>Default message request headers</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="jXchangeHdr" type="jXchangeHdr_CType" />
+      <xsd:sequence minOccurs="0">
+        <xsd:element name="Ver_1" type="Ver_1_CType" />
+        <xsd:element minOccurs="0" name="AuthenUsrCred" type="AuthenUsrCred_CType" />
+        <xsd:sequence minOccurs="0">
+          <xsd:element name="Ver_2" type="Ver_2_CType" />
+          <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##targetNamespace" processContents="lax" />
+        </xsd:sequence>
+      </xsd:sequence>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="jXchangeHdr_CType">
+    <xsd:annotation>
+      <xsd:documentation>Jxchange headers for tracking</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="JxVer" type="JxVer_Type" />
+      <xsd:element name="AuditUsrId" type="AuditUsrId_Type" />
+      <xsd:element name="AuditWsId" type="AuditWsId_Type" />
+      <xsd:element minOccurs="0" name="AuthenUsrId" type="AuthenUsrId_Type">
+        <xsd:annotation>
+          <xsd:documentation>
+            <Deprecate xmlns="http://jackhenry.com/jxchange/TPG/2008">
+              <Dt>2012-01-01</Dt>
+              <Cmnt>The AuthenUsrId will be delivered as part of the Authentication
+                                User Credentials element  (AuthenUsrCred_CType) in the form of a WS Security-Security Token. The
+                                Attribute name identity claims name is to be used to deliver a user identification
+                                (http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name)</Cmnt>
+            </Deprecate>
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="ConsumerName" type="ConsumerName_Type" />
+      <xsd:element minOccurs="0" name="ConsumerProd" type="ConsumerProd_Type" />
+      <xsd:sequence minOccurs="0">
+        <xsd:element name="Ver_1" type="Ver_1_CType" />
+        <xsd:element minOccurs="0" name="jXLogTrackingId" type="jXLogTrackingId_Type" />
+        <xsd:sequence minOccurs="0">
+          <xsd:element name="Ver_2" type="Ver_2_CType" />
+          <xsd:element minOccurs="0" name="InstRtId" type="InstRtId_Type" />
+          <xsd:element minOccurs="0" name="InstEnv" type="InstEnv_Type" />
+          <xsd:sequence minOccurs="0">
+            <xsd:element name="Ver_3" type="Ver_3_CType" />
+            <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##targetNamespace" processContents="lax" />
+          </xsd:sequence>
+        </xsd:sequence>
+      </xsd:sequence>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="JxVer_Type">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">The element will contain the version Jx is
+                running</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:simpleType name="AuditUsrId_Type">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">This is the User Id which the consumer would like
+                written to the audit as performing the requested service. It will vary but could be
+                down to the user id. It will not be use to authenticate however just audit.
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:simpleType name="AuditWsId_Type">
+    <xsd:annotation>
+      <xsd:documentation>
+        <Jx xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemDesc>This is the WorkStation Id which the consumer would like written to
+                        the audit as performing the requested service. It will vary but could be
+                        down to the user id. </ElemDesc>
+        </Jx>
+        <Silverlake xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemLongName>Audit Workstation</ElemLongName>
+          <ElemDesc>This element identifies the WorkStation Id that the consumer would
+                        like written to the audit as performing the requested service.</ElemDesc>
+          <ElemType>Alphanumeric</ElemType>
+          <ElemLength>10</ElemLength>
+          <ElemSPMap>JXFREF/AUDITWS</ElemSPMap>
+        </Silverlake>
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:simpleType name="AuthenUsrId_Type">
+    <xsd:annotation>
+      <xsd:documentation>
+        <Jx xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemDesc>This is the User Id which the consumer would like the service provider
+                        to use to authenticate with. It is a user id which the provider will
+                        understand </ElemDesc>
+        </Jx>
+        <Silverlake xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemLongName>Authority User Name</ElemLongName>
+          <ElemDesc>This element identifies the User Id that the consumer would like the
+                        service provider to use for authentication.</ElemDesc>
+          <ElemType>Alphanumeric</ElemType>
+          <ElemLength>10</ElemLength>
+          <ElemSPMap>JXFREF/AUTHUSR</ElemSPMap>
+        </Silverlake>
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:simpleType name="ConsumerName_Type">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">The name of the service consumer (Business name)
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:simpleType name="ConsumerProd_Type">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">The name of the product which is consuming the service
+                (Business Product Name) </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:simpleType name="jXLogTrackingId_Type">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">An identification provided by jXchange to be able to
+                trace the request and response of a message from the third party gateway, internal
+                gateway, and service provider </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:complexType name="Ver_2_CType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">The object tag that represents the second iteration of
+                the object</xsd:documentation>
+    </xsd:annotation>
+  </xsd:complexType>
+  <xsd:simpleType name="InstRtId_Type">
+    <xsd:annotation>
+      <xsd:documentation>
+        <Jx xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemDesc>The identification of the entity of submitted message. A financial
+                        institution entity will utilize the routing transit or ABA nine (9) digit
+                        number assigned to financial institutions for the purpose of routing as
+                        assigned by the American Bankers Association. Any leading zeros must be
+                        provided for a complete routing and transit number. A non-financial
+                        institution entity will use a mutually agreed upon identification that must
+                        contain at least one non-integer character.</ElemDesc>
+        </Jx>
+        <CoreDirector xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemRules>Required on all message requests</ElemRules>
+        </CoreDirector>
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:simpleType name="InstEnv_Type">
+    <xsd:annotation>
+      <xsd:documentation>
+        <Jx xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemDesc>An identification provided by the consumer that defines the
+                        environment in which the institution is operating.</ElemDesc>
+          <CanonicalVal>PROD</CanonicalVal>
+          <ElemUsage>This is the Environment in which the Institution is operating.
+                        Example: [ PROD, TEST, AUDIT, SYM001, SYM101, ... ] The absence of this
+                        element will equate to "PROD" = Production Environment. It will be the
+                        responsibility of the sender to send the appropriate data to identify the
+                        environment if necessary.</ElemUsage>
+        </Jx>
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="OpenEnum_Type" />
+  </xsd:simpleType>
+  <xsd:complexType name="Ver_3_CType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">The object tag that represents the third iteration of
+                the object</xsd:documentation>
+    </xsd:annotation>
+  </xsd:complexType>
+  <xsd:complexType name="AuthenUsrCred_CType">
+    <xsd:annotation>
+      <xsd:documentation>Authentication User Credentials in the form of a WS Security Element that contains a single SAML V2.0 Assertion.
+                http://docs.oasis-open.org/security/saml/v2.0/saml-core-2.0-os.pdf 
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ref="wsse:Security" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="ChkImgId_Type">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">The identification assigned to a check
+                image</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:simpleType name="ChkImgFormat_Type">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">The value that defines the file format that is used to
+                deliver the check image <Jx xmlns="http://jackhenry.com/jxchange/TPG/2008"><CanonicalVal>JPG,TIFF,GIF,PNG,IOCA</CanonicalVal></Jx></xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="ClosedEnum_Type" />
+  </xsd:simpleType>
+  <xsd:simpleType name="ClosedEnum_Type">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">Defines a string type which is Enum and has set values
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:simpleType name="ChkImgSide_Type">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">The value that defines the side to deliver of the check
+                image <Jx xmlns="http://jackhenry.com/jxchange/TPG/2008"><CanonicalVal>Front,Back,Both</CanonicalVal></Jx></xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="ClosedEnum_Type" />
+  </xsd:simpleType>
+  <xsd:complexType name="Custom_CType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">Institution Specific Data - provides an extension point
+                for custom variations of the jXchange vocabulary. ***Placed before xml content not
+                described in a given target namespace. Used as marker/guard/sentinel element to
+                prevent an ambiguous situation for validating parsers as a tactic to prevent
+                violating the Unique Particle Attribution constraint (UPA). </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##other" processContents="lax" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ChkImgInqResponse" type="ChkImgInqRs_MType" />
+  <xsd:complexType name="ChkImgInqRs_MType">
+    <xsd:sequence>
+      <xsd:element name="MsgRsHdr" type="MsgRsHdr_CType" />
+      <xsd:element name="ChkImgId" type="ChkImgId_Type" />
+      <xsd:element name="ChkImgFormat" type="ChkImgFormat_Type" />
+      <xsd:element minOccurs="0" name="ChkImgSide" nillable="true" type="ChkImgSide_Type" />
+      <xsd:element minOccurs="0" name="FrontChkImgLength" nillable="true" type="FrontChkImgLength_Type" />
+      <xsd:element minOccurs="0" name="FrontChkImg" nillable="true" type="FrontChkImg_Type" />
+      <xsd:element minOccurs="0" name="BackChkImgLength" nillable="true" type="BackChkImgLength_Type" />
+      <xsd:element minOccurs="0" name="BackChkImg" nillable="true" type="BackChkImg_Type" />
+      <xsd:element minOccurs="0" name="Custom" nillable="true" type="Custom_CType" />
+      <xsd:sequence minOccurs="0">
+        <xsd:element name="Ver_1" type="Ver_1_CType" />
+        <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##targetNamespace" processContents="lax" />
+      </xsd:sequence>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="MsgRsHdr_CType">
+    <xsd:annotation>
+      <xsd:documentation>Default message response headers</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="jXchangeHdr" type="jXchangeHdr_CType" />
+      <xsd:element minOccurs="0" name="MsgRecInfoArray" type="MsgRecInfoArray_AType" />
+      <xsd:sequence minOccurs="0">
+        <xsd:element name="Ver_1" type="Ver_1_CType" />
+        <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##targetNamespace" processContents="lax" />
+      </xsd:sequence>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="MsgRecInfoArray_AType">
+    <xsd:annotation>
+      <xsd:documentation>Array - of messages that can be returned in a response
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="MsgRec" type="MsgRec_CType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="MsgRec_CType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">Message Record includes the Error responses - Usually
+                can occur multiple times</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="ErrCode" type="ErrCode_Type" />
+      <xsd:element name="ErrCat" type="ErrCat_Type" />
+      <xsd:element name="ErrDesc" type="ErrDesc_Type" />
+      <xsd:element minOccurs="0" name="ErrElem" type="ErrElem_Type" />
+      <xsd:element minOccurs="0" name="ErrElemVal" type="ErrElemVal_Type" />
+      <xsd:element minOccurs="0" name="ErrLoc" type="ErrLoc_Type" />
+      <xsd:sequence minOccurs="0">
+        <xsd:element name="Ver_1" type="Ver_1_CType" />
+        <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##targetNamespace" processContents="lax" />
+      </xsd:sequence>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="ErrCode_Type">
+    <xsd:annotation>
+      <xsd:documentation>
+        <Jx xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemDesc>Error Code</ElemDesc>
+        </Jx>
+        <Silverlake xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemLongName>Error Code</ElemLongName>
+          <ElemDesc>Error Code</ElemDesc>
+          <ElemUsage>This is a numeric value that indicates the type of error returned
+                        through jXchange.</ElemUsage>
+          <ElemType>Message code: Numeric; Error Override?: Alpha</ElemType>
+          <ElemLength>Message code: 7; Error Override?: 245</ElemLength>
+          <ElemSPMap>Message code: N/A (%Messages.ErrCode), JXFREF/MSCODE
+                        (%Messages.ErrOvrRd.ErrCode); Error Override?: JHFREFAPI/ERROVRRD
+                        (ErrOvrRd.ErrCode)</ElemSPMap>
+        </Silverlake>
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:simpleType name="ErrCat_Type">
+    <xsd:annotation>
+      <xsd:documentation>
+        <Jx xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemDesc>Error Catagory</ElemDesc>
+        </Jx>
+        <Silverlake xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemLongName>Message Category</ElemLongName>
+          <ElemDesc>Error Category</ElemDesc>
+          <ElemUsage>This message will contain the type of the error message such as
+                        Error, Falt Warning or Override.</ElemUsage>
+          <ElemType>Alphabetic</ElemType>
+          <ElemLength>20</ElemLength>
+          <ElemSPMap>JXFREF/MSCTGY; N/A</ElemSPMap>
+        </Silverlake>
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:simpleType name="ErrDesc_Type">
+    <xsd:annotation>
+      <xsd:documentation>
+        <Jx xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemDesc>Error Description</ElemDesc>
+        </Jx>
+        <Silverlake xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemLongName>Message Description</ElemLongName>
+          <ElemDesc>Error Description </ElemDesc>
+          <ElemUsage>Error Description </ElemUsage>
+          <ElemType>Alpha </ElemType>
+          <ElemLength>80</ElemLength>
+          <ElemSPMap>JXFREF/MSDESC, N/A (MSDESC)</ElemSPMap>
+        </Silverlake>
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:simpleType name="ErrElem_Type">
+    <xsd:annotation>
+      <xsd:documentation>
+        <Jx xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemDesc>When an Error or Fault occurs this optional element will contain the
+                        element which is causing the error condition</ElemDesc>
+        </Jx>
+        <Silverlake xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemLongName>Element Error Name, XML Tag</ElemLongName>
+          <ElemDesc>When an Error or Fault occurs this optional element will contain the
+                        element which is causing the error condition.</ElemDesc>
+          <ElemUsage>When an Error or Fault occurs this optional element will contain the
+                        element which is causing the error condition.</ElemUsage>
+          <ElemType>Alpha </ElemType>
+          <ElemLength>100, 256</ElemLength>
+          <ElemSPMap>MSELENAME, JXFREF/MSTAG</ElemSPMap>
+        </Silverlake>
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:simpleType name="ErrElemVal_Type">
+    <xsd:annotation>
+      <xsd:documentation>
+        <Jx xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemDesc>When an Error or Fault occurs this optional element will contain the
+                        value of the element which is causing the error condition</ElemDesc>
+        </Jx>
+        <Silverlake xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemLongName>Element Error Value, XML Tag Value</ElemLongName>
+          <ElemDesc>When an Error or Fault occurs this optional element will contain the
+                        value of the element which is causing the error condition.</ElemDesc>
+          <ElemUsage>When an Error or Fault occurs this optional element will contain the
+                        value of the element which is causing the error condition.</ElemUsage>
+          <ElemType>Alpha </ElemType>
+          <ElemLength>100, 256</ElemLength>
+          <ElemSPMap>MSELEVALUE, JXFREF/MSTAGVAL</ElemSPMap>
+        </Silverlake>
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:simpleType name="ErrLoc_Type">
+    <xsd:annotation>
+      <xsd:documentation>
+        <Jx xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemDesc>Error Location - This is typically the program that generated the
+                        error condition</ElemDesc>
+        </Jx>
+        <Silverlake xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemLongName>Procedure Name</ElemLongName>
+          <ElemDesc>Error Location - This is typically the program that generated the
+                        error condition.</ElemDesc>
+          <ElemUsage>This is the source of the error code. The error code can come from
+                        the consumer, the adapter or the service provider.</ElemUsage>
+          <ElemType>Alphabetic</ElemType>
+          <ElemLength>JXFREF: 100; N/A: 20</ElemLength>
+          <ElemSPMap>JXFREF/MSPROC, N/A (Messages.ErrLoc)</ElemSPMap>
+        </Silverlake>
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:simpleType name="FrontChkImgLength_Type">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">The length of the front of the check
+                image</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:int" />
+  </xsd:simpleType>
+  <xsd:simpleType name="FrontChkImg_Type">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">The front of the check image</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:base64Binary" />
+  </xsd:simpleType>
+  <xsd:simpleType name="BackChkImgLength_Type">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">The length of the back of the check
+                image</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:int" />
+  </xsd:simpleType>
+  <xsd:simpleType name="BackChkImg_Type">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">The back of the check image</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:base64Binary" />
+  </xsd:simpleType>
+  <xsd:element name="DocImgAdd" type="DocImgAddRq_MType" />
+  <xsd:complexType name="DocImgAddRq_MType">
+    <xsd:sequence>
+      <xsd:element name="MsgRqHdr" type="MsgRqHdr_CType" />
+      <xsd:element minOccurs="0" name="ErrOvrRdInfoArray" nillable="true" type="ErrOvrRdInfoArray_AType" />
+      <xsd:element name="DocImgInfoArray" type="DocImgInfoArray_AType">
+        <xsd:annotation>
+          <xsd:documentation>
+            <Synergy xmlns="http://jackhenry.com/jxchange/TPG/2008">The business service will only accept one document name.  A soap fault will be created if more than one document is delivered.</Synergy>
+          </xsd:documentation>
+          <xsd:documentation>
+            <Silhouette xmlns="http://jackhenry.com/jxchange/TPG/2008">The business service will only accept one document name.  A soap fault will be created if more than one document is delivered.</Silhouette>
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="Custom" nillable="true" type="Custom_CType" />
+      <xsd:sequence minOccurs="0">
+        <xsd:element name="Ver_1" type="Ver_1_CType" />
+        <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##targetNamespace" processContents="lax" />
+      </xsd:sequence>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ErrOvrRdInfoArray_AType">
+    <xsd:annotation>
+      <xsd:documentation>Array - of overrides for faults </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="ErrOvrRd" type="ErrOvrRd_CType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ErrOvrRd_CType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">Error Code Override - Array of ErrCode
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="ErrCode" type="ErrCode_Type" />
+      <xsd:sequence minOccurs="0">
+        <xsd:element name="Ver_1" type="Ver_1_CType" />
+        <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##targetNamespace" processContents="lax" />
+      </xsd:sequence>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DocImgInfoArray_AType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">Array - of information related to the document Images
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="DocImgInfo" type="DocImgInfo_CType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DocImgInfo_CType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="DocName" type="DocName_Type" />
+      <xsd:element minOccurs="0" name="DocImgAuxDesc" type="DocImgAuxDesc_Type" />
+      <xsd:element minOccurs="0" name="DocImgEffDt" type="DocImgEffDt_Type" />
+      <xsd:element name="DocImgDetArray" type="DocImgDetArray_AType" />
+      <xsd:element minOccurs="0" name="DocImgIdxArray" type="DocImgIdxArray_AType" />
+      <xsd:sequence minOccurs="0">
+        <xsd:element name="Ver_1" type="Ver_1_CType" />
+        <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##targetNamespace" processContents="lax" />
+      </xsd:sequence>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="DocName_Type">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">The name given to a document that might describe the
+                document image captured.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:simpleType name="DocImgAuxDesc_Type">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">An auxiliary description that further describes details
+                about the document image.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:simpleType name="DocImgEffDt_Type">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">The date the document image was created.
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:date" />
+  </xsd:simpleType>
+  <xsd:complexType name="DocImgDetArray_AType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">Array - of Document Images </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="DocImgDetInfo" type="DocImgDetInfo_CType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DocImgDetInfo_CType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="DocImg" type="DocImg_Type" />
+      <xsd:element minOccurs="0" name="DocImgSize" type="DocImgSize_Type" />
+      <xsd:element minOccurs="0" name="DocImgProcSeq" type="DocImgProcSeq_Type" />
+      <xsd:element minOccurs="0" name="DocImgFormat" type="DocImgFormat_Type" />
+      <xsd:sequence minOccurs="0">
+        <xsd:element name="Ver_1" type="Ver_1_CType" />
+        <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##targetNamespace" processContents="lax" />
+      </xsd:sequence>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="DocImg_Type">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">The document image. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:base64Binary" />
+  </xsd:simpleType>
+  <xsd:simpleType name="DocImgSize_Type">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">The size of the document image in bytes. The size is
+                prior to compression if the image has been compressed. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:int" />
+  </xsd:simpleType>
+  <xsd:simpleType name="DocImgProcSeq_Type">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">A sequence number assigned to each document image that
+                assists the service provider for processing. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:int" />
+  </xsd:simpleType>
+  <xsd:simpleType name="DocImgFormat_Type">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">Identifies the type of file that contains the document
+                image. <Jx xmlns="http://jackhenry.com/jxchange/TPG/2008"><CanonicalVal>JPG,TIFF,GIF,PNG,IOCA,PDF</CanonicalVal></Jx></xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="OpenEnum_Type" />
+  </xsd:simpleType>
+  <xsd:complexType name="DocImgIdxArray_AType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">Array - of Document indexes used for a document image
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="DocImgIdx" type="DocImgIdx_CType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DocImgIdx_CType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="DocImgIdxName" type="DocImgIdxName_Type" />
+      <xsd:element minOccurs="0" name="DocImgIdxType" type="DocImgIdxType_Type" />
+      <xsd:element minOccurs="0" name="DocImgIdxValue" type="DocImgIdxValue_Type" />
+      <xsd:sequence minOccurs="0">
+        <xsd:element name="Ver_1" type="Ver_1_CType" />
+        <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##targetNamespace" processContents="lax" />
+      </xsd:sequence>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="DocImgIdxName_Type">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">The name that describes the proceeding elements used
+                for indexing a document image. 
+</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:simpleType name="DocImgIdxType_Type">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">The type or classification of the index that could be
+                used in the DocImgAdd service.<Jx xmlns="http://jackhenry.com/jxchange/TPG/2008"><CanonicalVal>TaxId,AcctId,AcctType,ShortName,Name,CustId,Cabinet,Folder,FileName,Index,UniqueIndex</CanonicalVal></Jx></xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="OpenEnum_Type" />
+  </xsd:simpleType>
+  <xsd:simpleType name="DocImgIdxValue_Type">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">The value that correlates to the DocImgIdxName used for
+                indexing a document image. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:element name="DocImgAddResponse" type="DocImgAddRs_MType" />
+  <xsd:complexType name="DocImgAddRs_MType">
+    <xsd:sequence>
+      <xsd:element name="MsgRsHdr" type="MsgRsHdr_CType" />
+      <xsd:element minOccurs="0" name="DocImgInfoRsArray" nillable="true" type="DocImgInfoRsArray_AType" />
+      <xsd:element minOccurs="0" name="RsStat" nillable="true" type="RsStat_Type" />
+      <xsd:element minOccurs="0" name="Custom" nillable="true" type="Custom_CType" />
+      <xsd:sequence minOccurs="0">
+        <xsd:element name="Ver_1" type="Ver_1_CType" />
+        <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##targetNamespace" processContents="lax" />
+      </xsd:sequence>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DocImgInfoRsArray_AType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">Array - of information returned related to the document
+                Images </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="DocImgInfoRs" type="DocImgInfoRs_CType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DocImgInfoRs_CType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="DocName" type="DocName_Type" />
+      <xsd:element minOccurs="0" name="DocImgIdxArray" type="DocImgIdxArray_AType" />
+      <xsd:sequence minOccurs="0">
+        <xsd:element name="Ver_1" type="Ver_1_CType" />
+        <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##targetNamespace" processContents="lax" />
+      </xsd:sequence>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="RsStat_Type">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">Status of the response <Jx xmlns="http://jackhenry.com/jxchange/TPG/2008"><CanonicalVal>Success,Fail</CanonicalVal></Jx></xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="ClosedEnum_Type" />
+  </xsd:simpleType>
+  <xsd:element name="DocImgSrch" type="DocImgSrchRq_MType" />
+  <xsd:complexType name="DocImgSrchRq_MType">
+    <xsd:sequence>
+      <xsd:element name="SrchMsgRqHdr" type="SrchMsgRqHdr_CType" />
+      <xsd:element name="DocImgIdxArray" type="DocImgIdxArray_AType" />
+      <xsd:element minOccurs="0" name="IdxOnly" nillable="true" type="IdxOnly_Type" />
+      <xsd:element minOccurs="0" name="Custom" nillable="true" type="Custom_CType" />
+      <xsd:sequence minOccurs="0">
+        <xsd:element name="Ver_1" type="Ver_1_CType" />
+        <xsd:element minOccurs="0" name="DocImgFilterType" nillable="true" type="DocImgFilterType_Type" />
+        <xsd:sequence minOccurs="0">
+          <xsd:element name="Ver_2" type="Ver_2_CType" />
+          <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##targetNamespace" processContents="lax" />
+        </xsd:sequence>
+      </xsd:sequence>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SrchMsgRqHdr_CType">
+    <xsd:annotation>
+      <xsd:documentation>Search specific message request headers</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="jXchangeHdr" type="jXchangeHdr_CType" />
+      <xsd:element name="MaxRec" type="MaxRec_Type" />
+      <xsd:element minOccurs="0" name="Cursor" type="Cursor_Type" />
+      <xsd:sequence minOccurs="0">
+        <xsd:element name="Ver_1" type="Ver_1_CType" />
+        <xsd:element minOccurs="0" name="AuthenUsrCred" type="AuthenUsrCred_CType" />
+        <xsd:sequence minOccurs="0">
+          <xsd:element name="Ver_2" type="Ver_2_CType" />
+          <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##targetNamespace" processContents="lax" />
+        </xsd:sequence>
+      </xsd:sequence>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="MaxRec_Type">
+    <xsd:annotation>
+      <xsd:documentation>
+        <Jx xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemDesc> When returning multiple records, this is the maximum number of
+                        records to be returned</ElemDesc>
+        </Jx>
+        <Silverlake xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemLongName>Maximum Records</ElemLongName>
+          <ElemDesc>When returning multiple records, this is the maximum number of records
+                        to be returned</ElemDesc>
+          <ElemUsage>When returning multiple records, this is the maximum number of
+                        records to be returned.</ElemUsage>
+          <ElemType>Numeric</ElemType>
+          <ElemLength>6</ElemLength>
+          <ElemSPMap>JHFREFAPI/MAXREC (SrchMsgHdr.MaxRec, MaxRec)</ElemSPMap>
+        </Silverlake>
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:int" />
+  </xsd:simpleType>
+  <xsd:simpleType name="Cursor_Type">
+    <xsd:annotation>
+      <xsd:documentation>
+        <Jx xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemDesc> When returning multiple records and allowing a subsequent call to
+                        retrieve more records this is the "state" information that allows the next
+                        call to understand where it left off</ElemDesc>
+        </Jx>
+        <Silverlake xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemLongName>Beginning Record; Next Record</ElemLongName>
+          <ElemDesc>When returning multiple records and allowing a subsequent call to
+                        retrieve more records this is the "state" information that allows the next
+                        call to understand where it left off.</ElemDesc>
+          <ElemUsage>When returning multiple records and allowing a subsequent call to
+                        retrieve more records this is the "state" information that allows the next
+                        call to understand where it left off.</ElemUsage>
+          <ElemType>Numeric</ElemType>
+          <ElemLength>6</ElemLength>
+          <ElemSPMap>Beginning Record: JHFREFAPI/BEGREC (Cursor, SrchMsgRqHdr.Cursor);
+                        Next Record: JHFREFAPI/NEXTREC (SrchMsgRqHdr.Cursor)</ElemSPMap>
+        </Silverlake>
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string" />
+  </xsd:simpleType>
+  <xsd:simpleType name="IdxOnly_Type">
+    <xsd:annotation>
+      <xsd:documentation>
+        <Jx xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemDesc>Selection to get in the response a listing of indexes</ElemDesc>
+          <CanonicalVal>true,false</CanonicalVal>
+        </Jx>
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="ClosedEnum_Type" />
+  </xsd:simpleType>
+  <xsd:simpleType name="DocImgFilterType_Type">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">The type of predefined filters that conveys image filters understood by the image provider
+                <Jx xmlns="http://jackhenry.com/jxchange/TPG/2008"><CanonicalVal>qry_demand_deposit,qry_savings,qry_club,qry_cd,qry_loan,qry_consumer_loan,qry_demand_loan,qry_commercial_loan,qry_mortgage_loan,qry_safe_deposit,
+                        qry_customer,qry_customer_tin,qry_gl,qry_account_payable,qry_sig_id,qry_photo_id</CanonicalVal></Jx><Synergy xmlns="http://jackhenry.com/jxchange/TPG/2008"><ElemDesc>Synergy will accept any combination of the indexes referenced for each annotated pre-defined query name.  The more specific index reduces the response set of document images.</ElemDesc><qry_demand_deposit><DocImgIdxName>AccountNumber</DocImgIdxName><DocImgIdxName>CIFNumber</DocImgIdxName><DocImgIdxName>TaxID</DocImgIdxName><DocImgIdxName>Name</DocImgIdxName><DocImgIdxName>ShortName</DocImgIdxName><DocImgIdxName>DateOpened</DocImgIdxName><DocImgIdxName>BranchNumber</DocImgIdxName><DocImgIdxName>Officer</DocImgIdxName></qry_demand_deposit><qry_savings><DocImgIdxName>AccountNumber</DocImgIdxName><DocImgIdxName>CIFNumber</DocImgIdxName><DocImgIdxName>TaxID</DocImgIdxName><DocImgIdxName>Name</DocImgIdxName><DocImgIdxName>ShortName</DocImgIdxName><DocImgIdxName>DateOpened</DocImgIdxName><DocImgIdxName>BranchNumber</DocImgIdxName><DocImgIdxName>Officer</DocImgIdxName></qry_savings><qry_club><DocImgIdxName>AccountNumber</DocImgIdxName><DocImgIdxName>CIFNumber</DocImgIdxName><DocImgIdxName>TaxID</DocImgIdxName><DocImgIdxName>Name</DocImgIdxName><DocImgIdxName>ShortName</DocImgIdxName><DocImgIdxName>DateOpened</DocImgIdxName><DocImgIdxName>BranchNumber</DocImgIdxName><DocImgIdxName>Officer</DocImgIdxName></qry_club><qry_cd><DocImgIdxName>AccountNumber</DocImgIdxName><DocImgIdxName>CIFNumber</DocImgIdxName><DocImgIdxName>TaxID</DocImgIdxName><DocImgIdxName>Name</DocImgIdxName><DocImgIdxName>ShortName</DocImgIdxName><DocImgIdxName>DateOpened</DocImgIdxName><DocImgIdxName>BranchNumber</DocImgIdxName><DocImgIdxName>Officer</DocImgIdxName></qry_cd><qry_loan><DocImgIdxName>AccountNumber</DocImgIdxName><DocImgIdxName>CIFNumber</DocImgIdxName><DocImgIdxName>TaxID</DocImgIdxName><DocImgIdxName>Name</DocImgIdxName><DocImgIdxName>ShortName</DocImgIdxName><DocImgIdxName>DateOpened</DocImgIdxName><DocImgIdxName>BranchNumber</DocImgIdxName><DocImgIdxName>Officer</DocImgIdxName><DocImgIdxName>Coborrower1Name</DocImgIdxName><DocImgIdxName>Coborrower1SSN</DocImgIdxName><DocImgIdxName>Coborrower2Name</DocImgIdxName><DocImgIdxName>CollateralCode</DocImgIdxName><DocImgIdxName>LoanClassCode</DocImgIdxName><DocImgIdxName>LoanCreditRating</DocImgIdxName><DocImgIdxName>LoanDateEntered</DocImgIdxName><DocImgIdxName>LoanDealerNumber</DocImgIdxName><DocImgIdxName>LoanDepartmentCode</DocImgIdxName><DocImgIdxName>LoanOriginationDate</DocImgIdxName><DocImgIdxName>LoanPurposeCode</DocImgIdxName><DocImgIdxName>LoanStatusCode</DocImgIdxName><DocImgIdxName>LoanTypeCode</DocImgIdxName><DocImgIdxName>PropertyDescription</DocImgIdxName></qry_loan><qry_consumer_loan><DocImgIdxName>AccountNumber</DocImgIdxName><DocImgIdxName>CIFNumber</DocImgIdxName><DocImgIdxName>TaxID</DocImgIdxName><DocImgIdxName>Name</DocImgIdxName><DocImgIdxName>ShortName</DocImgIdxName><DocImgIdxName>DateOpened</DocImgIdxName><DocImgIdxName>BranchNumber</DocImgIdxName><DocImgIdxName>Officer</DocImgIdxName><DocImgIdxName>Coborrower1Name</DocImgIdxName><DocImgIdxName>Coborrower1SSN</DocImgIdxName><DocImgIdxName>Coborrower2Name</DocImgIdxName><DocImgIdxName>CollateralCode</DocImgIdxName><DocImgIdxName>LoanClassCode</DocImgIdxName><DocImgIdxName>LoanCreditRating</DocImgIdxName><DocImgIdxName>LoanDateEntered</DocImgIdxName><DocImgIdxName>LoanDealerNumber</DocImgIdxName><DocImgIdxName>LoanDepartmentCode</DocImgIdxName><DocImgIdxName>LoanOriginationDate</DocImgIdxName><DocImgIdxName>LoanPurposeCode</DocImgIdxName><DocImgIdxName>LoanStatusCode</DocImgIdxName><DocImgIdxName>LoanTypeCode</DocImgIdxName><DocImgIdxName>PropertyDescription</DocImgIdxName></qry_consumer_loan><qry_demand_loan><DocImgIdxName>AccountNumber</DocImgIdxName><DocImgIdxName>CIFNumber</DocImgIdxName><DocImgIdxName>TaxID</DocImgIdxName><DocImgIdxName>Name</DocImgIdxName><DocImgIdxName>ShortName</DocImgIdxName><DocImgIdxName>DateOpened</DocImgIdxName><DocImgIdxName>BranchNumber</DocImgIdxName><DocImgIdxName>Officer</DocImgIdxName><DocImgIdxName>Coborrower1Name</DocImgIdxName><DocImgIdxName>Coborrower1SSN</DocImgIdxName><DocImgIdxName>Coborrower2Name</DocImgIdxName><DocImgIdxName>CollateralCode</DocImgIdxName><DocImgIdxName>LoanClassCode</DocImgIdxName><DocImgIdxName>LoanCreditRating</DocImgIdxName><DocImgIdxName>LoanDateEntered</DocImgIdxName><DocImgIdxName>LoanDealerNumber</DocImgIdxName><DocImgIdxName>LoanDepartmentCode</DocImgIdxName><DocImgIdxName>LoanOriginationDate</DocImgIdxName><DocImgIdxName>LoanPurposeCode</DocImgIdxName><DocImgIdxName>LoanStatusCode</DocImgIdxName><DocImgIdxName>LoanTypeCode</DocImgIdxName><DocImgIdxName>PropertyDescription</DocImgIdxName></qry_demand_loan><qry_commercial_loan><DocImgIdxName>AccountNumber</DocImgIdxName><DocImgIdxName>CIFNumber</DocImgIdxName><DocImgIdxName>TaxID</DocImgIdxName><DocImgIdxName>Name</DocImgIdxName><DocImgIdxName>ShortName</DocImgIdxName><DocImgIdxName>DateOpened</DocImgIdxName><DocImgIdxName>BranchNumber</DocImgIdxName><DocImgIdxName>Officer</DocImgIdxName><DocImgIdxName>Coborrower1Name</DocImgIdxName><DocImgIdxName>Coborrower1SSN</DocImgIdxName><DocImgIdxName>Coborrower2Name</DocImgIdxName><DocImgIdxName>CollateralCode</DocImgIdxName><DocImgIdxName>LoanClassCode</DocImgIdxName><DocImgIdxName>LoanCreditRating</DocImgIdxName><DocImgIdxName>LoanDateEntered</DocImgIdxName><DocImgIdxName>LoanDealerNumber</DocImgIdxName><DocImgIdxName>LoanDepartmentCode</DocImgIdxName><DocImgIdxName>LoanOriginationDate</DocImgIdxName><DocImgIdxName>LoanPurposeCode</DocImgIdxName><DocImgIdxName>LoanStatusCode</DocImgIdxName><DocImgIdxName>LoanTypeCode</DocImgIdxName><DocImgIdxName>PropertyDescription</DocImgIdxName></qry_commercial_loan><qry_mortgage_loan><DocImgIdxName>AccountNumber</DocImgIdxName><DocImgIdxName>CIFNumber</DocImgIdxName><DocImgIdxName>TaxID</DocImgIdxName><DocImgIdxName>Name</DocImgIdxName><DocImgIdxName>ShortName</DocImgIdxName><DocImgIdxName>DateOpened</DocImgIdxName><DocImgIdxName>BranchNumber</DocImgIdxName><DocImgIdxName>Officer</DocImgIdxName><DocImgIdxName>Coborrower1Name</DocImgIdxName><DocImgIdxName>Coborrower1SSN</DocImgIdxName><DocImgIdxName>Coborrower2Name</DocImgIdxName><DocImgIdxName>CollateralCode</DocImgIdxName><DocImgIdxName>LoanClassCode</DocImgIdxName><DocImgIdxName>LoanCreditRating</DocImgIdxName><DocImgIdxName>LoanDateEntered</DocImgIdxName><DocImgIdxName>LoanDealerNumber</DocImgIdxName><DocImgIdxName>LoanDepartmentCode</DocImgIdxName><DocImgIdxName>LoanOriginationDate</DocImgIdxName><DocImgIdxName>LoanPurposeCode</DocImgIdxName><DocImgIdxName>LoanStatusCode</DocImgIdxName><DocImgIdxName>LoanTypeCode</DocImgIdxName><DocImgIdxName>PropertyDescription</DocImgIdxName></qry_mortgage_loan><qry_safe_deposit><DocImgIdxName>AccountNumber</DocImgIdxName><DocImgIdxName>CIFNumber</DocImgIdxName><DocImgIdxName>TaxID</DocImgIdxName><DocImgIdxName>Name</DocImgIdxName><DocImgIdxName>ShortName</DocImgIdxName><DocImgIdxName>BranchNumber</DocImgIdxName></qry_safe_deposit><qry_customer><DocImgIdxName>MemberNumber</DocImgIdxName><DocImgIdxName>CIFNumber</DocImgIdxName><DocImgIdxName>TaxID</DocImgIdxName><DocImgIdxName>Name</DocImgIdxName><DocImgIdxName>ShortName</DocImgIdxName></qry_customer><qry_customer_tin><DocImgIdxName>MemberNumber</DocImgIdxName><DocImgIdxName>CIFNumber</DocImgIdxName><DocImgIdxName>TaxID</DocImgIdxName><DocImgIdxName>Name</DocImgIdxName><DocImgIdxName>ShortName</DocImgIdxName></qry_customer_tin><qry_gl><DocImgIdxName>AccountNumber</DocImgIdxName></qry_gl><qry_account_payable><DocImgIdxName>VendorNumber</DocImgIdxName></qry_account_payable><qry_sig_id><DocImgIdxName>AccountNumber</DocImgIdxName><DocImgIdxName>CIFNumber</DocImgIdxName><DocImgIdxName>TaxID</DocImgIdxName><DocImgIdxName>Name</DocImgIdxName><DocImgIdxName>ShortName</DocImgIdxName><DocImgIdxName>DateOpened</DocImgIdxName><DocImgIdxName>BranchNumber</DocImgIdxName><DocImgIdxName>Officer</DocImgIdxName></qry_sig_id><qry_photo_id><DocImgIdxName>CIFNumber</DocImgIdxName><DocImgIdxName>TaxID</DocImgIdxName></qry_photo_id></Synergy></xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="OpenEnum_Type" />
+  </xsd:simpleType>
+  <xsd:element name="DocImgSrchResponse" type="DocImgSrchRs_MType" />
+  <xsd:complexType name="DocImgSrchRs_MType">
+    <xsd:sequence>
+      <xsd:element name="SrchMsgRsHdr" type="SrchMsgRsHdr_CType" />
+      <xsd:element minOccurs="0" name="IdxOnly" nillable="true" type="IdxOnly_Type" />
+      <xsd:element minOccurs="0" name="DocImgSrchArray" nillable="true" type="DocImgSrchArray_AType" />
+      <xsd:element minOccurs="0" name="Custom" nillable="true" type="Custom_CType" />
+      <xsd:sequence minOccurs="0">
+        <xsd:element name="Ver_1" type="Ver_1_CType" />
+        <xsd:element minOccurs="0" name="DocImgFilterType" nillable="true" type="DocImgFilterType_Type" />
+        <xsd:sequence minOccurs="0">
+          <xsd:element name="Ver_2" type="Ver_2_CType" />
+          <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##targetNamespace" processContents="lax" />
+        </xsd:sequence>
+      </xsd:sequence>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SrchMsgRsHdr_CType">
+    <xsd:annotation>
+      <xsd:documentation>Search specific message response headers</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="jXchangeHdr" type="jXchangeHdr_CType" />
+      <xsd:element minOccurs="0" name="SentRec" type="SentRec_Type" />
+      <xsd:element minOccurs="0" name="MoreRec" type="MoreRec_Type" />
+      <xsd:element minOccurs="0" name="Cursor" type="Cursor_Type" />
+      <xsd:element minOccurs="0" name="TotRec" type="TotRec_Type" />
+      <xsd:element minOccurs="0" name="MsgRecInfoArray" type="MsgRecInfoArray_AType" />
+      <xsd:sequence minOccurs="0">
+        <xsd:element name="Ver_1" type="Ver_1_CType" />
+        <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##targetNamespace" processContents="lax" />
+      </xsd:sequence>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="SentRec_Type">
+    <xsd:annotation>
+      <xsd:documentation>
+        <Jx xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemDesc> Number of records sent in the response</ElemDesc>
+        </Jx>
+        <Silverlake xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemLongName>Numer Sent Recs, Number Sent Recs, Sent Records</ElemLongName>
+          <ElemDesc>Number of records sent in the response </ElemDesc>
+          <ElemUsage>Number of records sent in the response </ElemUsage>
+          <ElemType>Numeric</ElemType>
+          <ElemLength>6</ElemLength>
+          <ElemSPMap>JHFREFAPI/SENTREC</ElemSPMap>
+        </Silverlake>
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:int" />
+  </xsd:simpleType>
+  <xsd:simpleType name="MoreRec_Type">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">Indicates if there are more records that could be returned<Jx xmlns="http://jackhenry.com/jxchange/TPG/2008"><CanonicalVal>true,false</CanonicalVal></Jx></xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="ClosedEnum_Type" />
+  </xsd:simpleType>
+  <xsd:simpleType name="TotRec_Type">
+    <xsd:annotation>
+      <xsd:documentation>
+        <Jx xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemDesc>Indicates the total records the the request selected which could be
+                        larger than MaxRec</ElemDesc>
+        </Jx>
+        <Silverlake xmlns="http://jackhenry.com/jxchange/TPG/2008">
+          <ElemLongName>Total # Recs Exist</ElemLongName>
+          <ElemDesc>Total # Recs Exist</ElemDesc>
+          <ElemUsage>This is the total number of records that exist that meets the
+                        required criteria.</ElemUsage>
+          <ElemType>Integer</ElemType>
+          <ElemLength>15</ElemLength>
+          <ElemSPMap>JHFREFAPI/TOTRECS </ElemSPMap>
+        </Silverlake>
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:int" />
+  </xsd:simpleType>
+  <xsd:complexType name="DocImgSrchArray_AType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">An array response for document image search request.
+   </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="DocImgSrchInfo" type="DocImgSrchInfo_CType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DocImgSrchInfo_CType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="DocName" type="DocName_Type" />
+      <xsd:element minOccurs="0" name="DocImgIdxArray" type="DocImgIdxArray_AType" />
+      <xsd:element minOccurs="0" name="DocImgDetArray" type="DocImgDetArray_AType" />
+      <xsd:sequence minOccurs="0">
+        <xsd:element name="Ver_1" type="Ver_1_CType" />
+        <xsd:any minOccurs="0" maxOccurs="unbounded" namespace="##targetNamespace" processContents="lax" />
+      </xsd:sequence>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

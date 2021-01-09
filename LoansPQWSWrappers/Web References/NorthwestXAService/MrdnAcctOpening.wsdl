@@ -1,0 +1,849 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s7="EvaluateRisk_Request" xmlns:s2="QueryAccounts_Response" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s5="ValidateEligibility_Request" xmlns:s8="EvaluateRisk_Response" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s3="OpenAccounts_Request" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://tempuri.org/" xmlns:s6="ValidateEligibility_Response" xmlns:s1="QueryAccounts_Request" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s4="OpenAccounts_Response" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:import namespace="QueryAccounts_Request" />
+      <s:import namespace="QueryAccounts_Response" />
+      <s:import namespace="OpenAccounts_Request" />
+      <s:import namespace="OpenAccounts_Response" />
+      <s:import namespace="ValidateEligibility_Request" />
+      <s:import namespace="ValidateEligibility_Response" />
+      <s:import namespace="EvaluateRisk_Request" />
+      <s:import namespace="EvaluateRisk_Response" />
+      <s:element name="CheckConnectivity">
+        <s:complexType />
+      </s:element>
+      <s:element name="CheckConnectivityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckConnectivityResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryAccounts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:inRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryAccountsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s2:QueryAccountsResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OpenAccounts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s3:inRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OpenAccountsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s4:OpenAccountsResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateEligibility">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s5:inRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateEligibilityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s6:ValidateEligibilityResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EvaluateRisk">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s7:inRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EvaluateRiskResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s8:EvaluateRiskResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DirectOpenAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inRequest" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="inCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DirectOpenAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s4:DirectOpenAccountResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="QueryAccounts_Request">
+      <s:element name="inRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Channel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Branch" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TimeStamp" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="Version" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="CustomFields" type="s1:ArrayOfCustomField" />
+            <s:element minOccurs="0" maxOccurs="1" name="RequestDetails" type="s1:Request" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCustomField">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CustomField" type="s1:CustomField" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CustomField">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Request">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaxID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="QueryAccounts_Response">
+      <s:element name="QueryAccountsResult" type="s2:QueryAccounts_Response" />
+      <s:complexType name="QueryAccounts_Response">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Channel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Branch" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TimeStamp" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Version" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomFields" type="s2:ArrayOfCustomField" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResponseDetails" type="s2:Response" />
+          <s:element minOccurs="0" maxOccurs="1" name="Error" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCustomField">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CustomField" type="s2:CustomField" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CustomField">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Response">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Owners" type="s2:ArrayOfOwner" />
+          <s:element minOccurs="0" maxOccurs="1" name="Accounts" type="s2:ArrayOfAccount" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfOwner">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Owner" nillable="true" type="s2:Owner" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Owner">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NameSuffix" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaxID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateOfBirth" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressLine1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressLine2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Zip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="County" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HomePhoneNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WorkPhoneNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OwnerType" type="s2:OwnerType" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="OwnerType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Primary" />
+          <s:enumeration value="Joint" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfAccount">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Account" nillable="true" type="s2:Account" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Account">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClosedDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OpenDate" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="InternalTransferSource" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CurrentBalance" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="AvailableBalance" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="BalanceAsOf" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="JointOwner1TaxID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="OpenAccounts_Request">
+      <s:element name="inRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Channel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Branch" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TimeStamp" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="Version" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CustomFields" type="s3:ArrayOfCustomField" />
+            <s:element minOccurs="0" maxOccurs="1" name="RequestDetails" type="s3:RequestDetail" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCustomField">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CustomField" type="s3:CustomField" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CustomField">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RequestDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Accounts" type="s3:ArrayOfAccount" />
+          <s:element minOccurs="0" maxOccurs="1" name="Applicants" type="s3:ArrayOfApplicant" />
+          <s:element minOccurs="0" maxOccurs="1" name="Eligibility" type="s3:Eligibility" />
+          <s:element minOccurs="0" maxOccurs="1" name="Options" type="s3:ArrayOfString1" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fees" type="s3:ArrayOfFee" />
+          <s:element minOccurs="0" maxOccurs="1" name="Promotions" type="s3:ArrayOfPromotion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAccount">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Account" type="s3:Account" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Account">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FundingAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="FundingType" type="s3:FundingType" />
+          <s:element minOccurs="0" maxOccurs="1" name="ACHDetails" type="s3:ACHDetails" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreditCardDetails" type="s3:CreditCardDetails" />
+          <s:element minOccurs="0" maxOccurs="1" name="InternalTransferDetails" type="s3:InternalTransferDetails" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountOptions" type="s3:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="CertificateOptions" type="s3:CertificateOption" />
+          <s:element minOccurs="0" maxOccurs="1" name="JointOwner1TaxID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="JointOwner2TaxID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastCheckNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="FundingType">
+        <s:restriction base="s:string">
+          <s:enumeration value="InternalTransfer" />
+          <s:enumeration value="ACH" />
+          <s:enumeration value="CreditCard" />
+          <s:enumeration value="Cash" />
+          <s:enumeration value="Check" />
+          <s:enumeration value="NotFunded" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ACHDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Originator" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Institution" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ABANumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ACHAccountNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ACHAccountType" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CreditCardDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CreditCardNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreditCardType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExpirationDate" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InternalTransferDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FundingAccountNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FundingAccountType" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AccountOption" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CertificateOption">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MaturityDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DivFrequency" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DivStartDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DistributionType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DistributionAccount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DistributionAccountType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Maturity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaturityAccount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaturityAccountType" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfApplicant">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Applicant" type="s3:Applicant" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Applicant">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NameSuffix" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaxID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateOfBirth" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressLine1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressLine2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Zip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="County" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HomePhoneNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WorkPhoneNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SurvivorshipCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ApplicantType" type="s3:ApplicantType" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="ApplicantType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Primary" />
+          <s:enumeration value="Joint" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="Eligibility">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="EligibilityType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EligibilityDetails" type="s3:ArrayOfEligibilityDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEligibilityDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EligibilityDetail" type="s3:EligibilityDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EligibilityDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString1">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Option" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFee">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Fee" type="s3:Fee" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Fee">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="FundingType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreditCardDetails" type="s3:CreditCardDetails" />
+          <s:element minOccurs="0" maxOccurs="1" name="ACHDetails" type="s3:ACHDetails" />
+          <s:element minOccurs="0" maxOccurs="1" name="InternalTransferDetails" type="s3:InternalTransferDetails" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPromotion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Promotion" type="s3:Promotion" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Promotion">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Details" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="OpenAccounts_Response">
+      <s:element name="OpenAccountsResult">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Channel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Branch" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TimeStamp" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Version" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="CustomFields" type="s4:ArrayOfCustomField" />
+            <s:element minOccurs="0" maxOccurs="1" name="ResponseDetails" type="s4:Response" />
+            <s:element minOccurs="0" maxOccurs="1" name="Error" type="s4:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCustomField">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CustomField" type="s4:CustomField" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CustomField">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Response">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Accounts" type="s4:ArrayOfAccount" />
+          <s:element minOccurs="0" maxOccurs="1" name="DebitCards" type="s4:ArrayOfDebitCard" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAccount">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Account" type="s4:Account" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Account">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CertificateDetails" type="s4:CertificateDetail" />
+          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CertificateDetail">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Rate" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="APY" nillable="true" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaturityDate" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDebitCard">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DebitCard" type="s4:DebitCard" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DebitCard">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CardNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExpirationDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CheckingAccount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DirectOpenAccountResult">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Channel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Branch" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TimeStamp" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Version" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="CustomFields" type="s4:ArrayOfCustomField" />
+            <s:element minOccurs="0" maxOccurs="1" name="ResponseDetails" type="s4:Response" />
+            <s:element minOccurs="0" maxOccurs="1" name="Error" type="s4:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="ValidateEligibility_Request">
+      <s:element name="inRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Channel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Branch" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TimeStamp" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="Version" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="CustomFields" type="s5:ArrayOfCustomField" />
+            <s:element minOccurs="0" maxOccurs="1" name="RequestDetails" type="s5:Request" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCustomField">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CustomField" type="s5:CustomField" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CustomField">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Request">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="EligibilityType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EligibilityDetails" type="s5:ArrayOfEligibilityDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEligibilityDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EligibilityDetail" type="s5:EligibilityDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EligibilityDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="ValidateEligibility_Response">
+      <s:element name="ValidateEligibilityResult">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Channel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Branch" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TimeStamp" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Version" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="CustomFields" type="s6:ArrayOfCustomField" />
+            <s:element minOccurs="0" maxOccurs="1" name="ResponseDetails" type="s6:Response" />
+            <s:element minOccurs="0" maxOccurs="1" name="Error" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCustomField">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CustomField" type="s6:CustomField" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CustomField">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Response">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Eligible" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="EvaluateRisk_Request">
+      <s:element name="inRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Channel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Branch" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TimeStamp" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="Version" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="CustomFields" type="s7:ArrayOfCustomField" />
+            <s:element minOccurs="0" maxOccurs="1" name="RequestDetails" type="s7:Request" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCustomField">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CustomField" type="s7:CustomField" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CustomField">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Request">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Applicants" type="s7:ArrayOfApplicant" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfApplicant">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Applicant" type="s7:Applicant" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Applicant">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TaxID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ApplicantType" type="s7:ApplicantType" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="ApplicantType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Primary" />
+          <s:enumeration value="Joint" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="EvaluateRisk_Response">
+      <s:element name="EvaluateRiskResult">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Channel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Branch" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TimeStamp" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Version" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="CustomFields" type="s8:ArrayOfCustomField" />
+            <s:element minOccurs="0" maxOccurs="1" name="ResponseDetails" type="s8:Response" />
+            <s:element minOccurs="0" maxOccurs="1" name="Error" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCustomField">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CustomField" type="s8:CustomField" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CustomField">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Response">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AllQualify" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="RiskDetails" type="s8:ArrayOfRiskDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfRiskDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RiskDetail" type="s8:RiskDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RiskDetail">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Qualifies" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaxID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CheckConnectivitySoapIn">
+    <wsdl:part name="parameters" element="tns:CheckConnectivity" />
+  </wsdl:message>
+  <wsdl:message name="CheckConnectivitySoapOut">
+    <wsdl:part name="parameters" element="tns:CheckConnectivityResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryAccountsSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryAccounts" />
+  </wsdl:message>
+  <wsdl:message name="QueryAccountsSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="OpenAccountsSoapIn">
+    <wsdl:part name="parameters" element="tns:OpenAccounts" />
+  </wsdl:message>
+  <wsdl:message name="OpenAccountsSoapOut">
+    <wsdl:part name="parameters" element="tns:OpenAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateEligibilitySoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateEligibility" />
+  </wsdl:message>
+  <wsdl:message name="ValidateEligibilitySoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateEligibilityResponse" />
+  </wsdl:message>
+  <wsdl:message name="EvaluateRiskSoapIn">
+    <wsdl:part name="parameters" element="tns:EvaluateRisk" />
+  </wsdl:message>
+  <wsdl:message name="EvaluateRiskSoapOut">
+    <wsdl:part name="parameters" element="tns:EvaluateRiskResponse" />
+  </wsdl:message>
+  <wsdl:message name="DirectOpenAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:DirectOpenAccount" />
+  </wsdl:message>
+  <wsdl:message name="DirectOpenAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:DirectOpenAccountResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AccountOpeningSoap">
+    <wsdl:operation name="CheckConnectivity">
+      <wsdl:input message="tns:CheckConnectivitySoapIn" />
+      <wsdl:output message="tns:CheckConnectivitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryAccounts">
+      <wsdl:input message="tns:QueryAccountsSoapIn" />
+      <wsdl:output message="tns:QueryAccountsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OpenAccounts">
+      <wsdl:input message="tns:OpenAccountsSoapIn" />
+      <wsdl:output message="tns:OpenAccountsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateEligibility">
+      <wsdl:input message="tns:ValidateEligibilitySoapIn" />
+      <wsdl:output message="tns:ValidateEligibilitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EvaluateRisk">
+      <wsdl:input message="tns:EvaluateRiskSoapIn" />
+      <wsdl:output message="tns:EvaluateRiskSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DirectOpenAccount">
+      <wsdl:input message="tns:DirectOpenAccountSoapIn" />
+      <wsdl:output message="tns:DirectOpenAccountSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AccountOpeningSoap" type="tns:AccountOpeningSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckConnectivity">
+      <soap:operation soapAction="http://tempuri.org/CheckConnectivity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryAccounts">
+      <soap:operation soapAction="http://tempuri.org/QueryAccounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpenAccounts">
+      <soap:operation soapAction="http://tempuri.org/OpenAccounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateEligibility">
+      <soap:operation soapAction="http://tempuri.org/ValidateEligibility" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EvaluateRisk">
+      <soap:operation soapAction="http://tempuri.org/EvaluateRisk" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DirectOpenAccount">
+      <soap:operation soapAction="http://tempuri.org/DirectOpenAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AccountOpeningSoap12" type="tns:AccountOpeningSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckConnectivity">
+      <soap12:operation soapAction="http://tempuri.org/CheckConnectivity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryAccounts">
+      <soap12:operation soapAction="http://tempuri.org/QueryAccounts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OpenAccounts">
+      <soap12:operation soapAction="http://tempuri.org/OpenAccounts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateEligibility">
+      <soap12:operation soapAction="http://tempuri.org/ValidateEligibility" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EvaluateRisk">
+      <soap12:operation soapAction="http://tempuri.org/EvaluateRisk" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DirectOpenAccount">
+      <soap12:operation soapAction="http://tempuri.org/DirectOpenAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AccountOpening">
+    <wsdl:port name="AccountOpeningSoap" binding="tns:AccountOpeningSoap">
+      <soap:address location="http://devloanspq.nwfcu.org/MrdnAcctOpening/AccountOpening.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AccountOpeningSoap12" binding="tns:AccountOpeningSoap12">
+      <soap12:address location="http://devloanspq.nwfcu.org/MrdnAcctOpening/AccountOpening.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

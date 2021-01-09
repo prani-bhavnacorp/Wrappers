@@ -1,0 +1,1519 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s0:definitions xmlns:s1="java:com.verid.carbon.integration.datatypes" xmlns:s3="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s2="http://integration.carbon.verid.com" xmlns="" name="CarbonServiceDefinitions" targetNamespace="http://integration.carbon.verid.com" xmlns:s0="http://schemas.xmlsoap.org/wsdl/">
+  <s0:types>
+    <xs:schema xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:stns="java:com.verid.carbon.integration.datatypes" xmlns:wsd="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://integration.carbon.verid.com" xmlns:s1="java:com.verid.carbon.integration.datatypes" xmlns="java:com.verid.carbon.integration.datatypes" xmlns:ns="http://www.w3.org/2001/XMLSchema" xmlns:s3="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:types="java:com.verid.carbon.integration.datatypes" xmlns:s2="http://integration.carbon.verid.com" xmlns:ns1="http://schemas.xmlsoap.org/soap/encoding/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="java:com.verid.carbon.integration.datatypes" jaxb:version="2.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <ns:simpleType name="account-name-type">
+        <ns:restriction base="ns:string" />
+      </ns:simpleType>
+      <ns:simpleType name="transaction-direction-type">
+        <ns:restriction base="ns:string">
+          <ns:enumeration value="buy" />
+          <ns:enumeration value="sell" />
+        </ns:restriction>
+      </ns:simpleType>
+      <ns:simpleType name="product-category-type">
+        <ns:restriction base="ns:string">
+          <ns:enumeration value="accounting" />
+          <ns:enumeration value="alcohol" />
+          <ns:enumeration value="amusement-and-recreation-services" />
+          <ns:enumeration value="apparel" />
+          <ns:enumeration value="audio" />
+          <ns:enumeration value="auto-rental-and-Leasing" />
+          <ns:enumeration value="automotive-service" />
+          <ns:enumeration value="baby" />
+          <ns:enumeration value="background-check" />
+          <ns:enumeration value="bond" />
+          <ns:enumeration value="book" />
+          <ns:enumeration value="cable-or-pay-television-services" />
+          <ns:enumeration value="caller-id-spoofing" />
+          <ns:enumeration value="camera" />
+          <ns:enumeration value="certificate-of-deposit" />
+          <ns:enumeration value="computer" />
+          <ns:enumeration value="concert" />
+          <ns:enumeration value="construction-material" />
+          <ns:enumeration value="cosmetic" />
+          <ns:enumeration value="credit-check" />
+          <ns:enumeration value="electronics" />
+          <ns:enumeration value="equipment-rental" />
+          <ns:enumeration value="footwear" />
+          <ns:enumeration value="furniture-or-home-furnishings" />
+          <ns:enumeration value="future" />
+          <ns:enumeration value="game-or-toy" />
+          <ns:enumeration value="gas" />
+          <ns:enumeration value="grocery" />
+          <ns:enumeration value="hotel" />
+          <ns:enumeration value="insurance" />
+          <ns:enumeration value="investment-advice" />
+          <ns:enumeration value="jewelry" />
+          <ns:enumeration value="kitchen-and-housewares" />
+          <ns:enumeration value="lawn-and-garden-equipment" />
+          <ns:enumeration value="membership-organizations" />
+          <ns:enumeration value="money-transfer-in" />
+          <ns:enumeration value="money-transfer-out" />
+          <ns:enumeration value="motor-vehicle" />
+          <ns:enumeration value="music" />
+          <ns:enumeration value="musical-instrument" />
+          <ns:enumeration value="office-product" />
+          <ns:enumeration value="option" />
+          <ns:enumeration value="pet-supplies" />
+          <ns:enumeration value="real-estate" />
+          <ns:enumeration value="restaurant" />
+          <ns:enumeration value="software" />
+          <ns:enumeration value="sporting-and-athletic-product" />
+          <ns:enumeration value="sporting-event" />
+          <ns:enumeration value="sports-and-recreation-club" />
+          <ns:enumeration value="stock" />
+          <ns:enumeration value="subscriptions-on-line-content" />
+          <ns:enumeration value="subscriptions-other" />
+          <ns:enumeration value="subscriptions-periodical" />
+          <ns:enumeration value="tobacco" />
+          <ns:enumeration value="tools-and-hardware" />
+          <ns:enumeration value="trucking-or-courier-service" />
+          <ns:enumeration value="video-purchase" />
+          <ns:enumeration value="video-rental" />
+          <ns:enumeration value="wager" />
+          <ns:enumeration value="other" />
+          <ns:enumeration value="deposit" />
+          <ns:enumeration value="withdrawal" />
+          <ns:enumeration value="bill-payment" />
+        </ns:restriction>
+      </ns:simpleType>
+      <ns:complexType name="product-type">
+        <ns:sequence>
+          <ns:element name="product-category" type="types:product-category-type" />
+          <ns:element minOccurs="0" name="model" type="ns:string" />
+          <ns:element minOccurs="0" name="vendor" type="ns:string" />
+          <ns:element minOccurs="0" name="code" type="ns:string" />
+          <ns:element minOccurs="0" name="symbol" type="ns:string" />
+          <ns:element minOccurs="0" name="transaction-direction" type="types:transaction-direction-type" />
+          <ns:element minOccurs="0" name="product-quantity" type="ns:integer" />
+          <ns:element minOccurs="0" name="per-item-amount" type="ns:decimal" />
+          <ns:element minOccurs="0" name="transaction-date" type="types:transaction-date-type" />
+          <ns:element minOccurs="0" name="data" type="types:complex-detail-type" />
+        </ns:sequence>
+      </ns:complexType>
+      <ns:complexType name="person-type">
+        <ns:annotation>
+          <ns:documentation>This construct captures information about the person being authenticated</ns:documentation>
+        </ns:annotation>
+        <ns:sequence>
+          <ns:element minOccurs="0" name="name-prefix" type="ns:string">
+            <ns:annotation>
+              <ns:documentation>Person's name's prefix if any (e.g., Mr., Mrs., Dr., ...)</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element minOccurs="0" name="name-first" type="ns:string">
+            <ns:annotation>
+              <ns:documentation>Person's given name</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element minOccurs="0" name="name-middle" type="ns:string">
+            <ns:annotation>
+              <ns:documentation>Person's middle name</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element minOccurs="0" name="name-last" type="ns:string">
+            <ns:annotation>
+              <ns:documentation>Person's surname</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element minOccurs="0" name="name-suffix" type="ns:string">
+            <ns:annotation>
+              <ns:documentation>Person's name's suffix (e.g., Jr, III, ...)</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element minOccurs="0" maxOccurs="unbounded" name="customer-id" type="types:customer-id-type" />
+          <ns:element minOccurs="0" maxOccurs="unbounded" name="email" type="types:email-type" />
+          <ns:element minOccurs="0" name="ssn" type="ns:string">
+            <ns:annotation>
+              <ns:documentation>Person's social security number (if provided)</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element minOccurs="0" name="ssn-type" type="types:ssn-type">
+            <ns:annotation>
+              <ns:documentation>Type of the social security number provided (none, last4 or full)</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element minOccurs="0" name="drivers-license-number" type="ns:string">
+            <ns:annotation>
+              <ns:documentation>Person's drivers license number (if provided)</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element minOccurs="0" name="drivers-license-state" type="ns:string">
+            <ns:annotation>
+              <ns:documentation>State where drivers license issued (if provided, must be a valid 2 letter USPS state code)</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element minOccurs="0" name="birthdate" type="types:birthdate-type">
+            <ns:annotation>
+              <ns:documentation>Person's birthdate</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element minOccurs="0" maxOccurs="unbounded" name="address" type="types:address-type">
+            <ns:annotation>
+              <ns:documentation>Addresses associated with the person</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element minOccurs="0" maxOccurs="unbounded" name="uk-address" type="types:uk-address-type">
+            <ns:annotation>
+              <ns:documentation>UK Addresses associated with the person</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element minOccurs="0" maxOccurs="unbounded" name="phone-number" type="types:phone-number-type">
+            <ns:annotation>
+              <ns:documentation>Phone numbers associated with the person</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element minOccurs="0" name="business" type="types:business-type" />
+          <ns:element minOccurs="0" maxOccurs="unbounded" name="employer" type="types:business-type" />
+          <ns:element minOccurs="0" name="occupation" type="ns:string" />
+          <ns:element minOccurs="0" name="risk-assessment" type="types:risk-assessment-type" />
+        </ns:sequence>
+      </ns:complexType>
+      <ns:complexType name="address-type">
+        <ns:annotation>
+          <ns:documentation>Multi-purpose address container</ns:documentation>
+        </ns:annotation>
+        <ns:sequence>
+          <ns:element name="address-street1" type="ns:string">
+            <ns:annotation>
+              <ns:documentation>Part 1 of the street name</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element minOccurs="0" name="address-street2" type="ns:string">
+            <ns:annotation>
+              <ns:documentation>Part 2 of the street name</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element minOccurs="0" name="suite" type="ns:string">
+            <ns:annotation>
+              <ns:documentation>Suite or apartment number</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element name="address-city" type="ns:string">
+            <ns:annotation>
+              <ns:documentation>City of the address</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element name="address-state" type="ns:string">
+            <ns:annotation>
+              <ns:documentation>State of the address (must be a valid 2 letter USPS state code)</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element name="address-zip" type="ns:string">
+            <ns:annotation>
+              <ns:documentation>Zip of the address</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element minOccurs="0" name="address-zip-plus4" type="ns:string">
+            <ns:annotation>
+              <ns:documentation>Zip4 of the address</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element minOccurs="0" name="address-country" type="ns:string">
+            <ns:annotation>
+              <ns:documentation>Not required: Country of the address (assumed to be US)</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element name="address-context" type="types:address-context-type">
+            <ns:annotation>
+              <ns:documentation>The relationship between the address and the owning construct</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element minOccurs="0" name="address-years-at" type="ns:decimal">
+            <ns:annotation>
+              <ns:documentation>Years of residence at this address (1.3, 0.2, etc.)</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element minOccurs="0" name="occupation-start-date" type="ns:date" />
+        </ns:sequence>
+      </ns:complexType>
+      <ns:complexType name="uk-address-type">
+        <ns:annotation>
+          <ns:documentation>Multi-purpose address container</ns:documentation>
+        </ns:annotation>
+        <ns:sequence>
+          <ns:element name="house-name" type="ns:string">
+            <ns:annotation>
+              <ns:documentation>House name</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element name="house-number" type="ns:string">
+            <ns:annotation>
+              <ns:documentation>House number</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element name="street1" type="ns:string">
+            <ns:annotation>
+              <ns:documentation>Street1 name</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element name="street2" type="ns:string">
+            <ns:annotation>
+              <ns:documentation>Street2 name</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element name="district" type="ns:string">
+            <ns:annotation>
+              <ns:documentation>District name</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element name="town" type="ns:string">
+            <ns:annotation>
+              <ns:documentation>Town of the address</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element name="county" type="ns:string">
+            <ns:annotation>
+              <ns:documentation>County of the address</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element name="postcode" type="ns:string">
+            <ns:annotation>
+              <ns:documentation>Postcode of the address</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element name="context" type="types:address-context-type">
+            <ns:annotation>
+              <ns:documentation>The relationship between the address and the owning construct</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element minOccurs="0" name="years-at" type="ns:decimal">
+            <ns:annotation>
+              <ns:documentation>Years of residence at this address (1.3, 0.2, etc.)</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+        </ns:sequence>
+      </ns:complexType>
+      <ns:complexType name="phone-number-type">
+        <ns:annotation>
+          <ns:documentation>Representation of a phone number</ns:documentation>
+        </ns:annotation>
+        <ns:sequence>
+          <ns:element name="phone-number" type="ns:string">
+            <ns:annotation>
+              <ns:documentation>The phone number</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element name="phone-number-context" type="types:phone-number-context-type">
+            <ns:annotation>
+              <ns:documentation>The relationship between the phone number and the owning construct</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+        </ns:sequence>
+      </ns:complexType>
+      <ns:complexType name="business-type">
+        <ns:annotation>
+          <ns:documentation>Representation of a business</ns:documentation>
+        </ns:annotation>
+        <ns:sequence>
+          <ns:element name="company-name" type="ns:string">
+            <ns:annotation>
+              <ns:documentation>The name of the business</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element minOccurs="0" name="fein" type="ns:string">
+            <ns:annotation>
+              <ns:documentation>The business's FEIN</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element minOccurs="0" name="address" type="types:address-type">
+            <ns:annotation>
+              <ns:documentation>Array of addresses associated with the business (typically only one is given)</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element minOccurs="0" maxOccurs="unbounded" name="phone-number" type="types:phone-number-type">
+            <ns:annotation>
+              <ns:documentation>Array of phone numbers associated with the business (typically only one is given)</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element minOccurs="0" name="title" type="ns:string" />
+          <ns:element minOccurs="0" name="start-date" type="ns:date" />
+          <ns:element minOccurs="0" name="end-date" type="ns:date" />
+        </ns:sequence>
+      </ns:complexType>
+      <ns:complexType name="ordered-by-type">
+        <ns:annotation>
+          <ns:documentation>Who is placing the "order".</ns:documentation>
+        </ns:annotation>
+        <ns:choice>
+          <ns:element name="same-as" type="types:same-as-type" />
+          <ns:element name="person" type="types:person-type" />
+        </ns:choice>
+      </ns:complexType>
+      <ns:complexType name="bill-to-type">
+        <ns:annotation>
+          <ns:documentation>Optional: To whom is the "Order" being billed. Populate either the contact or the same-as field but not both.</ns:documentation>
+        </ns:annotation>
+        <ns:choice>
+          <ns:element name="same-as" type="types:same-as-type" />
+          <ns:element name="person-type" type="types:person-type" />
+        </ns:choice>
+      </ns:complexType>
+      <ns:complexType name="ship-to-type">
+        <ns:annotation>
+          <ns:documentation>Optional: To whom is the "Order" being shipped. Populate either the contact or the same-as field but not both.</ns:documentation>
+        </ns:annotation>
+        <ns:choice minOccurs="0">
+          <ns:element name="same-as" type="types:same-as-type" />
+          <ns:element name="person-type" type="types:person-type" />
+        </ns:choice>
+      </ns:complexType>
+      <ns:simpleType name="same-as-type">
+        <ns:annotation>
+          <ns:documentation>Available values for the same-as field.  Note that the bill-to value is only valid when used in the context of the ship-to-type.</ns:documentation>
+        </ns:annotation>
+        <ns:restriction base="ns:string">
+          <ns:enumeration value="ordered-by">
+            <ns:annotation>
+              <ns:documentation>Use the ordered-by contact.</ns:documentation>
+            </ns:annotation>
+          </ns:enumeration>
+          <ns:enumeration value="bill-to">
+            <ns:annotation>
+              <ns:documentation>Use the bill-to contact.</ns:documentation>
+            </ns:annotation>
+          </ns:enumeration>
+        </ns:restriction>
+      </ns:simpleType>
+      <ns:simpleType name="payment-method">
+        <ns:restriction base="ns:string">
+          <ns:enumeration value="store-credit" />
+          <ns:enumeration value="gift-card" />
+          <ns:enumeration value="money-transfer" />
+          <ns:enumeration value="cash" />
+          <ns:enumeration value="check" />
+          <ns:enumeration value="credit-card" />
+          <ns:enumeration value="debit-card" />
+          <ns:enumeration value="phone" />
+          <ns:enumeration value="bill-general" />
+          <ns:enumeration value="bill-paper" />
+          <ns:enumeration value="margin" />
+          <ns:enumeration value="other" />
+        </ns:restriction>
+      </ns:simpleType>
+      <ns:complexType name="purchase-type">
+        <ns:annotation>
+          <ns:documentation>Details of the purchase transaction type.</ns:documentation>
+        </ns:annotation>
+        <ns:sequence>
+          <ns:element minOccurs="0" name="order">
+            <ns:complexType>
+              <ns:sequence>
+                <ns:element maxOccurs="unbounded" name="item" type="types:product-type" />
+                <ns:element name="total-amount" type="ns:decimal" />
+                <ns:element minOccurs="0" name="total-tax" type="ns:decimal" />
+                <ns:element minOccurs="0" name="total-shipping" type="ns:decimal" />
+                <ns:element minOccurs="0" name="merchant" type="ns:string" />
+              </ns:sequence>
+            </ns:complexType>
+          </ns:element>
+          <ns:element minOccurs="0" name="payment-method" type="types:payment-method" />
+          <ns:element minOccurs="0" name="shipping" type="types:shipping-type" />
+          <ns:element name="account" type="types:account-type" />
+          <ns:element name="venue" type="types:venue-type" />
+          <ns:element name="transaction-date" type="types:transaction-date-type" />
+          <ns:element minOccurs="0" name="risk-assessment" type="types:risk-assessment-type" />
+        </ns:sequence>
+      </ns:complexType>
+      <ns:simpleType name="mode-type">
+        <ns:annotation>
+          <ns:documentation>Mode of the transaction. Typically set to "live"</ns:documentation>
+        </ns:annotation>
+        <ns:restriction base="ns:string">
+          <ns:enumeration value="simulated" />
+          <ns:enumeration value="testing" />
+          <ns:enumeration value="pilot" />
+          <ns:enumeration value="live" />
+          <ns:enumeration value="verid" />
+          <ns:enumeration value="verid_cs" />
+        </ns:restriction>
+      </ns:simpleType>
+      <ns:simpleType name="shipping-method">
+        <ns:restriction base="ns:string">
+          <ns:enumeration value="ground" />
+          <ns:enumeration value="priority-overnight" />
+          <ns:enumeration value="next-day-air" />
+          <ns:enumeration value="in-store-pickup" />
+          <ns:enumeration value="second-day-air" />
+          <ns:enumeration value="priority-ground" />
+        </ns:restriction>
+      </ns:simpleType>
+      <ns:complexType name="shipping-type">
+        <ns:sequence>
+          <ns:element name="bill-to" type="types:bill-to-type" />
+          <ns:element name="ship-to" type="types:ship-to-type" />
+          <ns:element minOccurs="0" name="shipping-method" type="types:shipping-method" />
+        </ns:sequence>
+      </ns:complexType>
+      <ns:complexType name="settings-type">
+        <ns:annotation>
+          <ns:documentation>Any overrides to the controls specified in the transaction's ruleset that are to be used for this particular transaction</ns:documentation>
+        </ns:annotation>
+        <ns:sequence>
+          <ns:element name="account-name" type="types:account-name-type">
+            <ns:annotation>
+              <ns:documentation>The account name to which this transaction will be associated.</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element minOccurs="0" name="mode" type="types:mode-type">
+            <ns:annotation>
+              <ns:documentation>The mode that the transaction will run under</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element minOccurs="0" name="ruleset" type="ns:string">
+            <ns:annotation>
+              <ns:documentation>Ruleset that will be used to govern the operation of the transaction.  See your account representative for possible values</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element minOccurs="0" name="simulator-mode" type="types:simulator-mode-type">
+            <ns:annotation>
+              <ns:documentation>If the mode of the transaction is "simulated" then this field governs the response given by the Verid system</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element minOccurs="0" name="attachment-type" type="types:attachment-type" />
+          <ns:element minOccurs="0" maxOccurs="unbounded" name="special-feature" type="types:special-feature-type" />
+          <ns:element minOccurs="0" maxOccurs="unbounded" name="internationalization" type="types:internationalization-type" />
+          <ns:element minOccurs="0" maxOccurs="unbounded" name="reference-id">
+            <ns:simpleType>
+              <ns:restriction base="types:reference-id-type" />
+            </ns:simpleType>
+          </ns:element>
+        </ns:sequence>
+      </ns:complexType>
+      <ns:complexType name="disposition-settings-type">
+        <ns:complexContent mixed="false">
+          <ns:extension base="types:settings-type">
+            <ns:sequence>
+              <ns:element name="transaction-id" type="types:transaction-id-type" />
+            </ns:sequence>
+          </ns:extension>
+        </ns:complexContent>
+      </ns:complexType>
+      <ns:complexType name="continue-settings-type">
+        <ns:complexContent mixed="false">
+          <ns:extension base="types:settings-type">
+            <ns:sequence>
+              <ns:element name="transaction-id" type="types:transaction-id-type" />
+            </ns:sequence>
+          </ns:extension>
+        </ns:complexContent>
+      </ns:complexType>
+      <ns:complexType name="resume-settings-type">
+        <ns:complexContent mixed="false">
+          <ns:extension base="types:settings-type">
+            <ns:sequence>
+              <ns:element name="transaction-id" type="types:transaction-id-type" />
+            </ns:sequence>
+          </ns:extension>
+        </ns:complexContent>
+      </ns:complexType>
+      <ns:complexType name="identity-verification-settings-type">
+        <ns:complexContent mixed="false">
+          <ns:extension base="types:settings-type">
+            <ns:sequence>
+              <ns:element name="task" type="types:task-type" />
+              <ns:element minOccurs="0" name="sequence-id" type="ns:integer" />
+              <ns:element minOccurs="0" name="agent" type="ns:string" />
+              <ns:element minOccurs="0" name="patriot-act-compliance" type="ns:boolean" />
+              <ns:element minOccurs="0" name="parent-transaction-id" type="types:transaction-id-type" />
+            </ns:sequence>
+          </ns:extension>
+        </ns:complexContent>
+      </ns:complexType>
+      <ns:complexType name="verification-type">
+        <ns:annotation>
+          <ns:documentation>The verification transaction element.</ns:documentation>
+        </ns:annotation>
+        <ns:sequence>
+          <ns:element name="venue" type="types:venue-type" />
+        </ns:sequence>
+      </ns:complexType>
+      <ns:complexType name="venue-type">
+        <ns:annotation>
+          <ns:documentation>Environment of the transaction</ns:documentation>
+        </ns:annotation>
+        <ns:choice>
+          <ns:element name="online" type="types:online-type">
+            <ns:annotation>
+              <ns:documentation>The Verid system is being called as part of an integrated on-line solution.</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element name="callcenter" type="types:callcenter-type">
+            <ns:annotation>
+              <ns:documentation>The Verid system is being called as part of an integrated call-center solution.</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element name="batch" type="types:batch-type">
+            <ns:annotation>
+              <ns:documentation>The Verid system is being called as part of a batch submission</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element name="netview" type="types:netview-type">
+            <ns:annotation>
+              <ns:documentation>The Verid system is being called by Verid's GUI</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element name="point-of-sale">
+            <ns:complexType>
+              <ns:complexContent mixed="false">
+                <ns:extension base="types:point-of-sale-type">
+                  <ns:sequence>
+                    <ns:element minOccurs="0" maxOccurs="unbounded" name="credential-method" type="types:credential-method-type" />
+                    <ns:element minOccurs="0" name="merchant-zip-code" type="ns:string" />
+                  </ns:sequence>
+                </ns:extension>
+              </ns:complexContent>
+            </ns:complexType>
+          </ns:element>
+          <ns:element name="customer-service" type="types:customer-service-type" />
+          <ns:element name="ivr" type="types:ivr-type" />
+        </ns:choice>
+      </ns:complexType>
+      <ns:complexType name="callcenter-type">
+        <ns:annotation>
+          <ns:documentation>Data collected when the venue is the callcenter</ns:documentation>
+        </ns:annotation>
+        <ns:sequence>
+          <ns:element minOccurs="0" name="caller-phone-number" type="ns:string">
+            <ns:annotation>
+              <ns:documentation>The phone number that the caller used to call into the callcenter</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element minOccurs="0" maxOccurs="unbounded" name="credential-method" type="types:credential-method-type" />
+          <ns:element minOccurs="0" name="caller-id" type="ns:string">
+            <ns:annotation>
+              <ns:documentation>The text that displayed on caller id for the call into the callcenter</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+        </ns:sequence>
+      </ns:complexType>
+      <ns:complexType name="online-type">
+        <ns:annotation>
+          <ns:documentation>Data collected when the venue is the online</ns:documentation>
+        </ns:annotation>
+        <ns:sequence>
+          <ns:element minOccurs="0" name="credential" type="types:credential-type" />
+        </ns:sequence>
+      </ns:complexType>
+      <ns:complexType name="batch-type">
+        <ns:annotation>
+          <ns:documentation>Data collected when the venue is of type batch</ns:documentation>
+        </ns:annotation>
+        <ns:sequence>
+          <ns:element minOccurs="0" name="batch-id" type="types:batch-id-type" />
+        </ns:sequence>
+      </ns:complexType>
+      <ns:complexType name="netview-type">
+        <ns:annotation>
+          <ns:documentation>Data collected when the venue is of type netview</ns:documentation>
+        </ns:annotation>
+        <ns:sequence>
+          <ns:element minOccurs="0" name="netview-form" type="types:netview-form-type" />
+        </ns:sequence>
+      </ns:complexType>
+      <ns:complexType name="birthdate-type">
+        <ns:annotation>
+          <ns:documentation>Format of the birthdate object</ns:documentation>
+        </ns:annotation>
+        <ns:sequence>
+          <ns:element name="year" type="types:year-type" />
+          <ns:element name="month" type="types:month-type" />
+          <ns:element name="day" type="types:day-type" />
+        </ns:sequence>
+      </ns:complexType>
+      <ns:simpleType name="address-context-type">
+        <ns:annotation>
+          <ns:documentation>Available types of address associations. Typically, the "primary" type is utilized.</ns:documentation>
+        </ns:annotation>
+        <ns:restriction base="ns:string">
+          <ns:enumeration value="primary" />
+          <ns:enumeration value="secondary" />
+          <ns:enumeration value="previous" />
+          <ns:enumeration value="vacation" />
+          <ns:enumeration value="business" />
+          <ns:enumeration value="other" />
+        </ns:restriction>
+      </ns:simpleType>
+      <ns:simpleType name="phone-number-context-type">
+        <ns:annotation>
+          <ns:documentation>Available types of phone number associations. Typically, the "home" or "business" types are utilized.</ns:documentation>
+        </ns:annotation>
+        <ns:restriction base="ns:string">
+          <ns:enumeration value="home" />
+          <ns:enumeration value="business" />
+          <ns:enumeration value="mobile" />
+          <ns:enumeration value="fax" />
+          <ns:enumeration value="pager" />
+          <ns:enumeration value="other" />
+        </ns:restriction>
+      </ns:simpleType>
+      <ns:simpleType name="ssn-type">
+        <ns:annotation>
+          <ns:documentation>In the person record, the type of the ssn being provided. ssn4 is used if only the last 4 digits are provided</ns:documentation>
+        </ns:annotation>
+        <ns:restriction base="ns:string">
+          <ns:enumeration value="ssn4" />
+          <ns:enumeration value="ssn9" />
+          <ns:enumeration value="ssn-first5" />
+          <ns:enumeration value="nossn" />
+          <ns:enumeration value="other" />
+        </ns:restriction>
+      </ns:simpleType>
+      <ns:simpleType name="year-type">
+        <ns:restriction base="ns:integer">
+          <ns:minInclusive value="1800" />
+        </ns:restriction>
+      </ns:simpleType>
+      <ns:simpleType name="month-type">
+        <ns:restriction base="ns:integer">
+          <ns:minInclusive value="1" />
+          <ns:maxInclusive value="12" />
+        </ns:restriction>
+      </ns:simpleType>
+      <ns:simpleType name="day-type">
+        <ns:restriction base="ns:integer">
+          <ns:minInclusive value="1" />
+          <ns:maxInclusive value="31" />
+        </ns:restriction>
+      </ns:simpleType>
+      <ns:complexType name="answer-type">
+        <ns:annotation>
+          <ns:documentation>This is the response to a given question. It includes the id of the question as well as the choices selected by the end-user</ns:documentation>
+        </ns:annotation>
+        <ns:sequence>
+          <ns:element name="question-id" type="ns:long" />
+          <ns:element minOccurs="0" name="choices" type="types:choices-type" />
+        </ns:sequence>
+      </ns:complexType>
+      <ns:simpleType name="answer-selection-type">
+        <ns:annotation>
+          <ns:documentation>Is the answer type of a question single answer or multiple answer</ns:documentation>
+        </ns:annotation>
+        <ns:restriction base="ns:string">
+          <ns:enumeration value="single" />
+          <ns:enumeration value="multiple" />
+        </ns:restriction>
+      </ns:simpleType>
+      <ns:complexType name="choice-type">
+        <ns:annotation>
+          <ns:documentation>Coming from the Verid server this is one of the choices for a given question. It includes the id of the choice and the text to present to the end-user</ns:documentation>
+        </ns:annotation>
+        <ns:sequence>
+          <ns:element name="choice-id" type="ns:long" />
+          <ns:element minOccurs="0" maxOccurs="unbounded" name="text" type="types:text-type" />
+        </ns:sequence>
+      </ns:complexType>
+      <ns:complexType name="choices-type">
+        <ns:annotation>
+          <ns:documentation>An array of choices</ns:documentation>
+        </ns:annotation>
+        <ns:sequence>
+          <ns:element minOccurs="0" maxOccurs="unbounded" name="choice-id" type="ns:long" />
+        </ns:sequence>
+      </ns:complexType>
+      <ns:complexType name="answers-type">
+        <ns:annotation>
+          <ns:documentation>Being sent to the Verid server as part of a transaction-continue, this contains the answers provided by the end-user in response to a set of questions</ns:documentation>
+        </ns:annotation>
+        <ns:sequence>
+          <ns:element name="question-set-id" type="ns:long">
+            <ns:annotation>
+              <ns:documentation>Id of the question set echoed back to the Verid system.</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element minOccurs="0" maxOccurs="unbounded" name="answer" type="types:answer-type">
+            <ns:annotation>
+              <ns:documentation>Answers to each of the questions provided by the end-user</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+        </ns:sequence>
+      </ns:complexType>
+      <ns:simpleType name="simulator-mode-type">
+        <ns:annotation>
+          <ns:documentation>Available simulation mode types.  Note that "random" will randomly select from the available types</ns:documentation>
+        </ns:annotation>
+        <ns:restriction base="ns:string">
+          <ns:enumeration value="random" />
+          <ns:enumeration value="invalid_simulator_mode" />
+          <ns:enumeration value="communications_error" />
+          <ns:enumeration value="internal_application_error" />
+          <ns:enumeration value="invalid_parameterlist" />
+          <ns:enumeration value="invalid_information" />
+          <ns:enumeration value="invalid_login" />
+          <ns:enumeration value="invalid_transaction_continue" />
+          <ns:enumeration value="invalid_transaction_initiate" />
+          <ns:enumeration value="invalid_mode" />
+          <ns:enumeration value="no_test_tokens" />
+          <ns:enumeration value="unknown_database_response" />
+          <ns:enumeration value="xml_data_integrity" />
+          <ns:enumeration value="blocked" />
+          <ns:enumeration value="denial_cumulative_transaction_activity_amount" />
+          <ns:enumeration value="denial_cumulative_transaction_activity_frequency" />
+          <ns:enumeration value="denial_individual_reported_dead" />
+          <ns:enumeration value="failed_iauth_questions" />
+          <ns:enumeration value="individual_not_found" />
+          <ns:enumeration value="insufficient_info_for_questions" />
+          <ns:enumeration value="ipcountry_denial" />
+          <ns:enumeration value="multiple_individuals_found" />
+          <ns:enumeration value="passed" />
+          <ns:enumeration value="questions" />
+          <ns:enumeration value="denial" />
+          <ns:enumeration value="failed_icheck" />
+          <ns:enumeration value="transaction_expired" />
+          <ns:enumeration value="business_not_found" />
+          <ns:enumeration value="multiple_businesses_found" />
+          <ns:enumeration value="denial_age_verification_mismatch" />
+          <ns:enumeration value="denial_age_verification_not_provided" />
+          <ns:enumeration value="denial_age_verification_threshold" />
+          <ns:enumeration value="denial_age_verification_undetermined" />
+          <ns:enumeration value="denial_address_warning" />
+          <ns:enumeration value="call_center_assist" />
+          <ns:enumeration value="age.under.threshold" />
+          <ns:enumeration value="age.notavailable" />
+          <ns:enumeration value="age.match.quality" />
+          <ns:enumeration value="address.warnings" />
+          <ns:enumeration value="denial_address_violation_pobox" />
+          <ns:enumeration value="denial_address_violation_general" />
+          <ns:enumeration value="denial_aml_check_not_pass" />
+          <ns:enumeration value="denial_currentaddress_notcurrent" />
+          <ns:enumeration value="denial_currentaddress_notfound" />
+          <ns:enumeration value="denial_currentaddress_notmostrecent" />
+          <ns:enumeration value="denial_driverslicense_not_provided_failure" />
+          <ns:enumeration value="denial_driverslicense_undiscovered_failure" />
+          <ns:enumeration value="denial_group_iauth_failure_frequency" />
+          <ns:enumeration value="denial_group_transaction_frequency" />
+          <ns:enumeration value="denial_iauth_failed_too_recently" />
+          <ns:enumeration value="denial_identity_event" />
+          <ns:enumeration value="denial_ip_flagging" />
+          <ns:enumeration value="denial_phonenumber_not_match" />
+          <ns:enumeration value="denial_phonenumber_not_provided" />
+          <ns:enumeration value="denial_risk" />
+          <ns:enumeration value="denial_ssn_dob_mismatch" />
+          <ns:enumeration value="denial_ssn_match_violation" />
+          <ns:enumeration value="denial_ssn_not_provided" />
+        </ns:restriction>
+      </ns:simpleType>
+      <ns:simpleType name="task-type">
+        <ns:restriction base="ns:string">
+          <ns:enumeration value="icheck" />
+          <ns:enumeration value="iauth" />
+          <ns:enumeration value="iauto" />
+          <ns:enumeration value="iage" />
+          <ns:enumeration value="imonitor" />
+          <ns:enumeration value="ikba" />
+        </ns:restriction>
+      </ns:simpleType>
+      <ns:simpleType name="transaction-result-type">
+        <ns:annotation>
+          <ns:documentation>transaction-response will return one of the 4 possible result types:</ns:documentation>
+        </ns:annotation>
+        <ns:restriction base="ns:string">
+          <ns:enumeration value="passed" />
+          <ns:enumeration value="failed" />
+          <ns:enumeration value="error" />
+          <ns:enumeration value="questions" />
+          <ns:enumeration value="accepted" />
+        </ns:restriction>
+      </ns:simpleType>
+      <ns:complexType name="simple-detail-type">
+        <ns:annotation>
+          <ns:documentation>Textual descriptive information</ns:documentation>
+        </ns:annotation>
+        <ns:sequence>
+          <ns:element name="text" type="ns:string">
+            <ns:annotation>
+              <ns:documentation>Text for the simple detail</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+        </ns:sequence>
+      </ns:complexType>
+      <ns:complexType name="complex-detail-type">
+        <ns:annotation>
+          <ns:documentation>Textual information is passed back in a bullet-type hierarchy of points. A complex-detail can contain a list of 0 or more of either complex and simple details (note that a complex-detail cannot contain both simple and complex detail arrays)</ns:documentation>
+        </ns:annotation>
+        <ns:sequence>
+          <ns:element name="heading" type="ns:string">
+            <ns:annotation>
+              <ns:documentation>Heading text for the complex detail</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element minOccurs="0" maxOccurs="unbounded" name="simple-detail" type="types:simple-detail-type" />
+          <ns:element minOccurs="0" maxOccurs="unbounded" name="complex-detail" type="types:complex-detail-type" />
+        </ns:sequence>
+      </ns:complexType>
+      <ns:complexType name="information-type">
+        <ns:annotation>
+          <ns:documentation>Informational fact that can contain either an array of complex-details or an array of simple-details </ns:documentation>
+        </ns:annotation>
+        <ns:sequence>
+          <ns:element name="information-code" type="types:information-code-type" />
+          <ns:element name="detail-code" type="ns:string">
+            <ns:annotation>
+              <ns:documentation>Actionable string representing the explicit information element</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element name="detail-description" type="ns:string" />
+          <ns:element minOccurs="0" maxOccurs="unbounded" name="complex-detail" type="types:complex-detail-type" />
+          <ns:element minOccurs="0" maxOccurs="unbounded" name="simple-detail" type="types:simple-detail-type" />
+        </ns:sequence>
+      </ns:complexType>
+      <ns:complexType name="question-type">
+        <ns:annotation>
+          <ns:documentation>Question structure passed back from the Verid server when the response is of type "questions" </ns:documentation>
+        </ns:annotation>
+        <ns:sequence>
+          <ns:element name="question-id" type="ns:long">
+            <ns:annotation>
+              <ns:documentation>ID of the question.  This value will be echoed back as part of the transaction-continue</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element name="answer-type" type="types:answer-selection-type">
+            <ns:annotation>
+              <ns:documentation>Indicates if this is a single selection or multiple selection answer type</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element minOccurs="0" maxOccurs="unbounded" name="text" type="types:text-type">
+            <ns:annotation>
+              <ns:documentation>Text for the question that is to be presented to the end-user</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element maxOccurs="unbounded" name="choice" type="types:choice-type">
+            <ns:annotation>
+              <ns:documentation>Available choices for this question</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element minOccurs="0" maxOccurs="unbounded" name="help-text" type="types:text-type">
+            <ns:annotation>
+              <ns:documentation>Help text that is associated with the question</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+        </ns:sequence>
+      </ns:complexType>
+      <ns:complexType name="questions-type">
+        <ns:annotation>
+          <ns:documentation>The question set that is to be presented to the end-user</ns:documentation>
+        </ns:annotation>
+        <ns:sequence>
+          <ns:element name="question-set-id" type="ns:long">
+            <ns:annotation>
+              <ns:documentation>ID of the question-set being returned.</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element maxOccurs="unbounded" name="question" type="types:question-type">
+            <ns:annotation>
+              <ns:documentation>The questions</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+        </ns:sequence>
+      </ns:complexType>
+      <ns:simpleType name="domain-type">
+        <ns:restriction base="ns:string" />
+      </ns:simpleType>
+      <ns:simpleType name="organizational-unit-type">
+        <ns:restriction base="ns:string" />
+      </ns:simpleType>
+      <ns:simpleType name="username-type">
+        <ns:restriction base="ns:string" />
+      </ns:simpleType>
+      <ns:simpleType name="credential-method-type">
+        <ns:restriction base="ns:string">
+          <ns:enumeration value="ssn" />
+          <ns:enumeration value="security-question" />
+          <ns:enumeration value="pin" />
+          <ns:enumeration value="basic" />
+          <ns:enumeration value="certificate" />
+          <ns:enumeration value="token" />
+          <ns:enumeration value="federated" />
+          <ns:enumeration value="drivers-license" />
+          <ns:enumeration value="passport" />
+          <ns:enumeration value="photo-id-card" />
+          <ns:enumeration value="account-id" />
+          <ns:enumeration value="voice-id" />
+          <ns:enumeration value="birth-date" />
+          <ns:enumeration value="none" />
+        </ns:restriction>
+      </ns:simpleType>
+      <ns:complexType name="credential-type">
+        <ns:sequence>
+          <ns:element maxOccurs="unbounded" name="credential-method" type="types:credential-method-type" />
+          <ns:element minOccurs="0" name="username" type="types:username-type" />
+          <ns:element minOccurs="0" name="domain" type="types:domain-type" />
+          <ns:element minOccurs="0" name="organizational-unit" type="types:organizational-unit-type" />
+          <ns:element minOccurs="0" name="http-header" type="types:http-header-type" />
+          <ns:element minOccurs="0" name="ip-address" type="types:ip-address-type" />
+          <ns:element minOccurs="0" maxOccurs="unbounded" name="machine-id" type="types:machine-id-type" />
+        </ns:sequence>
+      </ns:complexType>
+      <ns:complexType name="transport-layer-type" />
+      <ns:complexType name="point-of-sale-type" />
+      <ns:complexType name="header-fields-type" />
+      <ns:simpleType name="header-type">
+        <ns:restriction base="ns:string" />
+      </ns:simpleType>
+      <ns:simpleType name="header-field-value-type">
+        <ns:restriction base="ns:string" />
+      </ns:simpleType>
+      <ns:simpleType name="header-field-type">
+        <ns:restriction base="ns:string" />
+      </ns:simpleType>
+      <ns:complexType name="http-header-type">
+        <ns:choice>
+          <ns:element name="header" type="types:header-type" />
+          <ns:element maxOccurs="unbounded" name="header-fields">
+            <ns:complexType>
+              <ns:sequence>
+                <ns:element name="header-field" type="types:header-field-type" />
+                <ns:element name="header-value" type="types:header-field-value-type" />
+              </ns:sequence>
+            </ns:complexType>
+          </ns:element>
+        </ns:choice>
+      </ns:complexType>
+      <ns:simpleType name="ip-address-type">
+        <ns:restriction base="ns:string" />
+      </ns:simpleType>
+      <ns:simpleType name="batch-id-type">
+        <ns:restriction base="ns:string" />
+      </ns:simpleType>
+      <ns:simpleType name="netview-form-type">
+        <ns:restriction base="ns:string" />
+      </ns:simpleType>
+      <ns:simpleType name="browser-version-type">
+        <ns:restriction base="ns:string" />
+      </ns:simpleType>
+      <ns:simpleType name="browser-vendor-type">
+        <ns:restriction base="ns:string" />
+      </ns:simpleType>
+      <ns:complexType name="browser-type" />
+      <ns:simpleType name="machine-id-type">
+        <ns:restriction base="ns:string" />
+      </ns:simpleType>
+      <ns:simpleType name="language-venue-type">
+        <ns:restriction base="ns:string">
+          <ns:enumeration value="callcenter" />
+          <ns:enumeration value="point-of-sale" />
+          <ns:enumeration value="online" />
+          <ns:enumeration value="ivr" />
+        </ns:restriction>
+      </ns:simpleType>
+      <ns:simpleType name="language-type">
+        <ns:restriction base="ns:string">
+          <ns:enumeration value="spanish" />
+          <ns:enumeration value="informal-spanish" />
+          <ns:enumeration value="english" />
+        </ns:restriction>
+      </ns:simpleType>
+      <ns:simpleType name="account-category-type">
+        <ns:restriction base="ns:string">
+          <ns:enumeration value="banking" />
+          <ns:enumeration value="brokerage" />
+          <ns:enumeration value="retirement-savings" />
+          <ns:enumeration value="retail" />
+          <ns:enumeration value="utility-service" />
+          <ns:enumeration value="loan-application" />
+          <ns:enumeration value="credit-application" />
+          <ns:enumeration value="phone-service" />
+          <ns:enumeration value="cellular-phone-service" />
+          <ns:enumeration value="cable-tv-service" />
+          <ns:enumeration value="satellite-tv-service" />
+          <ns:enumeration value="internet-service" />
+          <ns:enumeration value="money-transfer" />
+          <ns:enumeration value="online-account" />
+          <ns:enumeration value="email-account" />
+          <ns:enumeration value="mortgage-application" />
+          <ns:enumeration value="public-records" />
+          <ns:enumeration value="credit-card" />
+        </ns:restriction>
+      </ns:simpleType>
+      <ns:simpleType name="customer-id-type">
+        <ns:restriction base="ns:string" />
+      </ns:simpleType>
+      <ns:simpleType name="email-type">
+        <ns:restriction base="ns:string" />
+      </ns:simpleType>
+      <ns:complexType name="account-type">
+        <ns:sequence>
+          <ns:element minOccurs="0" name="account-number" type="types:account-number-type" />
+          <ns:element minOccurs="0" name="account-transaction-id" type="types:account-transaction-id-type" />
+          <ns:element minOccurs="0" name="account-name" type="types:account-name-type" />
+          <ns:element maxOccurs="unbounded" name="customer-id" type="types:customer-id-type" />
+        </ns:sequence>
+      </ns:complexType>
+      <ns:simpleType name="account-transaction-id-type">
+        <ns:restriction base="ns:string" />
+      </ns:simpleType>
+      <ns:simpleType name="reference-id-type">
+        <ns:restriction base="ns:string" />
+      </ns:simpleType>
+      <ns:complexType name="account-activity-type">
+        <ns:sequence>
+          <ns:element name="account" type="types:account-type" />
+          <ns:element minOccurs="0" maxOccurs="unbounded" name="account-transaction" type="types:product-type" />
+          <ns:element minOccurs="0" name="total-amount" type="ns:decimal" />
+          <ns:element minOccurs="0" name="beginning-balance" type="ns:decimal" />
+          <ns:element minOccurs="0" name="ending-balance" type="ns:decimal" />
+        </ns:sequence>
+      </ns:complexType>
+      <ns:simpleType name="account-maintenance-category-type">
+        <ns:restriction base="ns:string">
+          <ns:enumeration value="address-change" />
+          <ns:enumeration value="phone-number-change" />
+          <ns:enumeration value="close-account" />
+          <ns:enumeration value="beneficiary-change" />
+          <ns:enumeration value="additional-account" />
+          <ns:enumeration value="name-change" />
+          <ns:enumeration value="password-reset" />
+          <ns:enumeration value="password-change" />
+          <ns:enumeration value="add-user" />
+          <ns:enumeration value="remove-user" />
+          <ns:enumeration value="change-billing-information" />
+          <ns:enumeration value="add-payee" />
+          <ns:enumeration value="change-payee" />
+          <ns:enumeration value="link-account" />
+          <ns:enumeration value="pin-change" />
+          <ns:enumeration value="email-change" />
+          <ns:enumeration value="view-event" />
+          <ns:enumeration value="add-joint-account-holder" />
+          <ns:enumeration value="reorder-checks" />
+          <ns:enumeration value="order-card" />
+          <ns:enumeration value="stop-payment" />
+          <ns:enumeration value="add-alerts" />
+        </ns:restriction>
+      </ns:simpleType>
+      <ns:complexType name="account-verification-type">
+        <ns:sequence>
+          <ns:choice>
+            <ns:element name="account-maintenance" type="types:account-maintenance-type" />
+            <ns:element name="account-activity" type="types:account-activity-type" />
+            <ns:element name="account-origination" type="types:account-origination-type" />
+          </ns:choice>
+          <ns:element name="venue" type="types:venue-type" />
+          <ns:element name="activity-date" type="types:transaction-date-type" />
+          <ns:element minOccurs="0" name="risk-assessment" type="types:risk-assessment-type" />
+        </ns:sequence>
+      </ns:complexType>
+      <ns:simpleType name="security-question-answer-type">
+        <ns:restriction base="ns:string" />
+      </ns:simpleType>
+      <ns:simpleType name="security-question-statement-type">
+        <ns:restriction base="ns:string" />
+      </ns:simpleType>
+      <ns:simpleType name="security-question-category-type">
+        <ns:restriction base="ns:string">
+          <ns:enumeration value="mothers-maiden-name" />
+          <ns:enumeration value="pet" />
+          <ns:enumeration value="birth-city" />
+          <ns:enumeration value="high-school" />
+          <ns:enumeration value="middle-school" />
+          <ns:enumeration value="grade-school" />
+          <ns:enumeration value="ice-cream" />
+          <ns:enumeration value="user-defined" />
+        </ns:restriction>
+      </ns:simpleType>
+      <ns:complexType name="security-question-type">
+        <ns:sequence>
+          <ns:element name="security-question-question-category" type="types:security-question-category-type" />
+          <ns:element name="security-question-quesiton-statement" type="types:security-question-statement-type" />
+          <ns:element name="security-question-answer" type="types:security-question-answer-type" />
+        </ns:sequence>
+      </ns:complexType>
+      <ns:simpleType name="account-number-type">
+        <ns:restriction base="ns:string" />
+      </ns:simpleType>
+      <ns:simpleType name="transaction-id-type">
+        <ns:restriction base="ns:long" />
+      </ns:simpleType>
+      <ns:complexType name="transaction-status-type">
+        <ns:sequence>
+          <ns:element minOccurs="0" name="transaction-id" type="types:transaction-id-type">
+            <ns:annotation>
+              <ns:documentation>Verid's number that identifies the transaction</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element minOccurs="0" name="transaction-request-id" type="types:transaction-id-type">
+            <ns:annotation>
+              <ns:documentation>Verid's request identifier that identifies the part of the conversational transaction</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element minOccurs="0" name="accounts-transaction-id" type="ns:string">
+            <ns:annotation>
+              <ns:documentation>Echo of the provided account's transaction number</ns:documentation>
+            </ns:annotation>
+          </ns:element>
+          <ns:element minOccurs="0" maxOccurs="unbounded" name="reference-id">
+            <ns:simpleType>
+              <ns:restriction base="types:reference-id-type" />
+            </ns:simpleType>
+          </ns:element>
+          <ns:element name="transaction-result" type="types:transaction-result-type" />
+          <ns:element minOccurs="0" name="risk-assessment" type="types:risk-assessment-type" />
+          <ns:element minOccurs="0" maxOccurs="unbounded" name="special-feature" type="types:special-feature-type" />
+        </ns:sequence>
+      </ns:complexType>
+      <ns:complexType name="transaction-type">
+        <ns:choice>
+          <ns:element name="purchase" type="types:purchase-type" />
+          <ns:element name="account-verification" type="types:account-verification-type" />
+        </ns:choice>
+      </ns:complexType>
+      <ns:complexType name="account-maintenance-type">
+        <ns:sequence>
+          <ns:element minOccurs="0" name="account-category" type="types:account-category-type" />
+          <ns:element minOccurs="0" name="account-maintenance-category" type="types:account-maintenance-category-type" />
+          <ns:element minOccurs="0" name="maintenance-detail" type="ns:string" />
+          <ns:element name="account" type="types:account-type" />
+          <ns:element minOccurs="0" name="data" type="types:complex-detail-type" />
+        </ns:sequence>
+      </ns:complexType>
+      <ns:complexType name="account-origination-type">
+        <ns:sequence>
+          <ns:element minOccurs="0" name="account-category" type="types:account-category-type" />
+          <ns:element minOccurs="0" maxOccurs="unbounded" name="security-question" type="types:security-question-type" />
+          <ns:element minOccurs="0" name="voice-enrollment" type="ns:boolean" />
+          <ns:element name="account" type="types:account-type" />
+        </ns:sequence>
+      </ns:complexType>
+      <ns:complexType name="customer-service-type">
+        <ns:sequence>
+          <ns:element minOccurs="0" maxOccurs="unbounded" name="credential-method" type="types:credential-method-type" />
+        </ns:sequence>
+      </ns:complexType>
+      <ns:simpleType name="special-feature-value-type">
+        <ns:restriction base="ns:string" />
+      </ns:simpleType>
+      <ns:simpleType name="special-feature-code-type">
+        <ns:restriction base="ns:string">
+          <ns:minLength value="3" />
+          <ns:maxLength value="10" />
+        </ns:restriction>
+      </ns:simpleType>
+      <ns:simpleType name="information-code-type">
+        <ns:restriction base="ns:string">
+          <ns:enumeration value="question-details" />
+          <ns:enumeration value="passed-details" />
+          <ns:enumeration value="failed-details" />
+          <ns:enumeration value="error-details" />
+          <ns:enumeration value="special-feature-details" />
+          <ns:enumeration value="information-details" />
+          <ns:enumeration value="threat-details" />
+          <ns:enumeration value="voice-id-details" />
+          <ns:enumeration value="disposition-details" />
+          <ns:enumeration value="presentation-details" />
+        </ns:restriction>
+      </ns:simpleType>
+      <ns:simpleType name="attachment-type">
+        <ns:restriction base="ns:string">
+          <ns:enumeration value="xml" />
+          <ns:enumeration value="grammar" />
+          <ns:enumeration value="wav" />
+        </ns:restriction>
+      </ns:simpleType>
+      <ns:simpleType name="voice-enrollment">
+        <ns:restriction base="ns:boolean" />
+      </ns:simpleType>
+      <ns:simpleType name="threat-assessment">
+        <ns:restriction base="ns:string">
+          <ns:enumeration value="high" />
+          <ns:enumeration value="medium" />
+          <ns:enumeration value="low" />
+          <ns:enumeration value="indeterminate" />
+        </ns:restriction>
+      </ns:simpleType>
+      <ns:simpleType name="risk-score">
+        <ns:restriction base="ns:double" />
+      </ns:simpleType>
+      <ns:simpleType name="risk-category">
+        <ns:restriction base="ns:string">
+          <ns:enumeration value="transaction" />
+          <ns:enumeration value="identity" />
+          <ns:enumeration value="verification" />
+          <ns:enumeration value="biometric" />
+          <ns:enumeration value="total" />
+          <ns:enumeration value="credit" />
+        </ns:restriction>
+      </ns:simpleType>
+      <ns:complexType name="risk-component-type">
+        <ns:sequence>
+          <ns:element name="risk-category" type="types:risk-category" />
+          <ns:element name="risk-score" type="types:risk-score" />
+        </ns:sequence>
+      </ns:complexType>
+      <ns:complexType name="risk-assessment-type">
+        <ns:sequence>
+          <ns:element name="risk-score" type="types:risk-score" />
+          <ns:element name="threat-assessment" type="types:threat-assessment" />
+          <ns:element minOccurs="0" maxOccurs="unbounded" name="risk-component" type="types:risk-component-type" />
+        </ns:sequence>
+      </ns:complexType>
+      <ns:simpleType name="disposition-date-type">
+        <ns:restriction base="ns:date" />
+      </ns:simpleType>
+      <ns:simpleType name="fraud-category-type">
+        <ns:restriction base="ns:string">
+          <ns:enumeration value="general.fraud" />
+          <ns:enumeration value="friendly.fraud" />
+          <ns:enumeration value="false.claim.fraud" />
+          <ns:enumeration value="identity.theft.fraud" />
+          <ns:enumeration value="indeterminate" />
+          <ns:enumeration value="none" />
+        </ns:restriction>
+      </ns:simpleType>
+      <ns:simpleType name="disposition-status-type">
+        <ns:restriction base="ns:string">
+          <ns:enumeration value="none" />
+          <ns:enumeration value="open" />
+          <ns:enumeration value="closed" />
+          <ns:enumeration value="unknown" />
+          <ns:enumeration value="not.applicable" />
+        </ns:restriction>
+      </ns:simpleType>
+      <ns:simpleType name="disposition-result-type">
+        <ns:restriction base="ns:string">
+          <ns:enumeration value="success" />
+          <ns:enumeration value="error" />
+        </ns:restriction>
+      </ns:simpleType>
+      <ns:complexType name="assertion-type" />
+      <ns:simpleType name="transaction-date-type">
+        <ns:restriction base="ns:dateTime" />
+      </ns:simpleType>
+      <ns:complexType name="ivr-type">
+        <ns:sequence>
+          <ns:element minOccurs="0" maxOccurs="unbounded" name="credential-method" type="types:credential-method-type" />
+        </ns:sequence>
+      </ns:complexType>
+      <ns:complexType name="special-feature-type">
+        <ns:sequence>
+          <ns:element minOccurs="0" name="special-feature-code" type="types:special-feature-code-type" />
+          <ns:element minOccurs="0" name="special-feature-value" type="types:special-feature-value-type" />
+        </ns:sequence>
+      </ns:complexType>
+      <ns:complexType name="internationalization-type">
+        <ns:sequence>
+          <ns:element minOccurs="0" name="language" type="types:language-type" />
+          <ns:element minOccurs="0" name="language-venue" type="types:language-venue-type" />
+        </ns:sequence>
+      </ns:complexType>
+      <ns:complexType name="text-type">
+        <ns:sequence>
+          <ns:element name="language" type="types:language-type" />
+          <ns:element name="statement" type="ns:string" />
+        </ns:sequence>
+      </ns:complexType>
+      <ns:complexType name="identity-assertion-type">
+        <ns:sequence>
+          <ns:element minOccurs="0" name="data" type="types:complex-detail-type" />
+          <ns:element name="transaction" type="types:transaction-type" />
+        </ns:sequence>
+      </ns:complexType>
+      <ns:element name="assertion">
+        <ns:complexType>
+          <ns:sequence>
+            <ns:element name="settings" type="types:settings-type" />
+            <ns:element name="person" type="types:person-type" />
+            <ns:element name="account" type="types:account-type" />
+            <ns:element minOccurs="0" maxOccurs="unbounded" name="identity-assertion" type="types:identity-assertion-type" />
+          </ns:sequence>
+        </ns:complexType>
+      </ns:element>
+      <ns:element name="assertion-response">
+        <ns:complexType>
+          <ns:sequence>
+            <ns:element name="assertion-status" type="types:transaction-status-type" />
+            <ns:element name="information" type="types:information-type" />
+          </ns:sequence>
+        </ns:complexType>
+      </ns:element>
+      <ns:element name="transaction-authentication-check">
+        <ns:complexType>
+          <ns:sequence>
+            <ns:element name="settings">
+              <ns:complexType>
+                <ns:complexContent mixed="false">
+                  <ns:extension base="types:settings-type" />
+                </ns:complexContent>
+              </ns:complexType>
+            </ns:element>
+            <ns:element minOccurs="0" name="credential" type="types:credential-type" />
+            <ns:element name="account" type="types:account-type" />
+          </ns:sequence>
+        </ns:complexType>
+      </ns:element>
+      <ns:element name="transaction-resume">
+        <ns:complexType>
+          <ns:sequence>
+            <ns:element name="settings" type="types:resume-settings-type" />
+            <ns:element name="account" type="types:account-type" />
+          </ns:sequence>
+        </ns:complexType>
+      </ns:element>
+      <ns:element name="transaction-identity-verification">
+        <ns:complexType>
+          <ns:annotation>
+            <ns:documentation>This is the top level structure used to start a new transaction</ns:documentation>
+          </ns:annotation>
+          <ns:sequence>
+            <ns:element name="settings" type="types:identity-verification-settings-type">
+              <ns:annotation>
+                <ns:documentation>Per transaction overrides on controls</ns:documentation>
+              </ns:annotation>
+            </ns:element>
+            <ns:element name="person" type="types:person-type" />
+            <ns:element minOccurs="0" name="transaction" type="types:transaction-type" />
+            <ns:element minOccurs="0" maxOccurs="unbounded" name="identity-assertion" type="types:identity-assertion-type" />
+          </ns:sequence>
+        </ns:complexType>
+      </ns:element>
+      <ns:element name="transaction-continue">
+        <ns:complexType>
+          <ns:annotation>
+            <ns:documentation>Message sent to the Verid system in response to a set of questions.</ns:documentation>
+          </ns:annotation>
+          <ns:sequence>
+            <ns:element name="settings" type="types:continue-settings-type" />
+            <ns:choice>
+              <ns:element minOccurs="0" name="answers" type="types:answers-type">
+                <ns:annotation>
+                  <ns:documentation>Answers to the questions that were presented to the end-user</ns:documentation>
+                </ns:annotation>
+              </ns:element>
+            </ns:choice>
+          </ns:sequence>
+        </ns:complexType>
+      </ns:element>
+      <ns:element name="transaction-response">
+        <ns:complexType>
+          <ns:sequence>
+            <ns:element name="transaction-status" type="types:transaction-status-type" />
+            <ns:element minOccurs="0" name="questions" type="types:questions-type">
+              <ns:annotation>
+                <ns:documentation>If the response is of type questions, then this field will contain the questions to be presented to the end-user</ns:documentation>
+              </ns:annotation>
+            </ns:element>
+            <ns:element minOccurs="0" maxOccurs="unbounded" name="information" type="types:information-type" />
+          </ns:sequence>
+        </ns:complexType>
+      </ns:element>
+      <ns:element name="disposition">
+        <ns:complexType>
+          <ns:sequence>
+            <ns:element name="settings" type="types:disposition-settings-type" />
+            <ns:element name="account" type="types:account-type" />
+            <ns:element name="fraud-category" type="types:fraud-category-type" />
+            <ns:element name="disposition-status" type="types:disposition-status-type" />
+            <ns:element minOccurs="0" name="disposition-date" type="types:disposition-date-type" />
+          </ns:sequence>
+        </ns:complexType>
+      </ns:element>
+    </xs:schema>
+  </s0:types>
+  <s0:message name="IdentityVerification">
+    <s0:part name="IdentityVerificationMsg" element="s1:transaction-identity-verification" />
+  </s0:message>
+  <s0:message name="transactionResponse">
+    <s0:part name="TransactionResponseMsg" element="s1:transaction-response" />
+  </s0:message>
+  <s0:message name="resume">
+    <s0:part name="TransactionResumeMsg" element="s1:transaction-resume" />
+  </s0:message>
+  <s0:message name="continuation">
+    <s0:part name="TransactionContinueMsg" element="s1:transaction-continue" />
+  </s0:message>
+  <s0:message name="authentication">
+    <s0:part name="TransactionAuthenticationMsg" element="s1:transaction-authentication-check" />
+  </s0:message>
+  <s0:message name="disposition">
+    <s0:part name="DispositionMsg" element="s1:disposition" />
+  </s0:message>
+  <s0:message name="assertion">
+    <s0:part name="AssertionMsg" element="s1:assertion" />
+  </s0:message>
+  <s0:message name="assertionResponse">
+    <s0:part name="AssertionResponseMsg" element="s1:assertion-response" />
+  </s0:message>
+  <s0:portType name="Carbon">
+    <s0:operation name="identityVerification">
+      <s0:input message="s2:IdentityVerification" />
+      <s0:output message="s2:transactionResponse" />
+    </s0:operation>
+    <s0:operation name="continuation">
+      <s0:input message="s2:continuation" />
+      <s0:output message="s2:transactionResponse" />
+    </s0:operation>
+    <s0:operation name="resume">
+      <s0:input message="s2:resume" />
+      <s0:output message="s2:transactionResponse" />
+    </s0:operation>
+    <s0:operation name="authenticationCheck">
+      <s0:input message="s2:authentication" />
+      <s0:output message="s2:transactionResponse" />
+    </s0:operation>
+    <s0:operation name="disposition">
+      <s0:input message="s2:disposition" />
+    </s0:operation>
+    <s0:operation name="assertion">
+      <s0:input message="s2:assertion" />
+      <s0:output message="s2:assertionResponse" />
+    </s0:operation>
+  </s0:portType>
+  <s0:binding name="CarbonSoapBinding" type="s2:Carbon">
+    <s3:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <s0:operation name="identityVerification">
+      <s3:operation soapAction="" />
+      <s0:input>
+        <s3:body use="literal" parts="IdentityVerificationMsg" />
+      </s0:input>
+      <s0:output>
+        <s3:body use="literal" parts="TransactionResponseMsg" />
+      </s0:output>
+    </s0:operation>
+    <s0:operation name="continuation">
+      <s3:operation soapAction="" style="document" />
+      <s0:input>
+        <s3:body use="literal" parts="TransactionContinueMsg" />
+      </s0:input>
+      <s0:output>
+        <s3:body use="literal" parts="TransactionResponseMsg" />
+      </s0:output>
+    </s0:operation>
+    <s0:operation name="resume">
+      <s3:operation soapAction="" style="document" />
+      <s0:input>
+        <s3:body use="literal" parts="TransactionResumeMsg" />
+      </s0:input>
+      <s0:output>
+        <s3:body use="literal" parts="TransactionResponseMsg" />
+      </s0:output>
+    </s0:operation>
+    <s0:operation name="authenticationCheck">
+      <s3:operation soapAction="" style="document" />
+      <s0:input>
+        <s3:body use="literal" parts="TransactionAuthenticationMsg" />
+      </s0:input>
+      <s0:output>
+        <s3:body use="literal" parts="TransactionResponseMsg" />
+      </s0:output>
+    </s0:operation>
+    <s0:operation name="assertion">
+      <s3:operation soapAction="" style="document" />
+      <s0:input>
+        <s3:body use="literal" parts="AssertionMsg" />
+      </s0:input>
+      <s0:output>
+        <s3:body use="literal" parts="AssertionResponseMsg" />
+      </s0:output>
+    </s0:operation>
+    <s0:operation name="disposition">
+      <s3:operation soapAction="" />
+      <s0:input>
+        <s3:body use="literal" parts="DispositionMsg" />
+      </s0:input>
+    </s0:operation>
+  </s0:binding>
+  <s0:service name="CarbonWebService">
+    <s0:port name="CarbonSoapPort" binding="s2:CarbonSoapBinding">
+      <s3:address location="https://staging.verid.com:443/carbon/ws" />
+    </s0:port>
+  </s0:service>
+</s0:definitions>

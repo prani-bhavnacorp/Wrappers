@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="mtvnCWDPAcctInqResData" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="mtvnCWDPAcctInqResData" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="DPAcctInqResData">
+    <xs:annotation>
+      <xs:documentation>Deposit Account Inquiry (DPRFD, with logging DPRFL and DPLOG) -  This function is used to inquire on balances, status codes, and other miscellaneous information about a deposit account.  On the Deposit System, there may be multiple certificates of deposit (CDs) under one account number, each identified by a CD ID number.  The names of fields that refer to individual CDs start with CD.  These fields will only be filled if you have input the specific CD ID number.  The rest of the fields refer to account level information.  If there are multiple CDs under an account, the account level balance fields will reflect a roll-up of the balances in the individual CDs.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="E20007" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Account Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E301510" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>External System Account ID Prefix</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E300344" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>External System Account Type</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20665" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Certificate of Deposit ID</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E310045" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Log Inquiry Indicator</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21092" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Inquiry Date</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21093" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Inquiry Time</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21634" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Account Short Name</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21613" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Deposit Category</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20142" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Deposit Category Description</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21604" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Account Type</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21638" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Account Open Indicator</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20279" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Status Codes</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20278" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Special Codes</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20071" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP User Code 1</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20297" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP User Code 2</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20298" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP User Code 3</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20299" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP User Code 4</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20325" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP User Code 5</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20326" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP User Code 6</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20327" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP User Code 7</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20328" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP User Code 8</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20329" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP User Code 9</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20330" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP User Code 10</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21623" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Dormant Account Indicator</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21642" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Posting Indicator</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20149" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Last Statement Date</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20146" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Next Statement Date</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20052" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Last Posting Date</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21632" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Ledger Balance</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21667" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Total Accessible Balance</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20418" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Current Collected Balance</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21661" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Current Balance</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20923" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Related Account Available Balance</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21631" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Interest Paid Year to Date</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20590" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Interest Paid Prior Year</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20336" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP PRA Balance</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20445" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP PRA Accrued Interest</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20448" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP PRA Accrued Credit Life</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E310046" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP PRA Payoff</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20335" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP PRA Line</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E310047" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP PRA Available Line</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20677" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP CD Interest Rate</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20671" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP CD Next Maturity Date</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20696" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP CD Last Interest Amount</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20678" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP CD Current Balance</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20699" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP CD Interest Year to Date</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20713" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP CD Interest Prior Year</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20417" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Last Collectable Float</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20156" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Total Collectable Float</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20049" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Tax ID Code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20050" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Tax Identification Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21657" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Related Available Balance</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20065" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Charge/No Charge Indicator</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20102" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP AAS Type Code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20117" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP AAS Indicator</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20913" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Account Reporting Country</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20914" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Account 1042 Indicator</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21669" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Teller Last Posting Date</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21670" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Teller Next Posting Date</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21671" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Teller Next Next Posting Date</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21672" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Teller Process Indicator</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E22755" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP ESP Score Amount</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E22758" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Teller Authorization Balance</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20789" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP User Code A</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20790" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP User Code B</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20791" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP User Code C</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20792" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP User Code D</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20793" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP User Code E</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20794" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP User Code F</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20795" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP User Code G</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20796" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP User Code H</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20797" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP User Code I</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20798" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP User Code J</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20799" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP User Code K</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20800" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP User Code L</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20802" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP User Code M</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20803" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP User Code N</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20804" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP User Code O</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20805" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP User Code P</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20806" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP User Code Q</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20807" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP User Code R</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20808" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP User Code S</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20809" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP User Code T</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20810" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Text Field 1</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20811" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Text Field 2</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20812" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Text Field 3</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20813" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Text Field 4</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20814" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Text Field 5</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E22880" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Teller Focus Available Balance</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20632" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Interest Stated Rate</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E22770" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Interest Rate Adjustment Factor</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E23037" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Interest Rate Adjustment Factor Expiration Date</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E23038" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Time Deposit Teaser Rate Adjustment Factor</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E23039" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Time Deposit Teaser Rate Adjustment Factor Expiration Date</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21287" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Account Available Balance</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21288" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Account Available Balance Label</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21289" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Total Accessible Balance Label</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21040" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Card ESP Authorization/Reg E Opt-In</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E22974" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Reg E Opt-In Date</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E22975" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Reg E Opt-In Method</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E22977" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Exception Score Processing Indicator</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20046" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Acccount Branch</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20108" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Consumer Account Indicator</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20057" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Cost Center</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20261" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Transaction Fee Type</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20110" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Birthdate</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="ErrCde" type="xs:string" />
+        <xs:element minOccurs="0" name="ErrResnCde" type="xs:string" />
+        <xs:element minOccurs="0" name="ApplMsgLst">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="ApplMsg">
+                <xs:complexType>
+                  <xs:all>
+                    <xs:element minOccurs="0" name="ApplMsgApplId" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgNbr" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgTxt" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgErrInd" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgFld" type="xs:string" />
+                  </xs:all>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

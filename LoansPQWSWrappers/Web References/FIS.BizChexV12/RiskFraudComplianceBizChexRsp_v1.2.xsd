@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns="http://www.fisglobal.com/soa/riskfraudcomplianceRsp"   
+    xmlns:hdr="FisCommonRspHdr"
+    targetNamespace="http://www.fisglobal.com/soa/riskfraudcomplianceRsp"
+    elementFormDefault="unqualified" attributeFormDefault="unqualified">
+
+	<xs:import namespace="FisCommonRspHdr" schemaLocation="FISCommonRspHdr_v1.2.xsd" />
+	<xs:include schemaLocation="BizChexResponseTypes_v1.2.xsd" />
+	
+	<xs:element name="RiskFraudComplianceBizChexRsp" type="tRiskFraudComplianceBizChexRsp" />
+	<xs:element name="RiskFraudCompliancePrncplOwnrAddIDVOverrideRsp" type="tRiskFraudComplianceAddIDVOverrideRsp" />
+	<xs:element name="RiskFraudComplianceAuthSgnr2AddIDVOverrideRsp" type="tRiskFraudComplianceAddIDVOverrideRsp" />
+	<xs:element name="RiskFraudComplianceAuthSgnr3AddIDVOverrideRsp" type="tRiskFraudComplianceAddIDVOverrideRsp" />
+	<xs:element name="RiskFraudComplianceAuthSgnr4AddIDVOverrideRsp" type="tRiskFraudComplianceAddIDVOverrideRsp" />
+	<xs:element name="RiskFraudComplianceAuthSgnr5AddIDVOverrideRsp" type="tRiskFraudComplianceAddIDVOverrideRsp" />
+	<xs:element name="RiskFraudCompliancePrncplOwnrAddOFACOverrideRsp" type="tRiskFraudComplianceAddOFACOverrideRsp" />
+	<xs:element name="RiskFraudComplianceAuthSgnr2AddOFACOverrideRsp" type="tRiskFraudComplianceAddOFACOverrideRsp" />
+	<xs:element name="RiskFraudComplianceAuthSgnr3AddOFACOverrideRsp" type="tRiskFraudComplianceAddOFACOverrideRsp" />
+	<xs:element name="RiskFraudComplianceAuthSgnr4AddOFACOverrideRsp" type="tRiskFraudComplianceAddOFACOverrideRsp" />
+	<xs:element name="RiskFraudComplianceAuthSgnr5AddOFACOverrideRsp" type="tRiskFraudComplianceAddOFACOverrideRsp" />
+	<xs:element name="RiskFraudComplianceBusnAddOFACOverrideRsp" type="tRiskFraudComplianceAddOFACOverrideRsp" />
+	<xs:element name="RiskFraudCompliancePrncplOwnrAddActionsRsp" type="tRiskFraudComplianceAddActionsRsp" />
+	<xs:element name="RiskFraudComplianceAuthSgnr2AddActionsRsp" type="tRiskFraudComplianceAddActionsRsp" />
+	<xs:element name="RiskFraudComplianceAuthSgnr3AddActionsRsp" type="tRiskFraudComplianceAddActionsRsp" />
+	<xs:element name="RiskFraudComplianceAuthSgnr4AddActionsRsp" type="tRiskFraudComplianceAddActionsRsp" />
+	<xs:element name="RiskFraudComplianceAuthSgnr5AddActionsRsp" type="tRiskFraudComplianceAddActionsRsp" />
+
+	<xs:complexType name="tRiskFraudComplianceBizChexRsp">
+		<xs:sequence>
+			<xs:element ref="hdr:RspHdr" minOccurs="1" maxOccurs="1" />
+			<xs:element name="BizChexOso" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:all>
+						<xs:element name="BizChexSvc" type="tBizChexSvc"
+							minOccurs="0" maxOccurs="1" />
+						<xs:element name="IDVSvc" type="tIDVSvc" minOccurs="0"
+							maxOccurs="1" />
+						<xs:element name="BusOFACSvc" type="tBusOFACSvc"
+							minOccurs="0" maxOccurs="1" />
+						<xs:element name="OFACSvc" type="tOFACSvc" minOccurs="0"
+							maxOccurs="1" />
+						<xs:element name="SplMsgs" type="tSplMsgs" minOccurs="0"
+							maxOccurs="1" />
+						<xs:element name="RefDtl" type="tRefDtl" minOccurs="0"
+							maxOccurs="1" />
+					</xs:all>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="tRiskFraudComplianceAddIDVOverrideRsp">
+		<xs:sequence>
+			<xs:element ref="hdr:RspHdr" minOccurs="1" maxOccurs="1" />
+			<xs:element name="BizChexOso" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:all>
+						<xs:element name="BizChexSvc" type="tAddIDVOverrideRsp"
+							minOccurs="0" maxOccurs="1" />
+					</xs:all>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="tRiskFraudComplianceAddOFACOverrideRsp">
+		<xs:sequence>
+			<xs:element ref="hdr:RspHdr" minOccurs="1" maxOccurs="1" />
+			<xs:element name="BizChexOso" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:all>
+						<xs:element name="BizChexSvc" type="tAddOFACOverrideRsp"
+							minOccurs="0" maxOccurs="1" />
+					</xs:all>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="tRiskFraudComplianceAddActionsRsp">
+		<xs:sequence>
+			<xs:element ref="hdr:RspHdr" minOccurs="1" maxOccurs="1" />
+			<xs:element name="BizChexOso" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:all>
+						<xs:element name="BizChexSvc" type="tAddActionsRsp"
+							minOccurs="0" maxOccurs="1" />
+					</xs:all>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>
+
+
+

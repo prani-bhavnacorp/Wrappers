@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:tns="http://www.eplinc.com/services/LoanOriginationService/2006-05-01/schema" elementFormDefault="qualified" targetNamespace="http://www.eplinc.com/services/LoanOriginationService/2006-05-01/schema" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="MsgReqHeader">
+    <xsd:sequence>
+      <xsd:element name="serviceRequesterUID" type="xsd:string" />
+      <xsd:element name="serviceProviderUID" type="xsd:string" />
+      <xsd:element name="sessionToken" type="xsd:string" />
+      <xsd:element name="overridingUser" nillable="true" type="tns:UserCredentials" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="MsgRespHeader">
+    <xsd:sequence>
+      <xsd:element name="errors" nillable="true" type="tns:ErrorTypes" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ErrorType">
+    <xsd:sequence>
+      <xsd:element name="errorCode" nillable="true" type="xsd:string" />
+      <xsd:element name="errorDescription" nillable="true" type="xsd:string" />
+      <xsd:element name="errorSource" nillable="true" type="xsd:string" />
+      <xsd:element name="overrideAllowed" type="xsd:boolean" />
+      <xsd:element name="overrideLevelNeeded" type="xsd:int" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ErrorTypes">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="errorType" type="tns:ErrorType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="UserCredentials">
+    <xsd:sequence>
+      <xsd:element name="userId" type="xsd:string" />
+      <xsd:element name="userPassword" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="LoanProductDefinition">
+    <xsd:sequence>
+      <xsd:element name="loanClass" type="xsd:int" />
+      <xsd:element name="description" nillable="true" type="xsd:string" />
+      <xsd:element name="secured" type="xsd:boolean" />
+      <xsd:element name="collateralCode" nillable="true" type="xsd:string" />
+      <xsd:element name="loanType" nillable="true" type="xsd:string" />
+      <xsd:element name="numOfPymts" type="xsd:int" />
+      <xsd:element name="pymtFrequency" nillable="true" type="xsd:string" />
+      <xsd:element name="pymtCalcMethod" nillable="true" type="xsd:string" />
+      <xsd:element name="lateChargeCode" nillable="true" type="xsd:string" />
+      <xsd:element name="interestRate" nillable="true" type="xsd:decimal" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="LoanProductDefinitions">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="loanProductDefinition" type="tns:LoanProductDefinition" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="LendingCode">
+    <xsd:sequence>
+      <xsd:element name="type" type="xsd:int" />
+      <xsd:element name="value" nillable="true" type="xsd:string" />
+      <xsd:element name="description" nillable="true" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="LendingCodes">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="lendingCode" type="tns:LendingCode" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="InstitutionLendingProperties">
+    <xsd:sequence>
+      <xsd:element name="collateralCodes" nillable="true" type="tns:LendingCodes" />
+      <xsd:element name="loanTypes" nillable="true" type="tns:LendingCodes" />
+      <xsd:element name="paymentFrequencies" nillable="true" type="tns:LendingCodes" />
+      <xsd:element name="existingLienCodes" nillable="true" type="tns:LendingCodes" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="FeeIncrement">
+    <xsd:sequence>
+      <xsd:element name="lowLimit" nillable="true" type="xsd:decimal" />
+      <xsd:element name="highLimit" nillable="true" type="xsd:decimal" />
+      <xsd:element name="feeAmount" nillable="true" type="xsd:decimal" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="FeeIncrements">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="feeIncrement" type="tns:FeeIncrement" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="FeeDefinition">
+    <xsd:sequence>
+      <xsd:element name="feeType" type="xsd:int" />
+      <xsd:element name="feeCategory" type="xsd:int" />
+      <xsd:element name="feeDescription" nillable="true" type="xsd:string" />
+      <xsd:element name="flatFeeAmount" nillable="true" type="xsd:decimal" />
+      <xsd:element name="flatFeeTranCode" nillable="true" type="xsd:string" />
+      <xsd:element name="percentageFee" nillable="true" type="xsd:decimal" />
+      <xsd:element name="feeIncrements" nillable="true" type="tns:FeeIncrements" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="FeeDefinitions">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="feeDefinition" type="tns:FeeDefinition" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PayrollDeduction">
+    <xsd:sequence>
+      <xsd:element name="sourceNum" type="xsd:int" />
+      <xsd:element name="type" type="xsd:int" />
+      <xsd:element name="frequency" nillable="true" type="xsd:string" />
+      <xsd:element name="standardAmount" nillable="true" type="xsd:decimal" />
+      <xsd:element name="deductionAmount" nillable="true" type="xsd:decimal" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PayrollDeductions">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="payrollDeduction" type="tns:PayrollDeduction" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SuffixList">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="suffix" type="xsd:int" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="LoanDebt">
+    <xsd:sequence>
+      <xsd:element name="description" nillable="true" type="xsd:string" />
+      <xsd:element name="accountNum" type="xsd:long" />
+      <xsd:element name="suffixNum" type="xsd:int" />
+      <xsd:element name="currentBalance" nillable="true" type="xsd:decimal" />
+      <xsd:element name="noteNum" nillable="true" type="xsd:string" />
+      <xsd:element name="payOffAmount" nillable="true" type="xsd:decimal" />
+      <xsd:element name="paymentAmount" nillable="true" type="xsd:decimal" />
+      <xsd:element name="interestRate" nillable="true" type="xsd:decimal" />
+      <xsd:element name="paymentFrequency" type="xsd:int" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="LoanDebts">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="loanDebt" type="tns:LoanDebt" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CreditCardDebt">
+    <xsd:sequence>
+      <xsd:element name="description" nillable="true" type="xsd:string" />
+      <xsd:element name="accountNum" type="xsd:long" />
+      <xsd:element name="suffixNum" type="xsd:int" />
+      <xsd:element name="currentBalance" nillable="true" type="xsd:decimal" />
+      <xsd:element name="amountDue" nillable="true" type="xsd:decimal" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CreditCardDebts">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="creditCardDebt" type="tns:CreditCardDebt" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DepositAsset">
+    <xsd:sequence>
+      <xsd:element name="depositType" type="xsd:int" />
+      <xsd:element name="description" nillable="true" type="xsd:string" />
+      <xsd:element name="accountNum" type="xsd:long" />
+      <xsd:element name="suffixNum" type="xsd:int" />
+      <xsd:element name="currentBalance" nillable="true" type="xsd:decimal" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DepositAssets">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="depositAsset" type="tns:DepositAsset" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ApplicantProfile">
+    <xsd:sequence>
+      <xsd:element name="personProfile" nillable="true" type="tns:PersonProfile" />
+      <xsd:element name="deposits" nillable="true" type="tns:DepositAssets" />
+      <xsd:element name="loans" nillable="true" type="tns:LoanDebts" />
+      <xsd:element name="creditCards" nillable="true" type="tns:CreditCardDebts" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ApplicantProfiles">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="applicantProfile" type="tns:ApplicantProfile" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ApplicantSSNs">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="applicantSSN" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PaymentDisbursement">
+    <xsd:sequence>
+      <xsd:element name="accountNum" type="xsd:long" />
+      <xsd:element name="suffixNum" type="xsd:int" />
+      <xsd:element name="amount" nillable="true" type="xsd:decimal" />
+      <xsd:element name="payOff" type="xsd:boolean" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PaymentDisbursements">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="paymentDisbursement" type="tns:PaymentDisbursement" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CheckDisbursement">
+    <xsd:sequence>
+      <xsd:element name="referenceAccount" nillable="true" type="xsd:string" />
+      <xsd:element name="amount" nillable="true" type="xsd:decimal" />
+      <xsd:element name="printOption" type="xsd:int" />
+      <xsd:element name="checkNum" type="xsd:int" />
+      <xsd:element name="checkLine1" nillable="true" type="xsd:string" />
+      <xsd:element name="checkLine2" nillable="true" type="xsd:string" />
+      <xsd:element name="checkLine3" nillable="true" type="xsd:string" />
+      <xsd:element name="checkLine4" nillable="true" type="xsd:string" />
+      <xsd:element name="checkLine5" nillable="true" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CheckDisbursements">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="checkDisbursement" type="tns:CheckDisbursement" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TransferDisbursement">
+    <xsd:sequence>
+      <xsd:element name="accountNum" type="xsd:long" />
+      <xsd:element name="suffixNum" type="xsd:int" />
+      <xsd:element name="amount" nillable="true" type="xsd:decimal" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TransferDisbursements">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="transferDisbursement" type="tns:TransferDisbursement" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Disbursement">
+    <xsd:sequence>
+      <xsd:element name="transferDisbursements" nillable="true" type="tns:TransferDisbursements" />
+      <xsd:element name="paymentDisbursements" nillable="true" type="tns:PaymentDisbursements" />
+      <xsd:element name="checkDisbursements" nillable="true" type="tns:CheckDisbursements" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Applicant">
+    <xsd:sequence>
+      <xsd:element name="applicantType" type="xsd:int" />
+      <xsd:element name="personProfile" nillable="true" type="tns:PersonProfile" />
+      <xsd:element name="originalIncome" nillable="true" type="xsd:decimal" />
+      <xsd:element name="originalExpense" nillable="true" type="xsd:decimal" />
+      <xsd:element name="creditScore" type="xsd:int" />
+      <xsd:element name="creditScoreDate" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="mlaQualified" type="xsd:boolean" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="mlaVerificationDate" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="ecoaCode" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Applicants">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="applicant" type="tns:Applicant" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TitleCollateral">
+    <xsd:sequence>
+      <xsd:element name="price" nillable="true" type="xsd:decimal" />
+      <xsd:element name="maxFinancePct" nillable="true" type="xsd:decimal" />
+      <xsd:element name="recordingFees" nillable="true" type="xsd:decimal" />
+      <xsd:element name="year" type="xsd:int" />
+      <xsd:element name="make" nillable="true" type="xsd:string" />
+      <xsd:element name="model" nillable="true" type="xsd:string" />
+      <xsd:element name="vin" nillable="true" type="xsd:string" />
+      <xsd:element name="color" nillable="true" type="xsd:string" />
+      <xsd:element name="miles" type="xsd:int" />
+      <xsd:element name="tag" nillable="true" type="xsd:string" />
+      <xsd:element name="sellerName" nillable="true" type="xsd:string" />
+      <xsd:element name="loanToPurchaseColl" type="xsd:boolean" />
+      <xsd:element name="proofExists" type="xsd:boolean" />
+      <xsd:element name="titleNum" nillable="true" type="xsd:string" />
+      <xsd:element name="titleOwner" nillable="true" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TitleCollaterals">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="titleCollateral" type="tns:TitleCollateral" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="OtherCollateral">
+    <xsd:sequence>
+      <xsd:element name="description" nillable="true" type="xsd:string" />
+      <xsd:element name="value" nillable="true" type="xsd:decimal" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="OtherCollaterals">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="otherCollateral" type="tns:OtherCollateral" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="LegalDescCollateral">
+    <xsd:sequence>
+      <xsd:element name="parcel" nillable="true" type="xsd:string" />
+      <xsd:element name="propertyAddress" nillable="true" type="tns:Address" />
+      <xsd:element name="legalDesc1" nillable="true" type="xsd:string" />
+      <xsd:element name="legalDesc2" nillable="true" type="xsd:string" />
+      <xsd:element name="legalDesc3" nillable="true" type="xsd:string" />
+      <xsd:element name="platBookPage" nillable="true" type="xsd:string" />
+      <xsd:element name="appraisedDate" nillable="true" type="xsd:string" />
+      <xsd:element name="appraisedValue" nillable="true" type="xsd:decimal" />
+      <xsd:element name="assessedValue" nillable="true" type="xsd:decimal" />
+      <xsd:element name="assessedInName" nillable="true" type="xsd:string" />
+      <xsd:element name="censusNum" nillable="true" type="xsd:string" />
+      <xsd:element name="existingLienCode" nillable="true" type="xsd:string" />
+      <xsd:element name="existingLienAmount" nillable="true" type="xsd:decimal" />
+      <xsd:element name="taxYear" type="xsd:int" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Collateral">
+    <xsd:sequence>
+      <xsd:element name="titleCollaterals" nillable="true" type="tns:TitleCollaterals" />
+      <xsd:element name="legalDescCollateral" nillable="true" type="tns:LegalDescCollateral" />
+      <xsd:element name="otherCollaterals" nillable="true" type="tns:OtherCollaterals" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="LoanDetails">
+    <xsd:sequence>
+      <xsd:element name="addOn" type="xsd:boolean" />
+      <xsd:element name="suffixNum" type="xsd:int" />
+      <xsd:element name="draftSuffixNum" type="xsd:int" />
+      <xsd:element name="noteNum" nillable="true" type="xsd:string" />
+      <xsd:element name="loanClass" type="xsd:int" />
+      <xsd:element name="loanType" nillable="true" type="xsd:string" />
+      <xsd:element name="collateralCode" nillable="true" type="xsd:string" />
+      <xsd:element name="ecoaCode" nillable="true" type="xsd:string" />
+      <xsd:element name="currentBalance" nillable="true" type="xsd:decimal" />
+      <xsd:element name="requestedAmount" nillable="true" type="xsd:decimal" />
+      <xsd:element name="pymtCalcMethod" nillable="true" type="xsd:string" />
+      <xsd:element name="pymtMethod" nillable="true" type="xsd:string" />
+      <xsd:element name="pymtSourceNum" type="xsd:int" />
+      <xsd:element name="lateChargeCode" nillable="true" type="xsd:string" />
+      <xsd:element name="pymtAmount" nillable="true" type="xsd:decimal" />
+      <xsd:element name="pymtFrequency" type="xsd:int" />
+      <xsd:element name="numOfPymts" type="xsd:int" />
+      <xsd:element name="variableRate" type="xsd:boolean" />
+      <xsd:element name="termCapAmount" nillable="true" type="xsd:decimal" />
+      <xsd:element name="lifeCapAmount" nillable="true" type="xsd:decimal" />
+      <xsd:element name="balloonNote" type="xsd:boolean" />
+      <xsd:element name="balloonPymtAmount" nillable="true" type="xsd:decimal" />
+      <xsd:element name="lineOfCredit" type="xsd:boolean" />
+      <xsd:element name="locAmount" nillable="true" type="xsd:decimal" />
+      <xsd:element name="locExpDate" nillable="true" type="xsd:string" />
+      <xsd:element name="insuranceCode" nillable="true" type="xsd:string" />
+      <xsd:element name="insuranceAmount" nillable="true" type="xsd:decimal" />
+      <xsd:element name="interestRate" nillable="true" type="xsd:decimal" />
+      <xsd:element name="firstPymtDate" nillable="true" type="xsd:string" />
+      <xsd:element name="finalPymtDate" nillable="true" type="xsd:string" />
+      <xsd:element name="lastPymtDate" nillable="true" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="mlaMapr" type="xsd:decimal" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="mlaMaprDate" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="mlaCovered" type="xsd:boolean" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="loanOfficerBooking" type="xsd:int" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="loanOfficerDisposition" type="xsd:int" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="loanOfficerOriginating" type="xsd:int" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="loanDescription" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="dealerId" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="LoanFee">
+    <xsd:sequence>
+      <xsd:element name="feeType" type="xsd:int" />
+      <xsd:element name="pymtType" type="xsd:int" />
+      <xsd:element name="amount" nillable="true" type="xsd:decimal" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="LoanFees">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="loanFee" type="tns:LoanFee" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="LoanApplication">
+    <xsd:sequence>
+      <xsd:element name="accountNum" type="xsd:long" />
+      <xsd:element name="purposeOfLoan" nillable="true" type="xsd:string" />
+      <xsd:element name="effectiveDate" nillable="true" type="xsd:string" />
+      <xsd:element name="applicants" nillable="true" type="tns:Applicants" />
+      <xsd:element name="loanDetails" nillable="true" type="tns:LoanDetails" />
+      <xsd:element name="fees" nillable="true" type="tns:LoanFees" />
+      <xsd:element name="collateral" nillable="true" type="tns:Collateral" />
+      <xsd:element name="disbursement" nillable="true" type="tns:Disbursement" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="IssuedIdentification">
+    <xsd:sequence>
+      <xsd:element name="docType" type="xsd:int" />
+      <xsd:element name="idType" type="xsd:int" />
+      <xsd:element name="stateOrProv" nillable="true" type="xsd:string" />
+      <xsd:element name="number" nillable="true" type="xsd:string" />
+      <xsd:element name="description" nillable="true" type="xsd:string" />
+      <xsd:element name="issueDate" nillable="true" type="xsd:string" />
+      <xsd:element name="verifyDate" nillable="true" type="xsd:string" />
+      <xsd:element name="expireDate" nillable="true" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PersonName">
+    <xsd:sequence>
+      <xsd:element name="titlePrefix" nillable="true" type="xsd:string" />
+      <xsd:element name="firstName" nillable="true" type="xsd:string" />
+      <xsd:element name="middleInitial" nillable="true" type="xsd:string" />
+      <xsd:element name="lastName" nillable="true" type="xsd:string" />
+      <xsd:element name="nameSuffix" nillable="true" type="xsd:string" />
+      <xsd:element name="shortName" nillable="true" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Address">
+    <xsd:sequence>
+      <xsd:element name="foreign" type="xsd:boolean" />
+      <xsd:element name="address1" nillable="true" type="xsd:string" />
+      <xsd:element name="address2" nillable="true" type="xsd:string" />
+      <xsd:element name="city" nillable="true" type="xsd:string" />
+      <xsd:element name="stateOrProv" nillable="true" type="xsd:string" />
+      <xsd:element name="postalCode" nillable="true" type="xsd:string" />
+      <xsd:element name="county" nillable="true" type="xsd:string" />
+      <xsd:element name="countryCode" nillable="true" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="EmploymentInfo">
+    <xsd:sequence>
+      <xsd:element name="employerName" nillable="true" type="xsd:string" />
+      <xsd:element name="employerAddress" nillable="true" type="tns:Address" />
+      <xsd:element name="dateHired" nillable="true" type="xsd:string" />
+      <xsd:element name="yearsEmployed" type="xsd:int" />
+      <xsd:element name="monthsEmployed" type="xsd:int" />
+      <xsd:element name="occupation" nillable="true" type="xsd:string" />
+      <xsd:element name="supervisor" nillable="true" type="xsd:string" />
+      <xsd:element name="grossIncome" nillable="true" type="xsd:decimal" />
+      <xsd:element name="netIncome" nillable="true" type="xsd:decimal" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="HomeAddress">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="tns:Address">
+        <xsd:sequence>
+          <xsd:element name="addressType" type="xsd:int" />
+          <xsd:element name="yearsAtAddress" type="xsd:int" />
+          <xsd:element name="monthsAtAddress" type="xsd:int" />
+          <xsd:element name="buyRentOwn" type="xsd:int" />
+          <xsd:element name="homePresentValue" nillable="true" type="xsd:decimal" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="HomeAddresses">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="homeAddress" type="tns:HomeAddress" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PhoneNumber">
+    <xsd:sequence>
+      <xsd:element name="phoneType" type="xsd:int" />
+      <xsd:element name="phone" nillable="true" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PhoneNumbers">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="phoneNumber" type="tns:PhoneNumber" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ContactInfo">
+    <xsd:sequence>
+      <xsd:element name="phoneNumbers" nillable="true" type="tns:PhoneNumbers" />
+      <xsd:element name="addresses" nillable="true" type="tns:HomeAddresses" />
+      <xsd:element name="emailAddress" nillable="true" type="xsd:string" />
+      <xsd:element name="workEmailAddress" nillable="true" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="LegalInfo">
+    <xsd:sequence>
+      <xsd:element name="maritalStatus" type="xsd:int" />
+      <xsd:element name="numOfDependents" type="xsd:int" />
+      <xsd:element name="dependentsAges" nillable="true" type="xsd:string" />
+      <xsd:element name="notUSCitizen" type="xsd:boolean" />
+      <xsd:element name="cosignerOnOtherDebt" type="xsd:boolean" />
+      <xsd:element name="paysAlimony" type="xsd:boolean" />
+      <xsd:element name="paysChildSupport" type="xsd:boolean" />
+      <xsd:element name="hasPendingLawsuits" type="xsd:boolean" />
+      <xsd:element name="hadBankruptcy" type="xsd:boolean" />
+      <xsd:element name="hadForeclosureOrRepo" type="xsd:boolean" />
+      <xsd:element name="hadJudgementOrGarnishments" type="xsd:boolean" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="DriversLicense">
+    <xsd:sequence>
+      <xsd:element name="stateOrProv" nillable="true" type="xsd:string" />
+      <xsd:element name="number" nillable="true" type="xsd:string" />
+      <xsd:element name="description" nillable="true" type="xsd:string" />
+      <xsd:element name="issueDate" nillable="true" type="xsd:string" />
+      <xsd:element name="verifyDate" nillable="true" type="xsd:string" />
+      <xsd:element name="expireDate" nillable="true" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="PersonProfile">
+    <xsd:sequence>
+      <xsd:element name="fullName" nillable="true" type="xsd:string" />
+      <xsd:element name="personName" nillable="true" type="tns:PersonName" />
+      <xsd:element name="ssn" nillable="true" type="xsd:string" />
+      <xsd:element name="birthDate" nillable="true" type="xsd:string" />
+      <xsd:element name="deathDate" nillable="true" type="xsd:string" />
+      <xsd:element name="mothersMaidenName" nillable="true" type="xsd:string" />
+      <xsd:element name="contactInfo" nillable="true" type="tns:ContactInfo" />
+      <xsd:element name="currentEmployment" nillable="true" type="tns:EmploymentInfo" />
+      <xsd:element name="previousEmployment" nillable="true" type="tns:EmploymentInfo" />
+      <xsd:element name="legalInfo" nillable="true" type="tns:LegalInfo" />
+      <xsd:element name="driversLicense" nillable="true" type="tns:DriversLicense" />
+      <xsd:element name="otherIdentification1" nillable="true" type="tns:IssuedIdentification" />
+      <xsd:element name="otherIdentification2" nillable="true" type="tns:IssuedIdentification" />
+      <xsd:element name="otherIdentification3" nillable="true" type="tns:IssuedIdentification" />
+      <xsd:element name="comments" nillable="true" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="LendingProfileReq" type="tns:LendingProfileReq" />
+  <xsd:complexType name="LendingProfileReq">
+    <xsd:sequence>
+      <xsd:element name="msgReqHeader" type="tns:MsgReqHeader" />
+      <xsd:element name="includeFeeDefinitions" type="xsd:boolean" />
+      <xsd:element name="includeProductDefinitions" type="xsd:boolean" />
+      <xsd:element name="includeInstitutionProperties" type="xsd:boolean" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="LendingProfileResp" type="tns:LendingProfileResp" />
+  <xsd:complexType name="LendingProfileResp">
+    <xsd:sequence>
+      <xsd:element name="msgRespHeader" nillable="true" type="tns:MsgRespHeader" />
+      <xsd:element name="feeDefinitions" nillable="true" type="tns:FeeDefinitions" />
+      <xsd:element name="productDefinitions" nillable="true" type="tns:LoanProductDefinitions" />
+      <xsd:element name="lendingProperties" nillable="true" type="tns:InstitutionLendingProperties" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="AccountProfileReq" type="tns:AccountProfileReq" />
+  <xsd:complexType name="AccountProfileReq">
+    <xsd:sequence>
+      <xsd:element name="msgReqHeader" type="tns:MsgReqHeader" />
+      <xsd:element name="accountNum" type="xsd:long" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="AccountProfileResp" type="tns:AccountProfileResp" />
+  <xsd:complexType name="AccountProfileResp">
+    <xsd:sequence>
+      <xsd:element name="msgRespHeader" nillable="true" type="tns:MsgRespHeader" />
+      <xsd:element name="accountNum" type="xsd:long" />
+      <xsd:element name="accountOwner" nillable="true" type="tns:ApplicantProfile" />
+      <xsd:element name="payrollDeductions" nillable="true" type="tns:PayrollDeductions" />
+      <xsd:element name="availableDraftSuffixes" nillable="true" type="tns:SuffixList" />
+      <xsd:element name="availableLoanSuffixes" nillable="true" type="tns:SuffixList" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ApplicantProfileReq" type="tns:ApplicantProfileReq" />
+  <xsd:complexType name="ApplicantProfileReq">
+    <xsd:sequence>
+      <xsd:element name="msgReqHeader" type="tns:MsgReqHeader" />
+      <xsd:element name="applicantSSNs" type="tns:ApplicantSSNs" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ApplicantProfileResp" type="tns:ApplicantProfileResp" />
+  <xsd:complexType name="ApplicantProfileResp">
+    <xsd:sequence>
+      <xsd:element name="msgRespHeader" nillable="true" type="tns:MsgRespHeader" />
+      <xsd:element name="applicantProfiles" nillable="true" type="tns:ApplicantProfiles" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="NewLoanReq" type="tns:NewLoanReq" />
+  <xsd:complexType name="NewLoanReq">
+    <xsd:sequence>
+      <xsd:element name="msgReqHeader" type="tns:MsgReqHeader" />
+      <xsd:element name="loanApplication" type="tns:LoanApplication" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="NewLoanResp" type="tns:NewLoanResp" />
+  <xsd:complexType name="NewLoanResp">
+    <xsd:sequence>
+      <xsd:element name="msgRespHeader" nillable="true" type="tns:MsgRespHeader" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="LoanProfileReq" type="tns:LoanProfileReq" />
+  <xsd:complexType name="LoanProfileReq">
+    <xsd:sequence>
+      <xsd:element name="msgReqHeader" type="tns:MsgReqHeader" />
+      <xsd:element name="accountNum" type="xsd:long" />
+      <xsd:element name="suffixNum" type="xsd:int" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="LoanProfileResp" type="tns:LoanProfileResp" />
+  <xsd:complexType name="LoanProfileResp">
+    <xsd:sequence>
+      <xsd:element name="msgRespHeader" nillable="true" type="tns:MsgRespHeader" />
+      <xsd:element name="accountNum" type="xsd:long" />
+      <xsd:element name="suffix" type="xsd:int" />
+      <xsd:element name="accountOwner" nillable="true" type="tns:ApplicantProfile" />
+      <xsd:element name="loanDetails" nillable="true" type="tns:LoanDetails" />
+      <xsd:element name="payrollDeductions" nillable="true" type="tns:PayrollDeductions" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="AddOnReq" type="tns:AddOnReq" />
+  <xsd:complexType name="AddOnReq">
+    <xsd:sequence>
+      <xsd:element name="msgReqHeader" type="tns:MsgReqHeader" />
+      <xsd:element name="loanApplication" type="tns:LoanApplication" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="AddOnResp" type="tns:AddOnResp" />
+  <xsd:complexType name="AddOnResp">
+    <xsd:sequence>
+      <xsd:element name="msgRespHeader" nillable="true" type="tns:MsgRespHeader" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

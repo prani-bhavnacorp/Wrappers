@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:tns="http://www.americafirst.com/20070315/RiskScore" xmlns:hdr="http://www.americafirst.com/20070315/AFCUHeader" xmlns:ctl="http://www.americafirst.com/20070315/CommonTypesLib" xmlns:cm="http://www.americafirst.com/20070315/CommonTypes" targetNamespace="http://www.americafirst.com/20070315/RiskScore" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema">
+  <import schemaLocation="../afcuheader/AFCUHeader.xsd" namespace="http://www.americafirst.com/20070315/AFCUHeader" />
+  <import schemaLocation="../commontypes/CommonTypes.xsd" namespace="http://www.americafirst.com/20070315/CommonTypes" />
+  <import schemaLocation="../commontypeslib/CommonTypesLib.xsd" namespace="http://www.americafirst.com/20070315/CommonTypesLib" />
+  <element name="inquireRiskScoreRequest" type="tns:InquireRiskScoreRequest" />
+  <element name="inquireRiskScoreResponse" type="tns:InquireRiskScoreResponse" />
+  <element name="addRiskScoreRequest" type="tns:AddRiskScoreRequest" />
+  <element name="addRiskScoreResponse" type="tns:AddRiskScoreResponse" />
+  <element name="updateRiskScoreRequest" type="tns:UpdateRiskScoreRequest" />
+  <element name="updateRiskScoreResponse" type="tns:UpdateRiskScoreResponse" />
+  <element name="deleteRiskScoreRequest" type="tns:DeleteRiskScoreRequest" />
+  <element name="deleteRiskScoreResponse" type="tns:DeleteRiskScoreResponse" />
+  <element name="inquireRiskScoreHistoryRequest" type="tns:InquireRiskScoreHistoryRequest" />
+  <element name="inquireRiskScoreHistoryResponse" type="tns:InquireRiskScoreHistoryResponse" />
+  <element name="checkRiskScoreRequest" type="tns:CheckRiskScoreRequest" />
+  <element name="checkRiskScoreResponse" type="tns:CheckRiskScoreResponse" />
+  <complexType name="InquireRiskScoreRequest">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="tns:InquireRequest" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireRequest">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <element name="subAccountID" type="cm:SubAccountID" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireRiskScoreResponse">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderResponse" />
+      <element minOccurs="0" name="response" type="tns:InquireResponse" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireResponse">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <element name="subAccountID" type="cm:SubAccountID" />
+      <element name="riskScore" type="ctl:Short_3" />
+      <element name="scoreDate" type="dateTime" />
+      <element name="updateType" type="ctl:String_1" />
+    </sequence>
+  </complexType>
+  <complexType name="AddRiskScoreRequest">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="tns:AddRequest" />
+    </sequence>
+  </complexType>
+  <complexType name="AddRequest">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <element name="subAccountID" type="cm:SubAccountID" />
+      <element name="riskScore" type="ctl:Short_3" />
+    </sequence>
+  </complexType>
+  <complexType name="AddRiskScoreResponse">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderResponse" />
+    </sequence>
+  </complexType>
+  <complexType name="UpdateRiskScoreRequest">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="tns:UpdateRequest" />
+    </sequence>
+  </complexType>
+  <complexType name="UpdateRequest">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <element name="subAccountID" type="cm:SubAccountID" />
+      <element name="riskScore" type="ctl:Short_3" />
+    </sequence>
+  </complexType>
+  <complexType name="UpdateRiskScoreResponse">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderResponse" />
+    </sequence>
+  </complexType>
+  <complexType name="DeleteRiskScoreRequest">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="tns:DeleteRequest" />
+    </sequence>
+  </complexType>
+  <complexType name="DeleteRequest">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <element name="subAccountID" type="cm:SubAccountID" />
+    </sequence>
+  </complexType>
+  <complexType name="DeleteRiskScoreResponse">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderResponse" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireRiskScoreHistoryRequest">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="tns:InquireHistoryRequest" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireHistoryRequest">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <element name="subAccountID" type="cm:SubAccountID" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireRiskScoreHistoryResponse">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderResponse" />
+      <element minOccurs="0" name="response" type="tns:InquireHistoryResponse" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireHistoryResponse">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <element name="subAccountID" type="cm:SubAccountID" />
+      <element minOccurs="0" maxOccurs="1" name="riskScoreHistoryList">
+        <complexType>
+          <sequence>
+            <element minOccurs="0" maxOccurs="unbounded" name="riskScoreHistory" type="tns:RiskScoreHistory" />
+          </sequence>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="RiskScoreHistory">
+    <sequence>
+      <element minOccurs="0" name="riskScore" type="ctl:Short_3" />
+      <element minOccurs="0" name="scoreDate" type="dateTime" />
+      <element minOccurs="0" name="updateType" type="ctl:String_1" />
+      <element minOccurs="0" name="branchID" type="ctl:NonNegativeInteger_7" />
+      <element minOccurs="0" name="tellerID" type="ctl:NonNegativeInteger_7" />
+      <element minOccurs="0" name="employeeID" type="ctl:NonNegativeInteger_7" />
+      <element minOccurs="0" name="changeDate" nillable="true" type="dateTime" />
+    </sequence>
+  </complexType>
+  <complexType name="CheckRiskScoreRequest">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="tns:CheckRequest" />
+    </sequence>
+  </complexType>
+  <complexType name="CheckRequest">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+    </sequence>
+  </complexType>
+  <complexType name="CheckRiskScoreResponse">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderResponse" />
+      <element minOccurs="0" name="response" type="tns:CheckResponse" />
+    </sequence>
+  </complexType>
+  <complexType name="CheckResponse">
+    <sequence>
+      <element name="hasRiskScore" type="boolean" />
+      <element name="accountID" type="cm:AccountID" />
+      <element minOccurs="0" name="subAccountIDList">
+        <complexType>
+          <sequence>
+            <element minOccurs="0" maxOccurs="unbounded" name="subAccountID" type="cm:SubAccountID" />
+          </sequence>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+</schema>

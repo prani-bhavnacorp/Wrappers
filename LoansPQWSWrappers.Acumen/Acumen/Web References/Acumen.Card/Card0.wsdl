@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:connections.ispectrum.summitsite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:connections.ispectrum.summitsite.com" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="https://gocucorvallis.acumen.fiserv.com:443/ispectrum-webservices/Card?xsd=1" namespace="urn:connections.ispectrum.summitsite.com" />
+    </xsd:schema>
+  </types>
+  <message name="getAllCardAcctType">
+    <part name="parameters" element="tns:getAllCardAcctType" />
+  </message>
+  <message name="getAllCardAcctTypeResponse">
+    <part name="parameters" element="tns:getAllCardAcctTypeResponse" />
+  </message>
+  <message name="SOAPException">
+    <part name="fault" element="tns:SOAPException" />
+  </message>
+  <message name="getAllCardsForCustomer">
+    <part name="parameters" element="tns:getAllCardsForCustomer" />
+  </message>
+  <message name="getAllCardsForCustomerResponse">
+    <part name="parameters" element="tns:getAllCardsForCustomerResponse" />
+  </message>
+  <message name="getCardByCardId">
+    <part name="parameters" element="tns:getCardByCardId" />
+  </message>
+  <message name="getCardByCardIdResponse">
+    <part name="parameters" element="tns:getCardByCardIdResponse" />
+  </message>
+  <message name="createUpdateCardByPortfolioNumber">
+    <part name="parameters" element="tns:createUpdateCardByPortfolioNumber" />
+  </message>
+  <message name="createUpdateCardByPortfolioNumberResponse">
+    <part name="parameters" element="tns:createUpdateCardByPortfolioNumberResponse" />
+  </message>
+  <message name="createUpdateCard">
+    <part name="parameters" element="tns:createUpdateCard" />
+  </message>
+  <message name="createUpdateCardResponse">
+    <part name="parameters" element="tns:createUpdateCardResponse" />
+  </message>
+  <message name="getNextAvailableCardNumberForCustomer">
+    <part name="parameters" element="tns:getNextAvailableCardNumberForCustomer" />
+  </message>
+  <message name="getNextAvailableCardNumberForCustomerResponse">
+    <part name="parameters" element="tns:getNextAvailableCardNumberForCustomerResponse" />
+  </message>
+  <message name="getNextAvailableVersionNumberForPortfolio">
+    <part name="parameters" element="tns:getNextAvailableVersionNumberForPortfolio" />
+  </message>
+  <message name="getNextAvailableVersionNumberForPortfolioResponse">
+    <part name="parameters" element="tns:getNextAvailableVersionNumberForPortfolioResponse" />
+  </message>
+  <portType name="Card">
+    <operation name="getAllCardAcctType">
+      <input message="tns:getAllCardAcctType" />
+      <output message="tns:getAllCardAcctTypeResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllCardsForCustomer">
+      <input message="tns:getAllCardsForCustomer" />
+      <output message="tns:getAllCardsForCustomerResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getCardByCardId">
+      <input message="tns:getCardByCardId" />
+      <output message="tns:getCardByCardIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateCardByPortfolioNumber">
+      <input message="tns:createUpdateCardByPortfolioNumber" />
+      <output message="tns:createUpdateCardByPortfolioNumberResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateCard">
+      <input message="tns:createUpdateCard" />
+      <output message="tns:createUpdateCardResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getNextAvailableCardNumberForCustomer">
+      <input message="tns:getNextAvailableCardNumberForCustomer" />
+      <output message="tns:getNextAvailableCardNumberForCustomerResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getNextAvailableVersionNumberForPortfolio">
+      <input message="tns:getNextAvailableVersionNumberForPortfolio" />
+      <output message="tns:getNextAvailableVersionNumberForPortfolioResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+  </portType>
+</definitions>

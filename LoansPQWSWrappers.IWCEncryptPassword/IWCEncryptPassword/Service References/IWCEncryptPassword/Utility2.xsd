@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CUNAMutual.Loanliner.Services.Utility" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CUNAMutual.Loanliner.Services.Utility" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="EncryptPasswordRequestType">
+    <xs:sequence>
+      <xs:element name="_domain" nillable="true" type="xs:string" />
+      <xs:element name="_password" nillable="true" type="xs:string" />
+      <xs:element name="_userId" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EncryptPasswordRequestType" nillable="true" type="tns:EncryptPasswordRequestType" />
+  <xs:complexType name="EncryptPasswordResponseType">
+    <xs:sequence>
+      <xs:element name="_encryptedPassword" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EncryptPasswordResponseType" nillable="true" type="tns:EncryptPasswordResponseType" />
+</xs:schema>

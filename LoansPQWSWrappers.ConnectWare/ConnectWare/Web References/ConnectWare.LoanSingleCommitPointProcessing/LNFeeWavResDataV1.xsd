@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="mtvnCWLNFeeWavResData" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="mtvnCWLNFeeWavResData" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="LNFeeWavResData">
+    <xs:annotation>
+      <xs:documentation>Loan Fee Waiver (LNFWV) -  This function is used to waive all or a portion of an assessed or billed fee for a particular note, commitment, or account. Only billed fees, or the unearned portion of a fee earned over time, may be waived at the note level.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="E30051" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Loan Account Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E30053" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Loan Account Name</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E30054" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Loan Note Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E33206" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Loan Fee Waiver Batch Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E33207" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Loan Fee Waiver Transaction Code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E33208" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Loan Fee Waiver Fee Plan</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E33209" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Loan Fee Waiver Amount</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E33210" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Loan Fee Waiver Confirmation Old Fee Balance</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E33211" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Loan Fee Waiver Confirmation Fee</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E33212" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Loan Fee Waiver Confirmation New Fee Balance</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="ErrCde" type="xs:string" />
+        <xs:element minOccurs="0" name="ErrResnCde" type="xs:string" />
+        <xs:element minOccurs="0" name="ApplMsgLst">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="ApplMsg">
+                <xs:complexType>
+                  <xs:all>
+                    <xs:element minOccurs="0" name="ApplMsgApplId" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgNbr" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgTxt" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgErrInd" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgFld" type="xs:string" />
+                  </xs:all>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

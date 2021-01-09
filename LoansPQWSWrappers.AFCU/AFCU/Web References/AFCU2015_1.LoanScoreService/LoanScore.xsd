@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:cml="http://www.americafirst.com/20070315/CommonTypesLib" xmlns:tns="http://www.americafirst.com/20070315/LoanScore" xmlns:cm="http://www.americafirst.com/20070315/CommonTypes" xmlns:hdr="http://www.americafirst.com/20070315/AFCUHeader" targetNamespace="http://www.americafirst.com/20070315/LoanScore" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema">
+  <import schemaLocation="../afcuheader/AFCUHeader.xsd" namespace="http://www.americafirst.com/20070315/AFCUHeader" />
+  <import schemaLocation="../commontypes/CommonTypes.xsd" namespace="http://www.americafirst.com/20070315/CommonTypes" />
+  <import schemaLocation="../commontypeslib/CommonTypesLib.xsd" namespace="http://www.americafirst.com/20070315/CommonTypesLib" />
+  <annotation>
+    <appinfo>
+			Loan Score author moliver@maericafirst.com
+		</appinfo>
+    <documentation>
+			This Schema supports the Web Services and Message Broker
+			flows to support the Teller Pro system in its management of
+			the loan score. The Teller Pro system will initiate
+			SOAP requests for: 1) Inquiry and Display of existing
+			loan score; 2) Maintenance os a loan score.
+
+			The response for 1 will contain any warnings about the format
+			of the loan score.  The request for 2 will perform format
+			verification and will not be successful unless the format is valid.
+		</documentation>
+  </annotation>
+  <element name="inquireLoanScoreRequest" type="tns:InquireLoanScoreRequest" />
+  <element name="inquireLoanScoreResponse" type="tns:InquireLoanScoreResponse" />
+  <element name="maintainLoanScoreRequest" type="tns:MaintainLoanScoreRequest" />
+  <element name="maintainLoanScoreResponse" type="tns:MaintainLoanScoreResponse" />
+  <complexType name="InquireLoanScoreRequest">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="header" type="hdr:AFCUHeaderRequest" />
+      <element minOccurs="1" maxOccurs="1" name="request" type="tns:InquireRequest" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireRequest">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireLoanScoreResponse">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="header" type="hdr:AFCUHeaderResponse" />
+      <element name="data" type="tns:InquireLSResponse" />
+    </sequence>
+  </complexType>
+  <complexType name="MaintainLoanScoreRequest">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="tns:MaintainLoanScoreDetails" />
+    </sequence>
+  </complexType>
+  <complexType name="MaintainLoanScoreResponse">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="header" type="hdr:AFCUHeaderResponse" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireLSResponse">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <sequence minOccurs="0" maxOccurs="1">
+        <choice>
+          <element name="warningMsg" type="tns:InquireLoanScoreWarning" />
+          <element name="score" type="tns:LoanScoreDetails" />
+        </choice>
+        <element name="legacy" type="tns:LoanScoreDetailsLegacy" />
+      </sequence>
+    </sequence>
+  </complexType>
+  <complexType name="LoanScoreDetailsLegacy">
+    <sequence>
+      <element name="score" type="cml:String_25" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireLoanScoreWarning">
+    <sequence>
+      <element name="message" type="string" />
+    </sequence>
+  </complexType>
+  <complexType name="MaintainLoanScoreDetails">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <choice>
+        <element name="score" type="tns:LoanScoreDetails" />
+        <element name="legacy" type="tns:LoanScoreDetailsLegacy" />
+        <element name="ficoData" type="tns:FicoData" />
+      </choice>
+    </sequence>
+  </complexType>
+  <complexType name="LoanScoreDetails">
+    <sequence>
+      <element name="lastLoanDecision" type="tns:Decision-or-empty" />
+      <element name="lastLoanYear" type="tns:NonNegativeInteger_4-or-empty" />
+      <element name="creditRating" type="tns:CreditRating-or-empty" />
+      <element name="lastCreditBureauYear" type="tns:NonNegativeInteger_4-or-empty" />
+      <element name="repayment" type="tns:Repayment" />
+      <element name="lastDelinquencyDate" type="tns:NonNegativeInteger_4-or-empty" />
+      <element name="disclosure" type="tns:Disclosure" />
+      <element name="isMinor" type="boolean" />
+      <choice>
+        <sequence>
+          <element name="pointScore" type="cml:NonNegativeInteger_3" />
+          <element name="loanActionDate" type="cml:NonNegativeInteger_6" />
+          <element name="fico" type="cml:NonNegativeInteger_3" />
+        </sequence>
+        <element name="collection" type="cml:String_10" />
+      </choice>
+    </sequence>
+  </complexType>
+  <complexType name="FicoData">
+    <sequence>
+      <element name="ficoDate" type="date" />
+      <element name="ficoScore" type="cml:NonNegativeInteger_3" />
+    </sequence>
+  </complexType>
+  <simpleType name="Repayment">
+    <restriction base="string">
+      <enumeration value="No Previous" />
+      <enumeration value="Current 1-29 days" />
+      <enumeration value="30 days" />
+      <enumeration value="60 days" />
+      <enumeration value="90 days" />
+      <enumeration value="120 days" />
+      <enumeration value="150 days" />
+      <enumeration value="180 days" />
+      <enumeration value="210 days" />
+      <enumeration value="240 days" />
+      <enumeration value="270 days" />
+    </restriction>
+  </simpleType>
+  <simpleType name="Decision-or-empty">
+    <union memberTypes="tns:Decision tns:empty-string" />
+  </simpleType>
+  <simpleType name="NonNegativeInteger_4-or-empty">
+    <union memberTypes="cml:NonNegativeInteger_4 tns:empty-string" />
+  </simpleType>
+  <simpleType name="CreditRating-or-empty">
+    <union memberTypes="tns:CreditRating tns:empty-string" />
+  </simpleType>
+  <simpleType name="empty-string">
+    <restriction base="string">
+      <enumeration value="" />
+    </restriction>
+  </simpleType>
+  <simpleType name="Decision">
+    <restriction base="string">
+      <enumeration value="Accepted" />
+      <enumeration value="Rejected" />
+    </restriction>
+  </simpleType>
+  <simpleType name="CreditRating">
+    <restriction base="string">
+      <enumeration value="A" />
+      <enumeration value="B" />
+      <enumeration value="C" />
+      <enumeration value="D" />
+      <enumeration value="E" />
+      <enumeration value="F" />
+      <enumeration value="I" />
+      <enumeration value="L" />
+      <enumeration value="N" />
+    </restriction>
+  </simpleType>
+  <simpleType name="Disclosure">
+    <restriction base="string">
+      <enumeration value="No Plan Signed" />
+      <enumeration value="Loan Liner Plan and Disclosure Signed" />
+      <enumeration value="Vantage Plan and Disclosure Signed" />
+    </restriction>
+  </simpleType>
+</schema>

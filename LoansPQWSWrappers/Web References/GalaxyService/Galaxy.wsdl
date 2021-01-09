@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="urn:mrpaacrequest" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="urn:mrpaacrequest" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="urn:mrpaacrequest">
+      <s:element name="processAACMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="processAACMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="processAACMessageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="processAACMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:processAACMessage" />
+  </wsdl:message>
+  <wsdl:message name="processAACMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:processAACMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="processAACMessageHttpGetIn">
+    <wsdl:part name="request" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="processAACMessageHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="processAACMessageHttpPostIn">
+    <wsdl:part name="request" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="processAACMessageHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="MRPAacRequestSoap">
+    <wsdl:operation name="processAACMessage">
+      <wsdl:input message="tns:processAACMessageSoapIn" />
+      <wsdl:output message="tns:processAACMessageSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="MRPAacRequestHttpGet">
+    <wsdl:operation name="processAACMessage">
+      <wsdl:input message="tns:processAACMessageHttpGetIn" />
+      <wsdl:output message="tns:processAACMessageHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="MRPAacRequestHttpPost">
+    <wsdl:operation name="processAACMessage">
+      <wsdl:input message="tns:processAACMessageHttpPostIn" />
+      <wsdl:output message="tns:processAACMessageHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MRPAacRequestSoap" type="tns:MRPAacRequestSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="processAACMessage">
+      <soap:operation soapAction="urn:mrpaacrequest/processAACMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MRPAacRequestHttpGet" type="tns:MRPAacRequestHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="processAACMessage">
+      <http:operation location="/processAACMessage" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MRPAacRequestHttpPost" type="tns:MRPAacRequestHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="processAACMessage">
+      <http:operation location="/processAACMessage" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MRPAacRequest">
+    <wsdl:port name="MRPAacRequestSoap" binding="tns:MRPAacRequestSoap">
+      <soap:address location="https://mrp1.cunetbranch.com/mrpwebservice/mrpaacrequest.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MRPAacRequestHttpGet" binding="tns:MRPAacRequestHttpGet">
+      <http:address location="https://mrp1.cunetbranch.com/mrpwebservice/mrpaacrequest.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MRPAacRequestHttpPost" binding="tns:MRPAacRequestHttpPost">
+      <http:address location="https://mrp1.cunetbranch.com/mrpwebservice/mrpaacrequest.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

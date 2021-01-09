@@ -1,0 +1,1310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:ns="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://jackhenry.com/jxchange/TPG/2008" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" targetNamespace="http://jackhenry.com/jxchange/TPG/2008" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema xmlns="http://jackhenry.com/jxchange/TPG/2008" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://jackhenry.com/jxchange/TPG/2008" version="2014.0.08" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:include schemaLocation="TPG_InquiryMaster.xsd" />
+    </xsd:schema>
+  </types>
+  <message name="MessageFault">
+    <part name="params" element="tns:HdrFault" />
+  </message>
+  <message name="AcctInqInput">
+    <part name="params" element="tns:AcctInq" />
+  </message>
+  <message name="AcctInqOutput">
+    <part name="params" element="tns:AcctInqResponse" />
+  </message>
+  <message name="AcctHistSrchInput">
+    <part name="params" element="tns:AcctHistSrch" />
+  </message>
+  <message name="AcctHistSrchOutput">
+    <part name="params" element="tns:AcctHistSrchResponse" />
+  </message>
+  <message name="StopChkSrchInput">
+    <part name="params" element="tns:StopChkSrch" />
+  </message>
+  <message name="StopChkSrchOutput">
+    <part name="params" element="tns:StopChkSrchResponse" />
+  </message>
+  <message name="PingInput">
+    <part name="params" element="tns:Ping" />
+  </message>
+  <message name="PingOutput">
+    <part name="params" element="tns:PingResponse" />
+  </message>
+  <message name="AcctSrchInput">
+    <part name="params" element="tns:AcctSrch" />
+  </message>
+  <message name="AcctSrchOutput">
+    <part name="params" element="tns:AcctSrchResponse" />
+  </message>
+  <message name="TaxPlnSrchInput">
+    <part name="params" element="tns:TaxPlnSrch" />
+  </message>
+  <message name="TaxPlnSrchOutput">
+    <part name="params" element="tns:TaxPlnSrchResponse" />
+  </message>
+  <message name="TaxPlnAcctSrchInput">
+    <part name="params" element="tns:TaxPlnAcctSrch" />
+  </message>
+  <message name="TaxPlnAcctSrchOutput">
+    <part name="params" element="tns:TaxPlnAcctSrchResponse" />
+  </message>
+  <message name="TaxPlnBenfSrchInput">
+    <part name="params" element="tns:TaxPlnBenfSrch" />
+  </message>
+  <message name="TaxPlnBenfSrchOutput">
+    <part name="params" element="tns:TaxPlnBenfSrchResponse" />
+  </message>
+  <message name="TaxPlnInqInput">
+    <part name="params" element="tns:TaxPlnInq" />
+  </message>
+  <message name="TaxPlnInqOutput">
+    <part name="params" element="tns:TaxPlnInqResponse" />
+  </message>
+  <message name="XferSrchInput">
+    <part name="params" element="tns:XferSrch" />
+  </message>
+  <message name="XferSrchOutput">
+    <part name="params" element="tns:XferSrchResponse" />
+  </message>
+  <message name="CollatTrackSrchInput">
+    <part name="params" element="tns:CollatTrackSrch" />
+  </message>
+  <message name="CollatTrackSrchOutput">
+    <part name="params" element="tns:CollatTrackSrchResponse" />
+  </message>
+  <message name="RealEstatePropSrchInput">
+    <part name="params" element="tns:RealEstatePropSrch" />
+  </message>
+  <message name="RealEstatePropSrchOutput">
+    <part name="params" element="tns:RealEstatePropSrchResponse" />
+  </message>
+  <message name="LOCSrchInput">
+    <part name="params" element="tns:LOCSrch" />
+  </message>
+  <message name="LOCSrchOutput">
+    <part name="params" element="tns:LOCSrchResponse" />
+  </message>
+  <message name="LOCAcctSrchInput">
+    <part name="params" element="tns:LOCAcctSrch" />
+  </message>
+  <message name="LOCAcctSrchOutput">
+    <part name="params" element="tns:LOCAcctSrchResponse" />
+  </message>
+  <message name="LOCAcctInqInput">
+    <part name="params" element="tns:LOCAcctInq" />
+  </message>
+  <message name="LOCAcctInqOutput">
+    <part name="params" element="tns:LOCAcctInqResponse" />
+  </message>
+  <message name="EscrwInqInput">
+    <part name="params" element="tns:EscrwInq" />
+  </message>
+  <message name="EscrwInqOutput">
+    <part name="params" element="tns:EscrwInqResponse" />
+  </message>
+  <message name="FASB91SrchInput">
+    <part name="params" element="tns:FASB91Srch" />
+  </message>
+  <message name="FASB91SrchOutput">
+    <part name="params" element="tns:FASB91SrchResponse" />
+  </message>
+  <message name="LnAppRgtrSrchInput">
+    <part name="params" element="tns:LnAppRgtrSrch" />
+  </message>
+  <message name="LnAppRgtrSrchOutput">
+    <part name="params" element="tns:LnAppRgtrSrchResponse" />
+  </message>
+  <message name="CrBurInfoInqInput">
+    <part name="params" element="tns:CrBurInfoInq" />
+  </message>
+  <message name="CrBurInfoInqOutput">
+    <part name="params" element="tns:CrBurInfoInqResponse" />
+  </message>
+  <message name="LnPmtSchedInqInput">
+    <part name="params" element="tns:LnPmtSchedInq" />
+  </message>
+  <message name="LnPmtSchedInqOutput">
+    <part name="params" element="tns:LnPmtSchedInqResponse" />
+  </message>
+  <message name="ACHPndSrchInput">
+    <part name="params" element="tns:ACHPndSrch" />
+  </message>
+  <message name="ACHPndSrchOutput">
+    <part name="params" element="tns:ACHPndSrchResponse" />
+  </message>
+  <message name="AcctIntRateInqInput">
+    <part name="params" element="tns:AcctIntRateInq" />
+  </message>
+  <message name="AcctIntRateInqOutput">
+    <part name="params" element="tns:AcctIntRateInqResponse" />
+  </message>
+  <message name="UsrOperInqInput">
+    <part name="params" element="tns:UsrOperInq" />
+  </message>
+  <message name="UsrOperInqOutput">
+    <part name="params" element="tns:UsrOperInqResponse" />
+  </message>
+  <message name="AcctSweepInqInput">
+    <part name="params" element="tns:AcctSweepInq" />
+  </message>
+  <message name="AcctSweepInqOutput">
+    <part name="params" element="tns:AcctSweepInqResponse" />
+  </message>
+  <message name="AcctCombStmtInqInput">
+    <part name="params" element="tns:AcctCombStmtInq" />
+  </message>
+  <message name="AcctCombStmtInqOutput">
+    <part name="params" element="tns:AcctCombStmtInqResponse" />
+  </message>
+  <message name="NSFHistSrchInput">
+    <part name="params" element="tns:NSFHistSrch" />
+  </message>
+  <message name="NSFHistSrchOutput">
+    <part name="params" element="tns:NSFHistSrchResponse" />
+  </message>
+  <message name="AcctProtInqInput">
+    <part name="params" element="tns:AcctProtInq" />
+  </message>
+  <message name="AcctProtInqOutput">
+    <part name="params" element="tns:AcctProtInqResponse" />
+  </message>
+  <message name="XferSrcDestSrchInput">
+    <part name="params" element="tns:XferSrcDestSrch" />
+  </message>
+  <message name="XferSrcDestSrchOutput">
+    <part name="params" element="tns:XferSrcDestSrchResponse" />
+  </message>
+  <message name="AcctProdOvrrdInqInput">
+    <part name="params" element="tns:AcctProdOvrrdInq" />
+  </message>
+  <message name="AcctProdOvrrdInqOutput">
+    <part name="params" element="tns:AcctProdOvrrdInqResponse" />
+  </message>
+  <message name="AcctMemoPostSrchInput">
+    <part name="params" element="tns:AcctMemoPostSrch" />
+  </message>
+  <message name="AcctMemoPostSrchOutput">
+    <part name="params" element="tns:AcctMemoPostSrchResponse" />
+  </message>
+  <message name="EmplJobSrchInput">
+    <part name="params" element="tns:EmplJobSrch" />
+  </message>
+  <message name="EmplJobSrchOutput">
+    <part name="params" element="tns:EmplJobSrchResponse" />
+  </message>
+  <message name="EmplJobInqInput">
+    <part name="params" element="tns:EmplJobInq" />
+  </message>
+  <message name="EmplJobInqOutput">
+    <part name="params" element="tns:EmplJobInqResponse" />
+  </message>
+  <message name="TrnSetItemSrchInput">
+    <part name="params" element="tns:TrnSetItemSrch" />
+  </message>
+  <message name="TrnSetItemSrchOutput">
+    <part name="params" element="tns:TrnSetItemSrchResponse" />
+  </message>
+  <message name="SafeDepBoxSrchInput">
+    <part name="params" element="tns:SafeDepBoxSrch" />
+  </message>
+  <message name="SafeDepBoxSrchOutput">
+    <part name="params" element="tns:SafeDepBoxSrchResponse" />
+  </message>
+  <message name="ODPrvlgHistSrchInput">
+    <part name="params" element="tns:ODPrvlgHistSrch" />
+  </message>
+  <message name="ODPrvlgHistSrchOutput">
+    <part name="params" element="tns:ODPrvlgHistSrchResponse" />
+  </message>
+  <message name="TimeDepRenOvrrdInqInput">
+    <part name="params" element="tns:TimeDepRenOvrrdInq" />
+  </message>
+  <message name="TimeDepRenOvrrdInqOutput">
+    <part name="params" element="tns:TimeDepRenOvrrdInqResponse" />
+  </message>
+  <message name="LtrOfCrInqInput">
+    <part name="params" element="tns:LtrOfCrInq" />
+  </message>
+  <message name="LtrOfCrInqOutput">
+    <part name="params" element="tns:LtrOfCrInqResponse" />
+  </message>
+  <message name="LnRateSchedSrchInput">
+    <part name="params" element="tns:LnRateSchedSrch" />
+  </message>
+  <message name="LnRateSchedSrchOutput">
+    <part name="params" element="tns:LnRateSchedSrchResponse" />
+  </message>
+  <message name="LnRateSchedInqInput">
+    <part name="params" element="tns:LnRateSchedInq" />
+  </message>
+  <message name="LnRateSchedInqOutput">
+    <part name="params" element="tns:LnRateSchedInqResponse" />
+  </message>
+  <message name="OFACSrchInput">
+    <part name="params" element="tns:OFACSrch" />
+  </message>
+  <message name="OFACSrchOutput">
+    <part name="params" element="tns:OFACSrchResponse" />
+  </message>
+  <message name="AcctBenfInqInput">
+    <part name="params" element="tns:AcctBenfInq" />
+  </message>
+  <message name="AcctBenfInqOutput">
+    <part name="params" element="tns:AcctBenfInqResponse" />
+  </message>
+  <message name="TaxPlnBenfInqInput">
+    <part name="params" element="tns:TaxPlnBenfInq" />
+  </message>
+  <message name="TaxPlnBenfInqOutput">
+    <part name="params" element="tns:TaxPlnBenfInqResponse" />
+  </message>
+  <message name="GLAcctSrchInput">
+    <part name="params" element="tns:GLAcctSrch" />
+  </message>
+  <message name="GLAcctSrchOutput">
+    <part name="params" element="tns:GLAcctSrchResponse" />
+  </message>
+  <message name="GLAcctInqInput">
+    <part name="params" element="tns:GLAcctInq" />
+  </message>
+  <message name="GLAcctInqOutput">
+    <part name="params" element="tns:GLAcctInqResponse" />
+  </message>
+  <message name="CollatTrackItemInqInput">
+    <part name="params" element="tns:CollatTrackItemInq" />
+  </message>
+  <message name="CollatTrackItemInqOutput">
+    <part name="params" element="tns:CollatTrackItemInqResponse" />
+  </message>
+  <message name="AcctExcTrnSrchInput">
+    <part name="params" element="tns:AcctExcTrnSrch" />
+  </message>
+  <message name="AcctExcTrnSrchOutput">
+    <part name="params" element="tns:AcctExcTrnSrchResponse" />
+  </message>
+  <message name="AcctExcTrnInqInput">
+    <part name="params" element="tns:AcctExcTrnInq" />
+  </message>
+  <message name="AcctExcTrnInqOutput">
+    <part name="params" element="tns:AcctExcTrnInqResponse" />
+  </message>
+  <message name="AcctNSFTrnInqInput">
+    <part name="params" element="tns:AcctNSFTrnInq" />
+  </message>
+  <message name="AcctNSFTrnInqOutput">
+    <part name="params" element="tns:AcctNSFTrnInqResponse" />
+  </message>
+  <message name="GLHistSrchInput">
+    <part name="params" element="tns:GLHistSrch" />
+  </message>
+  <message name="GLHistSrchOutput">
+    <part name="params" element="tns:GLHistSrchResponse" />
+  </message>
+  <message name="GLMsgSrchInput">
+    <part name="params" element="tns:GLMsgSrch" />
+  </message>
+  <message name="GLMsgSrchOutput">
+    <part name="params" element="tns:GLMsgSrchResponse" />
+  </message>
+  <message name="AcctRelSrchInput">
+    <part name="params" element="tns:AcctRelSrch" />
+  </message>
+  <message name="AcctRelSrchOutput">
+    <part name="params" element="tns:AcctRelSrchResponse" />
+  </message>
+  <message name="EFTActFraudInqInput">
+    <part name="params" element="tns:EFTActFraudInq" />
+  </message>
+  <message name="EFTActFraudInqOutput">
+    <part name="params" element="tns:EFTActFraudInqResponse" />
+  </message>
+  <message name="SvcGtwyLogSumInqInput">
+    <part name="params" element="tns:SvcGtwyLogSumInq" />
+  </message>
+  <message name="SvcGtwyLogSumInqOutput">
+    <part name="params" element="tns:SvcGtwyLogSumInqResponse" />
+  </message>
+  <message name="ChkRiskInqInput">
+    <part name="params" element="tns:ChkRiskInq" />
+  </message>
+  <message name="ChkRiskInqOutput">
+    <part name="params" element="tns:ChkRiskInqResponse" />
+  </message>
+  <message name="LnRegLTVInqInput">
+    <part name="params" element="tns:LnRegLTVInq" />
+  </message>
+  <message name="LnRegLTVInqOutput">
+    <part name="params" element="tns:LnRegLTVInqResponse" />
+  </message>
+  <message name="LnFeeInqInput">
+    <part name="params" element="tns:LnFeeInq" />
+  </message>
+  <message name="LnFeeInqOutput">
+    <part name="params" element="tns:LnFeeInqResponse" />
+  </message>
+  <portType name="InquiryService">
+    <operation name="AcctInq">
+      <input message="tns:AcctInqInput" />
+      <output message="tns:AcctInqOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="AcctHistSrch">
+      <input message="tns:AcctHistSrchInput" />
+      <output message="tns:AcctHistSrchOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="StopChkSrch">
+      <input message="tns:StopChkSrchInput" />
+      <output message="tns:StopChkSrchOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="Ping">
+      <input message="tns:PingInput" />
+      <output message="tns:PingOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="AcctSrch">
+      <input message="tns:AcctSrchInput" />
+      <output message="tns:AcctSrchOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="TaxPlnSrch">
+      <input message="tns:TaxPlnSrchInput" />
+      <output message="tns:TaxPlnSrchOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="TaxPlnAcctSrch">
+      <input message="tns:TaxPlnAcctSrchInput" />
+      <output message="tns:TaxPlnAcctSrchOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="TaxPlnBenfSrch">
+      <input message="tns:TaxPlnBenfSrchInput" />
+      <output message="tns:TaxPlnBenfSrchOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="TaxPlnInq">
+      <input message="tns:TaxPlnInqInput" />
+      <output message="tns:TaxPlnInqOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="XferSrch">
+      <input message="tns:XferSrchInput" />
+      <output message="tns:XferSrchOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="CollatTrackSrch">
+      <input message="tns:CollatTrackSrchInput" />
+      <output message="tns:CollatTrackSrchOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="RealEstatePropSrch">
+      <input message="tns:RealEstatePropSrchInput" />
+      <output message="tns:RealEstatePropSrchOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="LOCSrch">
+      <input message="tns:LOCSrchInput" />
+      <output message="tns:LOCSrchOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="LOCAcctSrch">
+      <input message="tns:LOCAcctSrchInput" />
+      <output message="tns:LOCAcctSrchOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="LOCAcctInq">
+      <input message="tns:LOCAcctInqInput" />
+      <output message="tns:LOCAcctInqOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="EscrwInq">
+      <input message="tns:EscrwInqInput" />
+      <output message="tns:EscrwInqOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="FASB91Srch">
+      <input message="tns:FASB91SrchInput" />
+      <output message="tns:FASB91SrchOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="LnAppRgtrSrch">
+      <input message="tns:LnAppRgtrSrchInput" />
+      <output message="tns:LnAppRgtrSrchOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="CrBurInfoInq">
+      <input message="tns:CrBurInfoInqInput" />
+      <output message="tns:CrBurInfoInqOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="LnPmtSchedInq">
+      <input message="tns:LnPmtSchedInqInput" />
+      <output message="tns:LnPmtSchedInqOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="ACHPndSrch">
+      <input message="tns:ACHPndSrchInput" />
+      <output message="tns:ACHPndSrchOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="AcctIntRateInq">
+      <input message="tns:AcctIntRateInqInput" />
+      <output message="tns:AcctIntRateInqOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="UsrOperInq">
+      <input message="tns:UsrOperInqInput" />
+      <output message="tns:UsrOperInqOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="AcctSweepInq">
+      <input message="tns:AcctSweepInqInput" />
+      <output message="tns:AcctSweepInqOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="AcctCombStmtInq">
+      <input message="tns:AcctCombStmtInqInput" />
+      <output message="tns:AcctCombStmtInqOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="NSFHistSrch">
+      <input message="tns:NSFHistSrchInput" />
+      <output message="tns:NSFHistSrchOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="AcctProtInq">
+      <input message="tns:AcctProtInqInput" />
+      <output message="tns:AcctProtInqOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="XferSrcDestSrch">
+      <input message="tns:XferSrcDestSrchInput" />
+      <output message="tns:XferSrcDestSrchOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="AcctProdOvrrdInq">
+      <input message="tns:AcctProdOvrrdInqInput" />
+      <output message="tns:AcctProdOvrrdInqOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="AcctMemoPostSrch">
+      <input message="tns:AcctMemoPostSrchInput" />
+      <output message="tns:AcctMemoPostSrchOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="EmplJobSrch">
+      <input message="tns:EmplJobSrchInput" />
+      <output message="tns:EmplJobSrchOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="EmplJobInq">
+      <input message="tns:EmplJobInqInput" />
+      <output message="tns:EmplJobInqOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="TrnSetItemSrch">
+      <input message="tns:TrnSetItemSrchInput" />
+      <output message="tns:TrnSetItemSrchOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="SafeDepBoxSrch">
+      <input message="tns:SafeDepBoxSrchInput" />
+      <output message="tns:SafeDepBoxSrchOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="ODPrvlgHistSrch">
+      <input message="tns:ODPrvlgHistSrchInput" />
+      <output message="tns:ODPrvlgHistSrchOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="TimeDepRenOvrrdInq">
+      <input message="tns:TimeDepRenOvrrdInqInput" />
+      <output message="tns:TimeDepRenOvrrdInqOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="LtrOfCrInq">
+      <input message="tns:LtrOfCrInqInput" />
+      <output message="tns:LtrOfCrInqOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="LnRateSchedSrch">
+      <input message="tns:LnRateSchedSrchInput" />
+      <output message="tns:LnRateSchedSrchOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="LnRateSchedInq">
+      <input message="tns:LnRateSchedInqInput" />
+      <output message="tns:LnRateSchedInqOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="OFACSrch">
+      <input message="tns:OFACSrchInput" />
+      <output message="tns:OFACSrchOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="AcctBenfInq">
+      <input message="tns:AcctBenfInqInput" />
+      <output message="tns:AcctBenfInqOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="TaxPlnBenfInq">
+      <input message="tns:TaxPlnBenfInqInput" />
+      <output message="tns:TaxPlnBenfInqOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="GLAcctSrch">
+      <input message="tns:GLAcctSrchInput" />
+      <output message="tns:GLAcctSrchOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="GLAcctInq">
+      <input message="tns:GLAcctInqInput" />
+      <output message="tns:GLAcctInqOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="CollatTrackItemInq">
+      <input message="tns:CollatTrackItemInqInput" />
+      <output message="tns:CollatTrackItemInqOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="AcctExcTrnSrch">
+      <input message="tns:AcctExcTrnSrchInput" />
+      <output message="tns:AcctExcTrnSrchOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="AcctExcTrnInq">
+      <input message="tns:AcctExcTrnInqInput" />
+      <output message="tns:AcctExcTrnInqOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="AcctNSFTrnInq">
+      <input message="tns:AcctNSFTrnInqInput" />
+      <output message="tns:AcctNSFTrnInqOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="GLHistSrch">
+      <input message="tns:GLHistSrchInput" />
+      <output message="tns:GLHistSrchOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="GLMsgSrch">
+      <input message="tns:GLMsgSrchInput" />
+      <output message="tns:GLMsgSrchOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="AcctRelSrch">
+      <input message="tns:AcctRelSrchInput" />
+      <output message="tns:AcctRelSrchOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="EFTActFraudInq">
+      <input message="tns:EFTActFraudInqInput" />
+      <output message="tns:EFTActFraudInqOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="SvcGtwyLogSumInq">
+      <input message="tns:SvcGtwyLogSumInqInput" />
+      <output message="tns:SvcGtwyLogSumInqOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="ChkRiskInq">
+      <input message="tns:ChkRiskInqInput" />
+      <output message="tns:ChkRiskInqOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="LnRegLTVInq">
+      <input message="tns:LnRegLTVInqInput" />
+      <output message="tns:LnRegLTVInqOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="LnFeeInq">
+      <input message="tns:LnFeeInqInput" />
+      <output message="tns:LnFeeInqOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+  </portType>
+  <binding name="InquiryServiceSoapBinding" type="tns:InquiryService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="AcctInq">
+      <soap:operation soapAction="http://jackhenry.com/ws/AcctInq" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="AcctHistSrch">
+      <soap:operation soapAction="http://jackhenry.com/ws/AcctHistSrch" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="StopChkSrch">
+      <soap:operation soapAction="http://jackhenry.com/ws/StopChkSrch" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="Ping">
+      <soap:operation soapAction="http://jackhenry.com/ws/Ping" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="AcctSrch">
+      <soap:operation soapAction="http://jackhenry.com/ws/AcctSrch" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="TaxPlnSrch">
+      <soap:operation soapAction="http://jackhenry.com/ws/TaxPlnSrch" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="TaxPlnAcctSrch">
+      <soap:operation soapAction="http://jackhenry.com/ws/TaxPlnAcctSrch" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="TaxPlnBenfSrch">
+      <soap:operation soapAction="http://jackhenry.com/ws/TaxPlnBenfSrch" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="TaxPlnInq">
+      <soap:operation soapAction="http://jackhenry.com/ws/TaxPlnInq" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="XferSrch">
+      <soap:operation soapAction="http://jackhenry.com/ws/XferSrch" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="CollatTrackSrch">
+      <soap:operation soapAction="http://jackhenry.com/ws/CollatTrackSrch" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="RealEstatePropSrch">
+      <soap:operation soapAction="http://jackhenry.com/ws/RealEstatePropSrch" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="LOCSrch">
+      <soap:operation soapAction="http://jackhenry.com/ws/LOCSrch" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="LOCAcctSrch">
+      <soap:operation soapAction="http://jackhenry.com/ws/LOCAcctSrch" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="LOCAcctInq">
+      <soap:operation soapAction="http://jackhenry.com/ws/LOCAcctInq" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="EscrwInq">
+      <soap:operation soapAction="http://jackhenry.com/ws/EscrwInq" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="FASB91Srch">
+      <soap:operation soapAction="http://jackhenry.com/ws/FASB91Srch" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="LnAppRgtrSrch">
+      <soap:operation soapAction="http://jackhenry.com/ws/LnAppRgtrSrch" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="CrBurInfoInq">
+      <soap:operation soapAction="http://jackhenry.com/ws/CrBurInfoInq" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="LnPmtSchedInq">
+      <soap:operation soapAction="http://jackhenry.com/ws/LnPmtSchedInq" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="ACHPndSrch">
+      <soap:operation soapAction="http://jackhenry.com/ws/ACHPndSrch" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="AcctIntRateInq">
+      <soap:operation soapAction="http://jackhenry.com/ws/AcctIntRateInq" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="UsrOperInq">
+      <soap:operation soapAction="http://jackhenry.com/ws/UsrOperInq" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="AcctSweepInq">
+      <soap:operation soapAction="http://jackhenry.com/ws/AcctSweepInq" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="AcctCombStmtInq">
+      <soap:operation soapAction="http://jackhenry.com/ws/AcctCombStmtInq" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="NSFHistSrch">
+      <soap:operation soapAction="http://jackhenry.com/ws/NSFHistSrch" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="AcctProtInq">
+      <soap:operation soapAction="http://jackhenry.com/ws/AcctProtInq" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="XferSrcDestSrch">
+      <soap:operation soapAction="http://jackhenry.com/ws/XferSrcDestSrch" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="AcctProdOvrrdInq">
+      <soap:operation soapAction="http://jackhenry.com/ws/AcctProdOvrrdInq" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="AcctMemoPostSrch">
+      <soap:operation soapAction="http://jackhenry.com/ws/AcctMemoPostSrch" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="EmplJobSrch">
+      <soap:operation soapAction="http://jackhenry.com/ws/EmplJobSrch" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="EmplJobInq">
+      <soap:operation soapAction="http://jackhenry.com/ws/EmplJobInq" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="TrnSetItemSrch">
+      <soap:operation soapAction="http://jackhenry.com/ws/TrnSetItemSrch" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="SafeDepBoxSrch">
+      <soap:operation soapAction="http://jackhenry.com/ws/SafeDepBoxSrch" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="ODPrvlgHistSrch">
+      <soap:operation soapAction="http://jackhenry.com/ws/ODPrvlgHistSrch" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="TimeDepRenOvrrdInq">
+      <soap:operation soapAction="http://jackhenry.com/ws/TimeDepRenOvrrdInq" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="LtrOfCrInq">
+      <soap:operation soapAction="http://jackhenry.com/ws/LtrOfCrInq" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="LnRateSchedSrch">
+      <soap:operation soapAction="http://jackhenry.com/ws/LnRateSchedSrch" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="LnRateSchedInq">
+      <soap:operation soapAction="http://jackhenry.com/ws/LnRateSchedInq" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="OFACSrch">
+      <soap:operation soapAction="http://jackhenry.com/ws/OFACSrch" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="AcctBenfInq">
+      <soap:operation soapAction="http://jackhenry.com/ws/AcctBenfInq" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="TaxPlnBenfInq">
+      <soap:operation soapAction="http://jackhenry.com/ws/TaxPlnBenfInq" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="GLAcctSrch">
+      <soap:operation soapAction="http://jackhenry.com/ws/GLAcctSrch" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="GLAcctInq">
+      <soap:operation soapAction="http://jackhenry.com/ws/GLAcctInq" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="CollatTrackItemInq">
+      <soap:operation soapAction="http://jackhenry.com/ws/CollatTrackItemInq" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="AcctExcTrnSrch">
+      <soap:operation soapAction="http://jackhenry.com/ws/AcctExcTrnSrch" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="AcctExcTrnInq">
+      <soap:operation soapAction="http://jackhenry.com/ws/AcctExcTrnInq" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="AcctNSFTrnInq">
+      <soap:operation soapAction="http://jackhenry.com/ws/AcctNSFTrnInq" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="GLHistSrch">
+      <soap:operation soapAction="http://jackhenry.com/ws/GLHistSrch" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="GLMsgSrch">
+      <soap:operation soapAction="http://jackhenry.com/ws/GLMsgSrch" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="AcctRelSrch">
+      <soap:operation soapAction="http://jackhenry.com/ws/AcctRelSrch" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="EFTActFraudInq">
+      <soap:operation soapAction="http://jackhenry.com/ws/EFTActFraudInq" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="SvcGtwyLogSumInq">
+      <soap:operation soapAction="http://jackhenry.com/ws/SvcGtwyLogSumInq" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="ChkRiskInq">
+      <soap:operation soapAction="http://jackhenry.com/ws/ChkRiskInq" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="LnRegLTVInq">
+      <soap:operation soapAction="http://jackhenry.com/ws/LnRegLTVInq" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="LnFeeInq">
+      <soap:operation soapAction="http://jackhenry.com/ws/LnFeeInq" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="InquiryService">
+    <documentation>Service Description for the InquiryService Interface</documentation>
+    <port name="InquiryServiceSoap" binding="tns:InquiryServiceSoapBinding">
+      <soap:address location="https://jackhenry.com/jxchange/2008/ServiceGateway/Inquiry.svc" />
+    </port>
+  </service>
+</definitions>

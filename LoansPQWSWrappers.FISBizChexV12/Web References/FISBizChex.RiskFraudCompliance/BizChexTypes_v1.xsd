@@ -1,0 +1,1040 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="BizChexCommonTypes_v1.2.xsd" />
+  <xs:complexType name="tCustIdentfn">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="AcqrId" type="tAcqrId" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BizChexVer" type="tVersion" />
+      <xs:element minOccurs="1" maxOccurs="1" name="StrtgyTypId" type="tStrtgyTypId" />
+      <xs:element minOccurs="1" maxOccurs="1" name="UsrDfndTxnTxt" type="tUsrDfndTxnTxt" />
+      <xs:element minOccurs="1" maxOccurs="1" name="IndMktTypCd" type="tIndMktTypCd" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PermPrpse" type="tString2" />
+      <xs:element minOccurs="1" maxOccurs="1" name="EmailAddr" type="tEmailAddr" />
+      <xs:element minOccurs="1" maxOccurs="1" name="UsrNme" type="tUsrNme" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RptTyp" type="tRptTyp" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tAddRqst">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="oid" type="tOid" />
+      <xs:element minOccurs="1" maxOccurs="1" name="addTxt" type="tAddTxt" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tAddRtn">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="addRtn" type="tBoolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tCnsmrDataAsEntd">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="BizChexInqry" type="tBizChexInqry" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tBizChexInqry">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="BusInqMsg" type="tBusInqMsg" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrncplOwnrInqMsg" type="tPrncplOwnrInqMsg" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr2InqMsg" nillable="true" type="tAuthSgnr2InqMsg" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr3InqMsg" nillable="true" type="tAuthSgnr3InqMsg" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr4InqMsg" nillable="true" type="tAuthSgnr4InqMsg" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr5InqMsg" nillable="true" type="tAuthSgnr5InqMsg" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tBusInqMsg">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="BusNme" type="tBusNm" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BusTyp" type="tBusTyp" />
+      <xs:element minOccurs="1" maxOccurs="1" name="GovtNbrTyp" type="tGovtNbrTyp" />
+      <xs:element minOccurs="1" maxOccurs="1" name="GovtNbr" type="tSsn" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BusDteOfEstblmnt" type="tOptDte" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BusWrkPhNbr" type="tCompositePhoneNbr" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BusInqCurAddr" type="tBusInqCurAddr" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BusInqPrevAddr" nillable="true" type="tBusInqPrevAddr" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tBusInqCurAddr">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="BusInqCurStrAddr" type="tAddress" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BusInqCurCty" type="tCity" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BusInqCurSt" type="tStateCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BusInqCurZip" type="tPstlCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BusInqCurCntryCd" type="tCtryCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BusInqNbrOfYrsAtCurAddr" type="tAddressYearsNbr" />
+      <xs:element minOccurs="1" maxOccurs="1" name="BusInqNbrOfMthsAtCurAddr" type="tAddressMonthsNbr" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tBusInqPrevAddr">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="BusInqPrevStrAddr" type="tOptAddress" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BusInqPrevCty" type="tOptCity" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BusInqPrevSt" type="tOptStateCde" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BusInqPrevZip" type="tOptPstlCde" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BusInqPrevCntryCd" type="tCtryCde" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BusInqNbrOfYrsAtPrevAddr" type="tAddressYearsNbr" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BusInqNbrOfMthsAtPrevAddr" type="tAddressMonthsNbr" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tPrncplOwnrInqMsg">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="PrncplOwnrInqNme" type="tPrncplOwnrInqNme" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PrncplOwnrInqCurAddr" type="tPrncplOwnrInqCurAddr" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrncplOwnrInqPrevAddr" nillable="true" type="tPrncplOwnrInqPrevAddr" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PrncplOwnrInqGovtNbr" type="tSsn" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PrncplOwnrInqHmPhNbr" type="tCompositePhoneNbr" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PrncplOwnrInqWrkPhNbr" type="tCompositePhoneNbr" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PrncplOwnrInqDrvrLicNbr" type="tDrvrLicNbr" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PrncplOwnrInqDrvrLicSt" type="tOptDLStateCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PrncplOwnrInqDteOfBrth" type="tOptDte" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PrncplOwnrSgnrTyp" type="tOptSgnrTyp" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tPrncplOwnrInqNme">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="PrncplOwnrInqLstNme" type="tOptLastName" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PrncplOwnrInqFrstNme" type="tOptFirstName" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PrncplOwnrInqMidNme" type="tMiddleName" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tPrncplOwnrInqCurAddr">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="PrncplOwnrInqCurStrAddr" type="tOptAddress" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PrncplOwnrInqCurCty" type="tOptCity" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PrncplOwnrInqCurSt" type="tOptStateCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PrncplOwnrInqCurZip" type="tOptPstlCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PrncplOwnrInqCurCntryCd" type="tCtryCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PrncplOwnrInqNbrOfYrsAtCurAddr" type="tAddressYearsNbr" />
+      <xs:element minOccurs="1" maxOccurs="1" name="PrncplOwnrInqNbrOfMthAtCurAddr" type="tAddressMonthsNbr" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tPrncplOwnrInqPrevAddr">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="PrncplOwnrInqPrevStrAddr" type="tOptAddress" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrncplOwnrInqPrevCty" type="tOptCity" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrncplOwnrInqPrevSt" type="tOptStateCde" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrncplOwnrInqPrevZip" type="tOptPstlCde" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrncplOwnrInqPrevCntryCd" type="tCtryCde" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrncplOwnrInqNbrYrsAtPrevAddr" type="tAddressYearsNbr" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrncplOwnrInqNbrMthAtPrevAddr" type="tAddressMonthsNbr" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tAuthSgnr2InqMsg">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr2InqNme" type="tAuthSgnr2InqNme" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr2InqCurAddr" type="tAuthSgnr2InqCurAddr" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr2InqPrevAddr" nillable="true" type="tAuthSgnr2InqPrevAddr" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr2InqGovtNbr" type="tSsn" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr2InqHmPhNbr" type="tCompositePhoneNbr" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr2InqWrkPhNbr" type="tCompositePhoneNbr" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr2InqDrvrLicNbr" type="tDrvrLicNbr" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr2InqDrvrLicSt" type="tOptDLStateCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr2InqDteOfBrth" type="tOptDte" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr2SgnrTyp" type="tOptSgnrTyp" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tAuthSgnr2InqNme">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr2InqLstNme" type="tOptLastName" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr2InqFrstNme" type="tOptFirstName" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr2InqMidNme" type="tMiddleName" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tAuthSgnr2InqCurAddr">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr2InqCurStrAddr" type="tOptAddress" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr2InqCurCty" type="tOptCity" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr2InqCurSt" type="tOptStateCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr2InqCurZip" type="tOptPstlCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr2InqCurCntryCd" type="tCtryCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr2InqNbrYrsAtCurAddr" type="tAddressYearsNbr" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr2InqNbrMthsAtCurAddr" type="tAddressMonthsNbr" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tAuthSgnr2InqPrevAddr">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr2InqPrevStrAddr" type="tOptAddress" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr2InqPrevCty" type="tOptCity" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr2InqPrevSt" type="tOptStateCde" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr2InqPrevZip" type="tOptPstlCde" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr2InqPrevCntryCd" type="tCtryCde" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr2InqNbrYrsAtPrevAddr" type="tAddressYearsNbr" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr2InqNbrMthsAtPrevAddr" type="tAddressMonthsNbr" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tAuthSgnr3InqMsg">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr3InqNme" type="tAuthSgnr3InqNme" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr3InqCurAddr" type="tAuthSgnr3InqCurAddr" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr3InqPrevAddr" nillable="true" type="tAuthSgnr3InqPrevAddr" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr3InqGovtNbr" type="tSsn" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr3InqHmPhNbr" type="tCompositePhoneNbr" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr3InqWrkPhNbr" type="tCompositePhoneNbr" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr3InqDrvrLicNbr" type="tDrvrLicNbr" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr3InqDrvrLicSt" type="tOptDLStateCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr3InqDteOfBrth" type="tOptDte" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr3SgnrTyp" type="tOptSgnrTyp" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tAuthSgnr3InqNme">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr3InqLstNme" type="tOptLastName" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr3InqFrstNme" type="tOptFirstName" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr3InqMidNme" type="tMiddleName" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tAuthSgnr3InqCurAddr">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr3InqCurStrAddr" type="tOptAddress" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr3InqCurCty" type="tOptCity" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr3InqCurSt" type="tOptStateCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr3InqCurZip" type="tOptPstlCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr3InqCurCntryCd" type="tCtryCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr3InqNbrYrsAtCurAddr" type="tAddressYearsNbr" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr3InqNbrMthsAtCurAddr" type="tAddressMonthsNbr" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tAuthSgnr3InqPrevAddr">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr3InqPrevStrAddr" type="tOptAddress" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr3InqPrevCty" type="tOptCity" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr3InqPrevSt" type="tOptStateCde" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr3InqPrevZip" type="tOptPstlCde" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr3InqPrevCntryCd" type="tCtryCde" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr3InqNbrYrsAtPrevAddr" type="tAddressYearsNbr" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr3InqNbrMthsAtPrevAddr" type="tAddressMonthsNbr" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tAuthSgnr4InqMsg">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr4InqNme" type="tAuthSgnr4InqNme" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr4InqCurAddr" type="tAuthSgnr4InqCurAddr" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr4InqPrevAddr" nillable="true" type="tAuthSgnr4InqPrevAddr" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr4InqGovtNbr" type="tSsn" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr4InqHmPhNbr" type="tCompositePhoneNbr" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr4InqWrkPhNbr" type="tCompositePhoneNbr" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr4InqDrvrLicNbr" type="tDrvrLicNbr" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr4InqDrvrLicSt" type="tOptDLStateCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr4InqDteOfBrth" type="tOptDte" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr4SgnrTyp" type="tOptSgnrTyp" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tAuthSgnr4InqNme">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr4InqLstNme" type="tOptLastName" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr4InqFrstNme" type="tOptFirstName" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr4InqMidNme" type="tMiddleName" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tAuthSgnr4InqCurAddr">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr4InqCurStrAddr" type="tOptAddress" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr4InqCurCty" type="tOptCity" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr4InqCurSt" type="tOptStateCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr4InqCurZip" type="tOptPstlCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr4InqCurCntryCd" type="tCtryCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr4InqNbrYrsAtCurAddr" type="tAddressYearsNbr" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr4InqNbrMthsAtCurAddr" type="tAddressMonthsNbr" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tAuthSgnr4InqPrevAddr">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr4InqPrevStrAddr" type="tOptAddress" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr4InqPrevCty" type="tOptCity" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr4InqPrevSt" type="tOptStateCde" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr4InqPrevZip" type="tOptPstlCde" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr4InqPrevCntryCd" type="tCtryCde" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr4InqNbrYrsAtPrevAddr" type="tAddressYearsNbr" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr4InqNbrMthsAtPrevAddr" type="tAddressMonthsNbr" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tAuthSgnr5InqMsg">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr5InqNme" type="tAuthSgnr5InqNme" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr5InqCurAddr" type="tAuthSgnr5InqCurAddr" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr5InqPrevAddr" nillable="true" type="tAuthSgnr5InqPrevAddr" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr5InqGovtNbr" type="tSsn" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr5InqHmPhNbr" type="tCompositePhoneNbr" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr5InqWrkPhNbr" type="tCompositePhoneNbr" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr5InqDrvrLicNbr" type="tDrvrLicNbr" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr5InqDrvrLicSt" type="tOptDLStateCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr5InqDteOfBrth" type="tOptDte" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr5SgnrTyp" type="tOptSgnrTyp" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tAuthSgnr5InqNme">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr5InqLstNme" type="tOptLastName" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr5InqFrstNme" type="tOptFirstName" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr5InqMidNme" type="tMiddleName" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tAuthSgnr5InqCurAddr">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr5InqCurStrAddr" type="tOptAddress" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr5InqCurCty" type="tOptCity" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr5InqCurSt" type="tOptStateCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr5InqCurZip" type="tOptPstlCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr5InqCurCntryCd" type="tCtryCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr5InqNbrYrsAtCurAddr" type="tAddressYearsNbr" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr5InqNbrMthsAtCurAddr" type="tAddressMonthsNbr" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tAuthSgnr5InqPrevAddr">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr5InqPrevStrAddr" type="tOptAddress" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr5InqPrevCty" type="tOptCity" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr5InqPrevSt" type="tOptStateCde" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr5InqPrevZip" type="tOptPstlCde" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr5InqPrevCntryCd" type="tCtryCde" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr5InqNbrYrsAtPrevAddr" type="tAddressYearsNbr" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr5InqNbrMthsAtPrevAddr" type="tAddressMonthsNbr" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tIdRspMsg">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="TmeOfInq" type="tString6" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TmeOfRsp" type="tString6" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tBusCIP">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="BusCIPRsp" type="tString60" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tPrevAcctInqSumm">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="NoPrevInqFlg" type="tChar" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfInqsInLast30Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfInqsInLast60Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfInqsInLast90Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfInqsInLast180Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfInqsInLast1Yr" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfInqsInLast2Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfInqsInLast3Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfDiffInqFiInLast180Days" type="tString4" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tMyFIPrevAcctInqSumm">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="NoMyFIPrevInqFlg" type="tChar" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfMyFIInqsInLast30Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfMyFIInqsInLast60Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfMyFIInqsInLast90Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfMyFIInqsInLast180Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfMyFIInqsInLast1Yr" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfMyFIInqsInLast2Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfMyFIInqsInLast3Yrs" type="tString4" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tOthrFIPrevAcctInqSumm">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="NoOthrFIPrevInqFlg" type="tChar" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfOthrFIInqsInLast30Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfOthrFIInqsInLast60Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfOthrFIInqsInLast90Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfOthrFIInqsInLast180Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfOthrFIInqsInLast1Yr" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfOthrFIInqsInLast2Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfOthrFIInqsInLast3Yrs" type="tString4" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tAcctClsrsSumm">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="NoClsrsFlg" type="tChar" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrClsrsLast30Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrClsrsLast60Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrClsrsLast90Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrClsrsLast180Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrClsrsLast1Yr" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrClsrsLast2Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrClsrsLast3Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrClsrsLast4Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrClsrsLast5Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrDsptdClsrsQtyLast5Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrPdClsrsQtyLast5Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrSoldClsrsQtyLast5Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrPrtlyPdClsrsQtyLast5Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrClsrsUnPdLast30Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrClsrsUnPdLast60Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrClsrsUnPdLast90Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrClsrsUnPdLast180Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrClsrsUnPdLast1Yr" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrClsrsUnPdLast2Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrClsrsUnPdLast3Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrClsrsUnPdLast4Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrClsrsUnPdLast5Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtClsrsLast30Days" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtClsrsLast60Days" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtClsrsLast90Days" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtClsrsLast180Days" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtClsrsLast1Yr" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtClsrsLast2Yrs" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtClsrsLast3Yrs" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtClsrsLast4Yrs" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtClsrsLast5Yrs" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtClsrsUnPdLast30Days" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtClsrsUnPdLast60Days" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtClsrsUnPdLast90Days" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtClsrsUnPdLast180Days" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtClsrsUnPdLast1Yr" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtClsrsUnPdLast2Yrs" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtClsrsUnPdLast3Yrs" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtClsrsUnPdLast4Yrs" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtClsrsUnPdLast5Yrs" type="tRspAmtField" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tAcctClsrsFrdSumm">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="NoFrdClsrsFlg" type="tChar" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrFrdClsrsLast30Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrFrdClsrsLast60Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrFrdClsrsLast90Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrFrdClsrsLast180Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrFrdClsrsLast1Yr" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrFrdClsrsLast2Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrFrdClsrsLast3Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrFrdClsrsLast4Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrFrdClsrsLast5Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrUnPdFrdClsrsLast30Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrUnPdFrdClsrsLast60Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrUnPdFrdClsrsLast90Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrUnPdFrdClsrsLast180Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrUnPdFrdClsrsLast1Yr" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrUnPdFrdClsrsLast2Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrUnPdFrdClsrsLast3Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrUnPdFrdClsrsLast4Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrUnPdFrdClsrsLast5Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtFrdClsrsLast30Days" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtFrdClsrsLast60Days" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtFrdClsrsLast90Days" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtFrdClsrsLast180Days" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtFrdClsrsLast1Yr" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtFrdClsrsLast2Yrs" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtFrdClsrsLast3Yrs" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtFrdClsrsLast4Yrs" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtFrdClsrsLast5Yrs" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtUnPdFrdClsrsLast30Days" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtUnPdFrdClsrsLast60Days" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtUnPdFrdClsrsLast90Days" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtUnPdFrdClsrsLast180Days" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtUnPdFrdClsrsLast1Yr" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtUnPdFrdClsrsLast2Yrs" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtUnPdFrdClsrsLast3Yrs" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtUnPdFrdClsrsLast4Yrs" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtUnPdFrdClsrsLast5Yrs" type="tRspAmtField" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tAcctClsrsAbsSumm">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="NoAbsClsrsFlg" type="tChar" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrAbsClsrsLast30Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrAbsClsrsLast60Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrAbsClsrsLast90Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrAbsClsrsLast180Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrAbsClsrsLast1Yr" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrAbsClsrsLast2Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrAbsClsrsLast3Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrAbsClsrsLast4Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrAbsClsrsLast5Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrUnPdAbsClsrsLast30Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrUnPdAbsClsrsLast60Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrUnPdAbsClsrsLast90Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrUnPdAbsClsrsLast180Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrUnPdAbsClsrsLast1Yr" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrUnPdAbsClsrsLast2Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrUnPdAbsClsrsLast3Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrUnPdAbsClsrsLast4Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrUnPdAbsClsrsLast5Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtAbsClsrsLast30Days" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtAbsClsrsLast60Days" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtAbsClsrsLast90Days" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtAbsClsrsLast180Days" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtAbsClsrsLast1Yr" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtAbsClsrsLast2Yrs" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtAbsClsrsLast3Yrs" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtAbsClsrsLast4Yrs" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtAbsClsrsLast5Yrs" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtUnPdAbsClsrsLast30Days" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtUnPdAbsClsrsLast60Days" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtUnPdAbsClsrsLast90Days" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtUnPdAbsClsrsLast180Days" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtUnPdAbsClsrsLast1Yr" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtUnPdAbsClsrsLast2Yrs" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtUnPdAbsClsrsLast3Yrs" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtUnPdAbsClsrsLast4Yrs" type="tRspAmtField" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtUnPdAbsClsrsLast5Yrs" type="tRspAmtField" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tPrchdDebtSumm">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="NoPrchdDebtFlg" type="tChar" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrPrchdDebtLast5Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrPrchdDebtDsptdQtyLast5Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrPrchdDebtUnpdQtyLast5Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrPrchdDebtPdQtyLast5Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrPrchdDebtPrtlyPdQtyLast5Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrPrchdDebtSoldQtyLast5Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtPrchdUnPdDebtLast5Yrs" type="tRspAmtField" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tCkOrdSumm">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="NoCkOrdsFlg" type="tChar" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfOrdsInLast30Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfOrdsInLast60Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfOrdsInLast90Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfOrdsInLast180Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfOrdsInLast1Yr" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfOrdsInLast2Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfOrdsInLast3Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfCkOrdInLast30Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfCkOrdInLast60Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfCkOrdInLast90Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfCkOrdInLast180Days" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfCkOrdInLast1Yr" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfCkOrdInLast2Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfCkOrdInLast3Yrs" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfDiffBnksOrdChkInLast1Yr" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfDiffAccts" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfDaysSncMostRecntOrd" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NbrOfDaysSncFrstOrd" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AvgNbrofCksOrded" type="tString4" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tPrevAcctInqDtls">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="5" name="PrevInqDtl" type="tPrevInqDtl" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tPrevInqDtl">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="InqCustBrCtyNme" type="tStringType20" />
+      <xs:element minOccurs="0" maxOccurs="1" name="InqCustBrNme" type="tStringType50" />
+      <xs:element minOccurs="0" maxOccurs="1" name="InqCustBrZip" type="tOptPstlCde" />
+      <xs:element minOccurs="0" maxOccurs="1" name="InqCustBrSt" type="tString2" />
+      <xs:element minOccurs="0" maxOccurs="1" name="InqCustBrStrAddr" type="tStringType25" />
+      <xs:element minOccurs="0" maxOccurs="1" name="InqCustNme" type="tStringType50" />
+      <xs:element minOccurs="0" maxOccurs="1" name="InqDte" type="tString8" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrevInqBusNme" type="tStringType32" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrevInqCty" type="tStringType20" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrevInqFedlTaxId" type="tSsn" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrevInqId" type="tString9" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrevInqZip" type="tOptPstlCde" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrevInqSt" type="tString2" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrevInqStrAddr" type="tStringType25" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tAcctClsrsDtls">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="5" name="AcctClsrDtl" type="tAcctClsrDtl" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tAcctClsrDtl">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="ClsrRsn1" type="tClsrRsn1" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ClsrRsn2" type="tClsrRsn2" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ClsrRsn3" type="tClsrRsn3" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ClctnAmtTxt" type="tStringType35" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ClctnPdCd" type="tChar" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ClctnPymtRcdDt" type="tString8" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CnsmrDsptCd" type="tChar" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CnsmrDsptTxt" type="tStringType65" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OrgChrgOffAmt" type="tAmtFldLen10" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RptdBusNme" type="tStringType32" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RptdCtyNme" type="tStringType20" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RptdDt" type="tString6" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RptdFedlTaxId" type="tSsn" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RptdZip" type="tOptPstlCde" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RptdSt" type="tString2" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RptdStrAddr" type="tStringType25" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RptgCust" type="tRptgCust" />
+      <xs:element minOccurs="0" maxOccurs="1" name="StlmntPdCd" type="tChar" />
+      <xs:element minOccurs="0" maxOccurs="1" name="StlmntPdDt" type="tString8" />
+      <xs:element minOccurs="0" maxOccurs="1" name="StlmntPdTxt" type="tStringType65" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TotalClctnAmt" type="tAmtFldLen10" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tClsrRsn1">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="ClsrRsnCtgyCd1" type="tClsrRsnCd" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ClsrRsnCtgyTxt1" type="tStringType65" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ClsrRsnCd1" type="tClsrRsnCd" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ClsrRsnTxt1" type="tStringType65" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tClsrRsn2">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="ClsrRsnCtgyCd2" type="tClsrRsnCd" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ClsrRsnCtgyTxt2" type="tStringType65" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ClsrRsnCd2" type="tClsrRsnCd" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ClsrRsnTxt2" type="tStringType65" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tClsrRsn3">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="ClsrRsnCtgyCd3" type="tClsrRsnCd" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ClsrRsnCtgyTxt3" type="tStringType65" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ClsrRsnCd3" type="tClsrRsnCd" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ClsrRsnTxt3" type="tStringType65" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tRptgCust">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="CustBrCty" type="tStringType20" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CustBrNme" type="tStringType50" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CustBrZip" type="tOptPstlCde" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CustBrSt" type="tString2" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CustBrStrAddr" type="tStringType25" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CustNme" type="tStringType50" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tPrchdDebtDtls">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="5" name="PrchdDebtDtl" type="tPrchdDebtDtl" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tPrchdDebtDtl">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="DtPrchdDebt" type="tString8" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrchdDebtRptdBy" type="tStringType35" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DlrAmtPrchdDebt" type="tRspAmtField" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tCkOrdDtls">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="5" name="CkOrdDtl" type="tCkOrdDtl" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tCkOrdDtl">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="CkShpDt" type="tString8" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CkABANbr" type="tString8" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CkAcctNbr" type="tAcctNbr" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CkInstnNme" type="tStringType50" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CkQtyOrded" type="tString9" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CkLstStrtNbr" type="tString9" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tCnsmrStmt">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="CnsmrStmtTxt1" type="tCnsmrStmtTxt" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CnsmrStmtTxt2" type="tCnsmrStmtTxt" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CnsmrStmtTxt3" type="tCnsmrStmtTxt" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CnsmrStmtInfoTxt" type="tStringType65" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tPrdStrtgyCd">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="PrdStrtgyCd1" type="tPrdStrtgyCdTxt" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrdStrtgyCd2" type="tPrdStrtgyCdTxt" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrdStrtgyCd3" type="tPrdStrtgyCdTxt" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrdStrtgyCd4" type="tPrdStrtgyCdTxt" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrdStrtgyCd5" type="tPrdStrtgyCdTxt" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrdStrtgyCd6" type="tPrdStrtgyCdTxt" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrdStrtgyCd7" type="tPrdStrtgyCdTxt" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrdStrtgyCd8" type="tPrdStrtgyCdTxt" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrdStrtgyCd9" type="tPrdStrtgyCdTxt" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrdStrtgyCd10" type="tPrdStrtgyCdTxt" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tBizChexDecsnScrgDtls">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="BizChexRcmndedDcsn" type="tString10" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BizChexScr" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="5" name="BizChexScrRsn" type="tBizChexScrRsn" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tBizChexScrRsn">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="BizChexRsn" type="tBizChexRsn" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tBizChexRsn">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="BizChexRsnCd" type="tClsrRsnCd" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BizChexRsnTxt" type="tString60" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tUsrGdnceTxt">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="UsrGdnce1Txt" type="tString60" />
+      <xs:element minOccurs="0" maxOccurs="1" name="UsrGdnce2Txt" type="tString60" />
+      <xs:element minOccurs="0" maxOccurs="1" name="UsrGdnce3Txt" type="tString60" />
+      <xs:element minOccurs="0" maxOccurs="1" name="UsrGdnce4Txt" type="tString60" />
+      <xs:element minOccurs="0" maxOccurs="1" name="UsrGdnce5Txt" type="tString60" />
+      <xs:element minOccurs="0" maxOccurs="1" name="UsrGdnce6Txt" type="tString60" />
+      <xs:element minOccurs="0" maxOccurs="1" name="UsrGdnce7Txt" type="tString60" />
+      <xs:element minOccurs="0" maxOccurs="1" name="UsrGdnce8Txt" type="tString60" />
+      <xs:element minOccurs="0" maxOccurs="1" name="UsrGdnce9Txt" type="tString60" />
+      <xs:element minOccurs="0" maxOccurs="1" name="UsrGdnce10Txt" type="tString60" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tPrdOffrs">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="10" name="PrdOffr" type="tPrdOffr" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tPrdOffr">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="PrdOffrLimitAmt" type="tAmtFldLen11" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrdOffrTxt" type="tProdOfrTxt" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrdOffrRatePrcnt" type="tProdOfrRtePct" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tBusPblcRcdDtls">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="DtFrstSeenOnPblcRcd" type="tDtFrstSeenOnPblcRcd" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SosFilingNme" type="tStringType120" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrncplOwnrDistHomeToBusAddr" type="tString12" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrncplOwnrRelToCmpny" type="tStringType80" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SicCd" type="tString8" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SicDesc" type="tStringType160" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NaicsCd" type="tString8" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NaicsDesc" type="tStringType256" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RcntLienDtls" type="tRcntLienDtls" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BnkrptcyDtls" type="tBnkrptcyDtls" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BestCmpnyData" type="tBestCmpnyData" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AddrMtchPhn" type="tCompositePhoneNbr" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PhnMtchCmpnyDtls" type="tPhnMtchCmpnyDtls" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FedlTaxIdMtchDtls" type="tFedlTaxIdMtchDtls" />
+      <xs:element minOccurs="0" maxOccurs="1" name="VerfnIndctrs" type="tVerfnIndctrs" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tDtFrstSeenOnPblcRcd">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="DtFrstSeenOnPblcRcdYr" type="tYear" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DtFrstSeenOnPblcRcdMth" type="tMonth" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DtFrstSeenOnPblcRcdDay" type="tDay" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tRcntLienDtls">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="RlsdLienCnt" type="tString11" />
+      <xs:element minOccurs="0" maxOccurs="1" name="UnRlsdLienCnt" type="tString11" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RcntLienCmpnyNme" type="tStringType120" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RcntLienTyp" type="tStringType50" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RcntLienDt" type="tRcntLienDt" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RcntLienStrAddr" type="tRcntLienStrAddr" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tRcntLienDt">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="RcntLienYr" type="tYear" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RcntLienMth" type="tMonth" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RcntLienDay" type="tDay" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tRcntLienStrAddr">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="RcntLienAddr1" type="tStringType50" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RcntLienAddr2" type="tStringType50" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RcntLienCty" type="tStringType30" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RcntLienSt" type="tString2" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RcntLienZip5" type="tString5" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RcntLienZip4" type="tString4" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tBnkrptcyDtls">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="RcntBnkrptcyCnt" type="tString11" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RcntBnkrptcyTyp" type="tStringType65" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RcntBnkrptcyDt" type="tRcntBnkrptcyDt" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RcntBnkrptcyCmpnyNme" type="tStringType120" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RcntBnkrptcyStrAddr" type="tRcntBnkrptcyStrAddr" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tRcntBnkrptcyDt">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="RcntBnkrptcyYr" type="tYear" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RcntBnkrptcyMth" type="tMonth" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RcntBnkrptcyDay" type="tDay" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tRcntBnkrptcyStrAddr">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="RcntBnkrptcyStrAddr1" type="tStringType50" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RcntBnkrptcyStrAddr2" type="tStringType50" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RcntBnkrptcyCty" type="tStringType30" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RcntBnkrptcySt" type="tString2" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RcntBnkrptcyZip5" type="tString5" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RcntBnkrptcyZip4" type="tString4" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tBestCmpnyData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="BestCmpnyNme" type="tStringType120" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BestCmpnyStrAddr" type="tBestCmpnyStrAddr" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BestCmpnyFedlTaxId" type="tSsn" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BestCmpnyPhn" type="tCompositePhoneNbr" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tBestCmpnyStrAddr">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="BestCmpnyStrAddr1" type="tStringType50" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BestCmpnyStrAddr2" type="tStringType50" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BestCmpnyCty" type="tStringType30" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BestCmpnySt" type="tString2" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BestCmpnyZip5" type="tString5" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BestCmpnyZip4" type="tString4" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tPhnMtchCmpnyDtls">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="PhMtchCmpnyNme" type="tStringType120" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PhMtchStrAddr" type="tPhMtchStrAddr" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tPhMtchStrAddr">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="PhMtchStrAddr1" type="tStringType50" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PhMtchStrAddr2" type="tStringType50" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PhMtchCity" type="tStringType30" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PhMtchSt" type="tString2" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PhMtchZip5" type="tString5" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PhMtchZip4" type="tString4" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tFedlTaxIdMtchDtls">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="3" name="FedlTaxIdMtchDtl" type="tFedlTaxIdMtchDtl" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tFedlTaxIdMtchDtl">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="FedlTaxIdCmpnyNme" type="tStringType120" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FedlTaxIdStrAddr" type="tFedlTaxIdStrAddr" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tFedlTaxIdStrAddr">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="FedlTaxIdStrAddr1" type="tStringType50" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FedlTaxIdStrAddr2" type="tStringType50" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FedlTaxIdCty" type="tStringType30" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FedlTaxIdSt" type="tString2" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FedlTaxIdZip5" type="tString5" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FedlTaxIdZip4" type="tString4" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tVerfnIndctrs">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="BusNmeVerfd" type="tChar" />
+      <xs:element minOccurs="0" maxOccurs="1" name="StrAddrVerfd" type="tChar" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CtyVerfd" type="tChar" />
+      <xs:element minOccurs="0" maxOccurs="1" name="StVerfd" type="tChar" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ZipVerfd" type="tChar" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PhnVerfd" type="tChar" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FedlTaxIdVerfd" type="tChar" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tBusAlrtMsgs">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="BusPhnAlrt" type="tStringType99" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BusAddrAlrt" type="tStringType99" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BusPvtHotLstAlrt" type="tStringType99" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tErrDtls">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="20" name="ErrDtl" type="tErrDtl" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tErrDtl">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrCde" type="tString5" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrMsg" type="tString65" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tSgnrIDVRsp">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="IDMRsp" type="tIDMRsp" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SubsystemRspDtl" type="tSubsystemRspDtl" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RspCde" type="tRspCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RspMsg" type="tRspMsg" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tIDMRsp">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="CIPRsp" type="tString60" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AcctNbr" type="tIDVAcctNbr" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Actions" type="tAddTxt" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AltInfo" type="tAltInfo" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Comments" type="tAddTxt" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ErrInfo" type="tStringTypeMax" />
+      <xs:element minOccurs="0" maxOccurs="1" name="LogIds" type="tLogIds" />
+      <xs:element minOccurs="0" maxOccurs="1" name="IDVGovtNbrVldn" type="tIDVGovtNbrVldn" />
+      <xs:element minOccurs="0" maxOccurs="1" name="VldnRslt" type="tVldnRslt" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Verifier" type="tStringTypeMax" />
+      <xs:element minOccurs="0" maxOccurs="1" name="VrfyDt" type="tString10" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tAltInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="AltStrAddr1" type="tStringType300" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Alt1StrAddr1" type="tString64" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Alt1StrAddr2" type="tString64" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Alt1Cty" type="tStringType100" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Alt1St" type="tString2" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Alt1Zip" type="tStringType20" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AltStrAddr2" type="tStringType300" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Alt2StrAddr1" type="tString64" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Alt2StrAddr2" type="tString64" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Alt2Cty" type="tStringType100" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Alt2St" type="tString2" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Alt2Zip" type="tStringType20" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AltStrAddr3" type="tStringType300" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Alt3StrAddr1" type="tString64" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Alt3StrAddr2" type="tString64" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Alt3Cty" type="tStringType100" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Alt3St" type="tString2" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Alt3Zip" type="tStringType20" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AltDob1" type="tStringType20" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AltDob2" type="tStringType20" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AltDob3" type="tStringType20" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AltDrvrLicNbr1" type="tStringType30" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AltDrvrLicNbr2" type="tStringType30" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AltDrvrLicNbr3" type="tStringType30" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AltHmPhn1" type="tString15" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AltHmPhn2" type="tString15" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AltHmPhn3" type="tString15" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AltNme1" type="tStringType100" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AltNme2" type="tStringType100" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AltNme3" type="tStringType100" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tLogIds">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="BtchId" type="tStringType38" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ChexRptId" type="tStringType22" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CustId" type="tStringType38" />
+      <xs:element minOccurs="0" maxOccurs="1" name="EfxDcsnRepId" type="tStringType22" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OFACLogId" type="tStringType22" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Oid" type="tStringType38" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SarRepId" type="tStringType22" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tVldnRslt">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="AddrChkOk" type="tOptBoolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AftGovtNbrDate" type="tOptBoolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DobChkOk" type="tOptBoolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DrvrLicChkOk" type="tOptBoolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="IdChkHadMtchgRcds" type="tOptBoolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="IdChkOk" type="tOptBoolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="IsDecsd" type="tOptBoolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="MinorYes" type="tOptBoolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NmeChkOk" type="tOptBoolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OFACHit" type="tOptBoolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PhnChkOk" type="tOptBoolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="GovtNbrChkOk" type="tOptBoolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tIDVGovtNbrVldn">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="GovtNbrBeginIssDt" type="tStringType30" />
+      <xs:element minOccurs="0" maxOccurs="1" name="GovtNbrEndIssDt" type="tStringType30" />
+      <xs:element minOccurs="0" maxOccurs="1" name="GovtNbrIssSt" type="tStringType30" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tSgnrOFACRsp">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="OFACRsp" type="tOFACRsp" />
+      <xs:element minOccurs="1" maxOccurs="1" name="SubsystemRspDtl" type="tSubsystemRspDtl" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RspCde" type="tRspCde" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RspMsg" type="tRspMsg" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tOFACRsp">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="AcctNbr" type="tIDVAcctNbr" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Comments" type="tAddTxt" />
+      <xs:element minOccurs="0" maxOccurs="3" name="OFACHitRsp" type="tOFACHitRsp" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OFACLogIds" type="tOFACLogIds" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OFACVldnRslt" type="tOFACVldnRslt" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Verifier" type="tStringType80" />
+      <xs:element minOccurs="0" maxOccurs="1" name="VrfyDt" type="tString10" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TotalOFACHitsQty" type="tString4" />
+      <xs:element minOccurs="0" maxOccurs="1" name="OFACHitInfoMsgTxt" type="tStringType200" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tOFACHitRsp">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="CallSign" type="tStringType512" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Flg" type="tStringType512" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FromLst" type="tStringType50" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Grt" type="tStringType512" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Nme" type="tStringType512" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Ownr" type="tStringType512" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Pgm" type="tStringType512" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Remarks" type="tStringType4000" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Title" type="tStringType512" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Tonnage" type="tStringType512" />
+      <xs:element minOccurs="0" maxOccurs="1" name="VslTyp" type="tStringType512" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tOFACLogIds">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="BtchId" type="tStringType38" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CustId" type="tStringType38" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Oid" type="tStringType38" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SarRepId" type="tStringType22" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tOFACVldnRslt">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="OFACHit" type="tOptBoolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tSplMsgsBizChex">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="BizChexStatus" type="tStringType65" />
+      <xs:element minOccurs="0" maxOccurs="1" name="GovtNbrVldn" type="tGovtNbrVldn" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tGovtNbrVldn">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="GovtNbrVldnMsgTxt" type="tStringType65" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tSplMsgsIDVOFAC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="PrncplOwnrIDVStatus" type="tStringType256" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr2IDVStatus" type="tStringType256" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr3IDVStatus" type="tStringType256" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr4IDVStatus" type="tStringType256" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr5IDVStatus" type="tStringType256" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrncplOwnrOFACStatus" type="tStringType256" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AuthSgnr2OFACStatus" type="tStringType256" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr3OFACStatus" type="tStringType256" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr4OFACStatus" type="tStringType256" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr5OFACStatus" type="tStringType256" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BusOFACStatus" type="tStringType256" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tRefDtlBizChex">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="DteOfTxn" type="tDteOfTxn" />
+      <xs:element minOccurs="0" maxOccurs="1" name="TmeOfTxn" type="tTmeOfTxn" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FisTxnTrckId" type="tSoaTxnId" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BizChexRefNbr" type="tString12" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ThirdPrtyTrckId" type="tString16" />
+      <xs:element minOccurs="0" maxOccurs="1" name="StrtgyTypId" type="tStrtgyTypId" />
+      <xs:element minOccurs="0" maxOccurs="1" name="InqId" type="tInqId" />
+      <xs:element minOccurs="0" maxOccurs="1" name="CustIdRefDtl" type="tString8" />
+      <xs:element minOccurs="0" maxOccurs="1" name="UsrNme" type="tUsrNme" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tRefDtlIDVOFAC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="BusOFACRefNbr" type="tStringType38" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrncplOwnrOFACRefNbr" type="tStringType38" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr2OFACRefNbr" type="tStringType38" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr3OFACRefNbr" type="tStringType38" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr4OFACRefNbr" type="tStringType38" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr5OFACRefNbr" type="tStringType38" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrncplOwnrIDVRefNbr" type="tStringType38" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr2IDVRefNbr" type="tStringType38" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr3IDVRefNbr" type="tStringType38" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr4IDVRefNbr" type="tStringType38" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AuthSgnr5IDVRefNbr" type="tStringType38" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

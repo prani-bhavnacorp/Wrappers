@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns="http://americafirst.com/RiskScore" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns2="http://www.americafirst.com/20070315/RiskScore" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="RiskScore" targetNamespace="http://americafirst.com/RiskScore" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns:mrm="http://americafirst.com/RiskScore" targetNamespace="http://americafirst.com/RiskScore">
+      <xsd:import schemaLocation="com/americafirst/www/_20070315/riskscore/RiskScore.xsd" namespace="http://www.americafirst.com/20070315/RiskScore" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="addRiskScore_in">
+    <wsdl:part name="addRiskScoreRequest" element="tns2:addRiskScoreRequest" />
+  </wsdl:message>
+  <wsdl:message name="addRiskScore_out">
+    <wsdl:part name="addRiskScoreResponse" element="tns2:addRiskScoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="checkRiskScore_in">
+    <wsdl:part name="checkRiskScoreRequest" element="tns2:checkRiskScoreRequest" />
+  </wsdl:message>
+  <wsdl:message name="checkRiskScore_out">
+    <wsdl:part name="checkRiskScoreResponse" element="tns2:checkRiskScoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="deleteRiskScore_in">
+    <wsdl:part name="deleteRiskScoreRequest" element="tns2:deleteRiskScoreRequest" />
+  </wsdl:message>
+  <wsdl:message name="deleteRiskScore_out">
+    <wsdl:part name="deleteRiskScoreResponse" element="tns2:deleteRiskScoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="inquireRiskScore_in">
+    <wsdl:part name="inquireRiskScoreRequest" element="tns2:inquireRiskScoreRequest" />
+  </wsdl:message>
+  <wsdl:message name="inquireRiskScore_out">
+    <wsdl:part name="inquireRiskScoreResponse" element="tns2:inquireRiskScoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="inquireRiskScoreHistory_in">
+    <wsdl:part name="inquireRiskScoreHistoryRequest" element="tns2:inquireRiskScoreHistoryRequest" />
+  </wsdl:message>
+  <wsdl:message name="inquireRiskScoreHistory_out">
+    <wsdl:part name="inquireRiskScoreHistoryResponse" element="tns2:inquireRiskScoreHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateRiskScore_in">
+    <wsdl:part name="updateRiskScoreRequest" element="tns2:updateRiskScoreRequest" />
+  </wsdl:message>
+  <wsdl:message name="updateRiskScore_out">
+    <wsdl:part name="updateRiskScoreResponse" element="tns2:updateRiskScoreResponse" />
+  </wsdl:message>
+  <wsdl:portType name="RiskScore_MSPortType">
+    <wsdl:operation name="addRiskScore">
+      <wsdl:input name="addRiskScore_addRiskScoreRequest" message="tns:addRiskScore_in" />
+      <wsdl:output name="addRiskScore_addRiskScoreResponse" message="tns:addRiskScore_out" />
+    </wsdl:operation>
+    <wsdl:operation name="checkRiskScore">
+      <wsdl:input name="checkRiskScore_checkRiskScoreRequest" message="tns:checkRiskScore_in" />
+      <wsdl:output name="checkRiskScore_checkRiskScoreResponse" message="tns:checkRiskScore_out" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteRiskScore">
+      <wsdl:input name="deleteRiskScore_deleteRiskScoreRequest" message="tns:deleteRiskScore_in" />
+      <wsdl:output name="deleteRiskScore_deleteRiskScoreResponse" message="tns:deleteRiskScore_out" />
+    </wsdl:operation>
+    <wsdl:operation name="inquireRiskScore">
+      <wsdl:input name="inquireRiskScore_inquireRiskScoreRequest" message="tns:inquireRiskScore_in" />
+      <wsdl:output name="inquireRiskScore_inquireRiskScoreResponse" message="tns:inquireRiskScore_out" />
+    </wsdl:operation>
+    <wsdl:operation name="inquireRiskScoreHistory">
+      <wsdl:input name="inquireRiskScoreHistory_inquireRiskScoreHistoryRequest" message="tns:inquireRiskScoreHistory_in" />
+      <wsdl:output name="inquireRiskScoreHistory_inquireRiskScoreHistoryResponse" message="tns:inquireRiskScoreHistory_out" />
+    </wsdl:operation>
+    <wsdl:operation name="updateRiskScore">
+      <wsdl:input name="updateRiskScore_updateRiskScoreRequest" message="tns:updateRiskScore_in" />
+      <wsdl:output name="updateRiskScore_updateRiskScoreResponse" message="tns:updateRiskScore_out" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RiskScore_MSSOAP_HTTP_Binding" type="tns:RiskScore_MSPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="addRiskScore">
+      <soap:operation soapAction="" />
+      <wsdl:input name="addRiskScore_addRiskScoreRequest">
+        <soap:body use="literal" parts="addRiskScoreRequest" />
+      </wsdl:input>
+      <wsdl:output name="addRiskScore_addRiskScoreResponse">
+        <soap:body use="literal" parts="addRiskScoreResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkRiskScore">
+      <soap:operation soapAction="" />
+      <wsdl:input name="checkRiskScore_checkRiskScoreRequest">
+        <soap:body use="literal" parts="checkRiskScoreRequest" />
+      </wsdl:input>
+      <wsdl:output name="checkRiskScore_checkRiskScoreResponse">
+        <soap:body use="literal" parts="checkRiskScoreResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteRiskScore">
+      <soap:operation soapAction="" />
+      <wsdl:input name="deleteRiskScore_deleteRiskScoreRequest">
+        <soap:body use="literal" parts="deleteRiskScoreRequest" />
+      </wsdl:input>
+      <wsdl:output name="deleteRiskScore_deleteRiskScoreResponse">
+        <soap:body use="literal" parts="deleteRiskScoreResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inquireRiskScore">
+      <soap:operation soapAction="" />
+      <wsdl:input name="inquireRiskScore_inquireRiskScoreRequest">
+        <soap:body use="literal" parts="inquireRiskScoreRequest" />
+      </wsdl:input>
+      <wsdl:output name="inquireRiskScore_inquireRiskScoreResponse">
+        <soap:body use="literal" parts="inquireRiskScoreResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inquireRiskScoreHistory">
+      <soap:operation soapAction="" />
+      <wsdl:input name="inquireRiskScoreHistory_inquireRiskScoreHistoryRequest">
+        <soap:body use="literal" parts="inquireRiskScoreHistoryRequest" />
+      </wsdl:input>
+      <wsdl:output name="inquireRiskScoreHistory_inquireRiskScoreHistoryResponse">
+        <soap:body use="literal" parts="inquireRiskScoreHistoryResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateRiskScore">
+      <soap:operation soapAction="" />
+      <wsdl:input name="updateRiskScore_updateRiskScoreRequest">
+        <soap:body use="literal" parts="updateRiskScoreRequest" />
+      </wsdl:input>
+      <wsdl:output name="updateRiskScore_updateRiskScoreResponse">
+        <soap:body use="literal" parts="updateRiskScoreResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RiskScoreService">
+    <wsdl:port name="SOAP_HTTP_Port" binding="tns:RiskScore_MSSOAP_HTTP_Binding">
+      <soap:address location="http://lnxmqdev:7080/account/RiskScore/20070315" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="mtvnCWCBCardReissueNPReqData" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="mtvnCWCBCardReissueNPReqData" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="CBCardReissueNPReqData">
+    <xs:annotation>
+      <xs:documentation>Cardbase Card Reissue No PIN (CB400) - This function is used to reissue a card.  This function does not require a PIN and is intended for properly authorized personnel.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="E130013" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>CB Card Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E130015" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>CB Institution Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E130295" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>CB Reissue Card Indicator</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

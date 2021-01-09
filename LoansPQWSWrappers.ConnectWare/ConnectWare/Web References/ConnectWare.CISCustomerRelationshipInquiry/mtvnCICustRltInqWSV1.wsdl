@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="mtvnCICustRltInqWSV1" xmlns:import0="mtvnCWCICustRltInqSvcReq" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:import1="mtvnCWCICustRltInqSvcRes" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="mtvnCICustRltInqWSV1" targetNamespace="mtvnCICustRltInqWSV1" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Connectware Web Service Interface</documentation>
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="./CICustRltInqWSV1SvcReq.xsd" namespace="mtvnCWCICustRltInqSvcReq" />
+      <xsd:import schemaLocation="./CICustRltInqWSV1SvcRes.xsd" namespace="mtvnCWCICustRltInqSvcRes" />
+    </xsd:schema>
+  </types>
+  <message name="CICustRltInqMtvnSvcReqMsg">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <part name="messagePart" element="import0:CICustRltInqMtvnSvcReq" />
+  </message>
+  <message name="CICustRltInqMtvnSvcResMsg">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <part name="messagePart" element="import1:CICustRltInqMtvnSvcRes" />
+  </message>
+  <portType name="mtvnCWCICustRltInqWSV1Interface">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">CICustRltInqWSV1</documentation>
+    <operation name="CICustRltInq">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+      <input message="tns:CICustRltInqMtvnSvcReqMsg" />
+      <output message="tns:CICustRltInqMtvnSvcResMsg" />
+    </operation>
+  </portType>
+  <binding name="mtvnCWCICustRltInqWSV1" type="tns:mtvnCWCICustRltInqWSV1Interface">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="CICustRltInq">
+      <soap:operation soapAction="CICustRltInqWSV1:CICustRltInqMtvnSvcReqMsg" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="mtvnCWCICustRltInqWSV1">
+    <port name="mtvnCWCICustRltInqWSV1Port" binding="tns:mtvnCWCICustRltInqWSV1">
+      <soap:address location="https://xmlgateway.metavante.org/ConnectwareWS/CICustRltInqWSV1" />
+    </port>
+  </service>
+</definitions>

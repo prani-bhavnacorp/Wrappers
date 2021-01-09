@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:tns="http://rco.loanorigination.servicecontracts/2007/08" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" name="MemberService" targetNamespace="http://rco.loanorigination.servicecontracts/2007/08" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://rco.loanorigination.servicecontracts/2007/08/Imports">
+      <xsd:import schemaLocation="http://rcoqa1.rcolmstead.com:10020/LoanOrigination/MemberService.svc?xsd=xsd0" namespace="http://rco.loanorigination.servicecontracts/2007/08" />
+      <xsd:import schemaLocation="http://rcoqa1.rcolmstead.com:10020/LoanOrigination/MemberService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://rcoqa1.rcolmstead.com:10020/LoanOrigination/MemberService.svc?xsd=xsd2" namespace="http://rco.loanorigination.services.datatypes/2007/08/serialization" />
+      <xsd:import schemaLocation="http://rcoqa1.rcolmstead.com:10020/LoanOrigination/MemberService.svc?xsd=xsd3" namespace="http://rco.loanorigination.common.services.datatypes/2007/08/serialization" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IMemberService_GetMemberDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberDetails" />
+  </wsdl:message>
+  <wsdl:message name="IMemberService_GetMemberDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMemberDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IMemberService_SetApprovedLoan_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetApprovedLoan" />
+  </wsdl:message>
+  <wsdl:message name="IMemberService_SetApprovedLoan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetApprovedLoanResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IMemberService">
+    <wsdl:operation name="GetMemberDetails">
+      <wsdl:input wsaw:Action="GetMemberDetailsRequest" message="tns:IMemberService_GetMemberDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://rco.loanorigination.servicecontracts/2007/08/IMemberService/GetMemberDetailsResponse" message="tns:IMemberService_GetMemberDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetApprovedLoan">
+      <wsdl:input wsaw:Action="SetApprovedLoan" message="tns:IMemberService_SetApprovedLoan_InputMessage" />
+      <wsdl:output wsaw:Action="http://rco.loanorigination.servicecontracts/2007/08/IMemberService/SetApprovedLoanResponse" message="tns:IMemberService_SetApprovedLoan_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IMemberService" type="tns:IMemberService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMemberDetails">
+      <soap:operation soapAction="GetMemberDetailsRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetApprovedLoan">
+      <soap:operation soapAction="SetApprovedLoan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MemberService">
+    <wsdl:port name="BasicHttpBinding_IMemberService" binding="tns:BasicHttpBinding_IMemberService">
+      <soap:address location="http://rcoqa1.rcolmstead.com:10020/LoanOrigination/MemberService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

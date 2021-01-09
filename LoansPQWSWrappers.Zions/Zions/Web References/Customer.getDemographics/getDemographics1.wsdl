@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:getDemographics1.3="http://zionsbank.com/soa/customer/getDemographics1.3/schema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://zionsbank.com/soa/customer/getDemographics1.3/wsdl" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="getDemographics1.3" targetNamespace="http://zionsbank.com/soa/customer/getDemographics1.3/wsdl" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema targetNamespace="http://zionsbank.com/soa/customer/getDemographics1.3/wsdl">
+      <xsd:import schemaLocation="Customer.getDemographics1.3.xsd" namespace="http://zionsbank.com/soa/customer/getDemographics1.3/schema" />
+    </xsd:schema>
+  </types>
+  <message name="GetDemographicsRequestMessage">
+    <part name="RequestParameter" element="getDemographics1.3:getDemographics" />
+  </message>
+  <message name="GetDemographicsResponseMessage">
+    <part name="ResponseParameter" element="getDemographics1.3:GetDemographicsResponse" />
+  </message>
+  <portType name="getDemographicsInterface1.3">
+    <operation name="getDemographics">
+      <input message="wsdl:GetDemographicsRequestMessage" />
+      <output message="wsdl:GetDemographicsResponseMessage" />
+    </operation>
+  </portType>
+  <binding name="getDemographicsBinding1.3" type="wsdl:getDemographicsInterface1.3">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="getDemographics">
+      <soap:operation soapAction="Customer/v1.3/getDemographics" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+</definitions>

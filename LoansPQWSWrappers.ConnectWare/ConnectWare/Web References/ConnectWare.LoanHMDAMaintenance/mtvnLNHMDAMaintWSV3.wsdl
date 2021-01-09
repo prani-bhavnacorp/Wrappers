@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:import0="mtvnCWLNHMDAMaintSvcReq" xmlns:import1="mtvnCWLNHMDAMaintSvcRes" xmlns:tns="mtvnLNHMDAMaintWSV3" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="mtvnLNHMDAMaintWSV3" targetNamespace="mtvnLNHMDAMaintWSV3" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Connectware Web Service Interface</documentation>
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="./LNHMDAMaintWSV3SvcReq.xsd" namespace="mtvnCWLNHMDAMaintSvcReq" />
+      <xsd:import schemaLocation="./LNHMDAMaintWSV3SvcRes.xsd" namespace="mtvnCWLNHMDAMaintSvcRes" />
+    </xsd:schema>
+  </types>
+  <message name="LNHMDAMaintMtvnSvcReqMsg">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <part name="messagePart" element="import0:LNHMDAMaintMtvnSvcReq" />
+  </message>
+  <message name="LNHMDAMaintMtvnSvcResMsg">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <part name="messagePart" element="import1:LNHMDAMaintMtvnSvcRes" />
+  </message>
+  <portType name="mtvnCWLNHMDAMaintWSV3Interface">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">LNHMDAMaintWSV3</documentation>
+    <operation name="LNHMDAMaint">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+      <input message="tns:LNHMDAMaintMtvnSvcReqMsg" />
+      <output message="tns:LNHMDAMaintMtvnSvcResMsg" />
+    </operation>
+  </portType>
+  <binding name="mtvnCWLNHMDAMaintWSV3" type="tns:mtvnCWLNHMDAMaintWSV3Interface">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="LNHMDAMaint">
+      <soap:operation soapAction="LNHMDAMaintWSV3:LNHMDAMaintMtvnSvcReqMsg" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="mtvnCWLNHMDAMaintWSV3">
+    <port name="mtvnCWLNHMDAMaintWSV3Port" binding="tns:mtvnCWLNHMDAMaintWSV3">
+      <soap:address location="https://ih-excust-other.fisglobal.com/ConnectwareWS/LNHMDAMaintWSV3" />
+    </port>
+  </service>
+</definitions>

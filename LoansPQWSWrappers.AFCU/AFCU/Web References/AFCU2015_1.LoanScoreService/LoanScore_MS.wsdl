@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://americafirst.com/LoanScore" xmlns:tns2="http://www.americafirst.com/20070315/LoanScore" name="LoanScore_MS" targetNamespace="http://americafirst.com/LoanScore" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns:mrm="http://americafirst.com/LoanScore" xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://americafirst.com/LoanScore">
+      <xsd:import schemaLocation="com/americafirst/www/_20070315/loanscore/LoanScore.xsd" namespace="http://www.americafirst.com/20070315/LoanScore" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="inquireLoanScore_in">
+    <wsdl:part name="inquireLoanScoreRequest" element="tns2:inquireLoanScoreRequest" />
+  </wsdl:message>
+  <wsdl:message name="inquireLoanScore_out">
+    <wsdl:part name="inquireLoanScoreResponse" element="tns2:inquireLoanScoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="maintainLoanScore_in">
+    <wsdl:part name="maintainLoanScoreRequest" element="tns2:maintainLoanScoreRequest" />
+  </wsdl:message>
+  <wsdl:message name="maintainLoanScore_out">
+    <wsdl:part name="maintainLoanScoreResponse" element="tns2:maintainLoanScoreResponse" />
+  </wsdl:message>
+  <wsdl:portType name="LoanScore_MSPortType">
+    <wsdl:operation name="inquireLoanScore">
+      <wsdl:input name="inquireLoanScore_inquireLoanScoreRequest" message="tns:inquireLoanScore_in" />
+      <wsdl:output name="inquireLoanScore_inquireLoanScoreResponse" message="tns:inquireLoanScore_out" />
+    </wsdl:operation>
+    <wsdl:operation name="maintainLoanScore">
+      <wsdl:input name="maintainLoanScore_maintainLoanScoreRequest" message="tns:maintainLoanScore_in" />
+      <wsdl:output name="maintainLoanScore_maintainLoanScoreResponse" message="tns:maintainLoanScore_out" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LoanScore_MSSOAP_HTTP_Binding" type="tns:LoanScore_MSPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="inquireLoanScore">
+      <soap:operation soapAction="" />
+      <wsdl:input name="inquireLoanScore_inquireLoanScoreRequest">
+        <soap:body use="literal" parts="inquireLoanScoreRequest" />
+      </wsdl:input>
+      <wsdl:output name="inquireLoanScore_inquireLoanScoreResponse">
+        <soap:body use="literal" parts="inquireLoanScoreResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="maintainLoanScore">
+      <soap:operation soapAction="" />
+      <wsdl:input name="maintainLoanScore_maintainLoanScoreRequest">
+        <soap:body use="literal" parts="maintainLoanScoreRequest" />
+      </wsdl:input>
+      <wsdl:output name="maintainLoanScore_maintainLoanScoreResponse">
+        <soap:body use="literal" parts="maintainLoanScoreResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LoanScore_MSSOAP_HTTP_Service">
+    <wsdl:port name="SOAP_HTTP_Port" binding="tns:LoanScore_MSSOAP_HTTP_Binding">
+      <soap:address location="http://lnxmqdev:7080/account/LoanScoreService/20070315" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

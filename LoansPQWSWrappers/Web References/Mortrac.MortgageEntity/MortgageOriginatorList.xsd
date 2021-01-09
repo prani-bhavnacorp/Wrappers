@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:mortgageOriginator="http://com.fsb.domain/services/mortgage/MortgageOriginator" xmlns:mortgageOriginatorList="http://com.fsb.domain/services/mortgage/MortgageOriginatorList" elementFormDefault="qualified" targetNamespace="http://com.fsb.domain/services/mortgage/MortgageOriginatorList" xmlns="http://www.w3.org/2001/XMLSchema">
+  <import schemaLocation="MortgageOriginator.xsd" namespace="http://com.fsb.domain/services/mortgage/MortgageOriginator" />
+  <element name="MortgageOriginatorList" type="mortgageOriginatorList:MortgageOriginatorListType" />
+  <complexType name="MortgageOriginatorListType">
+    <sequence>
+      <element minOccurs="1" maxOccurs="unbounded" name="mortOriginatorArr" type="mortgageOriginator:MortgageOriginatorType" />
+    </sequence>
+  </complexType>
+</schema>

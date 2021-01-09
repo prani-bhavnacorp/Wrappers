@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:ns="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://jackhenry.com/jxchange/TPG/2008" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" targetNamespace="http://jackhenry.com/jxchange/TPG/2008" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema xmlns="http://jackhenry.com/jxchange/TPG/2008" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://jackhenry.com/jxchange/TPG/2008" version="R2013.1.00" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:include schemaLocation="TPG_IMSMaster.xsd" />
+    </xsd:schema>
+  </types>
+  <message name="MessageFault">
+    <part name="params" element="tns:HdrFault" />
+  </message>
+  <message name="PingInput">
+    <part name="params" element="tns:Ping" />
+  </message>
+  <message name="PingOutput">
+    <part name="params" element="tns:PingResponse" />
+  </message>
+  <message name="CredPolInqInput">
+    <part name="params" element="tns:CredPolInq" />
+  </message>
+  <message name="CredPolInqOutput">
+    <part name="params" element="tns:CredPolInqResponse" />
+  </message>
+  <message name="MFAQnAPolInqInput">
+    <part name="params" element="tns:MFAQnAPolInq" />
+  </message>
+  <message name="MFAQnAPolInqOutput">
+    <part name="params" element="tns:MFAQnAPolInqResponse" />
+  </message>
+  <message name="MFAWaterMarkSrchInput">
+    <part name="params" element="tns:MFAWaterMarkSrch" />
+  </message>
+  <message name="MFAWaterMarkSrchOutput">
+    <part name="params" element="tns:MFAWaterMarkSrchResponse" />
+  </message>
+  <message name="UsrConsmCredAddInput">
+    <part name="params" element="tns:UsrConsmCredAdd" />
+  </message>
+  <message name="UsrConsmCredAddOutput">
+    <part name="params" element="tns:UsrConsmCredAddResponse" />
+  </message>
+  <message name="MFAUsrQnAAddInput">
+    <part name="params" element="tns:MFAUsrQnAAdd" />
+  </message>
+  <message name="MFAUsrQnAAddOutput">
+    <part name="params" element="tns:MFAUsrQnAAddResponse" />
+  </message>
+  <message name="ODISvcCredInput">
+    <part name="params" element="tns:ODISvcCred" />
+  </message>
+  <message name="ODISvcCredOutput">
+    <part name="params" element="tns:ODISvcCredResponse" />
+  </message>
+  <portType name="IMSService">
+    <operation name="Ping">
+      <input message="tns:PingInput" />
+      <output message="tns:PingOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="CredPolInq">
+      <input message="tns:CredPolInqInput" />
+      <output message="tns:CredPolInqOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="MFAQnAPolInq">
+      <input message="tns:MFAQnAPolInqInput" />
+      <output message="tns:MFAQnAPolInqOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="MFAWaterMarkSrch">
+      <input message="tns:MFAWaterMarkSrchInput" />
+      <output message="tns:MFAWaterMarkSrchOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="UsrConsmCredAdd">
+      <input message="tns:UsrConsmCredAddInput" />
+      <output message="tns:UsrConsmCredAddOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="MFAUsrQnAAdd">
+      <input message="tns:MFAUsrQnAAddInput" />
+      <output message="tns:MFAUsrQnAAddOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="ODISvcCred">
+      <input message="tns:ODISvcCredInput" />
+      <output message="tns:ODISvcCredOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+  </portType>
+  <binding name="IMSServiceSoapBinding" type="tns:IMSService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="Ping">
+      <soap:operation soapAction="http://jackhenry.com/ws/Ping" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="CredPolInq">
+      <soap:operation soapAction="http://jackhenry.com/ws/CredPolInq" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="MFAQnAPolInq">
+      <soap:operation soapAction="http://jackhenry.com/ws/MFAQnAPolInq" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="MFAWaterMarkSrch">
+      <soap:operation soapAction="http://jackhenry.com/ws/MFAWaterMarkSrch" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="UsrConsmCredAdd">
+      <soap:operation soapAction="http://jackhenry.com/ws/UsrConsmCredAdd" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="MFAUsrQnAAdd">
+      <soap:operation soapAction="http://jackhenry.com/ws/MFAUsrQnAAdd" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="ODISvcCred">
+      <soap:operation soapAction="http://jackhenry.com/ws/ODISvcCred" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="IMSService">
+    <documentation>Service Description for the Consumer IMS Interface</documentation>
+    <port name="IMSServiceSoap" binding="tns:IMSServiceSoapBinding">
+      <soap:address location="https://jackhenry.com/jxchange/2008/ServiceGateway/IMS.svc" />
+    </port>
+  </service>
+</definitions>

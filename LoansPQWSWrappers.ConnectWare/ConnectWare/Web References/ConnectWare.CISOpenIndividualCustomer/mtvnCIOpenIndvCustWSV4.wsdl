@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="mtvnCIOpenIndvCustWSV4" xmlns:import0="mtvnCWCIOpenIndvCustSvcReq" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:import1="mtvnCWCIOpenIndvCustSvcRes" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="mtvnCIOpenIndvCustWSV4" targetNamespace="mtvnCIOpenIndvCustWSV4" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Connectware Web Service Interface</documentation>
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="./CIOpenIndvCustWSV4SvcReq.xsd" namespace="mtvnCWCIOpenIndvCustSvcReq" />
+      <xsd:import schemaLocation="./CIOpenIndvCustWSV4SvcRes.xsd" namespace="mtvnCWCIOpenIndvCustSvcRes" />
+    </xsd:schema>
+  </types>
+  <message name="CIOpenIndvCustMtvnSvcReqMsg">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <part name="messagePart" element="import0:CIOpenIndvCustMtvnSvcReq" />
+  </message>
+  <message name="CIOpenIndvCustMtvnSvcResMsg">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <part name="messagePart" element="import1:CIOpenIndvCustMtvnSvcRes" />
+  </message>
+  <portType name="mtvnCWCIOpenIndvCustWSV4Interface">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">CIOpenIndvCustWSV4</documentation>
+    <operation name="CIOpenIndvCust">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+      <input message="tns:CIOpenIndvCustMtvnSvcReqMsg" />
+      <output message="tns:CIOpenIndvCustMtvnSvcResMsg" />
+    </operation>
+  </portType>
+  <binding name="mtvnCWCIOpenIndvCustWSV4" type="tns:mtvnCWCIOpenIndvCustWSV4Interface">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="CIOpenIndvCust">
+      <soap:operation soapAction="CIOpenIndvCustWSV4:CIOpenIndvCustMtvnSvcReqMsg" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="mtvnCWCIOpenIndvCustWSV4">
+    <port name="mtvnCWCIOpenIndvCustWSV4Port" binding="tns:mtvnCWCIOpenIndvCustWSV4">
+      <soap:address location="https://xmlgateway.metavante.org/ConnectwareWS/CIOpenIndvCustWSV4" />
+    </port>
+  </service>
+</definitions>

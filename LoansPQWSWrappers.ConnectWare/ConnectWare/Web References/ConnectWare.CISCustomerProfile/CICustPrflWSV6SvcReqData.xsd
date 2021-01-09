@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="mtvnCWCICustPrflReqData" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="mtvnCWCICustPrflReqData" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="CICustPrflReqData">
+    <xs:annotation>
+      <xs:documentation>CIS Customer Profile (CI011) -  This function is used to retrieve information for the specified customer's related accounts.  Name and address information and general demographic information for the customer is also returned.  On the Deposit System, there may be multiple time deposits under one account number, each identified by a time deposit ID.   If there are multiple time deposits under an account, the account level balance fields will reflect a roll-up of the balances in the individual time deposits.  On the Loan System, there may be multiple notes (loans) under one account number, each identified by a note number.  There are no account level balance fields that reflect a roll-up of the balances in the individual notes.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="E10033" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>CIS Customer Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E10032" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>CIS Account Application Code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E10547" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>CIS Owner Only Indicator</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E10577" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>CIS Electronic Access Indicator</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

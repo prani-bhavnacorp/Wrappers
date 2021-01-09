@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:cunamutual:loanliner:GatewaySecured:Utility:v1.0" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Utility" targetNamespace="urn:cunamutual:loanliner:GatewaySecured:Utility:v1.0" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" />
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="GatewaySecuredUtilityMessagesV10.xsd" namespace="urn:cunamutual:loanliner:GatewaySecured:Utility:v1.0" />
+    </xsd:schema>
+  </types>
+  <message name="encryptPasswordIn">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" />
+    <part name="messagePart" element="tns:EncryptPasswordRequest" />
+  </message>
+  <message name="encryptPasswordOut">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" />
+    <part name="messagePart" element="tns:EncryptPasswordResponse" />
+  </message>
+  <portType name="UtilityInterface">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" />
+    <operation name="EncryptPassword">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" />
+      <input message="tns:encryptPasswordIn" />
+      <output message="tns:encryptPasswordOut" />
+    </operation>
+  </portType>
+  <binding name="Utility" type="tns:UtilityInterface">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="EncryptPassword">
+      <soap:operation soapAction="urn:cunamutual:loanliner:GatewaySecured:Utility:v1.0:encryptPasswordIn" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="UtilityPort">
+    <port name="UtilityPort" binding="tns:Utility">
+      <soap:address location="http://demo.loanliner.com/gateway/gatewaysecured/utility/10/Utility.asmx" />
+    </port>
+  </service>
+</definitions>

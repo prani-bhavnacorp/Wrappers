@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:customer="http://zionsbank.com/soa/customer/schema" xmlns:common="http://zionsbank.com/soa/common/schema" targetNamespace="http://zionsbank.com/soa/customer/schema" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="ws-common.xsd" namespace="http://zionsbank.com/soa/common/schema" />
+  <xsd:element name="Account" type="customer:AccountType" />
+  <xsd:element name="Accounts" type="customer:CustomerAccountsType" />
+  <xsd:element name="AccumId" type="customer:AccumIdType" />
+  <xsd:element name="AlphaId" type="customer:AlphaIdType" />
+  <xsd:element name="AlternateContact" type="common:AlternateContactTypeType" />
+  <xsd:element name="AddressExtension" type="common:StreetAddressType" />
+  <xsd:element name="AddressSupp" type="common:StreetAddressType" />
+  <xsd:element name="BusinessPhone" type="common:PhoneNumberType" />
+  <xsd:element name="CitizenshipCode" type="customer:CitizenshipCodeType" />
+  <xsd:element name="ClientCode" type="customer:ClientCodeType" />
+  <xsd:element name="CreditRatingDate" type="xsd:date" />
+  <xsd:element name="CurrentEmployer" type="customer:CurrentEmployerType" />
+  <xsd:element name="Customer" type="customer:CustomerType" />
+  <xsd:element name="CustomerDemographics" type="customer:CustomerDemographicsType" />
+  <xsd:element name="CustomerName" type="common:SignerNameType" />
+  <xsd:element name="CustomerName1" type="common:SignerNameType" />
+  <xsd:element name="CustomerName2" type="common:SignerNameType" />
+  <xsd:element name="CustomerRestrict" type="customer:CustomerRestrictionType" />
+  <xsd:element name="CustomersList" type="customer:CustomersListType" />
+  <xsd:element name="DriversLicense" type="xsd:string" />
+  <xsd:element name="DuplicateSwitch" type="customer:DuplicateSwitchType" />
+  <xsd:element name="DuplicateTinOpt" type="customer:DuplicateTinOptType" />
+  <xsd:element name="EmailAddresses" type="customer:EmailAddressesType" />
+  <xsd:element name="FirstContactDate" type="xsd:date" />
+  <xsd:element name="FirstSource" type="customer:FirstSourceType" />
+  <xsd:element name="GlReportingCode" type="customer:GlReportingCodeType" />
+  <xsd:element name="GoldServiceCode" type="customer:GoldServiceCodeType" />
+  <xsd:element name="Ids" type="customer:IdsType" />
+  <xsd:element name="MaintenanceDate" type="xsd:date">
+    <xsd:annotation>
+      <xsd:documentation>
+				Indicates the last time maintenance was
+				performed for a customer or their relationships.
+            </xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="MaintenanceType" type="xsd:string">
+    <xsd:annotation>
+      <xsd:documentation>
+				System-controlled field indicating the last general
+                maintenance performed to the customer or account.
+            </xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="MemberName" type="common:SignerNameType" />
+  <xsd:element name="MemberStatus" type="customer:MemberStatusType" />
+  <xsd:element name="MemberStatusList" type="customer:MemberStatusListType" />
+  <xsd:element name="NaicsCode" type="customer:NaicsCodeType" />
+  <xsd:element name="NameExtension" type="common:SignerNameType" />
+  <xsd:element name="OccupationCode" type="customer:OccupationCodeType" />
+  <xsd:element name="OtherId" type="xsd:string" />
+  <xsd:element name="Passport" type="xsd:string" />
+  <xsd:element name="RiskCode" type="customer:RiskCodeType" />
+  <xsd:element name="TaxId" type="common:TinType" />
+  <xsd:element name="TaxStatus" type="customer:TaxStatusType" />
+  <xsd:element name="TaxStatusDate" type="xsd:date" />
+  <xsd:element name="TypeOfBusiness" type="customer:TypeOfBusinessType" />
+  <xsd:simpleType name="AccumIdType">
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="3" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="AlphaIdType">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="14" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CitizenshipCodeType">
+    <xsd:annotation>
+      <xsd:documentation>Country of Residency for foreign customers </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="2" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ClientCodeType">
+    <xsd:annotation>
+      <xsd:documentation>
+				Identifies a selected client group defined for an affiliate
+				GSC		= Gold Service Club
+				EB		= Executive Banking
+				GSE		= Gold Service Club Employee
+                PB      = Private Banking
+				GSA		= Gold Service Club Associate
+				EBPB	= Executive Private Banking
+				GSCEL	= Gold Service Club Elite
+				TM		= Treasury Management
+				GSCPC	= Gold Service Club Presidents Circle
+				PC		= Presidents Club
+				GSCOM	= Gold Service Club Commercial
+				PLAT	= Platinum
+				GSCEB	= Gold Service Executive Banking
+				ADV		= Advantage
+				GSELEB	= Gold Service Elite Executive Banking
+				CORP	= Corporate Banking
+				GSPCEB	= Gold Service Club Presidents Circle Executive Banking
+				GSCPB	= Gold Service Club Private Banking
+				GSELPB	= Gold Service Club Elite Private Banking
+				GSPCPB	= Gold Service Club Pres Circle Private Banking
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="GSC" />
+      <xsd:enumeration value="EB" />
+      <xsd:enumeration value="GSE" />
+      <xsd:enumeration value="GSA" />
+      <xsd:enumeration value="EBPB" />
+      <xsd:enumeration value="GSCEL" />
+      <xsd:enumeration value="PC" />
+      <xsd:enumeration value="GSCOM" />
+      <xsd:enumeration value="PLAT" />
+      <xsd:enumeration value="GSCEB" />
+      <xsd:enumeration value="ADV" />
+      <xsd:enumeration value="GSELEB" />
+      <xsd:enumeration value="CORP" />
+      <xsd:enumeration value="GSPCEB" />
+      <xsd:enumeration value="GSCPB" />
+      <xsd:enumeration value="GSELPB" />
+      <xsd:enumeration value="GSPCPB" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CurrentEmployerType">
+    <xsd:annotation>
+      <xsd:documentation>Current Employer</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="40" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CustomerIdAddressType">
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="1" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CustomerIdIdType">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="2" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CustomerIdTinType">
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="1" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CustomerRestrictionType">
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="1" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="DuplicateSwitchType">
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="1" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="DuplicateTinOptType">
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="1" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="FirstSourceType">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="5" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="GlReportingCodeType">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="10" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="GoldServiceCodeType">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="10" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="MemberNumberType">
+    <xsd:restriction base="xsd:short">
+      <xsd:minInclusive value="1" />
+      <xsd:maxInclusive value="10" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="NaicsCodeType">
+    <xsd:annotation>
+      <xsd:documentation>Used to identify NAICS code</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="6" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="OccupationCodeType">
+    <xsd:annotation>
+      <xsd:documentation>Used to identify High Risk customer.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="5" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="RiskCodeType">
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="1" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="TaxStatusType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="1" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="TypeOfBusinessType">
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="1" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="AccountType">
+    <xsd:sequence>
+      <xsd:element ref="common:RcifProductCode" />
+      <xsd:element minOccurs="0" ref="common:ProductType" />
+      <xsd:element ref="common:AccountNumber" />
+      <xsd:element ref="common:RelationshipType" />
+      <xsd:element ref="common:OpenDate" />
+      <xsd:element minOccurs="0" ref="common:CloseDate" />
+      <xsd:element minOccurs="0" ref="common:CurrentBalance" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CustomerAccountsType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" ref="customer:Account" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CustomerDemographicsType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" ref="common:CommercialRetailCode" />
+      <xsd:element ref="customer:CustomerName1" />
+      <xsd:element minOccurs="0" ref="customer:CustomerName2" />
+      <xsd:element ref="common:Address1" />
+      <xsd:element minOccurs="0" ref="common:Address2" />
+      <xsd:element minOccurs="0" ref="common:Address3" />
+      <xsd:element minOccurs="0" ref="common:Address4" />
+      <xsd:element minOccurs="0" ref="common:PhoneNumber1" />
+      <xsd:element minOccurs="0" ref="common:PhoneNumber2" />
+      <xsd:element minOccurs="0" ref="customer:MaintenanceType" />
+      <xsd:element minOccurs="0" ref="customer:MaintenanceDate" />
+      <xsd:element minOccurs="0" ref="customer:TaxId" />
+      <xsd:element minOccurs="0" ref="customer:TaxStatus" />
+      <xsd:element minOccurs="0" ref="common:BirthDate" />
+      <xsd:element minOccurs="0" ref="common:MothersMaidenName" />
+      <xsd:element minOccurs="0" ref="customer:ClientCode" />
+      <xsd:element minOccurs="0" ref="customer:DriversLicense" />
+      <xsd:element minOccurs="0" ref="customer:Passport" />
+      <xsd:element minOccurs="0" ref="customer:OtherId" />
+      <xsd:element minOccurs="0" ref="customer:AlternateContact" />
+      <xsd:element ref="common:BranchNumber" />
+      <xsd:element minOccurs="0" ref="common:PrimaryEmailAddress" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CustomerProfileType">
+    <xsd:sequence>
+      <xsd:element ref="customer:CustomerDemographics" />
+      <xsd:element maxOccurs="unbounded" ref="customer:Accounts" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="EmailAddressesType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="5" ref="common:EmailAddress" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="IdsType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="9" ref="common:Id" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CustomersListType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" ref="customer:Customer" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CustomerType">
+    <xsd:sequence>
+      <xsd:element ref="common:CustomerName" />
+      <xsd:element minOccurs="0" ref="common:TiebreakerNumber" />
+      <xsd:element ref="common:FullAddress" />
+      <xsd:element ref="common:Tin" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="MemberStatusListType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="10" ref="customer:MemberStatus" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="MemberStatusType">
+    <xsd:sequence>
+      <xsd:element ref="customer:MemberName" />
+      <xsd:element ref="common:AccountStatusCode" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="CreateRcifCustomerRequest" type="customer:CreateRcifCustomerRequestType" />
+  <xsd:element name="createRcifCustomer">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element minOccurs="0" ref="customer:CreateRcifCustomerRequest" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="CreateRcifCustomerRequestType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="common:CommonServiceRequestType">
+        <xsd:sequence>
+          <xsd:element ref="common:BankNumber" />
+          <xsd:element ref="common:CustomerName" />
+          <xsd:element minOccurs="0" ref="customer:DuplicateTinOpt" />
+          <xsd:element ref="common:CommercialRetailCode" />
+          <xsd:element minOccurs="0" ref="common:MailingCode" />
+          <xsd:element ref="common:StreetAddress" />
+          <xsd:element minOccurs="0" ref="customer:AddressSupp" />
+          <xsd:element minOccurs="0" ref="common:City" />
+          <xsd:element minOccurs="0" ref="common:StateAbbreviation" />
+          <xsd:element minOccurs="0" ref="common:ZipCode" />
+          <xsd:element minOccurs="0" ref="common:PostalCode" />
+          <xsd:element minOccurs="0" ref="common:Province" />
+          <xsd:element minOccurs="0" ref="common:CountryCode" />
+          <xsd:element minOccurs="0" ref="common:PhoneNumber" />
+          <xsd:element minOccurs="0" ref="common:BusinessPhone" />
+          <xsd:element minOccurs="0" ref="common:TinType" />
+          <xsd:element minOccurs="0" ref="common:Tin" />
+          <xsd:element minOccurs="0" ref="customer:TaxStatus" />
+          <xsd:element minOccurs="0" ref="customer:TaxStatusDate" />
+          <xsd:element minOccurs="0" ref="common:BranchNumber" />
+          <xsd:element minOccurs="0" ref="common:Officer1" />
+          <xsd:element minOccurs="0" ref="customer:CustomerRestrict" />
+          <xsd:element minOccurs="0" ref="customer:FirstSource" />
+          <xsd:element minOccurs="0" ref="customer:FirstContactDate" />
+          <xsd:element minOccurs="0" ref="customer:RiskCode" />
+          <xsd:element minOccurs="0" ref="customer:DuplicateSwitch" />
+          <xsd:element minOccurs="0" ref="common:BirthDate" />
+          <xsd:element minOccurs="0" ref="customer:OccupationCode" />
+          <xsd:element minOccurs="0" ref="common:MothersMaidenName" />
+          <xsd:element minOccurs="0" ref="customer:CurrentEmployer" />
+          <xsd:element minOccurs="0" ref="customer:CitizenshipCode" />
+          <xsd:element minOccurs="0" ref="common:BusinessPhoneExt" />
+          <xsd:element minOccurs="0" ref="customer:Ids" />
+          <xsd:element minOccurs="0" ref="customer:EmailAddresses" />
+          <xsd:element minOccurs="0" ref="customer:NameExtension" />
+          <xsd:element minOccurs="0" ref="common:PrimaryPhoneNumber" />
+          <xsd:element minOccurs="0" ref="common:SecondaryPhoneNumber" />
+          <xsd:element minOccurs="0" ref="common:Officer2" />
+          <xsd:element minOccurs="0" ref="customer:GlReportingCode" />
+          <xsd:element minOccurs="0" ref="customer:TypeOfBusiness" />
+          <xsd:element minOccurs="0" ref="customer:NaicsCode" />
+          <xsd:element minOccurs="0" ref="common:PrimaryPhoneExt" />
+          <xsd:element minOccurs="0" ref="common:SecondaryPhoneExt" />
+          <xsd:element minOccurs="0" ref="common:ClassOfService" />
+          <xsd:element minOccurs="0" ref="common:AlternateContactType" />
+          <xsd:element minOccurs="0" ref="common:AlternateContactNumber" />
+          <xsd:element minOccurs="0" ref="common:AlternateContactExt" />
+          <xsd:element minOccurs="0" ref="customer:CreditRatingDate" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="GetCustomerProfileRequest" type="customer:GetCustomerProfileRequestType" />
+  <xsd:element name="getCustomerProfile">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element minOccurs="0" ref="customer:GetCustomerProfileRequest" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="GetCustomerProfileRequestType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="common:CommonServiceRequestType">
+        <xsd:sequence>
+          <xsd:element ref="common:BankNumber" />
+          <xsd:element ref="common:RcifProductCode" />
+          <xsd:element ref="common:AccountNumber" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="GetCustomerSearchListRequest" type="customer:GetCustomerSearchListRequestType" />
+  <xsd:element name="getCustomerSearchList">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element minOccurs="0" ref="customer:GetCustomerSearchListRequest" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="GetCustomerSearchListRequestType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="common:CommonServiceRequestType">
+        <xsd:sequence>
+          <xsd:element ref="common:BankNumber" />
+          <xsd:element ref="common:CustomerName" />
+          <xsd:element ref="common:CommercialRetailCode" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="UpdateEmailAddressRequest" type="customer:UpdateEmailAddressRequestType" />
+  <xsd:element name="updateEmailAddress">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="customer:UpdateEmailAddressRequest" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="UpdateEmailAddressRequestType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="common:CommonServiceRequestType">
+        <xsd:sequence>
+          <xsd:element ref="common:BankNumber" />
+          <xsd:element ref="common:CommercialRetailCode" />
+          <xsd:element ref="common:CustomerName" />
+          <xsd:element ref="common:TiebreakerNumber" />
+          <xsd:element ref="common:EmailAddress" />
+          <xsd:element ref="common:EmailTypeCode" />
+          <xsd:element ref="common:AddUpdateDeleteCode" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="UpdateRcifCustomerRequest" type="customer:UpdateRcifCustomerRequestType" />
+  <xsd:element name="updateRcifCustomer">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element minOccurs="0" ref="customer:UpdateRcifCustomerRequest" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="UpdateRcifCustomerRequestType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="common:CommonServiceRequestType">
+        <xsd:sequence>
+          <xsd:element ref="common:BankNumber" />
+          <xsd:element ref="common:CustomerName" />
+          <xsd:element ref="common:TiebreakerNumber" />
+          <xsd:element ref="customer:AlphaId" />
+          <xsd:element ref="customer:AccumId" />
+          <xsd:element ref="common:CommercialRetailCode" />
+          <xsd:element ref="common:StreetAddress" />
+          <xsd:element minOccurs="0" ref="customer:AddressSupp" />
+          <xsd:element minOccurs="0" ref="customer:AddressExtension" />
+          <xsd:element minOccurs="0" ref="common:City" />
+          <xsd:element minOccurs="0" ref="common:StateAbbreviation" />
+          <xsd:element minOccurs="0" ref="common:ZipCode" />
+          <xsd:element minOccurs="0" ref="common:PostalCode" />
+          <xsd:element minOccurs="0" ref="common:Province" />
+          <xsd:element minOccurs="0" ref="common:CountryCode" />
+          <xsd:element minOccurs="0" ref="common:PhoneNumber" />
+          <xsd:element minOccurs="0" ref="common:BusinessPhone" />
+          <xsd:element minOccurs="0" ref="common:BirthDate" />
+          <xsd:element minOccurs="0" ref="customer:OccupationCode" />
+          <xsd:element minOccurs="0" ref="common:MothersMaidenName" />
+          <xsd:element minOccurs="0" ref="customer:CurrentEmployer" />
+          <xsd:element minOccurs="0" ref="common:BusinessPhoneExt" />
+          <xsd:element minOccurs="0" ref="customer:RiskCode" />
+          <xsd:element minOccurs="0" ref="common:PrimaryPhoneNumber" />
+          <xsd:element minOccurs="0" ref="common:SecondaryPhoneNumber" />
+          <xsd:element minOccurs="0" ref="customer:TypeOfBusiness" />
+          <xsd:element minOccurs="0" ref="customer:NaicsCode" />
+          <xsd:element minOccurs="0" ref="common:PrimaryPhoneExt" />
+          <xsd:element minOccurs="0" ref="common:SecondaryPhoneExt" />
+          <xsd:element minOccurs="0" ref="customer:GoldServiceCode" />
+          <xsd:element minOccurs="0" ref="common:AlternateContactType" />
+          <xsd:element minOccurs="0" ref="common:AlternateContactNumber" />
+          <xsd:element minOccurs="0" ref="common:AlternateContactExt" />
+          <xsd:element minOccurs="0" ref="common:Officer1" />
+          <xsd:element minOccurs="0" ref="common:Officer2" />
+          <xsd:element minOccurs="0" ref="customer:CreditRatingDate" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="CreateRcifCustomerResponse" type="customer:CreateRcifCustomerResponseType" />
+  <xsd:complexType name="CreateRcifCustomerResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="common:CommonServiceResponseType">
+        <xsd:sequence>
+          <xsd:element ref="common:CustomerInformation" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="GetCustomerProfileResponse" type="customer:GetCustomerProfileResponseType" />
+  <xsd:complexType name="GetCustomerProfileResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="common:CommonServiceResponseType">
+        <xsd:sequence>
+          <xsd:element ref="customer:CustomerDemographics" />
+          <xsd:element ref="customer:Accounts" />
+          <xsd:element ref="customer:MemberStatusList" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="GetCustomerSearchListResponse" type="customer:GetCustomerSearchListResponseType" />
+  <xsd:complexType name="GetCustomerSearchListResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="common:CommonServiceResponseType">
+        <xsd:sequence>
+          <xsd:element ref="customer:CustomersList" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="UpdateEmailAddressResponse" type="customer:UpdateEmailAddressResponseType" />
+  <xsd:complexType name="UpdateEmailAddressResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="common:CommonServiceResponseType" />
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="UpdateRcifCustomerResponse" type="customer:UpdateRcifCustomerResponseType" />
+  <xsd:complexType name="UpdateRcifCustomerResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="common:CommonServiceResponseType" />
+    </xsd:complexContent>
+  </xsd:complexType>
+</xsd:schema>

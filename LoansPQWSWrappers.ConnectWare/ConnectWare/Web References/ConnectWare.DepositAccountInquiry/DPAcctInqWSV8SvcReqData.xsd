@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="mtvnCWDPAcctInqReqData" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="mtvnCWDPAcctInqReqData" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="DPAcctInqReqData">
+    <xs:annotation>
+      <xs:documentation>Deposit Account Inquiry (DPRFD, with logging DPRFL and DPLOG) -  This function is used to inquire on balances, status codes, and other miscellaneous information about a deposit account.  On the Deposit System, there may be multiple certificates of deposit (CDs) under one account number, each identified by a CD ID number.  The names of fields that refer to individual CDs start with CD.  These fields will only be filled if you have input the specific CD ID number.  The rest of the fields refer to account level information.  If there are multiple CDs under an account, the account level balance fields will reflect a roll-up of the balances in the individual CDs.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="E20007" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Account Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E301510" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>External System Account ID Prefix</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E300344" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>External System Account Type</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20665" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Certificate of Deposit ID</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E310045" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Log Inquiry Indicator</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21092" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Inquiry Date</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21093" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Inquiry Time</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

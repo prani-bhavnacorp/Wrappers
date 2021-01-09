@@ -1,0 +1,1482 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:common="http://zionsbank.com/soa/common/schema" targetNamespace="http://zionsbank.com/soa/common/schema" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="AccountClass" type="common:ClassCodeType" />
+  <xsd:element name="AccountingCode" type="common:AccountingCodeType" />
+  <xsd:element name="AccountingCode2" type="common:AccountingCodeType" />
+  <xsd:element name="AccountNumber" type="common:AccountNumberType" />
+  <xsd:element name="AccountNumberList" type="common:AccountNumberListType" />
+  <xsd:element name="AccountRelationship" type="common:AccountRelationshipType" />
+  <xsd:element name="AccountStatus" type="common:AccountStatusType" />
+  <xsd:element name="AccountStatusCode" type="common:AccountStatusCodeType" />
+  <xsd:element name="AccountTypeCode" type="common:AccountTypeCodeType" />
+  <xsd:element name="Accum" type="common:CustomerAccumType" />
+  <xsd:element name="Address1" type="common:StreetAddressType" />
+  <xsd:element name="Address2" type="common:StreetAddressType" />
+  <xsd:element name="Address3" type="common:StreetAddressType" />
+  <xsd:element name="Address4" type="common:StreetAddressType" />
+  <xsd:element name="AddressExtension" type="common:StreetAddressType" />
+  <xsd:element name="AddressSupplemental" type="common:StreetAddressType" />
+  <xsd:element name="AddUpdateDeleteCode" type="common:AddUpdateDeleteCodeType" />
+  <xsd:element name="Alpha" type="common:CustomerAlphaType" />
+  <xsd:element name="AlternateContactExt" type="common:PhoneExtensionType" />
+  <xsd:element name="AlternateContactNumber" type="common:PhoneNumberType" />
+  <xsd:element name="AlternateContactType" type="common:AlternateContactTypeType" />
+  <xsd:element name="Amount" type="xsd:decimal" />
+  <xsd:element name="AuthorizationBalance" type="common:MoneyType" />
+  <xsd:element name="AvailableBalance" type="common:MoneyType" />
+  <xsd:element name="BankCode" type="common:BankCodeType" />
+  <xsd:element name="BankNumber" type="common:BankNumberType" />
+  <xsd:element name="BirthDate" type="xsd:date" />
+  <xsd:element name="BranchNumber" type="common:BranchNumberType" />
+  <xsd:element name="BusinessPhone" type="common:PhoneNumberType" />
+  <xsd:element name="BusinessPhoneExt" type="common:PhoneExtensionType" />
+  <xsd:element name="CardNumber" type="common:CardNumberType" />
+  <xsd:element name="Channel" type="common:ChannelType" />
+  <xsd:element name="CheckingAccountNumber" type="common:AccountNumberType" />
+  <xsd:element name="CipEditCode" type="common:OneCharacterCodeType" />
+  <xsd:element name="City" type="common:CityType" />
+  <xsd:element name="ClassCode" type="common:ClassCodeType" />
+  <xsd:element name="ClassOfService" type="common:ClassOfServiceType" />
+  <xsd:element name="CloseDate" type="xsd:date" />
+  <xsd:element name="Code" type="common:CodeType" />
+  <xsd:element name="CommercialRetailCode" type="common:CommercialRetailCodeType" />
+  <xsd:element name="CostCenterNumber" type="common:CostCenterNumberType" />
+  <xsd:element name="CountryCode" type="common:CountryCodeType" />
+  <xsd:element name="CurrentBalance" type="common:MoneyType" />
+  <xsd:element name="CustomerId" type="common:AccountNumberType" />
+  <xsd:element name="CustomerInformation" type="common:CustomerInformationType" />
+  <xsd:element name="CustomerName" type="common:SignerNameType" />
+  <xsd:element name="CustomerNumber" type="common:CustomerNumberType" />
+  <xsd:element name="CustomerTypeCode" type="common:CustomerTypeCodeType" />
+  <xsd:element name="Description" type="common:Description12Type" />
+  <xsd:element name="EmailAddress" type="common:EmailAddressType" />
+  <xsd:element name="EmailTypeCode" type="common:EmailTypeCodeType" />
+  <xsd:element name="EmployeeCode" type="common:OneCharacterCodeType" />
+  <xsd:element name="ExpirationDate" type="xsd:date" />
+  <xsd:element name="FederalWithholdingCode" type="common:FederalWithholdingCodeType" />
+  <xsd:element name="FeeAmount" type="xsd:decimal" />
+  <xsd:element name="FullAddress" type="common:FullAddressType" />
+  <xsd:element name="FullName" type="common:SignerNameType" />
+  <xsd:element name="Hash" type="xsd:string">
+    <xsd:annotation>
+      <xsd:documentation>
+				The Hash element should only be used by Channels that have been
+				asked to send it.  All others should EXCLUDE it in their request.
+			</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="HomePhoneNumber" type="common:PhoneNumberType" />
+  <xsd:element name="HusbandMotherMaidenName" type="common:MaidenNameType" />
+  <xsd:element name="Id" type="common:IdType" />
+  <xsd:element name="IdNumber" type="common:IdNumberType" />
+  <xsd:element name="IdType" type="common:IdTypeType" />
+  <xsd:element name="InterestPayDisp" type="common:InterestPayDispType" />
+  <xsd:element name="InterestPlan" type="common:InterestPlanType" />
+  <xsd:element name="InterestRate" type="common:InterestRateType" />
+  <xsd:element name="InterestTerm" type="common:InterestTermType" />
+  <xsd:element name="InterestTransAppl" type="common:InterestTransApplType" />
+  <xsd:element name="InterestTransferAccountNumber" type="common:InterestTransferAccountNumberType" />
+  <xsd:element name="IraCode" type="common:IraCodeType" />
+  <xsd:element name="IraNumber" type="common:AccountNumberType" />
+  <xsd:element name="IsCollateral" type="xsd:boolean" />
+  <xsd:element name="IssueDate" type="xsd:date" />
+  <xsd:element name="IssuerCode" type="common:IssuerCodeType" />
+  <xsd:element name="MailingCode" type="common:MailingCodeType" />
+  <xsd:element name="MapCode" type="common:MapCodeType" />
+  <xsd:element name="MaturityDate" type="xsd:date" />
+  <xsd:element name="Message" type="xsd:string" />
+  <xsd:element name="MessageIndicator" type="common:OneCharacterCodeType" />
+  <xsd:element name="Month" type="common:MonthType" />
+  <xsd:element name="MothersMaidenName" type="common:MaidenNameType" />
+  <xsd:element name="NextInterestDate" type="xsd:date" />
+  <xsd:element name="NextMaturityDate" type="xsd:date" />
+  <xsd:element name="Officer1" type="common:OfficerCodeType" />
+  <xsd:element name="Officer2" type="common:OfficerCodeType" />
+  <xsd:element name="OfficerCode" type="common:OfficerCodeType" />
+  <xsd:element name="OfficerDescription1" type="common:OfficerDescriptionCodeType" />
+  <xsd:element name="OfficerDescription2" type="common:OfficerDescriptionCodeType" />
+  <xsd:element name="OpenDate" type="xsd:date" />
+  <xsd:element name="PhoneNumber" type="common:PhoneNumberType" />
+  <xsd:element name="PhoneNumber1" type="common:PhoneNumberType" />
+  <xsd:element name="PhoneNumber2" type="common:PhoneNumberType" />
+  <xsd:element name="PostalCode" type="common:PostalCodeType" />
+  <xsd:element name="PreviousDayEndingBalance" type="common:MoneyType" />
+  <xsd:element name="PrimaryEmailAddress" type="common:EmailAddressType" />
+  <xsd:element name="PrimaryPhoneExt" type="common:PhoneExtensionType" />
+  <xsd:element name="PrimaryPhoneNumber" type="common:PhoneNumberType" />
+  <xsd:element name="PrimeIndex" type="common:PrimeIndexType" />
+  <xsd:element name="PrimeIndicatorNumber" type="common:PrimeIndicatorNumberType" />
+  <xsd:element name="PrimeSign" type="common:PrimeSignType" />
+  <xsd:element name="ProductCode" type="common:ProductCodeType" />
+  <xsd:element name="ProductType" type="common:ProductTypeType" />
+  <xsd:element name="Province" type="common:ProvinceType" />
+  <xsd:element name="RcifProductCode" type="common:RcifProductCodeType" />
+  <xsd:element name="RelationshipCode" type="common:RelationshipCodeType" />
+  <xsd:element name="RelationshipType" type="common:RelationshipTypeType" />
+  <xsd:element name="RenewalFrequency" type="common:RenewalFrequencyType" />
+  <xsd:element name="RenewalOption" type="common:RenewalOptionType" />
+  <xsd:element name="RenewalTerm" type="common:RenewalTermType" />
+  <xsd:element name="ReportCode" type="common:OneCharacterCodeType" />
+  <xsd:element name="ReportingCode" type="common:ReportingCodeType" />
+  <xsd:element name="SecondaryOfficerCode" type="common:OfficerCodeType" />
+  <xsd:element name="SecondaryPhoneExt" type="common:PhoneExtensionType" />
+  <xsd:element name="SecondaryPhoneNumber" type="common:PhoneNumberType" />
+  <xsd:element name="ServiceChargeCode" type="common:ServiceChargeCodeType" />
+  <xsd:element name="ServiceChargeParm" type="common:ServiceChargeParametersType" />
+  <xsd:element name="ServiceWaiveReason" type="common:ServiceWaiveReasonType" />
+  <xsd:element name="ServiceWaiveTerm" type="common:ServiceWaiveTermType" />
+  <xsd:element name="ShortName" type="common:ShortNameType" />
+  <xsd:element name="Signer" type="common:SignerType" />
+  <xsd:element name="SignerList" type="common:SignerListType" />
+  <xsd:element name="SocialSecurityNumber" type="common:TinType" />
+  <xsd:element name="SpecialHandlingCode" type="common:OneCharacterCodeType" />
+  <xsd:element name="StateAbbreviation" type="common:StateAbbreviationType" />
+  <xsd:element name="StatementDay" type="common:StatementDayType" />
+  <xsd:element name="StatementFrequency" type="common:StatementFrequencyType" />
+  <xsd:element name="StatementTerm" type="common:StatementTermType" />
+  <xsd:element name="StatusCode" type="common:StatusCodeType" />
+  <xsd:element name="StreetAddress" type="common:StreetAddressType" />
+  <xsd:element name="TaxIdNumber" type="common:TinType" />
+  <xsd:element name="TiebreakerNumber" type="common:TiebreakerNumberType" />
+  <xsd:element name="Tin" type="common:TinType" />
+  <xsd:element name="TinType" type="common:TinTypeType" />
+  <xsd:element name="TransactionId" type="xsd:string">
+    <xsd:annotation>
+      <xsd:documentation>
+				If TransactionId is omitted it will be created within the operation,
+				used in logging, and returned to the calling client.
+			</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:element name="Type" type="common:EmailTypeCodeType" />
+  <xsd:element name="UserId" type="common:UserIdType" />
+  <xsd:element name="VerboseMessage" type="common:MessageType" />
+  <xsd:element name="WifeMaidenName" type="common:MaidenNameType" />
+  <xsd:element name="WorkPhoneNumber" type="common:PhoneNumberType" />
+  <xsd:element name="Year" type="common:YearType" />
+  <xsd:element name="ZipCode" type="common:ZipCodeType" />
+  <xsd:simpleType name="AccountingCodeType">
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive value="1" />
+      <xsd:maxInclusive value="9999999" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="AccountRelationshipType">
+    <xsd:annotation>
+      <xsd:documentation>
+				02 = Joint and
+				03 = Joint Or
+				05 = Sole Owner
+				07 = Bus DBA
+				08 = Auth User
+				09 = Trust
+				10 = Prin Owner
+				11 = Borrower
+				13 = Sole Proprietor
+				20 = Estate
+				31 = Borrower 1
+				32 = Borrower 2
+				41 = Co-Maker 1
+				42 = Co-Maker 2
+				45 = Auth Debit
+				52 = Attorney
+				53 = Beneficiary
+				54 = Co-Borrower
+				55 = Co-Executor
+				57 = Co-Trustee
+				58 = Custodian
+				59 = Executor
+				60 = Grantor
+				61 = Guarantor
+				63 = Non-Title
+				64 = Agent
+				66 = Principal
+				68 = Trustee
+				70 = IB User
+				71 = IB View
+				72 = LLC
+				73 = Corporation
+				74 = Partnership
+				88 = Duplicate
+				89 = Rel Pricing            
+			</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="JOINT AND" />
+      <xsd:enumeration value="JOINT OR" />
+      <xsd:enumeration value="SOLE OWNER" />
+      <xsd:enumeration value="BUS DBA" />
+      <xsd:enumeration value="AUTH USER" />
+      <xsd:enumeration value="TRUST" />
+      <xsd:enumeration value="PRIN OWNER" />
+      <xsd:enumeration value="BORROWER" />
+      <xsd:enumeration value="SOLE PROPRIETOR" />
+      <xsd:enumeration value="ESTATE" />
+      <xsd:enumeration value="BORROWER 1" />
+      <xsd:enumeration value="BORROWER 2" />
+      <xsd:enumeration value="CO-MAKER 1" />
+      <xsd:enumeration value="CO-MAKER 2" />
+      <xsd:enumeration value="AUTH DEBIT" />
+      <xsd:enumeration value="ATTORNEY" />
+      <xsd:enumeration value="BENEFICIARY" />
+      <xsd:enumeration value="CO-BORROWER" />
+      <xsd:enumeration value="CO-EXECUTOR" />
+      <xsd:enumeration value="CO-TRUSTEE" />
+      <xsd:enumeration value="CUSTODIAN" />
+      <xsd:enumeration value="EXECUTOR" />
+      <xsd:enumeration value="GRANTOR" />
+      <xsd:enumeration value="GUARANTOR" />
+      <xsd:enumeration value="NON-TITLE" />
+      <xsd:enumeration value="AGENT" />
+      <xsd:enumeration value="PRINCIPAL" />
+      <xsd:enumeration value="TRUSTEE" />
+      <xsd:enumeration value="IB USER" />
+      <xsd:enumeration value="IB VIEW" />
+      <xsd:enumeration value="LLC" />
+      <xsd:enumeration value="CORPORATION" />
+      <xsd:enumeration value="PARTNERSHIP" />
+      <xsd:enumeration value="DUPLICATE" />
+      <xsd:enumeration value="REL PRICING" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="AccountNumberType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Account Number to which this information applies.
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="20" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="AggregateInterestRateType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Code for type of interest rate
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:decimal">
+      <xsd:fractionDigits value="5" />
+      <xsd:totalDigits value="11" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="AlternateContactTypeType">
+    <xsd:annotation>
+      <xsd:documentation>
+				Indicates an alternate contact type
+				C = Cell Phone
+				P = Pager
+				O = Other
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="C" />
+      <xsd:enumeration value="P" />
+      <xsd:enumeration value="O" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="AccountStatusCodeType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Account Status Code for a given Account Number.
+            Space = Normal Processing or Status Unavailable    
+                A = Auth Prohibited
+                B = Bankrupt
+                C = Closed
+                D = Dormant
+                E = Revoked
+                F = Frozen
+                I = Inactive
+                L = Lost
+                N = New Today
+                O = Open
+                P = Pending Purge
+                R = Recent Open
+                U = Stolen
+                0 = Open
+                1 = Blocked
+                2 = Warm
+                3 = Hot (Lost/Stolen)
+                4 = Closed
+                5 = Blocked
+                8 = Closed This Month
+                9 = Closed Last Month
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value=" " />
+      <xsd:enumeration value="A" />
+      <xsd:enumeration value="B" />
+      <xsd:enumeration value="C" />
+      <xsd:enumeration value="D" />
+      <xsd:enumeration value="E" />
+      <xsd:enumeration value="F" />
+      <xsd:enumeration value="I" />
+      <xsd:enumeration value="L" />
+      <xsd:enumeration value="N" />
+      <xsd:enumeration value="O" />
+      <xsd:enumeration value="P" />
+      <xsd:enumeration value="R" />
+      <xsd:enumeration value="U" />
+      <xsd:enumeration value="0" />
+      <xsd:enumeration value="1" />
+      <xsd:enumeration value="2" />
+      <xsd:enumeration value="3" />
+      <xsd:enumeration value="4" />
+      <xsd:enumeration value="5" />
+      <xsd:enumeration value="8" />
+      <xsd:enumeration value="9" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="AccountStatusType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Account Status for a given Account Number.
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="CLOSED" />
+      <xsd:enumeration value="DELETED" />
+      <xsd:enumeration value="ERASED" />
+      <xsd:enumeration value="OPEN" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="AccountTypeCodeType">
+    <xsd:annotation>
+      <xsd:documentation>Account Code</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="3" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="AddUpdateDeleteCodeType">
+    <xsd:annotation>
+      <xsd:documentation>
+				Indicates Add Update or Delete
+				A = Add
+				D = Delete
+				U = Update
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="A" />
+      <xsd:enumeration value="D" />
+      <xsd:enumeration value="U" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="BankCodeType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Bank Code
+                Blank for Zions
+                N: Nevada
+                C: Colorado
+                etc...
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="common:OneCharacterCodeType" />
+  </xsd:simpleType>
+  <xsd:simpleType name="BankNumberType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Identification number of the affiliate.
+                0001: Zions First National Bank
+                0013: Vectrabank Colorado
+                0018: Nevada State Bank
+                0116: National Bank of Arizona
+                0140: California Bank and Trust
+                0150: Commerce Bank of Washington
+                0175: Amegy Bank Texas
+                0190: Commerce Bank of Oregon
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="0001" />
+      <xsd:enumeration value="0013" />
+      <xsd:enumeration value="0018" />
+      <xsd:enumeration value="0116" />
+      <xsd:enumeration value="0140" />
+      <xsd:enumeration value="0150" />
+      <xsd:enumeration value="0175" />
+      <xsd:enumeration value="0190" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="BranchNumberType">
+    <xsd:annotation>
+      <xsd:documentation>Customer Branch</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive value="0" />
+      <xsd:maxInclusive value="99999" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CardNumberType">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[0-9]{16}" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ChannelType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Identifies the client application making the request. 
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="AmazingRewards" />
+      <xsd:enumeration value="Appro" />
+      <xsd:enumeration value="BankCard" />
+      <xsd:enumeration value="BPM" />
+      <xsd:enumeration value="branch" />
+      <xsd:enumeration value="CallCenter" />
+      <xsd:enumeration value="CapitalStream" />
+      <xsd:enumeration value="ContactManagement" />
+      <xsd:enumeration value="CorporateBanking" />
+      <xsd:enumeration value="esspsoa" />
+      <xsd:enumeration value="FileNet" />
+      <xsd:enumeration value="Internet" />
+      <xsd:enumeration value="internetbanking" />
+      <xsd:enumeration value="IVR" />
+      <xsd:enumeration value="Mobile" />
+      <xsd:enumeration value="NetCaptureBranch" />
+      <xsd:enumeration value="OpenSpan" />
+      <xsd:enumeration value="Portal" />
+      <xsd:enumeration value="RefundTracking" />
+      <xsd:enumeration value="RetailLoanOrigination" />
+      <xsd:enumeration value="ServiceIntegrator" />
+      <xsd:enumeration value="Wires" />
+      <xsd:enumeration value="Test" />
+      <xsd:enumeration value="zeus" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CityType">
+    <xsd:annotation>
+      <xsd:documentation>City portion of address</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="35" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ClassCodeType">
+    <xsd:annotation>
+      <xsd:documentation>Class Code</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="2" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ClassOfServiceType">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0" />
+      <xsd:maxLength value="50" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CodeType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Represents the return code from the mainframe.
+                Additionally, a code of 115 ("CE" for zeus") means that the middleware
+                could not communicate with the mainframe.
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="2" />
+      <xsd:maxLength value="4" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CommercialRetailCodeType">
+    <xsd:annotation>
+      <xsd:documentation>Indicates if this is a Commercial or Retail account</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="C" />
+      <xsd:enumeration value="R" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CommonRequestVersionType">
+    <xsd:annotation>
+      <xsd:documentation>Denotes version of common input fields used</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="8" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CorrelationIdType">
+    <xsd:annotation>
+      <xsd:documentation>
+				Correlates logging of service call from client through middle tier, to back end.
+				If CorrelationId is omitted it will be created within the operation,
+				used in logging, and returned to the calling client.
+			</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="64" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CostCenterNumberType">
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive value="0" />
+      <xsd:maxInclusive value="99999" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CountryCodeType">
+    <xsd:annotation>
+      <xsd:documentation>Country code portion of foreign address</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="common:ThreeCharacterCodeType" />
+  </xsd:simpleType>
+  <xsd:simpleType name="CountType">
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive value="0" />
+      <xsd:maxInclusive value="999" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CustomerAccumType">
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive value="0" />
+      <xsd:maxInclusive value="999" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CustomerAlphaType">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="14" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CustomerNumberType">
+    <xsd:restriction base="xsd:integer">
+      <xsd:minInclusive value="1" />
+      <xsd:maxInclusive value="9999999999999" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CustomerTypeCodeType">
+    <xsd:restriction base="common:OneCharacterCodeType" />
+  </xsd:simpleType>
+  <xsd:simpleType name="Description40Type">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="40" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="Description12Type">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="12" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="EmailAddressType">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="5" />
+      <xsd:maxLength value="50" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="EmailTypeCodeType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Valid Values are P: Primary or Space: not Primary
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="P" />
+      <xsd:enumeration value=" " />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="EmployeeCodeType">
+    <xsd:annotation>
+      <xsd:documentation>
+              E - Employee
+              D - Director
+              O - Officer
+              B - Business
+              P - Public Funds
+              N - None
+              C - Church
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="1" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="FederalWithholdingCodeType">
+    <xsd:annotation>
+      <xsd:documentation>Federal Withholding Tax Code or blank, p.3-59.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="common:OneCharacterCodeType" />
+  </xsd:simpleType>
+  <xsd:simpleType name="FullAddressType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="72" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="IdNumberType">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0" />
+      <xsd:maxLength value="30" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="IdTypeType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="4" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="InterestPayDispType">
+    <xsd:annotation>
+      <xsd:documentation>
+			  How Interest is paid.
+			  
+			  C (Capitalize Interest)
+			  P (Pay Interest by Check)
+			  T (Transfer to another account)
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="C" />
+      <xsd:enumeration value="P" />
+      <xsd:enumeration value="T" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="InterestPlanType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Code for type of interest plan
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="common:OneCharacterCodeType" />
+  </xsd:simpleType>
+  <xsd:simpleType name="InterestRateType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Code for type of interest rate
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:decimal">
+      <xsd:minInclusive value="0" />
+      <xsd:maxInclusive value="1" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="InterestTermType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Interest Term Type
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:short">
+      <xsd:minInclusive value="1" />
+      <xsd:maxInclusive value="999" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="InterestTransApplType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Interest Transfer Application Code
+                Required if InterestPayDisp == 'T'
+                01: DDA
+                03: Credit Line
+                04: Savings
+                08: Time
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="01" />
+      <xsd:enumeration value="03" />
+      <xsd:enumeration value="04" />
+      <xsd:enumeration value="08" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="InterestTransferAccountNumberType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Interest Transfer Account
+                Required if InterestPayDisp == 'T'
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="common:AccountNumberType" />
+  </xsd:simpleType>
+  <xsd:simpleType name="InterfaceVersionType">
+    <xsd:annotation>
+      <xsd:documentation>Denotes version of operation interface being requested</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="8" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="IraCodeType">
+    <xsd:annotation>
+      <xsd:documentation>
+              C (Corporate account)
+              E (Educational IRA)
+              I (IRA)
+              J (Joint)
+              K (Keogh)
+              N (Not a retirement account)
+              O (Other)
+              R (Roth IRA)
+              S (SEP)
+              T (Transitional Roth IRA)
+              V (VERSA)
+      		</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="C" />
+      <xsd:enumeration value="E" />
+      <xsd:enumeration value="I" />
+      <xsd:enumeration value="J" />
+      <xsd:enumeration value="K" />
+      <xsd:enumeration value="N" />
+      <xsd:enumeration value="O" />
+      <xsd:enumeration value="R" />
+      <xsd:enumeration value="S" />
+      <xsd:enumeration value="T" />
+      <xsd:enumeration value="V" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="IraNumberType">
+    <xsd:annotation>
+      <xsd:documentation>
+                IRA Account Number
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:long">
+      <xsd:minInclusive value="1" />
+      <xsd:maxInclusive value="999999999999999999" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="IssuerCodeType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="10" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="MoneyType">
+    <xsd:restriction base="xsd:decimal">
+      <xsd:fractionDigits value="2" />
+      <xsd:totalDigits value="13" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="MaidenNameType">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0" />
+      <xsd:maxLength value="40" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="MailingCodeType">
+    <xsd:annotation>
+      <xsd:documentation>
+			  blank - NORMAL MAIL   No special circumstances recorded
+			  B -     BAD ADDR      Bad Address
+			  H -     HOLD MAIL     Hold mail for customer pickup
+			  O -     CODE-1 OVRDE  Code-1 Override
+			  S -     SPEC HANDLING Special handling required
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="1" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="MapCodeType">
+    <xsd:annotation>
+      <xsd:documentation>
+                The Affinity Code or blank, p.3-66.
+                Used only by Colorado.
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="3" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="MonthType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="01" />
+      <xsd:enumeration value="02" />
+      <xsd:enumeration value="03" />
+      <xsd:enumeration value="04" />
+      <xsd:enumeration value="05" />
+      <xsd:enumeration value="06" />
+      <xsd:enumeration value="07" />
+      <xsd:enumeration value="08" />
+      <xsd:enumeration value="09" />
+      <xsd:enumeration value="10" />
+      <xsd:enumeration value="11" />
+      <xsd:enumeration value="12" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="MonthYearType">
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="5" />
+      <xsd:pattern value="[0-9]{2}[\-/][0-9]{2}" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="OfficerCodeType">
+    <xsd:annotation>
+      <xsd:documentation>Officer Code</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0" />
+      <xsd:maxLength value="9" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="OfficerDescriptionCodeType">
+    <xsd:annotation>
+      <xsd:documentation>Officer Description</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0" />
+      <xsd:maxLength value="2" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="OneCharacterCodeType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Used for single character codes where the 
+                enumeration is not known
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="1" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="PayableOnDeathCodeType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Represents the return code from the mainframe.
+                Additionally, a code of 115 ("CE" for zeus") means that the middleware
+                could not communicate with the mainframe.
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="2" />
+      <xsd:maxLength value="4" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="PhoneExtensionType">
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive value="0" />
+      <xsd:maxInclusive value="99999" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="PhoneNumberType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="20" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="PostalCodeType">
+    <xsd:annotation>
+      <xsd:documentation>Postal Code portion of foreign address</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="10" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="PrimeIndexType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Prime Index Type
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive value="1" />
+      <xsd:maxInclusive value="99999" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="PrimeIndicatorNumberType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Prime Index Type
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive value="0" />
+      <xsd:maxInclusive value="999" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="PrimeSignType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Add or subtract from Prime Rate.
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="+" />
+      <xsd:enumeration value="-" />
+      <xsd:enumeration value=" " />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ProductCodeType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Identifies the product to which this information applies.
+                ATM, DDA, SAV, IBN, CRL, MCA, VBC, VSA
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="ATM" />
+      <xsd:enumeration value="DDA" />
+      <xsd:enumeration value="CRL" />
+      <xsd:enumeration value="IBN" />
+      <xsd:enumeration value="MCA" />
+      <xsd:enumeration value="SAV" />
+      <xsd:enumeration value="VBC" />
+      <xsd:enumeration value="VSA" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ProvinceType">
+    <xsd:annotation>
+      <xsd:documentation>Province portion of foreign address</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="common:TwoCharacterCodeType" />
+  </xsd:simpleType>
+  <xsd:simpleType name="ProductTypeType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Identifies the product type to which this information applies.
+                ie. 101, 730, 620, 810, 822, etc...
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="3" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="RcifProductCodeType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Identifies the rcif product to which this information applies.
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="ATM" />
+      <xsd:enumeration value="AUTO" />
+      <xsd:enumeration value="BLOAN" />
+      <xsd:enumeration value="CD" />
+      <xsd:enumeration value="CHO" />
+      <xsd:enumeration value="CID" />
+      <xsd:enumeration value="CLA" />
+      <xsd:enumeration value="CLCUST" />
+      <xsd:enumeration value="CLLOAN" />
+      <xsd:enumeration value="CRL" />
+      <xsd:enumeration value="CUST" />
+      <xsd:enumeration value="DDA" />
+      <xsd:enumeration value="DUP" />
+      <xsd:enumeration value="FLOOR" />
+      <xsd:enumeration value="GTY" />
+      <xsd:enumeration value="HECL" />
+      <xsd:enumeration value="HRL" />
+      <xsd:enumeration value="IBN" />
+      <xsd:enumeration value="ILA" />
+      <xsd:enumeration value="ILADV" />
+      <xsd:enumeration value="ILCOM" />
+      <xsd:enumeration value="ILOAN" />
+      <xsd:enumeration value="ILRE" />
+      <xsd:enumeration value="INVEST" />
+      <xsd:enumeration value="IRA" />
+      <xsd:enumeration value="LEASE" />
+      <xsd:enumeration value="MCA" />
+      <xsd:enumeration value="MLOAN" />
+      <xsd:enumeration value="MMDA" />
+      <xsd:enumeration value="REDDI" />
+      <xsd:enumeration value="RP" />
+      <xsd:enumeration value="SAV" />
+      <xsd:enumeration value="SDB" />
+      <xsd:enumeration value="TCL" />
+      <xsd:enumeration value="ULTCD" />
+      <xsd:enumeration value="VBC" />
+      <xsd:enumeration value="VRU" />
+      <xsd:enumeration value="VSA" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="RenewalFrequencyType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="D" />
+      <xsd:enumeration value="M" />
+      <xsd:enumeration value="N" />
+      <xsd:enumeration value="X" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="RenewalOptionType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="A" />
+      <xsd:enumeration value="S" />
+      <xsd:enumeration value=" " />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="RenewalTermType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Renewal Term Type
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive value="1" />
+      <xsd:maxInclusive value="999" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ReportingCodeType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Statement disposition code.  For DDA
+                C: Checks
+                D: CD/Stmt
+                E: Electronic
+                I: Imaged
+                M: Missionary
+                R: CD Only
+                S: Suppressed
+                T: Truncated.
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="C" />
+      <xsd:enumeration value="D" />
+      <xsd:enumeration value="E" />
+      <xsd:enumeration value="I" />
+      <xsd:enumeration value="M" />
+      <xsd:enumeration value="R" />
+      <xsd:enumeration value="S" />
+      <xsd:enumeration value="T" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="RelationshipCodeType">
+    <xsd:annotation>
+      <xsd:documentation>
+				02 = Joint and
+				03 = Joint Or
+				05 = Sole Owner
+				07 = Bus DBA
+				08 = Auth User
+				09 = Trust
+				10 = Prin Owner
+				11 = Borrower
+				13 = Sole Proprietor
+				20 = Estate
+				31 = Borrower 1
+				32 = Borrower 2
+				41 = Co-Maker 1
+				42 = Co-Maker 2
+				45 = Auth Debit
+				52 = Attorney
+				53 = Beneficiary
+				54 = Co-Borrower
+				55 = Co-Executor
+				57 = Co-Trustee
+				58 = Custodian
+				59 = Executor
+				60 = Grantor
+				61 = Guarantor
+				63 = Non-Title
+				64 = Agent
+				66 = Principal
+				68 = Trustee
+				70 = IB User
+				71 = IB View
+				72 = LLC
+				73 = Corporation
+				74 = Partnership
+				88 = Duplicate
+				89 = Rel Pricing            
+			</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="02" />
+      <xsd:enumeration value="03" />
+      <xsd:enumeration value="05" />
+      <xsd:enumeration value="07" />
+      <xsd:enumeration value="08" />
+      <xsd:enumeration value="09" />
+      <xsd:enumeration value="10" />
+      <xsd:enumeration value="11" />
+      <xsd:enumeration value="13" />
+      <xsd:enumeration value="20" />
+      <xsd:enumeration value="31" />
+      <xsd:enumeration value="32" />
+      <xsd:enumeration value="41" />
+      <xsd:enumeration value="42" />
+      <xsd:enumeration value="45" />
+      <xsd:enumeration value="52" />
+      <xsd:enumeration value="53" />
+      <xsd:enumeration value="54" />
+      <xsd:enumeration value="55" />
+      <xsd:enumeration value="57" />
+      <xsd:enumeration value="58" />
+      <xsd:enumeration value="59" />
+      <xsd:enumeration value="60" />
+      <xsd:enumeration value="61" />
+      <xsd:enumeration value="63" />
+      <xsd:enumeration value="64" />
+      <xsd:enumeration value="66" />
+      <xsd:enumeration value="68" />
+      <xsd:enumeration value="70" />
+      <xsd:enumeration value="71" />
+      <xsd:enumeration value="72" />
+      <xsd:enumeration value="73" />
+      <xsd:enumeration value="74" />
+      <xsd:enumeration value="88" />
+      <xsd:enumeration value="89" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="RelationshipTypeType">
+    <xsd:annotation>
+      <xsd:documentation>
+				Identifies the relationship between a customer and an account.
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="AGENT" />
+      <xsd:enumeration value="ATTORNEY" />
+      <xsd:enumeration value="AUTH DEBIT" />
+      <xsd:enumeration value="AUTH USER" />
+      <xsd:enumeration value="BENEFICIARY" />
+      <xsd:enumeration value="BORROWER" />
+      <xsd:enumeration value="BORROWER 1" />
+      <xsd:enumeration value="BORROWER 2" />
+      <xsd:enumeration value="BUS DBA" />
+      <xsd:enumeration value="CO-BORROWER" />
+      <xsd:enumeration value="CO-EXECUTOR" />
+      <xsd:enumeration value="CO-MAKER 1" />
+      <xsd:enumeration value="CO-MAKER 2" />
+      <xsd:enumeration value="CORPORATION" />
+      <xsd:enumeration value="CO-TRUSTEE" />
+      <xsd:enumeration value="CUSTODIAN" />
+      <xsd:enumeration value="DUPLICATE" />
+      <xsd:enumeration value="ESTATE" />
+      <xsd:enumeration value="EXECUTOR" />
+      <xsd:enumeration value="GRANTOR" />
+      <xsd:enumeration value="GUARANTOR" />
+      <xsd:enumeration value="IB USER" />
+      <xsd:enumeration value="IB VIEW" />
+      <xsd:enumeration value="JOINT AND" />
+      <xsd:enumeration value="JOINT OR" />
+      <xsd:enumeration value="LLC" />
+      <xsd:enumeration value="NON-TITLE" />
+      <xsd:enumeration value="PARTNERSHIP" />
+      <xsd:enumeration value="PRIN OWNER" />
+      <xsd:enumeration value="PRINCIPAL" />
+      <xsd:enumeration value="REL PRICING" />
+      <xsd:enumeration value="SOLE OWNER" />
+      <xsd:enumeration value="SOLE PROPRIETOR" />
+      <xsd:enumeration value="TRUST" />
+      <xsd:enumeration value="TRUSTEE" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="RoutingNumberType">
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="9" />
+      <xsd:pattern value="[0-9]" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ServiceChargeCodeType">
+    <xsd:annotation>
+      <xsd:documentation>
+                A = Charge
+                C = Combine
+                E = Exclude Statement Option Fee
+                O = Statement Option
+                P = Combine and Review
+                R = Review
+                S = Charge and Analysis
+                W = Waive
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="A" />
+      <xsd:enumeration value="C" />
+      <xsd:enumeration value="E" />
+      <xsd:enumeration value="O" />
+      <xsd:enumeration value="P" />
+      <xsd:enumeration value="R" />
+      <xsd:enumeration value="S" />
+      <xsd:enumeration value="W" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ServiceChargeParametersType">
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive value="0" />
+      <xsd:maxInclusive value="999" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ServiceWaiveReasonType">
+    <xsd:annotation>
+      <xsd:documentation>
+                EM, AR, SC, or blanks, p.3-48.
+                Now accepts any two alphanumeric characters.
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="common:TwoCharacterCodeType" />
+  </xsd:simpleType>
+  <xsd:simpleType name="ServiceWaiveTermType">
+    <xsd:annotation>
+      <xsd:documentation>Number of months to waived service charge</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive value="0" />
+      <xsd:maxInclusive value="999" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ShortNameType">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="15" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="SignerNameType">
+    <xsd:annotation>
+      <xsd:documentation>Primary or Secondary customer name.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="40" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="SpecialHandlingCodeType">
+    <xsd:restriction base="common:OneCharacterCodeType" />
+  </xsd:simpleType>
+  <xsd:simpleType name="StateAbbreviationType">
+    <xsd:annotation>
+      <xsd:documentation>State portion of address</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="(AA|AB|AK|AL|AP|AR|AS|AZ|CA|CO|CT|DC|DE|FL|FM|GA|GW|HI|IA|ID|IL|IN|KS|KY|LA|MA|MD|ME|MH|MI|MN|MO|MP|MS|MT|NC|ND|NE|NH|NJ|NM|NV|NY|OH|OK|OR|PA|PR|PW|RI|SC|SD|TN|TX|UT|VA|VI|VT|WA|WI|WV|WY|XX)" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="StatementDayType">
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive value="0" />
+      <xsd:maxInclusive value="99" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="StatementFrequencyType">
+    <xsd:annotation>
+      <xsd:documentation>
+                C, D, or M for DDA.
+                M for Savings.
+                Does limited checking with acct type and application.  (The program will
+                accept a P or C for DDA or Savings but Zeus won't send it.)
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="C" />
+      <xsd:enumeration value="D" />
+      <xsd:enumeration value="M" />
+      <xsd:enumeration value="P" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="StatementTermType">
+    <xsd:annotation>
+      <xsd:documentation>
+                If statement frequency is D or M, this is the statement term.
+                If C it is the cycle number.
+                If P it is the first statement day of the month.
+                No other cutoff days are currently included here for P.  P.3-42.
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive value="0" />
+      <xsd:maxInclusive value="999" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="StatusCodeType">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0" />
+      <xsd:maxLength value="1" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="StatusType">
+    <xsd:restriction base="common:OneCharacterCodeType" />
+  </xsd:simpleType>
+  <xsd:simpleType name="StreetAddressType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Street Address
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="40" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="String40Type">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0" />
+      <xsd:maxLength value="40" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ThreeCharacterCodeType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Used for three character codes where the 
+                enumeration is not known
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="0" />
+      <xsd:maxLength value="3" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="TiebreakerNumberType">
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive value="1" />
+      <xsd:maxInclusive value="9999" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="TinType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Can contain a TIN or SSN with or without hyphens
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="(\d{3}-\d{2}-\d{4})|(\d{9})|(\d{2}-\d{7})?" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="TinTypeType">
+    <xsd:annotation>
+      <xsd:documentation>
+              F - US federal ID (businesses)             
+              S - US social security Number (individuals)
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="F" />
+      <xsd:enumeration value="S" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="TraceLevelType">
+    <xsd:annotation>
+      <xsd:documentation>
+				Indicates level at with to trace to the log
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="ALL" />
+      <xsd:enumeration value="TRACE" />
+      <xsd:enumeration value="DEBUG" />
+      <xsd:enumeration value="INFO" />
+      <xsd:enumeration value="WARN" />
+      <xsd:enumeration value="ERROR" />
+      <xsd:enumeration value="FATAL" />
+      <xsd:enumeration value="OFF" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="TransactionCodeType">
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive value="1" />
+      <xsd:maxInclusive value="9999999" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="TwoCharacterCodeType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Used for two character codes where the 
+                enumeration is not known
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:length value="2" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="UserIdType">
+    <xsd:annotation>
+      <xsd:documentation>Identifies the user that is making the inquiry.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="40" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="YesNoIndicator">
+    <xsd:annotation>
+      <xsd:documentation>
+				Boolean indicator Y/N
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Y" />
+      <xsd:enumeration value="N" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="YearType">
+    <xsd:restriction base="xsd:int">
+      <xsd:pattern value="\d{4}" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ZipCodeType">
+    <xsd:annotation>
+      <xsd:documentation>Zip code portion of address</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="\d{5}(-\d{4})?" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="AccountNumberListType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" ref="common:AccountNumber" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CommonServiceRequestType">
+    <xsd:sequence>
+      <xsd:element ref="common:Hash" />
+      <xsd:element ref="common:TransactionId" />
+      <xsd:element ref="common:Channel" />
+      <xsd:element ref="common:UserId" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CommonServiceResponseType">
+    <xsd:sequence>
+      <xsd:element ref="common:Code" />
+      <xsd:element ref="common:Message" />
+      <xsd:element ref="common:TransactionId" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CustomerInformationType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" ref="common:CustomerNumber" />
+      <xsd:element minOccurs="0" ref="common:BankNumber" />
+      <xsd:element minOccurs="0" ref="common:CustomerName" />
+      <xsd:element minOccurs="0" ref="common:CustomerTypeCode" />
+      <xsd:element minOccurs="0" ref="common:Alpha" />
+      <xsd:element minOccurs="0" ref="common:Accum" />
+      <xsd:element minOccurs="0" ref="common:TiebreakerNumber" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="EmailType">
+    <xsd:annotation>
+      <xsd:documentation>Represents an email address</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element ref="common:EmailAddress" />
+      <xsd:element minOccurs="0" ref="common:EmailTypeCode" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="IdType">
+    <xsd:sequence>
+      <xsd:element ref="common:IdType" />
+      <xsd:element ref="common:IssuerCode" />
+      <xsd:element ref="common:IdNumber" />
+      <xsd:element ref="common:IssueDate" />
+      <xsd:element ref="common:ExpirationDate" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="MessageType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" ref="common:MessageIndicator" />
+      <xsd:element minOccurs="0" ref="common:Message" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SignerType">
+    <xsd:sequence>
+      <xsd:element ref="common:CustomerName" />
+      <xsd:element ref="common:TiebreakerNumber" />
+      <xsd:choice>
+        <xsd:element ref="common:RelationshipCode" />
+        <xsd:element ref="common:RelationshipType" />
+      </xsd:choice>
+      <xsd:element minOccurs="0" ref="common:CommercialRetailCode" />
+      <xsd:element minOccurs="0" ref="common:FullAddress" />
+      <xsd:element minOccurs="0" ref="common:CipEditCode" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SignerListType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="9" ref="common:Signer" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

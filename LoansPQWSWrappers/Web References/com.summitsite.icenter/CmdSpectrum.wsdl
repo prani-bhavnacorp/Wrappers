@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:connections.spectrum.summitsite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:connections.spectrum.summitsite.com" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="https://icenter.summitsite.com:7443/fiserv/SpectrumTest1/wsiservices/CmdSpectrum?xsd=1" namespace="urn:connections.spectrum.summitsite.com" />
+    </xsd:schema>
+  </types>
+  <message name="submitXML">
+    <part name="parameters" element="tns:submitXML" />
+  </message>
+  <message name="submitXMLResponse">
+    <part name="parameters" element="tns:submitXMLResponse" />
+  </message>
+  <message name="submitSTTI">
+    <part name="parameters" element="tns:submitSTTI" />
+  </message>
+  <message name="submitSTTIResponse">
+    <part name="parameters" element="tns:submitSTTIResponse" />
+  </message>
+  <message name="submitXMLCommand">
+    <part name="parameters" element="tns:submitXMLCommand" />
+  </message>
+  <message name="submitXMLCommandResponse">
+    <part name="parameters" element="tns:submitXMLCommandResponse" />
+  </message>
+  <message name="SpectrumException">
+    <part name="fault" element="tns:SpectrumException" />
+  </message>
+  <message name="submitFiAPI">
+    <part name="parameters" element="tns:submitFiAPI" />
+  </message>
+  <message name="submitFiAPIResponse">
+    <part name="parameters" element="tns:submitFiAPIResponse" />
+  </message>
+  <message name="submitSIM">
+    <part name="parameters" element="tns:submitSIM" />
+  </message>
+  <message name="submitSIMResponse">
+    <part name="parameters" element="tns:submitSIMResponse" />
+  </message>
+  <message name="getTellerIds">
+    <part name="parameters" element="tns:getTellerIds" />
+  </message>
+  <message name="getTellerIdsResponse">
+    <part name="parameters" element="tns:getTellerIdsResponse" />
+  </message>
+  <message name="submitSSP1">
+    <part name="parameters" element="tns:submitSSP1" />
+  </message>
+  <message name="submitSSP1Response">
+    <part name="parameters" element="tns:submitSSP1Response" />
+  </message>
+  <message name="submitSSP2">
+    <part name="parameters" element="tns:submitSSP2" />
+  </message>
+  <message name="submitSSP2Response">
+    <part name="parameters" element="tns:submitSSP2Response" />
+  </message>
+  <message name="submitXMLCntl">
+    <part name="parameters" element="tns:submitXMLCntl" />
+  </message>
+  <message name="submitXMLCntlResponse">
+    <part name="parameters" element="tns:submitXMLCntlResponse" />
+  </message>
+  <portType name="CmdSpectrum">
+    <operation name="submitXML">
+      <input message="tns:submitXML" />
+      <output message="tns:submitXMLResponse" />
+    </operation>
+    <operation name="submitSTTI">
+      <input message="tns:submitSTTI" />
+      <output message="tns:submitSTTIResponse" />
+    </operation>
+    <operation name="submitXMLCommand">
+      <input message="tns:submitXMLCommand" />
+      <output message="tns:submitXMLCommandResponse" />
+      <fault name="SpectrumException" message="tns:SpectrumException" />
+    </operation>
+    <operation name="submitFiAPI">
+      <input message="tns:submitFiAPI" />
+      <output message="tns:submitFiAPIResponse" />
+    </operation>
+    <operation name="submitSIM">
+      <input message="tns:submitSIM" />
+      <output message="tns:submitSIMResponse" />
+    </operation>
+    <operation name="getTellerIds">
+      <input message="tns:getTellerIds" />
+      <output message="tns:getTellerIdsResponse" />
+    </operation>
+    <operation name="submitSSP1">
+      <input message="tns:submitSSP1" />
+      <output message="tns:submitSSP1Response" />
+      <fault name="SpectrumException" message="tns:SpectrumException" />
+    </operation>
+    <operation name="submitSSP2">
+      <input message="tns:submitSSP2" />
+      <output message="tns:submitSSP2Response" />
+    </operation>
+    <operation name="submitXMLCntl">
+      <input message="tns:submitXMLCntl" />
+      <output message="tns:submitXMLCntlResponse" />
+    </operation>
+  </portType>
+</definitions>

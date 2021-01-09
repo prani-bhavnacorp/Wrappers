@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns="http://americafirst.com/MultiTransaction" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns2="http://www.americafirst.com/20070315/AccountTransaction" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MultiTransaction" targetNamespace="http://americafirst.com/MultiTransaction" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns:mrm="http://americafirst.com/MultiTransaction" xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://americafirst.com/MultiTransaction">
+      <xsd:import schemaLocation="com/americafirst/www/_20070315/accounttransaction/AcctMultiTran.xsd" namespace="http://www.americafirst.com/20070315/AccountTransaction" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="maintainMultiTransactions_in">
+    <wsdl:part name="multiTranRequest" element="tns2:multiTranRequest" />
+  </wsdl:message>
+  <wsdl:message name="maintainMultiTransactions_out">
+    <wsdl:part name="multiTranResponse" element="tns2:multiTranResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MultiTransaction_MSPortType">
+    <wsdl:operation name="maintainMultiTransactions">
+      <wsdl:input name="maintainMultiTransactions_multiTranRequest" message="tns:maintainMultiTransactions_in" />
+      <wsdl:output name="maintainMultiTransactions_multiTranResponse" message="tns:maintainMultiTransactions_out" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MultiTransaction_MSSOAP_HTTP_Binding" type="tns:MultiTransaction_MSPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="maintainMultiTransactions">
+      <soap:operation soapAction="" />
+      <wsdl:input name="maintainMultiTransactions_multiTranRequest">
+        <soap:body use="literal" parts="multiTranRequest" />
+      </wsdl:input>
+      <wsdl:output name="maintainMultiTransactions_multiTranResponse">
+        <soap:body use="literal" parts="multiTranResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MultiTransactionService">
+    <wsdl:port name="SOAP_HTTP_Port" binding="tns:MultiTransaction_MSSOAP_HTTP_Binding">
+      <soap:address location="http://lnxmqdev.americafirst.com:7080/account/MultiTransactionsService/20090213" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns="http://americafirst.com/OpenCloseAccount" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns2="http://www.americafirst.com/20070315/OpenCloseAccount" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="OpenCloseAccount" targetNamespace="http://americafirst.com/OpenCloseAccount" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns:mrm="http://americafirst.com/OpenCloseAccount" xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://americafirst.com/OpenCloseAccount">
+      <xsd:import schemaLocation="com/americafirst/www/_20070315/opencloseaccount/OpenCloseAccount.xsd" namespace="http://www.americafirst.com/20070315/OpenCloseAccount" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="closeAccount_in">
+    <wsdl:part name="closeAccountRequest" element="tns2:closeAccountRequest" />
+  </wsdl:message>
+  <wsdl:message name="closeAccount_out">
+    <wsdl:part name="closeAccountResponse" element="tns2:closeAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="openShareAccount_in">
+    <wsdl:part name="openShareAccountRequest" element="tns2:openShareAccountRequest" />
+  </wsdl:message>
+  <wsdl:message name="openShareAccount_out">
+    <wsdl:part name="openShareAccountResponse" element="tns2:openShareAccountResponse" />
+  </wsdl:message>
+  <wsdl:portType name="OpenCloseAccount_MSPortType">
+    <wsdl:operation name="closeAccount">
+      <wsdl:input name="closeAccount_closeAccountRequest" message="tns:closeAccount_in" />
+      <wsdl:output name="closeAccount_closeAccountResponse" message="tns:closeAccount_out" />
+    </wsdl:operation>
+    <wsdl:operation name="openShareAccount">
+      <wsdl:input name="openShareAccount_openShareAccountRequest" message="tns:openShareAccount_in" />
+      <wsdl:output name="openShareAccount_openShareAccountResponse" message="tns:openShareAccount_out" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OpenCloseAccount_MSSOAP_HTTP_Binding" type="tns:OpenCloseAccount_MSPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="closeAccount">
+      <soap:operation soapAction="" />
+      <wsdl:input name="closeAccount_closeAccountRequest">
+        <soap:body use="literal" parts="closeAccountRequest" />
+      </wsdl:input>
+      <wsdl:output name="closeAccount_closeAccountResponse">
+        <soap:body use="literal" parts="closeAccountResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="openShareAccount">
+      <soap:operation soapAction="" />
+      <wsdl:input name="openShareAccount_openShareAccountRequest">
+        <soap:body use="literal" parts="openShareAccountRequest" />
+      </wsdl:input>
+      <wsdl:output name="openShareAccount_openShareAccountResponse">
+        <soap:body use="literal" parts="openShareAccountResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OpenCloseAccountService">
+    <wsdl:port name="SOAP_HTTP_Port" binding="tns:OpenCloseAccount_MSSOAP_HTTP_Binding">
+      <soap:address location="http://lnxmqdev.americafirst.com:7080/account/OpenCloseAccountService/20070315" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

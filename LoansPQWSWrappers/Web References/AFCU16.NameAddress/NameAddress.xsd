@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:cmn="http://www.americafirst.com/20070315/CommonTypes" xmlns:nas="http://www.americafirst.com/20070315/Member/NameAddress" xmlns:hdr="http://www.americafirst.com/20070315/AFCUHeader" targetNamespace="http://www.americafirst.com/20070315/Member/NameAddress" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema">
+  <import schemaLocation="../../afcuheader/AFCUHeader.xsd" namespace="http://www.americafirst.com/20070315/AFCUHeader" />
+  <import schemaLocation="../../commontypes/CommonTypes.xsd" namespace="http://www.americafirst.com/20070315/CommonTypes" />
+  <annotation>
+    <appinfo>
+			Name And Address Inquiry and Maintenance, Author Jared
+			Monson
+		</appinfo>
+    <documentation>
+			This schema supports the Web Service and Message Broker flow
+			to provide a corporate wide interface to the Name and
+			Address information for AFCU members and non-member account
+			holders. This schema defines an interface to search for name
+			and address information by individual name, business name,
+			social security number/tax identification number, or account
+			number as well as an interface to update an existing name
+			and address record. It defines the following SOAP requests:
+			1) Inquiry Name and Address 2) Maintain Name and Address 3)
+			Add Name and Address 4) Inquire Name and Address Change
+			History 5) Inquire Account References The response for the
+			first three operations is in a common format, and contains
+			either a list of matching records from the inquiry or a copy
+			of the record that was maintained.
+
+			The maintenance request has a lot more optional fields than
+			the response. The maintenance request assumes that the
+			record being maintained already exists.
+		</documentation>
+  </annotation>
+  <element name="addNameAddressRequest" type="nas:AddNameAddressRequest" />
+  <element name="inquireNameAddressRequest" type="nas:InquireNameAddressRequest" />
+  <element name="maintainNameAddressRequest" type="nas:MaintainNameAddressRequest" />
+  <element name="nameAddressResponse" type="nas:NameAddressResponse" />
+  <element name="inquireChangeHistoryRequest" type="nas:InquireChangeHistoryRequest" />
+  <element name="inquireChangeHistoryResponse" type="nas:InquireChangeHistoryResponse" />
+  <element name="inquireAccountReferenceRequest" type="nas:InquireAccountReferenceRequest" />
+  <element name="inquireAccountReferenceResponse" type="nas:InquireAccountReferenceResponse" />
+  <complexType name="AddNameAddressRequest">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="nas:AddNARequest" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireNameAddressRequest">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="nas:InqNARequest" />
+    </sequence>
+  </complexType>
+  <complexType name="MaintainNameAddressRequest">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="nas:MtnNARequest" />
+    </sequence>
+  </complexType>
+  <complexType name="InqNARequest">
+    <sequence>
+      <element name="accountID" type="cmn:AccountID" />
+      <element name="includeAssociated" type="boolean" />
+    </sequence>
+  </complexType>
+  <complexType name="AddNARequest">
+    <sequence>
+      <element minOccurs="0" name="identification" type="nas:Identification" />
+      <element name="nameAddressData" type="nas:NameAddressData" />
+    </sequence>
+  </complexType>
+  <complexType name="MtnNARequest">
+    <sequence>
+      <element minOccurs="0" name="identification" type="nas:Identification" />
+      <element name="nameAddressData" type="nas:NameAddressData" />
+      <element minOccurs="0" name="updateJointAccounts">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="unbounded" name="jointAccount" type="cmn:AccountID" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="removeBadAddressCode" type="boolean" />
+    </sequence>
+  </complexType>
+  <complexType name="NameAddressResponse">
+    <sequence>
+      <element name="status" type="hdr:AFCUHeaderResponse" />
+      <element minOccurs="0" name="data" type="nas:NAResponse" />
+    </sequence>
+  </complexType>
+  <complexType name="NAResponse">
+    <sequence>
+      <element name="creationDate" type="date" />
+      <element name="fmDate" type="date" />
+      <element minOccurs="0" name="deletedAddress" type="boolean" />
+      <element name="nameAddressData" type="nas:NameAddressData" />
+      <element minOccurs="0" name="associatedInfo" type="nas:AssociatedInfo" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireChangeHistoryRequest">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="nas:InqCHRequest" />
+    </sequence>
+  </complexType>
+  <complexType name="InqCHRequest">
+    <sequence>
+      <element name="accountID" type="cmn:AccountID" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireChangeHistoryResponse">
+    <sequence>
+      <element name="status" type="hdr:AFCUHeaderResponse" />
+      <element minOccurs="0" name="data" type="nas:InqCHResponse" />
+    </sequence>
+  </complexType>
+  <complexType name="InqCHResponse">
+    <sequence>
+      <element minOccurs="0" name="history">
+        <complexType>
+          <sequence>
+            <element minOccurs="0" maxOccurs="unbounded" name="change" type="nas:Change" />
+          </sequence>
+          <attribute name="accountID" type="cmn:AccountID" />
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="InquireAccountReferenceRequest">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="nas:InqARRequest" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireAccountReferenceResponse">
+    <sequence>
+      <element name="status" type="hdr:AFCUHeaderResponse" />
+      <element minOccurs="0" name="data" type="nas:InqARResponse" />
+    </sequence>
+  </complexType>
+  <complexType name="InqARRequest">
+    <sequence>
+      <choice>
+        <sequence>
+          <element name="accountID" type="cmn:AccountID" />
+        </sequence>
+        <sequence>
+          <element name="ssn" type="nas:ssnType" />
+        </sequence>
+        <sequence>
+          <element name="firstName" type="nas:firstNameType" />
+          <element name="middleName" type="nas:middleNameType" />
+          <element name="lastName" type="nas:lastNameType" />
+        </sequence>
+        <sequence>
+          <element name="businessName" type="nas:businessNameType" />
+        </sequence>
+      </choice>
+      <element minOccurs="0" name="firstRow" type="int" />
+      <element minOccurs="0" name="maxRows" type="int" />
+    </sequence>
+  </complexType>
+  <complexType name="InqARResponse">
+    <sequence>
+      <element maxOccurs="unbounded" name="associated" type="nas:Associated" />
+    </sequence>
+  </complexType>
+  <complexType name="Associated">
+    <sequence>
+      <element name="associatedBy" type="nas:AssociatedBy" />
+      <element name="associatedTo" type="nas:AssociatedTo" />
+      <element name="row" type="int" />
+    </sequence>
+  </complexType>
+  <complexType name="AssociatedBy">
+    <sequence>
+      <element name="association" type="nas:associationType" />
+      <element name="subAccountID" type="cmn:SubAccountID" />
+      <element name="rIndex" type="int" />
+      <element name="refSsn" type="nas:ssnType" />
+      <element name="refName" type="string" />
+      <element minOccurs="0" name="birthDate" nillable="true" type="date" />
+    </sequence>
+  </complexType>
+  <complexType name="AssociatedTo">
+    <sequence>
+      <element name="accountID" type="cmn:AccountID" />
+      <element name="firstName" type="nas:firstNameType" />
+      <element name="middleName" type="nas:middleNameType" />
+      <element name="lastName" type="nas:lastNameType" />
+      <element minOccurs="0" name="suffixName" type="nas:suffixNameType" />
+      <element name="gender" type="nas:genderType" />
+      <element name="ssn" type="nas:ssnType" />
+      <element name="addressLine1" type="nas:addressLineType" />
+      <element name="addressLine2" type="nas:addressLineType" />
+      <element name="city" type="nas:cityType" />
+      <element name="state" type="nas:stateType" />
+      <element name="country" type="nas:countryType" />
+      <element name="zip" type="nas:zipType" />
+      <element name="zip4" type="nas:zip4Type" />
+      <element name="foreignAddress" type="boolean" />
+      <element minOccurs="0" name="birthDate" nillable="true" type="date" />
+    </sequence>
+  </complexType>
+  <complexType name="NameAddressData">
+    <sequence>
+      <element name="accountID" type="cmn:AccountID" />
+      <element name="firstName" type="nas:firstNameType" />
+      <element name="middleName" type="nas:middleNameType" />
+      <element name="lastName" type="nas:lastNameType" />
+      <element minOccurs="0" name="lastName2" type="nas:lastNameType" />
+      <element minOccurs="0" name="suffixName" type="nas:suffixNameType" />
+      <element name="shortFirstName" type="nas:shortFirstNameType" />
+      <element name="shortMiddleName" type="nas:shortMiddleNameType" />
+      <element name="shortLastName" type="nas:shortLastNameType" />
+      <element name="gender" type="nas:genderType" />
+      <element name="ssn" type="nas:ssnType" />
+      <element name="addressType" type="nas:addressTypeType" />
+      <element name="foreignAddress" type="boolean" />
+      <element name="addressLine1" type="nas:addressLineType" />
+      <element name="shortAddressLine1" type="nas:shortAddressLineType" />
+      <element name="addressLine2" type="nas:addressLineType" />
+      <element name="shortAddressLine2" type="nas:shortAddressLineType" />
+      <element name="city" type="nas:cityType" />
+      <element name="shortCity" type="nas:shortCityType" />
+      <element name="state" type="nas:stateType" />
+      <element name="country" type="nas:countryType" />
+      <element name="shortCountry" type="nas:shortCountryType" />
+      <element name="zip" type="nas:zipType" />
+      <element name="zip4" type="nas:zip4Type" />
+      <element minOccurs="0" name="birthDate" nillable="true" type="date" />
+      <element name="cellPhone" type="nas:phoneType" />
+      <element name="homePhone" type="nas:phoneType" />
+      <element name="foreignPhone" type="nas:foreignPhoneType" />
+      <element name="workPhone" type="nas:phoneType" />
+      <element name="workExt" type="nas:phoneExtType" />
+      <element name="emailAddress" type="nas:emailAddressType" />
+    </sequence>
+  </complexType>
+  <complexType name="AssociatedInfo">
+    <sequence>
+      <element maxOccurs="unbounded" name="associated" type="nas:AssociatedBy" />
+    </sequence>
+  </complexType>
+  <complexType name="Change">
+    <sequence>
+      <element name="changedFieldName" type="string" />
+      <element name="changedByName" type="string" />
+      <element name="changedByEmployeeID" type="int" />
+      <element minOccurs="0" name="changedByBranchID" nillable="true" type="int" />
+      <element name="changeDate" type="dateTime" />
+      <element minOccurs="0" name="oldValue" nillable="true" type="string" />
+      <element minOccurs="0" name="newValue" nillable="true" type="string" />
+      <element minOccurs="0" name="authorization" type="nas:Identification" />
+    </sequence>
+  </complexType>
+  <complexType name="Identification">
+    <sequence>
+      <element name="idType" type="nas:identificationType" />
+      <element name="idValue" type="nas:idValueType" />
+      <element minOccurs="0" name="state" type="nas:stateType" />
+      <element minOccurs="0" name="expirationDate" nillable="true" type="date" />
+    </sequence>
+  </complexType>
+  <simpleType name="addressLineType">
+    <restriction base="string">
+      <maxLength value="40" />
+    </restriction>
+  </simpleType>
+  <simpleType name="shortAddressLineType">
+    <restriction base="string">
+      <maxLength value="25" />
+    </restriction>
+  </simpleType>
+  <simpleType name="subAccountTypeType">
+    <restriction base="string">
+      <maxLength value="1" />
+    </restriction>
+  </simpleType>
+  <simpleType name="associationType">
+    <restriction base="string">
+      <enumeration value="Sole" />
+      <enumeration value="Primary" />
+      <enumeration value="Joint" />
+      <enumeration value="Beneficiary" />
+      <enumeration value="Trustee" />
+      <enumeration value="Joint(IRA/CD)" />
+      <enumeration value="Comaker" />
+    </restriction>
+  </simpleType>
+  <simpleType name="businessNameType">
+    <restriction base="string">
+      <maxLength value="25" />
+    </restriction>
+  </simpleType>
+  <simpleType name="firstNameType">
+    <restriction base="string">
+      <maxLength value="25" />
+    </restriction>
+  </simpleType>
+  <simpleType name="middleNameType">
+    <restriction base="string">
+      <maxLength value="25" />
+    </restriction>
+  </simpleType>
+  <simpleType name="lastNameType">
+    <restriction base="string">
+      <maxLength value="40" />
+    </restriction>
+  </simpleType>
+  <simpleType name="suffixNameType">
+    <restriction base="string">
+      <maxLength value="5" />
+      <enumeration value="Jr." />
+      <enumeration value="Sr." />
+      <enumeration value="I" />
+      <enumeration value="II" />
+      <enumeration value="III" />
+      <enumeration value="IV" />
+    </restriction>
+  </simpleType>
+  <simpleType name="shortFirstNameType">
+    <restriction base="string">
+      <maxLength value="25" />
+    </restriction>
+  </simpleType>
+  <simpleType name="shortMiddleNameType">
+    <restriction base="string">
+      <maxLength value="25" />
+    </restriction>
+  </simpleType>
+  <simpleType name="shortLastNameType">
+    <restriction base="string">
+      <maxLength value="25" />
+    </restriction>
+  </simpleType>
+  <simpleType name="genderType">
+    <restriction base="string">
+      <maxLength value="1" />
+    </restriction>
+  </simpleType>
+  <simpleType name="ssnType">
+    <restriction base="int">
+      <maxInclusive value="999999999" />
+    </restriction>
+  </simpleType>
+  <simpleType name="addressTypeType">
+    <restriction base="string">
+      <maxLength value="1" />
+    </restriction>
+  </simpleType>
+  <simpleType name="cityType">
+    <restriction base="string">
+      <maxLength value="40" />
+    </restriction>
+  </simpleType>
+  <simpleType name="stateType">
+    <restriction base="string">
+      <maxLength value="2" />
+    </restriction>
+  </simpleType>
+  <simpleType name="countryType">
+    <restriction base="string">
+      <maxLength value="40" />
+    </restriction>
+  </simpleType>
+  <simpleType name="shortCityType">
+    <restriction base="string">
+      <maxLength value="16" />
+    </restriction>
+  </simpleType>
+  <simpleType name="shortCountryType">
+    <restriction base="string">
+      <maxLength value="25" />
+    </restriction>
+  </simpleType>
+  <simpleType name="zipType">
+    <restriction base="int">
+      <maxInclusive value="99999" />
+    </restriction>
+  </simpleType>
+  <simpleType name="zip4Type">
+    <restriction base="int">
+      <maxInclusive value="9999" />
+    </restriction>
+  </simpleType>
+  <simpleType name="phoneType">
+    <restriction base="long">
+      <maxInclusive value="9999999999" />
+    </restriction>
+  </simpleType>
+  <simpleType name="phoneExtType">
+    <restriction base="int">
+      <maxInclusive value="99999" />
+    </restriction>
+  </simpleType>
+  <simpleType name="foreignPhoneType">
+    <restriction base="string">
+      <maxLength value="20" />
+    </restriction>
+  </simpleType>
+  <simpleType name="emailAddressType">
+    <restriction base="string">
+      <maxLength value="100" />
+    </restriction>
+  </simpleType>
+  <simpleType name="identificationType">
+    <restriction base="string">
+      <maxLength value="2" />
+    </restriction>
+  </simpleType>
+  <simpleType name="idValueType">
+    <restriction base="string">
+      <maxLength value="50" />
+    </restriction>
+  </simpleType>
+</schema>

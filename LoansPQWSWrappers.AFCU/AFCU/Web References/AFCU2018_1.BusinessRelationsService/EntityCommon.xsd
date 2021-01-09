@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:ecm="http://www.americafirst.com/20070315/EntityCommon" xmlns:cm="http://www.americafirst.com/20070315/CommonTypes" xmlns:ctl="http://www.americafirst.com/20070315/CommonTypesLib" targetNamespace="http://www.americafirst.com/20070315/EntityCommon" version="2.0" xmlns="http://www.w3.org/2001/XMLSchema">
+  <import schemaLocation="../commontypes/CommonTypes.xsd" namespace="http://www.americafirst.com/20070315/CommonTypes" />
+  <import schemaLocation="../commontypeslib/CommonTypesLib.xsd" namespace="http://www.americafirst.com/20070315/CommonTypesLib" />
+  <annotation>
+    <appinfo>
+			EntityCommon author nmulvenna@americafirst.com
+		</appinfo>
+    <documentation>
+			This Schema can be used as an include or an import in schemas for web services
+			that are used with the new (2018) entity (+ name, address, phone, email) relationships structure.
+			NOTE: All the xsd Types from the old NameAddress.xsd are included but have been renamed to meet standards
+			Example: Type for element "city" was "cityType", is now "City" 
+		</documentation>
+  </annotation>
+  <complexType name="EntityData">
+    <sequence>
+      <element minOccurs="0" name="gender" type="ecm:Gender" />
+      <element minOccurs="0" name="birthDate" nillable="true" type="date" />
+      <element name="taxType" type="ecm:TaxType" />
+      <element name="taxID" type="ecm:TaxID" />
+      <element minOccurs="0" name="irsWithholding" type="boolean" />
+      <element minOccurs="0" name="residencyType" type="ctl:String_1" />
+      <element minOccurs="0" name="doNotCall" type="boolean" />
+    </sequence>
+  </complexType>
+  <complexType name="EntityDataWithID">
+    <complexContent mixed="false">
+      <extension base="ecm:EntityData">
+        <sequence>
+          <element name="entityID" type="integer" />
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="NameData">
+    <sequence>
+      <element minOccurs="0" name="firstName" type="ecm:FirstName" />
+      <element minOccurs="0" name="middleName" type="ecm:MiddleName" />
+      <element name="lastName" type="ecm:LastName" />
+      <element minOccurs="0" name="lastName2" type="ecm:LastName" />
+      <element minOccurs="0" name="nameSuffix" type="ecm:NameSuffix" />
+      <element minOccurs="0" name="preTitle" type="ctl:String_50" />
+      <element minOccurs="0" name="postTitle" type="ctl:String_50" />
+      <element minOccurs="0" name="nameType" type="ctl:String_1" />
+      <element minOccurs="0" name="isPreferred" type="boolean" />
+    </sequence>
+  </complexType>
+  <complexType name="NameDataWithIDs">
+    <complexContent mixed="false">
+      <extension base="ecm:NameData">
+        <sequence>
+          <element minOccurs="0" name="nameRelationshipType" type="ecm:NameRelationshipType" />
+          <element minOccurs="0" name="relationID" nillable="true" type="integer" />
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="AddressData">
+    <sequence>
+      <element minOccurs="0" name="addressType" type="ecm:AddressType" />
+      <element minOccurs="0" name="foreignAddress" type="boolean" />
+      <element minOccurs="0" name="addressLine1" type="ecm:AddressLine" />
+      <element minOccurs="0" name="addressLine2" type="ecm:AddressLine" />
+      <element minOccurs="0" name="city" type="ecm:City" />
+      <element minOccurs="0" name="state" type="ecm:State" />
+      <element minOccurs="0" name="country" type="ecm:Country" />
+      <element minOccurs="0" name="postalCode" type="ctl:String_20" />
+      <element minOccurs="0" name="postalCodeExtension" type="ctl:String_20" />
+      <element minOccurs="0" name="isPreferred" type="boolean" />
+    </sequence>
+  </complexType>
+  <complexType name="AddressDataWithIDs">
+    <complexContent mixed="false">
+      <extension base="ecm:AddressData">
+        <sequence>
+          <element minOccurs="0" name="addressRelationshipType" type="ecm:AddressRelationshipType" />
+          <element minOccurs="0" name="relationID" nillable="true" type="integer" />
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="PhoneData">
+    <sequence>
+      <element name="phoneNumber" type="ecm:PhoneNbr" />
+      <element minOccurs="0" name="extension" type="ecm:PhoneExt" />
+      <element minOccurs="0" name="phoneType" type="ecm:PhoneType" />
+      <element minOccurs="0" name="isWorkPhone" type="boolean" />
+      <element minOccurs="0" name="doNotCall" type="boolean" />
+      <element minOccurs="0" name="isPreferred" type="boolean" />
+    </sequence>
+  </complexType>
+  <complexType name="PhoneDataWithIDs">
+    <complexContent mixed="false">
+      <extension base="ecm:PhoneData">
+        <sequence>
+          <element minOccurs="0" name="phoneRelationshipType" type="ecm:PhoneRelationshipType" />
+          <element minOccurs="0" name="relationID" nillable="true" type="integer" />
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="EmailData">
+    <sequence>
+      <element name="emailAddress" type="ecm:EmailAddress" />
+      <element minOccurs="0" name="emailType" type="ctl:String_1" />
+      <element minOccurs="0" name="isPreferred" type="boolean" />
+      <element minOccurs="0" name="doNotContact" type="boolean" />
+    </sequence>
+  </complexType>
+  <complexType name="EmailDataWithIDs">
+    <complexContent mixed="false">
+      <extension base="ecm:EmailData">
+        <sequence>
+          <element minOccurs="0" name="emailRelationshipType" type="ecm:EmailRelationshipType" />
+          <element minOccurs="0" name="relationID" nillable="true" type="integer" />
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="Authorization">
+    <sequence>
+      <element name="idType" type="ecm:IDentification" />
+      <element name="idValue" type="ecm:IdValue" />
+      <element minOccurs="0" name="state" type="ecm:State" />
+      <element minOccurs="0" name="expirationDate" nillable="true" type="date" />
+    </sequence>
+  </complexType>
+  <simpleType name="SubAccountType">
+    <restriction base="string">
+      <maxLength value="1" />
+    </restriction>
+  </simpleType>
+  <simpleType name="Gender">
+    <restriction base="string">
+      <enumeration value="F" />
+      <enumeration value="M" />
+      <enumeration value="B" />
+      <enumeration value="O" />
+    </restriction>
+  </simpleType>
+  <simpleType name="TaxID">
+    <restriction base="int">
+      <maxInclusive value="999999999" />
+    </restriction>
+  </simpleType>
+  <simpleType name="TaxType">
+    <restriction base="string">
+      <enumeration value="EIN" />
+      <enumeration value="QI-EIN" />
+      <enumeration value="SSN" />
+      <enumeration value="ITIN" />
+      <enumeration value="ATIN" />
+      <enumeration value="Undetermined" />
+    </restriction>
+  </simpleType>
+  <simpleType name="BusinessName">
+    <restriction base="string">
+      <maxLength value="200" />
+    </restriction>
+  </simpleType>
+  <simpleType name="FirstName">
+    <restriction base="string">
+      <maxLength value="200" />
+    </restriction>
+  </simpleType>
+  <simpleType name="MiddleName">
+    <restriction base="string">
+      <maxLength value="200" />
+    </restriction>
+  </simpleType>
+  <simpleType name="LastName">
+    <restriction base="string">
+      <maxLength value="200" />
+    </restriction>
+  </simpleType>
+  <simpleType name="NameSuffix">
+    <restriction base="string">
+      <maxLength value="5" />
+      <enumeration value="Jr." />
+      <enumeration value="Sr." />
+      <enumeration value="I" />
+      <enumeration value="II" />
+      <enumeration value="III" />
+      <enumeration value="IV" />
+      <enumeration value="V" />
+    </restriction>
+  </simpleType>
+  <simpleType name="NameRelationshipType">
+    <restriction base="string">
+      <enumeration value="AUTHORIZED SIGNER" />
+      <enumeration value="BENEFICIAL OWNER" />
+      <enumeration value="COMAKER / COSIGNER" />
+      <enumeration value="JOINT OWNER" />
+      <enumeration value="PRIMARY OWNER" />
+    </restriction>
+  </simpleType>
+  <simpleType name="ShortFirstName">
+    <restriction base="string">
+      <maxLength value="25" />
+    </restriction>
+  </simpleType>
+  <simpleType name="ShortMiddleName">
+    <restriction base="string">
+      <maxLength value="25" />
+    </restriction>
+  </simpleType>
+  <simpleType name="ShortLastName">
+    <restriction base="string">
+      <maxLength value="25" />
+    </restriction>
+  </simpleType>
+  <simpleType name="AddressLine">
+    <restriction base="string">
+      <maxLength value="200" />
+    </restriction>
+  </simpleType>
+  <simpleType name="AddressType">
+    <restriction base="string">
+      <maxLength value="1" />
+    </restriction>
+  </simpleType>
+  <simpleType name="City">
+    <restriction base="string">
+      <maxLength value="200" />
+    </restriction>
+  </simpleType>
+  <simpleType name="State">
+    <restriction base="string">
+      <maxLength value="2" />
+    </restriction>
+  </simpleType>
+  <simpleType name="Country">
+    <restriction base="string">
+      <maxLength value="200" />
+    </restriction>
+  </simpleType>
+  <simpleType name="AddressRelationshipType">
+    <restriction base="string">
+      <enumeration value="AUTHORIZED SIGNER" />
+      <enumeration value="BENEFICIAL OWNER" />
+      <enumeration value="COMAKER / COSIGNER" />
+      <enumeration value="JOINT OWNER" />
+      <enumeration value="PRIMARY OWNER" />
+      <enumeration value="CORRESPONDENCE" />
+    </restriction>
+  </simpleType>
+  <simpleType name="PhoneNbr">
+    <restriction base="long">
+      <maxInclusive value="999999999999999" />
+    </restriction>
+  </simpleType>
+  <simpleType name="PhoneExt">
+    <restriction base="int">
+      <maxInclusive value="99999" />
+    </restriction>
+  </simpleType>
+  <simpleType name="PhoneType">
+    <restriction base="string">
+      <enumeration value="F" />
+      <enumeration value="M" />
+      <enumeration value="L" />
+      <enumeration value="W" />
+    </restriction>
+  </simpleType>
+  <simpleType name="PhoneRelationshipType">
+    <restriction base="string">
+      <enumeration value="AUTHORIZED SIGNER" />
+      <enumeration value="BENEFICIAL OWNER" />
+      <enumeration value="COMAKER / COSIGNER" />
+      <enumeration value="JOINT OWNER" />
+      <enumeration value="PRIMARY OWNER" />
+      <enumeration value="ALTERNATE" />
+    </restriction>
+  </simpleType>
+  <simpleType name="EmailAddress">
+    <restriction base="string">
+      <maxLength value="200" />
+    </restriction>
+  </simpleType>
+  <simpleType name="EmailRelationshipType">
+    <restriction base="string">
+      <enumeration value="AUTHORIZED SIGNER" />
+      <enumeration value="BENEFICIAL OWNER" />
+      <enumeration value="COMAKER / COSIGNER" />
+      <enumeration value="JOINT OWNER" />
+      <enumeration value="PRIMARY OWNER" />
+      <enumeration value="SECONDARY EMAIL" />
+    </restriction>
+  </simpleType>
+  <simpleType name="IDentification">
+    <restriction base="string">
+      <maxLength value="2" />
+    </restriction>
+  </simpleType>
+  <simpleType name="IdValue">
+    <restriction base="string">
+      <maxLength value="50" />
+    </restriction>
+  </simpleType>
+  <simpleType name="StmtLine">
+    <restriction base="string">
+      <maxLength value="46" />
+    </restriction>
+  </simpleType>
+  <simpleType name="StmtLineCount">
+    <restriction base="short">
+      <totalDigits value="1" />
+    </restriction>
+  </simpleType>
+  <simpleType name="AcctAssociation">
+    <restriction base="string">
+      <enumeration value="Sole" />
+      <enumeration value="Primary" />
+      <enumeration value="Joint" />
+      <enumeration value="Beneficiary" />
+      <enumeration value="Trustee" />
+      <enumeration value="Joint(IRA/CD)" />
+      <enumeration value="Comaker" />
+      <enumeration value="AuthorizedSigner" />
+    </restriction>
+  </simpleType>
+  <complexType name="ShortNameData">
+    <sequence>
+      <element minOccurs="0" name="shortFirstName" type="ecm:ShortFirstName" />
+      <element minOccurs="0" name="shortMiddleName" type="ecm:ShortMiddleName" />
+      <element minOccurs="0" name="shortLastName" type="ecm:ShortLastName" />
+    </sequence>
+  </complexType>
+  <complexType name="ShortAddressData">
+    <sequence>
+      <element minOccurs="0" name="shortAddressLine1" type="ecm:ShortAddressLine" />
+      <element minOccurs="0" name="shortAddressLine2" type="ecm:ShortAddressLine" />
+      <element minOccurs="0" name="shortCity" type="ecm:ShortCity" />
+      <element minOccurs="0" name="shortCountry" type="ecm:ShortCountry" />
+    </sequence>
+  </complexType>
+  <simpleType name="ShortAddressLine">
+    <restriction base="string">
+      <maxLength value="25" />
+    </restriction>
+  </simpleType>
+  <simpleType name="ShortCity">
+    <restriction base="string">
+      <maxLength value="16" />
+    </restriction>
+  </simpleType>
+  <simpleType name="ShortCountry">
+    <restriction base="string">
+      <maxLength value="25" />
+    </restriction>
+  </simpleType>
+  <simpleType name="ZipCode">
+    <restriction base="int">
+      <maxInclusive value="99999" />
+    </restriction>
+  </simpleType>
+  <simpleType name="ZipAddOn">
+    <restriction base="int">
+      <maxInclusive value="9999" />
+    </restriction>
+  </simpleType>
+</schema>

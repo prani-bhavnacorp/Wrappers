@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ftp.ws.spectrum.summit.fiserv.com/" name="SubmitCreditReportImportService" targetNamespace="http://ftp.ws.spectrum.summit.fiserv.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <import namespace="urn:ftp.spectrum.summitsite.com" location="https://pathways.spectrum.fiserv.com:443/pathways/wsiservices/SubmitCreditReportImportService?wsdl=1" />
+  <types />
+  <binding xmlns:ns1="urn:ftp.spectrum.summitsite.com" name="SubmitCreditReportImportImplPortBinding" type="ns1:SubmitCreditReportImport">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="submitCreditReportImport">
+      <soap:operation soapAction="urn:submitCreditReportImport" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="SubmitCreditReportImportService">
+    <port name="SubmitCreditReportImportImplPort" binding="tns:SubmitCreditReportImportImplPortBinding">
+      <soap:address location="https://pathways.spectrum.fiserv.com:443/pathways/wsiservices/SubmitCreditReportImportService" />
+    </port>
+  </service>
+</definitions>

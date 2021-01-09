@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="mtvnDPAcctNbrGenWSV1" xmlns:import0="mtvnCWDPAcctNbrGenSvcReq" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:import1="mtvnCWDPAcctNbrGenSvcRes" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="mtvnDPAcctNbrGenWSV1" targetNamespace="mtvnDPAcctNbrGenWSV1" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Connectware Web Service Interface</documentation>
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="./DPAcctNbrGenWSV1SvcReq.xsd" namespace="mtvnCWDPAcctNbrGenSvcReq" />
+      <xsd:import schemaLocation="./DPAcctNbrGenWSV1SvcRes.xsd" namespace="mtvnCWDPAcctNbrGenSvcRes" />
+    </xsd:schema>
+  </types>
+  <message name="DPAcctNbrGenMtvnSvcReqMsg">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <part name="messagePart" element="import0:DPAcctNbrGenMtvnSvcReq" />
+  </message>
+  <message name="DPAcctNbrGenMtvnSvcResMsg">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <part name="messagePart" element="import1:DPAcctNbrGenMtvnSvcRes" />
+  </message>
+  <portType name="mtvnCWDPAcctNbrGenWSV1Interface">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">DPAcctNbrGenWSV1</documentation>
+    <operation name="DPAcctNbrGen">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+      <input message="tns:DPAcctNbrGenMtvnSvcReqMsg" />
+      <output message="tns:DPAcctNbrGenMtvnSvcResMsg" />
+    </operation>
+  </portType>
+  <binding name="mtvnCWDPAcctNbrGenWSV1" type="tns:mtvnCWDPAcctNbrGenWSV1Interface">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="DPAcctNbrGen">
+      <soap:operation soapAction="DPAcctNbrGenWSV1:DPAcctNbrGenMtvnSvcReqMsg" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="mtvnCWDPAcctNbrGenWSV1">
+    <port name="mtvnCWDPAcctNbrGenWSV1Port" binding="tns:mtvnCWDPAcctNbrGenWSV1">
+      <soap:address location="https://xmlgateway.metavante.org/ConnectwareWS/DPAcctNbrGenWSV1" />
+    </port>
+  </service>
+</definitions>

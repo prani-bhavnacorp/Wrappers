@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xenc="http://www.w3.org/2001/04/xmlenc#" xmlns="http://Card.Services.Credit.com" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://Card.Services.Credit.com" version="2.2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="CPSHeader" type="CPSHeader_Type">
+    <xsd:annotation>
+      <xsd:documentation>The CPSHeader element contains all header information for 
+standard CPSHeader message set transactions. The CPSHeader_Type complex type is 
+defined in CPSHeader.xsd.</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="CPSHeader_Type">
+    <xsd:annotation>
+      <xsd:documentation>The CPSHeader aggregate contains the content model and 
+structure for the header of all standard CPSHeader 
+transactions</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="Client" type="Client_Type">
+        <xsd:annotation>
+          <xsd:documentation>The Client aggregate describes the entity making the request. 
+Typically used for logging. However, identify of Client may be required for 
+client application authentication purposes. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Client_Type">
+    <xsd:annotation>
+      <xsd:documentation>The Client aggregate describes the entity making the request. 
+Typically used for logging. However, identify of Client may be required for 
+client application authentication purposes. </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="ClientID">
+        <xsd:simpleType>
+          <xsd:annotation>
+            <xsd:appinfo source="http://www.ibm.com/software/htp/cics/annotations">#Tue Aug 
+05 15:12:57 EDT 2008 com.ibm.cics.wsdl.properties.charlength=fixed
+ com.ibm.cics.wsdl.properties.synchronized=false </xsd:appinfo>
+          </xsd:annotation>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="20" />
+            <xsd:whiteSpace value="collapse" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="SignonID">
+        <xsd:simpleType>
+          <xsd:annotation>
+            <xsd:appinfo source="http://www.ibm.com/software/htp/cics/annotations">#Tue Aug 
+05 15:12:57 EDT 2008 com.ibm.cics.wsdl.properties.charlength=fixed
+ com.ibm.cics.wsdl.properties.synchronized=false </xsd:appinfo>
+          </xsd:annotation>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="20" />
+            <xsd:whiteSpace value="collapse" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="CPSPassword">
+        <xsd:simpleType>
+          <xsd:annotation>
+            <xsd:appinfo source="http://www.ibm.com/software/htp/cics/annotations">#Tue Aug 
+05 15:12:57 EDT 2008 com.ibm.cics.wsdl.properties.charlength=fixed
+ com.ibm.cics.wsdl.properties.synchronized=false </xsd:appinfo>
+          </xsd:annotation>
+          <xsd:restriction base="xsd:string">
+            <xsd:maxLength value="20" />
+            <xsd:whiteSpace value="collapse" />
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

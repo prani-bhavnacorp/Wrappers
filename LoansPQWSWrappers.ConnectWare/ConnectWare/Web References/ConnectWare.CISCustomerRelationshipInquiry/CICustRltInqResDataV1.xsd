@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="mtvnCWCICustRltInqResData" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="mtvnCWCICustRltInqResData" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="CICustRltInqResData">
+    <xs:annotation>
+      <xs:documentation>CIS Customer Relationship Inquiry (CI011) -  This function is used to retrieve a list of loan accounts a customer is related to.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CICustRltInqRltDataLst">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="CICustRltInqRltData">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="E10176" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>CIS Loan Account Number</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E10178" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>CIS Relationship Code</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E10180" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>CIS Relationship Effective Date</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E10181" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>CIS Relationship Expiration Date</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="ErrCde" type="xs:string" />
+        <xs:element minOccurs="0" name="ErrResnCde" type="xs:string" />
+        <xs:element minOccurs="0" name="ApplMsgLst">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="ApplMsg">
+                <xs:complexType>
+                  <xs:all>
+                    <xs:element minOccurs="0" name="ApplMsgApplId" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgNbr" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgTxt" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgErrInd" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgFld" type="xs:string" />
+                  </xs:all>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

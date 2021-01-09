@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:tns="http://www.americafirst.com/20070315/AccountTransaction" xmlns:ctl="http://www.americafirst.com/20070315/CommonTypesLib" xmlns:cm="http://www.americafirst.com/20070315/CommonTypes" targetNamespace="http://www.americafirst.com/20070315/AccountTransaction" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema">
+  <import schemaLocation="../commontypes/CommonTypes.xsd" namespace="http://www.americafirst.com/20070315/CommonTypes" />
+  <import schemaLocation="../commontypeslib/CommonTypesLib.xsd" namespace="http://www.americafirst.com/20070315/CommonTypesLib" />
+  <complexType name="TranBaseTypeRequest" abstract="true">
+    <sequence>
+      <element minOccurs="0" name="effectiveDate" type="date" />
+    </sequence>
+  </complexType>
+  <complexType name="TranBaseTypeResponse" abstract="true">
+    <sequence>
+      <element minOccurs="0" name="effectiveDate" nillable="true" type="date" />
+      <element name="transactionErrors" type="cm:TransactionErrors" />
+      <element minOccurs="0" name="resultingBalance" type="ctl:Decimal_15_2" />
+      <element minOccurs="0" name="transactionDescription" type="ctl:String_65" />
+      <element minOccurs="0" name="accountDescription" type="ctl:String_30" />
+    </sequence>
+  </complexType>
+  <simpleType name="GLAccountNo">
+    <restriction base="positiveInteger">
+      <totalDigits value="11" />
+    </restriction>
+  </simpleType>
+  <simpleType name="TransferAccountType">
+    <restriction base="string">
+      <enumeration value="Share" />
+      <enumeration value="Loan" />
+      <enumeration value="Certificate" />
+      <enumeration value="General Ledger" />
+      <enumeration value="Mortgage" />
+    </restriction>
+  </simpleType>
+  <complexType name="TransferAccountInfo">
+    <sequence>
+      <element name="transferAccountID" type="cm:AccountID" />
+      <element name="transferSubAccountID" type="cm:SubAccountID" />
+      <element name="transferAccountType" type="tns:TransferAccountType" />
+      <element minOccurs="0" name="transferCertificateID" type="cm:CertificateID" />
+    </sequence>
+  </complexType>
+  <simpleType name="MortgagePaymentType">
+    <restriction base="string">
+      <enumeration value="Regular Payment" />
+      <enumeration value="Regular Payment Plus" />
+      <enumeration value="Principal Payment Only" />
+      <enumeration value="Escrow Payment Only" />
+      <enumeration value="Partial Payment Only" />
+      <enumeration value="Late Charge Only" />
+    </restriction>
+  </simpleType>
+  <simpleType name="HoldType">
+    <restriction base="string">
+      <enumeration value="Check Hold" />
+      <enumeration value="Certified Hold" />
+      <enumeration value="Misc Hold" />
+      <enumeration value="Fixed Pledge" />
+      <enumeration value="Reducing Pledge" />
+    </restriction>
+  </simpleType>
+</schema>

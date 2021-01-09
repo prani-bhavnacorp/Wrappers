@@ -1,0 +1,1043 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="urn:connections.ispectrum.summitsite.com" targetNamespace="urn:connections.ispectrum.summitsite.com" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="SOAPException" type="tns:SOAPException" />
+  <xs:element name="createUpdateATMNetworkNode" type="tns:createUpdateATMNetworkNode" />
+  <xs:element name="createUpdateATMNetworkNodeResponse" type="tns:createUpdateATMNetworkNodeResponse" />
+  <xs:element name="createUpdateATMNetworkUpdate" type="tns:createUpdateATMNetworkUpdate" />
+  <xs:element name="createUpdateATMNetworkUpdateResponse" type="tns:createUpdateATMNetworkUpdateResponse" />
+  <xs:element name="createUpdateCardBase" type="tns:createUpdateCardBase" />
+  <xs:element name="createUpdateCardBaseResponse" type="tns:createUpdateCardBaseResponse" />
+  <xs:element name="createUpdateCardOrder" type="tns:createUpdateCardOrder" />
+  <xs:element name="createUpdateCardOrderProps" type="tns:createUpdateCardOrderProps" />
+  <xs:element name="createUpdateCardOrderPropsResponse" type="tns:createUpdateCardOrderPropsResponse" />
+  <xs:element name="createUpdateCardOrderResponse" type="tns:createUpdateCardOrderResponse" />
+  <xs:element name="findATMNetworkNodeByCode" type="tns:findATMNetworkNodeByCode" />
+  <xs:element name="findATMNetworkNodeByCodeResponse" type="tns:findATMNetworkNodeByCodeResponse" />
+  <xs:element name="findATMNetworkNodeById" type="tns:findATMNetworkNodeById" />
+  <xs:element name="findATMNetworkNodeByIdResponse" type="tns:findATMNetworkNodeByIdResponse" />
+  <xs:element name="findATMNetworkUpdateByPrimaryKey" type="tns:findATMNetworkUpdateByPrimaryKey" />
+  <xs:element name="findATMNetworkUpdateByPrimaryKeyResponse" type="tns:findATMNetworkUpdateByPrimaryKeyResponse" />
+  <xs:element name="findATMNetworkUpdateByPrimaryKeyWithDBLock" type="tns:findATMNetworkUpdateByPrimaryKeyWithDBLock" />
+  <xs:element name="findATMNetworkUpdateByPrimaryKeyWithDBLockResponse" type="tns:findATMNetworkUpdateByPrimaryKeyWithDBLockResponse" />
+  <xs:element name="findAllATMNetworkNodes" type="tns:findAllATMNetworkNodes" />
+  <xs:element name="findAllATMNetworkNodesResponse" type="tns:findAllATMNetworkNodesResponse" />
+  <xs:element name="findCardBaseByCardBaseId" type="tns:findCardBaseByCardBaseId" />
+  <xs:element name="findCardBaseByCardBaseIdResponse" type="tns:findCardBaseByCardBaseIdResponse" />
+  <xs:element name="getAllCardBase" type="tns:getAllCardBase" />
+  <xs:element name="getAllCardBaseResponse" type="tns:getAllCardBaseResponse" />
+  <xs:element name="getAllCardOrderProps" type="tns:getAllCardOrderProps" />
+  <xs:element name="getAllCardOrderPropsById" type="tns:getAllCardOrderPropsById" />
+  <xs:element name="getAllCardOrderPropsByIdResponse" type="tns:getAllCardOrderPropsByIdResponse" />
+  <xs:element name="getAllCardOrderPropsResponse" type="tns:getAllCardOrderPropsResponse" />
+  <xs:element name="getAllCardOrders" type="tns:getAllCardOrders" />
+  <xs:element name="getAllCardOrdersById" type="tns:getAllCardOrdersById" />
+  <xs:element name="getAllCardOrdersByIdResponse" type="tns:getAllCardOrdersByIdResponse" />
+  <xs:element name="getAllCardOrdersResponse" type="tns:getAllCardOrdersResponse" />
+  <xs:element name="getAllNetworkNodes" type="tns:getAllNetworkNodes" />
+  <xs:element name="getAllNetworkNodesResponse" type="tns:getAllNetworkNodesResponse" />
+  <xs:element name="getAllNetworkNodesWithNoPagination" type="tns:getAllNetworkNodesWithNoPagination" />
+  <xs:element name="getAllNetworkNodesWithNoPaginationResponse" type="tns:getAllNetworkNodesWithNoPaginationResponse" />
+  <xs:element name="getAllUnassignedCards" type="tns:getAllUnassignedCards" />
+  <xs:element name="getAllUnassignedCardsResponse" type="tns:getAllUnassignedCardsResponse" />
+  <xs:element name="getCardOrderByOrderId" type="tns:getCardOrderByOrderId" />
+  <xs:element name="getCardOrderByOrderIdResponse" type="tns:getCardOrderByOrderIdResponse" />
+  <xs:element name="getCardOrderPropsByPropsId" type="tns:getCardOrderPropsByPropsId" />
+  <xs:element name="getCardOrderPropsByPropsIdResponse" type="tns:getCardOrderPropsByPropsIdResponse" />
+  <xs:element name="getFilteredATMNetworkUpdateInfos" type="tns:getFilteredATMNetworkUpdateInfos" />
+  <xs:element name="getFilteredATMNetworkUpdateInfosResponse" type="tns:getFilteredATMNetworkUpdateInfosResponse" />
+  <xs:complexType name="getCardOrderPropsByPropsId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="cardOrderPropsId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="iSpectrumWebServiceContext">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="wsoverrideInfos" nillable="true" type="tns:wsOverrideInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsOverrideInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="code" type="xs:string" />
+          <xs:element minOccurs="0" name="credInfo" type="tns:wsCredentialInfo" />
+          <xs:element minOccurs="0" name="deniedReason" type="xs:string" />
+          <xs:element name="descriptionId" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="monetaryAccounts" nillable="true" type="tns:wsMonetaryOverrideDescInfo" />
+          <xs:element name="overRideId" type="xs:int" />
+          <xs:element name="overridden" type="xs:boolean" />
+          <xs:element name="overriddenByTransaction" type="xs:boolean" />
+          <xs:element minOccurs="0" name="overrideComment" type="xs:string" />
+          <xs:element name="priority" type="xs:int" />
+          <xs:element minOccurs="0" name="prodCode" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="roles" nillable="true" type="tns:wsRoleInfo" />
+          <xs:element name="useDefault" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsBaseInfo">
+    <xs:sequence>
+      <xs:element name="actionCode" type="xs:int" />
+      <xs:element minOccurs="0" name="input" type="tns:wsThirdPartyInfo" />
+      <xs:element minOccurs="0" name="output" type="tns:wsThirdPartyInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsCredentialInfo">
+    <xs:sequence>
+      <xs:element name="deleted" type="xs:int" />
+      <xs:element name="locked" type="xs:boolean" />
+      <xs:element name="logonAttempts" type="xs:int" />
+      <xs:element minOccurs="0" name="logonName" type="xs:string" />
+      <xs:element name="logonStatus" type="xs:int" />
+      <xs:element minOccurs="0" name="password" type="xs:string" />
+      <xs:element name="passwordEncrypted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="passwordExpiryDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="summitGUID" type="xs:string" />
+      <xs:element name="userAuthId" type="xs:int" />
+      <xs:element name="virtualUser" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsMonetaryOverrideDescInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+          <xs:element name="monAccPortfolio" type="xs:long" />
+          <xs:element name="monAccSuffix" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsThirdPartyInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="header" nillable="true" type="tns:wsThirdPartyHeaderInfo" />
+      <xs:element minOccurs="0" name="vendorCode" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsThirdPartyHeaderInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="description" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="details" nillable="true" type="tns:wsThirdPartyDetailInfo" />
+      <xs:element minOccurs="0" name="key" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsThirdPartyDetailInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dataType" type="xs:string" />
+      <xs:element minOccurs="0" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="value" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsRoleInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="accessLevel" type="xs:int" />
+          <xs:element name="allLoansLimit" type="xs:long" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="assignments" nillable="true" type="tns:wsAssignmentInfo" />
+          <xs:element name="depositLimit" type="xs:long" />
+          <xs:element name="drawerCashLimit" type="xs:long" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="financialControls" nillable="true" type="tns:wsFinancialControlInfo" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="indLoanAmts" nillable="true" type="tns:wsIndLoanAmtInfo" />
+          <xs:element name="institutionDefinedLoanLimit" type="xs:long" />
+          <xs:element name="journalEntryLimit" type="xs:long" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="menuInfos" nillable="true" type="tns:wsMenuInfo" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="monTranInfos" nillable="true" type="tns:wsMonTranInfo" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="monTrans" nillable="true" type="tns:wsMonTranInfo" />
+          <xs:element name="mortgageLimit" type="xs:long" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="overRides" nillable="true" type="tns:wsOverrideInfo" />
+          <xs:element minOccurs="0" name="roleCode" type="xs:string" />
+          <xs:element minOccurs="0" name="roleCreateTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="roleDescription" type="xs:string" />
+          <xs:element name="roleId" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="roleLimitsInfos" nillable="true" type="tns:wsRoleLimitsInfo" />
+          <xs:element name="roleMenuId" type="xs:int" />
+          <xs:element minOccurs="0" name="roleName" type="xs:string" />
+          <xs:element name="roleUpdateCounter" type="xs:int" />
+          <xs:element name="securedLimit" type="xs:long" />
+          <xs:element name="unsecuredLimit" type="xs:long" />
+          <xs:element name="withdrawalLimit" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsAssignmentInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="enca_fieldDescription" type="xs:string" />
+          <xs:element minOccurs="0" name="fieldCodeAssign" type="xs:string" />
+          <xs:element name="fieldId" type="xs:int" />
+          <xs:element minOccurs="0" name="fieldtype" type="xs:string" />
+          <xs:element minOccurs="0" name="frca_fieldDescription" type="xs:string" />
+          <xs:element name="roleAssignId" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="roles" nillable="true" type="tns:wsRoleInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsFinancialControlInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="categoryCode" type="xs:string" />
+          <xs:element name="displayGL" type="xs:int" />
+          <xs:element minOccurs="0" name="financialControl3PtyGL" type="xs:string" />
+          <xs:element minOccurs="0" name="financialControlAction" type="xs:string" />
+          <xs:element minOccurs="0" name="financialControlCode" type="xs:string" />
+          <xs:element name="financialControlCredit" type="xs:long" />
+          <xs:element minOccurs="0" name="financialControlCurrencyCode" type="xs:string" />
+          <xs:element name="financialControlDebit" type="xs:long" />
+          <xs:element minOccurs="0" name="financialControlDescription" type="xs:string" />
+          <xs:element minOccurs="0" name="financialControlDescriptionFr" type="xs:string" />
+          <xs:element minOccurs="0" name="financialControlDescription_En" type="xs:string" />
+          <xs:element minOccurs="0" name="financialControlGLExtract" type="xs:string" />
+          <xs:element name="financialControlId" type="xs:int" />
+          <xs:element minOccurs="0" name="financialControlMICRNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="financialControlTimestamp" type="xs:dateTime" />
+          <xs:element name="financialControlTypeId" type="xs:int" />
+          <xs:element name="financialControlUpdateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="monHistPurgeDescription" type="xs:string" />
+          <xs:element name="monHistPurgeRetentionPeriod" type="xs:long" />
+          <xs:element name="monHistToBePurged" type="xs:boolean" />
+          <xs:element name="monetaryInstrument" type="xs:boolean" />
+          <xs:element minOccurs="0" name="regulatoryReportType" type="xs:string" />
+          <xs:element minOccurs="0" name="summitType" type="xs:string" />
+          <xs:element minOccurs="0" name="typeCode" type="xs:string" />
+          <xs:element minOccurs="0" name="typeGroup" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsIndLoanAmtInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="categoryCode" type="xs:string" />
+          <xs:element minOccurs="0" name="categoryDescription" type="xs:string" />
+          <xs:element minOccurs="0" name="categoryDescription_Fr" type="xs:string" />
+          <xs:element minOccurs="0" name="code" type="xs:string" />
+          <xs:element name="financialControlTypeId" type="xs:int" />
+          <xs:element name="indLoanAmtId" type="xs:int" />
+          <xs:element name="loanAmountLimit" type="xs:long" />
+          <xs:element name="roleId" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="roles" nillable="true" type="tns:wsRoleInfo" />
+          <xs:element minOccurs="0" name="typeCode" type="xs:string" />
+          <xs:element minOccurs="0" name="typeDescription" type="xs:string" />
+          <xs:element minOccurs="0" name="typeDescription_Fr" type="xs:string" />
+          <xs:element minOccurs="0" name="typeGroup" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsMenuInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="depth" type="xs:int" />
+          <xs:element minOccurs="0" name="descriptionEn" type="xs:string" />
+          <xs:element minOccurs="0" name="descriptionFr" type="xs:string" />
+          <xs:element name="descriptionId" type="xs:int" />
+          <xs:element minOccurs="0" name="menuCode" type="xs:string" />
+          <xs:element minOccurs="0" name="menuCreateTimestamp" type="xs:dateTime" />
+          <xs:element name="menuId" type="xs:int" />
+          <xs:element minOccurs="0" name="menuLoadFrameLocation" type="xs:string" />
+          <xs:element minOccurs="0" name="menuLocation" type="xs:string" />
+          <xs:element name="menuParentId" type="xs:int" />
+          <xs:element name="menuSequence" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="menuSubTabInfos" nillable="true" type="tns:wsMenuSubTabInfo" />
+          <xs:element minOccurs="0" name="menuURL" type="xs:string" />
+          <xs:element name="menuUpdateCounter" type="xs:int" />
+          <xs:element name="openInNewWin" type="xs:boolean" />
+          <xs:element name="readOnly" type="xs:boolean" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="roleInfos" nillable="true" type="tns:wsRoleInfo" />
+          <xs:element minOccurs="0" name="uiCustomization" type="tns:wsuiCustomizationInfo" />
+          <xs:element name="uiCustomizationId" type="xs:long" />
+          <xs:element name="userDefined" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsMenuSubTabInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element name="menuId" type="xs:long" />
+          <xs:element name="menuSubTabId" type="xs:long" />
+          <xs:element name="menuUrlSubTabId" type="xs:long" />
+          <xs:element minOccurs="0" name="menuUrlSubTabInfo" type="tns:wsMenuUrlSubTabInfo" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="roleMenuSubTabInfos" nillable="true" type="tns:wsRoleMenuSubTabInfo" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsMenuUrlSubTabInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element name="menuUrlId" type="xs:long" />
+          <xs:element name="menuUrlSubTabId" type="xs:long" />
+          <xs:element name="parentMenuUrlSubTabId" type="xs:long" />
+          <xs:element minOccurs="0" name="subTabDivIdAttribute" type="xs:string" />
+          <xs:element minOccurs="0" name="tabName" type="xs:string" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsRoleMenuSubTabInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element name="menuSubTabId" type="xs:long" />
+          <xs:element name="roleId" type="xs:long" />
+          <xs:element name="roleMenuSubTabId" type="xs:long" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsuiCustomizationInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="active" type="xs:boolean" />
+          <xs:element name="appendToPage" type="xs:boolean" />
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="customTokens" nillable="true" type="tns:wsuiExtCustLinkTokenInfo" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="customXHTML" nillable="true" type="tns:wsuiCustomScriptInfo" />
+          <xs:element name="deleted" type="xs:long" />
+          <xs:element minOccurs="0" name="description" type="xs:string" />
+          <xs:element name="displayInPopup" type="xs:boolean" />
+          <xs:element name="displayInSlider" type="xs:boolean" />
+          <xs:element name="draggableFrame" type="xs:boolean" />
+          <xs:element name="frameHeight" type="xs:int" />
+          <xs:element name="frameWidth" type="xs:int" />
+          <xs:element minOccurs="0" name="menuURL" type="xs:string" />
+          <xs:element name="resizableFrame" type="xs:boolean" />
+          <xs:element name="scrollableFrame" type="xs:boolean" />
+          <xs:element minOccurs="0" name="title" type="xs:string" />
+          <xs:element name="uiCustomizationId" type="xs:long" />
+          <xs:element name="updateCounter" type="xs:long" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="url" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="urlAttributes" nillable="true" type="tns:wsuiExtCustLinkAttribInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsuiExtCustLinkTokenInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element name="deleted" type="xs:long" />
+          <xs:element minOccurs="0" name="ruleScriptObjMapInfo" type="tns:wsRuleScriptObjMapInfo" />
+          <xs:element minOccurs="0" name="sourceAttribute" type="xs:string" />
+          <xs:element minOccurs="0" name="sourceClassName" type="xs:string" />
+          <xs:element name="tokenMapId" type="xs:long" />
+          <xs:element minOccurs="0" name="tokenName" type="xs:string" />
+          <xs:element name="tokenType" type="xs:int" />
+          <xs:element name="uiCustomizationId" type="xs:long" />
+          <xs:element name="uiExtCustLinkTokenId" type="xs:long" />
+          <xs:element name="updateCounter" type="xs:long" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsRuleScriptObjMapInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="createTimeStamp" type="xs:dateTime" />
+          <xs:element name="deleted" type="xs:int" />
+          <xs:element minOccurs="0" name="objAttrib" type="xs:string" />
+          <xs:element minOccurs="0" name="objAttribType" type="xs:string" />
+          <xs:element minOccurs="0" name="objJSPath" type="xs:string" />
+          <xs:element minOccurs="0" name="objType" type="xs:string" />
+          <xs:element name="objTypeId" type="xs:long" />
+          <xs:element name="ruleScriptObjMapId" type="xs:long" />
+          <xs:element minOccurs="0" name="updateTimeStamp" type="xs:dateTime" />
+          <xs:element name="updatecounter" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsuiCustomScriptInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element name="deleted" type="xs:long" />
+          <xs:element minOccurs="0" name="scriptText" type="xs:string" />
+          <xs:element minOccurs="0" name="scriptType" type="xs:string" />
+          <xs:element name="uiCustomScriptId" type="xs:long" />
+          <xs:element name="uiCustomizationId" type="xs:long" />
+          <xs:element name="updateCounter" type="xs:long" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsuiExtCustLinkAttribInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="attribType" type="xs:string" />
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element name="deleted" type="xs:long" />
+          <xs:element minOccurs="0" name="name" type="xs:string" />
+          <xs:element name="uiCustomizationId" type="xs:long" />
+          <xs:element name="uiExtCustLinkAttribId" type="xs:long" />
+          <xs:element name="updateCounter" type="xs:long" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="value" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsMonTranInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="enca_fieldDescription" type="xs:string" />
+          <xs:element minOccurs="0" name="fieldCode" type="xs:string" />
+          <xs:element name="fieldId" type="xs:int" />
+          <xs:element minOccurs="0" name="fieldtype" type="xs:string" />
+          <xs:element minOccurs="0" name="frca_fieldDescription" type="xs:string" />
+          <xs:element name="monTranId" type="xs:int" />
+          <xs:element name="roleId" type="xs:int" />
+          <xs:element name="roleMonTranId" type="xs:int" />
+          <xs:element name="transactionAmountLimit" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsRoleLimitsInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="enca_fieldDescription" type="xs:string" />
+          <xs:element minOccurs="0" name="fieldCode" type="xs:string" />
+          <xs:element minOccurs="0" name="frca_fieldDescription" type="xs:string" />
+          <xs:element name="limit" type="xs:long" />
+          <xs:element name="roleId" type="xs:long" />
+          <xs:element name="roleLimitsId" type="xs:long" />
+          <xs:element minOccurs="0" name="roleName" type="xs:string" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getCardOrderPropsByPropsIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="getCardOrderPropsByPropsIdResponse" type="tns:wsCardOrderPropsInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsCardOrderPropsInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="branchId" type="xs:int" />
+          <xs:element name="cardBaseId" type="xs:int" />
+          <xs:element name="cardOrderPropsId" type="xs:int" />
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element name="deleted" type="xs:int" />
+          <xs:element name="orderQuantity" type="xs:int" />
+          <xs:element name="orderThreshold" type="xs:int" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SOAPException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getAllCardOrderPropsById">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="branchId" type="xs:int" />
+      <xs:element name="cardBaseId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getAllCardOrderPropsByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="getAllCardOrderPropsByIdResponse" nillable="true" type="tns:wsCardOrderPropsInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getFilteredATMNetworkUpdateInfos">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" name="wsaTMNetworkUpdateInfo" type="tns:wsatmNetworkUpdateInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsatmNetworkUpdateInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="ATMNetworkUpdateId" type="xs:long" />
+          <xs:element minOccurs="0" name="addressLastUpdateTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="businessDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="cardActLastUpdateTimestamp" type="xs:dateTime" />
+          <xs:element name="cardId" type="xs:long" />
+          <xs:element minOccurs="0" name="cardLastUpdateTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="cardNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="custfullname" type="xs:string" />
+          <xs:element name="customerId" type="xs:long" />
+          <xs:element minOccurs="0" name="customerLastUpdateTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="dataFormatType" type="xs:string" />
+          <xs:element name="dbActionCode" type="xs:int" />
+          <xs:element minOccurs="0" name="networkResponseText" type="xs:string" />
+          <xs:element name="sendCount" type="xs:int" />
+          <xs:element name="sourceThirdPartyConfigId" type="xs:long" />
+          <xs:element minOccurs="0" name="sourceVendor" type="xs:string" />
+          <xs:element minOccurs="0" name="status" type="xs:string" />
+          <xs:element name="thirdPartyConfigId" type="xs:long" />
+          <xs:element minOccurs="0" name="timeString" type="xs:string" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="updateData" type="xs:string" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+          <xs:element name="userId" type="xs:long" />
+          <xs:element minOccurs="0" name="userName" type="xs:string" />
+          <xs:element minOccurs="0" name="vendor" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getFilteredATMNetworkUpdateInfosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="getFilteredATMNetworkUpdateInfosResponse" nillable="true" type="tns:wsatmNetworkUpdateInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getAllCardBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="cardBaseDefn" type="xs:boolean" />
+      <xs:element minOccurs="0" name="sortColumn" type="xs:string" />
+      <xs:element minOccurs="0" name="sortOrder" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getAllCardBaseResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="getAllCardBaseResponse" nillable="true" type="tns:wsCardBaseInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsCardBaseInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="acctGenerationProps" type="tns:wsPortGenerationPropInfo" />
+          <xs:element minOccurs="0" name="acctNumberGenName" type="xs:string" />
+          <xs:element minOccurs="0" name="allowBulkOrders" type="xs:string" />
+          <xs:element name="allowCardUpdates" type="xs:boolean" />
+          <xs:element name="allowNewCardOrders" type="xs:boolean" />
+          <xs:element minOccurs="0" name="allowedVersionNumbers" type="xs:string" />
+          <xs:element name="authTransactionLimit" type="xs:long" />
+          <xs:element name="authorizationLimit" type="xs:long" />
+          <xs:element name="bulkIssueTerm" type="xs:int" />
+          <xs:element minOccurs="0" name="capturePINOffsetFromTrack2" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="cardBaseDefinitionInfos" nillable="true" type="tns:wsCardBaseDefinitionInfo" />
+          <xs:element minOccurs="0" name="cardBaseDescription" type="xs:string" />
+          <xs:element name="cardBaseId" type="xs:int" />
+          <xs:element name="cardNumberLength" type="xs:int" />
+          <xs:element name="cardRenewalMethod" type="xs:int" />
+          <xs:element minOccurs="0" name="cardRenewalStatus" type="xs:string" />
+          <xs:element minOccurs="0" name="cardStockCode" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="cardStockInfos" nillable="true" type="tns:wsCardStockInfo" />
+          <xs:element name="cardTerm" type="xs:int" />
+          <xs:element minOccurs="0" name="checkDigitType" type="xs:string" />
+          <xs:element name="courtesyLimitPercent" type="xs:int" />
+          <xs:element minOccurs="0" name="createTimeStamp" type="xs:dateTime" />
+          <xs:element name="deleted" type="xs:int" />
+          <xs:element minOccurs="0" name="isoNumber" type="xs:string" />
+          <xs:element name="nameLine2Supported" type="xs:boolean" />
+          <xs:element minOccurs="0" name="newCardStatus" type="xs:string" />
+          <xs:element name="offlinePurchaseLimit" type="xs:long" />
+          <xs:element name="offlineWithdrawalLimit" type="xs:long" />
+          <xs:element minOccurs="0" name="onlineCardUpdatesToNetwork" type="xs:string" />
+          <xs:element name="onlinePurchaseLimit" type="xs:long" />
+          <xs:element name="onlineWithdrawalLimit" type="xs:long" />
+          <xs:element name="pinOffsetLength" type="xs:int" />
+          <xs:element name="renewalCardBaseId" type="xs:int" />
+          <xs:element minOccurs="0" name="status" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="track2Infos" nillable="true" type="tns:wsCardBaseTrack2Info" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="updateTimeStamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsPortGenerationPropInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="checkDigitAlogTypeId" type="xs:long" />
+          <xs:element minOccurs="0" name="checkDigitAlogTypeInfo" type="tns:wsCheckDigitAlogTypeInfo" />
+          <xs:element minOccurs="0" name="code" type="xs:string" />
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element name="deleted" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="excludePortRangeArray" nillable="true" type="tns:wsExcludePortRangeInfo" />
+          <xs:element name="lastSystemGeneratedPort" type="xs:long" />
+          <xs:element name="maxPortRange" type="xs:long" />
+          <xs:element name="maxPortfolioLength" type="xs:long" />
+          <xs:element name="maxSuffixLength" type="xs:long" />
+          <xs:element name="minPortRange" type="xs:long" />
+          <xs:element minOccurs="0" name="portAssignmentMethod" type="xs:string" />
+          <xs:element name="portGenerationPropId" type="xs:long" />
+          <xs:element minOccurs="0" name="portSuffixCheckDigit" type="xs:string" />
+          <xs:element minOccurs="0" name="suffixPosition" type="xs:string" />
+          <xs:element name="updateCounter" type="xs:long" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsCheckDigitAlogTypeInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="alogName_en" type="xs:string" />
+          <xs:element minOccurs="0" name="alogName_fr" type="xs:string" />
+          <xs:element minOccurs="0" name="alogorithmName" type="xs:string" />
+          <xs:element name="checkDigitAlogTypeId" type="xs:long" />
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element name="deleted" type="xs:int" />
+          <xs:element name="descriptionId" type="xs:long" />
+          <xs:element minOccurs="0" name="processName" type="xs:string" />
+          <xs:element name="rhinoScriptId" type="xs:long" />
+          <xs:element name="updateCounter" type="xs:long" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsExcludePortRangeInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element name="deleted" type="xs:int" />
+          <xs:element name="excludePortRangeId" type="xs:long" />
+          <xs:element name="portGenerationPropId" type="xs:long" />
+          <xs:element name="portRangeFrom" type="xs:long" />
+          <xs:element name="portRangeTo" type="xs:long" />
+          <xs:element name="updateCounter" type="xs:long" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsCardBaseDefinitionInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="cardBaseDefinitionId" type="xs:int" />
+          <xs:element name="cardBaseId" type="xs:int" />
+          <xs:element minOccurs="0" name="createTimeStamp" type="xs:dateTime" />
+          <xs:element name="deleted" type="xs:int" />
+          <xs:element name="endPosition" type="xs:int" />
+          <xs:element minOccurs="0" name="fieldName" type="xs:string" />
+          <xs:element minOccurs="0" name="fieldValue" type="xs:string" />
+          <xs:element name="startPosition" type="xs:int" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="updateTimeStamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsCardStockInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="active" type="xs:boolean" />
+          <xs:element name="cardBaseId" type="xs:long" />
+          <xs:element minOccurs="0" name="cardStockCode" type="xs:string" />
+          <xs:element minOccurs="0" name="cardStockDescription" type="xs:string" />
+          <xs:element name="cardStockId" type="xs:long" />
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element name="defaultStockCode" type="xs:boolean" />
+          <xs:element name="deleted" type="xs:long" />
+          <xs:element minOccurs="0" name="externalValue" type="xs:string" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsCardBaseTrack2Info">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="cardBaseId" type="xs:long" />
+          <xs:element name="cardBaseTrack2Id" type="xs:long" />
+          <xs:element minOccurs="0" name="createTimeStamp" type="xs:dateTime" />
+          <xs:element name="endPosition" type="xs:int" />
+          <xs:element minOccurs="0" name="fieldName" type="xs:string" />
+          <xs:element minOccurs="0" name="fieldValue" type="xs:string" />
+          <xs:element name="startPosition" type="xs:int" />
+          <xs:element name="updateCounter" type="xs:long" />
+          <xs:element minOccurs="0" name="updateTimeStamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getAllCardOrders">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="branchId" type="xs:long" />
+      <xs:element name="cardBaseId" type="xs:long" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="sortColumns" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sortOrder" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getAllCardOrdersResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="getAllCardOrdersResponse" nillable="true" type="tns:wsCardOrderInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsCardOrderInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="branchId" type="xs:int" />
+          <xs:element name="cardBaseId" type="xs:int" />
+          <xs:element name="cardOrderId" type="xs:int" />
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="dateOrdered" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="dateReceived" type="xs:dateTime" />
+          <xs:element name="deleted" type="xs:int" />
+          <xs:element minOccurs="0" name="expiryDate" type="xs:dateTime" />
+          <xs:element name="jobInstanceId" type="xs:long" />
+          <xs:element name="numberCardsIssued" type="xs:int" />
+          <xs:element name="numberCardsUnusable" type="xs:int" />
+          <xs:element name="orderQuantity" type="xs:int" />
+          <xs:element minOccurs="0" name="orderedByLogonName" type="xs:string" />
+          <xs:element name="orderedByUserId" type="xs:int" />
+          <xs:element minOccurs="0" name="ordertype" type="xs:string" />
+          <xs:element minOccurs="0" name="receivedByLogonName" type="xs:string" />
+          <xs:element name="receivedByUserId" type="xs:int" />
+          <xs:element minOccurs="0" name="status" type="xs:string" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="findATMNetworkUpdateByPrimaryKey">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="aTMNetworkUpdateId" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findATMNetworkUpdateByPrimaryKeyResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="findATMNetworkUpdateByPrimaryKeyResponse" type="tns:wsatmNetworkUpdateInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findATMNetworkNodeByCode">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" name="code" type="xs:string" />
+      <xs:element name="detail" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findATMNetworkNodeByCodeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="findATMNetworkNodeByCodeResponse" type="tns:wsatmNetworkNodeInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsatmNetworkNodeInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="ATMNetworkNodeId" type="xs:long" />
+          <xs:element name="atmNetworkNodePriority" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="atmNodeMappingInfos" nillable="true" type="tns:wsatmNodeMappingInfo" />
+          <xs:element name="automatedHoldHdrId" type="xs:long" />
+          <xs:element minOccurs="0" name="code" type="xs:string" />
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element name="defaultNode" type="xs:boolean" />
+          <xs:element minOccurs="0" name="description" type="xs:string" />
+          <xs:element name="foreignATM" type="xs:boolean" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsatmNodeMappingInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="aquiringInstitution" type="xs:string" />
+          <xs:element name="atmNetworkNodeId" type="xs:long" />
+          <xs:element name="atmNodeMappingId" type="xs:long" />
+          <xs:element minOccurs="0" name="cardAcceptorLocation" type="xs:string" />
+          <xs:element minOccurs="0" name="cardAcceptorTerminal" type="xs:string" />
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="naicsCode" type="xs:string" />
+          <xs:element minOccurs="0" name="sourceNode" type="xs:string" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="createUpdateCardOrderProps">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" name="wscardOrderPropsInfo" type="tns:wsCardOrderPropsInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createUpdateCardOrderPropsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="createUpdateCardOrderPropsResponse" type="tns:wsCardOrderPropsInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getAllUnassignedCards">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="cardBaseId" type="xs:long" />
+      <xs:element name="branchId" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getAllUnassignedCardsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="getAllUnassignedCardsResponse" nillable="true" type="tns:wsGeneratedCardsInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsGeneratedCardsInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsEncryptedBaseInfo">
+        <xs:sequence>
+          <xs:element name="addressId" type="xs:int" />
+          <xs:element name="branchId" type="xs:int" />
+          <xs:element name="cardBaseId" type="xs:int" />
+          <xs:element name="cardId" type="xs:int" />
+          <xs:element minOccurs="0" name="cardNumber" type="xs:string" />
+          <xs:element name="cardOrderId" type="xs:int" />
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="dateOrdered" type="xs:dateTime" />
+          <xs:element name="deleted" type="xs:int" />
+          <xs:element minOccurs="0" name="expiryDate" type="xs:dateTime" />
+          <xs:element name="generatedCardsId" type="xs:int" />
+          <xs:element minOccurs="0" name="mailCode" type="xs:string" />
+          <xs:element minOccurs="0" name="orderType" type="xs:string" />
+          <xs:element name="pinOffset" type="xs:int" />
+          <xs:element minOccurs="0" name="status" type="xs:string" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+          <xs:element name="versionNumber" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsEncryptedBaseInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getAllNetworkNodesWithNoPagination">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getAllNetworkNodesWithNoPaginationResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="getAllNetworkNodesWithNoPaginationResponse" nillable="true" type="tns:wsatmNetworkNodeInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findATMNetworkUpdateByPrimaryKeyWithDBLock">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="aTMNetworkUpdateId" type="xs:long" />
+      <xs:element name="lock" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findATMNetworkUpdateByPrimaryKeyWithDBLockResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="findATMNetworkUpdateByPrimaryKeyWithDBLockResponse" type="tns:wsatmNetworkUpdateInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createUpdateATMNetworkUpdate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" name="wsaTMNetworkUpdateInfo" type="tns:wsatmNetworkUpdateInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createUpdateATMNetworkUpdateResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="createUpdateATMNetworkUpdateResponse" type="tns:wsatmNetworkUpdateInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createUpdateCardBase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" name="wscardBaseInfo" type="tns:wsCardBaseInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createUpdateCardBaseResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="createUpdateATMNetworkNode">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" name="wsinfo" type="tns:wsatmNetworkNodeInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createUpdateATMNetworkNodeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="createUpdateATMNetworkNodeResponse" type="tns:wsatmNetworkNodeInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getAllCardOrderProps">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="branchId" type="xs:long" />
+      <xs:element name="cardBaseId" type="xs:long" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="sortColumns" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sortOrder" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getAllCardOrderPropsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="getAllCardOrderPropsResponse" nillable="true" type="tns:wsCardOrderPropsInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getCardOrderByOrderId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="cardOrderId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getCardOrderByOrderIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="getCardOrderByOrderIdResponse" type="tns:wsCardOrderInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getAllNetworkNodes">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" name="wspageInfo" type="tns:wsPageInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsPageInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="currentPage" type="xs:int" />
+          <xs:element name="numRecsInCurrentPage" type="xs:int" />
+          <xs:element name="numRecsPerPage" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="otherColumns" nillable="true" type="tns:wsNameValueInfo" />
+          <xs:element minOccurs="0" name="sortColumn" type="xs:string" />
+          <xs:element minOccurs="0" name="sortOrder" type="xs:string" />
+          <xs:element name="totalRecords" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsNameValueInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="colName" type="xs:string" />
+          <xs:element minOccurs="0" name="dataType" type="xs:string" />
+          <xs:element name="editable" type="xs:boolean" />
+          <xs:element minOccurs="0" name="name" type="xs:string" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="value" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getAllNetworkNodesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="getAllNetworkNodesResponse" type="tns:wsRecordInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsRecordInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="pageInfo" type="tns:wsPageInfo" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="records" nillable="true" type="tns:wsBaseInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getAllCardOrdersById">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="branchId" type="xs:int" />
+      <xs:element name="cardBaseId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getAllCardOrdersByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="getAllCardOrdersByIdResponse" nillable="true" type="tns:wsCardOrderInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findATMNetworkNodeById">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="id" type="xs:long" />
+      <xs:element name="detail" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findATMNetworkNodeByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="findATMNetworkNodeByIdResponse" type="tns:wsatmNetworkNodeInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findAllATMNetworkNodes">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findAllATMNetworkNodesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="findAllATMNetworkNodesResponse" nillable="true" type="tns:wsatmNetworkNodeInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createUpdateCardOrder">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" name="wscardOrderInfo" type="tns:wsCardOrderInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createUpdateCardOrderResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="createUpdateCardOrderResponse" type="tns:wsCardOrderInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findCardBaseByCardBaseId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="cardBaseDefn" type="xs:boolean" />
+      <xs:element name="cardBaseId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findCardBaseByCardBaseIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="findCardBaseByCardBaseIdResponse" type="tns:wsCardBaseInfo" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

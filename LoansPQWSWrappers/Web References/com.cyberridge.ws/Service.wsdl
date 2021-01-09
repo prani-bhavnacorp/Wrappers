@@ -1,0 +1,2596 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://nortridge.com/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://nortridge.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://nortridge.com/">
+      <s:element name="DBConnectUsingSA">
+        <s:complexType />
+      </s:element>
+      <s:element name="DBConnectUsingSAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DBConnectUsingSAResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DBConnectUsingWindowsAuthentication">
+        <s:complexType />
+      </s:element>
+      <s:element name="DBConnectUsingWindowsAuthenticationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DBConnectUsingWindowsAuthenticationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSInitializeAndImportXMLWindowsAuthentication">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="commit_to_db" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="db_server" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="db_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="db_type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="import_string" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSInitializeAndImportXMLWindowsAuthenticationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NLSInitializeAndImportXMLWindowsAuthenticationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSInitializeAndImportXMLDBAuthentication">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="commit_to_db" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="db_server" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="db_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="db_type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="db_username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="db_password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nls_username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nls_password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="import_string" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSInitializeAndImportXMLDBAuthenticationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NLSInitializeAndImportXMLDBAuthenticationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSPrimaHealthTest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ContactNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSPrimaHealthTestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NLSPrimaHealthTestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSAuthenticate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="db_type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="server_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="database_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ipaddress" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSAuthenticateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NLSAuthenticateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSGlobalAuthentication">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="db_type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="server_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="database_name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSGlobalAuthenticationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NLSGlobalAuthenticationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSGetLoanList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ContactNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IncludeRelatedLoans" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSGetLoanListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NLSGetLoanListResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSGetLoanDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LoanNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSGetLoanDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NLSGetLoanDetailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSGetContact">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ContactNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSGetContactResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NLSGetContactResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSStatementImage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LoanNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DocumentID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSStatementImageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NLSStatementImageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSLoanPendingTransactions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LoanNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSLoanPendingTransactionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NLSLoanPendingTransactionsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSLogOut">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSLogOutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NLSLogOutResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSVerifyContact">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="db_type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="server_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="database_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SSNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Zip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LoanNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSVerifyContactResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NLSVerifyContactResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSCreateCredentials">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ContactUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ContactPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PasswordHint1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PasswordAnswer1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PasswordHint2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PasswordAnswer2" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSCreateCredentialsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NLSCreateCredentialsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSPasswordRecoveryByEmail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="db_type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="server_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="database_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ContactUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IPAddress" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSPasswordRecoveryByEmailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NLSPasswordRecoveryByEmailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSPasswordRecoveryHints">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="db_type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="server_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="database_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ContactUserName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSPasswordRecoveryHintsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NLSPasswordRecoveryHintsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSPasswordRecoveryAnswers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="db_type" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="server_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="database_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ContactUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="HintAnswer1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="HintAnswer2" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSPasswordRecoveryAnswersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NLSPasswordRecoveryAnswersResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSChangePassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OldPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSChangePasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NLSChangePasswordResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSForceChangePassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSForceChangePasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NLSForceChangePasswordResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSContactUDF">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ContactNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FieldsToReturn" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSContactUDFResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NLSContactUDFResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSLoanDetailUDF">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LoanNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FieldsToReturn" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSLoanDetailUDFResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NLSLoanDetailUDFResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSLoanPaymentsDue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LoanNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BeginningDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EndingDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSLoanPaymentsDueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NLSLoanPaymentsDueResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSLoanPaymentHistory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LoanNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BeginningDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EndingDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSLoanPaymentHistoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NLSLoanPaymentHistoryResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSStatements">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LoanNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BeginningDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EndingDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSStatementsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NLSStatementsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSCalculateAmortizedPaymentAmount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoanAmount" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="InterestRate" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="NumberOfPayments" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PaymentsPerYear" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="BeginningPeriodAmortizationFlag" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSCalculateAmortizedPaymentAmountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NLSCalculateAmortizedPaymentAmountResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSCalculateAmortizedPaymentAmountWithBalloon">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LoanAmount" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="InterestRate" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="NumberOfPayments" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="NumberOfPaymentsDue" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PaymentsPerYear" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="BeginningPeriodAmortizationFlag" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSCalculateAmortizedPaymentAmountWithBalloonResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="NLSCalculateAmortizedPaymentAmountWithBalloonResult" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="working_balloon_payment" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSMethod">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="input_xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="NLSMethodResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="NLSMethodResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="output_xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportXML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ServerName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DatabaseName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ImportString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportXMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ImportXMLResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TestImportXML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ServerName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DatabaseName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ImportString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TestImportXMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TestImportXMLResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PostStatement">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="statementXml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PostStatementResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PostStatementResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="DBConnectUsingSASoapIn">
+    <wsdl:part name="parameters" element="tns:DBConnectUsingSA" />
+  </wsdl:message>
+  <wsdl:message name="DBConnectUsingSASoapOut">
+    <wsdl:part name="parameters" element="tns:DBConnectUsingSAResponse" />
+  </wsdl:message>
+  <wsdl:message name="DBConnectUsingWindowsAuthenticationSoapIn">
+    <wsdl:part name="parameters" element="tns:DBConnectUsingWindowsAuthentication" />
+  </wsdl:message>
+  <wsdl:message name="DBConnectUsingWindowsAuthenticationSoapOut">
+    <wsdl:part name="parameters" element="tns:DBConnectUsingWindowsAuthenticationResponse" />
+  </wsdl:message>
+  <wsdl:message name="NLSInitializeAndImportXMLWindowsAuthenticationSoapIn">
+    <wsdl:part name="parameters" element="tns:NLSInitializeAndImportXMLWindowsAuthentication" />
+  </wsdl:message>
+  <wsdl:message name="NLSInitializeAndImportXMLWindowsAuthenticationSoapOut">
+    <wsdl:part name="parameters" element="tns:NLSInitializeAndImportXMLWindowsAuthenticationResponse" />
+  </wsdl:message>
+  <wsdl:message name="NLSInitializeAndImportXMLDBAuthenticationSoapIn">
+    <wsdl:part name="parameters" element="tns:NLSInitializeAndImportXMLDBAuthentication" />
+  </wsdl:message>
+  <wsdl:message name="NLSInitializeAndImportXMLDBAuthenticationSoapOut">
+    <wsdl:part name="parameters" element="tns:NLSInitializeAndImportXMLDBAuthenticationResponse" />
+  </wsdl:message>
+  <wsdl:message name="NLSPrimaHealthTestSoapIn">
+    <wsdl:part name="parameters" element="tns:NLSPrimaHealthTest" />
+  </wsdl:message>
+  <wsdl:message name="NLSPrimaHealthTestSoapOut">
+    <wsdl:part name="parameters" element="tns:NLSPrimaHealthTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="NLSAuthenticateSoapIn">
+    <wsdl:part name="parameters" element="tns:NLSAuthenticate" />
+  </wsdl:message>
+  <wsdl:message name="NLSAuthenticateSoapOut">
+    <wsdl:part name="parameters" element="tns:NLSAuthenticateResponse" />
+  </wsdl:message>
+  <wsdl:message name="NLSGlobalAuthenticationSoapIn">
+    <wsdl:part name="parameters" element="tns:NLSGlobalAuthentication" />
+  </wsdl:message>
+  <wsdl:message name="NLSGlobalAuthenticationSoapOut">
+    <wsdl:part name="parameters" element="tns:NLSGlobalAuthenticationResponse" />
+  </wsdl:message>
+  <wsdl:message name="NLSGetLoanListSoapIn">
+    <wsdl:part name="parameters" element="tns:NLSGetLoanList" />
+  </wsdl:message>
+  <wsdl:message name="NLSGetLoanListSoapOut">
+    <wsdl:part name="parameters" element="tns:NLSGetLoanListResponse" />
+  </wsdl:message>
+  <wsdl:message name="NLSGetLoanDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:NLSGetLoanDetail" />
+  </wsdl:message>
+  <wsdl:message name="NLSGetLoanDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:NLSGetLoanDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="NLSGetContactSoapIn">
+    <wsdl:part name="parameters" element="tns:NLSGetContact" />
+  </wsdl:message>
+  <wsdl:message name="NLSGetContactSoapOut">
+    <wsdl:part name="parameters" element="tns:NLSGetContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="NLSStatementImageSoapIn">
+    <wsdl:part name="parameters" element="tns:NLSStatementImage" />
+  </wsdl:message>
+  <wsdl:message name="NLSStatementImageSoapOut">
+    <wsdl:part name="parameters" element="tns:NLSStatementImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="NLSLoanPendingTransactionsSoapIn">
+    <wsdl:part name="parameters" element="tns:NLSLoanPendingTransactions" />
+  </wsdl:message>
+  <wsdl:message name="NLSLoanPendingTransactionsSoapOut">
+    <wsdl:part name="parameters" element="tns:NLSLoanPendingTransactionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="NLSLogOutSoapIn">
+    <wsdl:part name="parameters" element="tns:NLSLogOut" />
+  </wsdl:message>
+  <wsdl:message name="NLSLogOutSoapOut">
+    <wsdl:part name="parameters" element="tns:NLSLogOutResponse" />
+  </wsdl:message>
+  <wsdl:message name="NLSVerifyContactSoapIn">
+    <wsdl:part name="parameters" element="tns:NLSVerifyContact" />
+  </wsdl:message>
+  <wsdl:message name="NLSVerifyContactSoapOut">
+    <wsdl:part name="parameters" element="tns:NLSVerifyContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="NLSCreateCredentialsSoapIn">
+    <wsdl:part name="parameters" element="tns:NLSCreateCredentials" />
+  </wsdl:message>
+  <wsdl:message name="NLSCreateCredentialsSoapOut">
+    <wsdl:part name="parameters" element="tns:NLSCreateCredentialsResponse" />
+  </wsdl:message>
+  <wsdl:message name="NLSPasswordRecoveryByEmailSoapIn">
+    <wsdl:part name="parameters" element="tns:NLSPasswordRecoveryByEmail" />
+  </wsdl:message>
+  <wsdl:message name="NLSPasswordRecoveryByEmailSoapOut">
+    <wsdl:part name="parameters" element="tns:NLSPasswordRecoveryByEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="NLSPasswordRecoveryHintsSoapIn">
+    <wsdl:part name="parameters" element="tns:NLSPasswordRecoveryHints" />
+  </wsdl:message>
+  <wsdl:message name="NLSPasswordRecoveryHintsSoapOut">
+    <wsdl:part name="parameters" element="tns:NLSPasswordRecoveryHintsResponse" />
+  </wsdl:message>
+  <wsdl:message name="NLSPasswordRecoveryAnswersSoapIn">
+    <wsdl:part name="parameters" element="tns:NLSPasswordRecoveryAnswers" />
+  </wsdl:message>
+  <wsdl:message name="NLSPasswordRecoveryAnswersSoapOut">
+    <wsdl:part name="parameters" element="tns:NLSPasswordRecoveryAnswersResponse" />
+  </wsdl:message>
+  <wsdl:message name="NLSChangePasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:NLSChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="NLSChangePasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:NLSChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="NLSForceChangePasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:NLSForceChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="NLSForceChangePasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:NLSForceChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="NLSContactUDFSoapIn">
+    <wsdl:part name="parameters" element="tns:NLSContactUDF" />
+  </wsdl:message>
+  <wsdl:message name="NLSContactUDFSoapOut">
+    <wsdl:part name="parameters" element="tns:NLSContactUDFResponse" />
+  </wsdl:message>
+  <wsdl:message name="NLSLoanDetailUDFSoapIn">
+    <wsdl:part name="parameters" element="tns:NLSLoanDetailUDF" />
+  </wsdl:message>
+  <wsdl:message name="NLSLoanDetailUDFSoapOut">
+    <wsdl:part name="parameters" element="tns:NLSLoanDetailUDFResponse" />
+  </wsdl:message>
+  <wsdl:message name="NLSLoanPaymentsDueSoapIn">
+    <wsdl:part name="parameters" element="tns:NLSLoanPaymentsDue" />
+  </wsdl:message>
+  <wsdl:message name="NLSLoanPaymentsDueSoapOut">
+    <wsdl:part name="parameters" element="tns:NLSLoanPaymentsDueResponse" />
+  </wsdl:message>
+  <wsdl:message name="NLSLoanPaymentHistorySoapIn">
+    <wsdl:part name="parameters" element="tns:NLSLoanPaymentHistory" />
+  </wsdl:message>
+  <wsdl:message name="NLSLoanPaymentHistorySoapOut">
+    <wsdl:part name="parameters" element="tns:NLSLoanPaymentHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="NLSStatementsSoapIn">
+    <wsdl:part name="parameters" element="tns:NLSStatements" />
+  </wsdl:message>
+  <wsdl:message name="NLSStatementsSoapOut">
+    <wsdl:part name="parameters" element="tns:NLSStatementsResponse" />
+  </wsdl:message>
+  <wsdl:message name="NLSCalculateAmortizedPaymentAmountSoapIn">
+    <wsdl:part name="parameters" element="tns:NLSCalculateAmortizedPaymentAmount" />
+  </wsdl:message>
+  <wsdl:message name="NLSCalculateAmortizedPaymentAmountSoapOut">
+    <wsdl:part name="parameters" element="tns:NLSCalculateAmortizedPaymentAmountResponse" />
+  </wsdl:message>
+  <wsdl:message name="NLSCalculateAmortizedPaymentAmountWithBalloonSoapIn">
+    <wsdl:part name="parameters" element="tns:NLSCalculateAmortizedPaymentAmountWithBalloon" />
+  </wsdl:message>
+  <wsdl:message name="NLSCalculateAmortizedPaymentAmountWithBalloonSoapOut">
+    <wsdl:part name="parameters" element="tns:NLSCalculateAmortizedPaymentAmountWithBalloonResponse" />
+  </wsdl:message>
+  <wsdl:message name="NLSMethodSoapIn">
+    <wsdl:part name="parameters" element="tns:NLSMethod" />
+  </wsdl:message>
+  <wsdl:message name="NLSMethodSoapOut">
+    <wsdl:part name="parameters" element="tns:NLSMethodResponse" />
+  </wsdl:message>
+  <wsdl:message name="ImportXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:ImportXML" />
+  </wsdl:message>
+  <wsdl:message name="ImportXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:ImportXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestImportXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:TestImportXML" />
+  </wsdl:message>
+  <wsdl:message name="TestImportXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:TestImportXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="PostStatementSoapIn">
+    <wsdl:part name="parameters" element="tns:PostStatement" />
+  </wsdl:message>
+  <wsdl:message name="PostStatementSoapOut">
+    <wsdl:part name="parameters" element="tns:PostStatementResponse" />
+  </wsdl:message>
+  <wsdl:message name="DBConnectUsingSAHttpGetIn" />
+  <wsdl:message name="DBConnectUsingSAHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DBConnectUsingWindowsAuthenticationHttpGetIn" />
+  <wsdl:message name="DBConnectUsingWindowsAuthenticationHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSInitializeAndImportXMLWindowsAuthenticationHttpGetIn">
+    <wsdl:part name="commit_to_db" type="s:string" />
+    <wsdl:part name="db_server" type="s:string" />
+    <wsdl:part name="db_name" type="s:string" />
+    <wsdl:part name="db_type" type="s:string" />
+    <wsdl:part name="import_string" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSInitializeAndImportXMLWindowsAuthenticationHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSInitializeAndImportXMLDBAuthenticationHttpGetIn">
+    <wsdl:part name="commit_to_db" type="s:string" />
+    <wsdl:part name="db_server" type="s:string" />
+    <wsdl:part name="db_name" type="s:string" />
+    <wsdl:part name="db_type" type="s:string" />
+    <wsdl:part name="db_username" type="s:string" />
+    <wsdl:part name="db_password" type="s:string" />
+    <wsdl:part name="nls_username" type="s:string" />
+    <wsdl:part name="nls_password" type="s:string" />
+    <wsdl:part name="import_string" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSInitializeAndImportXMLDBAuthenticationHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSPrimaHealthTestHttpGetIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="ContactNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSPrimaHealthTestHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSAuthenticateHttpGetIn">
+    <wsdl:part name="db_type" type="s:string" />
+    <wsdl:part name="server_name" type="s:string" />
+    <wsdl:part name="database_name" type="s:string" />
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="ipaddress" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSAuthenticateHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSGlobalAuthenticationHttpGetIn">
+    <wsdl:part name="db_type" type="s:string" />
+    <wsdl:part name="server_name" type="s:string" />
+    <wsdl:part name="database_name" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSGlobalAuthenticationHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSGetLoanListHttpGetIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="ContactNumber" type="s:string" />
+    <wsdl:part name="IncludeRelatedLoans" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSGetLoanListHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSGetLoanDetailHttpGetIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="LoanNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSGetLoanDetailHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSGetContactHttpGetIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="ContactNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSGetContactHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSStatementImageHttpGetIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="LoanNumber" type="s:string" />
+    <wsdl:part name="DocumentID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSStatementImageHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSLoanPendingTransactionsHttpGetIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="LoanNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSLoanPendingTransactionsHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSLogOutHttpGetIn">
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSLogOutHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSVerifyContactHttpGetIn">
+    <wsdl:part name="db_type" type="s:string" />
+    <wsdl:part name="server_name" type="s:string" />
+    <wsdl:part name="database_name" type="s:string" />
+    <wsdl:part name="FirstName" type="s:string" />
+    <wsdl:part name="LastName" type="s:string" />
+    <wsdl:part name="SSNumber" type="s:string" />
+    <wsdl:part name="Address" type="s:string" />
+    <wsdl:part name="City" type="s:string" />
+    <wsdl:part name="State" type="s:string" />
+    <wsdl:part name="Zip" type="s:string" />
+    <wsdl:part name="Phone" type="s:string" />
+    <wsdl:part name="LoanNumber" type="s:string" />
+    <wsdl:part name="EmailAddress" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSVerifyContactHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSCreateCredentialsHttpGetIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="ContactUserName" type="s:string" />
+    <wsdl:part name="ContactPassword" type="s:string" />
+    <wsdl:part name="PasswordHint1" type="s:string" />
+    <wsdl:part name="PasswordAnswer1" type="s:string" />
+    <wsdl:part name="PasswordHint2" type="s:string" />
+    <wsdl:part name="PasswordAnswer2" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSCreateCredentialsHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSPasswordRecoveryByEmailHttpGetIn">
+    <wsdl:part name="db_type" type="s:string" />
+    <wsdl:part name="server_name" type="s:string" />
+    <wsdl:part name="database_name" type="s:string" />
+    <wsdl:part name="ContactUserName" type="s:string" />
+    <wsdl:part name="IPAddress" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSPasswordRecoveryByEmailHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSPasswordRecoveryHintsHttpGetIn">
+    <wsdl:part name="db_type" type="s:string" />
+    <wsdl:part name="server_name" type="s:string" />
+    <wsdl:part name="database_name" type="s:string" />
+    <wsdl:part name="ContactUserName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSPasswordRecoveryHintsHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSPasswordRecoveryAnswersHttpGetIn">
+    <wsdl:part name="db_type" type="s:string" />
+    <wsdl:part name="server_name" type="s:string" />
+    <wsdl:part name="database_name" type="s:string" />
+    <wsdl:part name="ContactUserName" type="s:string" />
+    <wsdl:part name="HintAnswer1" type="s:string" />
+    <wsdl:part name="HintAnswer2" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSPasswordRecoveryAnswersHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSChangePasswordHttpGetIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="OldPassword" type="s:string" />
+    <wsdl:part name="NewPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSChangePasswordHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSForceChangePasswordHttpGetIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="NewPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSForceChangePasswordHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSContactUDFHttpGetIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="ContactNumber" type="s:string" />
+    <wsdl:part name="FieldsToReturn" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSContactUDFHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSLoanDetailUDFHttpGetIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="LoanNumber" type="s:string" />
+    <wsdl:part name="FieldsToReturn" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSLoanDetailUDFHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSLoanPaymentsDueHttpGetIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="LoanNumber" type="s:string" />
+    <wsdl:part name="BeginningDate" type="s:string" />
+    <wsdl:part name="EndingDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSLoanPaymentsDueHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSLoanPaymentHistoryHttpGetIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="LoanNumber" type="s:string" />
+    <wsdl:part name="BeginningDate" type="s:string" />
+    <wsdl:part name="EndingDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSLoanPaymentHistoryHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSStatementsHttpGetIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="LoanNumber" type="s:string" />
+    <wsdl:part name="BeginningDate" type="s:string" />
+    <wsdl:part name="EndingDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSStatementsHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSCalculateAmortizedPaymentAmountHttpGetIn">
+    <wsdl:part name="LoanAmount" type="s:string" />
+    <wsdl:part name="InterestRate" type="s:string" />
+    <wsdl:part name="NumberOfPayments" type="s:string" />
+    <wsdl:part name="PaymentsPerYear" type="s:string" />
+    <wsdl:part name="BeginningPeriodAmortizationFlag" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSCalculateAmortizedPaymentAmountHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="PostStatementHttpGetIn">
+    <wsdl:part name="statementXml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PostStatementHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DBConnectUsingSAHttpPostIn" />
+  <wsdl:message name="DBConnectUsingSAHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DBConnectUsingWindowsAuthenticationHttpPostIn" />
+  <wsdl:message name="DBConnectUsingWindowsAuthenticationHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSInitializeAndImportXMLWindowsAuthenticationHttpPostIn">
+    <wsdl:part name="commit_to_db" type="s:string" />
+    <wsdl:part name="db_server" type="s:string" />
+    <wsdl:part name="db_name" type="s:string" />
+    <wsdl:part name="db_type" type="s:string" />
+    <wsdl:part name="import_string" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSInitializeAndImportXMLWindowsAuthenticationHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSInitializeAndImportXMLDBAuthenticationHttpPostIn">
+    <wsdl:part name="commit_to_db" type="s:string" />
+    <wsdl:part name="db_server" type="s:string" />
+    <wsdl:part name="db_name" type="s:string" />
+    <wsdl:part name="db_type" type="s:string" />
+    <wsdl:part name="db_username" type="s:string" />
+    <wsdl:part name="db_password" type="s:string" />
+    <wsdl:part name="nls_username" type="s:string" />
+    <wsdl:part name="nls_password" type="s:string" />
+    <wsdl:part name="import_string" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSInitializeAndImportXMLDBAuthenticationHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSPrimaHealthTestHttpPostIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="ContactNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSPrimaHealthTestHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSAuthenticateHttpPostIn">
+    <wsdl:part name="db_type" type="s:string" />
+    <wsdl:part name="server_name" type="s:string" />
+    <wsdl:part name="database_name" type="s:string" />
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="ipaddress" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSAuthenticateHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSGlobalAuthenticationHttpPostIn">
+    <wsdl:part name="db_type" type="s:string" />
+    <wsdl:part name="server_name" type="s:string" />
+    <wsdl:part name="database_name" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSGlobalAuthenticationHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSGetLoanListHttpPostIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="ContactNumber" type="s:string" />
+    <wsdl:part name="IncludeRelatedLoans" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSGetLoanListHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSGetLoanDetailHttpPostIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="LoanNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSGetLoanDetailHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSGetContactHttpPostIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="ContactNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSGetContactHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSStatementImageHttpPostIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="LoanNumber" type="s:string" />
+    <wsdl:part name="DocumentID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSStatementImageHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSLoanPendingTransactionsHttpPostIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="LoanNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSLoanPendingTransactionsHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSLogOutHttpPostIn">
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSLogOutHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSVerifyContactHttpPostIn">
+    <wsdl:part name="db_type" type="s:string" />
+    <wsdl:part name="server_name" type="s:string" />
+    <wsdl:part name="database_name" type="s:string" />
+    <wsdl:part name="FirstName" type="s:string" />
+    <wsdl:part name="LastName" type="s:string" />
+    <wsdl:part name="SSNumber" type="s:string" />
+    <wsdl:part name="Address" type="s:string" />
+    <wsdl:part name="City" type="s:string" />
+    <wsdl:part name="State" type="s:string" />
+    <wsdl:part name="Zip" type="s:string" />
+    <wsdl:part name="Phone" type="s:string" />
+    <wsdl:part name="LoanNumber" type="s:string" />
+    <wsdl:part name="EmailAddress" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSVerifyContactHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSCreateCredentialsHttpPostIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="ContactUserName" type="s:string" />
+    <wsdl:part name="ContactPassword" type="s:string" />
+    <wsdl:part name="PasswordHint1" type="s:string" />
+    <wsdl:part name="PasswordAnswer1" type="s:string" />
+    <wsdl:part name="PasswordHint2" type="s:string" />
+    <wsdl:part name="PasswordAnswer2" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSCreateCredentialsHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSPasswordRecoveryByEmailHttpPostIn">
+    <wsdl:part name="db_type" type="s:string" />
+    <wsdl:part name="server_name" type="s:string" />
+    <wsdl:part name="database_name" type="s:string" />
+    <wsdl:part name="ContactUserName" type="s:string" />
+    <wsdl:part name="IPAddress" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSPasswordRecoveryByEmailHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSPasswordRecoveryHintsHttpPostIn">
+    <wsdl:part name="db_type" type="s:string" />
+    <wsdl:part name="server_name" type="s:string" />
+    <wsdl:part name="database_name" type="s:string" />
+    <wsdl:part name="ContactUserName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSPasswordRecoveryHintsHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSPasswordRecoveryAnswersHttpPostIn">
+    <wsdl:part name="db_type" type="s:string" />
+    <wsdl:part name="server_name" type="s:string" />
+    <wsdl:part name="database_name" type="s:string" />
+    <wsdl:part name="ContactUserName" type="s:string" />
+    <wsdl:part name="HintAnswer1" type="s:string" />
+    <wsdl:part name="HintAnswer2" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSPasswordRecoveryAnswersHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSChangePasswordHttpPostIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="OldPassword" type="s:string" />
+    <wsdl:part name="NewPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSChangePasswordHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSForceChangePasswordHttpPostIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="NewPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSForceChangePasswordHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSContactUDFHttpPostIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="ContactNumber" type="s:string" />
+    <wsdl:part name="FieldsToReturn" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSContactUDFHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSLoanDetailUDFHttpPostIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="LoanNumber" type="s:string" />
+    <wsdl:part name="FieldsToReturn" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSLoanDetailUDFHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSLoanPaymentsDueHttpPostIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="LoanNumber" type="s:string" />
+    <wsdl:part name="BeginningDate" type="s:string" />
+    <wsdl:part name="EndingDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSLoanPaymentsDueHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSLoanPaymentHistoryHttpPostIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="LoanNumber" type="s:string" />
+    <wsdl:part name="BeginningDate" type="s:string" />
+    <wsdl:part name="EndingDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSLoanPaymentHistoryHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSStatementsHttpPostIn">
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="LoanNumber" type="s:string" />
+    <wsdl:part name="BeginningDate" type="s:string" />
+    <wsdl:part name="EndingDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSStatementsHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSCalculateAmortizedPaymentAmountHttpPostIn">
+    <wsdl:part name="LoanAmount" type="s:string" />
+    <wsdl:part name="InterestRate" type="s:string" />
+    <wsdl:part name="NumberOfPayments" type="s:string" />
+    <wsdl:part name="PaymentsPerYear" type="s:string" />
+    <wsdl:part name="BeginningPeriodAmortizationFlag" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="NLSCalculateAmortizedPaymentAmountHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="PostStatementHttpPostIn">
+    <wsdl:part name="statementXml" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PostStatementHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="DBConnectUsingSA">
+      <wsdl:input message="tns:DBConnectUsingSASoapIn" />
+      <wsdl:output message="tns:DBConnectUsingSASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DBConnectUsingWindowsAuthentication">
+      <wsdl:input message="tns:DBConnectUsingWindowsAuthenticationSoapIn" />
+      <wsdl:output message="tns:DBConnectUsingWindowsAuthenticationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSInitializeAndImportXMLWindowsAuthentication">
+      <wsdl:input message="tns:NLSInitializeAndImportXMLWindowsAuthenticationSoapIn" />
+      <wsdl:output message="tns:NLSInitializeAndImportXMLWindowsAuthenticationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSInitializeAndImportXMLDBAuthentication">
+      <wsdl:input message="tns:NLSInitializeAndImportXMLDBAuthenticationSoapIn" />
+      <wsdl:output message="tns:NLSInitializeAndImportXMLDBAuthenticationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSPrimaHealthTest">
+      <wsdl:input message="tns:NLSPrimaHealthTestSoapIn" />
+      <wsdl:output message="tns:NLSPrimaHealthTestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSAuthenticate">
+      <wsdl:input message="tns:NLSAuthenticateSoapIn" />
+      <wsdl:output message="tns:NLSAuthenticateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSGlobalAuthentication">
+      <wsdl:input message="tns:NLSGlobalAuthenticationSoapIn" />
+      <wsdl:output message="tns:NLSGlobalAuthenticationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSGetLoanList">
+      <wsdl:input message="tns:NLSGetLoanListSoapIn" />
+      <wsdl:output message="tns:NLSGetLoanListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSGetLoanDetail">
+      <wsdl:input message="tns:NLSGetLoanDetailSoapIn" />
+      <wsdl:output message="tns:NLSGetLoanDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSGetContact">
+      <wsdl:input message="tns:NLSGetContactSoapIn" />
+      <wsdl:output message="tns:NLSGetContactSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSStatementImage">
+      <wsdl:input message="tns:NLSStatementImageSoapIn" />
+      <wsdl:output message="tns:NLSStatementImageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSLoanPendingTransactions">
+      <wsdl:input message="tns:NLSLoanPendingTransactionsSoapIn" />
+      <wsdl:output message="tns:NLSLoanPendingTransactionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSLogOut">
+      <wsdl:input message="tns:NLSLogOutSoapIn" />
+      <wsdl:output message="tns:NLSLogOutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSVerifyContact">
+      <wsdl:input message="tns:NLSVerifyContactSoapIn" />
+      <wsdl:output message="tns:NLSVerifyContactSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSCreateCredentials">
+      <wsdl:input message="tns:NLSCreateCredentialsSoapIn" />
+      <wsdl:output message="tns:NLSCreateCredentialsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSPasswordRecoveryByEmail">
+      <wsdl:input message="tns:NLSPasswordRecoveryByEmailSoapIn" />
+      <wsdl:output message="tns:NLSPasswordRecoveryByEmailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSPasswordRecoveryHints">
+      <wsdl:input message="tns:NLSPasswordRecoveryHintsSoapIn" />
+      <wsdl:output message="tns:NLSPasswordRecoveryHintsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSPasswordRecoveryAnswers">
+      <wsdl:input message="tns:NLSPasswordRecoveryAnswersSoapIn" />
+      <wsdl:output message="tns:NLSPasswordRecoveryAnswersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSChangePassword">
+      <wsdl:input message="tns:NLSChangePasswordSoapIn" />
+      <wsdl:output message="tns:NLSChangePasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSForceChangePassword">
+      <wsdl:input message="tns:NLSForceChangePasswordSoapIn" />
+      <wsdl:output message="tns:NLSForceChangePasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSContactUDF">
+      <wsdl:input message="tns:NLSContactUDFSoapIn" />
+      <wsdl:output message="tns:NLSContactUDFSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSLoanDetailUDF">
+      <wsdl:input message="tns:NLSLoanDetailUDFSoapIn" />
+      <wsdl:output message="tns:NLSLoanDetailUDFSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSLoanPaymentsDue">
+      <wsdl:input message="tns:NLSLoanPaymentsDueSoapIn" />
+      <wsdl:output message="tns:NLSLoanPaymentsDueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSLoanPaymentHistory">
+      <wsdl:input message="tns:NLSLoanPaymentHistorySoapIn" />
+      <wsdl:output message="tns:NLSLoanPaymentHistorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSStatements">
+      <wsdl:input message="tns:NLSStatementsSoapIn" />
+      <wsdl:output message="tns:NLSStatementsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSCalculateAmortizedPaymentAmount">
+      <wsdl:input message="tns:NLSCalculateAmortizedPaymentAmountSoapIn" />
+      <wsdl:output message="tns:NLSCalculateAmortizedPaymentAmountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSCalculateAmortizedPaymentAmountWithBalloon">
+      <wsdl:input message="tns:NLSCalculateAmortizedPaymentAmountWithBalloonSoapIn" />
+      <wsdl:output message="tns:NLSCalculateAmortizedPaymentAmountWithBalloonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSMethod">
+      <wsdl:input message="tns:NLSMethodSoapIn" />
+      <wsdl:output message="tns:NLSMethodSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ImportXML">
+      <wsdl:input message="tns:ImportXMLSoapIn" />
+      <wsdl:output message="tns:ImportXMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TestImportXML">
+      <wsdl:input message="tns:TestImportXMLSoapIn" />
+      <wsdl:output message="tns:TestImportXMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PostStatement">
+      <wsdl:input message="tns:PostStatementSoapIn" />
+      <wsdl:output message="tns:PostStatementSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ServiceHttpGet">
+    <wsdl:operation name="DBConnectUsingSA">
+      <wsdl:input message="tns:DBConnectUsingSAHttpGetIn" />
+      <wsdl:output message="tns:DBConnectUsingSAHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DBConnectUsingWindowsAuthentication">
+      <wsdl:input message="tns:DBConnectUsingWindowsAuthenticationHttpGetIn" />
+      <wsdl:output message="tns:DBConnectUsingWindowsAuthenticationHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSInitializeAndImportXMLWindowsAuthentication">
+      <wsdl:input message="tns:NLSInitializeAndImportXMLWindowsAuthenticationHttpGetIn" />
+      <wsdl:output message="tns:NLSInitializeAndImportXMLWindowsAuthenticationHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSInitializeAndImportXMLDBAuthentication">
+      <wsdl:input message="tns:NLSInitializeAndImportXMLDBAuthenticationHttpGetIn" />
+      <wsdl:output message="tns:NLSInitializeAndImportXMLDBAuthenticationHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSPrimaHealthTest">
+      <wsdl:input message="tns:NLSPrimaHealthTestHttpGetIn" />
+      <wsdl:output message="tns:NLSPrimaHealthTestHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSAuthenticate">
+      <wsdl:input message="tns:NLSAuthenticateHttpGetIn" />
+      <wsdl:output message="tns:NLSAuthenticateHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSGlobalAuthentication">
+      <wsdl:input message="tns:NLSGlobalAuthenticationHttpGetIn" />
+      <wsdl:output message="tns:NLSGlobalAuthenticationHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSGetLoanList">
+      <wsdl:input message="tns:NLSGetLoanListHttpGetIn" />
+      <wsdl:output message="tns:NLSGetLoanListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSGetLoanDetail">
+      <wsdl:input message="tns:NLSGetLoanDetailHttpGetIn" />
+      <wsdl:output message="tns:NLSGetLoanDetailHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSGetContact">
+      <wsdl:input message="tns:NLSGetContactHttpGetIn" />
+      <wsdl:output message="tns:NLSGetContactHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSStatementImage">
+      <wsdl:input message="tns:NLSStatementImageHttpGetIn" />
+      <wsdl:output message="tns:NLSStatementImageHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSLoanPendingTransactions">
+      <wsdl:input message="tns:NLSLoanPendingTransactionsHttpGetIn" />
+      <wsdl:output message="tns:NLSLoanPendingTransactionsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSLogOut">
+      <wsdl:input message="tns:NLSLogOutHttpGetIn" />
+      <wsdl:output message="tns:NLSLogOutHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSVerifyContact">
+      <wsdl:input message="tns:NLSVerifyContactHttpGetIn" />
+      <wsdl:output message="tns:NLSVerifyContactHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSCreateCredentials">
+      <wsdl:input message="tns:NLSCreateCredentialsHttpGetIn" />
+      <wsdl:output message="tns:NLSCreateCredentialsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSPasswordRecoveryByEmail">
+      <wsdl:input message="tns:NLSPasswordRecoveryByEmailHttpGetIn" />
+      <wsdl:output message="tns:NLSPasswordRecoveryByEmailHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSPasswordRecoveryHints">
+      <wsdl:input message="tns:NLSPasswordRecoveryHintsHttpGetIn" />
+      <wsdl:output message="tns:NLSPasswordRecoveryHintsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSPasswordRecoveryAnswers">
+      <wsdl:input message="tns:NLSPasswordRecoveryAnswersHttpGetIn" />
+      <wsdl:output message="tns:NLSPasswordRecoveryAnswersHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSChangePassword">
+      <wsdl:input message="tns:NLSChangePasswordHttpGetIn" />
+      <wsdl:output message="tns:NLSChangePasswordHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSForceChangePassword">
+      <wsdl:input message="tns:NLSForceChangePasswordHttpGetIn" />
+      <wsdl:output message="tns:NLSForceChangePasswordHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSContactUDF">
+      <wsdl:input message="tns:NLSContactUDFHttpGetIn" />
+      <wsdl:output message="tns:NLSContactUDFHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSLoanDetailUDF">
+      <wsdl:input message="tns:NLSLoanDetailUDFHttpGetIn" />
+      <wsdl:output message="tns:NLSLoanDetailUDFHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSLoanPaymentsDue">
+      <wsdl:input message="tns:NLSLoanPaymentsDueHttpGetIn" />
+      <wsdl:output message="tns:NLSLoanPaymentsDueHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSLoanPaymentHistory">
+      <wsdl:input message="tns:NLSLoanPaymentHistoryHttpGetIn" />
+      <wsdl:output message="tns:NLSLoanPaymentHistoryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSStatements">
+      <wsdl:input message="tns:NLSStatementsHttpGetIn" />
+      <wsdl:output message="tns:NLSStatementsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSCalculateAmortizedPaymentAmount">
+      <wsdl:input message="tns:NLSCalculateAmortizedPaymentAmountHttpGetIn" />
+      <wsdl:output message="tns:NLSCalculateAmortizedPaymentAmountHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PostStatement">
+      <wsdl:input message="tns:PostStatementHttpGetIn" />
+      <wsdl:output message="tns:PostStatementHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ServiceHttpPost">
+    <wsdl:operation name="DBConnectUsingSA">
+      <wsdl:input message="tns:DBConnectUsingSAHttpPostIn" />
+      <wsdl:output message="tns:DBConnectUsingSAHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DBConnectUsingWindowsAuthentication">
+      <wsdl:input message="tns:DBConnectUsingWindowsAuthenticationHttpPostIn" />
+      <wsdl:output message="tns:DBConnectUsingWindowsAuthenticationHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSInitializeAndImportXMLWindowsAuthentication">
+      <wsdl:input message="tns:NLSInitializeAndImportXMLWindowsAuthenticationHttpPostIn" />
+      <wsdl:output message="tns:NLSInitializeAndImportXMLWindowsAuthenticationHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSInitializeAndImportXMLDBAuthentication">
+      <wsdl:input message="tns:NLSInitializeAndImportXMLDBAuthenticationHttpPostIn" />
+      <wsdl:output message="tns:NLSInitializeAndImportXMLDBAuthenticationHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSPrimaHealthTest">
+      <wsdl:input message="tns:NLSPrimaHealthTestHttpPostIn" />
+      <wsdl:output message="tns:NLSPrimaHealthTestHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSAuthenticate">
+      <wsdl:input message="tns:NLSAuthenticateHttpPostIn" />
+      <wsdl:output message="tns:NLSAuthenticateHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSGlobalAuthentication">
+      <wsdl:input message="tns:NLSGlobalAuthenticationHttpPostIn" />
+      <wsdl:output message="tns:NLSGlobalAuthenticationHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSGetLoanList">
+      <wsdl:input message="tns:NLSGetLoanListHttpPostIn" />
+      <wsdl:output message="tns:NLSGetLoanListHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSGetLoanDetail">
+      <wsdl:input message="tns:NLSGetLoanDetailHttpPostIn" />
+      <wsdl:output message="tns:NLSGetLoanDetailHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSGetContact">
+      <wsdl:input message="tns:NLSGetContactHttpPostIn" />
+      <wsdl:output message="tns:NLSGetContactHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSStatementImage">
+      <wsdl:input message="tns:NLSStatementImageHttpPostIn" />
+      <wsdl:output message="tns:NLSStatementImageHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSLoanPendingTransactions">
+      <wsdl:input message="tns:NLSLoanPendingTransactionsHttpPostIn" />
+      <wsdl:output message="tns:NLSLoanPendingTransactionsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSLogOut">
+      <wsdl:input message="tns:NLSLogOutHttpPostIn" />
+      <wsdl:output message="tns:NLSLogOutHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSVerifyContact">
+      <wsdl:input message="tns:NLSVerifyContactHttpPostIn" />
+      <wsdl:output message="tns:NLSVerifyContactHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSCreateCredentials">
+      <wsdl:input message="tns:NLSCreateCredentialsHttpPostIn" />
+      <wsdl:output message="tns:NLSCreateCredentialsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSPasswordRecoveryByEmail">
+      <wsdl:input message="tns:NLSPasswordRecoveryByEmailHttpPostIn" />
+      <wsdl:output message="tns:NLSPasswordRecoveryByEmailHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSPasswordRecoveryHints">
+      <wsdl:input message="tns:NLSPasswordRecoveryHintsHttpPostIn" />
+      <wsdl:output message="tns:NLSPasswordRecoveryHintsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSPasswordRecoveryAnswers">
+      <wsdl:input message="tns:NLSPasswordRecoveryAnswersHttpPostIn" />
+      <wsdl:output message="tns:NLSPasswordRecoveryAnswersHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSChangePassword">
+      <wsdl:input message="tns:NLSChangePasswordHttpPostIn" />
+      <wsdl:output message="tns:NLSChangePasswordHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSForceChangePassword">
+      <wsdl:input message="tns:NLSForceChangePasswordHttpPostIn" />
+      <wsdl:output message="tns:NLSForceChangePasswordHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSContactUDF">
+      <wsdl:input message="tns:NLSContactUDFHttpPostIn" />
+      <wsdl:output message="tns:NLSContactUDFHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSLoanDetailUDF">
+      <wsdl:input message="tns:NLSLoanDetailUDFHttpPostIn" />
+      <wsdl:output message="tns:NLSLoanDetailUDFHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSLoanPaymentsDue">
+      <wsdl:input message="tns:NLSLoanPaymentsDueHttpPostIn" />
+      <wsdl:output message="tns:NLSLoanPaymentsDueHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSLoanPaymentHistory">
+      <wsdl:input message="tns:NLSLoanPaymentHistoryHttpPostIn" />
+      <wsdl:output message="tns:NLSLoanPaymentHistoryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSStatements">
+      <wsdl:input message="tns:NLSStatementsHttpPostIn" />
+      <wsdl:output message="tns:NLSStatementsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="NLSCalculateAmortizedPaymentAmount">
+      <wsdl:input message="tns:NLSCalculateAmortizedPaymentAmountHttpPostIn" />
+      <wsdl:output message="tns:NLSCalculateAmortizedPaymentAmountHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PostStatement">
+      <wsdl:input message="tns:PostStatementHttpPostIn" />
+      <wsdl:output message="tns:PostStatementHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DBConnectUsingSA">
+      <soap:operation soapAction="http://nortridge.com/DBConnectUsingSA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DBConnectUsingWindowsAuthentication">
+      <soap:operation soapAction="http://nortridge.com/DBConnectUsingWindowsAuthentication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSInitializeAndImportXMLWindowsAuthentication">
+      <soap:operation soapAction="http://nortridge.com/NLSInitializeAndImportXMLWindowsAuthentication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSInitializeAndImportXMLDBAuthentication">
+      <soap:operation soapAction="http://nortridge.com/NLSInitializeAndImportXMLDBAuthentication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSPrimaHealthTest">
+      <soap:operation soapAction="http://nortridge.com/NLSPrimaHealthTest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSAuthenticate">
+      <soap:operation soapAction="http://nortridge.com/NLSAuthenticate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSGlobalAuthentication">
+      <soap:operation soapAction="http://nortridge.com/NLSGlobalAuthentication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSGetLoanList">
+      <soap:operation soapAction="http://nortridge.com/NLSGetLoanList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSGetLoanDetail">
+      <soap:operation soapAction="http://nortridge.com/NLSGetLoanDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSGetContact">
+      <soap:operation soapAction="http://nortridge.com/NLSGetContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSStatementImage">
+      <soap:operation soapAction="http://nortridge.com/NLSStatementImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSLoanPendingTransactions">
+      <soap:operation soapAction="http://nortridge.com/NLSLoanPendingTransactions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSLogOut">
+      <soap:operation soapAction="http://nortridge.com/NLSLogOut" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSVerifyContact">
+      <soap:operation soapAction="http://nortridge.com/NLSVerifyContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSCreateCredentials">
+      <soap:operation soapAction="http://nortridge.com/NLSCreateCredentials" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSPasswordRecoveryByEmail">
+      <soap:operation soapAction="http://nortridge.com/NLSPasswordRecoveryByEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSPasswordRecoveryHints">
+      <soap:operation soapAction="http://nortridge.com/NLSPasswordRecoveryHints" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSPasswordRecoveryAnswers">
+      <soap:operation soapAction="http://nortridge.com/NLSPasswordRecoveryAnswers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSChangePassword">
+      <soap:operation soapAction="http://nortridge.com/NLSChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSForceChangePassword">
+      <soap:operation soapAction="http://nortridge.com/NLSForceChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSContactUDF">
+      <soap:operation soapAction="http://nortridge.com/NLSContactUDF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSLoanDetailUDF">
+      <soap:operation soapAction="http://nortridge.com/NLSLoanDetailUDF" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSLoanPaymentsDue">
+      <soap:operation soapAction="http://nortridge.com/NLSLoanPaymentsDue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSLoanPaymentHistory">
+      <soap:operation soapAction="http://nortridge.com/NLSLoanPaymentHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSStatements">
+      <soap:operation soapAction="http://nortridge.com/NLSStatements" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSCalculateAmortizedPaymentAmount">
+      <soap:operation soapAction="http://nortridge.com/NLSCalculateAmortizedPaymentAmount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSCalculateAmortizedPaymentAmountWithBalloon">
+      <soap:operation soapAction="http://nortridge.com/NLSCalculateAmortizedPaymentAmountWithBalloon" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSMethod">
+      <soap:operation soapAction="http://nortridge.com/NLSMethod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportXML">
+      <soap:operation soapAction="http://nortridge.com/ImportXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestImportXML">
+      <soap:operation soapAction="http://nortridge.com/TestImportXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostStatement">
+      <soap:operation soapAction="http://nortridge.com/PostStatement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DBConnectUsingSA">
+      <soap12:operation soapAction="http://nortridge.com/DBConnectUsingSA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DBConnectUsingWindowsAuthentication">
+      <soap12:operation soapAction="http://nortridge.com/DBConnectUsingWindowsAuthentication" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSInitializeAndImportXMLWindowsAuthentication">
+      <soap12:operation soapAction="http://nortridge.com/NLSInitializeAndImportXMLWindowsAuthentication" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSInitializeAndImportXMLDBAuthentication">
+      <soap12:operation soapAction="http://nortridge.com/NLSInitializeAndImportXMLDBAuthentication" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSPrimaHealthTest">
+      <soap12:operation soapAction="http://nortridge.com/NLSPrimaHealthTest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSAuthenticate">
+      <soap12:operation soapAction="http://nortridge.com/NLSAuthenticate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSGlobalAuthentication">
+      <soap12:operation soapAction="http://nortridge.com/NLSGlobalAuthentication" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSGetLoanList">
+      <soap12:operation soapAction="http://nortridge.com/NLSGetLoanList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSGetLoanDetail">
+      <soap12:operation soapAction="http://nortridge.com/NLSGetLoanDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSGetContact">
+      <soap12:operation soapAction="http://nortridge.com/NLSGetContact" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSStatementImage">
+      <soap12:operation soapAction="http://nortridge.com/NLSStatementImage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSLoanPendingTransactions">
+      <soap12:operation soapAction="http://nortridge.com/NLSLoanPendingTransactions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSLogOut">
+      <soap12:operation soapAction="http://nortridge.com/NLSLogOut" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSVerifyContact">
+      <soap12:operation soapAction="http://nortridge.com/NLSVerifyContact" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSCreateCredentials">
+      <soap12:operation soapAction="http://nortridge.com/NLSCreateCredentials" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSPasswordRecoveryByEmail">
+      <soap12:operation soapAction="http://nortridge.com/NLSPasswordRecoveryByEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSPasswordRecoveryHints">
+      <soap12:operation soapAction="http://nortridge.com/NLSPasswordRecoveryHints" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSPasswordRecoveryAnswers">
+      <soap12:operation soapAction="http://nortridge.com/NLSPasswordRecoveryAnswers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSChangePassword">
+      <soap12:operation soapAction="http://nortridge.com/NLSChangePassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSForceChangePassword">
+      <soap12:operation soapAction="http://nortridge.com/NLSForceChangePassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSContactUDF">
+      <soap12:operation soapAction="http://nortridge.com/NLSContactUDF" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSLoanDetailUDF">
+      <soap12:operation soapAction="http://nortridge.com/NLSLoanDetailUDF" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSLoanPaymentsDue">
+      <soap12:operation soapAction="http://nortridge.com/NLSLoanPaymentsDue" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSLoanPaymentHistory">
+      <soap12:operation soapAction="http://nortridge.com/NLSLoanPaymentHistory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSStatements">
+      <soap12:operation soapAction="http://nortridge.com/NLSStatements" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSCalculateAmortizedPaymentAmount">
+      <soap12:operation soapAction="http://nortridge.com/NLSCalculateAmortizedPaymentAmount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSCalculateAmortizedPaymentAmountWithBalloon">
+      <soap12:operation soapAction="http://nortridge.com/NLSCalculateAmortizedPaymentAmountWithBalloon" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSMethod">
+      <soap12:operation soapAction="http://nortridge.com/NLSMethod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportXML">
+      <soap12:operation soapAction="http://nortridge.com/ImportXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestImportXML">
+      <soap12:operation soapAction="http://nortridge.com/TestImportXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostStatement">
+      <soap12:operation soapAction="http://nortridge.com/PostStatement" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceHttpGet" type="tns:ServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="DBConnectUsingSA">
+      <http:operation location="/DBConnectUsingSA" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DBConnectUsingWindowsAuthentication">
+      <http:operation location="/DBConnectUsingWindowsAuthentication" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSInitializeAndImportXMLWindowsAuthentication">
+      <http:operation location="/NLSInitializeAndImportXMLWindowsAuthentication" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSInitializeAndImportXMLDBAuthentication">
+      <http:operation location="/NLSInitializeAndImportXMLDBAuthentication" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSPrimaHealthTest">
+      <http:operation location="/NLSPrimaHealthTest" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSAuthenticate">
+      <http:operation location="/NLSAuthenticate" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSGlobalAuthentication">
+      <http:operation location="/NLSGlobalAuthentication" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSGetLoanList">
+      <http:operation location="/NLSGetLoanList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSGetLoanDetail">
+      <http:operation location="/NLSGetLoanDetail" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSGetContact">
+      <http:operation location="/NLSGetContact" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSStatementImage">
+      <http:operation location="/NLSStatementImage" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSLoanPendingTransactions">
+      <http:operation location="/NLSLoanPendingTransactions" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSLogOut">
+      <http:operation location="/NLSLogOut" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSVerifyContact">
+      <http:operation location="/NLSVerifyContact" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSCreateCredentials">
+      <http:operation location="/NLSCreateCredentials" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSPasswordRecoveryByEmail">
+      <http:operation location="/NLSPasswordRecoveryByEmail" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSPasswordRecoveryHints">
+      <http:operation location="/NLSPasswordRecoveryHints" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSPasswordRecoveryAnswers">
+      <http:operation location="/NLSPasswordRecoveryAnswers" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSChangePassword">
+      <http:operation location="/NLSChangePassword" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSForceChangePassword">
+      <http:operation location="/NLSForceChangePassword" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSContactUDF">
+      <http:operation location="/NLSContactUDF" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSLoanDetailUDF">
+      <http:operation location="/NLSLoanDetailUDF" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSLoanPaymentsDue">
+      <http:operation location="/NLSLoanPaymentsDue" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSLoanPaymentHistory">
+      <http:operation location="/NLSLoanPaymentHistory" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSStatements">
+      <http:operation location="/NLSStatements" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSCalculateAmortizedPaymentAmount">
+      <http:operation location="/NLSCalculateAmortizedPaymentAmount" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostStatement">
+      <http:operation location="/PostStatement" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceHttpPost" type="tns:ServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="DBConnectUsingSA">
+      <http:operation location="/DBConnectUsingSA" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DBConnectUsingWindowsAuthentication">
+      <http:operation location="/DBConnectUsingWindowsAuthentication" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSInitializeAndImportXMLWindowsAuthentication">
+      <http:operation location="/NLSInitializeAndImportXMLWindowsAuthentication" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSInitializeAndImportXMLDBAuthentication">
+      <http:operation location="/NLSInitializeAndImportXMLDBAuthentication" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSPrimaHealthTest">
+      <http:operation location="/NLSPrimaHealthTest" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSAuthenticate">
+      <http:operation location="/NLSAuthenticate" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSGlobalAuthentication">
+      <http:operation location="/NLSGlobalAuthentication" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSGetLoanList">
+      <http:operation location="/NLSGetLoanList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSGetLoanDetail">
+      <http:operation location="/NLSGetLoanDetail" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSGetContact">
+      <http:operation location="/NLSGetContact" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSStatementImage">
+      <http:operation location="/NLSStatementImage" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSLoanPendingTransactions">
+      <http:operation location="/NLSLoanPendingTransactions" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSLogOut">
+      <http:operation location="/NLSLogOut" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSVerifyContact">
+      <http:operation location="/NLSVerifyContact" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSCreateCredentials">
+      <http:operation location="/NLSCreateCredentials" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSPasswordRecoveryByEmail">
+      <http:operation location="/NLSPasswordRecoveryByEmail" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSPasswordRecoveryHints">
+      <http:operation location="/NLSPasswordRecoveryHints" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSPasswordRecoveryAnswers">
+      <http:operation location="/NLSPasswordRecoveryAnswers" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSChangePassword">
+      <http:operation location="/NLSChangePassword" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSForceChangePassword">
+      <http:operation location="/NLSForceChangePassword" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSContactUDF">
+      <http:operation location="/NLSContactUDF" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSLoanDetailUDF">
+      <http:operation location="/NLSLoanDetailUDF" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSLoanPaymentsDue">
+      <http:operation location="/NLSLoanPaymentsDue" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSLoanPaymentHistory">
+      <http:operation location="/NLSLoanPaymentHistory" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSStatements">
+      <http:operation location="/NLSStatements" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="NLSCalculateAmortizedPaymentAmount">
+      <http:operation location="/NLSCalculateAmortizedPaymentAmount" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostStatement">
+      <http:operation location="/PostStatement" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="https://ws.cyberridge.com/AvidAcceptancewebservice/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="https://ws.cyberridge.com/AvidAcceptancewebservice/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceHttpGet" binding="tns:ServiceHttpGet">
+      <http:address location="https://ws.cyberridge.com/AvidAcceptancewebservice/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceHttpPost" binding="tns:ServiceHttpPost">
+      <http:address location="https://ws.cyberridge.com/AvidAcceptancewebservice/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

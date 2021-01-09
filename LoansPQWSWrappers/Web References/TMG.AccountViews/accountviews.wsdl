@@ -1,0 +1,1641 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://AccountViews.secure.themembersgroup.com" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://AccountViews.secure.themembersgroup.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://AccountViews.secure.themembersgroup.com">
+      <s:element name="GetEmbossTemp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetEmbossTempResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEmbossTempResult" type="tns:EmbossTemp" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="EmbossTemp">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CARDHOLDER" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CNVR_ENTR_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CVC_INDNT_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CVC_INDNT_2_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CVV_CVC_ENCD_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ENTR_PI_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CRD_EXP_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CRD_SRVS_CD" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SecureHeader" type="tns:SecureHeader" />
+      <s:complexType name="SecureHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SessionKey" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="GetCAP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCAPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCAPResult" type="tns:CAP" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CAP">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Customers" type="tns:ArrayOfCustomer" />
+          <s:element minOccurs="0" maxOccurs="1" name="ACCT_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CALC_NORM_MRCH_ANNL_RT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OPEN_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PI_BULK_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MAIL_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MAIL_UPDT_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OPEN_DAY_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NEXT_STMT_HOLD_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="USER_FLAG_ONE_TO_FOUR_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PLST_TYPE_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OTST_AUTH_BAL_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OTST_PLST_CT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SYS_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PRIN_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AGNT_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CRDT_SCOR_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FRAD_SCOR_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MISC_ONE_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MISC_TWO_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MISC_THRE_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MISC_FOUR_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MISC_FIVE_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MISC_SIX_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MISC_SEVN_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MISC_EGHT_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MISC_NINE_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MISC_TEN_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CRRN_BAL_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CRBR_RPRT_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BLLN_CYCL_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HIGH_BAL_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CRDT_LIMT_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LAST_CRDT_LINE_CHNG_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CASH_AVLB_CRDT_LIMT_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AVLB_CRDT_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LAST_STMT_BAL_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LAST_PYMT_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CRRN_MPD_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DSPT_TOTL_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DLNQ_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="YTD_BLLD_INTR_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FIXD_PYMT_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DAYS_DLNQ_CT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TOTL_DLNQ_ONE_CYCL_CT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TOTL_DLNQ_TWO_CYCL_CT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TOTL_DLNQ_THRE_CYCL_CT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TOTL_NMBR_PLST_CT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CYCL_OVRL_CT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="REAG_CT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SPCL_FLGS_FIVE_TO_EGHT_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STMT_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LAST_STMT_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EXPR_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RESS_EXPR_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PRVS_EXPR_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LAST_PYMT_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IRS_HOME_EQTY_RPRT_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EQTY_ACCT_MTRT_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LAST_STTS_CODE_CHNG_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LAST_NMN_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LAST_PLST_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LAST_ADDR_CHNG_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LAST_CASH_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LAST_PIN_MALR_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STMT_MPD_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PYMT_HSTR_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TRNS_RTNG_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="XREF_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ADDT_XREF_ONE_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ADDT_XREF_TWO_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DDA_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SVNG_ACCT_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AGNT_BANK_NM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ATMT_PYMT_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RNWL_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RESS_CNTR_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CRDT_LIFE_STAT_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CRDT_LIFE_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EXTR_STTS_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EXTR_STTS_RESN_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="INRL_STTS_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="INCN_ANNL_CASH_RT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="INCN_ANNL_MDSE_RT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="INCN_STGY_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="INCN_EFFC_END_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="INCN_PLAN_END_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CASH_ADVN_OTST_BAL_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DSPT_TRAN_CT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DLTY_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AUTH_TOTL_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="YTD_BLLD_MDSE_CHRG_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PRVS_YEAR_MDSE_PRCH_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PRVS_YEAR_PAID_INTR_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LABL_TYPE_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FRAD_ASSG_STGY_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FRAD_SSPN_STGY_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FRAD_STGY_CHNG_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FRAD_SSPN_STGY_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LAST_NMN_TYPE_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ANNL_CASH_ADVN_RT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CTD_UNPD_BPD_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NEXT_PYMN_DUE_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CommercialCardCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MLTP_LIKE_UNIQ_CD" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCustomer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Customer" nillable="true" type="tns:Customer" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Customer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SOCL_SCRT_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MBR_SQNC_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BRTH_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CUST_NM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MTHR_MADN_NM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CUST_ROLE_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PI_RPLC_SQNC_NR" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CRBR_RPRT_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ADDR_CNTN_LINE_ONE_TX" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ADDR_CNTN_LINE_TWO_TX" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CITY_NM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ADDR_SBDV_ONE_TX" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PSTL_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HOME_PHON_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BSNS_PHON_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MOBL_PHON_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FCSM_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PAGR_PHON_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PLST_CT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PLST_TYPE_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CUST_EXTR_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DCSD_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PIN_VRFC_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SCRT_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EMAL_HOME_ADDR_TX" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EMAL_WORK_ADDR_TX" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PRSN_EMBS_TX" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PI_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PI_STTS_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PI_STTS_CHNG_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PI_RPLC_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PI_EXPR_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PI_FRAD_STGY_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PI_FRAD_STGY_EXPR_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PI_ACTV_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PLST_RPLC_IN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PI_LAST_NMN_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PI_LAST_NMN_CD" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAddresses">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAddressesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAddressesResult" type="tns:ArrayOfAddress" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAddress">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Address" nillable="true" type="tns:Address" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Address">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ADDR_VLDT_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ADDR_CNTN_LINE_ONE_TX" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ADDR_CNTN_LINE_TWO_TX" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ADDR_CNTN_LINE_THRE_TX" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ADDR_CNTN_LINE_FOUR_TX" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CITY_NM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ADDR_SBDV_ONE_TX" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PSTL_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CTRY_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ADDR_FRMT_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ADDR_TYPE_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CUST_ROLE_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EFFC_FROM_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EFFC_TO_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ADDR_CTGR_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MAIL_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MAIL_UPDT_CD" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMemos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMemosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMemosResult" type="tns:ArrayOfMemo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMemo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Memo" nillable="true" type="tns:Memo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Memo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MEM_DATE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MEM_CLK_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MEM_TYPE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MEM_SEQ" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MEM_DATA" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAuthorizations">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="tns:GetAuthorizationsParameters" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GetAuthorizationsParameters">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AuthorizationType" type="tns:AuthorizationTypes" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="AuthorizationTypes">
+        <s:restriction base="s:string">
+          <s:enumeration value="Any" />
+          <s:enumeration value="AffectedAvailableCredit" />
+          <s:enumeration value="Aged" />
+          <s:enumeration value="Declined" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetAuthorizationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAuthorizationsResult" type="tns:ArrayOfAuthorization" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAuthorization">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Authorization" nillable="true" type="tns:Authorization" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Authorization">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AUTH_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AUTH_TM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ENTR_EXPR_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DCLN_RESN_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TRAN_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TRMN_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POS_ENTR_MODE_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MRCH_ZIP_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="APPR_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PIN_VRFC_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PLST_TRCK_DATA_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AUTH_MTHD_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CVV_VRFC_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AUTH_OVRR_STRT_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FRAD_SCOR_NR" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MRCH_CTGR_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MRCH_NR" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MRCH_NM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MRCH_CITY_NM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MRCH_ST_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MRCH_CTRY_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DDA_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BEFR_AUTH_AVLB_CRDT_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DBT_AVLB_FNDS_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AUTH_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EXTR_STTS_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ADDR_VRFC_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MISC_NR" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AUTH_FLTR_CD" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetOutstandingAuthorizations">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOutstandingAuthorizationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOutstandingAuthorizationsResult" type="tns:ArrayOfOutstandingAuthorization" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfOutstandingAuthorization">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OutstandingAuthorization" nillable="true" type="tns:OutstandingAuthorization" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OutstandingAuthorization">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AUTH_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AUTH_TM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AUTH_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AUTH_EXPR_CT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AUTH_NR" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SQNC_NR" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TRAN_CD" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCurrentTransactions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCurrentTransactionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCurrentTransactionsResult" type="tns:ArrayOfCurrentTransaction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCurrentTransaction">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CurrentTransaction" nillable="true" type="tns:CurrentTransaction" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CurrentTransaction">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CARD_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DTL_SEQ_NUM2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DTL_SEQ_NUM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DTL_STMT_DATE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FILM_REF_NUM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DTL_MERCH_ACCT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AUTH_CHRC_INDC_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DTL_AUTH_NUM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DTL_AUTH_SCR_CODE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DTL_DESC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DTL_MERCH_CAT_CODE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DTL_MERCH_CITY" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MERCH_DESC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DTL_MERCH_STATE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POS_ENTR_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TRMN_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TRAN_CODE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TRAN_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AGGR_TRAN_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DTL_POST_DATE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TRAN_DATE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DTL_MERCH_DESC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DTL_CURR_CODE" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTransactions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StatementDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTransactionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTransactionsResult" type="tns:ArrayOfTransaction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTransaction">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Transaction" nillable="true" type="tns:Transaction" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Transaction">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CARD_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DTL_SEQ_NUM2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DTL_SEQ_NUM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DTL_STMT_DATE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FILM_REF_NUM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DTL_MERCH_ACCT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AUTH_CHRC_INDC_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DTL_AUTH_NUM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DTL_AUTH_SCR_CODE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DTL_DESC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DTL_MERCH_CAT_CODE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DTL_MERCH_CITY" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MERCH_DESC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DTL_MERCH_STATE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="POS_ENTR_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TRMN_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TRAN_CODE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TRAN_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AGGR_TRAN_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DTL_POST_DATE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TRAN_DATE" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPaymentHistories">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPaymentHistoriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPaymentHistoriesResult" type="tns:ArrayOfPaymentHistory" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPaymentHistory">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PaymentHistory" nillable="true" type="tns:PaymentHistory" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PaymentHistory">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PAY_HIST_CYCLE_DAT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PAY_HIST_DUE_DATE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PAY_HIST_POST_DATE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PAY_HIST_EFF_DATE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PAY_HIST_MIN_PAY" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PAY_HIST_TRAN_AMT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PAY_HIST_DELQ_AMT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PAY_HIST_DELQ_DAYS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PAY_HIST_TRAN_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PAY_HIST_REC_TYPE" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetStatementSummaries">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatementSummariesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStatementSummariesResult" type="tns:ArrayOfStatementSummary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfStatementSummary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="StatementSummary" nillable="true" type="tns:StatementSummary" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="StatementSummary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="STMT_PAY_DUE_DATE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STMT_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STMT_DAYS_BILL_CYC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STMT_HOLD_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STMT_OPENING_BAL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STMT_PAYMENT_AMT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STMT_AMT_OTH_CRD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STMT_AMT_OF_SALES" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STMT_AMT_OF_DBT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STMT_AMT_FIN_CHG" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STMT_ENDING_BAL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STMT_MIN_PAY" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STMT_EXT_STAT_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STMT_INT_STATUS_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STMT_TYPE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STMT_CRD_LINE_AMT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STMT_AVAIL_CREDIT" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSecurityInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSecurityInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSecurityInfoResult" type="tns:Security" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Security">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="NEW_PI_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SEC_STATUS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SEC_SEC_DOB" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SEC_PRI_DOB" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SEC_RUSH_IND" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SEC_TIME_STMP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SEC_FRAUD_DATE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SEC_FRAUD_AREA" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SEC_FRAUD_INV" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SEC_AREA_LOSS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SEC_LOSS_LOC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SEC_TYPE_CODE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SEC_POSS_FRAUD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SEC_TAKEN_BY" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SEC_PIN_NUM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SEC_POLICE_DEPT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SEC_LAST_DATE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SEC_PREV_STATUS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SEC_DATE_REPORTED" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SEC_DATE_LOST" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SEC_HM_NAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SEC_CARDS_LOST" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SEC_WM_NAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SEC_MEMO1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SEC_MEMO2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SEC_MEMO3" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetWarningBulletinsInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWarningBulletinsInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWarningBulletinsInfoResult" type="tns:ArrayOfWarningBulletin" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfWarningBulletin">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="WarningBulletin" nillable="true" type="tns:WarningBulletin" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="WarningBulletin">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ACCT_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WBWC_ACTION_CODE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AGNT_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WBWC_AGENT_NUM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WBWC_PRIM_ACCT_NUM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WBWC_ADDED_DATE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WBWC_ENTR_ACCT_NUM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PRIN_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WBWC_PRIN_NUM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SYS_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WBWC_SYS_NUM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TRNS_PI_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WBWC_R_EFFT_DATE1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WBWC_R_EFFT_DATE2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WBWC_R_EFFT_DATE3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WBWC_R_EFFT_DATE4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WBWC_R_EFFT_DATE5" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WBWC_R_EFFT_DATE6" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WBWC_R_EFFT_DATE7" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WBWC_R_PURGE_DATE1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WBWC_R_PURGE_DATE2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WBWC_R_PURGE_DATE3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WBWC_R_PURGE_DATE4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WBWC_R_PURGE_DATE5" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WBWC_R_PURGE_DATE6" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WBWC_R_PURGE_DATE7" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WBWC_REGION_CD1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WBWC_REGION_CD2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WBWC_REGION_CD3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WBWC_REGION_CD4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WBWC_REGION_CD5" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WBWC_REGION_CD6" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WBWC_REGION_CD7" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetBonusPrograms">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBonusProgramsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBonusProgramsResult" type="tns:ArrayOfBonusProgram" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBonusProgram">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BonusProgram" nillable="true" type="tns:BonusProgram" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BonusProgram">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CTD_RDMABLE_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="YTD_RDMABLE_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LS_RDMABLE_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="INCN_RETN_ADJ_TRAN_NR" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="INCN_RETN_ADJ_DLLR_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="INCN_RWRD_TRNS_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="INCN_RWRD_DLLR_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PTD_INCN_RWRD_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PTD_ENRL_RWRD_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PTD_ANNV_RWRD_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PTD_ENRL_FEE_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LAST_STMT_INCN_RWRD_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LAST_STMT_ENRL_RWRD_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LAST_STMT_ANNV_RWRD_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LAST_STMT_ENRL_FEE_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CTD_INCN_RWRD_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CTD_ENRL_RWRD_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CTD_ANNV_RWRD_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CTD_ENRL_FEE_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="YTD_INCN_RWRD_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="YTD_ENRL_RWRD_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="YTD_ANNV_RWRD_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="YTD_ENRL_FEE_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="YTD_OVRAGE_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="YTD_ROLL_OUT_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="YTD_ROLL_IN_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="YTD_TRAD_OUT_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="YTD_TRAD_IN_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="YTD_EXPRD_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="YTD_FORFTD_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="YTD_RDMD_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="YTD_ADJ_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="YTD_NET_BASE_ADJ" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LS_END_RDMABLE_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LS_OVRAGE_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LAST_STMT_ROLL_IN_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LAST_STMT_TRAD_OUT_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LAST_STMT_TRAD_IN_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LS_EXPRD_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LS_FORFTD_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LS_RDMD_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LS_ADJ_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LS_BASE_ADJ" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LS_BASE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CTD_OVRAGE_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CTD_ROLL_OUT_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CTD_ROLL_IN_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CTD_TRAD_OUT_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CTD_TRAD_IN_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CTD_EXPRD_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CTD_FORFTD_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CTD_RDMD_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CTD_ADJ_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CTD_BASE_ADJ_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CTD_BASE_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PNDING_DSTRBUTN_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NXT_DSTRBUTN_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ENRL_RWRD_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GRAC_PNTS_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EXP_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DUE_TO_EXP_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TOT_ERND_RDMABLE_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TOT_RDMD_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MAX_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CALC_END_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CALC_STRT_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CYCL_EFFC_CT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AVLB_TRMN_RWRD_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TRMNATN_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RGSTRATN_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RDMABLE_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PRGRM_NM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BONS_STRT_NM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LAST_RDMD_DT" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPendingEmbossRequests">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPendingEmbossRequestsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPendingEmbossRequestsResult" type="tns:ArrayOfPendingEmboss" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPendingEmboss">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PendingEmboss" nillable="true" type="tns:PendingEmboss" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PendingEmboss">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ATTN_LINE_TX" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CARD_ACTV_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EMBS_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EMBS_NM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EMBS_TYPE_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MBR_SQNC_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OPRT_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PHON_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PIN_MALR_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PLST_CT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PSD_RESN_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RPLC_FEE_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RUSH_MAIL_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SGNT_RQRD_IN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TRAN_CD" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCardIssuanceProducts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCardIssuanceProductsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCardIssuanceProductsResult" type="tns:ArrayOfCardIssuanceProduct" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCardIssuanceProduct">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CardIssuanceProduct" nillable="true" type="tns:CardIssuanceProduct" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CardIssuanceProduct">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ACCT_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TRAN_TS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="XREF_ACCT_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CUST_NM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DLVR_TRCK_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FDR_EMBS_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HOLD_IN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HOLD_RESN_TX" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ISSN_RESN_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ISSN_RESN_TX" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MAIL_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OPRT_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PLST_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PLST_CT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PRDC_TX" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STTS_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STTS_TX" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PRDC_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RQST_TS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RUSH_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SQNC_NR" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SHPP_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SPCL_ACTN_RESN_TX" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDebitDDAMaintenance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDebitDDAMaintenanceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDebitDDAMaintenanceResult" type="tns:ArrayOfDebitDemandDepositAccount" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDebitDemandDepositAccount">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DebitDemandDepositAccount" nillable="true" type="tns:DebitDemandDepositAccount" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DebitDemandDepositAccount">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ACCT_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CHD_ACCT_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DDA_ABA_NR" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DDA_DSCR_TX" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DDA_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DDA_LIMT_GROP_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DDA_PRMR_FNDN_ACCT_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DDA_STTS_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DDA_CHD_ACCS_STTS_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DDA_GRSS_FNDS_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DDA_LDGR_BAL_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DDA_TYPE_CD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ENTR_ID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCHDHDLR">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCHDHDLRResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCHDHDLRResult" type="tns:ArrayOfCHDHDLR" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCHDHDLR">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CHDHDLR" nillable="true" type="tns:CHDHDLR" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CHDHDLR">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AutoPayAmount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FalconStrategy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuthPlusStrategy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FalconStrategyDate" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDebitBalance">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDebitBalanceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDebitBalanceResult" type="tns:DebitBalance" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DebitBalance">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FDR_FILE_UPDT_DT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FDR_FILE_UPDT_TM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CHD_AVLB_NET_FNDS_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GRSS_FNDS_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LNKD_CARD_OTST_AUTH_AM" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ISO_STTS_CD" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GeteStatementsInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GeteStatementsInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GeteStatementsInfoResult" type="tns:ArrayOfStatementInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfStatementInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="StatementInfo" nillable="true" type="tns:StatementInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="StatementInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Date" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateProcessed" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasCrossReference" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GeteStatementData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="StatementId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="includeBackerIfPresent" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GeteStatementDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GeteStatementDataResult" type="tns:Statement" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Statement">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Info" type="tns:StatementInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="Data" type="s:base64Binary" />
+          <s:element minOccurs="0" maxOccurs="1" name="Backer" type="tns:StatementBacker" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="StatementBacker">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Data" type="s:base64Binary" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAuthorizationResult">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accountNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="referenceNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAuthorizationResultResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAuthorizationResultResult" type="tns:CashAdvanceAuthorizationResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CashAdvanceAuthorizationResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:AuthorizationResult" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AuthorizationResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AR_A_STAT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AR_B_MSG_NMBR" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AR_C_SEVERITY" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AR_D_REF_NMBR" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AR_E_ACTION_CODE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AR_F_AUTH_NMBR" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AR_G_PHONE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AR_H_ADD_ACTION_IND" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AR_I_TRANSFER_OPT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AR_J_MSG_TEXT" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCompanyAccounts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="tns:CompanyAccountsParameters" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CompanyAccountsParameters">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CallType" type="tns:CallTypes" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sys" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Agent" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompanyId" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="CallTypes">
+        <s:restriction base="s:string">
+          <s:enumeration value="AccountNumber" />
+          <s:enumeration value="CompanyId" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetCompanyAccountsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCompanyAccountsResult" type="tns:ArrayOfCompanyAccount" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCompanyAccount">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CompanyAccount" nillable="true" type="tns:CompanyAccount" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CompanyAccount">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CompanyId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompanyName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sys" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Agent" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccountRelationship" type="tns:CompanyAccountRelationshipTypes" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardholderName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CurrentBalance" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreditLimit" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="AvailableCredit" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuthorizationStrategy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExternalStatusCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InternalStatusCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="CompanyAccountRelationshipTypes">
+        <s:restriction base="s:string">
+          <s:enumeration value="Unknown" />
+          <s:enumeration value="ControlAccount" />
+          <s:enumeration value="IndividualAccount" />
+          <s:enumeration value="SubAccount" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetCCPayPayments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="accountNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCCPayPaymentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCCPayPaymentsResult" type="tns:ArrayOfCCPayActivity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCCPayActivity">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CCPayActivity" nillable="true" type="tns:CCPayActivity" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CCPayActivity">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ConfirmationNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DDANumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoutingTransit" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AmountPaid" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateOfPayment" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ScheduledProcessingDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EffectiveDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="tns:CCPayStatusTypes" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="CCPayStatusTypes">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="Scheduled" />
+          <s:enumeration value="Cancelled" />
+          <s:enumeration value="Processing" />
+          <s:enumeration value="Complete" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetEmbossTempSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmbossTemp" />
+  </wsdl:message>
+  <wsdl:message name="GetEmbossTempSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmbossTempResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmbossTempSecureHeader">
+    <wsdl:part name="SecureHeader" element="tns:SecureHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetCAPSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCAP" />
+  </wsdl:message>
+  <wsdl:message name="GetCAPSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCAPResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCAPSecureHeader">
+    <wsdl:part name="SecureHeader" element="tns:SecureHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetAddressesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAddresses" />
+  </wsdl:message>
+  <wsdl:message name="GetAddressesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAddressesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAddressesSecureHeader">
+    <wsdl:part name="SecureHeader" element="tns:SecureHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetMemosSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMemos" />
+  </wsdl:message>
+  <wsdl:message name="GetMemosSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMemosResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMemosSecureHeader">
+    <wsdl:part name="SecureHeader" element="tns:SecureHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetAuthorizationsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAuthorizations" />
+  </wsdl:message>
+  <wsdl:message name="GetAuthorizationsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAuthorizationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAuthorizationsSecureHeader">
+    <wsdl:part name="SecureHeader" element="tns:SecureHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetOutstandingAuthorizationsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOutstandingAuthorizations" />
+  </wsdl:message>
+  <wsdl:message name="GetOutstandingAuthorizationsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOutstandingAuthorizationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOutstandingAuthorizationsSecureHeader">
+    <wsdl:part name="SecureHeader" element="tns:SecureHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentTransactionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCurrentTransactions" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentTransactionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCurrentTransactionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCurrentTransactionsSecureHeader">
+    <wsdl:part name="SecureHeader" element="tns:SecureHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetTransactionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTransactions" />
+  </wsdl:message>
+  <wsdl:message name="GetTransactionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTransactionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTransactionsSecureHeader">
+    <wsdl:part name="SecureHeader" element="tns:SecureHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetPaymentHistoriesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPaymentHistories" />
+  </wsdl:message>
+  <wsdl:message name="GetPaymentHistoriesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPaymentHistoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPaymentHistoriesSecureHeader">
+    <wsdl:part name="SecureHeader" element="tns:SecureHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetStatementSummariesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStatementSummaries" />
+  </wsdl:message>
+  <wsdl:message name="GetStatementSummariesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStatementSummariesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStatementSummariesSecureHeader">
+    <wsdl:part name="SecureHeader" element="tns:SecureHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetSecurityInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSecurityInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetSecurityInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSecurityInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSecurityInfoSecureHeader">
+    <wsdl:part name="SecureHeader" element="tns:SecureHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetWarningBulletinsInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWarningBulletinsInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetWarningBulletinsInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWarningBulletinsInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetWarningBulletinsInfoSecureHeader">
+    <wsdl:part name="SecureHeader" element="tns:SecureHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetBonusProgramsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBonusPrograms" />
+  </wsdl:message>
+  <wsdl:message name="GetBonusProgramsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBonusProgramsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBonusProgramsSecureHeader">
+    <wsdl:part name="SecureHeader" element="tns:SecureHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetPendingEmbossRequestsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPendingEmbossRequests" />
+  </wsdl:message>
+  <wsdl:message name="GetPendingEmbossRequestsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPendingEmbossRequestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPendingEmbossRequestsSecureHeader">
+    <wsdl:part name="SecureHeader" element="tns:SecureHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetCardIssuanceProductsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCardIssuanceProducts" />
+  </wsdl:message>
+  <wsdl:message name="GetCardIssuanceProductsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCardIssuanceProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCardIssuanceProductsSecureHeader">
+    <wsdl:part name="SecureHeader" element="tns:SecureHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetDebitDDAMaintenanceSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDebitDDAMaintenance" />
+  </wsdl:message>
+  <wsdl:message name="GetDebitDDAMaintenanceSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDebitDDAMaintenanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDebitDDAMaintenanceSecureHeader">
+    <wsdl:part name="SecureHeader" element="tns:SecureHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetCHDHDLRSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCHDHDLR" />
+  </wsdl:message>
+  <wsdl:message name="GetCHDHDLRSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCHDHDLRResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCHDHDLRSecureHeader">
+    <wsdl:part name="SecureHeader" element="tns:SecureHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetDebitBalanceSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDebitBalance" />
+  </wsdl:message>
+  <wsdl:message name="GetDebitBalanceSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDebitBalanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDebitBalanceSecureHeader">
+    <wsdl:part name="SecureHeader" element="tns:SecureHeader" />
+  </wsdl:message>
+  <wsdl:message name="GeteStatementsInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GeteStatementsInfo" />
+  </wsdl:message>
+  <wsdl:message name="GeteStatementsInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GeteStatementsInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GeteStatementsInfoSecureHeader">
+    <wsdl:part name="SecureHeader" element="tns:SecureHeader" />
+  </wsdl:message>
+  <wsdl:message name="GeteStatementDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GeteStatementData" />
+  </wsdl:message>
+  <wsdl:message name="GeteStatementDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GeteStatementDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GeteStatementDataSecureHeader">
+    <wsdl:part name="SecureHeader" element="tns:SecureHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetAuthorizationResultSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAuthorizationResult" />
+  </wsdl:message>
+  <wsdl:message name="GetAuthorizationResultSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAuthorizationResultResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAuthorizationResultSecureHeader">
+    <wsdl:part name="SecureHeader" element="tns:SecureHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetCompanyAccountsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCompanyAccounts" />
+  </wsdl:message>
+  <wsdl:message name="GetCompanyAccountsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCompanyAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCompanyAccountsSecureHeader">
+    <wsdl:part name="SecureHeader" element="tns:SecureHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetCCPayPaymentsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCCPayPayments" />
+  </wsdl:message>
+  <wsdl:message name="GetCCPayPaymentsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCCPayPaymentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCCPayPaymentsSecureHeader">
+    <wsdl:part name="SecureHeader" element="tns:SecureHeader" />
+  </wsdl:message>
+  <wsdl:portType name="AccountViewsSoap">
+    <wsdl:operation name="GetEmbossTemp">
+      <wsdl:input message="tns:GetEmbossTempSoapIn" />
+      <wsdl:output message="tns:GetEmbossTempSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCAP">
+      <wsdl:input message="tns:GetCAPSoapIn" />
+      <wsdl:output message="tns:GetCAPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAddresses">
+      <wsdl:input message="tns:GetAddressesSoapIn" />
+      <wsdl:output message="tns:GetAddressesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemos">
+      <wsdl:input message="tns:GetMemosSoapIn" />
+      <wsdl:output message="tns:GetMemosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthorizations">
+      <wsdl:input message="tns:GetAuthorizationsSoapIn" />
+      <wsdl:output message="tns:GetAuthorizationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOutstandingAuthorizations">
+      <wsdl:input message="tns:GetOutstandingAuthorizationsSoapIn" />
+      <wsdl:output message="tns:GetOutstandingAuthorizationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentTransactions">
+      <wsdl:input message="tns:GetCurrentTransactionsSoapIn" />
+      <wsdl:output message="tns:GetCurrentTransactionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactions">
+      <wsdl:input message="tns:GetTransactionsSoapIn" />
+      <wsdl:output message="tns:GetTransactionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentHistories">
+      <wsdl:input message="tns:GetPaymentHistoriesSoapIn" />
+      <wsdl:output message="tns:GetPaymentHistoriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatementSummaries">
+      <wsdl:input message="tns:GetStatementSummariesSoapIn" />
+      <wsdl:output message="tns:GetStatementSummariesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSecurityInfo">
+      <wsdl:input message="tns:GetSecurityInfoSoapIn" />
+      <wsdl:output message="tns:GetSecurityInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWarningBulletinsInfo">
+      <wsdl:input message="tns:GetWarningBulletinsInfoSoapIn" />
+      <wsdl:output message="tns:GetWarningBulletinsInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBonusPrograms">
+      <wsdl:input message="tns:GetBonusProgramsSoapIn" />
+      <wsdl:output message="tns:GetBonusProgramsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingEmbossRequests">
+      <wsdl:input message="tns:GetPendingEmbossRequestsSoapIn" />
+      <wsdl:output message="tns:GetPendingEmbossRequestsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCardIssuanceProducts">
+      <wsdl:input message="tns:GetCardIssuanceProductsSoapIn" />
+      <wsdl:output message="tns:GetCardIssuanceProductsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDebitDDAMaintenance">
+      <wsdl:input message="tns:GetDebitDDAMaintenanceSoapIn" />
+      <wsdl:output message="tns:GetDebitDDAMaintenanceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCHDHDLR">
+      <wsdl:input message="tns:GetCHDHDLRSoapIn" />
+      <wsdl:output message="tns:GetCHDHDLRSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDebitBalance">
+      <wsdl:input message="tns:GetDebitBalanceSoapIn" />
+      <wsdl:output message="tns:GetDebitBalanceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GeteStatementsInfo">
+      <wsdl:input message="tns:GeteStatementsInfoSoapIn" />
+      <wsdl:output message="tns:GeteStatementsInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GeteStatementData">
+      <wsdl:input message="tns:GeteStatementDataSoapIn" />
+      <wsdl:output message="tns:GeteStatementDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthorizationResult">
+      <wsdl:input message="tns:GetAuthorizationResultSoapIn" />
+      <wsdl:output message="tns:GetAuthorizationResultSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyAccounts">
+      <wsdl:input message="tns:GetCompanyAccountsSoapIn" />
+      <wsdl:output message="tns:GetCompanyAccountsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCCPayPayments">
+      <wsdl:input message="tns:GetCCPayPaymentsSoapIn" />
+      <wsdl:output message="tns:GetCCPayPaymentsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AccountViewsSoap" type="tns:AccountViewsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetEmbossTemp">
+      <soap:operation soapAction="http://AccountViews.secure.themembersgroup.com/GetEmbossTemp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetEmbossTempSecureHeader" part="SecureHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCAP">
+      <soap:operation soapAction="http://AccountViews.secure.themembersgroup.com/GetCAP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetCAPSecureHeader" part="SecureHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddresses">
+      <soap:operation soapAction="http://AccountViews.secure.themembersgroup.com/GetAddresses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAddressesSecureHeader" part="SecureHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemos">
+      <soap:operation soapAction="http://AccountViews.secure.themembersgroup.com/GetMemos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetMemosSecureHeader" part="SecureHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthorizations">
+      <soap:operation soapAction="http://AccountViews.secure.themembersgroup.com/GetAuthorizations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAuthorizationsSecureHeader" part="SecureHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOutstandingAuthorizations">
+      <soap:operation soapAction="http://AccountViews.secure.themembersgroup.com/GetOutstandingAuthorizations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetOutstandingAuthorizationsSecureHeader" part="SecureHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrentTransactions">
+      <soap:operation soapAction="http://AccountViews.secure.themembersgroup.com/GetCurrentTransactions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetCurrentTransactionsSecureHeader" part="SecureHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTransactions">
+      <soap:operation soapAction="http://AccountViews.secure.themembersgroup.com/GetTransactions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetTransactionsSecureHeader" part="SecureHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPaymentHistories">
+      <soap:operation soapAction="http://AccountViews.secure.themembersgroup.com/GetPaymentHistories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetPaymentHistoriesSecureHeader" part="SecureHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatementSummaries">
+      <soap:operation soapAction="http://AccountViews.secure.themembersgroup.com/GetStatementSummaries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetStatementSummariesSecureHeader" part="SecureHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSecurityInfo">
+      <soap:operation soapAction="http://AccountViews.secure.themembersgroup.com/GetSecurityInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetSecurityInfoSecureHeader" part="SecureHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWarningBulletinsInfo">
+      <soap:operation soapAction="http://AccountViews.secure.themembersgroup.com/GetWarningBulletinsInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetWarningBulletinsInfoSecureHeader" part="SecureHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBonusPrograms">
+      <soap:operation soapAction="http://AccountViews.secure.themembersgroup.com/GetBonusPrograms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetBonusProgramsSecureHeader" part="SecureHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPendingEmbossRequests">
+      <soap:operation soapAction="http://AccountViews.secure.themembersgroup.com/GetPendingEmbossRequests" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetPendingEmbossRequestsSecureHeader" part="SecureHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardIssuanceProducts">
+      <soap:operation soapAction="http://AccountViews.secure.themembersgroup.com/GetCardIssuanceProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetCardIssuanceProductsSecureHeader" part="SecureHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDebitDDAMaintenance">
+      <soap:operation soapAction="http://AccountViews.secure.themembersgroup.com/GetDebitDDAMaintenance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetDebitDDAMaintenanceSecureHeader" part="SecureHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCHDHDLR">
+      <soap:operation soapAction="http://AccountViews.secure.themembersgroup.com/GetCHDHDLR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetCHDHDLRSecureHeader" part="SecureHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDebitBalance">
+      <soap:operation soapAction="http://AccountViews.secure.themembersgroup.com/GetDebitBalance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetDebitBalanceSecureHeader" part="SecureHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GeteStatementsInfo">
+      <soap:operation soapAction="http://AccountViews.secure.themembersgroup.com/GeteStatementsInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GeteStatementsInfoSecureHeader" part="SecureHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GeteStatementData">
+      <soap:operation soapAction="http://AccountViews.secure.themembersgroup.com/GeteStatementData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GeteStatementDataSecureHeader" part="SecureHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuthorizationResult">
+      <soap:operation soapAction="http://AccountViews.secure.themembersgroup.com/GetAuthorizationResult" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAuthorizationResultSecureHeader" part="SecureHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanyAccounts">
+      <soap:operation soapAction="http://AccountViews.secure.themembersgroup.com/GetCompanyAccounts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetCompanyAccountsSecureHeader" part="SecureHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCCPayPayments">
+      <soap:operation soapAction="http://AccountViews.secure.themembersgroup.com/GetCCPayPayments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetCCPayPaymentsSecureHeader" part="SecureHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AccountViews">
+    <wsdl:port name="AccountViewsSoap" binding="tns:AccountViewsSoap">
+      <soap:address location="https://openservices.beta.themembersgroup.com/accountviews.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

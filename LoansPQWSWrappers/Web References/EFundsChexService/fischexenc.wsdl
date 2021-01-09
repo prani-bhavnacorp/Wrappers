@@ -1,0 +1,869 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns3="http://V004.consumer.replyobjects.soap.fisds.com" xmlns:tns2="http://V004.queryobjects.soap.fisds.com" xmlns:impl="urn:fischex" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:intf="urn:fischex" targetNamespace="urn:fischex" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://V004.queryobjects.soap.fisds.com">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="CustIdentification">
+        <xsd:sequence>
+          <xsd:element name="acquirerid" nillable="true" type="xsd:string" />
+          <xsd:element name="chexsystemsversionnbr" nillable="true" type="xsd:string" />
+          <xsd:element name="customerid" nillable="true" type="xsd:string" />
+          <xsd:element name="includechexsystems" type="xsd:boolean" />
+          <xsd:element name="includeidentitymanager" type="xsd:boolean" />
+          <xsd:element name="includeofac" type="xsd:boolean" />
+          <xsd:element name="includequalifile" type="xsd:boolean" />
+          <xsd:element name="inquiryid" nillable="true" type="xsd:string" />
+          <xsd:element name="locationid" nillable="true" type="xsd:string" />
+          <xsd:element name="qualifileversionnbr" nillable="true" type="xsd:string" />
+          <xsd:element name="staging" type="xsd:boolean" />
+          <xsd:element name="strategytypeid" nillable="true" type="xsd:string" />
+          <xsd:element name="userdefinedtransactiontxt" nillable="true" type="xsd:string" />
+          <xsd:element name="reportdatatype" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PersonQuery">
+        <xsd:sequence>
+          <xsd:element name="birthdt" nillable="true" type="xsd:string" />
+          <xsd:element name="citynm" nillable="true" type="xsd:string" />
+          <xsd:element name="compositephonenbr" nillable="true" type="xsd:string" />
+          <xsd:element name="countrynm" nillable="true" type="xsd:string" />
+          <xsd:element name="firstnm" nillable="true" type="xsd:string" />
+          <xsd:element name="governmentnbr" nillable="true" type="xsd:string" />
+          <xsd:element name="identificationstatecd" nillable="true" type="xsd:string" />
+          <xsd:element name="identificationstatenbr" nillable="true" type="xsd:string" />
+          <xsd:element name="lastnm" nillable="true" type="xsd:string" />
+          <xsd:element name="middlenm" nillable="true" type="xsd:string" />
+          <xsd:element name="postalplusfourcd" nillable="true" type="xsd:string" />
+          <xsd:element name="statecd" nillable="true" type="xsd:string" />
+          <xsd:element name="streetaddresstxt" nillable="true" type="xsd:string" />
+          <xsd:element name="depositAmt" nillable="true" type="xsd:string" />
+          <xsd:element name="prevAddressMonthsNbr" nillable="true" type="xsd:string" />
+          <xsd:element name="prevAddressYearsNbr" nillable="true" type="xsd:string" />
+          <xsd:element name="prevCityNm" nillable="true" type="xsd:string" />
+          <xsd:element name="prevCountryCd" nillable="true" type="xsd:string" />
+          <xsd:element name="prevPostalPlusFourCd" nillable="true" type="xsd:string" />
+          <xsd:element name="prevStateCd" nillable="true" type="xsd:string" />
+          <xsd:element name="prevStreetAddressTxt" nillable="true" type="xsd:string" />
+          <xsd:element name="userdefinedrecordtxt" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://V004.consumer.replyobjects.soap.fisds.com">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:complexType name="AccountActionInfo">
+        <xsd:sequence>
+          <xsd:element name="accountAcceptanceTxt" nillable="true" type="xsd:string" />
+          <xsd:element name="accountActionTxt1" nillable="true" type="xsd:string" />
+          <xsd:element name="accountActionTxt10" nillable="true" type="xsd:string" />
+          <xsd:element name="accountActionTxt2" nillable="true" type="xsd:string" />
+          <xsd:element name="accountActionTxt3" nillable="true" type="xsd:string" />
+          <xsd:element name="accountActionTxt4" nillable="true" type="xsd:string" />
+          <xsd:element name="accountActionTxt5" nillable="true" type="xsd:string" />
+          <xsd:element name="accountActionTxt6" nillable="true" type="xsd:string" />
+          <xsd:element name="accountActionTxt7" nillable="true" type="xsd:string" />
+          <xsd:element name="accountActionTxt8" nillable="true" type="xsd:string" />
+          <xsd:element name="accountActionTxt9" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CreditBureauInfo">
+        <xsd:sequence>
+          <xsd:element name="creditBureauReasonCd1" nillable="true" type="xsd:string" />
+          <xsd:element name="creditBureauReasonCd2" nillable="true" type="xsd:string" />
+          <xsd:element name="creditBureauReasonCd3" nillable="true" type="xsd:string" />
+          <xsd:element name="creditBureauReasonCd4" nillable="true" type="xsd:string" />
+          <xsd:element name="creditBureauReasonCd5" nillable="true" type="xsd:string" />
+          <xsd:element name="creditBureauScoreNbr" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ClosureReason1">
+        <xsd:sequence>
+          <xsd:element name="closureReasonCategoryCd" nillable="true" type="xsd:string" />
+          <xsd:element name="closureReasonCategoryTxt" nillable="true" type="xsd:string" />
+          <xsd:element name="closureReasonCd" nillable="true" type="xsd:string" />
+          <xsd:element name="closureReasonTxt" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ClosureReason2">
+        <xsd:sequence>
+          <xsd:element name="closureReasonCategoryCd" nillable="true" type="xsd:string" />
+          <xsd:element name="closureReasonCategoryTxt" nillable="true" type="xsd:string" />
+          <xsd:element name="closureReasonCd" nillable="true" type="xsd:string" />
+          <xsd:element name="closureReasonTxt" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ClosureReason3">
+        <xsd:sequence>
+          <xsd:element name="closureReasonCategoryCd" nillable="true" type="xsd:string" />
+          <xsd:element name="closureReasonCategoryTxt" nillable="true" type="xsd:string" />
+          <xsd:element name="closureReasonCd" nillable="true" type="xsd:string" />
+          <xsd:element name="closureReasonTxt" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ProductOffer1">
+        <xsd:sequence>
+          <xsd:element name="productOfferLimitAmt" nillable="true" type="xsd:string" />
+          <xsd:element name="productOfferTxt" nillable="true" type="xsd:string" />
+          <xsd:element name="productOfferRatePct" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ProductOffer10">
+        <xsd:sequence>
+          <xsd:element name="productOfferLimitAmt" nillable="true" type="xsd:string" />
+          <xsd:element name="productOfferTxt" nillable="true" type="xsd:string" />
+          <xsd:element name="productOfferRatePct" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ProductOffer2">
+        <xsd:sequence>
+          <xsd:element name="productOfferLimitAmt" nillable="true" type="xsd:string" />
+          <xsd:element name="productOfferTxt" nillable="true" type="xsd:string" />
+          <xsd:element name="productOfferRatePct" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ProductOffer3">
+        <xsd:sequence>
+          <xsd:element name="productOfferLimitAmt" nillable="true" type="xsd:string" />
+          <xsd:element name="productOfferTxt" nillable="true" type="xsd:string" />
+          <xsd:element name="productOfferRatePct" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ProductOffer4">
+        <xsd:sequence>
+          <xsd:element name="productOfferLimitAmt" nillable="true" type="xsd:string" />
+          <xsd:element name="productOfferTxt" nillable="true" type="xsd:string" />
+          <xsd:element name="productOfferRatePct" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ProductOffer5">
+        <xsd:sequence>
+          <xsd:element name="productOfferLimitAmt" nillable="true" type="xsd:string" />
+          <xsd:element name="productOfferTxt" nillable="true" type="xsd:string" />
+          <xsd:element name="productOfferRatePct" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ProductOffer6">
+        <xsd:sequence>
+          <xsd:element name="productOfferLimitAmt" nillable="true" type="xsd:string" />
+          <xsd:element name="productOfferTxt" nillable="true" type="xsd:string" />
+          <xsd:element name="productOfferRatePct" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ProductOffer7">
+        <xsd:sequence>
+          <xsd:element name="productOfferLimitAmt" nillable="true" type="xsd:string" />
+          <xsd:element name="productOfferTxt" nillable="true" type="xsd:string" />
+          <xsd:element name="productOfferRatePct" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ProductOffer8">
+        <xsd:sequence>
+          <xsd:element name="productOfferLimitAmt" nillable="true" type="xsd:string" />
+          <xsd:element name="productOfferTxt" nillable="true" type="xsd:string" />
+          <xsd:element name="productOfferRatePct" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ProductOffer9">
+        <xsd:sequence>
+          <xsd:element name="productOfferLimitAmt" nillable="true" type="xsd:string" />
+          <xsd:element name="productOfferTxt" nillable="true" type="xsd:string" />
+          <xsd:element name="productOfferRatePct" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CrossSellInformation">
+        <xsd:sequence>
+          <xsd:element name="productOffer1" nillable="true" type="tns3:ProductOffer1" />
+          <xsd:element name="productOffer10" nillable="true" type="tns3:ProductOffer10" />
+          <xsd:element name="productOffer2" nillable="true" type="tns3:ProductOffer2" />
+          <xsd:element name="productOffer3" nillable="true" type="tns3:ProductOffer3" />
+          <xsd:element name="productOffer4" nillable="true" type="tns3:ProductOffer4" />
+          <xsd:element name="productOffer5" nillable="true" type="tns3:ProductOffer5" />
+          <xsd:element name="productOffer6" nillable="true" type="tns3:ProductOffer6" />
+          <xsd:element name="productOffer7" nillable="true" type="tns3:ProductOffer7" />
+          <xsd:element name="productOffer8" nillable="true" type="tns3:ProductOffer8" />
+          <xsd:element name="productOffer9" nillable="true" type="tns3:ProductOffer9" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="QualiFileReason1">
+        <xsd:sequence>
+          <xsd:element name="reasonCd" nillable="true" type="xsd:string" />
+          <xsd:element name="reasonTxt" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="QualiFileReason2">
+        <xsd:sequence>
+          <xsd:element name="reasonCd" nillable="true" type="xsd:string" />
+          <xsd:element name="reasonTxt" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="QualiFileReason3">
+        <xsd:sequence>
+          <xsd:element name="reasonCd" nillable="true" type="xsd:string" />
+          <xsd:element name="reasonTxt" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="QualiFileReason4">
+        <xsd:sequence>
+          <xsd:element name="reasonCd" nillable="true" type="xsd:string" />
+          <xsd:element name="reasonTxt" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="QualiFileReason5">
+        <xsd:sequence>
+          <xsd:element name="reasonCd" nillable="true" type="xsd:string" />
+          <xsd:element name="reasonTxt" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="QualiFileInformation">
+        <xsd:sequence>
+          <xsd:element name="qualifileReason1" nillable="true" type="tns3:QualiFileReason1" />
+          <xsd:element name="qualifileReason2" nillable="true" type="tns3:QualiFileReason2" />
+          <xsd:element name="qualifileReason3" nillable="true" type="tns3:QualiFileReason3" />
+          <xsd:element name="qualifileReason4" nillable="true" type="tns3:QualiFileReason4" />
+          <xsd:element name="qualifileReason5" nillable="true" type="tns3:QualiFileReason5" />
+          <xsd:element name="scoreNbr" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ReferenceInformation">
+        <xsd:sequence>
+          <xsd:element name="consumerDetailReferenceNbr" nillable="true" type="xsd:string" />
+          <xsd:element name="creditBureauId" nillable="true" type="xsd:string" />
+          <xsd:element name="creditBureauReferenceNbr" nillable="true" type="xsd:string" />
+          <xsd:element name="householdClusterCategoryCd" nillable="true" type="xsd:string" />
+          <xsd:element name="zipClusterCategoryCd" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DebitAttributesSummaryDetails">
+        <xsd:sequence>
+          <xsd:element name="previousInquiryAttributeCounts" nillable="true" type="tns3:PreviousInquiryAttributeCounts" />
+          <xsd:element name="checkOrderAttributeCounts" nillable="true" type="tns3:CheckOrderAttributeCounts" />
+          <xsd:element name="retailItemsAttributeCounts" nillable="true" type="tns3:RetailItemsAttributeCounts" />
+          <xsd:element name="closureAttributeCounts" nillable="true" type="tns3:ClosureAttributeCounts" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PreviousInquiryAttributeCounts">
+        <xsd:sequence>
+          <xsd:element name="nbrInquiriesLast30Days" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrInquiriesLast60Days" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrInquiriesLast90Days" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrInquiriesLast180Days" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrInquiriesLastOneYr" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrDaysSinceLastInquiryWithinYr" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrDaysSinceFirstInquiryWithinYr" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrInquiriesLast2Yrs" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrInquiriesLast3Yrs" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CheckOrderAttributeCounts">
+        <xsd:sequence>
+          <xsd:element name="nbrCheckOrdersPast30Days" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrCheckOrdersPast60Days" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrCheckOrdersPast90Days" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrCheckOrdersPast180Days" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrCheckOrdersPastOneYr" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrCheckOrdersPast2Yrs" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrCheckOrdersPast3Yrs" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrDifferentCheckAccountsPast3Yrs" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrDaysSinceMostRecentOrderPast3Yrs" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrDaysSinceFirstOrderPast3Yrs" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrChecksOrderedPast30Days" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrChecksOrderedPast60Days" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrChecksOrderedPast90Days" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrChecksOrderedPast180Days" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrChecksOrderedPastOneYr" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrChecksOrderedPast2Yrs" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrChecksOrderedPast3Yrs" nillable="true" type="xsd:string" />
+          <xsd:element name="minimumNbrChecksOrderedPast3Yrs" nillable="true" type="xsd:string" />
+          <xsd:element name="maximumNbrChecksOrderedPast3Yrs" nillable="true" type="xsd:string" />
+          <xsd:element name="aveNbrChecksOrderedPast3Yrs" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RetailItemsAttributeCounts">
+        <xsd:sequence>
+          <xsd:element name="nbrOpenItemsPast30Days" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrOpenItemsPast60Days" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrOpenItemsPast90Days" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrOpenItemsPast180Days" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrOpenItemsPastOneYr" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrOpenItemsPast2Yrs" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrOpenItemsPast3Yrs" nillable="true" type="xsd:string" />
+          <xsd:element name="dollarAmtOpenItemsPast30Days" nillable="true" type="xsd:string" />
+          <xsd:element name="dollarAmtOpenItemsPast60Days" nillable="true" type="xsd:string" />
+          <xsd:element name="dollarAmtOpenItemsPast90Days" nillable="true" type="xsd:string" />
+          <xsd:element name="dollarAmtOpenItemsPast180Days" nillable="true" type="xsd:string" />
+          <xsd:element name="dollarAmtOpenItemsPastOneYr" nillable="true" type="xsd:string" />
+          <xsd:element name="dollarAmtOpenItemsPast2Yrs" nillable="true" type="xsd:string" />
+          <xsd:element name="dollarAmtOpenItemsPast3Yrs" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrPaidItemsPast30Days" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrPaidItemsPast60Days" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrPaidItemsPast90Days" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrPaidItemsPast180Days" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrPaidItemsPastOneYr" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrPaidItemsPast2Yrs" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrPaidItemsPast3Yrs" nillable="true" type="xsd:string" />
+          <xsd:element name="dollarAmtPaidItemsPast30Days" nillable="true" type="xsd:string" />
+          <xsd:element name="dollarAmtPaidItemsPast60Days" nillable="true" type="xsd:string" />
+          <xsd:element name="dollarAmtPaidItemsPast90Days" nillable="true" type="xsd:string" />
+          <xsd:element name="dollarAmtPaidItemsPast180Days" nillable="true" type="xsd:string" />
+          <xsd:element name="dollarAmtPaidItemsPastOneYr" nillable="true" type="xsd:string" />
+          <xsd:element name="dollarAmtPaidItemsPast2Yrs" nillable="true" type="xsd:string" />
+          <xsd:element name="dollarAmtPaidItemsPast3Yrs" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrDaysSinceMostRecentOpenItemPast3Yrs" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrDaysSinceMostRecentPaidItemPast3Yrs" nillable="true" type="xsd:string" />
+          <xsd:element name="maximumDollarAmtOpenItemPast3Yrs" nillable="true" type="xsd:string" />
+          <xsd:element name="maximumDollarAmtPaidItemPast3Yrs" nillable="true" type="xsd:string" />
+          <xsd:element name="minimumCheckNbrOnOpenItemPast3Yrs" nillable="true" type="xsd:string" />
+          <xsd:element name="minimumCheckNbrOfPaidItemPast3Yrs" nillable="true" type="xsd:string" />
+          <xsd:element name="minimumNbrDaysToPayPast3Yrs" nillable="true" type="xsd:string" />
+          <xsd:element name="maximumNbrDaysToPayPast3Yrs" nillable="true" type="xsd:string" />
+          <xsd:element name="episodeSpanAllItemsTotalNbrOfDaysPast3Yrs" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ClosureAttributeCounts">
+        <xsd:sequence>
+          <xsd:element name="nbrClosuresPast30Days" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrClosuresPast60Days" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrClosuresPast90Days" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrClosuresPast180Days" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrClosuresPastOneYr" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrClosuresPast2Yrs" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrClosuresPast3Yrs" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrClosuresPast4Yrs" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrClosuresPast5Yrs" nillable="true" type="xsd:string" />
+          <xsd:element name="fraudClosureFlagPast5Yrs" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrDaysSinceMostRecentClosurePast5Yrs" nillable="true" type="xsd:string" />
+          <xsd:element name="nbrDaysSinceFirstClosurePast5Yrs" nillable="true" type="xsd:string" />
+          <xsd:element name="averageNbrDaysBetweenClosuresPast5Yrs" nillable="true" type="xsd:string" />
+          <xsd:element name="consumerDisputeQtyPast5Yrs" nillable="true" type="xsd:string" />
+          <xsd:element name="consumerDisputeResolvedQtyPast5Yrs" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SecondaryCreditBureauInfo">
+        <xsd:sequence>
+          <xsd:element name="secondaryCreditBureauReasonCd1" nillable="true" type="xsd:string" />
+          <xsd:element name="secondaryCreditBureauReasonCd2" nillable="true" type="xsd:string" />
+          <xsd:element name="secondaryCreditBureauReasonCd3" nillable="true" type="xsd:string" />
+          <xsd:element name="secondaryCreditBureauReasonCd4" nillable="true" type="xsd:string" />
+          <xsd:element name="secondaryCreditBureauReasonCd5" nillable="true" type="xsd:string" />
+          <xsd:element name="secondaryCreditBureauScoreNbr" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CreditHeaderInfo">
+        <xsd:sequence>
+          <xsd:element name="creditHeaderNameScore" nillable="true" type="xsd:string" />
+          <xsd:element name="creditHeaderAddressScore" nillable="true" type="xsd:string" />
+          <xsd:element name="creditHeaderSSNScore" nillable="true" type="xsd:string" />
+          <xsd:element name="creditHeaderDOBScore" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ProductStrategyCd">
+        <xsd:sequence>
+          <xsd:element name="productStrategyCd1" nillable="true" type="xsd:string" />
+          <xsd:element name="productStrategyCd2" nillable="true" type="xsd:string" />
+          <xsd:element name="productStrategyCd3" nillable="true" type="xsd:string" />
+          <xsd:element name="productStrategyCd4" nillable="true" type="xsd:string" />
+          <xsd:element name="productStrategyCd5" nillable="true" type="xsd:string" />
+          <xsd:element name="productStrategyCd6" nillable="true" type="xsd:string" />
+          <xsd:element name="productStrategyCd7" nillable="true" type="xsd:string" />
+          <xsd:element name="productStrategyCd8" nillable="true" type="xsd:string" />
+          <xsd:element name="productStrategyCd9" nillable="true" type="xsd:string" />
+          <xsd:element name="productStrategyCd10" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="QualiFileResponse">
+        <xsd:sequence>
+          <xsd:element name="accountActionInfo" nillable="true" type="tns3:AccountActionInfo" />
+          <xsd:element name="creditBureauInfo" nillable="true" type="tns3:CreditBureauInfo" />
+          <xsd:element name="crossSellInformation" nillable="true" type="tns3:CrossSellInformation" />
+          <xsd:element name="qualifileInformation" nillable="true" type="tns3:QualiFileInformation" />
+          <xsd:element name="qualifileNotPerformedCd" nillable="true" type="xsd:string" />
+          <xsd:element name="referenceInformation" nillable="true" type="tns3:ReferenceInformation" />
+          <xsd:element name="errorCd" nillable="true" type="xsd:string" />
+          <xsd:element name="errorInformation" nillable="true" type="xsd:string" />
+          <xsd:element name="errorTxt" nillable="true" type="xsd:string" />
+          <xsd:element name="debitAttributesSummaryDetails" nillable="true" type="tns3:DebitAttributesSummaryDetails" />
+          <xsd:element name="secondaryCreditBureauInfo" nillable="true" type="tns3:SecondaryCreditBureauInfo" />
+          <xsd:element name="creditHeaderInfo" nillable="true" type="tns3:CreditHeaderInfo" />
+          <xsd:element name="productStrategyCd" nillable="true" type="tns3:ProductStrategyCd" />
+          <xsd:element name="prospectChexInfo" nillable="true" type="tns3:ProspectChexInfo" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SSNValidation">
+        <xsd:sequence>
+          <xsd:element name="invalidGovernmentNumberTxt" nillable="true" type="xsd:string" />
+          <xsd:element name="validGovernmentNumberTxt" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ReportingCustomer">
+        <xsd:sequence>
+          <xsd:element name="customerBranchCityNm" nillable="true" type="xsd:string" />
+          <xsd:element name="customerBranchNm" nillable="true" type="xsd:string" />
+          <xsd:element name="customerBranchPostalPlusFourCd" nillable="true" type="xsd:string" />
+          <xsd:element name="customerBranchStateCd" nillable="true" type="xsd:string" />
+          <xsd:element name="customerBranchStreetAddressTxt" nillable="true" type="xsd:string" />
+          <xsd:element name="customerNm" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ReportedClosure">
+        <xsd:sequence>
+          <xsd:element name="closureReason1" nillable="true" type="tns3:ClosureReason1" />
+          <xsd:element name="closureReason2" nillable="true" type="tns3:ClosureReason2" />
+          <xsd:element name="closureReason3" nillable="true" type="tns3:ClosureReason3" />
+          <xsd:element name="collectionAmountTxt" nillable="true" type="xsd:string" />
+          <xsd:element name="collectionPaidCd" nillable="true" type="xsd:string" />
+          <xsd:element name="collectionsPaymentRecordedDt" nillable="true" type="xsd:string" />
+          <xsd:element name="consumerDisputeCd" nillable="true" type="xsd:string" />
+          <xsd:element name="consumerDisputeTxt" nillable="true" type="xsd:string" />
+          <xsd:element name="identityTheftCd" nillable="true" type="xsd:string" />
+          <xsd:element name="identityTheftTxt" nillable="true" type="xsd:string" />
+          <xsd:element name="originalChargeOffAmt" nillable="true" type="xsd:string" />
+          <xsd:element name="reportedCityNm" nillable="true" type="xsd:string" />
+          <xsd:element name="reportedDt" nillable="true" type="xsd:string" />
+          <xsd:element name="reportedFirstNm" nillable="true" type="xsd:string" />
+          <xsd:element name="reportedGovernmentNbr" nillable="true" type="xsd:string" />
+          <xsd:element name="reportedLastNm" nillable="true" type="xsd:string" />
+          <xsd:element name="reportedMiddleNm" nillable="true" type="xsd:string" />
+          <xsd:element name="reportedPostalPlusFourCd" nillable="true" type="xsd:string" />
+          <xsd:element name="reportedStateCd" nillable="true" type="xsd:string" />
+          <xsd:element name="reportedStreetAddressTxt" nillable="true" type="xsd:string" />
+          <xsd:element name="reportingCustomer" nillable="true" type="tns3:ReportingCustomer" />
+          <xsd:element name="settlementPaidCd" nillable="true" type="xsd:string" />
+          <xsd:element name="settlementPaidDt" nillable="true" type="xsd:string" />
+          <xsd:element name="settlementPaidTxt" nillable="true" type="xsd:string" />
+          <xsd:element name="totalCollectionAmt" nillable="true" type="xsd:string" />
+          <xsd:element name="closureConsumerStatRefId" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ClosureInformation">
+        <xsd:sequence>
+          <xsd:element name="closureNotFoundCd" nillable="true" type="xsd:string" />
+          <xsd:element name="consumerDisputeQty" nillable="true" type="xsd:string" />
+          <xsd:element name="paidClosureQty" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="reportedClosure" nillable="true" type="tns3:ReportedClosure" />
+          <xsd:element name="totalClosures" type="xsd:int" />
+          <xsd:element name="unpaidClosureQty" nillable="true" type="xsd:string" />
+          <xsd:element name="soldClosuresQty" nillable="true" type="xsd:string" />
+          <xsd:element name="partiallyPaidClosuresQty" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ConsumerInquiryCustomer">
+        <xsd:sequence>
+          <xsd:element name="inquiryCustBranchCityNm" nillable="true" type="xsd:string" />
+          <xsd:element name="inquiryCustBranchName" nillable="true" type="xsd:string" />
+          <xsd:element name="inquiryCustBranchPostalPlusFourCd" nillable="true" type="xsd:string" />
+          <xsd:element name="inquiryCustBranchStateCd" nillable="true" type="xsd:string" />
+          <xsd:element name="inquiryCustBranchStreetAddress" nillable="true" type="xsd:string" />
+          <xsd:element name="inquiryCustNm" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ConsumerPreviousInquiryDetails">
+        <xsd:sequence>
+          <xsd:element name="consumerInquiryCustomer" nillable="true" type="tns3:ConsumerInquiryCustomer" />
+          <xsd:element name="inquiryDt" nillable="true" type="xsd:string" />
+          <xsd:element name="previousInquiryCityNm" nillable="true" type="xsd:string" />
+          <xsd:element name="previousInquiryFirstNm" nillable="true" type="xsd:string" />
+          <xsd:element name="previousInquiryGovernmentNbr" nillable="true" type="xsd:string" />
+          <xsd:element name="previousInquiryID" nillable="true" type="xsd:string" />
+          <xsd:element name="previousInquiryLastNm" nillable="true" type="xsd:string" />
+          <xsd:element name="previousInquiryMiddleNm" nillable="true" type="xsd:string" />
+          <xsd:element name="previousInquiryPostalPlusFourCd" nillable="true" type="xsd:string" />
+          <xsd:element name="previousInquiryStateCd" nillable="true" type="xsd:string" />
+          <xsd:element name="previousInquiryStreetAddressTxt" nillable="true" type="xsd:string" />
+          <xsd:element name="previousInquiryConsumerStatRefId" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ConsumerPreviousInquiry">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="consumerPreviousInquiryDetails" nillable="true" type="tns3:ConsumerPreviousInquiryDetails" />
+          <xsd:element name="numberInquiryCustomersTotalQty" nillable="true" type="xsd:string" />
+          <xsd:element name="previousInquiriesNotFoundCd" nillable="true" type="xsd:string" />
+          <xsd:element name="previousInquiryTotalQty" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DLVerification">
+        <xsd:sequence>
+          <xsd:element name="driversLicenseNotFoundTxt" nillable="true" type="xsd:string" />
+          <xsd:element name="reportedDriversLicenseBirthDt" nillable="true" type="xsd:string" />
+          <xsd:element name="reportedDriversLicenseNm" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DriversLicenseValidation">
+        <xsd:sequence>
+          <xsd:element name="invalidDriversLicenseTxt" nillable="true" type="xsd:string" />
+          <xsd:element name="validDriversLicenseTxt" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RetailInformation">
+        <xsd:sequence>
+          <xsd:element name="unpaidRetailItemsFoundTxt" nillable="true" type="xsd:string" />
+          <xsd:element name="unpaidRetailItemsNotFoundTxt" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PurchasedDebtInfo">
+        <xsd:sequence>
+          <xsd:element name="purchasedDebtNotFoundCd" nillable="true" type="xsd:string" />
+          <xsd:element name="purchasedDebtTotal" nillable="true" type="xsd:string" />
+          <xsd:element name="purchasedDebtDisputedQty" nillable="true" type="xsd:string" />
+          <xsd:element name="purchasedDebtUnpaidQty" nillable="true" type="xsd:string" />
+          <xsd:element name="purchasedDebtPaidQty" nillable="true" type="xsd:string" />
+          <xsd:element name="purchaseddebtPartiallyPaidQty" nillable="true" type="xsd:string" />
+          <xsd:element name="purchasedDebtSoldQty" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="purchasedDebtDetail" nillable="true" type="tns3:PurchasedDebtDetail" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PurchasedDebtDetail">
+        <xsd:sequence>
+          <xsd:element name="datePurchased" nillable="true" type="xsd:string" />
+          <xsd:element name="purchasedReportedBy" nillable="true" type="xsd:string" />
+          <xsd:element name="purchasedChargeOffAmount" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ProspectChexInfo">
+        <xsd:sequence>
+          <xsd:element name="prospectChexScore" nillable="true" type="xsd:string" />
+          <xsd:element name="prospectChexReasonCd1" nillable="true" type="xsd:string" />
+          <xsd:element name="prospectChexReasonCd2" nillable="true" type="xsd:string" />
+          <xsd:element name="prospectChexReasonCd3" nillable="true" type="xsd:string" />
+          <xsd:element name="prospectChexReasonCd4" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ComplianceInfo">
+        <xsd:sequence>
+          <xsd:element name="debitBureauComplianceInfo" nillable="true" type="tns3:DebitBureauComplianceInfo" />
+          <xsd:element name="creditBureauComplianceInfo" nillable="true" type="tns3:CreditBureauComplianceInfo" />
+          <xsd:element name="prospectChexComplianceInfo" nillable="true" type="tns3:ProspectChexComplianceInfo" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DebitBureauComplianceInfo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="debitConsumerStat" nillable="true" type="tns3:DebitConsumerStat" />
+          <xsd:element name="debitTotalNbrOfStats" nillable="true" type="xsd:string" />
+          <xsd:element name="debitFreezeMessage" nillable="true" type="xsd:string" />
+          <xsd:element name="debitIdTheftDetailTxt" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DebitConsumerStat">
+        <xsd:sequence>
+          <xsd:element name="debitConsumerStatRefId" nillable="true" type="xsd:string" />
+          <xsd:element name="debitConsumerStatTxt" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CreditBureauComplianceInfo">
+        <xsd:sequence>
+          <xsd:element name="creditConsumerStatTxt" nillable="true" type="xsd:string" />
+          <xsd:element name="creditAddressMatchResult" nillable="true" type="xsd:string" />
+          <xsd:element name="creditFCRA" nillable="true" type="xsd:string" />
+          <xsd:element name="creditFreezeMessageTxt" nillable="true" type="xsd:string" />
+          <xsd:element name="creditIdTheftMsg" nillable="true" type="xsd:string" />
+          <xsd:element name="creditIdTheftDetailTxt" nillable="true" type="xsd:string" />
+          <xsd:element name="creditStatusTxt" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ProspectChexComplianceInfo">
+        <xsd:sequence>
+          <xsd:element name="prospectChexAddressMatchResult" nillable="true" type="xsd:string" />
+          <xsd:element name="prospectChexFCRA" nillable="true" type="xsd:string" />
+          <xsd:element name="prospectChexStatusTxt" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ChexSystemsResponse">
+        <xsd:sequence>
+          <xsd:element name="SSNValidation" nillable="true" type="tns3:SSNValidation" />
+          <xsd:element name="closureInformation" nillable="true" type="tns3:ClosureInformation" />
+          <xsd:element name="consumerDebitEducationCompletionDt" nillable="true" type="xsd:string" />
+          <xsd:element name="consumerPreviousInquiry" nillable="true" type="tns3:ConsumerPreviousInquiry" />
+          <xsd:element name="dlVerification" nillable="true" type="tns3:DLVerification" />
+          <xsd:element name="driversLicenseValidation" nillable="true" type="tns3:DriversLicenseValidation" />
+          <xsd:element name="driversLicenseProductCd" nillable="true" type="xsd:string" />
+          <xsd:element name="errorInformation" nillable="true" type="xsd:string" />
+          <xsd:element name="errorCd" nillable="true" type="xsd:string" />
+          <xsd:element name="errorTxt" nillable="true" type="xsd:string" />
+          <xsd:element name="fraudFinderResponseTxt" nillable="true" type="xsd:string" />
+          <xsd:element name="inquiryTrackingId" nillable="true" type="xsd:string" />
+          <xsd:element name="noDriversLicenseProductCd" nillable="true" type="xsd:string" />
+          <xsd:element name="numberInquiryCustomersTotalQty" nillable="true" type="xsd:string" />
+          <xsd:element name="pleaseCallCd" nillable="true" type="xsd:string" />
+          <xsd:element name="previousInquiryTotalQty" nillable="true" type="xsd:string" />
+          <xsd:element name="previousInquiriesNotFoundCd" nillable="true" type="xsd:string" />
+          <xsd:element name="previousInquiriesQty" nillable="true" type="xsd:string" />
+          <xsd:element name="retailInformation" nillable="true" type="tns3:RetailInformation" />
+          <xsd:element name="purchasedDebtInfo" nillable="true" type="tns3:PurchasedDebtInfo" />
+          <xsd:element name="checkPrintingActivityFlag" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="IDMAltInformation">
+        <xsd:sequence>
+          <xsd:element name="altAddress1" nillable="true" type="xsd:string" />
+          <xsd:element name="alt1AddressLine1" nillable="true" type="xsd:string" />
+          <xsd:element name="alt1AddressLine2" nillable="true" type="xsd:string" />
+          <xsd:element name="alt1City" nillable="true" type="xsd:string" />
+          <xsd:element name="alt1State" nillable="true" type="xsd:string" />
+          <xsd:element name="alt1PostalCd" nillable="true" type="xsd:string" />
+          <xsd:element name="altAddress2" nillable="true" type="xsd:string" />
+          <xsd:element name="alt2AddressLine1" nillable="true" type="xsd:string" />
+          <xsd:element name="alt2AddressLine2" nillable="true" type="xsd:string" />
+          <xsd:element name="alt2City" nillable="true" type="xsd:string" />
+          <xsd:element name="alt2State" nillable="true" type="xsd:string" />
+          <xsd:element name="alt2PostalCd" nillable="true" type="xsd:string" />
+          <xsd:element name="altAddress3" nillable="true" type="xsd:string" />
+          <xsd:element name="alt3AddressLine1" nillable="true" type="xsd:string" />
+          <xsd:element name="alt3AddressLine2" nillable="true" type="xsd:string" />
+          <xsd:element name="alt3City" nillable="true" type="xsd:string" />
+          <xsd:element name="alt3State" nillable="true" type="xsd:string" />
+          <xsd:element name="alt3PostalCd" nillable="true" type="xsd:string" />
+          <xsd:element name="altDob1" nillable="true" type="xsd:string" />
+          <xsd:element name="altDob2" nillable="true" type="xsd:string" />
+          <xsd:element name="altDob3" nillable="true" type="xsd:string" />
+          <xsd:element name="altDriversLicenseno1" nillable="true" type="xsd:string" />
+          <xsd:element name="altDriversLicenseno2" nillable="true" type="xsd:string" />
+          <xsd:element name="altdriversLicenseno3" nillable="true" type="xsd:string" />
+          <xsd:element name="altHomePhone1" nillable="true" type="xsd:string" />
+          <xsd:element name="altHomePhone2" nillable="true" type="xsd:string" />
+          <xsd:element name="altHomePhone3" nillable="true" type="xsd:string" />
+          <xsd:element name="altName1" nillable="true" type="xsd:string" />
+          <xsd:element name="altName2" nillable="true" type="xsd:string" />
+          <xsd:element name="altName3" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="IDMLogIDs">
+        <xsd:sequence>
+          <xsd:element name="batchId" type="xsd:int" />
+          <xsd:element name="chexReportId" type="xsd:int" />
+          <xsd:element name="custId" type="xsd:int" />
+          <xsd:element name="equifaxDecisionRepId" type="xsd:int" />
+          <xsd:element name="ofacLogId" type="xsd:int" />
+          <xsd:element name="oid" type="xsd:int" />
+          <xsd:element name="sarrepid" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="IDMSSNValidation">
+        <xsd:sequence>
+          <xsd:element name="ssnBeginIssueDate" nillable="true" type="xsd:string" />
+          <xsd:element name="ssnEndIssueDate" nillable="true" type="xsd:string" />
+          <xsd:element name="ssnIssueState" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="IDMValidationsResult">
+        <xsd:sequence>
+          <xsd:element name="addressCheckOk" type="xsd:boolean" />
+          <xsd:element name="afterSSNDate" type="xsd:boolean" />
+          <xsd:element name="dobCheckOk" type="xsd:boolean" />
+          <xsd:element name="driversLicenseCheckOk" type="xsd:boolean" />
+          <xsd:element name="idCheckHadMatchingRecords" type="xsd:boolean" />
+          <xsd:element name="idCheckOk" type="xsd:boolean" />
+          <xsd:element name="isDeceased" type="xsd:boolean" />
+          <xsd:element name="minorYes" type="xsd:boolean" />
+          <xsd:element name="nameCheckOk" type="xsd:boolean" />
+          <xsd:element name="ofacHit" type="xsd:boolean" />
+          <xsd:element name="telephoneCheckOk" type="xsd:boolean" />
+          <xsd:element name="ssnCheckOk" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="IDMResponse">
+        <xsd:sequence>
+          <xsd:element name="accountNumber" nillable="true" type="xsd:string" />
+          <xsd:element name="actions" nillable="true" type="xsd:string" />
+          <xsd:element name="altInformation" nillable="true" type="tns3:IDMAltInformation" />
+          <xsd:element name="comments" nillable="true" type="xsd:string" />
+          <xsd:element name="errorInformation" nillable="true" type="xsd:string" />
+          <xsd:element name="logids" nillable="true" type="tns3:IDMLogIDs" />
+          <xsd:element name="ssnValidation" nillable="true" type="tns3:IDMSSNValidation" />
+          <xsd:element name="validationsResult" nillable="true" type="tns3:IDMValidationsResult" />
+          <xsd:element name="verifier" nillable="true" type="xsd:string" />
+          <xsd:element name="verifyDate" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="OfacHitResponse">
+        <xsd:sequence>
+          <xsd:element name="callSign" nillable="true" type="xsd:string" />
+          <xsd:element name="flag" nillable="true" type="xsd:string" />
+          <xsd:element name="fromList" nillable="true" type="xsd:string" />
+          <xsd:element name="grt" nillable="true" type="xsd:string" />
+          <xsd:element name="name" nillable="true" type="xsd:string" />
+          <xsd:element name="owner" nillable="true" type="xsd:string" />
+          <xsd:element name="program" nillable="true" type="xsd:string" />
+          <xsd:element name="remarks" nillable="true" type="xsd:string" />
+          <xsd:element name="title" nillable="true" type="xsd:string" />
+          <xsd:element name="tonnage" nillable="true" type="xsd:string" />
+          <xsd:element name="vesselType" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="OfacLogIDs">
+        <xsd:sequence>
+          <xsd:element name="batchId" type="xsd:int" />
+          <xsd:element name="custId" type="xsd:int" />
+          <xsd:element name="oid" type="xsd:int" />
+          <xsd:element name="sarrepid" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="OfacValidationsResult">
+        <xsd:sequence>
+          <xsd:element name="ofacHit" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="OfacResponse">
+        <xsd:sequence>
+          <xsd:element name="accountNumber" nillable="true" type="xsd:string" />
+          <xsd:element name="comments" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ofacHitResponse" nillable="true" type="tns3:OfacHitResponse" />
+          <xsd:element name="ofacLogIds" nillable="true" type="tns3:OfacLogIDs" />
+          <xsd:element name="ofacValidationsResult" nillable="true" type="tns3:OfacValidationsResult" />
+          <xsd:element name="verifier" nillable="true" type="xsd:string" />
+          <xsd:element name="verifyDate" nillable="true" type="xsd:string" />
+          <xsd:element name="totalOfacHitsQty" nillable="true" type="xsd:string" />
+          <xsd:element name="ofacHitInformationalMsgTxt" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Consumer">
+        <xsd:sequence>
+          <xsd:element name="chexsystemsResponse" nillable="true" type="tns3:ChexSystemsResponse" />
+          <xsd:element name="errorCd" nillable="true" type="xsd:string" />
+          <xsd:element name="errorTxt" nillable="true" type="xsd:string" />
+          <xsd:element name="identityManagerResponse" nillable="true" type="tns3:IDMResponse" />
+          <xsd:element name="ofacResponse" nillable="true" type="tns3:OfacResponse" />
+          <xsd:element name="qualifileResponse" nillable="true" type="tns3:QualiFileResponse" />
+          <xsd:element name="complianceInfo" nillable="true" type="tns3:ComplianceInfo" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PersonReply">
+        <xsd:sequence>
+          <xsd:element name="birthDt" nillable="true" type="xsd:string" />
+          <xsd:element name="chexOk" type="xsd:boolean" />
+          <xsd:element name="chexResultId" type="xsd:int" />
+          <xsd:element name="cityNm" nillable="true" type="xsd:string" />
+          <xsd:element name="compositePhoneNbr" nillable="true" type="xsd:string" />
+          <xsd:element name="consumer" nillable="true" type="tns3:Consumer" />
+          <xsd:element name="countryNm" nillable="true" type="xsd:string" />
+          <xsd:element name="errorTxt" nillable="true" type="xsd:string" />
+          <xsd:element name="firstNm" nillable="true" type="xsd:string" />
+          <xsd:element name="governmentNbr" nillable="true" type="xsd:string" />
+          <xsd:element name="identificationStateCd" nillable="true" type="xsd:string" />
+          <xsd:element name="identificationStateNbr" nillable="true" type="xsd:string" />
+          <xsd:element name="lastNm" nillable="true" type="xsd:string" />
+          <xsd:element name="middleNm" nillable="true" type="xsd:string" />
+          <xsd:element name="postalPlusFourCd" nillable="true" type="xsd:string" />
+          <xsd:element name="stateCd" nillable="true" type="xsd:string" />
+          <xsd:element name="streetAddressTxt" nillable="true" type="xsd:string" />
+          <xsd:element name="transactionTrackingId" nillable="true" type="xsd:string" />
+          <xsd:element name="userdefinedTransactionTxt" nillable="true" type="xsd:string" />
+          <xsd:element name="locationId" nillable="true" type="xsd:string" />
+          <xsd:element name="industryMarketTypeCd" nillable="true" type="xsd:string" />
+          <xsd:element name="txtReport" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="addOFACOverrideRequest">
+    <wsdl:part name="in0" type="xsd:string" />
+    <wsdl:part name="in1" type="xsd:int" />
+    <wsdl:part name="in2" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="addIDVActionsRequest">
+    <wsdl:part name="in0" type="xsd:string" />
+    <wsdl:part name="in1" type="xsd:int" />
+    <wsdl:part name="in2" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="addIDVActionsResponse">
+    <wsdl:part name="addIDVActionsReturn" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="callChexSystemsServiceV001Response">
+    <wsdl:part name="callChexSystemsServiceV001Return" type="tns3:PersonReply" />
+  </wsdl:message>
+  <wsdl:message name="addIDVOverrideRequest">
+    <wsdl:part name="in0" type="xsd:string" />
+    <wsdl:part name="in1" type="xsd:int" />
+    <wsdl:part name="in2" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="addOFACOverrideResponse">
+    <wsdl:part name="addOFACOverrideReturn" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="addIDVOverrideResponse">
+    <wsdl:part name="addIDVOverrideReturn" type="xsd:boolean" />
+  </wsdl:message>
+  <wsdl:message name="chexAuthenticateResponse">
+    <wsdl:part name="chexAuthenticateReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="callChexSystemsServiceV001Request">
+    <wsdl:part name="in0" type="xsd:string" />
+    <wsdl:part name="in1" type="tns2:CustIdentification" />
+    <wsdl:part name="in2" type="tns2:PersonQuery" />
+  </wsdl:message>
+  <wsdl:message name="chexAuthenticateRequest">
+    <wsdl:part name="in0" type="xsd:string" />
+    <wsdl:part name="in1" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="ChexSystemsService">
+    <wsdl:operation name="chexAuthenticate" parameterOrder="in0 in1">
+      <wsdl:input name="chexAuthenticateRequest" message="intf:chexAuthenticateRequest" />
+      <wsdl:output name="chexAuthenticateResponse" message="intf:chexAuthenticateResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="addIDVOverride" parameterOrder="in0 in1 in2">
+      <wsdl:input name="addIDVOverrideRequest" message="intf:addIDVOverrideRequest" />
+      <wsdl:output name="addIDVOverrideResponse" message="intf:addIDVOverrideResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="addOFACOverride" parameterOrder="in0 in1 in2">
+      <wsdl:input name="addOFACOverrideRequest" message="intf:addOFACOverrideRequest" />
+      <wsdl:output name="addOFACOverrideResponse" message="intf:addOFACOverrideResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="addIDVActions" parameterOrder="in0 in1 in2">
+      <wsdl:input name="addIDVActionsRequest" message="intf:addIDVActionsRequest" />
+      <wsdl:output name="addIDVActionsResponse" message="intf:addIDVActionsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="callChexSystemsServiceV001" parameterOrder="in0 in1 in2">
+      <wsdl:input name="callChexSystemsServiceV001Request" message="intf:callChexSystemsServiceV001Request" />
+      <wsdl:output name="callChexSystemsServiceV001Response" message="intf:callChexSystemsServiceV001Response" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="chexsystemsSoapBinding" type="intf:ChexSystemsService">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="chexAuthenticate">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="chexAuthenticateRequest">
+        <wsdlsoap:body use="encoded" namespace="urn:fischex" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="chexAuthenticateResponse">
+        <wsdlsoap:body use="encoded" namespace="urn:fischex" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addIDVOverride">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="addIDVOverrideRequest">
+        <wsdlsoap:body use="encoded" namespace="urn:fischex" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="addIDVOverrideResponse">
+        <wsdlsoap:body use="encoded" namespace="urn:fischex" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addOFACOverride">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="addOFACOverrideRequest">
+        <wsdlsoap:body use="encoded" namespace="urn:fischex" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="addOFACOverrideResponse">
+        <wsdlsoap:body use="encoded" namespace="urn:fischex" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addIDVActions">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="addIDVActionsRequest">
+        <wsdlsoap:body use="encoded" namespace="urn:fischex" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="addIDVActionsResponse">
+        <wsdlsoap:body use="encoded" namespace="urn:fischex" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="callChexSystemsServiceV001">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="callChexSystemsServiceV001Request">
+        <wsdlsoap:body use="encoded" namespace="urn:fischex" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="callChexSystemsServiceV001Response">
+        <wsdlsoap:body use="encoded" namespace="urn:fischex" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ChexSystemsServiceService">
+    <wsdl:port name="chexsystems" binding="intf:chexsystemsSoapBinding">
+      <wsdlsoap:address location="https://penleyincqa.penleyinc.com/fissoap1/services/chexsystems" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

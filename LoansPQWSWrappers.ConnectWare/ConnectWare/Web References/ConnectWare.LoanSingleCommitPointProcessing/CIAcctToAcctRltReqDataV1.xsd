@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="mtvnCWCIAcctToAcctRltReqData" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="mtvnCWCIAcctToAcctRltReqData" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="CIAcctToAcctRltReqData">
+    <xs:annotation>
+      <xs:documentation>CIS Account to Account Relationship (CI020) -  This function is used to add or delete account to account relationships.  If an account to account relationship is to be changed, you must delete the existing relationship and add the new relationship.  Up to 10 relationships can be maintained for the specified account with one call to this function.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="E16054" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>CIS Account Application Code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E16055" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>CIS Account Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E10753" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Bypass Primary Customer Check</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="CIAcctToAcctRltDataLst">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="1" maxOccurs="unbounded" name="CIAcctToAcctRltData">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="E10017" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>CIS Add/Delete Type 2 Indicator</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="E10175" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>CIS Relationship Application Code</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="E10176" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>CIS Relationship Account Number</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="E10178" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>CIS Relationship Entity 1 to Entity 2 Relationship Code</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="E10179" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>CIS Relationship Entity 2 to Entity 1 Relationship Code</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E10180" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>CIS Relationship Effective Date</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E10181" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>CIS Relationship Expiration Date</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E10760" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>CIS Primary Sub Account</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E10761" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>CIS Related Sub Account</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

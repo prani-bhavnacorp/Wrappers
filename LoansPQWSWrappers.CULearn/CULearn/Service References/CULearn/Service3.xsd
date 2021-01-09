@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WCFService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WCFService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://demo.culearn.org/VoltaWCFService/Service.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="ProcessingDataType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VoltaAppID" type="xs:int" />
+      <xs:element minOccurs="0" name="VoltaPNoteID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProcessingDataType" nillable="true" type="tns:ProcessingDataType" />
+  <xs:complexType name="PrequalQuestionsResponseType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ResponseType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="colPrequalQuestions" nillable="true" type="tns:ArrayOfPrequalQuestionType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PrequalQuestionsResponseType" nillable="true" type="tns:PrequalQuestionsResponseType" />
+  <xs:complexType name="ResponseType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponseType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CreditStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IntRate" type="xs:decimal" />
+          <xs:element minOccurs="0" name="VoltaAppID" type="xs:int" />
+          <xs:element minOccurs="0" name="VoltaPNoteID" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ResponseType" nillable="true" type="tns:ResponseType" />
+  <xs:complexType name="BaseResponseType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Errors" nillable="true" type="tns:ArrayOfErrorType" />
+      <xs:element minOccurs="0" name="Result" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseResponseType" nillable="true" type="tns:BaseResponseType" />
+  <xs:complexType name="ArrayOfErrorType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ErrorType" nillable="true" type="tns:ErrorType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfErrorType" nillable="true" type="tns:ArrayOfErrorType" />
+  <xs:complexType name="ErrorType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ErrorType" nillable="true" type="tns:ErrorType" />
+  <xs:complexType name="ArrayOfPrequalQuestionType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PrequalQuestionType" nillable="true" type="tns:PrequalQuestionType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPrequalQuestionType" nillable="true" type="tns:ArrayOfPrequalQuestionType" />
+  <xs:complexType name="PrequalQuestionType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Question" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QuestionID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PrequalQuestionType" nillable="true" type="tns:PrequalQuestionType" />
+  <xs:complexType name="ArrayOfPrequalAnswerType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PrequalAnswerType" nillable="true" type="tns:PrequalAnswerType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPrequalAnswerType" nillable="true" type="tns:ArrayOfPrequalAnswerType" />
+  <xs:complexType name="PrequalAnswerType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Answer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QuestionID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PrequalAnswerType" nillable="true" type="tns:PrequalAnswerType" />
+  <xs:complexType name="PrivateAppType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Borrower" nillable="true" type="tns:BorrowerType" />
+      <xs:element minOccurs="0" name="CoBorrower" nillable="true" type="tns:BorrowerType" />
+      <xs:element minOccurs="0" name="CreditReportXML" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CurrPnotePrincipalBalance" type="xs:double" />
+      <xs:element minOccurs="0" name="ExternalAppID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExternalUse1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExternalUse10" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExternalUse2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExternalUse3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExternalUse4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExternalUse5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExternalUse6" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExternalUse7" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExternalUse8" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExternalUse9" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IncentivePlan" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LenderCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LoanFees" nillable="true" type="tns:ArrayOfFeeType" />
+      <xs:element minOccurs="0" name="LoanInterestRate" nillable="true" type="tns:InterestRateType" />
+      <xs:element minOccurs="0" name="LoanType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LoansToConsolidate" nillable="true" type="tns:ArrayOfLoanToConsolidateType" />
+      <xs:element minOccurs="0" name="PNoteAggregateLimit" type="xs:double" />
+      <xs:element minOccurs="0" name="RefAgentCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Reference1" nillable="true" type="tns:ReferenceType" />
+      <xs:element minOccurs="0" name="Reference2" nillable="true" type="tns:ReferenceType" />
+      <xs:element minOccurs="0" name="Repayment" nillable="true" type="tns:RepaymentType" />
+      <xs:element minOccurs="0" name="RequestedAmount" type="xs:double" />
+      <xs:element minOccurs="0" name="School" nillable="true" type="tns:SchoolType" />
+      <xs:element minOccurs="0" name="SponsorCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Student" nillable="true" type="tns:PersonType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PrivateAppType" nillable="true" type="tns:PrivateAppType" />
+  <xs:complexType name="BorrowerType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PersonType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address" nillable="true" type="tns:AddressType" />
+          <xs:element minOccurs="0" name="BankruptBefore" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Credit" nillable="true" type="tns:CreditType" />
+          <xs:element minOccurs="0" name="CreditAuth" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CreditGrantedUnderDifferentName" type="xs:boolean" />
+          <xs:element minOccurs="0" name="CurrAddressIsMailAddress" type="xs:boolean" />
+          <xs:element minOccurs="0" name="DefaultedOnStudentLoan" type="xs:boolean" />
+          <xs:element minOccurs="0" name="DriverLicense" nillable="true" type="tns:DriverLicenseType" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="tns:EmailType" />
+          <xs:element minOccurs="0" name="Email2" nillable="true" type="tns:EmailType" />
+          <xs:element minOccurs="0" name="Employer" nillable="true" type="tns:EmployerType" />
+          <xs:element minOccurs="0" name="Fax" nillable="true" type="tns:PhoneType" />
+          <xs:element minOccurs="0" name="Finance" nillable="true" type="tns:FinanceType" />
+          <xs:element minOccurs="0" name="FormerName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="HousingStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MailAddress" nillable="true" type="tns:AddressType" />
+          <xs:element minOccurs="0" name="MaritalStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MobilePhone" nillable="true" type="tns:PhoneType" />
+          <xs:element minOccurs="0" name="MonthsInUS" type="xs:int" />
+          <xs:element minOccurs="0" name="MothersMaidenName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OptInElectronic" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OptInMarketing" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Phone" nillable="true" type="tns:PhoneType" />
+          <xs:element minOccurs="0" name="PreviousAddress" nillable="true" type="tns:AddressType" />
+          <xs:element minOccurs="0" name="PreviousEmployer" nillable="true" type="tns:EmployerType" />
+          <xs:element minOccurs="0" name="Signature" nillable="true" type="tns:SignatureType" />
+          <xs:element minOccurs="0" name="Spouse" nillable="true" type="tns:PersonType" />
+          <xs:element minOccurs="0" name="SpouseAddress" nillable="true" type="tns:AddressType" />
+          <xs:element minOccurs="0" name="SpouseResidesAtSameAddress" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="BorrowerType" nillable="true" type="tns:BorrowerType" />
+  <xs:complexType name="PersonType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Citizenship" nillable="true" type="tns:CitizenshipType" />
+      <xs:element minOccurs="0" name="DateOfBirth" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IDs" nillable="true" type="tns:ArrayOfIdentificationType" />
+      <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MiddleInitial" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SSN" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PersonType" nillable="true" type="tns:PersonType" />
+  <xs:complexType name="CitizenshipType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="LengthOfMonths" type="xs:int" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CitizenshipType" nillable="true" type="tns:CitizenshipType" />
+  <xs:complexType name="ArrayOfIdentificationType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IdentificationType" nillable="true" type="tns:IdentificationType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIdentificationType" nillable="true" type="tns:ArrayOfIdentificationType" />
+  <xs:complexType name="IdentificationType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IdentificationType" nillable="true" type="tns:IdentificationType" />
+  <xs:complexType name="AddressType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddressLine1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressLine2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="City" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Country" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="County" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LengthOfResidency" type="xs:int" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZipCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AddressType" nillable="true" type="tns:AddressType" />
+  <xs:complexType name="CreditType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BureauCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DecisionDate" type="xs:dateTime" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DenialReasons" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element minOccurs="0" name="FICO" type="xs:int" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StatusDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CreditType" nillable="true" type="tns:CreditType" />
+  <xs:complexType name="DriverLicenseType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ExpirationDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IssueDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="State" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DriverLicenseType" nillable="true" type="tns:DriverLicenseType" />
+  <xs:complexType name="EmailType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EmailType" nillable="true" type="tns:EmailType" />
+  <xs:complexType name="EmployerType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="tns:AddressType" />
+      <xs:element minOccurs="0" name="JobPosition" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LengthOfEmployment" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="tns:PhoneType" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EmployerType" nillable="true" type="tns:EmployerType" />
+  <xs:complexType name="PhoneType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Extension" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Number" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PhoneType" nillable="true" type="tns:PhoneType" />
+  <xs:complexType name="FinanceType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AutoPayment" type="xs:double" />
+      <xs:element minOccurs="0" name="CreditCardPayment" type="xs:double" />
+      <xs:element minOccurs="0" name="EducationLoanPayment" type="xs:double" />
+      <xs:element minOccurs="0" name="HouseholdIncome" type="xs:double" />
+      <xs:element minOccurs="0" name="HousingPayment" type="xs:double" />
+      <xs:element minOccurs="0" name="OtherDebt" type="xs:double" />
+      <xs:element minOccurs="0" name="OtherIncome1" type="xs:double" />
+      <xs:element minOccurs="0" name="OtherIncome2" type="xs:double" />
+      <xs:element minOccurs="0" name="OtherIncomeSource1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OtherIncomeSource2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OtherPayment" type="xs:double" />
+      <xs:element minOccurs="0" name="SpousalIncome" type="xs:double" />
+      <xs:element minOccurs="0" name="StudentLoanDebt" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FinanceType" nillable="true" type="tns:FinanceType" />
+  <xs:complexType name="SignatureType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ESignID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ESignIPAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SignDateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SignType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SourceOrgCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SourceOrgType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SignatureType" nillable="true" type="tns:SignatureType" />
+  <xs:complexType name="ArrayOfFeeType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FeeType" nillable="true" type="tns:FeeType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFeeType" nillable="true" type="tns:ArrayOfFeeType" />
+  <xs:complexType name="FeeType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CalculationCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cap" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Indicator" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Percentage" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FeeType" nillable="true" type="tns:FeeType" />
+  <xs:complexType name="InterestRateType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BaseRateType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ceiling" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Floor" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Indicator" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Margin" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SecondMargin" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InterestRateType" nillable="true" type="tns:InterestRateType" />
+  <xs:complexType name="ArrayOfLoanToConsolidateType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LoanToConsolidateType" nillable="true" type="tns:LoanToConsolidateType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLoanToConsolidateType" nillable="true" type="tns:ArrayOfLoanToConsolidateType" />
+  <xs:complexType name="LoanToConsolidateType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ConsolidateLoan" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CreditorAddress" nillable="true" type="tns:AddressType" />
+      <xs:element minOccurs="0" name="CreditorID" type="xs:int" />
+      <xs:element minOccurs="0" name="CreditorName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InterestRate" type="xs:double" />
+      <xs:element minOccurs="0" name="LoanCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LoanDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="LoanRelationCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PayoffAmount" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LoanToConsolidateType" nillable="true" type="tns:LoanToConsolidateType" />
+  <xs:complexType name="ReferenceType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PersonType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address" nillable="true" type="tns:AddressType" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="tns:EmailType" />
+          <xs:element minOccurs="0" name="Phone" nillable="true" type="tns:PhoneType" />
+          <xs:element minOccurs="0" name="RelationToBorrower" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ReferenceType" nillable="true" type="tns:ReferenceType" />
+  <xs:complexType name="RepaymentType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GracePeriodEndDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="IntRateType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Option" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Term" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RepaymentType" nillable="true" type="tns:RepaymentType" />
+  <xs:complexType name="SchoolType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GradeLevel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GraduationDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LoanPeriodEndDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LoanPeriodStartDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MajorCourse" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SchoolType" nillable="true" type="tns:SchoolType" />
+  <xs:complexType name="NoteType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NoteText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NoteTopic" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PersonID" type="xs:int" />
+      <xs:element minOccurs="0" name="PriorityNote" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SentDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NoteType" nillable="true" type="tns:NoteType" />
+  <xs:complexType name="ArrayOfDocumentType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DocumentType" nillable="true" type="tns:DocumentType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDocumentType" nillable="true" type="tns:ArrayOfDocumentType" />
+  <xs:complexType name="DocumentType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DocDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DocType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExpireDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="PersonID" type="xs:int" />
+      <xs:element minOccurs="0" name="SentDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DocumentType" nillable="true" type="tns:DocumentType" />
+  <xs:complexType name="ExternalUseFieldsType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ExternalUse1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExternalUse10" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExternalUse2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExternalUse3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExternalUse4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExternalUse5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExternalUse6" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExternalUse7" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExternalUse8" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExternalUse9" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExternalUseFieldsType" nillable="true" type="tns:ExternalUseFieldsType" />
+  <xs:complexType name="EligSchoolListResponseType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseResponseType">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Schools" nillable="true" type="q2:ArrayOfint" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="EligSchoolListResponseType" nillable="true" type="tns:EligSchoolListResponseType" />
+</xs:schema>

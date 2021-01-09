@@ -1,0 +1,1850 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://xpsystems.com/services/apex/2006/Financial" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://xpsystems.com/services/apex/types" xmlns:s0="http://xpsystems.com/services/apex/messages" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://xpsystems.com/services/apex/2006/Financial" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://xpsystems.com/services/apex/messages">
+      <s:import namespace="http://xpsystems.com/services/apex/types" />
+      <s:element name="IndividualLookupRequest" nillable="true" type="s0:IndividualLookupRequest" />
+      <s:complexType name="IndividualLookupRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PageNumber" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemCount" type="s:int" />
+          <s:choice minOccurs="1" maxOccurs="1">
+            <s:element minOccurs="0" maxOccurs="1" name="TaxId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IndividualName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BusinessShortName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BusinessName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LdcNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ApplicationId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SdcNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="VehicleId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberPin" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExactIndividualID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExternalMortgageLoan" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExternalCreditCardLoan" type="s:string" />
+          </s:choice>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="IndividualLookupResponse" nillable="true" type="s0:IndividualLookupResponse" />
+      <s:complexType name="IndividualLookupResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" ref="s1:IndividualLookupData" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:ErrorMessage" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalRecords" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="IndividualSummaryRequest" nillable="true" type="s0:IndividualSummaryRequest" />
+      <s:complexType name="IndividualSummaryRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IndividualId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="EffectiveDate" type="s:date" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="IndividualSummaryResponse" nillable="true" type="s0:IndividualSummaryResponse" />
+      <s:complexType name="IndividualSummaryResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:Individual" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:ErrorMessage" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FinancialTransactionRequest" nillable="true" type="s0:FinancialTransactionRequest" />
+      <s:complexType name="FinancialTransactionRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="EffectiveDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrintReceipt" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ForcePost" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsTotalFeeRequired" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PostInSuppliedOrder" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="TimeStamp" type="s:string" />
+          <s:choice minOccurs="0" maxOccurs="unbounded">
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:AccountFeeReversal" />
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:LoanPayoff" />
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:Couplet" />
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:MerchandiseReturn" />
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:MerchandiseSell" />
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:MiscellaneousFee" />
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:LoanPayment" />
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:AccountDeposit" />
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:AccountFee" />
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:AccountWithdrawal" />
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:FundsDisbursed" />
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:FundsReceived" />
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:LoanAddon" />
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:PayrollGroup" />
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:GeneralLedger" />
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ExternalMortgagePayment" />
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:LoanAdjustment" />
+          </s:choice>
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:OverrideData" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FinancialTransactionResponse" nillable="true" type="s0:FinancialTransactionResponse" />
+      <s:complexType name="FinancialTransactionResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:TransactionResult" />
+          <s:element minOccurs="0" maxOccurs="unbounded" ref="s1:Account" />
+          <s:element minOccurs="0" maxOccurs="unbounded" ref="s1:Loan" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalFee" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="unbounded" ref="s1:MiscellaneousFee" />
+          <s:element minOccurs="0" maxOccurs="unbounded" ref="s1:GeneralLedger" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:ErrorMessage" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MerchandiseTypesOptionsRequest" nillable="true" type="s0:MerchandiseTypesOptionsRequest" />
+      <s:complexType name="MerchandiseTypesOptionsRequest" />
+      <s:element name="MerchandiseTypesResponse" nillable="true" type="s0:MerchandiseTypesResponse" />
+      <s:complexType name="MerchandiseTypesResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MerchandiseTypes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s1:ErrorMessages" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="QuantityAvailableRequest" nillable="true" type="s0:QuantityAvailableRequest" />
+      <s:complexType name="QuantityAvailableRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MerchandiseType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemNumberDescription" type="s1:ItemDescription" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="QuantityAvailableResponse" nillable="true" type="s0:QuantityAvailableResponse" />
+      <s:complexType name="QuantityAvailableResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Merchandise" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" ref="s1:QuantityAvailableOperatorName" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s1:ErrorMessages" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ItemNumberDescriptionRequest" nillable="true" type="s0:ItemNumberDescriptionRequest" />
+      <s:complexType name="ItemNumberDescriptionRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MerchandiseTypes" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ItemNumberDescriptionResponse" nillable="true" type="s0:ItemNumberDescriptionResponse" />
+      <s:complexType name="ItemNumberDescriptionResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" ref="s1:ItemNumberDescription" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s1:ErrorMessages" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SerialNumberInventoryRequest" nillable="true" type="s0:SerialNumberInventoryRequest" />
+      <s:complexType name="SerialNumberInventoryRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MerchandiseType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:ItemNumberDescription" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:QuantityAvailableOperatorName" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SerialNumberInventoryResponse" nillable="true" type="s0:SerialNumberInventoryResponse" />
+      <s:complexType name="SerialNumberInventoryResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SerialNumberInventory" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s1:ErrorMessages" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="OptionsMiscChargeCodeRequest" nillable="true" type="s0:OptionsMiscChargeCodeRequest" />
+      <s:complexType name="OptionsMiscChargeCodeRequest" />
+      <s:element name="OptionsMiscChargeCodeResponse" nillable="true" type="s0:OptionsMiscChargeCodeResponse" />
+      <s:complexType name="OptionsMiscChargeCodeResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:MiscellaneousChargeCode" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:ErrorMessage" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegisterTokenRequest" nillable="true" type="s0:RegisterTokenRequest" />
+      <s:complexType name="RegisterTokenRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TokenData" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RegisterTokenResponse" nillable="true" type="s0:RegisterTokenResponse" />
+      <s:complexType name="RegisterTokenResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Created" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Expires" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:ErrorMessage" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ValidateTokenRequest" nillable="true" type="s0:ValidateTokenRequest" />
+      <s:complexType name="ValidateTokenRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ValidateTokenResponse" nillable="true" type="s0:ValidateTokenResponse" />
+      <s:complexType name="ValidateTokenResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TokenData" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:ErrorMessage" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SystemDetailsRequest" nillable="true" type="s0:SystemDetailsRequest" />
+      <s:complexType name="SystemDetailsRequest" />
+      <s:element name="SystemDetailsResponse" nillable="true" type="s0:SystemDetailsResponse" />
+      <s:complexType name="SystemDetailsResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BusinessDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="SystemDateTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreditUnionName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Branch" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="XP2ReleaseLevel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:ErrorMessage" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ProofFinancialTransactionRequest" nillable="true" type="s0:ProofFinancialTransactionRequest" />
+      <s:complexType name="ProofFinancialTransactionRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="EffectiveDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrintReceipt" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ForcePost" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PostInSuppliedOrder" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="TimeStamp" type="s:string" />
+          <s:choice minOccurs="0" maxOccurs="unbounded">
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:Couplet" />
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:ExternalMortgagePayment" />
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:LoanAdjustment" />
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:AccountDeposit" />
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:AccountFee" />
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:AccountFeeReversal" />
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:AccountWithdrawal" />
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:FundsDisbursed" />
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:FundsReceived" />
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:LoanAddon" />
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:LoanPayment" />
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:LoanPayoff" />
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:MerchandiseReturn" />
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:MerchandiseSell" />
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:MiscellaneousFee" />
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:GeneralLedger" />
+          </s:choice>
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:OverrideData" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DrawerStatusRequest" nillable="true" type="s0:DrawerStatusRequest" />
+      <s:complexType name="DrawerStatusRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="OperatorId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DrawerStatusResponse" nillable="true" type="s0:DrawerStatusResponse" />
+      <s:complexType name="DrawerStatusResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CurrentOperatorId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CurrentDrawerId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DrawerSummary" type="s1:DrawerSummary" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:TransactionResult" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:ErrorMessage" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DrawerActivationRequest" nillable="true" type="s0:DrawerActivationRequest" />
+      <s:complexType name="DrawerActivationRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="OperatorId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DrawerId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DrawerAction" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AccountAdjustmentRequest" nillable="true" type="s0:AccountAdjustmentRequest" />
+      <s:complexType name="AccountAdjustmentRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="IndividualId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccountId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccountAdjustmentType" type="s0:AccountAdjustmentType" />
+          <s:element minOccurs="1" maxOccurs="1" name="EffectiveDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrintDescriptionOnReceiptStatement" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="HistoryDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NewMoneyAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="NewMaturityDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:OverrideData" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="AccountAdjustmentType">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="EarlyDividendsDeposit" />
+          <s:enumeration value="EarlyDividendsWithdrawal" />
+          <s:enumeration value="DividendAdjustmentDeposit" />
+          <s:enumeration value="DividendAdjustmentWithdrawal" />
+          <s:enumeration value="DividendBonusDeposit" />
+          <s:enumeration value="DividendBonusWithdrawal" />
+          <s:enumeration value="IRAAdjustmentDeposit" />
+          <s:enumeration value="IRAAdjustmentWithdrawal" />
+          <s:enumeration value="PenaltyAdjustmentDeposit" />
+          <s:enumeration value="PenaltyAdjustmentWithdrawal" />
+          <s:enumeration value="ACH_EFTAdjustmentDeposit" />
+          <s:enumeration value="ACH_EFTAdjustmentWithdrawal" />
+          <s:enumeration value="ACH_EFTManualPostDeposit" />
+          <s:enumeration value="ACH_EFTManualPostWithdrawal" />
+          <s:enumeration value="ShareDraftAdjustmentDeposit" />
+          <s:enumeration value="ShareDraftAdjustmentWithdrawal" />
+          <s:enumeration value="ShareDraftManualPostWithdrawal" />
+          <s:enumeration value="InterestRefundDeposit" />
+          <s:enumeration value="InterestRefundWithdrawal" />
+          <s:enumeration value="FederalWithholdingAdjustmentDeposit" />
+          <s:enumeration value="FederalWithholdingAdjustmentWithdrawal" />
+          <s:enumeration value="StateWithholdingAdjustmentDeposit" />
+          <s:enumeration value="StateWithholdingAdjustmentWithdrawal" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="AccountAdjustmentResponse" nillable="true" type="s0:AccountAdjustmentResponse" />
+      <s:complexType name="AccountAdjustmentResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccountId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IndividualId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="IndividualName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountTitle" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccountAdjustmentType" type="s0:AccountAdjustmentType" />
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CurrentBalance" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="AvailableBalance" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="HistoryDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:TransactionResult" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:ErrorMessage" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="WireXchangeRequest" nillable="true" type="s0:WireXchangeRequest" />
+      <s:complexType name="WireXchangeRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransferFrom" type="s1:AccountType" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransferTo" type="s1:AccountType" />
+          <s:element minOccurs="0" maxOccurs="1" name="WireBeneficiaryName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="WithdrawalFeeFlag" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="FeeRequested" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="FeeAccountDetails" type="s1:FeeAccountDetails" />
+          <s:element minOccurs="1" maxOccurs="1" name="RegDCount" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:OverrideData" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:FeeOverrideData" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="WireXchangeResponse" nillable="true" type="s0:WireXchangeResponse" />
+      <s:complexType name="WireXchangeResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="FromAccountPosted" type="s1:AccountType" />
+          <s:element minOccurs="0" maxOccurs="1" name="ToAccountPosted" type="s1:AccountType" />
+          <s:element minOccurs="1" maxOccurs="1" name="ToAccountBalance" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="FromAccountBalance" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="DatePosted" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:TransactionResult" />
+          <s:element minOccurs="1" maxOccurs="1" name="FeePosted" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="FeeAccountDetails" type="s1:FeeAccountDetails" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:FeeTransactionResult" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:ErrorMessage" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SafeDepositBoxListRequest" nillable="true" type="s0:SafeDepositBoxListRequest" />
+      <s:complexType name="SafeDepositBoxListRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BranchNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BoxType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BoxNumber" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SafeDepositBoxStatusType" type="s0:SafeDepositBoxStatusChoiceType" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="SafeDepositBoxStatusChoiceType">
+        <s:restriction base="s:string">
+          <s:enumeration value="All" />
+          <s:enumeration value="Available" />
+          <s:enumeration value="CreditUnion" />
+          <s:enumeration value="Denied" />
+          <s:enumeration value="Rented" />
+          <s:enumeration value="OutOfService" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="SafeDepositBoxListResponse" nillable="true" type="s0:SafeDepositBoxListResponse" />
+      <s:complexType name="SafeDepositBoxListResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" ref="s1:BoxItem" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:ErrorMessage" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SafeDepositBoxDetailsRequest" nillable="true" type="s0:SafeDepositBoxDetailsRequest" />
+      <s:complexType name="SafeDepositBoxDetailsRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BranchNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BoxNumber" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SafeDepositBoxDetailsResponse" nillable="true" type="s0:SafeDepositBoxDetailsResponse" />
+      <s:complexType name="SafeDepositBoxDetailsResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" ref="s1:BoxDetails" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:ErrorMessage" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:TransactionResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SafeDepositBoxUpdateRequest" nillable="true" type="s0:SafeDepositBoxUpdateRequest" />
+      <s:complexType name="SafeDepositBoxUpdateRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="GeneralInformation" type="s1:SafeDepositBoxGeneralInformation" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CoRenters" type="s1:CoRenter" />
+          <s:element minOccurs="0" maxOccurs="1" name="Keys" type="s1:SafeDepositBoxKeys" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastNotice" type="s1:SafeDepositBoxLastNotice" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentSource" type="s1:SafeDepositBoxPaymentSource" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fees" type="s1:SafeDepositBoxFees" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:OverrideData" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SafeDepositBoxRemovalRequest" nillable="true" type="s0:SafeDepositBoxRemovalRequest" />
+      <s:complexType name="SafeDepositBoxRemovalRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="BoxNumber" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BranchNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClosingDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EffectiveDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Keys" type="s1:SafeDepositBoxKeys" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:OverrideData" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SafeDepositBoxRemovalResponse" nillable="true" type="s0:SafeDepositBoxRemovalResponse" />
+      <s:complexType name="SafeDepositBoxRemovalResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="BoxNumber" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BranchNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClosingDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CloseDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:OverrideData" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:ErrorMessage" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:TransactionResult" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://xpsystems.com/services/apex/types">
+      <s:element name="IndividualLookupData" type="s1:IndividualLookupData" />
+      <s:complexType name="IndividualLookupData">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IndividualId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="IndividualType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="OwnershipType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaxId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address3" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BirthDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="DriversLicense" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ident" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MothersMaidenName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompanyName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ErrorMessage" type="s1:ErrorMessages" />
+      <s:complexType name="ErrorMessages">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Message" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Individual" type="s1:IndividualSummary" />
+      <s:complexType name="IndividualSummary">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IndividualId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="IndividualType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MiddleName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NameSuffix" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompanyName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaxId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Gender" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BirthDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="MembershipDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeathDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="Branch" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DriversLicense" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ident" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MothersMaidenName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PreferredContact" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Affiliation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InplantAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaritalStatus" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsUSCitizen" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccessLevel" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastContact" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrimaryAddressId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Address" type="s1:Address" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CBScore1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CBScore2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Phone" type="s1:Phone" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Account" type="s1:AccountSummary" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Loan" type="s1:LoanSummary" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Membership" type="s1:IndividualMember" />
+          <s:element minOccurs="0" maxOccurs="1" name="CrossMember" type="s1:ArrayOfCrossMemberDetails" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CreditScore" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Services" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PriorName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TinType" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsHomeOwner" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsHeadOfHouseHold" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsMTSUSer" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsHomeBankingUser" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsBillPayUser" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasDirectDeposit" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasMarketingMailOptOut" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IRAStatement" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="RelationshipManager" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RelationshipManagerName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastCreditReportDateTime" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Address">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AddressId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Line1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Line2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Line3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZipCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountyName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsPrimary" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsInternational" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AddressVerification" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Occupancy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="LongAddress1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LongAddress2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Membership" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CoBorrower" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UseAlternateAsOf" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="RestorePrimaryAsOf" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="AlternateType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comments" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Met2AddressIndicator" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UspsVerified" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressMatchStatus" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Phone">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneKey" type="s1:PhoneKey" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsPrimaryForType" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsInternational" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AreaCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Extension" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comment" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MarkAsPrevious" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsPrevious" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsConvergeIVR" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PhoneKey">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IndividualId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sequence" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AccountSummary">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccountId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductClass" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProductId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductCategory" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccountType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Balance" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="AvailableBalance" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ownership" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CurrentRate" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastDividendPaidAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="DividendsYTD" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="DividendsPYTD" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaturityDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SDCNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SDCNumbers" type="s1:SDCNumber" />
+          <s:element minOccurs="0" maxOccurs="1" name="Deposits" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RegDTransactionCount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RegDLastTransactionDate" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SDCNumber">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="SDCPrefix" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FullSDC" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SDCSuffix" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sdc" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sequence" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsPrimary" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LoanSummary">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccountId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExternalLoanId" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductClass" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProductId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductCategory" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccountType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Balance" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="AvailableBalance" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="NextDueDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="Payment" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MinimumAmountToBringCurrent" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ownership" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EscrowBalance" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Payoff" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastStatementAccruedInterest" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="InterestRate" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="InterestYTD" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="InterestPYTD" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="LateCharge" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="StandardPurchaseRate" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Limit" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IndividualMember">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ownership" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Inhibited" type="s:short" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCrossMemberDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CrossMemberDetails" nillable="true" type="s1:CrossMemberDetails" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CrossMemberDetails">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="CrossMemberId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="CrossMemberAccountId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="AllowTransactionTo" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AllowTransactionFrom" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AccountFeeReversal" type="s1:AccountFeeReversal" />
+      <s:complexType name="AccountFeeReversal">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:BaseTransactionUnit">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="AccountId" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="UpdateContactDate" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="HistoryDescription" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BaseTransactionUnit" abstract="true" />
+      <s:complexType name="LoanAdjustment">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:BaseTransactionUnit">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="LoanId" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="AdjustmentType" type="s1:LoanAdjustmentType" />
+              <s:element minOccurs="1" maxOccurs="1" name="Principal" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="StandardPurchase" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="StandardCashAdvance" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="Interest" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="AssessInterest" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="LateCharge" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="AssessLateCharge" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="Fee1" type="s1:MiscellaneousFee" />
+              <s:element minOccurs="1" maxOccurs="1" name="AssessFee1" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="Fee2" type="s1:MiscellaneousFee" />
+              <s:element minOccurs="1" maxOccurs="1" name="AssessFee2" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="Fee3" type="s1:MiscellaneousFee" />
+              <s:element minOccurs="1" maxOccurs="1" name="AssessFee3" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="Fee4" type="s1:MiscellaneousFee" />
+              <s:element minOccurs="1" maxOccurs="1" name="AssessFee4" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="Fee5" type="s1:MiscellaneousFee" />
+              <s:element minOccurs="1" maxOccurs="1" name="AssessFee5" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="InsuranceRefundCode" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="InsuranceRefundAmount" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="RefundCase" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="CashAdvanceFee" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="AssessCashAdvanceFee" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumberOfPayments" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="PaymentNextDueDate" type="s:date" />
+              <s:element minOccurs="1" maxOccurs="1" name="InterestAccruedPaidToDate" type="s:date" />
+              <s:element minOccurs="1" maxOccurs="1" name="LateChargeAssessedDate" type="s:date" />
+              <s:element minOccurs="1" maxOccurs="1" name="UpdateGracePayment" type="s1:GracePayment" />
+              <s:element minOccurs="1" maxOccurs="1" name="PartialGrace" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="UpdateDelinquentAmount" type="s1:DelinquencyUpdate" />
+              <s:element minOccurs="1" maxOccurs="1" name="PartialPayment" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="HistoryDescription" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="PrintOnReceiptAndStatement" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="TotalAmount" type="s:decimal" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="LoanAdjustmentType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Increase" />
+          <s:enumeration value="Decrease" />
+          <s:enumeration value="Reverse" />
+          <s:enumeration value="Retropost" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="MiscellaneousFee">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:BaseTransactionUnit">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="AccountId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="MiscellaneousFeeCode" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Branch" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="IsRefund" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="History" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FeeDescription" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="GracePayment">
+        <s:restriction base="s:string">
+          <s:enumeration value="NotApplicable" />
+          <s:enumeration value="NoUpdate" />
+          <s:enumeration value="SetToNo" />
+          <s:enumeration value="SetToYes" />
+          <s:enumeration value="SetToYesIfQualified" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="DelinquencyUpdate">
+        <s:restriction base="s:string">
+          <s:enumeration value="NotApplicable" />
+          <s:enumeration value="NoUpdate" />
+          <s:enumeration value="Update" />
+          <s:enumeration value="MinimumDueOnly" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ExternalMortgagePayment">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:BaseTransactionUnit">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="AccountId" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="LoanId" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="CashDeposited" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="CheckDeposited" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="LateChargeAmount" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="TotalChecks" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="GLNumber" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumberOfPayments" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="IsCustomPayment" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="UnAppliedFundsTo" type="s1:UnAppliedFunds" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="UnAppliedFunds">
+        <s:restriction base="s:string">
+          <s:enumeration value="Principal" />
+          <s:enumeration value="ShareAccount" />
+          <s:enumeration value="UnappliedFunds" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="GeneralLedger">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:BaseTransactionUnit">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="AccountId" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="GeneralLedgerPrimeAccountId" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="GeneralLedgerSubAccountId" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="Branch" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="IsRefund" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="History" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="MerchandiseSell">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:BaseTransactionUnit">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Count" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+              <s:element minOccurs="0" maxOccurs="1" name="MerchandiseType" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ItemDescription" type="s1:ItemDescription" />
+              <s:element minOccurs="0" maxOccurs="unbounded" name="SerialNumberList" type="s1:SerialNumberInventory" />
+              <s:element minOccurs="1" maxOccurs="1" name="Price" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="ChargeTax" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="TaxAmount" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="CalculateFee" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="FeeAmount" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="HistoryDescription" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="QuantityAvailableFromOperator" type="s1:QuantityAvailableFromOperator" />
+              <s:element minOccurs="0" maxOccurs="1" name="Payee1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Payee2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Payee3" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Payee4" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Payee5" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ItemDescription">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ItemNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SerialNumberInventory">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SeriesNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SeriesFrom" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SeriesTo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="QuantityAvailableFromOperator">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="OperatorId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="OperatorName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="QuantityAvailable" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MerchandiseReturn">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:BaseTransactionUnit">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Count" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+              <s:element minOccurs="0" maxOccurs="1" name="MerchandiseType" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ItemDescription" type="s1:ItemDescription" />
+              <s:element minOccurs="0" maxOccurs="unbounded" name="SerialNumberList" type="s1:SerialNumberInventory" />
+              <s:element minOccurs="1" maxOccurs="1" name="Price" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="TaxAmount" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="CalculateFee" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="FeeAmount" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="HistoryDescription" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ReturnFor" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="LoanPayment">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:BaseTransactionUnit">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="LoanId" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="PaymentCount" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="HistoryDescription" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="LoanAddon">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:BaseTransactionUnit">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="LoanId" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="NewDueDate" type="s:date" />
+              <s:element minOccurs="1" maxOccurs="1" name="NewPayment" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="TreatAsNew" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="DraftNumber" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="HistoryDescription" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AtmId" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AtmReceipt" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="LoanOfficer" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="FundsReceived">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:BaseTransactionUnit">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="TotalCashReceived" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="BillsReceived" type="s1:BillDenomination" />
+              <s:element minOccurs="1" maxOccurs="1" name="CoinsReceived" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="unbounded" name="Check" type="s1:CheckReceived" />
+              <s:element minOccurs="0" maxOccurs="1" name="HistoryDescription" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="BillDenomination">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="SinglesCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TwosCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FivesCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TensCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TwentiesCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FiftiesCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="HundredsCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FiveHundredsCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ThousandsCount" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CheckReceived">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="HoldDays" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Count" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PayrollGroup">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:BaseTransactionUnit">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ProcessingGroup" type="s:short" />
+              <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AccountWithdrawal">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:BaseTransactionUnit">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="AccountId" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="RegDFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ReasonCode" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BeneficiaryTin" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ChargeCertificatePenalty" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="AddPenaltyToAmount" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="ChargeFees" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="AllowOverdraw" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="ChargeOdpFees" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CloseAccount" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="AtmId" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="AtmReceiptId" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="HistoryDescription" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AccountFee">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:BaseTransactionUnit">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="AccountId" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="RegDFlag" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OverdrawOption" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="DraftNumber" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="HistoryDescription" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AccountDeposit">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:BaseTransactionUnit">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="AccountId" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="IraCalendarYear" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="BeneficiaryTin" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AtmId" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="AtmReceiptId" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CertificateMaturityDate" type="s:date" />
+              <s:element minOccurs="1" maxOccurs="1" name="CertificateNewMoney" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="DraftNumber" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="HistoryDescription" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="FundsDisbursed">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:BaseTransactionUnit">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="TotalCash" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="BillsDisbursed" type="s1:BillDenomination" />
+              <s:element minOccurs="1" maxOccurs="1" name="CoinsDisbursed" type="s:decimal" />
+              <s:element minOccurs="1" maxOccurs="1" name="CashCheckAction" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="unbounded" name="Check" type="s1:CheckDisbursed" />
+              <s:element minOccurs="0" maxOccurs="1" name="HistoryDescription" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CheckDisbursed">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Payee1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Payee2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Payee3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Payee4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Payee5" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Reference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsPayee3LineName" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Connector" type="s1:ConnectorType" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="ConnectorType">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="And" />
+          <s:enumeration value="Or" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="Couplet">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:BaseTransactionUnit">
+            <s:sequence>
+              <s:choice minOccurs="0" maxOccurs="unbounded">
+                <s:element minOccurs="0" maxOccurs="1" name="FundsDisbursed" type="s1:FundsDisbursed" />
+                <s:element minOccurs="0" maxOccurs="1" name="AccountDeposit" type="s1:AccountDeposit" />
+                <s:element minOccurs="0" maxOccurs="1" name="AccountFee" type="s1:AccountFee" />
+                <s:element minOccurs="0" maxOccurs="1" name="AccountFeeReversal" type="s1:AccountFeeReversal" />
+                <s:element minOccurs="0" maxOccurs="1" name="AccountWithdrawal" type="s1:AccountWithdrawal" />
+                <s:element minOccurs="0" maxOccurs="1" name="PayrollGroup" type="s1:PayrollGroup" />
+                <s:element minOccurs="0" maxOccurs="1" name="FundsReceived" type="s1:FundsReceived" />
+                <s:element minOccurs="0" maxOccurs="1" name="LoanAddon" type="s1:LoanAddon" />
+                <s:element minOccurs="0" maxOccurs="1" name="LoanPayment" type="s1:LoanPayment" />
+                <s:element minOccurs="0" maxOccurs="1" name="LoanPayoff" type="s1:LoanPayoff" />
+                <s:element minOccurs="0" maxOccurs="1" name="MerchandiseReturn" type="s1:MerchandiseReturn" />
+                <s:element minOccurs="0" maxOccurs="1" name="MerchandiseSell" type="s1:MerchandiseSell" />
+                <s:element minOccurs="0" maxOccurs="1" name="MiscellaneousFee" type="s1:MiscellaneousFee" />
+                <s:element minOccurs="0" maxOccurs="1" name="GeneralLedger" type="s1:GeneralLedger" />
+                <s:element minOccurs="0" maxOccurs="1" name="ExternalMortgagePayment" type="s1:ExternalMortgagePayment" />
+                <s:element minOccurs="0" maxOccurs="1" name="LoanAdjustment" type="s1:LoanAdjustment" />
+              </s:choice>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="LoanPayoff">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:BaseTransactionUnit">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="LoanId" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="HistoryDescription" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="LoanPayoff" type="s1:LoanPayoff" />
+      <s:element name="Couplet" type="s1:Couplet" />
+      <s:element name="MerchandiseReturn" type="s1:MerchandiseReturn" />
+      <s:element name="MerchandiseSell" type="s1:MerchandiseSell" />
+      <s:element name="MiscellaneousFee" type="s1:MiscellaneousFee" />
+      <s:element name="LoanPayment" type="s1:LoanPayment" />
+      <s:element name="AccountDeposit" type="s1:AccountDeposit" />
+      <s:element name="AccountFee" type="s1:AccountFee" />
+      <s:element name="AccountWithdrawal" type="s1:AccountWithdrawal" />
+      <s:element name="FundsDisbursed" type="s1:FundsDisbursed" />
+      <s:element name="FundsReceived" type="s1:FundsReceived" />
+      <s:element name="LoanAddon" type="s1:LoanAddon" />
+      <s:element name="PayrollGroup" type="s1:PayrollGroup" />
+      <s:element name="GeneralLedger" type="s1:GeneralLedger" />
+      <s:element name="ExternalMortgagePayment" type="s1:ExternalMortgagePayment" />
+      <s:element name="LoanAdjustment" type="s1:LoanAdjustment" />
+      <s:element name="OverrideData" type="s1:OverrideData" />
+      <s:complexType name="OverrideData">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="OverrideType" type="s1:OverrideType" />
+          <s:element minOccurs="0" maxOccurs="1" name="OverrideCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="OverrideType">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="Caution" />
+          <s:enumeration value="Warning" />
+          <s:enumeration value="Supervisor" />
+          <s:enumeration value="OtherSupervisor" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="TransactionResult" type="s1:TransactionResult" />
+      <s:complexType name="TransactionResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IsPosted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequiredOverrideLevel" type="s1:OverrideType" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SpecialCondition" type="s1:SpecialCondition" />
+          <s:element minOccurs="1" maxOccurs="1" name="ActivityId" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SpecialCondition">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ConditionId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsStop" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccountLoanId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IndividualId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OverrideType" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Account" type="s1:AccountSummary" />
+      <s:element name="Loan" type="s1:LoanSummary" />
+      <s:element name="QuantityAvailableOperatorName" type="s1:QuantityAvailableFromOperator" />
+      <s:element name="ItemNumberDescription" type="s1:ItemDescription" />
+      <s:element name="MiscellaneousChargeCode" type="s1:ArrayOfMiscellaneousChargeCode" />
+      <s:complexType name="ArrayOfMiscellaneousChargeCode">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MiscellaneousChargeCode" nillable="true" type="s1:MiscellaneousChargeCode" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MiscellaneousChargeCode">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DrawerSummary">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DrawerId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DrawerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DrawerType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Branch" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AccountType">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IsGL" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccountId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="GLAccountPrime" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="GLAccountSub" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FeeAccountDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FromAccount" type="s1:AccountType" />
+          <s:element minOccurs="0" maxOccurs="1" name="ToAccount" type="s1:AccountType" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FeeOverrideData" type="s1:OverrideData" />
+      <s:element name="FeeTransactionResult" type="s1:TransactionResult" />
+      <s:element name="BoxItem" type="s1:BoxItem" />
+      <s:complexType name="BoxItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BoxNumber" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SourceAccountId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="BoxHolderId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BoxHolderName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BoxType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BoxStatus" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RentAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="NextDueDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="BranchNumber" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BoxDetails" type="s1:BoxDetails" />
+      <s:complexType name="BoxDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="GeneralInformation" type="s1:SafeDepositBoxGeneralInformation" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CoRenters" type="s1:CoRenterResponse" />
+          <s:element minOccurs="0" maxOccurs="1" name="Keys" type="s1:SafeDepositBoxKeys" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastNotice" type="s1:SafeDepositBoxLastNotice" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentSource" type="s1:SafeDepositBoxPaymentSource" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fees" type="s1:SafeDepositBoxFees" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SafeDepositBoxGeneralInformation">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrimaryOwner" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IndividualId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BoxNumber" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BranchNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BoxType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BoxStatus" type="s1:BoxStatus" />
+          <s:element minOccurs="1" maxOccurs="1" name="OpenedDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecialInstructions" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="BoxStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="CreditUnionAssigned" />
+          <s:enumeration value="AccessDenied" />
+          <s:enumeration value="Rented" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="CoRenterResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Remove" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SafeDepositBoxKeys">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="KeysIssued" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SafeDepositBoxLastNotice">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="NoticeType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NoticeAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="NoticeDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Occurance" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SafeDepositBoxPaymentSource">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Action" type="s1:PaymentAction" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccountId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Transaction" type="s1:Transaction" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EffectiveDate" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="PaymentAction">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="Payment" />
+          <s:enumeration value="Reversal" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="Transaction">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="KeysAmountDue" />
+          <s:enumeration value="OpenAmountNextDueAmount" />
+          <s:enumeration value="KeysAmountAndOpenNextDueAmount" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="SafeDepositBoxFees">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="OpenAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReceivedWaivedDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="FeeCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RentalAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="NextPaymentDueAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="NextPaymentDueDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastPaymentAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastPaymentReceived" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastPaymentDueDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastNumberOfPayments" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DelinquentAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="DelinquentThroughDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumberOfPaymentsDelinquent" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CoRenter">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IndividualId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Remove" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="IndividualLookupSoapIn">
+    <wsdl:part name="request" element="s0:IndividualLookupRequest" />
+  </wsdl:message>
+  <wsdl:message name="IndividualLookupSoapOut">
+    <wsdl:part name="IndividualLookupResult" element="s0:IndividualLookupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IndividualSummarySoapIn">
+    <wsdl:part name="request" element="s0:IndividualSummaryRequest" />
+  </wsdl:message>
+  <wsdl:message name="IndividualSummarySoapOut">
+    <wsdl:part name="IndividualSummaryResult" element="s0:IndividualSummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="PostFinancialTransactionSoapIn">
+    <wsdl:part name="request" element="s0:FinancialTransactionRequest" />
+  </wsdl:message>
+  <wsdl:message name="PostFinancialTransactionSoapOut">
+    <wsdl:part name="PostFinancialTransactionResult" element="s0:FinancialTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="OptionsMerchandiseTypesSoapIn">
+    <wsdl:part name="request" element="s0:MerchandiseTypesOptionsRequest" />
+  </wsdl:message>
+  <wsdl:message name="OptionsMerchandiseTypesSoapOut">
+    <wsdl:part name="OptionsMerchandiseTypesResult" element="s0:MerchandiseTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="OptionsQuantityAvailableSoapIn">
+    <wsdl:part name="request" element="s0:QuantityAvailableRequest" />
+  </wsdl:message>
+  <wsdl:message name="OptionsQuantityAvailableSoapOut">
+    <wsdl:part name="OptionsQuantityAvailableResult" element="s0:QuantityAvailableResponse" />
+  </wsdl:message>
+  <wsdl:message name="OptionsItemNumberDescriptionSoapIn">
+    <wsdl:part name="request" element="s0:ItemNumberDescriptionRequest" />
+  </wsdl:message>
+  <wsdl:message name="OptionsItemNumberDescriptionSoapOut">
+    <wsdl:part name="OptionsItemNumberDescriptionResult" element="s0:ItemNumberDescriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="OptionsSerialNumberInventoryListSoapIn">
+    <wsdl:part name="request" element="s0:SerialNumberInventoryRequest" />
+  </wsdl:message>
+  <wsdl:message name="OptionsSerialNumberInventoryListSoapOut">
+    <wsdl:part name="OptionsSerialNumberInventoryListResult" element="s0:SerialNumberInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="OptionsMiscChargeCodeSoapIn">
+    <wsdl:part name="request" element="s0:OptionsMiscChargeCodeRequest" />
+  </wsdl:message>
+  <wsdl:message name="OptionsMiscChargeCodeSoapOut">
+    <wsdl:part name="OptionsMiscChargeCodeResult" element="s0:OptionsMiscChargeCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegisterTokenSoapIn">
+    <wsdl:part name="request" element="s0:RegisterTokenRequest" />
+  </wsdl:message>
+  <wsdl:message name="RegisterTokenSoapOut">
+    <wsdl:part name="RegisterTokenResult" element="s0:RegisterTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateTokenSoapIn">
+    <wsdl:part name="request" element="s0:ValidateTokenRequest" />
+  </wsdl:message>
+  <wsdl:message name="ValidateTokenSoapOut">
+    <wsdl:part name="ValidateTokenResult" element="s0:ValidateTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="SystemDetailsSoapIn">
+    <wsdl:part name="request" element="s0:SystemDetailsRequest" />
+  </wsdl:message>
+  <wsdl:message name="SystemDetailsSoapOut">
+    <wsdl:part name="SystemDetailsResult" element="s0:SystemDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProofFinancialTransactionSoapIn">
+    <wsdl:part name="request" element="s0:ProofFinancialTransactionRequest" />
+  </wsdl:message>
+  <wsdl:message name="ProofFinancialTransactionSoapOut">
+    <wsdl:part name="ProofFinancialTransactionResult" element="s0:FinancialTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="DrawerStatusSoapIn">
+    <wsdl:part name="request" element="s0:DrawerStatusRequest" />
+  </wsdl:message>
+  <wsdl:message name="DrawerStatusSoapOut">
+    <wsdl:part name="DrawerStatusResult" element="s0:DrawerStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="DrawerActivationSoapIn">
+    <wsdl:part name="request" element="s0:DrawerActivationRequest" />
+  </wsdl:message>
+  <wsdl:message name="DrawerActivationSoapOut">
+    <wsdl:part name="DrawerActivationResult" element="s0:DrawerStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="AccountAdjustmentSoapIn">
+    <wsdl:part name="request" element="s0:AccountAdjustmentRequest" />
+  </wsdl:message>
+  <wsdl:message name="AccountAdjustmentSoapOut">
+    <wsdl:part name="AccountAdjustmentResult" element="s0:AccountAdjustmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="WireXchangeSoapIn">
+    <wsdl:part name="request" element="s0:WireXchangeRequest" />
+  </wsdl:message>
+  <wsdl:message name="WireXchangeSoapOut">
+    <wsdl:part name="WireXchangeResult" element="s0:WireXchangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SafeDepositBoxListSoapIn">
+    <wsdl:part name="request" element="s0:SafeDepositBoxListRequest" />
+  </wsdl:message>
+  <wsdl:message name="SafeDepositBoxListSoapOut">
+    <wsdl:part name="SafeDepositBoxListResult" element="s0:SafeDepositBoxListResponse" />
+  </wsdl:message>
+  <wsdl:message name="SafeDepositBoxDetailsSoapIn">
+    <wsdl:part name="request" element="s0:SafeDepositBoxDetailsRequest" />
+  </wsdl:message>
+  <wsdl:message name="SafeDepositBoxDetailsSoapOut">
+    <wsdl:part name="SafeDepositBoxDetailsResult" element="s0:SafeDepositBoxDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SafeDepositBoxUpdateSoapIn">
+    <wsdl:part name="request" element="s0:SafeDepositBoxUpdateRequest" />
+  </wsdl:message>
+  <wsdl:message name="SafeDepositBoxUpdateSoapOut">
+    <wsdl:part name="SafeDepositBoxUpdateResult" element="s0:SafeDepositBoxDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SafeDepositBoxRemoveSoapIn">
+    <wsdl:part name="request" element="s0:SafeDepositBoxRemovalRequest" />
+  </wsdl:message>
+  <wsdl:message name="SafeDepositBoxRemoveSoapOut">
+    <wsdl:part name="SafeDepositBoxRemoveResult" element="s0:SafeDepositBoxRemovalResponse" />
+  </wsdl:message>
+  <wsdl:portType name="FinancialServicesSoap">
+    <wsdl:operation name="IndividualLookup">
+      <wsdl:input message="tns:IndividualLookupSoapIn" />
+      <wsdl:output message="tns:IndividualLookupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IndividualSummary">
+      <wsdl:input message="tns:IndividualSummarySoapIn" />
+      <wsdl:output message="tns:IndividualSummarySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PostFinancialTransaction">
+      <wsdl:input message="tns:PostFinancialTransactionSoapIn" />
+      <wsdl:output message="tns:PostFinancialTransactionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OptionsMerchandiseTypes">
+      <wsdl:input message="tns:OptionsMerchandiseTypesSoapIn" />
+      <wsdl:output message="tns:OptionsMerchandiseTypesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OptionsQuantityAvailable">
+      <wsdl:input message="tns:OptionsQuantityAvailableSoapIn" />
+      <wsdl:output message="tns:OptionsQuantityAvailableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OptionsItemNumberDescription">
+      <wsdl:input message="tns:OptionsItemNumberDescriptionSoapIn" />
+      <wsdl:output message="tns:OptionsItemNumberDescriptionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OptionsSerialNumberInventoryList">
+      <wsdl:input message="tns:OptionsSerialNumberInventoryListSoapIn" />
+      <wsdl:output message="tns:OptionsSerialNumberInventoryListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OptionsMiscChargeCode">
+      <wsdl:input message="tns:OptionsMiscChargeCodeSoapIn" />
+      <wsdl:output message="tns:OptionsMiscChargeCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterToken">
+      <wsdl:input message="tns:RegisterTokenSoapIn" />
+      <wsdl:output message="tns:RegisterTokenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateToken">
+      <wsdl:input message="tns:ValidateTokenSoapIn" />
+      <wsdl:output message="tns:ValidateTokenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SystemDetails">
+      <wsdl:input message="tns:SystemDetailsSoapIn" />
+      <wsdl:output message="tns:SystemDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProofFinancialTransaction">
+      <wsdl:input message="tns:ProofFinancialTransactionSoapIn" />
+      <wsdl:output message="tns:ProofFinancialTransactionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DrawerStatus">
+      <wsdl:input message="tns:DrawerStatusSoapIn" />
+      <wsdl:output message="tns:DrawerStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DrawerActivation">
+      <wsdl:input message="tns:DrawerActivationSoapIn" />
+      <wsdl:output message="tns:DrawerActivationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AccountAdjustment">
+      <wsdl:input message="tns:AccountAdjustmentSoapIn" />
+      <wsdl:output message="tns:AccountAdjustmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WireXchange">
+      <wsdl:input message="tns:WireXchangeSoapIn" />
+      <wsdl:output message="tns:WireXchangeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SafeDepositBoxList">
+      <wsdl:input message="tns:SafeDepositBoxListSoapIn" />
+      <wsdl:output message="tns:SafeDepositBoxListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SafeDepositBoxDetails">
+      <wsdl:input message="tns:SafeDepositBoxDetailsSoapIn" />
+      <wsdl:output message="tns:SafeDepositBoxDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SafeDepositBoxUpdate">
+      <wsdl:input message="tns:SafeDepositBoxUpdateSoapIn" />
+      <wsdl:output message="tns:SafeDepositBoxUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SafeDepositBoxRemove">
+      <wsdl:input message="tns:SafeDepositBoxRemoveSoapIn" />
+      <wsdl:output message="tns:SafeDepositBoxRemoveSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FinancialServicesSoap" type="tns:FinancialServicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="IndividualLookup">
+      <soap:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/IndividualLookup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IndividualSummary">
+      <soap:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/IndividualSummary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostFinancialTransaction">
+      <soap:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/PostFinancialTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OptionsMerchandiseTypes">
+      <soap:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/OptionsMerchandiseTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OptionsQuantityAvailable">
+      <soap:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/OptionsQuantityAvailable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OptionsItemNumberDescription">
+      <soap:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/OptionsItemNumberDescription" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OptionsSerialNumberInventoryList">
+      <soap:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/OptionsSerialNumberInventoryList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OptionsMiscChargeCode">
+      <soap:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/OptionsMiscChargeCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterToken">
+      <soap:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/RegisterToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateToken">
+      <soap:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/ValidateToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SystemDetails">
+      <soap:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/SystemDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProofFinancialTransaction">
+      <soap:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/ProofFinancialTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DrawerStatus">
+      <soap:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/DrawerStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DrawerActivation">
+      <soap:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/DrawerActivation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccountAdjustment">
+      <soap:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/AccountAdjustment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WireXchange">
+      <soap:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/WireXchange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SafeDepositBoxList">
+      <soap:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/SafeDepositBoxList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SafeDepositBoxDetails">
+      <soap:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/SafeDepositBoxDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SafeDepositBoxUpdate">
+      <soap:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/SafeDepositBoxUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SafeDepositBoxRemove">
+      <soap:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/SafeDepositBoxRemove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FinancialServicesSoap12" type="tns:FinancialServicesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="IndividualLookup">
+      <soap12:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/IndividualLookup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IndividualSummary">
+      <soap12:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/IndividualSummary" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PostFinancialTransaction">
+      <soap12:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/PostFinancialTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OptionsMerchandiseTypes">
+      <soap12:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/OptionsMerchandiseTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OptionsQuantityAvailable">
+      <soap12:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/OptionsQuantityAvailable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OptionsItemNumberDescription">
+      <soap12:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/OptionsItemNumberDescription" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OptionsSerialNumberInventoryList">
+      <soap12:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/OptionsSerialNumberInventoryList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OptionsMiscChargeCode">
+      <soap12:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/OptionsMiscChargeCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterToken">
+      <soap12:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/RegisterToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateToken">
+      <soap12:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/ValidateToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SystemDetails">
+      <soap12:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/SystemDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProofFinancialTransaction">
+      <soap12:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/ProofFinancialTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DrawerStatus">
+      <soap12:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/DrawerStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DrawerActivation">
+      <soap12:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/DrawerActivation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccountAdjustment">
+      <soap12:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/AccountAdjustment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WireXchange">
+      <soap12:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/WireXchange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SafeDepositBoxList">
+      <soap12:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/SafeDepositBoxList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SafeDepositBoxDetails">
+      <soap12:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/SafeDepositBoxDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SafeDepositBoxUpdate">
+      <soap12:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/SafeDepositBoxUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SafeDepositBoxRemove">
+      <soap12:operation soapAction="http://xpsystems.com/services/apex/2006/Financial/SafeDepositBoxRemove" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FinancialServices">
+    <wsdl:port name="FinancialServicesSoap" binding="tns:FinancialServicesSoap">
+      <soap:address location="http://10.160.82.28/xpweb/services/apex/2006/FinancialServices.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FinancialServicesSoap12" binding="tns:FinancialServicesSoap12">
+      <soap12:address location="http://10.160.82.28/xpweb/services/apex/2006/FinancialServices.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

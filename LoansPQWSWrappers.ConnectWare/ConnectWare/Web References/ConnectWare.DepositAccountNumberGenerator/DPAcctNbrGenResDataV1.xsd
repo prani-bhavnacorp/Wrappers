@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="mtvnCWDPAcctNbrGenResData" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="mtvnCWDPAcctNbrGenResData" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="DPAcctNbrGenResData">
+    <xs:annotation>
+      <xs:documentation>Deposit Account Number Generator (DLANG) - This function is used to generate a Deposit System account number.  </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="E21665" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Generated Deposit Account Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E20046" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Deposit Account Branch</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E20047" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Deposit Account Type</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E21664" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Deposit Application Identification</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="ErrCde" type="xs:string" />
+        <xs:element minOccurs="0" name="ErrResnCde" type="xs:string" />
+        <xs:element minOccurs="0" name="ApplMsgLst">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="ApplMsg">
+                <xs:complexType>
+                  <xs:all>
+                    <xs:element minOccurs="0" name="ApplMsgApplId" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgNbr" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgTxt" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgErrInd" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgFld" type="xs:string" />
+                  </xs:all>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="http://cmdspectrum.ws.spectrum.summit.fiserv.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CmdSpectrumService" targetNamespace="http://cmdspectrum.ws.spectrum.summit.fiserv.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <import namespace="urn:connections.spectrum.summitsite.com" location="https://icenter.summitsite.com:7443/fiserv/SpectrumTest1/wsiservices/CmdSpectrum?wsdl=1" />
+  <types />
+  <binding xmlns:ns1="urn:connections.spectrum.summitsite.com" name="CmdSpectrumImplPortBinding" type="ns1:CmdSpectrum">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="submitXML">
+      <soap:operation soapAction="urn:submitXML" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="submitSTTI">
+      <soap:operation soapAction="urn:submitSTTI" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="submitXMLCommand">
+      <soap:operation soapAction="url:submitXMLCommand" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SpectrumException">
+        <soap:fault use="literal" name="SpectrumException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="submitFiAPI">
+      <soap:operation soapAction="urn:submitFiAPI" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="submitSIM">
+      <soap:operation soapAction="urn:submitSIM" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getTellerIds">
+      <soap:operation soapAction="urn:getTellerIds" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="submitSSP1">
+      <soap:operation soapAction="urn:submitSSP1" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="SpectrumException">
+        <soap:fault use="literal" name="SpectrumException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="submitSSP2">
+      <soap:operation soapAction="urn:submitSSP2" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="submitXMLCntl">
+      <soap:operation soapAction="urn:submitXMLCntl" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="CmdSpectrumService">
+    <port name="CmdSpectrumImplPort" binding="tns:CmdSpectrumImplPortBinding">
+      <soap:address location="https://icenter.summitsite.com:7443/fiserv/SpectrumTest1/wsiservices/CmdSpectrum" />
+    </port>
+  </service>
+</definitions>

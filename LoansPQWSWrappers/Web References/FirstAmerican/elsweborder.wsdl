@@ -1,0 +1,1906 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://soap.elsonline.net" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://soap.elsonline.net" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://soap.elsonline.net">
+      <s:element name="RequestResearch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="XMLdata" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RequestResearchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RequestResearchResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FactCertGet">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PDF" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="forceNewTransCert" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FactCertGetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FactCertGetResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FactCertSearch">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StartDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EndDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="UseRecDate" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="PDF" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="ReportBitWiseValue" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="OutputDirectory" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileNameFormat" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FactCertSearchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FactCertSearchResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FactCertCreate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ConfNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RefOne" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RefTwo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MortgageAmount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Mortgagor" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RecordedDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="InstrumentNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Lender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DateEntered" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Zip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PolicyNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExecutionDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Vesting1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Vesting2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Vesting3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OutputDir" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OutputFileName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IsFact" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FactCertCreateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FactCertCreateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlData" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubmitRequestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlaceOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="XMLdata" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PlaceOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PlaceOrderResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ThirdPartyPlaceOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="XMLdata" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ThirdPartyPlaceOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ThirdPartyPlaceOrderResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MismoRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="XMLdata" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MismoRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MismoRequestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="APIRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="XMLdata" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="APIRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="APIRequestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderQueue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderQueueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrderQueueResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderQueueNew">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderQueueNewResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrderQueueNewResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSigningOrderQueue">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSigningOrderQueueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSigningOrderQueueResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ConfirmationNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrderResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderProduct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ConfirmationNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SequenceNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrderProductResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderProductTest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ConfirmationNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SequenceNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="TestOptions" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderProductTestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrderProductTestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderNotes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ConfirmationNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderNotesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrderNotesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderNotesTest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ConfirmationNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="inFlags" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderNotesTestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrderNotesTestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddOrderNote">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ConfirmationNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Note" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NoteType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddOrderNoteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddOrderNoteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindOrders">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReferenceNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindOrdersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindOrdersResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListProducts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListProductsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListProductsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ConfirmationNumber" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProductAction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ConfirmationNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SequenceNumber" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Action" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProductActionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProductActionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RequestResearchSoapIn">
+    <wsdl:part name="parameters" element="tns:RequestResearch" />
+  </wsdl:message>
+  <wsdl:message name="RequestResearchSoapOut">
+    <wsdl:part name="parameters" element="tns:RequestResearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="FactCertGetSoapIn">
+    <wsdl:part name="parameters" element="tns:FactCertGet" />
+  </wsdl:message>
+  <wsdl:message name="FactCertGetSoapOut">
+    <wsdl:part name="parameters" element="tns:FactCertGetResponse" />
+  </wsdl:message>
+  <wsdl:message name="FactCertSearchSoapIn">
+    <wsdl:part name="parameters" element="tns:FactCertSearch" />
+  </wsdl:message>
+  <wsdl:message name="FactCertSearchSoapOut">
+    <wsdl:part name="parameters" element="tns:FactCertSearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="FactCertCreateSoapIn">
+    <wsdl:part name="parameters" element="tns:FactCertCreate" />
+  </wsdl:message>
+  <wsdl:message name="FactCertCreateSoapOut">
+    <wsdl:part name="parameters" element="tns:FactCertCreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SubmitRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:SubmitRequest" />
+  </wsdl:message>
+  <wsdl:message name="SubmitRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:SubmitRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="PlaceOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:PlaceOrder" />
+  </wsdl:message>
+  <wsdl:message name="PlaceOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:PlaceOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ThirdPartyPlaceOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:ThirdPartyPlaceOrder" />
+  </wsdl:message>
+  <wsdl:message name="ThirdPartyPlaceOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:ThirdPartyPlaceOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="MismoRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:MismoRequest" />
+  </wsdl:message>
+  <wsdl:message name="MismoRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:MismoRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="APIRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:APIRequest" />
+  </wsdl:message>
+  <wsdl:message name="APIRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:APIRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderQueueSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrderQueue" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderQueueSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrderQueueResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderQueueNewSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrderQueueNew" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderQueueNewSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrderQueueNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSigningOrderQueueSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSigningOrderQueue" />
+  </wsdl:message>
+  <wsdl:message name="GetSigningOrderQueueSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSigningOrderQueueResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrder" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderProductSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrderProduct" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderProductSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrderProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderProductTestSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrderProductTest" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderProductTestSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrderProductTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderNotesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrderNotes" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderNotesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrderNotesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderNotesTestSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrderNotesTest" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderNotesTestSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrderNotesTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddOrderNoteSoapIn">
+    <wsdl:part name="parameters" element="tns:AddOrderNote" />
+  </wsdl:message>
+  <wsdl:message name="AddOrderNoteSoapOut">
+    <wsdl:part name="parameters" element="tns:AddOrderNoteResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindOrdersSoapIn">
+    <wsdl:part name="parameters" element="tns:FindOrders" />
+  </wsdl:message>
+  <wsdl:message name="FindOrdersSoapOut">
+    <wsdl:part name="parameters" element="tns:FindOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListProductsSoapIn">
+    <wsdl:part name="parameters" element="tns:ListProducts" />
+  </wsdl:message>
+  <wsdl:message name="ListProductsSoapOut">
+    <wsdl:part name="parameters" element="tns:ListProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryStatus" />
+  </wsdl:message>
+  <wsdl:message name="QueryStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProductActionSoapIn">
+    <wsdl:part name="parameters" element="tns:ProductAction" />
+  </wsdl:message>
+  <wsdl:message name="ProductActionSoapOut">
+    <wsdl:part name="parameters" element="tns:ProductActionResponse" />
+  </wsdl:message>
+  <wsdl:message name="RequestResearchHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="XMLdata" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RequestResearchHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="FactCertGetHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="OrderNo" type="s:string" />
+    <wsdl:part name="PDF" type="s:string" />
+    <wsdl:part name="forceNewTransCert" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FactCertGetHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="FactCertSearchHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="StartDate" type="s:string" />
+    <wsdl:part name="EndDate" type="s:string" />
+    <wsdl:part name="UseRecDate" type="s:string" />
+    <wsdl:part name="PDF" type="s:string" />
+    <wsdl:part name="ReportBitWiseValue" type="s:string" />
+    <wsdl:part name="OutputDirectory" type="s:string" />
+    <wsdl:part name="FileNameFormat" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FactCertSearchHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="FactCertCreateHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="OrderNo" type="s:string" />
+    <wsdl:part name="ConfNo" type="s:string" />
+    <wsdl:part name="RefOne" type="s:string" />
+    <wsdl:part name="RefTwo" type="s:string" />
+    <wsdl:part name="MortgageAmount" type="s:string" />
+    <wsdl:part name="Mortgagor" type="s:string" />
+    <wsdl:part name="RecordedDate" type="s:string" />
+    <wsdl:part name="InstrumentNumber" type="s:string" />
+    <wsdl:part name="Lender" type="s:string" />
+    <wsdl:part name="DateEntered" type="s:string" />
+    <wsdl:part name="Address" type="s:string" />
+    <wsdl:part name="City" type="s:string" />
+    <wsdl:part name="State" type="s:string" />
+    <wsdl:part name="Zip" type="s:string" />
+    <wsdl:part name="PolicyNo" type="s:string" />
+    <wsdl:part name="ExecutionDate" type="s:string" />
+    <wsdl:part name="Vesting1" type="s:string" />
+    <wsdl:part name="Vesting2" type="s:string" />
+    <wsdl:part name="Vesting3" type="s:string" />
+    <wsdl:part name="OutputDir" type="s:string" />
+    <wsdl:part name="OutputFileName" type="s:string" />
+    <wsdl:part name="IsFact" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FactCertCreateHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SubmitRequestHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="xmlData" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SubmitRequestHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="PlaceOrderHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="XMLdata" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PlaceOrderHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ThirdPartyPlaceOrderHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="XMLdata" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ThirdPartyPlaceOrderHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="MismoRequestHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="XMLdata" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MismoRequestHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="APIRequestHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="XMLdata" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="APIRequestHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderQueueHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderQueueHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderQueueNewHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderQueueNewHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSigningOrderQueueHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSigningOrderQueueHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="ConfirmationNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderProductHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="ConfirmationNumber" type="s:string" />
+    <wsdl:part name="ServiceCode" type="s:string" />
+    <wsdl:part name="SequenceNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderProductHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderProductTestHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="ConfirmationNumber" type="s:string" />
+    <wsdl:part name="ServiceCode" type="s:string" />
+    <wsdl:part name="SequenceNumber" type="s:string" />
+    <wsdl:part name="TestOptions" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderProductTestHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderNotesHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="ConfirmationNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderNotesHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderNotesTestHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="ConfirmationNumber" type="s:string" />
+    <wsdl:part name="inFlags" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderNotesTestHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AddOrderNoteHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="ConfirmationNumber" type="s:string" />
+    <wsdl:part name="Note" type="s:string" />
+    <wsdl:part name="NoteType" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddOrderNoteHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="FindOrdersHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="ReferenceNumber" type="s:string" />
+    <wsdl:part name="Address" type="s:string" />
+    <wsdl:part name="LastName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FindOrdersHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ListProductsHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ListProductsHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="QueryStatusHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="ConfirmationNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="QueryStatusHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ProductActionHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="ConfirmationNumber" type="s:string" />
+    <wsdl:part name="ServiceCode" type="s:string" />
+    <wsdl:part name="SequenceNumber" type="s:string" />
+    <wsdl:part name="Action" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ProductActionHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="RequestResearchHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="XMLdata" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RequestResearchHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="FactCertGetHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="OrderNo" type="s:string" />
+    <wsdl:part name="PDF" type="s:string" />
+    <wsdl:part name="forceNewTransCert" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FactCertGetHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="FactCertSearchHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="StartDate" type="s:string" />
+    <wsdl:part name="EndDate" type="s:string" />
+    <wsdl:part name="UseRecDate" type="s:string" />
+    <wsdl:part name="PDF" type="s:string" />
+    <wsdl:part name="ReportBitWiseValue" type="s:string" />
+    <wsdl:part name="OutputDirectory" type="s:string" />
+    <wsdl:part name="FileNameFormat" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FactCertSearchHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="FactCertCreateHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="OrderNo" type="s:string" />
+    <wsdl:part name="ConfNo" type="s:string" />
+    <wsdl:part name="RefOne" type="s:string" />
+    <wsdl:part name="RefTwo" type="s:string" />
+    <wsdl:part name="MortgageAmount" type="s:string" />
+    <wsdl:part name="Mortgagor" type="s:string" />
+    <wsdl:part name="RecordedDate" type="s:string" />
+    <wsdl:part name="InstrumentNumber" type="s:string" />
+    <wsdl:part name="Lender" type="s:string" />
+    <wsdl:part name="DateEntered" type="s:string" />
+    <wsdl:part name="Address" type="s:string" />
+    <wsdl:part name="City" type="s:string" />
+    <wsdl:part name="State" type="s:string" />
+    <wsdl:part name="Zip" type="s:string" />
+    <wsdl:part name="PolicyNo" type="s:string" />
+    <wsdl:part name="ExecutionDate" type="s:string" />
+    <wsdl:part name="Vesting1" type="s:string" />
+    <wsdl:part name="Vesting2" type="s:string" />
+    <wsdl:part name="Vesting3" type="s:string" />
+    <wsdl:part name="OutputDir" type="s:string" />
+    <wsdl:part name="OutputFileName" type="s:string" />
+    <wsdl:part name="IsFact" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FactCertCreateHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SubmitRequestHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="xmlData" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SubmitRequestHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="PlaceOrderHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="XMLdata" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PlaceOrderHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ThirdPartyPlaceOrderHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="XMLdata" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ThirdPartyPlaceOrderHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="MismoRequestHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="XMLdata" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MismoRequestHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="APIRequestHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="XMLdata" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="APIRequestHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderQueueHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderQueueHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderQueueNewHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderQueueNewHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSigningOrderQueueHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSigningOrderQueueHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="ConfirmationNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderProductHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="ConfirmationNumber" type="s:string" />
+    <wsdl:part name="ServiceCode" type="s:string" />
+    <wsdl:part name="SequenceNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderProductHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderProductTestHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="ConfirmationNumber" type="s:string" />
+    <wsdl:part name="ServiceCode" type="s:string" />
+    <wsdl:part name="SequenceNumber" type="s:string" />
+    <wsdl:part name="TestOptions" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderProductTestHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderNotesHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="ConfirmationNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderNotesHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderNotesTestHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="ConfirmationNumber" type="s:string" />
+    <wsdl:part name="inFlags" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderNotesTestHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AddOrderNoteHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="ConfirmationNumber" type="s:string" />
+    <wsdl:part name="Note" type="s:string" />
+    <wsdl:part name="NoteType" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddOrderNoteHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="FindOrdersHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="ReferenceNumber" type="s:string" />
+    <wsdl:part name="Address" type="s:string" />
+    <wsdl:part name="LastName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FindOrdersHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ListProductsHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ListProductsHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="QueryStatusHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="ConfirmationNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="QueryStatusHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ProductActionHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="ConfirmationNumber" type="s:string" />
+    <wsdl:part name="ServiceCode" type="s:string" />
+    <wsdl:part name="SequenceNumber" type="s:string" />
+    <wsdl:part name="Action" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ProductActionHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="ElsWebOrderSoap">
+    <wsdl:operation name="RequestResearch">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Eanbles customers to send recording data sepparate from the main order. </documentation>
+      <wsdl:input message="tns:RequestResearchSoapIn" />
+      <wsdl:output message="tns:RequestResearchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FactCertGet">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Gets Fact Cert by Orderno.</documentation>
+      <wsdl:input message="tns:FactCertGetSoapIn" />
+      <wsdl:output message="tns:FactCertGetSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FactCertSearch">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Gets Fact Cert by STP call.     &lt;order_no&gt;_xxx_&lt;conf_no&gt;.tif  C:\vsprojectsEJ\TESTBED\</documentation>
+      <wsdl:input message="tns:FactCertSearchSoapIn" />
+      <wsdl:output message="tns:FactCertSearchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FactCertCreate">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Create a fact cert by sending the attributes.</documentation>
+      <wsdl:input message="tns:FactCertCreateSoapIn" />
+      <wsdl:output message="tns:FactCertCreateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitRequest">
+      <wsdl:input message="tns:SubmitRequestSoapIn" />
+      <wsdl:output message="tns:SubmitRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlaceOrder">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Facilitates placing a new order and modifying an existing order.</documentation>
+      <wsdl:input message="tns:PlaceOrderSoapIn" />
+      <wsdl:output message="tns:PlaceOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ThirdPartyPlaceOrder">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">MISMO-compliant order fulfillment.</documentation>
+      <wsdl:input message="tns:ThirdPartyPlaceOrderSoapIn" />
+      <wsdl:output message="tns:ThirdPartyPlaceOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MismoRequest">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">MISMO-compliant order fulfillment.</documentation>
+      <wsdl:input message="tns:MismoRequestSoapIn" />
+      <wsdl:output message="tns:MismoRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="APIRequest">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Place API request.</documentation>
+      <wsdl:input message="tns:APIRequestSoapIn" />
+      <wsdl:output message="tns:APIRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderQueue">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Lists the contents of your Order Queue. The list will be any orders that have changed (e.g., been completed) since you last checked your queue. The results of this  may be used with GetOrder to retrieve all information for each order that has changed.</documentation>
+      <wsdl:input message="tns:GetOrderQueueSoapIn" />
+      <wsdl:output message="tns:GetOrderQueueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderQueueNew">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Lists the contents of your Order Queue. The list will be any orders that have changed (e.g., been completed) since you last checked your queue. The results of this  may be used with GetOrder to retrieve all information for each order that has changed. For testing purposes only.</documentation>
+      <wsdl:input message="tns:GetOrderQueueNewSoapIn" />
+      <wsdl:output message="tns:GetOrderQueueNewSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSigningOrderQueue">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Lists the closing orders in your Order Queue. The list will be any closing orders that have changed (e.g., been completed) since you last checked your queue. The results of this  may be used with GetOrder to retrieve all information for each order that has changed.</documentation>
+      <wsdl:input message="tns:GetSigningOrderQueueSoapIn" />
+      <wsdl:output message="tns:GetSigningOrderQueueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrder">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Gets the most current ElsResponse for an existing order. All data that is currently available for the order will be included in the ElsResponse document.</documentation>
+      <wsdl:input message="tns:GetOrderSoapIn" />
+      <wsdl:output message="tns:GetOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderProduct">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Gets the ElsResponse for a specific product and sequence number on an existing order.</documentation>
+      <wsdl:input message="tns:GetOrderProductSoapIn" />
+      <wsdl:output message="tns:GetOrderProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderProductTest">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Gets the ElsResponse for a specific product and sequence number on an existing order without removing it from the order queue.  This is for testing purposes only.  Supply the string "NONE" in the TestOptions field.</documentation>
+      <wsdl:input message="tns:GetOrderProductTestSoapIn" />
+      <wsdl:output message="tns:GetOrderProductTestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderNotes">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Gets all notes for an existing order.</documentation>
+      <wsdl:input message="tns:GetOrderNotesSoapIn" />
+      <wsdl:output message="tns:GetOrderNotesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderNotesTest">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Gets single or all notes for an existing order.  This is for testing purposes only.</documentation>
+      <wsdl:input message="tns:GetOrderNotesTestSoapIn" />
+      <wsdl:output message="tns:GetOrderNotesTestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrderNote">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Sends a message to the ELS Client Service Center.</documentation>
+      <wsdl:input message="tns:AddOrderNoteSoapIn" />
+      <wsdl:output message="tns:AddOrderNoteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindOrders">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Find existing orders based on criteria entered.</documentation>
+      <wsdl:input message="tns:FindOrdersSoapIn" />
+      <wsdl:output message="tns:FindOrdersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListProducts">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">List the products that a specific username is set up to order.</documentation>
+      <wsdl:input message="tns:ListProductsSoapIn" />
+      <wsdl:output message="tns:ListProductsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryStatus">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">THIS METHOD IS BEING PHASED OUT EFFECTIVE 2/1/2003. PLEASE USE GetOrder INSTEAD.</documentation>
+      <wsdl:input message="tns:QueryStatusSoapIn" />
+      <wsdl:output message="tns:QueryStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProductAction">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method allows you to order an action on a product on an existing order.</documentation>
+      <wsdl:input message="tns:ProductActionSoapIn" />
+      <wsdl:output message="tns:ProductActionSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ElsWebOrderHttpGet">
+    <wsdl:operation name="RequestResearch">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Eanbles customers to send recording data sepparate from the main order. </documentation>
+      <wsdl:input message="tns:RequestResearchHttpGetIn" />
+      <wsdl:output message="tns:RequestResearchHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FactCertGet">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Gets Fact Cert by Orderno.</documentation>
+      <wsdl:input message="tns:FactCertGetHttpGetIn" />
+      <wsdl:output message="tns:FactCertGetHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FactCertSearch">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Gets Fact Cert by STP call.     &lt;order_no&gt;_xxx_&lt;conf_no&gt;.tif  C:\vsprojectsEJ\TESTBED\</documentation>
+      <wsdl:input message="tns:FactCertSearchHttpGetIn" />
+      <wsdl:output message="tns:FactCertSearchHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FactCertCreate">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Create a fact cert by sending the attributes.</documentation>
+      <wsdl:input message="tns:FactCertCreateHttpGetIn" />
+      <wsdl:output message="tns:FactCertCreateHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitRequest">
+      <wsdl:input message="tns:SubmitRequestHttpGetIn" />
+      <wsdl:output message="tns:SubmitRequestHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlaceOrder">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Facilitates placing a new order and modifying an existing order.</documentation>
+      <wsdl:input message="tns:PlaceOrderHttpGetIn" />
+      <wsdl:output message="tns:PlaceOrderHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ThirdPartyPlaceOrder">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">MISMO-compliant order fulfillment.</documentation>
+      <wsdl:input message="tns:ThirdPartyPlaceOrderHttpGetIn" />
+      <wsdl:output message="tns:ThirdPartyPlaceOrderHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MismoRequest">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">MISMO-compliant order fulfillment.</documentation>
+      <wsdl:input message="tns:MismoRequestHttpGetIn" />
+      <wsdl:output message="tns:MismoRequestHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="APIRequest">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Place API request.</documentation>
+      <wsdl:input message="tns:APIRequestHttpGetIn" />
+      <wsdl:output message="tns:APIRequestHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderQueue">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Lists the contents of your Order Queue. The list will be any orders that have changed (e.g., been completed) since you last checked your queue. The results of this  may be used with GetOrder to retrieve all information for each order that has changed.</documentation>
+      <wsdl:input message="tns:GetOrderQueueHttpGetIn" />
+      <wsdl:output message="tns:GetOrderQueueHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderQueueNew">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Lists the contents of your Order Queue. The list will be any orders that have changed (e.g., been completed) since you last checked your queue. The results of this  may be used with GetOrder to retrieve all information for each order that has changed. For testing purposes only.</documentation>
+      <wsdl:input message="tns:GetOrderQueueNewHttpGetIn" />
+      <wsdl:output message="tns:GetOrderQueueNewHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSigningOrderQueue">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Lists the closing orders in your Order Queue. The list will be any closing orders that have changed (e.g., been completed) since you last checked your queue. The results of this  may be used with GetOrder to retrieve all information for each order that has changed.</documentation>
+      <wsdl:input message="tns:GetSigningOrderQueueHttpGetIn" />
+      <wsdl:output message="tns:GetSigningOrderQueueHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrder">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Gets the most current ElsResponse for an existing order. All data that is currently available for the order will be included in the ElsResponse document.</documentation>
+      <wsdl:input message="tns:GetOrderHttpGetIn" />
+      <wsdl:output message="tns:GetOrderHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderProduct">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Gets the ElsResponse for a specific product and sequence number on an existing order.</documentation>
+      <wsdl:input message="tns:GetOrderProductHttpGetIn" />
+      <wsdl:output message="tns:GetOrderProductHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderProductTest">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Gets the ElsResponse for a specific product and sequence number on an existing order without removing it from the order queue.  This is for testing purposes only.  Supply the string "NONE" in the TestOptions field.</documentation>
+      <wsdl:input message="tns:GetOrderProductTestHttpGetIn" />
+      <wsdl:output message="tns:GetOrderProductTestHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderNotes">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Gets all notes for an existing order.</documentation>
+      <wsdl:input message="tns:GetOrderNotesHttpGetIn" />
+      <wsdl:output message="tns:GetOrderNotesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderNotesTest">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Gets single or all notes for an existing order.  This is for testing purposes only.</documentation>
+      <wsdl:input message="tns:GetOrderNotesTestHttpGetIn" />
+      <wsdl:output message="tns:GetOrderNotesTestHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrderNote">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Sends a message to the ELS Client Service Center.</documentation>
+      <wsdl:input message="tns:AddOrderNoteHttpGetIn" />
+      <wsdl:output message="tns:AddOrderNoteHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindOrders">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Find existing orders based on criteria entered.</documentation>
+      <wsdl:input message="tns:FindOrdersHttpGetIn" />
+      <wsdl:output message="tns:FindOrdersHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListProducts">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">List the products that a specific username is set up to order.</documentation>
+      <wsdl:input message="tns:ListProductsHttpGetIn" />
+      <wsdl:output message="tns:ListProductsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryStatus">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">THIS METHOD IS BEING PHASED OUT EFFECTIVE 2/1/2003. PLEASE USE GetOrder INSTEAD.</documentation>
+      <wsdl:input message="tns:QueryStatusHttpGetIn" />
+      <wsdl:output message="tns:QueryStatusHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProductAction">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method allows you to order an action on a product on an existing order.</documentation>
+      <wsdl:input message="tns:ProductActionHttpGetIn" />
+      <wsdl:output message="tns:ProductActionHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ElsWebOrderHttpPost">
+    <wsdl:operation name="RequestResearch">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Eanbles customers to send recording data sepparate from the main order. </documentation>
+      <wsdl:input message="tns:RequestResearchHttpPostIn" />
+      <wsdl:output message="tns:RequestResearchHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FactCertGet">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Gets Fact Cert by Orderno.</documentation>
+      <wsdl:input message="tns:FactCertGetHttpPostIn" />
+      <wsdl:output message="tns:FactCertGetHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FactCertSearch">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Gets Fact Cert by STP call.     &lt;order_no&gt;_xxx_&lt;conf_no&gt;.tif  C:\vsprojectsEJ\TESTBED\</documentation>
+      <wsdl:input message="tns:FactCertSearchHttpPostIn" />
+      <wsdl:output message="tns:FactCertSearchHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FactCertCreate">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Create a fact cert by sending the attributes.</documentation>
+      <wsdl:input message="tns:FactCertCreateHttpPostIn" />
+      <wsdl:output message="tns:FactCertCreateHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitRequest">
+      <wsdl:input message="tns:SubmitRequestHttpPostIn" />
+      <wsdl:output message="tns:SubmitRequestHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PlaceOrder">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Facilitates placing a new order and modifying an existing order.</documentation>
+      <wsdl:input message="tns:PlaceOrderHttpPostIn" />
+      <wsdl:output message="tns:PlaceOrderHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ThirdPartyPlaceOrder">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">MISMO-compliant order fulfillment.</documentation>
+      <wsdl:input message="tns:ThirdPartyPlaceOrderHttpPostIn" />
+      <wsdl:output message="tns:ThirdPartyPlaceOrderHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MismoRequest">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">MISMO-compliant order fulfillment.</documentation>
+      <wsdl:input message="tns:MismoRequestHttpPostIn" />
+      <wsdl:output message="tns:MismoRequestHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="APIRequest">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Place API request.</documentation>
+      <wsdl:input message="tns:APIRequestHttpPostIn" />
+      <wsdl:output message="tns:APIRequestHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderQueue">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Lists the contents of your Order Queue. The list will be any orders that have changed (e.g., been completed) since you last checked your queue. The results of this  may be used with GetOrder to retrieve all information for each order that has changed.</documentation>
+      <wsdl:input message="tns:GetOrderQueueHttpPostIn" />
+      <wsdl:output message="tns:GetOrderQueueHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderQueueNew">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Lists the contents of your Order Queue. The list will be any orders that have changed (e.g., been completed) since you last checked your queue. The results of this  may be used with GetOrder to retrieve all information for each order that has changed. For testing purposes only.</documentation>
+      <wsdl:input message="tns:GetOrderQueueNewHttpPostIn" />
+      <wsdl:output message="tns:GetOrderQueueNewHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSigningOrderQueue">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Lists the closing orders in your Order Queue. The list will be any closing orders that have changed (e.g., been completed) since you last checked your queue. The results of this  may be used with GetOrder to retrieve all information for each order that has changed.</documentation>
+      <wsdl:input message="tns:GetSigningOrderQueueHttpPostIn" />
+      <wsdl:output message="tns:GetSigningOrderQueueHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrder">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Gets the most current ElsResponse for an existing order. All data that is currently available for the order will be included in the ElsResponse document.</documentation>
+      <wsdl:input message="tns:GetOrderHttpPostIn" />
+      <wsdl:output message="tns:GetOrderHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderProduct">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Gets the ElsResponse for a specific product and sequence number on an existing order.</documentation>
+      <wsdl:input message="tns:GetOrderProductHttpPostIn" />
+      <wsdl:output message="tns:GetOrderProductHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderProductTest">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Gets the ElsResponse for a specific product and sequence number on an existing order without removing it from the order queue.  This is for testing purposes only.  Supply the string "NONE" in the TestOptions field.</documentation>
+      <wsdl:input message="tns:GetOrderProductTestHttpPostIn" />
+      <wsdl:output message="tns:GetOrderProductTestHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderNotes">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Gets all notes for an existing order.</documentation>
+      <wsdl:input message="tns:GetOrderNotesHttpPostIn" />
+      <wsdl:output message="tns:GetOrderNotesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderNotesTest">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Gets single or all notes for an existing order.  This is for testing purposes only.</documentation>
+      <wsdl:input message="tns:GetOrderNotesTestHttpPostIn" />
+      <wsdl:output message="tns:GetOrderNotesTestHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrderNote">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Sends a message to the ELS Client Service Center.</documentation>
+      <wsdl:input message="tns:AddOrderNoteHttpPostIn" />
+      <wsdl:output message="tns:AddOrderNoteHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindOrders">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Find existing orders based on criteria entered.</documentation>
+      <wsdl:input message="tns:FindOrdersHttpPostIn" />
+      <wsdl:output message="tns:FindOrdersHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListProducts">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">List the products that a specific username is set up to order.</documentation>
+      <wsdl:input message="tns:ListProductsHttpPostIn" />
+      <wsdl:output message="tns:ListProductsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryStatus">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">THIS METHOD IS BEING PHASED OUT EFFECTIVE 2/1/2003. PLEASE USE GetOrder INSTEAD.</documentation>
+      <wsdl:input message="tns:QueryStatusHttpPostIn" />
+      <wsdl:output message="tns:QueryStatusHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProductAction">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">This method allows you to order an action on a product on an existing order.</documentation>
+      <wsdl:input message="tns:ProductActionHttpPostIn" />
+      <wsdl:output message="tns:ProductActionHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ElsWebOrderSoap" type="tns:ElsWebOrderSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RequestResearch">
+      <soap:operation soapAction="http://soap.elsonline.net/RequestResearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FactCertGet">
+      <soap:operation soapAction="http://soap.elsonline.net/FactCertGet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FactCertSearch">
+      <soap:operation soapAction="http://soap.elsonline.net/FactCertSearch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FactCertCreate">
+      <soap:operation soapAction="http://soap.elsonline.net/FactCertCreate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitRequest">
+      <soap:operation soapAction="http://soap.elsonline.net/SubmitRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlaceOrder">
+      <soap:operation soapAction="http://soap.elsonline.net/PlaceOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ThirdPartyPlaceOrder">
+      <soap:operation soapAction="http://soap.elsonline.net/ThirdPartyPlaceOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MismoRequest">
+      <soap:operation soapAction="http://soap.elsonline.net/MismoRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APIRequest">
+      <soap:operation soapAction="http://soap.elsonline.net/APIRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderQueue">
+      <soap:operation soapAction="http://soap.elsonline.net/GetOrderQueue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderQueueNew">
+      <soap:operation soapAction="http://soap.elsonline.net/GetOrderQueueNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSigningOrderQueue">
+      <soap:operation soapAction="http://soap.elsonline.net/GetSigningOrderQueue" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrder">
+      <soap:operation soapAction="http://soap.elsonline.net/GetOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderProduct">
+      <soap:operation soapAction="http://soap.elsonline.net/GetOrderProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderProductTest">
+      <soap:operation soapAction="http://soap.elsonline.net/GetOrderProductTest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderNotes">
+      <soap:operation soapAction="http://soap.elsonline.net/GetOrderNotes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderNotesTest">
+      <soap:operation soapAction="http://soap.elsonline.net/GetOrderNotesTest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrderNote">
+      <soap:operation soapAction="http://soap.elsonline.net/AddOrderNote" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindOrders">
+      <soap:operation soapAction="http://soap.elsonline.net/FindOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListProducts">
+      <soap:operation soapAction="http://soap.elsonline.net/ListProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryStatus">
+      <soap:operation soapAction="http://soap.elsonline.net/QueryStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProductAction">
+      <soap:operation soapAction="http://soap.elsonline.net/ProductAction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ElsWebOrderHttpGet" type="tns:ElsWebOrderHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="RequestResearch">
+      <http:operation location="/RequestResearch" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FactCertGet">
+      <http:operation location="/FactCertGet" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FactCertSearch">
+      <http:operation location="/FactCertSearch" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FactCertCreate">
+      <http:operation location="/FactCertCreate" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitRequest">
+      <http:operation location="/SubmitRequest" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlaceOrder">
+      <http:operation location="/PlaceOrder" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ThirdPartyPlaceOrder">
+      <http:operation location="/ThirdPartyPlaceOrder" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MismoRequest">
+      <http:operation location="/MismoRequest" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APIRequest">
+      <http:operation location="/APIRequest" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderQueue">
+      <http:operation location="/GetOrderQueue" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderQueueNew">
+      <http:operation location="/GetOrderQueueNew" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSigningOrderQueue">
+      <http:operation location="/GetSigningOrderQueue" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrder">
+      <http:operation location="/GetOrder" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderProduct">
+      <http:operation location="/GetOrderProduct" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderProductTest">
+      <http:operation location="/GetOrderProductTest" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderNotes">
+      <http:operation location="/GetOrderNotes" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderNotesTest">
+      <http:operation location="/GetOrderNotesTest" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrderNote">
+      <http:operation location="/AddOrderNote" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindOrders">
+      <http:operation location="/FindOrders" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListProducts">
+      <http:operation location="/ListProducts" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryStatus">
+      <http:operation location="/QueryStatus" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProductAction">
+      <http:operation location="/ProductAction" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ElsWebOrderHttpPost" type="tns:ElsWebOrderHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="RequestResearch">
+      <http:operation location="/RequestResearch" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FactCertGet">
+      <http:operation location="/FactCertGet" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FactCertSearch">
+      <http:operation location="/FactCertSearch" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FactCertCreate">
+      <http:operation location="/FactCertCreate" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitRequest">
+      <http:operation location="/SubmitRequest" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PlaceOrder">
+      <http:operation location="/PlaceOrder" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ThirdPartyPlaceOrder">
+      <http:operation location="/ThirdPartyPlaceOrder" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MismoRequest">
+      <http:operation location="/MismoRequest" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="APIRequest">
+      <http:operation location="/APIRequest" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderQueue">
+      <http:operation location="/GetOrderQueue" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderQueueNew">
+      <http:operation location="/GetOrderQueueNew" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSigningOrderQueue">
+      <http:operation location="/GetSigningOrderQueue" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrder">
+      <http:operation location="/GetOrder" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderProduct">
+      <http:operation location="/GetOrderProduct" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderProductTest">
+      <http:operation location="/GetOrderProductTest" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderNotes">
+      <http:operation location="/GetOrderNotes" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderNotesTest">
+      <http:operation location="/GetOrderNotesTest" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrderNote">
+      <http:operation location="/AddOrderNote" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindOrders">
+      <http:operation location="/FindOrders" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListProducts">
+      <http:operation location="/ListProducts" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryStatus">
+      <http:operation location="/QueryStatus" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProductAction">
+      <http:operation location="/ProductAction" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ElsWebOrder">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">SOAP-based ordering through First American Equity Loan Services. For in-depth information on this using this service, please refer to the Developer's Guide.</documentation>
+    <wsdl:port name="ElsWebOrderSoap" binding="tns:ElsWebOrderSoap">
+      <soap:address location="https://dev.elsonline.net/elsweborder.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ElsWebOrderHttpGet" binding="tns:ElsWebOrderHttpGet">
+      <http:address location="https://dev.elsonline.net/elsweborder.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ElsWebOrderHttpPost" binding="tns:ElsWebOrderHttpPost">
+      <http:address location="https://dev.elsonline.net/elsweborder.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

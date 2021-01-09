@@ -1,0 +1,3080 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="urn:connections.ispectrum.summitsite.com" targetNamespace="urn:connections.ispectrum.summitsite.com" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="SOAPException" type="tns:SOAPException" />
+  <xs:element name="calcWdrlComponents" type="tns:calcWdrlComponents" />
+  <xs:element name="calcWdrlComponentsResponse" type="tns:calcWdrlComponentsResponse" />
+  <xs:element name="calculateGSTForFeeProduct" type="tns:calculateGSTForFeeProduct" />
+  <xs:element name="calculateGSTForFeeProductResponse" type="tns:calculateGSTForFeeProductResponse" />
+  <xs:element name="calculateGSTForMiscProduct" type="tns:calculateGSTForMiscProduct" />
+  <xs:element name="calculateGSTForMiscProductResponse" type="tns:calculateGSTForMiscProductResponse" />
+  <xs:element name="calculateSavDepInterest" type="tns:calculateSavDepInterest" />
+  <xs:element name="calculateSavDepInterestResponse" type="tns:calculateSavDepInterestResponse" />
+  <xs:element name="calculateSavDepUnpaidInterest" type="tns:calculateSavDepUnpaidInterest" />
+  <xs:element name="calculateSavDepUnpaidInterestResponse" type="tns:calculateSavDepUnpaidInterestResponse" />
+  <xs:element name="cancelMonetaryOverrideRequest" type="tns:cancelMonetaryOverrideRequest" />
+  <xs:element name="cancelMonetaryOverrideRequestResponse" type="tns:cancelMonetaryOverrideRequestResponse" />
+  <xs:element name="cancelOverrideRequest" type="tns:cancelOverrideRequest" />
+  <xs:element name="cancelOverrideRequestResponse" type="tns:cancelOverrideRequestResponse" />
+  <xs:element name="createUpdateManualChqClearingDetailsInfos" type="tns:createUpdateManualChqClearingDetailsInfos" />
+  <xs:element name="createUpdateManualChqClearingDetailsInfosResponse" type="tns:createUpdateManualChqClearingDetailsInfosResponse" />
+  <xs:element name="createUpdateMonHistGroup" type="tns:createUpdateMonHistGroup" />
+  <xs:element name="createUpdateMonHistGroupResponse" type="tns:createUpdateMonHistGroupResponse" />
+  <xs:element name="doExpressTransaction" type="tns:doExpressTransaction" />
+  <xs:element name="doExpressTransactionResponse" type="tns:doExpressTransactionResponse" />
+  <xs:element name="doFinancialControlTransaction" type="tns:doFinancialControlTransaction" />
+  <xs:element name="doFinancialControlTransactionResponse" type="tns:doFinancialControlTransactionResponse" />
+  <xs:element name="doFinancialTransactionSharedBranch" type="tns:doFinancialTransactionSharedBranch" />
+  <xs:element name="doFinancialTransactionSharedBranchResponse" type="tns:doFinancialTransactionSharedBranchResponse" />
+  <xs:element name="doGroupTransaction" type="tns:doGroupTransaction" />
+  <xs:element name="doGroupTransactionResponse" type="tns:doGroupTransactionResponse" />
+  <xs:element name="doMonetaryTransaction" type="tns:doMonetaryTransaction" />
+  <xs:element name="doMonetaryTransactionResponse" type="tns:doMonetaryTransactionResponse" />
+  <xs:element name="doMonetaryTransactionWithOverrides" type="tns:doMonetaryTransactionWithOverrides" />
+  <xs:element name="doMonetaryTransactionWithOverridesResponse" type="tns:doMonetaryTransactionWithOverridesResponse" />
+  <xs:element name="doMonetaryTransferHomeBanking" type="tns:doMonetaryTransferHomeBanking" />
+  <xs:element name="doMonetaryTransferHomeBankingResponse" type="tns:doMonetaryTransferHomeBankingResponse" />
+  <xs:element name="doMonetaryTransferTeleBank" type="tns:doMonetaryTransferTeleBank" />
+  <xs:element name="doMonetaryTransferTeleBankResponse" type="tns:doMonetaryTransferTeleBankResponse" />
+  <xs:element name="findChqClearingDetailsByStatus" type="tns:findChqClearingDetailsByStatus" />
+  <xs:element name="findChqClearingDetailsByStatusResponse" type="tns:findChqClearingDetailsByStatusResponse" />
+  <xs:element name="findLoanFees" type="tns:findLoanFees" />
+  <xs:element name="findLoanFeesResponse" type="tns:findLoanFeesResponse" />
+  <xs:element name="findOverrideQueueByPrimaryKey" type="tns:findOverrideQueueByPrimaryKey" />
+  <xs:element name="findOverrideQueueByPrimaryKeyResponse" type="tns:findOverrideQueueByPrimaryKeyResponse" />
+  <xs:element name="findOverrideQueueWithOverrides" type="tns:findOverrideQueueWithOverrides" />
+  <xs:element name="findOverrideQueueWithOverridesResponse" type="tns:findOverrideQueueWithOverridesResponse" />
+  <xs:element name="getAllChqClearingDetails" type="tns:getAllChqClearingDetails" />
+  <xs:element name="getAllChqClearingDetailsResponse" type="tns:getAllChqClearingDetailsResponse" />
+  <xs:element name="getAllWithholdingTaxRates" type="tns:getAllWithholdingTaxRates" />
+  <xs:element name="getAllWithholdingTaxRatesResponse" type="tns:getAllWithholdingTaxRatesResponse" />
+  <xs:element name="getChequeImageByID" type="tns:getChequeImageByID" />
+  <xs:element name="getChequeImageByIDResponse" type="tns:getChequeImageByIDResponse" />
+  <xs:element name="getChequeReleaseDate" type="tns:getChequeReleaseDate" />
+  <xs:element name="getChequeReleaseDateResponse" type="tns:getChequeReleaseDateResponse" />
+  <xs:element name="getDocumentByMonetaryHistoryId" type="tns:getDocumentByMonetaryHistoryId" />
+  <xs:element name="getDocumentByMonetaryHistoryIdResponse" type="tns:getDocumentByMonetaryHistoryIdResponse" />
+  <xs:element name="getGroupTransactionHistories" type="tns:getGroupTransactionHistories" />
+  <xs:element name="getGroupTransactionHistoriesResponse" type="tns:getGroupTransactionHistoriesResponse" />
+  <xs:element name="getJobCodesForBatchEFT" type="tns:getJobCodesForBatchEFT" />
+  <xs:element name="getJobCodesForBatchEFTResponse" type="tns:getJobCodesForBatchEFTResponse" />
+  <xs:element name="getListOfUsersByOverrides" type="tns:getListOfUsersByOverrides" />
+  <xs:element name="getListOfUsersByOverridesResponse" type="tns:getListOfUsersByOverridesResponse" />
+  <xs:element name="getLoanDisbursalDetails" type="tns:getLoanDisbursalDetails" />
+  <xs:element name="getLoanDisbursalDetailsResponse" type="tns:getLoanDisbursalDetailsResponse" />
+  <xs:element name="getLoanPaymentDetails" type="tns:getLoanPaymentDetails" />
+  <xs:element name="getLoanPaymentDetailsResponse" type="tns:getLoanPaymentDetailsResponse" />
+  <xs:element name="getMonetaryOverrideQueueById" type="tns:getMonetaryOverrideQueueById" />
+  <xs:element name="getMonetaryOverrideQueueByIdResponse" type="tns:getMonetaryOverrideQueueByIdResponse" />
+  <xs:element name="getMonetaryTransactionInfos" type="tns:getMonetaryTransactionInfos" />
+  <xs:element name="getMonetaryTransactionInfosResponse" type="tns:getMonetaryTransactionInfosResponse" />
+  <xs:element name="getMonhistIdbyAccountId" type="tns:getMonhistIdbyAccountId" />
+  <xs:element name="getMonhistIdbyAccountIdResponse" type="tns:getMonhistIdbyAccountIdResponse" />
+  <xs:element name="getOverrideQueueById" type="tns:getOverrideQueueById" />
+  <xs:element name="getOverrideQueueByIdResponse" type="tns:getOverrideQueueByIdResponse" />
+  <xs:element name="getOverrideQueueByMonHistId" type="tns:getOverrideQueueByMonHistId" />
+  <xs:element name="getOverrideQueueByMonHistIdResponse" type="tns:getOverrideQueueByMonHistIdResponse" />
+  <xs:element name="getPaymentDetails" type="tns:getPaymentDetails" />
+  <xs:element name="getPaymentDetailsResponse" type="tns:getPaymentDetailsResponse" />
+  <xs:element name="getRSPReceiptInfo" type="tns:getRSPReceiptInfo" />
+  <xs:element name="getRSPReceiptInfoResponse" type="tns:getRSPReceiptInfoResponse" />
+  <xs:element name="getReceiptForMonetaryHstoryId" type="tns:getReceiptForMonetaryHstoryId" />
+  <xs:element name="getReceiptForMonetaryHstoryIdByReprint" type="tns:getReceiptForMonetaryHstoryIdByReprint" />
+  <xs:element name="getReceiptForMonetaryHstoryIdByReprintResponse" type="tns:getReceiptForMonetaryHstoryIdByReprintResponse" />
+  <xs:element name="getReceiptForMonetaryHstoryIdResponse" type="tns:getReceiptForMonetaryHstoryIdResponse" />
+  <xs:element name="getReceiptForMonetaryHstoryIdWithSignature" type="tns:getReceiptForMonetaryHstoryIdWithSignature" />
+  <xs:element name="getReceiptForMonetaryHstoryIdWithSignatureResponse" type="tns:getReceiptForMonetaryHstoryIdWithSignatureResponse" />
+  <xs:element name="getReceiptForMonetaryHstoryIds" type="tns:getReceiptForMonetaryHstoryIds" />
+  <xs:element name="getReceiptForMonetaryHstoryIdsResponse" type="tns:getReceiptForMonetaryHstoryIdsResponse" />
+  <xs:element name="getReceiptForMonetaryHstoryIdsWithSignature" type="tns:getReceiptForMonetaryHstoryIdsWithSignature" />
+  <xs:element name="getReceiptForMonetaryHstoryIdsWithSignatureResponse" type="tns:getReceiptForMonetaryHstoryIdsWithSignatureResponse" />
+  <xs:element name="getRecordsForBatch" type="tns:getRecordsForBatch" />
+  <xs:element name="getRecordsForBatchResponse" type="tns:getRecordsForBatchResponse" />
+  <xs:element name="getRedoMonHistTransId" type="tns:getRedoMonHistTransId" />
+  <xs:element name="getRedoMonHistTransIdResponse" type="tns:getRedoMonHistTransIdResponse" />
+  <xs:element name="getRegisteredCalcDetails" type="tns:getRegisteredCalcDetails" />
+  <xs:element name="getRegisteredCalcDetailsResponse" type="tns:getRegisteredCalcDetailsResponse" />
+  <xs:element name="getReprintReceiptForMonetaryHstoryId" type="tns:getReprintReceiptForMonetaryHstoryId" />
+  <xs:element name="getReprintReceiptForMonetaryHstoryIdResponse" type="tns:getReprintReceiptForMonetaryHstoryIdResponse" />
+  <xs:element name="getStatusForMonetaryOverride" type="tns:getStatusForMonetaryOverride" />
+  <xs:element name="getStatusForMonetaryOverrideResponse" type="tns:getStatusForMonetaryOverrideResponse" />
+  <xs:element name="getStatusForOverride" type="tns:getStatusForOverride" />
+  <xs:element name="getStatusForOverrideResponse" type="tns:getStatusForOverrideResponse" />
+  <xs:element name="getTellerBuySellInfoByUserId" type="tns:getTellerBuySellInfoByUserId" />
+  <xs:element name="getTellerBuySellInfoByUserIdResponse" type="tns:getTellerBuySellInfoByUserIdResponse" />
+  <xs:element name="getTextOnlyReceiptForMonetaryHstoryId" type="tns:getTextOnlyReceiptForMonetaryHstoryId" />
+  <xs:element name="getTextOnlyReceiptForMonetaryHstoryIdResponse" type="tns:getTextOnlyReceiptForMonetaryHstoryIdResponse" />
+  <xs:element name="getTransCodeCreditsDebits" type="tns:getTransCodeCreditsDebits" />
+  <xs:element name="getTransCodeCreditsDebitsResponse" type="tns:getTransCodeCreditsDebitsResponse" />
+  <xs:element name="getTransactionInfoForOnlineRealTimeFee" type="tns:getTransactionInfoForOnlineRealTimeFee" />
+  <xs:element name="getTransactionInfoForOnlineRealTimeFeeResponse" type="tns:getTransactionInfoForOnlineRealTimeFeeResponse" />
+  <xs:element name="getWithholdingTaxRates" type="tns:getWithholdingTaxRates" />
+  <xs:element name="getWithholdingTaxRatesResponse" type="tns:getWithholdingTaxRatesResponse" />
+  <xs:element name="isAnyBuySellPendingForTeller" type="tns:isAnyBuySellPendingForTeller" />
+  <xs:element name="isAnyBuySellPendingForTellerResponse" type="tns:isAnyBuySellPendingForTellerResponse" />
+  <xs:element name="markCentralMonTransId" type="tns:markCentralMonTransId" />
+  <xs:element name="markCentralMonTransIdResponse" type="tns:markCentralMonTransIdResponse" />
+  <xs:element name="markTransactionTransmitted" type="tns:markTransactionTransmitted" />
+  <xs:element name="markTransactionTransmittedResponse" type="tns:markTransactionTransmittedResponse" />
+  <xs:element name="onUsFundsVerification" type="tns:onUsFundsVerification" />
+  <xs:element name="onUsFundsVerificationResponse" type="tns:onUsFundsVerificationResponse" />
+  <xs:element name="processLoanPaymentsNoTrans" type="tns:processLoanPaymentsNoTrans" />
+  <xs:element name="processLoanPaymentsNoTransResponse" type="tns:processLoanPaymentsNoTransResponse" />
+  <xs:element name="processLoanPaymentsWithEffectiveDate" type="tns:processLoanPaymentsWithEffectiveDate" />
+  <xs:element name="processLoanPaymentsWithEffectiveDateResponse" type="tns:processLoanPaymentsWithEffectiveDateResponse" />
+  <xs:element name="processODInterestCalc" type="tns:processODInterestCalc" />
+  <xs:element name="processODInterestCalcResponse" type="tns:processODInterestCalcResponse" />
+  <xs:element name="processPostForBatch" type="tns:processPostForBatch" />
+  <xs:element name="processPostForBatchResponse" type="tns:processPostForBatchResponse" />
+  <xs:element name="processResolveForBatch" type="tns:processResolveForBatch" />
+  <xs:element name="processResolveForBatchResponse" type="tns:processResolveForBatchResponse" />
+  <xs:element name="processReturnForBatch" type="tns:processReturnForBatch" />
+  <xs:element name="processReturnForBatchResponse" type="tns:processReturnForBatchResponse" />
+  <xs:element name="reAssignSupervisor" type="tns:reAssignSupervisor" />
+  <xs:element name="reAssignSupervisorResponse" type="tns:reAssignSupervisorResponse" />
+  <xs:element name="sendRequestForMonetaryOverride" type="tns:sendRequestForMonetaryOverride" />
+  <xs:element name="sendRequestForMonetaryOverrideResponse" type="tns:sendRequestForMonetaryOverrideResponse" />
+  <xs:element name="undoMonetaryTransaction" type="tns:undoMonetaryTransaction" />
+  <xs:element name="undoMonetaryTransactionById" type="tns:undoMonetaryTransactionById" />
+  <xs:element name="undoMonetaryTransactionByIdResponse" type="tns:undoMonetaryTransactionByIdResponse" />
+  <xs:element name="undoMonetaryTransactionResponse" type="tns:undoMonetaryTransactionResponse" />
+  <xs:element name="undoMonetaryTransactionWithUndoMonetaryIdInfo" type="tns:undoMonetaryTransactionWithUndoMonetaryIdInfo" />
+  <xs:element name="undoMonetaryTransactionWithUndoMonetaryIdInfoResponse" type="tns:undoMonetaryTransactionWithUndoMonetaryIdInfoResponse" />
+  <xs:element name="updateStatusForMonetaryOverride" type="tns:updateStatusForMonetaryOverride" />
+  <xs:element name="updateStatusForMonetaryOverrideResponse" type="tns:updateStatusForMonetaryOverrideResponse" />
+  <xs:element name="updateStatusForOverride" type="tns:updateStatusForOverride" />
+  <xs:element name="updateStatusForOverrideResponse" type="tns:updateStatusForOverrideResponse" />
+  <xs:element name="updateWithholdingTaxRates" type="tns:updateWithholdingTaxRates" />
+  <xs:element name="updateWithholdingTaxRatesResponse" type="tns:updateWithholdingTaxRatesResponse" />
+  <xs:element name="validateManualChequeEntry" type="tns:validateManualChequeEntry" />
+  <xs:element name="validateManualChequeEntryResponse" type="tns:validateManualChequeEntryResponse" />
+  <xs:complexType name="cancelMonetaryOverrideRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="monetaryHistId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="iSpectrumWebServiceContext">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="wsoverrideInfos" nillable="true" type="tns:wsOverrideInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsOverrideInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="code" type="xs:string" />
+          <xs:element minOccurs="0" name="credInfo" type="tns:wsCredentialInfo" />
+          <xs:element minOccurs="0" name="deniedReason" type="xs:string" />
+          <xs:element name="descriptionId" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="monetaryAccounts" nillable="true" type="tns:wsMonetaryOverrideDescInfo" />
+          <xs:element name="overRideId" type="xs:int" />
+          <xs:element name="overridden" type="xs:boolean" />
+          <xs:element name="overriddenByTransaction" type="xs:boolean" />
+          <xs:element minOccurs="0" name="overrideComment" type="xs:string" />
+          <xs:element name="priority" type="xs:int" />
+          <xs:element minOccurs="0" name="prodCode" type="xs:string" />
+          <xs:element minOccurs="0" name="remoteOverride" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="roles" nillable="true" type="tns:wsRoleInfo" />
+          <xs:element name="useDefault" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsBaseInfo">
+    <xs:sequence>
+      <xs:element name="actionCode" type="xs:int" />
+      <xs:element minOccurs="0" name="input" type="tns:wsThirdPartyInfo" />
+      <xs:element minOccurs="0" name="output" type="tns:wsThirdPartyInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsCredentialInfo">
+    <xs:sequence>
+      <xs:element name="deleted" type="xs:int" />
+      <xs:element name="locked" type="xs:boolean" />
+      <xs:element name="logonAttempts" type="xs:int" />
+      <xs:element minOccurs="0" name="logonName" type="xs:string" />
+      <xs:element name="logonStatus" type="xs:int" />
+      <xs:element minOccurs="0" name="password" type="xs:string" />
+      <xs:element name="passwordEncrypted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="passwordExpiryDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="summitGUID" type="xs:string" />
+      <xs:element name="userAuthId" type="xs:int" />
+      <xs:element name="virtualUser" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsMonetaryOverrideDescInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+          <xs:element name="monAccPortfolio" type="xs:long" />
+          <xs:element name="monAccSuffix" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsThirdPartyInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="header" nillable="true" type="tns:wsThirdPartyHeaderInfo" />
+      <xs:element minOccurs="0" name="vendorCode" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsThirdPartyHeaderInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="description" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="details" nillable="true" type="tns:wsThirdPartyDetailInfo" />
+      <xs:element minOccurs="0" name="key" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsThirdPartyDetailInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dataType" type="xs:string" />
+      <xs:element minOccurs="0" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="value" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsRoleInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="accessLevel" type="xs:int" />
+          <xs:element name="allLoansLimit" type="xs:long" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="assignments" nillable="true" type="tns:wsAssignmentInfo" />
+          <xs:element name="depositLimit" type="xs:long" />
+          <xs:element name="drawerCashLimit" type="xs:long" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="financialControls" nillable="true" type="tns:wsFinancialControlInfo" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="indLoanAmts" nillable="true" type="tns:wsIndLoanAmtInfo" />
+          <xs:element name="institutionDefinedLoanLimit" type="xs:long" />
+          <xs:element name="journalEntryLimit" type="xs:long" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="menuInfos" nillable="true" type="tns:wsMenuInfo" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="monTranInfos" nillable="true" type="tns:wsMonTranInfo" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="monTrans" nillable="true" type="tns:wsMonTranInfo" />
+          <xs:element name="mortgageLimit" type="xs:long" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="overRides" nillable="true" type="tns:wsOverrideInfo" />
+          <xs:element minOccurs="0" name="roleCode" type="xs:string" />
+          <xs:element minOccurs="0" name="roleCreateTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="roleDescription" type="xs:string" />
+          <xs:element name="roleId" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="roleLimitsInfos" nillable="true" type="tns:wsRoleLimitsInfo" />
+          <xs:element name="roleMenuId" type="xs:int" />
+          <xs:element minOccurs="0" name="roleName" type="xs:string" />
+          <xs:element name="roleUpdateCounter" type="xs:int" />
+          <xs:element name="securedLimit" type="xs:long" />
+          <xs:element name="unsecuredLimit" type="xs:long" />
+          <xs:element name="withdrawalLimit" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsAssignmentInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="enca_fieldDescription" type="xs:string" />
+          <xs:element minOccurs="0" name="fieldCodeAssign" type="xs:string" />
+          <xs:element name="fieldId" type="xs:int" />
+          <xs:element minOccurs="0" name="fieldtype" type="xs:string" />
+          <xs:element minOccurs="0" name="frca_fieldDescription" type="xs:string" />
+          <xs:element name="roleAssignId" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="roles" nillable="true" type="tns:wsRoleInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsFinancialControlInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="categoryCode" type="xs:string" />
+          <xs:element name="displayGL" type="xs:int" />
+          <xs:element minOccurs="0" name="financialControl3PtyGL" type="xs:string" />
+          <xs:element minOccurs="0" name="financialControlAction" type="xs:string" />
+          <xs:element minOccurs="0" name="financialControlCode" type="xs:string" />
+          <xs:element name="financialControlCredit" type="xs:long" />
+          <xs:element minOccurs="0" name="financialControlCurrencyCode" type="xs:string" />
+          <xs:element name="financialControlDebit" type="xs:long" />
+          <xs:element minOccurs="0" name="financialControlDescription" type="xs:string" />
+          <xs:element minOccurs="0" name="financialControlDescriptionFr" type="xs:string" />
+          <xs:element minOccurs="0" name="financialControlDescription_En" type="xs:string" />
+          <xs:element minOccurs="0" name="financialControlGLExtract" type="xs:string" />
+          <xs:element name="financialControlId" type="xs:int" />
+          <xs:element minOccurs="0" name="financialControlMICRNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="financialControlTimestamp" type="xs:dateTime" />
+          <xs:element name="financialControlTypeId" type="xs:int" />
+          <xs:element name="financialControlUpdateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="monHistPurgeDescription" type="xs:string" />
+          <xs:element name="monHistPurgeRetentionPeriod" type="xs:long" />
+          <xs:element name="monHistToBePurged" type="xs:boolean" />
+          <xs:element name="monetaryInstrument" type="xs:boolean" />
+          <xs:element minOccurs="0" name="regulatoryReportType" type="xs:string" />
+          <xs:element minOccurs="0" name="summitType" type="xs:string" />
+          <xs:element minOccurs="0" name="typeCode" type="xs:string" />
+          <xs:element minOccurs="0" name="typeGroup" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsIndLoanAmtInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="categoryCode" type="xs:string" />
+          <xs:element minOccurs="0" name="categoryDescription" type="xs:string" />
+          <xs:element minOccurs="0" name="categoryDescription_Fr" type="xs:string" />
+          <xs:element minOccurs="0" name="code" type="xs:string" />
+          <xs:element name="financialControlTypeId" type="xs:int" />
+          <xs:element name="indLoanAmtId" type="xs:int" />
+          <xs:element name="loanAmountLimit" type="xs:long" />
+          <xs:element name="roleId" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="roles" nillable="true" type="tns:wsRoleInfo" />
+          <xs:element minOccurs="0" name="typeCode" type="xs:string" />
+          <xs:element minOccurs="0" name="typeDescription" type="xs:string" />
+          <xs:element minOccurs="0" name="typeDescription_Fr" type="xs:string" />
+          <xs:element minOccurs="0" name="typeGroup" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsMenuInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="depth" type="xs:int" />
+          <xs:element minOccurs="0" name="descriptionEn" type="xs:string" />
+          <xs:element minOccurs="0" name="descriptionFr" type="xs:string" />
+          <xs:element name="descriptionId" type="xs:int" />
+          <xs:element minOccurs="0" name="menuCode" type="xs:string" />
+          <xs:element minOccurs="0" name="menuCreateTimestamp" type="xs:dateTime" />
+          <xs:element name="menuId" type="xs:int" />
+          <xs:element minOccurs="0" name="menuLoadFrameLocation" type="xs:string" />
+          <xs:element minOccurs="0" name="menuLocation" type="xs:string" />
+          <xs:element name="menuParentId" type="xs:int" />
+          <xs:element name="menuSequence" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="menuSubTabInfos" nillable="true" type="tns:wsMenuSubTabInfo" />
+          <xs:element minOccurs="0" name="menuURL" type="xs:string" />
+          <xs:element name="menuUpdateCounter" type="xs:int" />
+          <xs:element name="openInNewWin" type="xs:boolean" />
+          <xs:element name="readOnly" type="xs:boolean" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="roleInfos" nillable="true" type="tns:wsRoleInfo" />
+          <xs:element minOccurs="0" name="uiCustomization" type="tns:wsuiCustomizationInfo" />
+          <xs:element name="uiCustomizationId" type="xs:long" />
+          <xs:element name="userDefined" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsMenuSubTabInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element name="menuId" type="xs:long" />
+          <xs:element name="menuSubTabId" type="xs:long" />
+          <xs:element name="menuUrlSubTabId" type="xs:long" />
+          <xs:element minOccurs="0" name="menuUrlSubTabInfo" type="tns:wsMenuUrlSubTabInfo" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="roleMenuSubTabInfos" nillable="true" type="tns:wsRoleMenuSubTabInfo" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsMenuUrlSubTabInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element name="menuUrlId" type="xs:long" />
+          <xs:element name="menuUrlSubTabId" type="xs:long" />
+          <xs:element name="parentMenuUrlSubTabId" type="xs:long" />
+          <xs:element minOccurs="0" name="subTabDivIdAttribute" type="xs:string" />
+          <xs:element minOccurs="0" name="tabName" type="xs:string" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsRoleMenuSubTabInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element name="menuSubTabId" type="xs:long" />
+          <xs:element name="roleId" type="xs:long" />
+          <xs:element name="roleMenuSubTabId" type="xs:long" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsuiCustomizationInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="active" type="xs:boolean" />
+          <xs:element name="appendToPage" type="xs:boolean" />
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="customTokens" nillable="true" type="tns:wsuiExtCustLinkTokenInfo" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="customXHTML" nillable="true" type="tns:wsuiCustomScriptInfo" />
+          <xs:element name="deleted" type="xs:long" />
+          <xs:element minOccurs="0" name="description" type="xs:string" />
+          <xs:element name="displayInPopup" type="xs:boolean" />
+          <xs:element name="displayInSlider" type="xs:boolean" />
+          <xs:element name="draggableFrame" type="xs:boolean" />
+          <xs:element name="frameHeight" type="xs:int" />
+          <xs:element name="frameWidth" type="xs:int" />
+          <xs:element minOccurs="0" name="menuURL" type="xs:string" />
+          <xs:element name="resizableFrame" type="xs:boolean" />
+          <xs:element name="scrollableFrame" type="xs:boolean" />
+          <xs:element minOccurs="0" name="title" type="xs:string" />
+          <xs:element name="uiCustomizationId" type="xs:long" />
+          <xs:element name="updateCounter" type="xs:long" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="url" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="urlAttributes" nillable="true" type="tns:wsuiExtCustLinkAttribInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsuiExtCustLinkTokenInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element name="deleted" type="xs:long" />
+          <xs:element minOccurs="0" name="ruleScriptObjMapInfo" type="tns:wsRuleScriptObjMapInfo" />
+          <xs:element minOccurs="0" name="sourceAttribute" type="xs:string" />
+          <xs:element minOccurs="0" name="sourceClassName" type="xs:string" />
+          <xs:element name="tokenMapId" type="xs:long" />
+          <xs:element minOccurs="0" name="tokenName" type="xs:string" />
+          <xs:element name="tokenType" type="xs:int" />
+          <xs:element name="uiCustomizationId" type="xs:long" />
+          <xs:element name="uiExtCustLinkTokenId" type="xs:long" />
+          <xs:element name="updateCounter" type="xs:long" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsRuleScriptObjMapInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="createTimeStamp" type="xs:dateTime" />
+          <xs:element name="deleted" type="xs:int" />
+          <xs:element minOccurs="0" name="objAttrib" type="xs:string" />
+          <xs:element minOccurs="0" name="objAttribType" type="xs:string" />
+          <xs:element minOccurs="0" name="objJSPath" type="xs:string" />
+          <xs:element minOccurs="0" name="objType" type="xs:string" />
+          <xs:element name="objTypeId" type="xs:long" />
+          <xs:element name="ruleScriptObjMapId" type="xs:long" />
+          <xs:element minOccurs="0" name="updateTimeStamp" type="xs:dateTime" />
+          <xs:element name="updatecounter" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsuiCustomScriptInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element name="deleted" type="xs:long" />
+          <xs:element minOccurs="0" name="scriptText" type="xs:string" />
+          <xs:element minOccurs="0" name="scriptType" type="xs:string" />
+          <xs:element name="uiCustomScriptId" type="xs:long" />
+          <xs:element name="uiCustomizationId" type="xs:long" />
+          <xs:element name="updateCounter" type="xs:long" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsuiExtCustLinkAttribInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="attribType" type="xs:string" />
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element name="deleted" type="xs:long" />
+          <xs:element minOccurs="0" name="name" type="xs:string" />
+          <xs:element name="uiCustomizationId" type="xs:long" />
+          <xs:element name="uiExtCustLinkAttribId" type="xs:long" />
+          <xs:element name="updateCounter" type="xs:long" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="value" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsMonTranInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="enca_fieldDescription" type="xs:string" />
+          <xs:element minOccurs="0" name="fieldCode" type="xs:string" />
+          <xs:element name="fieldId" type="xs:int" />
+          <xs:element minOccurs="0" name="fieldtype" type="xs:string" />
+          <xs:element minOccurs="0" name="frca_fieldDescription" type="xs:string" />
+          <xs:element name="monTranId" type="xs:int" />
+          <xs:element name="roleId" type="xs:int" />
+          <xs:element name="roleMonTranId" type="xs:int" />
+          <xs:element name="transactionAmountLimit" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsRoleLimitsInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="enca_fieldDescription" type="xs:string" />
+          <xs:element minOccurs="0" name="fieldCode" type="xs:string" />
+          <xs:element minOccurs="0" name="frca_fieldDescription" type="xs:string" />
+          <xs:element name="limit" type="xs:long" />
+          <xs:element name="roleId" type="xs:long" />
+          <xs:element name="roleLimitsId" type="xs:long" />
+          <xs:element minOccurs="0" name="roleName" type="xs:string" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="cancelMonetaryOverrideRequestResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="SOAPException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getReceiptForMonetaryHstoryIdsWithSignature">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="monetaryHistIdList" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="receiptType" type="xs:string" />
+      <xs:element minOccurs="0" name="signature1" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="signature2" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getReceiptForMonetaryHstoryIdsWithSignatureResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="getReceiptForMonetaryHstoryIdsWithSignatureResponse" type="tns:byteArrayOutputStream" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="byteArrayOutputStream">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:outputStream">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="outputStream" abstract="true">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getRedoMonHistTransId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="monHistId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getRedoMonHistTransIdResponse">
+    <xs:sequence>
+      <xs:element name="getRedoMonHistTransIdResponse" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createUpdateMonHistGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" name="wstellerBuySellInfo" type="tns:wsTellerBuySellInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsTellerBuySellInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="businessDate" type="xs:dateTime" />
+          <xs:element name="buy" type="xs:boolean" />
+          <xs:element minOccurs="0" name="currencyType" type="xs:string" />
+          <xs:element name="drawerId" type="xs:int" />
+          <xs:element name="monHistGroupHeaderId" type="xs:long" />
+          <xs:element name="originatedBy" type="xs:int" />
+          <xs:element name="originatorDrawerId" type="xs:int" />
+          <xs:element name="pendingFor" type="xs:int" />
+          <xs:element name="sell" type="xs:boolean" />
+          <xs:element minOccurs="0" name="status" type="xs:string" />
+          <xs:element name="totalAmount" type="xs:long" />
+          <xs:element minOccurs="0" name="transactionInfo" type="tns:wsTransactionInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsTransactionInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="bypassSignature" type="xs:boolean" />
+          <xs:element minOccurs="0" name="channel" type="xs:string" />
+          <xs:element name="chequeBatchLimit" type="xs:boolean" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="chequesInInfos" nillable="true" type="tns:wsChequesInInfo" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="chequesOutInfos" nillable="true" type="tns:wsChequesOutInfo" />
+          <xs:element name="clobTableId" type="xs:long" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="currencyExchangeInfos" nillable="true" type="tns:wsCurrencyExchangeInfo" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="custBondRedempDetailInfos" nillable="true" type="tns:wsCustBondRedempDetailInfo" />
+          <xs:element name="customerId" type="xs:int" />
+          <xs:element minOccurs="0" name="deviceIn" type="tns:wsCashDeviceInfo" />
+          <xs:element minOccurs="0" name="deviceOut" type="tns:wsCashDeviceInfo" />
+          <xs:element minOccurs="0" name="effectiveDate" type="xs:dateTime" />
+          <xs:element name="exclude" type="xs:boolean" />
+          <xs:element name="expressTransaction" type="xs:int" />
+          <xs:element minOccurs="0" name="forcePostAuth" type="xs:string" />
+          <xs:element minOccurs="0" name="forcePosted" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="inCashDenomInfos" nillable="true" type="tns:wsCashDenomInfo" />
+          <xs:element name="insufficientWithHold" type="xs:boolean" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="inventoryItemInfos" nillable="true" type="tns:wsInventoryItemInfo" />
+          <xs:element name="isBillPayment" type="xs:boolean" />
+          <xs:element name="manualPayment" type="xs:boolean" />
+          <xs:element name="memberFacingComment" type="xs:boolean" />
+          <xs:element minOccurs="0" name="miscDetail" type="xs:string" />
+          <xs:element name="monHistGroupHeaderId" type="xs:long" />
+          <xs:element minOccurs="0" name="monetaryHistoryInfo" type="tns:wsMonetaryHistoryInfo" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="monetaryHoldInfos" nillable="true" type="tns:wsMonetaryHoldInfo" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="onlineRealTimeFeeInfos" nillable="true" type="tns:wsOnlineRealTimeFeeInfo" />
+          <xs:element minOccurs="0" name="optionExercised" type="xs:string" />
+          <xs:element minOccurs="0" name="otherIn" type="tns:wsOtherInInfo" />
+          <xs:element minOccurs="0" name="otherOut" type="tns:wsOtherOutInfo" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="outCashDenomInfos" nillable="true" type="tns:wsCashDenomInfo" />
+          <xs:element name="ownerCustomerId" type="xs:int" />
+          <xs:element minOccurs="0" name="primaryAccount" type="xs:string" />
+          <xs:element name="realTimeFeeLogicHandled" type="xs:boolean" />
+          <xs:element minOccurs="0" name="sharedBranchComment" type="xs:string" />
+          <xs:element name="sharedBranchInstitutionId" type="xs:long" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="transactionItemInfos" nillable="true" type="tns:wsTransactionItemInfo" />
+          <xs:element name="transactorId" type="xs:long" />
+          <xs:element name="userId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsChequesInInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="accountNumber" type="xs:string" />
+          <xs:element name="checkCashing" type="xs:boolean" />
+          <xs:element name="chequeAmount" type="xs:long" />
+          <xs:element name="chequeBatchTypesId" type="xs:long" />
+          <xs:element name="chequeBatchingHdrId" type="xs:long" />
+          <xs:element minOccurs="0" name="chequeCurrency" type="xs:string" />
+          <xs:element minOccurs="0" name="chequeDescription" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="chequeImageInfo" nillable="true" type="tns:wsChequeImageInfo" />
+          <xs:element minOccurs="0" name="chequeNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="fundsAvailableStatus" type="xs:string" />
+          <xs:element minOccurs="0" name="holdName" type="xs:string" />
+          <xs:element minOccurs="0" name="MICRNumber" type="xs:string" />
+          <xs:element name="onUs" type="xs:boolean" />
+          <xs:element minOccurs="0" name="overDraftRequired" type="xs:string" />
+          <xs:element minOccurs="0" name="payee" type="xs:string" />
+          <xs:element minOccurs="0" name="releaseDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="routingNumber" type="xs:string" />
+          <xs:element name="sequenceNo" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsChequeImageInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="base64Image" type="xs:string" />
+          <xs:element name="chequeImageId" type="xs:long" />
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element name="deleted" type="xs:long" />
+          <xs:element name="monTranHistChqDetailId" type="xs:long" />
+          <xs:element minOccurs="0" name="orientation" type="xs:string" />
+          <xs:element name="sequenceNo" type="xs:int" />
+          <xs:element name="updateCounter" type="xs:long" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsChequesOutInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="accountNumber" type="xs:string" />
+          <xs:element name="amount" type="xs:long" />
+          <xs:element minOccurs="0" name="amountDescription" type="xs:string" />
+          <xs:element name="assocFeeAmount" type="xs:long" />
+          <xs:element name="assocFinancialcontrolId" type="xs:long" />
+          <xs:element name="associatedFee" type="xs:long" />
+          <xs:element name="chequeBatchTypesId" type="xs:long" />
+          <xs:element name="chequeBatchingHdrId" type="xs:long" />
+          <xs:element minOccurs="0" name="chequeClearDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="chequeDate" type="xs:dateTime" />
+          <xs:element name="chequeNumber" type="xs:long" />
+          <xs:element name="chequeOut" type="xs:boolean" />
+          <xs:element minOccurs="0" name="chequeStatus" type="xs:string" />
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="currencyType" type="xs:string" />
+          <xs:element minOccurs="0" name="description" type="xs:string" />
+          <xs:element name="financialcontrolId" type="xs:long" />
+          <xs:element minOccurs="0" name="inventoryDescription" type="xs:string" />
+          <xs:element name="inventoryDetailId" type="xs:long" />
+          <xs:element name="inventoryId" type="xs:long" />
+          <xs:element minOccurs="0" name="MICRNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="memo" type="xs:string" />
+          <xs:element name="monTranHistChqDetailId" type="xs:int" />
+          <xs:element name="monTranHistSummaryId" type="xs:int" />
+          <xs:element minOccurs="0" name="onUs" type="xs:string" />
+          <xs:element minOccurs="0" name="payee" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="payeeOptionsInfo" nillable="true" type="tns:wsPayeeOptionsInfo" />
+          <xs:element minOccurs="0" name="routingNumber" type="xs:string" />
+          <xs:element name="sequenceNo" type="xs:int" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+          <xs:element name="useAddress" type="xs:boolean" />
+          <xs:element minOccurs="0" name="voidStopDate" type="xs:dateTime" />
+          <xs:element name="waiveFee" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsPayeeOptionsInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="payeeAccountId" type="xs:long" />
+          <xs:element name="payeeCustomerId" type="xs:long" />
+          <xs:element minOccurs="0" name="payeeName" type="xs:string" />
+          <xs:element name="primary" type="xs:boolean" />
+          <xs:element name="selected" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsCurrencyExchangeInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="cash" type="xs:boolean" />
+          <xs:element name="fromAmount" type="xs:long" />
+          <xs:element minOccurs="0" name="fromCurrency" type="xs:string" />
+          <xs:element name="out" type="xs:boolean" />
+          <xs:element minOccurs="0" name="rate" type="xs:string" />
+          <xs:element name="toAmount" type="xs:long" />
+          <xs:element minOccurs="0" name="toCurrency" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsCustBondRedempDetailInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="amount" type="xs:long" />
+          <xs:element name="backupWithholding" type="xs:long" />
+          <xs:element name="bondRedemptionId" type="xs:long" />
+          <xs:element minOccurs="0" name="createTimeStamp" type="xs:dateTime" />
+          <xs:element name="custBondRedempDetailId" type="xs:long" />
+          <xs:element name="custBondRedempHeaderId" type="xs:long" />
+          <xs:element name="deleted" type="xs:long" />
+          <xs:element name="denominationValue" type="xs:long" />
+          <xs:element minOccurs="0" name="effectiveMonthYear" type="xs:string" />
+          <xs:element name="interestEarned" type="xs:long" />
+          <xs:element minOccurs="0" name="issueDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="issueMonthYear" type="xs:string" />
+          <xs:element minOccurs="0" name="serialNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="seriesCode" type="xs:string" />
+          <xs:element name="updateCounter" type="xs:long" />
+          <xs:element minOccurs="0" name="updateTimeStamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsCashDeviceInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="billAmount" type="xs:long" />
+          <xs:element minOccurs="0" name="cashDeviceContext" type="tns:wsCashDeviceContextInfo" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="cashDeviceDenomInfos" nillable="true" type="tns:wsCashDeviceDenomInfo" />
+          <xs:element name="coinAmount" type="xs:long" />
+          <xs:element minOccurs="0" name="currency" type="xs:string" />
+          <xs:element name="deviceTranGroupNumber" type="xs:long" />
+          <xs:element name="monHistGroupHeaderId" type="xs:long" />
+          <xs:element name="totalCash" type="xs:long" />
+          <xs:element minOccurs="0" name="warning" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsCashDeviceContextInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="deviceActivityInfoBills" type="tns:wsDeviceActivityInfo" />
+      <xs:element minOccurs="0" name="deviceActivityInfoCoin" type="tns:wsDeviceActivityInfo" />
+      <xs:element name="deviceIn" type="xs:boolean" />
+      <xs:element minOccurs="0" name="deviceName" type="xs:string" />
+      <xs:element minOccurs="0" name="deviceType" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsDeviceActivityInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="amount" type="xs:long" />
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="denomDetails" type="xs:string" />
+          <xs:element minOccurs="0" name="deviceAction" type="xs:string" />
+          <xs:element name="deviceActivityId" type="xs:long" />
+          <xs:element name="deviceDrawerId" type="xs:int" />
+          <xs:element minOccurs="0" name="deviceName" type="xs:string" />
+          <xs:element minOccurs="0" name="deviceType" type="xs:string" />
+          <xs:element minOccurs="0" name="errorDetail" type="xs:string" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+          <xs:element name="userId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsCashDeviceDenomInfo">
+    <xs:sequence>
+      <xs:element name="amount" type="xs:long" />
+      <xs:element name="availableCount" type="xs:long" />
+      <xs:element name="denomination" type="xs:int" />
+      <xs:element name="dispenseOrDepositCount" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsCashDenomInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="billItemInfos" nillable="true" type="tns:wsBillItemInfo" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="coinItemInfos" nillable="true" type="tns:wsCoinItemInfo" />
+          <xs:element minOccurs="0" name="currencyType" type="xs:string" />
+          <xs:element name="miscAmount" type="xs:long" />
+          <xs:element minOccurs="0" name="miscFieldInfo" type="tns:wsCashDenomMiscFieldInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsBillItemInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="billValue" type="xs:long" />
+          <xs:element name="noOfBills" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsCoinItemInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="coinValue" type="xs:long" />
+          <xs:element name="noOfCoins" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsCashDenomMiscFieldInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="baitAmount" type="xs:long" />
+          <xs:element name="miscBillsAmount" type="xs:long" />
+          <xs:element name="miscCoinsAmount" type="xs:long" />
+          <xs:element name="mutilatedBillsAmount" type="xs:long" />
+          <xs:element name="mutilatedCoinsAmount" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsInventoryItemInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="businessDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element name="endSerialNumber" type="xs:long" />
+          <xs:element name="feeAmount" type="xs:long" />
+          <xs:element name="inventoryDetailId" type="xs:long" />
+          <xs:element name="inventoryId" type="xs:long" />
+          <xs:element name="inventoryItemId" type="xs:long" />
+          <xs:element name="itemAmount" type="xs:long" />
+          <xs:element name="monTranHistSummaryId" type="xs:long" />
+          <xs:element minOccurs="0" name="prefix" type="xs:string" />
+          <xs:element name="quantity" type="xs:long" />
+          <xs:element name="startSerialNumber" type="xs:long" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsMonetaryHistoryInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="channel" type="xs:string" />
+          <xs:element name="clobTableId" type="xs:long" />
+          <xs:element name="customerId" type="xs:int" />
+          <xs:element name="exclude" type="xs:boolean" />
+          <xs:element name="expressTransaction" type="xs:int" />
+          <xs:element name="iswarehouse" type="xs:boolean" />
+          <xs:element minOccurs="0" name="miscDetail" type="xs:string" />
+          <xs:element name="monHistGroupHeaderId" type="xs:long" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="monTranHistDetailInfo" nillable="true" type="tns:wsMonTranHistDetailInfo" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="monTranHistSummaryInfos" nillable="true" type="tns:wsMonTranHistSummaryInfo" />
+          <xs:element minOccurs="0" name="monetaryHistActionType" type="xs:string" />
+          <xs:element minOccurs="0" name="monetaryHistBusinessDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="monetaryHistEffectiveDate" type="xs:dateTime" />
+          <xs:element name="monetaryHistId" type="xs:int" />
+          <xs:element minOccurs="0" name="monetaryHistTimestamp" type="xs:dateTime" />
+          <xs:element name="overrideHistHeaderId" type="xs:int" />
+          <xs:element minOccurs="0" name="processCode" type="xs:string" />
+          <xs:element name="status" type="xs:int" />
+          <xs:element minOccurs="0" name="tranComments" type="xs:string" />
+          <xs:element name="transactorId" type="xs:long" />
+          <xs:element name="userId" type="xs:int" />
+          <xs:element minOccurs="0" name="userInfo" type="tns:wsUserInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsMonTranHistDetailInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="accountId" type="xs:long" />
+          <xs:element name="acctPortfolioNumber" type="xs:int" />
+          <xs:element name="acctSuffixNumber" type="xs:int" />
+          <xs:element name="beneficiaryCustomerId" type="xs:long" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="components" nillable="true" type="tns:wsMonTranHistDetailComponentInfo" />
+          <xs:element name="contributionYear" type="xs:int" />
+          <xs:element name="creditAmount" type="xs:long" />
+          <xs:element minOccurs="0" name="creditCardTranInfo" type="tns:wsihCreditCardTranInfo" />
+          <xs:element name="currentBalance" type="xs:long" />
+          <xs:element name="debitAmount" type="xs:long" />
+          <xs:element name="descriptionId" type="xs:long" />
+          <xs:element name="financialControlId" type="xs:long" />
+          <xs:element minOccurs="0" name="fx" type="tns:wsMonTranHistFXInfo" />
+          <xs:element name="interestAmount" type="xs:long" />
+          <xs:element name="interestRate" type="xs:double" />
+          <xs:element minOccurs="0" name="interestdate" type="xs:dateTime" />
+          <xs:element name="iraPlanId" type="xs:long" />
+          <xs:element name="largevalue" type="xs:boolean" />
+          <xs:element name="linkLoanAccountId" type="xs:long" />
+          <xs:element name="loanAccount" type="xs:boolean" />
+          <xs:element minOccurs="0" name="loanData" type="xs:string" />
+          <xs:element minOccurs="0" name="miscDetails" type="xs:string" />
+          <xs:element name="monTranHistDetailId" type="xs:long" />
+          <xs:element name="monetaryHistId" type="xs:int" />
+          <xs:element minOccurs="0" name="offlineVendorStatus" type="xs:string" />
+          <xs:element name="principleAmount" type="xs:long" />
+          <xs:element name="realTimeFeeCharged" type="xs:long" />
+          <xs:element name="reasonCodeId" type="xs:long" />
+          <xs:element name="receiptId" type="xs:long" />
+          <xs:element name="regD" type="xs:boolean" />
+          <xs:element name="secondaryReasonCodeId" type="xs:long" />
+          <xs:element name="sequenceNo" type="xs:int" />
+          <xs:element name="specialLogicRequired" type="xs:int" />
+          <xs:element name="summitTranNonMontRulesId" type="xs:long" />
+          <xs:element name="summitTranTypeId" type="xs:long" />
+          <xs:element name="toFinancialControlId" type="xs:long" />
+          <xs:element minOccurs="0" name="tranDetail" type="xs:string" />
+          <xs:element name="tranItemNumber" type="xs:int" />
+          <xs:element name="tranItemStatus" type="xs:long" />
+          <xs:element minOccurs="0" name="tranType" type="xs:string" />
+          <xs:element minOccurs="0" name="transactionItemInfo" type="tns:wsTransactionItemInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsMonTranHistDetailComponentInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="amount" type="xs:long" />
+          <xs:element minOccurs="0" name="componentCode" type="xs:string" />
+          <xs:element minOccurs="0" name="componentType" type="xs:string" />
+          <xs:element minOccurs="0" name="componentValue" type="xs:string" />
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element name="fxAmount" type="xs:long" />
+          <xs:element name="monTranHistDetailComponentId" type="xs:long" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsihCreditCardTranInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="accountId" type="xs:long" />
+          <xs:element minOccurs="0" name="businessDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element name="deleted" type="xs:long" />
+          <xs:element minOccurs="0" name="effectiveDate" type="xs:dateTime" />
+          <xs:element name="ihCreditcardTranId" type="xs:long" />
+          <xs:element name="montranHistDetailId" type="xs:long" />
+          <xs:element name="rateTypeId" type="xs:long" />
+          <xs:element name="tranAmount" type="xs:long" />
+          <xs:element minOccurs="0" name="trantypeCode" type="xs:string" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsMonTranHistFXInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="fromAmount" type="xs:long" />
+          <xs:element minOccurs="0" name="fromCurrency" type="xs:string" />
+          <xs:element name="monTranHistFXId" type="xs:int" />
+          <xs:element name="monetaryHistDetailId" type="xs:long" />
+          <xs:element name="monetaryHistId" type="xs:int" />
+          <xs:element name="out" type="xs:boolean" />
+          <xs:element minOccurs="0" name="rate" type="xs:string" />
+          <xs:element name="toAmount" type="xs:long" />
+          <xs:element minOccurs="0" name="toCurrency" type="xs:string" />
+          <xs:element minOccurs="0" name="type" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsTransactionItemInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="accountId" type="xs:long" />
+          <xs:element name="acctPortfolioNumber" type="xs:int" />
+          <xs:element name="acctSuffixNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="acctType" type="xs:string" />
+          <xs:element name="applyExcesstoPrincipal" type="xs:boolean" />
+          <xs:element minOccurs="0" name="authorizedCode" type="xs:string" />
+          <xs:element name="beneficiaryCustomerId" type="xs:long" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="billPaymentInfos" nillable="true" type="tns:wsBillPaymentVendorPaymentDetailsInfo" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="components" nillable="true" type="tns:transactionItemComponent" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="contributionItems" nillable="true" type="tns:wsContributionItemInfo" />
+          <xs:element name="contributionYear" type="xs:int" />
+          <xs:element minOccurs="0" name="currencyExchange" type="tns:wsCurrencyExchangeInfo" />
+          <xs:element name="currentBalance" type="xs:long" />
+          <xs:element name="descriptionId" type="xs:long" />
+          <xs:element name="exceptionID" type="xs:long" />
+          <xs:element name="feeWaived" type="xs:boolean" />
+          <xs:element name="financialControlId" type="xs:int" />
+          <xs:element minOccurs="0" name="foreignExchangeInfoForXML" type="tns:wsCurrencyExchangeInfo" />
+          <xs:element minOccurs="0" name="interestTranDetail" type="tns:wsInterestTranDetailInfo" />
+          <xs:element minOccurs="0" name="linkedTranDetail" type="tns:wsLinkTransactionDetailInfo" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="loanFees" nillable="true" type="tns:wsLoanFeeInfo" />
+          <xs:element minOccurs="0" name="loanJournalOptionInfo" type="tns:wsLoanJournalOptionInfo" />
+          <xs:element minOccurs="0" name="loanPaymentComponent" type="tns:wsLoanPaymentComponentInfo" />
+          <xs:element minOccurs="0" name="manualPaymentInfo" type="tns:wsManualPaymentDetailsInfo" />
+          <xs:element name="manualPrePaymentEntry" type="xs:boolean" />
+          <xs:element name="onUs" type="xs:boolean" />
+          <xs:element name="productChange" type="xs:boolean" />
+          <xs:element minOccurs="0" name="reasonCode" type="tns:wsReasonCodeInfo" />
+          <xs:element name="regD" type="xs:boolean" />
+          <xs:element minOccurs="0" name="savDepJournalOptionInfo" type="tns:wsSavDepJournalOptionInfo" />
+          <xs:element minOccurs="0" name="secondaryReasonCode" type="tns:wsSecondaryReasonCodeInfo" />
+          <xs:element name="sequenceNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="sharedBranchAccountId" type="xs:string" />
+          <xs:element minOccurs="0" name="sharedBranchMemberId" type="xs:string" />
+          <xs:element name="sourceFinControlId" type="xs:int" />
+          <xs:element minOccurs="0" name="spousalSIN" type="xs:string" />
+          <xs:element minOccurs="0" name="status" type="xs:string" />
+          <xs:element name="taxTranItemNumber" type="xs:int" />
+          <xs:element name="termMaturedWithNoAutoRenew" type="xs:boolean" />
+          <xs:element name="tranItemNumber" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="tranParameters" nillable="true" type="tns:wsTransactionParameterInfo" />
+          <xs:element minOccurs="0" name="tranTypeCode" type="xs:string" />
+          <xs:element name="transactionAmount" type="xs:long" />
+          <xs:element name="unpostedFinControlId" type="xs:int" />
+          <xs:element name="updateAcctLastActivityDate" type="xs:boolean" />
+          <xs:element name="updateCustInitActivityDate" type="xs:boolean" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="withholdingItems" nillable="true" type="tns:wsWithholdingItemInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsBillPaymentVendorPaymentDetailsInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="accountId" type="xs:long" />
+          <xs:element minOccurs="0" name="accountNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="accountType" type="xs:string" />
+          <xs:element name="acctPortfolioNumber" type="xs:long" />
+          <xs:element name="acctSuffixNumber" type="xs:long" />
+          <xs:element minOccurs="0" name="additionalData" type="xs:string" />
+          <xs:element name="amount" type="xs:long" />
+          <xs:element minOccurs="0" name="billPayment_Error" type="xs:string" />
+          <xs:element minOccurs="0" name="businessDate" type="xs:dateTime" />
+          <xs:element name="cucbcSpecId" type="xs:long" />
+          <xs:element minOccurs="0" name="custAccountNumber" type="xs:string" />
+          <xs:element name="deleted" type="xs:long" />
+          <xs:element minOccurs="0" name="description" type="xs:string" />
+          <xs:element minOccurs="0" name="effectiveDate" type="xs:dateTime" />
+          <xs:element name="fee" type="xs:long" />
+          <xs:element minOccurs="0" name="firstName" type="xs:string" />
+          <xs:element minOccurs="0" name="fromAcctType" type="xs:string" />
+          <xs:element minOccurs="0" name="lastName" type="xs:string" />
+          <xs:element minOccurs="0" name="memberBranch" type="xs:string" />
+          <xs:element minOccurs="0" name="memberNumber" type="xs:string" />
+          <xs:element name="monetaryHistoryId" type="xs:long" />
+          <xs:element minOccurs="0" name="paymentDate" type="xs:dateTime" />
+          <xs:element name="paymentGroupId" type="xs:long" />
+          <xs:element minOccurs="0" name="paymentType" type="xs:string" />
+          <xs:element minOccurs="0" name="requestDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="responseCode" type="xs:string" />
+          <xs:element minOccurs="0" name="reverse" type="xs:string" />
+          <xs:element name="serviceProviderId" type="xs:long" />
+          <xs:element minOccurs="0" name="status" type="xs:string" />
+          <xs:element minOccurs="0" name="subAccount" type="xs:string" />
+          <xs:element minOccurs="0" name="trace" type="xs:string" />
+          <xs:element minOccurs="0" name="tranReferenceNumber" type="xs:string" />
+          <xs:element name="transferAmount" type="xs:long" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="utilityNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="vendorName" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="transactionItemComponent">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:baseInfo">
+        <xs:sequence>
+          <xs:element name="creditAmount" type="xs:long" />
+          <xs:element name="debitAmount" type="xs:long" />
+          <xs:element name="financialControlId" type="xs:long" />
+          <xs:element name="ignored" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="baseInfo">
+    <xs:sequence>
+      <xs:element name="actionCode" type="xs:int" />
+      <xs:element minOccurs="0" name="input" type="tns:thirdPartyInfo" />
+      <xs:element minOccurs="0" name="output" type="tns:thirdPartyInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="thirdPartyInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="header" nillable="true" type="tns:thirdPartyHeaderInfo" />
+      <xs:element minOccurs="0" name="vendorCode" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="thirdPartyHeaderInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="description" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="details" nillable="true" type="tns:thirdPartyDetailInfo" />
+      <xs:element minOccurs="0" name="key" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="thirdPartyDetailInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dataType" type="xs:string" />
+      <xs:element minOccurs="0" name="name" type="xs:string" />
+      <xs:element minOccurs="0" name="value" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsContributionItemInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="amount" type="xs:long" />
+          <xs:element minOccurs="0" name="contribFinCtrlCode" type="xs:string" />
+          <xs:element minOccurs="0" name="type" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsInterestTranDetailInfo">
+    <xs:sequence>
+      <xs:element name="linkLoanAccountId" type="xs:long" />
+      <xs:element name="linkLoanInterest" type="xs:long" />
+      <xs:element name="ODInterest" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsLinkTransactionDetailInfo">
+    <xs:sequence>
+      <xs:element name="linkLoanAccountId" type="xs:long" />
+      <xs:element minOccurs="0" name="linkedLoanFinControlCode" type="xs:string" />
+      <xs:element minOccurs="0" name="linkedSavingFinControlCode" type="xs:string" />
+      <xs:element name="linkedTranLoanAmount" type="xs:long" />
+      <xs:element name="linkedTranSavingAmount" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsLoanFeeInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="amortizationType" type="xs:string" />
+          <xs:element name="applicationId" type="xs:long" />
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="description" type="xs:string" />
+          <xs:element name="disclosure" type="xs:boolean" />
+          <xs:element name="feeAmount" type="xs:long" />
+          <xs:element name="feeProductId" type="xs:long" />
+          <xs:element name="finance" type="xs:int" />
+          <xs:element minOccurs="0" name="frequency" type="xs:string" />
+          <xs:element name="loanAccountId" type="xs:long" />
+          <xs:element name="loanFeeId" type="xs:long" />
+          <xs:element name="refundable" type="xs:boolean" />
+          <xs:element name="required" type="xs:boolean" />
+          <xs:element minOccurs="0" name="startDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="status" type="xs:string" />
+          <xs:element name="unrealizedFeeAmount" type="xs:long" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsLoanJournalOptionInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dueDateAdvanceMent" type="xs:string" />
+      <xs:element name="dueDateForward" type="xs:boolean" />
+      <xs:element name="interest" type="xs:long" />
+      <xs:element name="lateCharges" type="xs:long" />
+      <xs:element name="principal" type="xs:long" />
+      <xs:element name="tax" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsLoanPaymentComponentInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="addLateChargeToPayment" type="xs:boolean" />
+          <xs:element name="advanceTax" type="xs:long" />
+          <xs:element minOccurs="0" name="asOfDate" type="xs:dateTime" />
+          <xs:element name="balloonPayment" type="xs:boolean" />
+          <xs:element name="creditLineOpen" type="xs:boolean" />
+          <xs:element name="criticalIllnessRefundAmount" type="xs:long" />
+          <xs:element name="criticalIllnessTaxRefundAmount" type="xs:long" />
+          <xs:element name="disabilityRefundAmount" type="xs:long" />
+          <xs:element name="disabilityTaxRefundAmount" type="xs:long" />
+          <xs:element minOccurs="0" name="intCalcMethod" type="xs:string" />
+          <xs:element name="interest" type="xs:long" />
+          <xs:element name="interestRateDiff" type="xs:long" />
+          <xs:element name="lateChargePaid" type="xs:boolean" />
+          <xs:element name="lateChargePayment" type="xs:long" />
+          <xs:element minOccurs="0" name="lateChargeStatus" type="xs:string" />
+          <xs:element name="lateCharges" type="xs:long" />
+          <xs:element name="lifeRefundAmount" type="xs:long" />
+          <xs:element name="lifeTaxRefundAmount" type="xs:long" />
+          <xs:element name="manualEntry" type="xs:boolean" />
+          <xs:element name="maxPeiodsDueDateAdvance" type="xs:int" />
+          <xs:element name="nmonthPenalty" type="xs:long" />
+          <xs:element name="noCalcPenalty" type="xs:boolean" />
+          <xs:element name="numPeriodsDueDateToMove" type="xs:int" />
+          <xs:element name="origLateChargeAmount" type="xs:long" />
+          <xs:element name="partialPaymentAmount" type="xs:long" />
+          <xs:element name="payInterestWithPrincipalCurtailment" type="xs:boolean" />
+          <xs:element minOccurs="0" name="paymentType" type="xs:string" />
+          <xs:element name="paymentTypeAmount" type="xs:long" />
+          <xs:element name="postPonedLateCharges" type="xs:long" />
+          <xs:element name="prePaymentPenalty" type="xs:long" />
+          <xs:element minOccurs="0" name="prepayPenaltyType" type="xs:string" />
+          <xs:element name="principal" type="xs:long" />
+          <xs:element minOccurs="0" name="prodLevelDueDateAdvanceMent" type="xs:string" />
+          <xs:element name="tax" type="xs:long" />
+          <xs:element name="totalAcruedInterest" type="xs:long" />
+          <xs:element name="unpaidInterest" type="xs:long" />
+          <xs:element name="unpaidPrepaidInterest" type="xs:long" />
+          <xs:element name="waivedLateCharges" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsManualPaymentDetailsInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="accountNumber" type="xs:string" />
+          <xs:element name="cucbcSpecId" type="xs:long" />
+          <xs:element name="feeAmount" type="xs:long" />
+          <xs:element minOccurs="0" name="payeeName" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsReasonCodeInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="descriptionId" type="xs:long" />
+          <xs:element name="ESA" type="xs:boolean" />
+          <xs:element minOccurs="0" name="en_ca" type="xs:string" />
+          <xs:element minOccurs="0" name="fr_ca" type="xs:string" />
+          <xs:element name="HSAFamily" type="xs:boolean" />
+          <xs:element name="HSAIndividual" type="xs:boolean" />
+          <xs:element name="isRegistered" type="xs:boolean" />
+          <xs:element name="isSystemDefined" type="xs:boolean" />
+          <xs:element name="RLIF" type="xs:boolean" />
+          <xs:element name="RLSP" type="xs:boolean" />
+          <xs:element name="RRIF" type="xs:boolean" />
+          <xs:element minOccurs="0" name="reasonCode" type="xs:string" />
+          <xs:element name="reasonCodeId" type="xs:long" />
+          <xs:element name="reasonType" type="xs:int" />
+          <xs:element name="roth" type="xs:boolean" />
+          <xs:element name="SEP" type="xs:boolean" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="secondaryReasonCodeInfo" nillable="true" type="tns:wsSecondaryReasonCodeInfo" />
+          <xs:element name="summitDefined" type="xs:long" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="summitTranTypes" nillable="true" type="xs:string" />
+          <xs:element name="TFSA" type="xs:boolean" />
+          <xs:element name="taxable" type="xs:boolean" />
+          <xs:element name="traditional" type="xs:boolean" />
+          <xs:element name="updateYTDContrib" type="xs:boolean" />
+          <xs:element name="updateYTDWithhold" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsSecondaryReasonCodeInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element name="deleted" type="xs:long" />
+          <xs:element name="descriptionId" type="xs:long" />
+          <xs:element minOccurs="0" name="iraPlanType" type="xs:string" />
+          <xs:element name="iraReasonCodeSummitTranTypeId" type="xs:long" />
+          <xs:element minOccurs="0" name="reasonCode" type="xs:string" />
+          <xs:element name="secondaryReasonCodeId" type="xs:long" />
+          <xs:element minOccurs="0" name="tranTypeCode" type="xs:string" />
+          <xs:element name="updateCounter" type="xs:long" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsSavDepJournalOptionInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="ampWithHoldingTax" type="xs:long" />
+          <xs:element name="balance" type="xs:long" />
+          <xs:element name="fedWithHoldingTax" type="xs:long" />
+          <xs:element name="interest" type="xs:long" />
+          <xs:element name="linkLoanInterest" type="xs:long" />
+          <xs:element name="nonResidentWithHoldingTax" type="xs:long" />
+          <xs:element name="ODInterest" type="xs:long" />
+          <xs:element name="penalty" type="xs:long" />
+          <xs:element name="provWithHoldingTax" type="xs:long" />
+          <xs:element name="reasonCodeId" type="xs:long" />
+          <xs:element name="taxReceiptNumber" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsTransactionParameterInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="name" type="xs:string" />
+          <xs:element minOccurs="0" name="value" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsWithholdingItemInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="amount" type="xs:long" />
+          <xs:element minOccurs="0" name="productCode" type="xs:string" />
+          <xs:element name="taxflag" type="xs:boolean" />
+          <xs:element minOccurs="0" name="type" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsMonTranHistSummaryInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="bondAmount" type="xs:long" />
+          <xs:element name="cashInAmount" type="xs:long" />
+          <xs:element name="cashOutAmount" type="xs:long" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="checksInInfo" nillable="true" type="tns:wsChequesInInfo" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="checksOutInfo" nillable="true" type="tns:wsChequesOutInfo" />
+          <xs:element name="chequeInAmount" type="xs:long" />
+          <xs:element name="chequeOutAmount" type="xs:long" />
+          <xs:element minOccurs="0" name="currencyType" type="xs:string" />
+          <xs:element name="deviceInAmount" type="xs:long" />
+          <xs:element name="deviceOutAmount" type="xs:long" />
+          <xs:element minOccurs="0" name="inCashDenomInfo" type="tns:wsCashDenomInfo" />
+          <xs:element name="monTranHistSummaryId" type="xs:int" />
+          <xs:element name="monetaryHistId" type="xs:int" />
+          <xs:element name="otherInAmount" type="xs:long" />
+          <xs:element name="otherInFinControlId" type="xs:long" />
+          <xs:element name="otherOutAmount" type="xs:long" />
+          <xs:element name="otherOutFinControlId" type="xs:long" />
+          <xs:element minOccurs="0" name="outCashDenomInfo" type="tns:wsCashDenomInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsUserInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="channelId" type="xs:long" />
+          <xs:element name="defaultAcctCtrId" type="xs:int" />
+          <xs:element name="defaultDrawerId" type="xs:int" />
+          <xs:element minOccurs="0" name="deviceControl" type="xs:string" />
+          <xs:element name="locked" type="xs:boolean" />
+          <xs:element name="logonAttempts" type="xs:int" />
+          <xs:element minOccurs="0" name="logonName" type="xs:string" />
+          <xs:element minOccurs="0" name="password" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="roleInfoArray" nillable="true" type="tns:wsRoleInfo" />
+          <xs:element name="system" type="xs:boolean" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="thirdPartyUserAuthInfos" nillable="true" type="tns:wsThirdPartyUserAuthInfo" />
+          <xs:element name="useCashRecycler" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="userAccessInfoArray" nillable="true" type="tns:wsUserAccessInfo" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="userAddresses" nillable="true" type="tns:wsAddressInfo" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="userContactEmails" nillable="true" type="tns:wsContactEmailInfo" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="userContactPhones" nillable="true" type="tns:wsContactPhoneInfo" />
+          <xs:element minOccurs="0" name="userDateOfBirth" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="userEndDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="userFirstName" type="xs:string" />
+          <xs:element name="userId" type="xs:int" />
+          <xs:element minOccurs="0" name="userLastName" type="xs:string" />
+          <xs:element minOccurs="0" name="userMI" type="xs:string" />
+          <xs:element minOccurs="0" name="userPrefix" type="xs:string" />
+          <xs:element minOccurs="0" name="userStartDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="userSuffix" type="xs:string" />
+          <xs:element minOccurs="0" name="userTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="userTin" type="xs:string" />
+          <xs:element name="userUpdateCounter" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsThirdPartyUserAuthInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="applicationType" type="xs:string" />
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="thirdPartyLogonName" type="xs:string" />
+          <xs:element minOccurs="0" name="thirdPartyPassword" type="xs:string" />
+          <xs:element minOccurs="0" name="thirdPartyToken" type="xs:string" />
+          <xs:element name="thirdPartyUserAuthId" type="xs:long" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+          <xs:element name="userAuthId" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsUserAccessInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="accessClass" type="xs:string" />
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element name="deleted" type="xs:int" />
+          <xs:element name="monetaryLimited" type="xs:boolean" />
+          <xs:element minOccurs="0" name="relatedAccount" type="xs:string" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+          <xs:element name="userAccessId" type="xs:long" />
+          <xs:element minOccurs="0" name="userAccessType" type="xs:string" />
+          <xs:element name="userId" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsAddressInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="activeFlag" type="xs:boolean" />
+          <xs:element minOccurs="0" name="addrUnitNo" type="xs:string" />
+          <xs:element minOccurs="0" name="addressDescrption" type="xs:string" />
+          <xs:element name="addressId" type="xs:int" />
+          <xs:element minOccurs="0" name="addressLine1" type="xs:string" />
+          <xs:element minOccurs="0" name="addressLine2" type="xs:string" />
+          <xs:element minOccurs="0" name="addressLine3" type="xs:string" />
+          <xs:element minOccurs="0" name="addressLine4" type="xs:string" />
+          <xs:element minOccurs="0" name="addressType" type="xs:string" />
+          <xs:element name="badAddress" type="xs:boolean" />
+          <xs:element minOccurs="0" name="badAddressReason" type="xs:string" />
+          <xs:element minOccurs="0" name="carrierRoute" type="xs:string" />
+          <xs:element minOccurs="0" name="city" type="xs:string" />
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element name="DPBCExtension" type="xs:int" />
+          <xs:element minOccurs="0" name="dateAtAddress" type="xs:dateTime" />
+          <xs:element name="default" type="xs:boolean" />
+          <xs:element minOccurs="0" name="description" type="xs:string" />
+          <xs:element name="entityId" type="xs:int" />
+          <xs:element name="futureDefaultAddress" type="xs:boolean" />
+          <xs:element name="monthsAtAddress" type="xs:int" />
+          <xs:element minOccurs="0" name="postalCode" type="xs:string" />
+          <xs:element minOccurs="0" name="prevAddress" type="xs:string" />
+          <xs:element name="qasAddressVerified" type="xs:boolean" />
+          <xs:element minOccurs="0" name="startDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="stateCode" type="xs:string" />
+          <xs:element name="stateCountyId" type="xs:int" />
+          <xs:element name="stateProvId" type="xs:int" />
+          <xs:element minOccurs="0" name="stopDate" type="xs:dateTime" />
+          <xs:element name="toVerify" type="xs:boolean" />
+          <xs:element minOccurs="0" name="updateBizDate" type="xs:dateTime" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsContactEmailInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="contactEmailAddress" type="xs:string" />
+          <xs:element name="contactEmailId" type="xs:int" />
+          <xs:element minOccurs="0" name="contactEmailType" type="xs:string" />
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element name="default" type="xs:boolean" />
+          <xs:element name="entityId" type="xs:int" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsContactPhoneInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="default" type="xs:boolean" />
+          <xs:element name="entityId" type="xs:int" />
+          <xs:element minOccurs="0" name="phoneAreaCode" type="xs:string" />
+          <xs:element minOccurs="0" name="phoneExtension" type="xs:string" />
+          <xs:element name="phoneId" type="xs:int" />
+          <xs:element minOccurs="0" name="phoneNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="phoneType" type="xs:string" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsMonetaryHoldInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="accountId" type="xs:long" />
+          <xs:element minOccurs="0" name="accountNumber" type="xs:string" />
+          <xs:element name="automatedHoldHDrId" type="xs:long" />
+          <xs:element name="chequeNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element name="depositAmount" type="xs:int" />
+          <xs:element minOccurs="0" name="description" type="xs:string" />
+          <xs:element minOccurs="0" name="expiryDate" type="xs:dateTime" />
+          <xs:element name="holdAmount" type="xs:long" />
+          <xs:element minOccurs="0" name="holdName" type="xs:string" />
+          <xs:element minOccurs="0" name="holdType" type="xs:string" />
+          <xs:element name="monetaryHistId" type="xs:long" />
+          <xs:element name="monetaryHoldId" type="xs:int" />
+          <xs:element minOccurs="0" name="origExpiryDate" type="xs:dateTime" />
+          <xs:element name="pledgeAccountId" type="xs:int" />
+          <xs:element name="reduceWithBal" type="xs:boolean" />
+          <xs:element minOccurs="0" name="relationShipClassName" type="xs:string" />
+          <xs:element name="relationshipClassId" type="xs:long" />
+          <xs:element minOccurs="0" name="routingNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="startDate" type="xs:dateTime" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+          <xs:element name="userId" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsOnlineRealTimeFeeInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="accountId" type="xs:long" />
+          <xs:element name="amount" type="xs:long" />
+          <xs:element name="customerId" type="xs:long" />
+          <xs:element minOccurs="0" name="feeDescription" type="xs:string" />
+          <xs:element minOccurs="0" name="portfolioSuffix" type="xs:string" />
+          <xs:element name="waiveFee" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsOtherInInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="currency" type="xs:string" />
+          <xs:element minOccurs="0" name="financialControlCode" type="xs:string" />
+          <xs:element name="inUndoSuspenseFinControlId" type="xs:long" />
+          <xs:element name="otherInAmount" type="xs:long" />
+          <xs:element name="otherInFinancialControlId" type="xs:long" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="undosuspenseAmountInfos" nillable="true" type="tns:wsUndoSuspenseAmountInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsUndoSuspenseAmountInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="currency" type="xs:string" />
+          <xs:element name="totalAmount" type="xs:long" />
+          <xs:element name="undoSuspenseFinControlId" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsOtherOutInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="currency" type="xs:string" />
+          <xs:element minOccurs="0" name="financialControlCode" type="xs:string" />
+          <xs:element name="otherOutAmount" type="xs:long" />
+          <xs:element name="otherOutFinancialControlId" type="xs:long" />
+          <xs:element name="outUndoSuspenseFinControlId" type="xs:long" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="undosuspenseAmountInfos" nillable="true" type="tns:wsUndoSuspenseAmountInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="createUpdateMonHistGroupResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="sendRequestForMonetaryOverride">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sendRequestForMonetaryOverrideResponse">
+    <xs:sequence>
+      <xs:element name="sendRequestForMonetaryOverrideResponse" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getRSPReceiptInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="monHistHeadId" type="xs:long" />
+      <xs:element name="activityIndexId" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getRSPReceiptInfoResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="getRSPReceiptInfoResponse" type="tns:wsTaxReceiptInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsTaxReceiptInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsReceiptConfigHeaderInfo">
+        <xs:sequence>
+          <xs:element name="acctPortfolioId" type="xs:long" />
+          <xs:element name="acctPortfolioNumber" type="xs:long" />
+          <xs:element minOccurs="0" name="addressLine1" type="xs:string" />
+          <xs:element minOccurs="0" name="addressLine2" type="xs:string" />
+          <xs:element minOccurs="0" name="addressLine3" type="xs:string" />
+          <xs:element minOccurs="0" name="addressLine4" type="xs:string" />
+          <xs:element minOccurs="0" name="addressUnit" type="xs:string" />
+          <xs:element name="amendDuplicateAllowed" type="xs:boolean" />
+          <xs:element minOccurs="0" name="annotation" type="xs:string" />
+          <xs:element minOccurs="0" name="city" type="xs:string" />
+          <xs:element minOccurs="0" name="countryDescription" type="xs:string" />
+          <xs:element name="customerId" type="xs:long" />
+          <xs:element minOccurs="0" name="effectiveDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="generateDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="miscDetails" type="xs:string" />
+          <xs:element name="origTaxReceiptId" type="xs:long" />
+          <xs:element name="planNumber" type="xs:long" />
+          <xs:element minOccurs="0" name="postalCode" type="xs:string" />
+          <xs:element minOccurs="0" name="receiptStatus" type="xs:string" />
+          <xs:element minOccurs="0" name="recipientName" type="xs:string" />
+          <xs:element name="registeredPlanId" type="xs:long" />
+          <xs:element name="reportedTaxYear" type="xs:int" />
+          <xs:element minOccurs="0" name="stateDescription" type="xs:string" />
+          <xs:element name="stateProvId" type="xs:long" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="taxReceiptDetailInfos" nillable="true" type="tns:wsTaxReceiptDetailInfo" />
+          <xs:element name="taxReceiptId" type="xs:long" />
+          <xs:element minOccurs="0" name="taxReceiptUSInfo" type="tns:wsTaxReceiptUSInfo" />
+          <xs:element minOccurs="0" name="tin" type="xs:string" />
+          <xs:element name="transmittalJobInstanceId" type="xs:long" />
+          <xs:element name="userId" type="xs:long" />
+          <xs:element minOccurs="0" name="userName" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsReceiptConfigHeaderInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="aggregateTableName" type="xs:string" />
+          <xs:element minOccurs="0" name="className" type="xs:string" />
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element name="deleted" type="xs:long" />
+          <xs:element name="documentId" type="xs:long" />
+          <xs:element name="i18nStringsId" type="xs:long" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="receiptConfigDetailInfos" nillable="true" type="tns:wsReceiptConfigDetailInfo" />
+          <xs:element name="receiptConfigHeaderId" type="xs:long" />
+          <xs:element minOccurs="0" name="receiptType" type="xs:string" />
+          <xs:element minOccurs="0" name="styleSheet" type="xs:string" />
+          <xs:element name="taxYear" type="xs:int" />
+          <xs:element name="updateCounter" type="xs:long" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsTaxReceiptDetailInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsReceiptConfigDetailInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="fieldValue" type="xs:string" />
+          <xs:element name="taxReceiptDetailId" type="xs:long" />
+          <xs:element name="taxReceiptId" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsReceiptConfigDetailInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="batchDisplay" type="xs:boolean" />
+          <xs:element name="batchTotal" type="xs:boolean" />
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="dataType" type="xs:string" />
+          <xs:element name="deleted" type="xs:long" />
+          <xs:element minOccurs="0" name="description" type="xs:string" />
+          <xs:element name="editable" type="xs:boolean" />
+          <xs:element minOccurs="0" name="fieldName" type="xs:string" />
+          <xs:element name="fieldSize" type="xs:int" />
+          <xs:element name="receipt" type="xs:boolean" />
+          <xs:element name="receiptConfigDetailId" type="xs:long" />
+          <xs:element name="receiptConfigHeaderId" type="xs:long" />
+          <xs:element name="report" type="xs:boolean" />
+          <xs:element name="required" type="xs:boolean" />
+          <xs:element minOccurs="0" name="uiControlType" type="xs:string" />
+          <xs:element name="updateCounter" type="xs:long" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+          <xs:element name="visible" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsTaxReceiptUSInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="commentCode" type="xs:string" />
+          <xs:element name="correctionType" type="xs:int" />
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element name="iraPlanId" type="xs:long" />
+          <xs:element name="monHistListenermappingId" type="xs:long" />
+          <xs:element name="primaryReasonCodeId" type="xs:long" />
+          <xs:element name="realEstateProvId" type="xs:int" />
+          <xs:element minOccurs="0" name="recipientNumber" type="xs:string" />
+          <xs:element name="secondaryReasonCodeId" type="xs:long" />
+          <xs:element name="taxReceiptUSId" type="xs:long" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getOverrideQueueById">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="id" type="xs:long" />
+      <xs:element minOccurs="0" name="type" type="xs:string" />
+      <xs:element name="populateDetails" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getOverrideQueueByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="getOverrideQueueByIdResponse" nillable="true" type="tns:wsOverrideQueueInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsOverrideQueueInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="branchId" type="xs:int" />
+          <xs:element minOccurs="0" name="branchName" type="xs:string" />
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element name="customerId" type="xs:int" />
+          <xs:element minOccurs="0" name="customerName" type="xs:string" />
+          <xs:element minOccurs="0" name="miscInformation" type="xs:string" />
+          <xs:element name="monetaryHistId" type="xs:long" />
+          <xs:element name="overrideHistHeaderId" type="xs:long" />
+          <xs:element name="overrideQueueId" type="xs:long" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="overrides" nillable="true" type="tns:wsOverrideInfo" />
+          <xs:element name="status" type="xs:int" />
+          <xs:element minOccurs="0" name="superVisorInfo" type="tns:wsUserInfo" />
+          <xs:element name="supervisorId" type="xs:int" />
+          <xs:element name="tellerId" type="xs:int" />
+          <xs:element minOccurs="0" name="tellerName" type="xs:string" />
+          <xs:element minOccurs="0" name="tranInfo" type="tns:wsTransactionInfo" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getDocumentByMonetaryHistoryId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="monetaryHistIdList" type="xs:long" />
+      <xs:element minOccurs="0" name="receiptType" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getDocumentByMonetaryHistoryIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="getDocumentByMonetaryHistoryIdResponse" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getGroupTransactionHistories">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="groupHeaderID" type="xs:int" />
+      <xs:element minOccurs="0" name="wspageInfo" type="tns:wsPageInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsPageInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="currentPage" type="xs:int" />
+          <xs:element name="numRecsInCurrentPage" type="xs:int" />
+          <xs:element name="numRecsPerPage" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="otherColumns" nillable="true" type="tns:wsNameValueInfo" />
+          <xs:element minOccurs="0" name="sortColumn" type="xs:string" />
+          <xs:element minOccurs="0" name="sortOrder" type="xs:string" />
+          <xs:element name="totalRecords" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsNameValueInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="colName" type="xs:string" />
+          <xs:element minOccurs="0" name="dataType" type="xs:string" />
+          <xs:element name="editable" type="xs:boolean" />
+          <xs:element minOccurs="0" name="name" type="xs:string" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="value" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getGroupTransactionHistoriesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="getGroupTransactionHistoriesResponse" type="tns:wsRecordInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsRecordInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="pageInfo" type="tns:wsPageInfo" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="records" nillable="true" type="tns:wsBaseInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="findOverrideQueueWithOverrides">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="overrideQueueId" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findOverrideQueueWithOverridesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="findOverrideQueueWithOverridesResponse" type="tns:wsOverrideQueueInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getMonetaryTransactionInfos">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="id" type="xs:long" />
+      <xs:element name="isGroupId" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getMonetaryTransactionInfosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="getMonetaryTransactionInfosResponse" nillable="true" type="tns:wsTransactionInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doMonetaryTransaction">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" name="wstransactionInfo" type="tns:wsTransactionInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doMonetaryTransactionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="doMonetaryTransactionResponse" type="tns:wsTransactionResponseInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsTransactionResponseInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="monetaryHistoryId" type="xs:long" />
+          <xs:element minOccurs="0" name="postedDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="status" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getWithholdingTaxRates">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="customerId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getWithholdingTaxRatesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="getWithholdingTaxRatesResponse" nillable="true" type="tns:wsWithholdingTaxRateInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsWithholdingTaxRateInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="nonResident" type="xs:boolean" />
+          <xs:element name="rate" type="xs:double" />
+          <xs:element name="transactionLevel" type="xs:long" />
+          <xs:element minOccurs="0" name="type" type="xs:string" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element name="withholdingTaxRateId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getTransCodeCreditsDebits">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getTransCodeCreditsDebitsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="getTransCodeCreditsDebitsResponse" nillable="true" type="tns:wsNameValueInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reAssignSupervisor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="id" type="xs:int" />
+      <xs:element name="monHistId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="reAssignSupervisorResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="reAssignSupervisorResponse" type="tns:wsOverrideQueueInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="processResolveForBatch">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" name="wsmonBatchInfo" type="tns:wsMonetaryBatchDetailInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsMonetaryBatchDetailInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="accountId" type="xs:long" />
+          <xs:element name="checkNumber" type="xs:long" />
+          <xs:element name="clobTableId" type="xs:long" />
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="currencyCode" type="xs:string" />
+          <xs:element name="customerId" type="xs:long" />
+          <xs:element name="deleted" type="xs:long" />
+          <xs:element name="descriptionId" type="xs:long" />
+          <xs:element name="doublepayment" type="xs:boolean" />
+          <xs:element minOccurs="0" name="effectiveDate" type="xs:dateTime" />
+          <xs:element name="exceptionUserId" type="xs:long" />
+          <xs:element name="externalTypeTran" type="xs:boolean" />
+          <xs:element minOccurs="0" name="feeType" type="xs:string" />
+          <xs:element name="fmmonHistId" type="xs:long" />
+          <xs:element minOccurs="0" name="jobName" type="xs:string" />
+          <xs:element name="manualHandle" type="xs:boolean" />
+          <xs:element name="manualHandleUserId" type="xs:long" />
+          <xs:element minOccurs="0" name="manualHandleUserLogonName" type="xs:string" />
+          <xs:element minOccurs="0" name="micrAccountNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="miscDetails" type="xs:string" />
+          <xs:element name="monetaryBatchDetailId" type="xs:long" />
+          <xs:element name="monetaryBatchId" type="xs:long" />
+          <xs:element name="officialChq" type="xs:boolean" />
+          <xs:element name="offset" type="xs:int" />
+          <xs:element minOccurs="0" name="origStatusFirstMode" type="xs:string" />
+          <xs:element name="originalMonBatchDetailId" type="xs:long" />
+          <xs:element name="portfolioNumber" type="xs:long" />
+          <xs:element name="preTranCallBackFlag" type="xs:int" />
+          <xs:element name="reasonCodeId" type="xs:long" />
+          <xs:element minOccurs="0" name="referenceNumber" type="xs:string" />
+          <xs:element name="residual" type="xs:boolean" />
+          <xs:element minOccurs="0" name="status" type="xs:string" />
+          <xs:element name="stopPayment" type="xs:int" />
+          <xs:element name="suffixNumber" type="xs:long" />
+          <xs:element minOccurs="0" name="tranType" type="xs:string" />
+          <xs:element name="tranTypeId" type="xs:long" />
+          <xs:element name="transDescId" type="xs:long" />
+          <xs:element name="transactionAmount" type="xs:long" />
+          <xs:element name="trnsfrAccountId" type="xs:long" />
+          <xs:element name="trnsfrPortfolioNumber" type="xs:long" />
+          <xs:element name="trnsfrSuffixNumber" type="xs:long" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+          <xs:element name="warehoused" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="processResolveForBatchResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="updateStatusForOverride">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="overrideQueueId" type="xs:int" />
+      <xs:element name="status" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateStatusForOverrideResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="undoMonetaryTransactionWithUndoMonetaryIdInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="wsundoMonetaryIdInfos" nillable="true" type="tns:wsUndoMonetaryIdInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsUndoMonetaryIdInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="monHistId" type="xs:long" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="montranHistDetailIds" nillable="true" type="xs:long" />
+          <xs:element name="sharedBranch" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="undoMonetaryTransactionWithUndoMonetaryIdInfoResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getReprintReceiptForMonetaryHstoryId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="monetaryHistId" type="xs:long" />
+      <xs:element minOccurs="0" name="receiptType" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getReprintReceiptForMonetaryHstoryIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="getReprintReceiptForMonetaryHstoryIdResponse" type="tns:byteArrayOutputStream" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="markCentralMonTransId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="monHistId" type="xs:int" />
+      <xs:element name="monHistIdCentral" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="markCentralMonTransIdResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="findOverrideQueueByPrimaryKey">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="overrideQueueId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findOverrideQueueByPrimaryKeyResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="findOverrideQueueByPrimaryKeyResponse" type="tns:wsOverrideQueueInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getLoanDisbursalDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="loanAccountId" type="xs:long" />
+      <xs:element minOccurs="0" name="effDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getLoanDisbursalDetailsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="getLoanDisbursalDetailsResponse" type="tns:wsTransactionInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="calculateSavDepUnpaidInterest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="accountId" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="calculateSavDepUnpaidInterestResponse">
+    <xs:sequence>
+      <xs:element name="calculateSavDepUnpaidInterestResponse" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getMonhistIdbyAccountId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="accountId" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getMonhistIdbyAccountIdResponse">
+    <xs:sequence>
+      <xs:element name="getMonhistIdbyAccountIdResponse" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="calculateGSTForFeeProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="wsparameters" nillable="true" type="tns:wsTransactionParameterInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="calculateGSTForFeeProductResponse">
+    <xs:sequence>
+      <xs:element name="calculateGSTForFeeProductResponse" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="markTransactionTransmitted">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="monHistId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="markTransactionTransmittedResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="calculateGSTForMiscProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="wsparameters" nillable="true" type="tns:wsTransactionParameterInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="calculateGSTForMiscProductResponse">
+    <xs:sequence>
+      <xs:element name="calculateGSTForMiscProductResponse" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getRegisteredCalcDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="accountId" type="xs:long" />
+      <xs:element name="transactionAmount" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getRegisteredCalcDetailsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="getRegisteredCalcDetailsResponse" type="tns:wsRegisteredCalcDetailInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsRegisteredCalcDetailInfo">
+    <xs:sequence>
+      <xs:element name="ampRate" type="xs:double" />
+      <xs:element name="ampTaxAmount" type="xs:long" />
+      <xs:element name="annualMinAmount" type="xs:long" />
+      <xs:element name="fedRate" type="xs:double" />
+      <xs:element name="fedTaxAmount" type="xs:long" />
+      <xs:element name="nonResident" type="xs:boolean" />
+      <xs:element name="provRate" type="xs:double" />
+      <xs:element name="provTaxAmount" type="xs:long" />
+      <xs:element name="quebec" type="xs:boolean" />
+      <xs:element name="RRIF" type="xs:boolean" />
+      <xs:element name="registeredPlanId" type="xs:int" />
+      <xs:element name="YTDWithdrawals" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getChequeReleaseDate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="customerId" type="xs:int" />
+      <xs:element name="chequeAmount" type="xs:int" />
+      <xs:element minOccurs="0" name="holdName" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getChequeReleaseDateResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="getChequeReleaseDateResponse" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getStatusForOverride">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="overrideQueueId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getStatusForOverrideResponse">
+    <xs:sequence>
+      <xs:element name="getStatusForOverrideResponse" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doMonetaryTransferHomeBanking">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" name="wstrInfo" type="tns:wsMemberTransferInfo" />
+      <xs:element minOccurs="0" name="hbUserid" type="xs:string" />
+      <xs:element minOccurs="0" name="hbPwd" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsMemberTransferInfo">
+    <xs:sequence>
+      <xs:element name="amountTransfer" type="xs:long" />
+      <xs:element minOccurs="0" name="fromAccount" type="tns:wsFromAccountInfo" />
+      <xs:element minOccurs="0" name="toAccount" type="tns:wsToAccountInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsFromAccountInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="portfolioNumber" type="xs:int" />
+          <xs:element name="suffix" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsToAccountInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="portfolioNumber" type="xs:int" />
+          <xs:element name="suffix" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="doMonetaryTransferHomeBankingResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="doMonetaryTransferHomeBankingResponse" type="tns:wsTransferResultInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsTransferResultInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsAccountSummaryInfo">
+        <xs:sequence>
+          <xs:element name="fromAccountBalance" type="xs:long" />
+          <xs:element name="toAccountBalance" type="xs:long" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsAccountSummaryInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="abbreviation" type="xs:string" />
+          <xs:element minOccurs="0" name="accountCategory" type="xs:string" />
+          <xs:element name="accountNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="accountType" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="associateAccountArray" nillable="true" type="tns:wsAssociateAccountInfo" />
+          <xs:element minOccurs="0" name="associateType" type="xs:string" />
+          <xs:element name="availableBalance" type="xs:long" />
+          <xs:element name="balance" type="xs:long" />
+          <xs:element name="creditLimit" type="xs:long" />
+          <xs:element minOccurs="0" name="currency" type="xs:string" />
+          <xs:element minOccurs="0" name="description" type="xs:string" />
+          <xs:element name="mbrShareAccount" type="xs:boolean" />
+          <xs:element name="minimumPayment" type="xs:long" />
+          <xs:element name="preferredShare" type="xs:boolean" />
+          <xs:element name="previousYearToDayInterest" type="xs:double" />
+          <xs:element minOccurs="0" name="RTAAccountId" type="xs:string" />
+          <xs:element name="rate" type="xs:double" />
+          <xs:element minOccurs="0" name="restrictionType" type="xs:string" />
+          <xs:element minOccurs="0" name="status" type="xs:string" />
+          <xs:element name="suffix" type="xs:int" />
+          <xs:element name="unavailableFunds" type="xs:long" />
+          <xs:element name="yearToDayInterest" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsAssociateAccountInfo">
+    <xs:sequence>
+      <xs:element name="accountId" type="xs:int" />
+      <xs:element name="accountPortfolioNumber" type="xs:int" />
+      <xs:element name="accountSuffixNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="firstName" type="xs:string" />
+      <xs:element minOccurs="0" name="lastName" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="calculateSavDepInterest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" name="effectiveDate" type="xs:string" />
+      <xs:element name="accountId" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="calculateSavDepInterestResponse">
+    <xs:sequence>
+      <xs:element name="calculateSavDepInterestResponse" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doFinancialTransactionSharedBranch">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" name="transactionInfo" type="tns:wsTransactionInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doFinancialTransactionSharedBranchResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="doFinancialTransactionSharedBranchResponse" type="tns:wsTransactionResponseInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="createUpdateManualChqClearingDetailsInfos">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="wsmanChqClearingInfos" nillable="true" type="tns:wsManualChqClearingDetailInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsManualChqClearingDetailInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="accountId" type="xs:int" />
+          <xs:element name="acctSuffixNumber" type="xs:int" />
+          <xs:element name="acctportfolioNumber" type="xs:int" />
+          <xs:element name="amount" type="xs:long" />
+          <xs:element name="chequeNumber" type="xs:long" />
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="currencyCode" type="xs:string" />
+          <xs:element name="deleted" type="xs:int" />
+          <xs:element name="exceptionId" type="xs:long" />
+          <xs:element minOccurs="0" name="institutionId" type="xs:string" />
+          <xs:element minOccurs="0" name="itemSequenceNumber" type="xs:string" />
+          <xs:element name="jobInstanceId" type="xs:long" />
+          <xs:element minOccurs="0" name="MICRAcctNumber" type="xs:string" />
+          <xs:element name="manualChqClringDetailsId" type="xs:long" />
+          <xs:element name="manualChqClringHeaderId" type="xs:long" />
+          <xs:element minOccurs="0" name="miscDetails" type="xs:string" />
+          <xs:element name="monetaryBatchDetailId" type="xs:long" />
+          <xs:element minOccurs="0" name="status" type="xs:string" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="createUpdateManualChqClearingDetailsInfosResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="createUpdateManualChqClearingDetailsInfosResponse" nillable="true" type="tns:wsManualChqClearingDetailInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getPaymentDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="monHistId" type="xs:int" />
+      <xs:element name="monHistDetailId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getPaymentDetailsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="getPaymentDetailsResponse" nillable="true" type="tns:wsMonTranHistDetailComponentInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getChequeImageByID">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="chequeImageID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getChequeImageByIDResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="getChequeImageByIDResponse" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="isAnyBuySellPendingForTeller">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="isAnyBuySellPendingForTellerResponse">
+    <xs:sequence>
+      <xs:element name="isAnyBuySellPendingForTellerResponse" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getTransactionInfoForOnlineRealTimeFee">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" name="wstransInfo" type="tns:wsTransactionInfo" />
+      <xs:element name="isDWRCall" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getTransactionInfoForOnlineRealTimeFeeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="getTransactionInfoForOnlineRealTimeFeeResponse" type="tns:wsTransactionInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getTellerBuySellInfoByUserId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="userId" type="xs:int" />
+      <xs:element minOccurs="0" name="fromDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="toDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getTellerBuySellInfoByUserIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="getTellerBuySellInfoByUserIdResponse" nillable="true" type="tns:wsTellerBuySellInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getAllChqClearingDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getAllChqClearingDetailsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="getAllChqClearingDetailsResponse" nillable="true" type="tns:wsManualChqClearingDetailInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findChqClearingDetailsByStatus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" name="status" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findChqClearingDetailsByStatusResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="findChqClearingDetailsByStatusResponse" nillable="true" type="tns:wsManualChqClearingDetailInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getReceiptForMonetaryHstoryIdByReprint">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="monetaryHistId" type="xs:long" />
+      <xs:element minOccurs="0" name="receiptType" type="xs:string" />
+      <xs:element name="isReprint" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getReceiptForMonetaryHstoryIdByReprintResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="getReceiptForMonetaryHstoryIdByReprintResponse" type="tns:byteArrayOutputStream" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="processODInterestCalc">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" name="wstrItemInfo" type="tns:wsTransactionItemInfo" />
+      <xs:element minOccurs="0" name="effectiveDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="processODInterestCalcResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="processODInterestCalcResponse" type="tns:wsTransactionItemInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateStatusForMonetaryOverride">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="monetaryHistId" type="xs:int" />
+      <xs:element name="status" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateStatusForMonetaryOverrideResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="undoMonetaryTransaction">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="monHistId" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="montranHistDetailIdArray" nillable="true" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="undoMonetaryTransactionResponse">
+    <xs:sequence>
+      <xs:element name="undoMonetaryTransactionResponse" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getMonetaryOverrideQueueById">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="id" type="xs:long" />
+      <xs:element minOccurs="0" name="type" type="xs:string" />
+      <xs:element name="populateDetails" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getMonetaryOverrideQueueByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="getMonetaryOverrideQueueByIdResponse" nillable="true" type="tns:wsOverrideQueueInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getRecordsForBatch">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" name="wsmanualEftInfo" type="tns:wsManualEftInfo" />
+      <xs:element minOccurs="0" name="wsPageInfo" type="tns:wsPageInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsManualEftInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="jobCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="searchValue" type="xs:string" />
+      <xs:element minOccurs="0" name="searchValueCriteria" type="xs:string" />
+      <xs:element minOccurs="0" name="startDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="stopDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getRecordsForBatchResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="getRecordsForBatchResponse" nillable="true" type="tns:wsMonetaryBatchDetailInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doExpressTransaction">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" name="wsexpTran" type="tns:wsExpressTransactionInfo" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="wsoverrides" nillable="true" type="tns:wsOverrideInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsExpressTransactionInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="group" type="xs:boolean" />
+          <xs:element name="journalTransactions" type="xs:boolean" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="transactionInfos" nillable="true" type="tns:wsTransactionInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="doExpressTransactionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="doExpressTransactionResponse" type="tns:wsExpressTransactionDetailInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsExpressTransactionDetailInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="accountId" type="xs:long" />
+          <xs:element minOccurs="0" name="accountNumber" type="xs:string" />
+          <xs:element name="acctPortfolioNumber" type="xs:int" />
+          <xs:element name="acctSuffixNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="batchType" type="xs:string" />
+          <xs:element name="chequeAmount" type="xs:long" />
+          <xs:element name="customerId" type="xs:long" />
+          <xs:element minOccurs="0" name="customerName" type="xs:string" />
+          <xs:element minOccurs="0" name="holdName" type="xs:string" />
+          <xs:element name="onUs" type="xs:boolean" />
+          <xs:element name="primaryAcct" type="xs:boolean" />
+          <xs:element name="sequenceNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="tranType" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="processPostForBatch">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" name="wsmonBatchInfo" type="tns:wsMonetaryBatchDetailInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="processPostForBatchResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getReceiptForMonetaryHstoryIdWithSignature">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="monetaryHistId" type="xs:long" />
+      <xs:element minOccurs="0" name="receiptType" type="xs:string" />
+      <xs:element minOccurs="0" name="signature1" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="signature2" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getReceiptForMonetaryHstoryIdWithSignatureResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="getReceiptForMonetaryHstoryIdWithSignatureResponse" type="tns:byteArrayOutputStream" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="onUsFundsVerification">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="wschequesInInfo" nillable="true" type="tns:wsChequesInInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="onUsFundsVerificationResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="processLoanPaymentsNoTrans">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" name="wstrItemInfo" type="tns:wsTransactionItemInfo" />
+      <xs:element minOccurs="0" name="effectiveDate" type="xs:dateTime" />
+      <xs:element name="anticipatedPmtsMade" type="xs:boolean" />
+      <xs:element name="isMonetaryTransac" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="processLoanPaymentsNoTransResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="processLoanPaymentsNoTransResponse" type="tns:wsTransactionItemInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doGroupTransaction">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="monHistGroupHeaderId" type="xs:long" />
+      <xs:element minOccurs="0" name="action" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doGroupTransactionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="doGroupTransactionResponse" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="processLoanPaymentsWithEffectiveDate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" name="wstrItemInfo" type="tns:wsTransactionItemInfo" />
+      <xs:element minOccurs="0" name="effectiveDate" type="xs:dateTime" />
+      <xs:element name="anticipatedPmtsMade" type="xs:boolean" />
+      <xs:element name="isMonetaryTransac" type="xs:boolean" />
+      <xs:element name="isStepSixLoaded" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="processLoanPaymentsWithEffectiveDateResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="processLoanPaymentsWithEffectiveDateResponse" type="tns:wsTransactionItemInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="calcWdrlComponents">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" name="wsadvWdrlInfo" type="tns:wsAdvanceWdrlInfo" />
+      <xs:element minOccurs="0" name="effectiveDate" type="xs:dateTime" />
+      <xs:element name="calculateServiceFee" type="xs:boolean" />
+      <xs:element name="calculateNRTax" type="xs:boolean" />
+      <xs:element name="calculateInterestAdj" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsAdvanceWdrlInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="acctBalance" type="xs:long" />
+          <xs:element name="acctId" type="xs:long" />
+          <xs:element name="actionType" type="xs:int" />
+          <xs:element name="availBalance" type="xs:long" />
+          <xs:element name="closeAcct" type="xs:boolean" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="contributionItems" nillable="true" type="tns:wsContributionItemInfo" />
+          <xs:element name="customerId" type="xs:long" />
+          <xs:element name="registeredAcct" type="xs:boolean" />
+          <xs:element minOccurs="0" name="termPenaltyCalcInfo" type="tns:wsTermPenaltyCalcInfo" />
+          <xs:element name="tranAmount" type="xs:long" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="tranParameters" nillable="true" type="tns:wsTransactionParameterInfo" />
+          <xs:element name="wdrlAmount" type="xs:long" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="withholdingItems" nillable="true" type="tns:wsWithholdingItemInfo" />
+          <xs:element name="withinGracePeriod" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsTermPenaltyCalcInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="calcFromOpenDate" type="xs:int" />
+          <xs:element name="calcPenaltyAmtUsingPenaltyRate" type="xs:boolean" />
+          <xs:element name="penaltyAmount" type="xs:long" />
+          <xs:element name="penaltyDaysToCalc" type="xs:int" />
+          <xs:element name="penaltyGraceDays" type="xs:int" />
+          <xs:element name="penaltyRate" type="xs:double" />
+          <xs:element minOccurs="0" name="penaltyRateType" type="xs:string" />
+          <xs:element name="waived" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="calcWdrlComponentsResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getReceiptForMonetaryHstoryIds">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="monetaryHistIdList" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="receiptType" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getReceiptForMonetaryHstoryIdsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="getReceiptForMonetaryHstoryIdsResponse" type="tns:byteArrayOutputStream" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getJobCodesForBatchEFT">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getJobCodesForBatchEFTResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="getJobCodesForBatchEFTResponse" nillable="true" type="tns:wsJobInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsJobInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="allRoles" type="xs:int" />
+          <xs:element name="archivalConfigHeaderId" type="xs:long" />
+          <xs:element minOccurs="0" name="archivalConfigHeaderInfo" type="tns:wsArchivalConfigHeaderInfo" />
+          <xs:element name="archivalImplemented" type="xs:boolean" />
+          <xs:element name="batchResultFlag" type="xs:int" />
+          <xs:element minOccurs="0" name="code" type="xs:string" />
+          <xs:element name="controlTotal" type="xs:long" />
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="defaultEmailGroup" type="xs:string" />
+          <xs:element name="deleted" type="xs:long" />
+          <xs:element minOccurs="0" name="description" type="xs:string" />
+          <xs:element name="emailToInstDefault" type="xs:long" />
+          <xs:element name="headerType" type="xs:int" />
+          <xs:element name="isLocked" type="xs:boolean" />
+          <xs:element name="itemDetailFlag" type="xs:int" />
+          <xs:element name="itemExceptionFlag" type="xs:int" />
+          <xs:element name="jobDefId" type="xs:long" />
+          <xs:element minOccurs="0" name="jobFilterCode" type="xs:string" />
+          <xs:element name="jobFilterId" type="xs:long" />
+          <xs:element name="jobGroupId" type="xs:long" />
+          <xs:element minOccurs="0" name="jobGroupName" type="xs:string" />
+          <xs:element name="jobId" type="xs:long" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="jobParamInfo" nillable="true" type="tns:wsJobParamInfo" />
+          <xs:element minOccurs="0" name="logonName" type="xs:string" />
+          <xs:element name="majorVersion" type="xs:int" />
+          <xs:element name="maxMinutes" type="xs:long" />
+          <xs:element name="minMinutes" type="xs:long" />
+          <xs:element name="minorVersion" type="xs:int" />
+          <xs:element minOccurs="0" name="progCode" type="xs:string" />
+          <xs:element minOccurs="0" name="progName" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="roleInfoArray" nillable="true" type="tns:wsRoleInfo" />
+          <xs:element name="sourceId" type="xs:long" />
+          <xs:element minOccurs="0" name="statusCode" type="xs:string" />
+          <xs:element name="systemJob" type="xs:boolean" />
+          <xs:element minOccurs="0" name="typeCode" type="xs:string" />
+          <xs:element name="updateCounter" type="xs:long" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+          <xs:element name="userId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsArchivalConfigHeaderInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="adhocKeywordValue" type="xs:string" />
+          <xs:element name="allowAsAttached" type="xs:boolean" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="archivalConfigDetailInfos" nillable="true" type="tns:wsArchivalConfigDetailInfo" />
+          <xs:element name="archivalConfigHeaderId" type="xs:long" />
+          <xs:element minOccurs="0" name="archivalMethod" type="xs:string" />
+          <xs:element minOccurs="0" name="archivalType" type="xs:string" />
+          <xs:element name="attachedFile" type="xs:boolean" />
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="fileSuffix" type="xs:string" />
+          <xs:element name="fileType" type="xs:long" />
+          <xs:element minOccurs="0" name="filename" type="xs:string" />
+          <xs:element minOccurs="0" name="status" type="xs:string" />
+          <xs:element name="thirdPartyConfigId" type="xs:long" />
+          <xs:element minOccurs="0" name="thirdPartyDocumentType" type="xs:string" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsArchivalConfigDetailInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="archivalConfigDetailId" type="xs:long" />
+          <xs:element name="archivalConfigHeaderId" type="xs:long" />
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="dataElementName" type="xs:string" />
+          <xs:element minOccurs="0" name="dataObjectName" type="xs:string" />
+          <xs:element minOccurs="0" name="thirdPartyKeyword" type="xs:string" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="usage" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsJobParamInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element name="callbackRequired" type="xs:boolean" />
+          <xs:element minOccurs="0" name="categoryName" type="xs:string" />
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element name="deleted" type="xs:long" />
+          <xs:element minOccurs="0" name="displayProperty" type="xs:string" />
+          <xs:element minOccurs="0" name="displayValue" type="xs:string" />
+          <xs:element name="jobParamId" type="xs:long" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="nameValueContainerInfo" nillable="true" type="tns:wsNameValueContainerInfo" />
+          <xs:element minOccurs="0" name="paramName" type="xs:string" />
+          <xs:element minOccurs="0" name="paramType" type="xs:string" />
+          <xs:element minOccurs="0" name="paramValue" type="xs:string" />
+          <xs:element minOccurs="0" name="paramdefCategory" type="xs:string" />
+          <xs:element name="required" type="xs:boolean" />
+          <xs:element name="updateCounter" type="xs:long" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="wsNameValueContainerInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="categoryName" type="xs:string" />
+          <xs:element name="containerId" type="xs:long" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="nameValueInfo" nillable="true" type="tns:wsNameValueInfo" />
+          <xs:element minOccurs="0" name="status" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getAllWithholdingTaxRates">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getAllWithholdingTaxRatesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="getAllWithholdingTaxRatesResponse" nillable="true" type="tns:wsWithholdingTaxRateInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getLoanPaymentDetails">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="loanAccountId" type="xs:int" />
+      <xs:element name="paymentAmount" type="xs:long" />
+      <xs:element minOccurs="0" name="effectiveDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getLoanPaymentDetailsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="getLoanPaymentDetailsResponse" type="tns:wsTransactionInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getListOfUsersByOverrides">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="overrideCodes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="productCodes" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getListOfUsersByOverridesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="getListOfUsersByOverridesResponse" nillable="true" type="tns:wsUserListInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsUserListInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="accountingCenter" type="xs:string" />
+          <xs:element minOccurs="0" name="deviceControl" type="xs:string" />
+          <xs:element minOccurs="0" name="formattedName" type="xs:string" />
+          <xs:element minOccurs="0" name="logonName" type="xs:string" />
+          <xs:element name="system" type="xs:boolean" />
+          <xs:element minOccurs="0" name="userFirstName" type="xs:string" />
+          <xs:element name="userId" type="xs:int" />
+          <xs:element minOccurs="0" name="userLastName" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="findLoanFees">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="loanAccountId" type="xs:long" />
+      <xs:element name="isApplication" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findLoanFeesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="findLoanFeesResponse" nillable="true" type="tns:wsLoanFeeInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="validateManualChequeEntry">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" name="wsmanChqClearingInfo" type="tns:wsManualChqClearingDetailInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="validateManualChequeEntryResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="validateManualChequeEntryResponse" type="tns:wsManualChqClearingDetailInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doMonetaryTransferTeleBank">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" name="wstrInfo" type="tns:wsMemberTransferInfo" />
+      <xs:element minOccurs="0" name="pinNumber" type="xs:string" />
+      <xs:element name="accountNumber" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doMonetaryTransferTeleBankResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="doMonetaryTransferTeleBankResponse" type="tns:wsTransferResultInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="processReturnForBatch">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" name="wsmonBatchInfo" type="tns:wsMonetaryBatchDetailInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="processReturnForBatchResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getTextOnlyReceiptForMonetaryHstoryId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="monetaryHistIdList" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="receiptType" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getTextOnlyReceiptForMonetaryHstoryIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="getTextOnlyReceiptForMonetaryHstoryIdResponse" nillable="true" type="tns:byteArrayOutputStream" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateWithholdingTaxRates">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="wstaxRates" nillable="true" type="tns:wsWithholdingTaxRateInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateWithholdingTaxRatesResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="doFinancialControlTransaction">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" name="wstranInfo" type="tns:wsFinancialControlTransactionInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wsFinancialControlTransactionInfo">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:wsBaseInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="batchStatus" type="xs:string" />
+          <xs:element name="clobTableId" type="xs:long" />
+          <xs:element minOccurs="0" name="createTimestamp" type="xs:dateTime" />
+          <xs:element name="creditToBranchId" type="xs:long" />
+          <xs:element name="creditToFinControlId" type="xs:long" />
+          <xs:element minOccurs="0" name="currencyExchange" type="tns:wsCurrencyExchangeInfo" />
+          <xs:element name="debitFromBranchId" type="xs:long" />
+          <xs:element name="debitFromFinControlId" type="xs:long" />
+          <xs:element name="deleted" type="xs:int" />
+          <xs:element minOccurs="0" name="effectiveDate" type="xs:dateTime" />
+          <xs:element name="finCtrlTransHistoryId" type="xs:long" />
+          <xs:element name="jobInstanceId" type="xs:long" />
+          <xs:element name="memberFacingComment" type="xs:boolean" />
+          <xs:element minOccurs="0" name="miscDetail" type="xs:string" />
+          <xs:element name="reasonCodeId" type="xs:long" />
+          <xs:element name="transactionAmount" type="xs:long" />
+          <xs:element name="updateCounter" type="xs:int" />
+          <xs:element minOccurs="0" name="updateTimestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="doFinancialControlTransactionResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="doMonetaryTransactionWithOverrides">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element minOccurs="0" name="wstransactionInfo" type="tns:wsTransactionInfo" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="wsoverrides" nillable="true" type="tns:wsOverrideInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="doMonetaryTransactionWithOverridesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="doMonetaryTransactionWithOverridesResponse" type="tns:wsTransactionResponseInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getStatusForMonetaryOverride">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="monetaryHistId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getStatusForMonetaryOverrideResponse">
+    <xs:sequence>
+      <xs:element name="getStatusForMonetaryOverrideResponse" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getReceiptForMonetaryHstoryId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="monetaryHistId" type="xs:long" />
+      <xs:element minOccurs="0" name="receiptType" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getReceiptForMonetaryHstoryIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="getReceiptForMonetaryHstoryIdResponse" type="tns:byteArrayOutputStream" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cancelOverrideRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="overrideQueueId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cancelOverrideRequestResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getOverrideQueueByMonHistId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="monetaryHistId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getOverrideQueueByMonHistIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="getOverrideQueueByMonHistIdResponse" type="tns:wsOverrideQueueInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="undoMonetaryTransactionById">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ispecContext" type="tns:iSpectrumWebServiceContext" />
+      <xs:element name="monHistId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="undoMonetaryTransactionByIdResponse">
+    <xs:sequence>
+      <xs:element name="undoMonetaryTransactionByIdResponse" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

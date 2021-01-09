@@ -1,0 +1,1428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://acxiom.com/visacontrolservice/ws/types" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://acxiom.com/visacontrolservice/ws/types" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:annotation>
+    <xs:documentation>
+01/05/05 - JCS - First draft.IdaScoreAction
+03/22/05 - JCS - Final draft.
+05/22/07 - JCS - Added IDA fields.
+05/24/07 - JCS - Made VAIS header required. Added SegmentError_Types to response messages.
+06/04/07 - JCS - Added ICS segments to each of the messages as a workaround to Axis' inability to handle schema choice keyword.
+07/13/07 - JCS - Modified months counter to be 5 in length to match the record layout.
+07/18/07 - JCS - Changed all xs:Dates to strings to match the ICS record layout.
+10/05/10 - CGB - Added new IdaSegments and VAISSortCode
+11/17/10 - CGB - Added InternetSegment and PreviousAddressSegment
+</xs:documentation>
+  </xs:annotation>
+  <xs:element name="AddDeclinedApplicationRq">
+    <xs:annotation>
+      <xs:documentation>Add a declined application request.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="RqHeader" />
+        <xs:element ref="AddDeclinedApplicationInfo" />
+        <xs:element minOccurs="0" ref="InternetSegment" />
+        <xs:element minOccurs="0" ref="PreviousAddressSegment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddDeclinedApplicationRs">
+    <xs:annotation>
+      <xs:documentation>Add a declined application response.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="VaisHeader" />
+        <xs:element minOccurs="0" name="IcsDeclinedApplicationSegment">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="RsHeader" />
+              <xs:element ref="AddDeclinedApplicationInfo" />
+              <xs:element ref="IdentificationSection" />
+              <xs:element ref="RecordInfo" />
+              <xs:element minOccurs="0" ref="StandardizedAddress" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" ref="IcsSegmentError" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddDeclinedApplicationInfo">
+    <xs:annotation>
+      <xs:documentation>Add a declined application information.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="TaxId" />
+        <xs:element name="Name" type="Name_Type">
+          <xs:annotation>
+            <xs:documentation>Applicant's name.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="Address" type="Address_Type">
+          <xs:annotation>
+            <xs:documentation>Applicant's address.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="PhoneNumber" type="PhoneNumber_Type">
+          <xs:annotation>
+            <xs:documentation>Applicant's phone number.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="MarketSegment" type="MarketSegment_Type">
+          <xs:annotation>
+            <xs:documentation>Market sgement option.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="Comment" type="Comment_Type">
+          <xs:annotation>
+            <xs:documentation>Free form comment area.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddApplicationRq">
+    <xs:annotation>
+      <xs:documentation>Add an application request.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="RqHeader" />
+        <xs:element ref="AddApplicationInfo" />
+        <xs:element minOccurs="0" ref="InternetSegment" />
+        <xs:element minOccurs="0" ref="PreviousAddressSegment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddApplicationRs">
+    <xs:annotation>
+      <xs:documentation>Add an application response.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="VaisHeader" />
+        <xs:element minOccurs="0" name="IcsAddApplicationSegment">
+          <xs:complexType>
+            <xs:sequence minOccurs="0">
+              <xs:element ref="RsHeader" />
+              <xs:element ref="AddApplicationInfo" />
+              <xs:element ref="IdentificationSection" />
+              <xs:element minOccurs="0" name="SsnDisputeCode" type="Code_Type" />
+              <xs:element minOccurs="0" ref="SsnActivity" />
+              <xs:element minOccurs="0" ref="PhoneActivity" />
+              <xs:element minOccurs="0" ref="AddressActivity" />
+              <xs:element ref="RecordInfo" />
+              <xs:element minOccurs="0" maxOccurs="10" ref="UnauthorizedUse" />
+              <xs:element minOccurs="0" maxOccurs="4" ref="BankruptcyInfo" />
+              <xs:element minOccurs="0" ref="StandardizedAddress" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="IcsSegmentError" type="SegmentError_Type" />
+        <xs:element minOccurs="0" ref="IdaSegment" />
+        <xs:element minOccurs="0" ref="IdaSegmentError" />
+        <xs:element minOccurs="0" ref="IdaScoreSegment" />
+        <xs:element minOccurs="0" ref="IdaScoreSegmentError" />
+        <xs:element minOccurs="0" ref="IdaCreditOpticsAcquisitionsSegment" />
+        <xs:element minOccurs="0" ref="IdaCreditOpticsAcquisitionsSegmentError" />
+        <xs:element minOccurs="0" ref="IdaScoreActionSegment" />
+        <xs:element minOccurs="0" ref="IdaScoreActionSegmentError" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddApplicationInfo">
+    <xs:annotation>
+      <xs:documentation>Add an application information.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="TaxId" />
+        <xs:element name="Name" type="Name_Type">
+          <xs:annotation>
+            <xs:documentation>Appliicant's name.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="Address" type="Address_Type">
+          <xs:annotation>
+            <xs:documentation>Applicant's address.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="PhoneNumber" type="PhoneNumber_Type">
+          <xs:annotation>
+            <xs:documentation>Applicant's phone number including area code.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="MarketSegment" type="MarketSegment_Type">
+          <xs:annotation>
+            <xs:documentation>Market segment option.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="Comment" type="Comment_Type">
+          <xs:annotation>
+            <xs:documentation>Free form comment area.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="BankingSegment">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" name="AccountPerformanceData">
+                <xs:annotation>
+                  <xs:documentation>Request only -- provided by issuing members.</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="DateOfBirth">
+          <xs:annotation>
+            <xs:documentation>Date of birth</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="8" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="DriversLicenseInfo" type="DriversLicense_Type" />
+        <xs:element minOccurs="0" name="SecondPhoneNumber" type="PhoneNumber_Type">
+          <xs:annotation>
+            <xs:documentation>Applicant's secondary phone number including area code.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="DepositAccountNumber">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="16" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="ProductCode">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="2" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="AcquisitionChannel">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="2" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUnauthorizedUseRq">
+    <xs:annotation>
+      <xs:documentation>Add an unauthorized use request.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="RqHeader" />
+        <xs:element ref="AddUnauthorizedUseInfo" />
+        <xs:element minOccurs="0" ref="InternetSegment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUnauthorizedUseRs">
+    <xs:annotation>
+      <xs:documentation>Add an unauthorized use response.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="VaisHeader" />
+        <xs:element minOccurs="0" name="IcsAddUnauthorizedUseSegment">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="RsHeader" />
+              <xs:element ref="AddUnauthorizedUseInfo" />
+              <xs:element ref="IdentificationSection" />
+              <xs:element ref="RecordInfo" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" ref="IcsSegmentError" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddUnauthorizedUseInfo">
+    <xs:annotation>
+      <xs:documentation>Add an unauthorized use information.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="TaxId" />
+        <xs:element name="Name" type="Name_Type" />
+        <xs:element minOccurs="0" name="Address" type="Address_Type" />
+        <xs:element minOccurs="0" name="PhoneNumber" type="xs:string" />
+        <xs:element minOccurs="0" name="MarketSegment" type="MarketSegment_Type" />
+        <xs:element minOccurs="0" name="Comment" type="Comment_Type" />
+        <xs:element ref="UnauthorizedUseInfo" />
+        <xs:element minOccurs="0" name="BankingSegment">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" name="AccountPerformanceData" type="xs:string">
+                <xs:annotation>
+                  <xs:documentation>Request only -- provided by issuing members.</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnauthorizedUseInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="TypeCode">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="2" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="AccountNumber">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="16" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="AccountNumberExtension">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="6" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="CaseNumber">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="7" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="ArrestCode">
+          <xs:annotation>
+            <xs:documentation>Internet Fraud/Arrest Code</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="1" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="SendingZipCode">
+          <xs:annotation>
+            <xs:documentation>Required only for UU type 02.</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="9" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddInquiryRq">
+    <xs:annotation>
+      <xs:documentation>Add an inquiry request.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="RqHeader" />
+        <xs:element ref="AddInquiryInfo" />
+        <xs:element minOccurs="0" ref="InternetSegment" />
+        <xs:element minOccurs="0" ref="PreviousAddressSegment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddInquiryRs">
+    <xs:annotation>
+      <xs:documentation>Add an inquiry response.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="VaisHeader" />
+        <xs:element minOccurs="0" name="IcsAddInquirySegment">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="RsHeader" />
+              <xs:element ref="AddInquiryInfo" />
+              <xs:element ref="IdentificationSection" />
+              <xs:element minOccurs="0" name="SsnDisputeCode" type="Code_Type" />
+              <xs:element minOccurs="0" ref="SsnActivity" />
+              <xs:element minOccurs="0" ref="PhoneActivity" />
+              <xs:element minOccurs="0" ref="AddressActivity" />
+              <xs:element ref="RecordInfo" />
+              <xs:element minOccurs="0" maxOccurs="10" ref="UnauthorizedUse" />
+              <xs:element minOccurs="0" maxOccurs="4" ref="BankruptcyInfo" />
+              <xs:element minOccurs="0" ref="StandardizedAddress" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" ref="IcsSegmentError" />
+        <xs:element minOccurs="0" ref="IdaSegment" />
+        <xs:element minOccurs="0" ref="IdaSegmentError" />
+        <xs:element minOccurs="0" ref="IdaScoreSegment" />
+        <xs:element minOccurs="0" ref="IdaScoreSegmentError" />
+        <xs:element minOccurs="0" ref="IdaCreditOpticsAcquisitionsSegment" />
+        <xs:element minOccurs="0" ref="IdaCreditOpticsAcquisitionsSegmentError" />
+        <xs:element minOccurs="0" ref="IdaScoreActionSegment" />
+        <xs:element minOccurs="0" ref="IdaScoreActionSegmentError" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddInquiryInfo" type="Inquiry_Type">
+    <xs:annotation>
+      <xs:documentation>Add an inquiry information.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="RetroactiveInquiryRq">
+    <xs:annotation>
+      <xs:documentation>Retroactive inquiry request.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="RqHeader" />
+        <xs:element ref="RetroactiveInquiryInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetroactiveInquiryRs">
+    <xs:annotation>
+      <xs:documentation>Retroactive inquiry response.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="VaisHeader" />
+        <xs:element minOccurs="0" name="IcsRetroactiveInquirySegment">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="RsHeader" />
+              <xs:element ref="RetroactiveInquiryInfo" />
+              <xs:element ref="IdentificationSection" />
+              <xs:element minOccurs="0" name="SsnDisputeCode" type="Code_Type" />
+              <xs:element minOccurs="0" ref="SsnActivity" />
+              <xs:element minOccurs="0" ref="PhoneActivity" />
+              <xs:element minOccurs="0" ref="AddressActivity" />
+              <xs:element ref="RecordInfo" />
+              <xs:element minOccurs="0" maxOccurs="10" ref="UnauthorizedUse" />
+              <xs:element minOccurs="0" maxOccurs="4" ref="BankruptcyInfo" />
+              <xs:element minOccurs="0" ref="StandardizedAddress" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" ref="IcsSegmentError" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetroactiveInquiryInfo" type="Inquiry_Type">
+    <xs:annotation>
+      <xs:documentation>Retroactive inquiry information.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="DebitInquiryRq">
+    <xs:annotation>
+      <xs:documentation>Debit inquiry request.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="RqHeader" />
+        <xs:element ref="DebitInquiryInfo" />
+        <xs:element minOccurs="0" ref="InternetSegment" />
+        <xs:element minOccurs="0" ref="PreviousAddressSegment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DebitInquiryRs">
+    <xs:annotation>
+      <xs:documentation>Debit inquiry response.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="VaisHeader" />
+        <xs:element minOccurs="0" name="IcsDebitInquirySegment">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="RsHeader" />
+              <xs:element ref="DebitInquiryInfo" />
+              <xs:element ref="IdentificationSection" />
+              <xs:element minOccurs="0" name="SsnDisputeCode" type="Code_Type" />
+              <xs:element minOccurs="0" ref="SsnActivity" />
+              <xs:element minOccurs="0" ref="PhoneActivity" />
+              <xs:element minOccurs="0" ref="AddressActivity" />
+              <xs:element ref="RecordInfo" />
+              <xs:element minOccurs="0" maxOccurs="10" ref="UnauthorizedUse" />
+              <xs:element minOccurs="0" maxOccurs="4" ref="BankruptcyInfo" />
+              <xs:element minOccurs="0" ref="StandardizedAddress" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" ref="IcsSegmentError" />
+        <xs:element minOccurs="0" ref="IdaSegment" />
+        <xs:element minOccurs="0" ref="IdaSegmentError" />
+        <xs:element minOccurs="0" ref="IdaScoreSegment" />
+        <xs:element minOccurs="0" ref="IdaScoreSegmentError" />
+        <xs:element minOccurs="0" ref="IdaCreditOpticsAcquisitionsSegment" />
+        <xs:element minOccurs="0" ref="IdaCreditOpticsAcquisitionsSegmentError" />
+        <xs:element minOccurs="0" ref="IdaScoreActionSegment" />
+        <xs:element minOccurs="0" ref="IdaScoreActionSegmentError" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DebitInquiryInfo" type="Inquiry_Type">
+    <xs:annotation>
+      <xs:documentation>Debit inquiry information.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="NonBankcardInquiryRq">
+    <xs:annotation>
+      <xs:documentation>Non-bankcard inquiry request.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="RqHeader" />
+        <xs:element ref="NonBankcardInquiryInfo" />
+        <xs:element minOccurs="0" ref="InternetSegment" />
+        <xs:element minOccurs="0" ref="PreviousAddressSegment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NonBankcardInquiryRs">
+    <xs:annotation>
+      <xs:documentation>Non-bankcard inquiry response.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="VaisHeader" />
+        <xs:element minOccurs="0" name="IcsNonBankcardInquirySegment">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="RsHeader" />
+              <xs:element ref="NonBankcardInquiryInfo" />
+              <xs:element ref="IdentificationSection" />
+              <xs:element minOccurs="0" name="SsnDisputeCode" type="Code_Type" />
+              <xs:element minOccurs="0" ref="SsnActivity" />
+              <xs:element minOccurs="0" ref="PhoneActivity" />
+              <xs:element minOccurs="0" ref="AddressActivity" />
+              <xs:element ref="RecordInfo" />
+              <xs:element minOccurs="0" maxOccurs="10" ref="UnauthorizedUse" />
+              <xs:element minOccurs="0" maxOccurs="4" ref="BankruptcyInfo" />
+              <xs:element minOccurs="0" ref="StandardizedAddress" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" ref="IcsSegmentError" />
+        <xs:element minOccurs="0" ref="IdaSegment" />
+        <xs:element minOccurs="0" ref="IdaSegmentError" />
+        <xs:element minOccurs="0" ref="IdaScoreSegment" />
+        <xs:element minOccurs="0" ref="IdaScoreSegmentError" />
+        <xs:element minOccurs="0" ref="IdaCreditOpticsAcquisitionsSegment" />
+        <xs:element minOccurs="0" ref="IdaCreditOpticsAcquisitionsSegmentError" />
+        <xs:element minOccurs="0" ref="IdaScoreActionSegment" />
+        <xs:element minOccurs="0" ref="IdaScoreActionSegmentError" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NonBankcardInquiryInfo" type="Inquiry_Type">
+    <xs:annotation>
+      <xs:documentation>Non-bankcard inquiry information.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="AddDeleteRq">
+    <xs:annotation>
+      <xs:documentation>Add delete request.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="RqHeader" />
+        <xs:element ref="AddDeleteInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddDeleteRs">
+    <xs:annotation>
+      <xs:documentation>Add delete response.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="VaisHeader" />
+        <xs:element minOccurs="0" name="IcsAddDeleteSegment">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="RsHeader" />
+              <xs:element ref="IdentificationSection" />
+              <xs:element ref="RecordInfo" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" ref="IcsSegmentError" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddDeleteInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="OriginalEntryDate">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="5" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="OriginalLocator" type="Locator_Type" />
+        <xs:element name="MemberBin" type="Bin_Type" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IdentificationSection">
+    <xs:annotation>
+      <xs:documentation>Segment common to all responses.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="HostId">
+          <xs:annotation>
+            <xs:documentation>Host ID passed through from the request.</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="5" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="EntryDate">
+          <xs:annotation>
+            <xs:documentation>System processing date.</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="11" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="SevereErrorValidationCode" type="Code_Type" />
+        <xs:element minOccurs="0" name="SsnValidationCode" type="Code_Type" />
+        <xs:element minOccurs="0" name="NameValidationCode" type="Code_Type" />
+        <xs:element minOccurs="0" name="AddressValidationCode" type="Code_Type" />
+        <xs:element minOccurs="0" name="PhoneValidationCode" type="Code_Type" />
+        <xs:element minOccurs="0" name="UnauthorizedUseValidationCode" type="Code_Type" />
+        <xs:element minOccurs="0" name="AccountNumberValidationCode" type="Code_Type" />
+        <xs:element minOccurs="0" name="ArrestCodeValidationCode" type="Code_Type" />
+        <xs:element minOccurs="0" name="SendingZipCodeValidationCode" type="Code_Type" />
+        <xs:element minOccurs="0" name="SsnWarningCode" type="Code_Type" />
+        <xs:element minOccurs="0" name="PhoneWarningCode" type="Code_Type" />
+        <xs:element minOccurs="0" name="AddressWarningCode" type="Code_Type" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SsnActivity" type="ActivityCounter_Type">
+    <xs:annotation>
+      <xs:documentation>SSN application activity count.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="AddressActivity" type="ActivityCounter_Type">
+    <xs:annotation>
+      <xs:documentation>Address activity counters.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="PhoneActivity" type="ActivityCounter_Type">
+    <xs:annotation>
+      <xs:documentation>Phone activity counters.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="RecordInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="RequestRecordType">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="2" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="ResponseRecordType">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="2" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="OutputRecordSortField">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="3" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="DataElementResponseIndicator">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="1" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="MarketSegmentValidationCode">
+          <xs:annotation>
+            <xs:documentation>Valid values 0 to 2. If the value is not equal to 0,  the record type will be UK.</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="1" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="DeleteRecordsValidationCode">
+          <xs:annotation>
+            <xs:documentation>Valid values = 00, 99. If the value is not equal to 0, the record type will be ID.</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:minLength value="2" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="OriginalEntryDate">
+          <xs:annotation>
+            <xs:documentation>Present only for Deletes.</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="11" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="OriginalLocatorNumber">
+          <xs:annotation>
+            <xs:documentation>Present only for Deletes.</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="11" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="PhoneChangeIndicator">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="1" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BankruptcyInfo">
+    <xs:annotation>
+      <xs:documentation>Bankruptcy information.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Source">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="3" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="CourtId">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="3" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="FilingDate">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="6" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="TransactionId">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="8" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="DebtIndicator">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="1" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="FilingName">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="23" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="BankruptcyType">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="3" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="DisputeCode" type="Code_Type" />
+        <xs:element name="StatusCode">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="1" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="JudgeInitials">
+          <xs:annotation>
+            <xs:documentation>Bankruptcy judge's initials. Tag is not returned if the value is zero filled.</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="3" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnauthorizedUse">
+    <xs:annotation>
+      <xs:documentation>Unauthorized use information.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="TypeCode">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="2" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="DisputeCode" type="Code_Type" />
+        <xs:element name="AccountNumber">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="16" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="AccountNumberExtension">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="6" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="CaseNumber">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="7" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="ArrestCode">
+          <xs:annotation>
+            <xs:documentation>Internet Fraud/Arrest Code. Zero's are valid.</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="1" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="ZipCode">
+          <xs:annotation>
+            <xs:documentation>Optional, but required for Type 2.</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="5" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="ZipCodeExtension">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="4" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="RelationshipCode">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="1" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="OriginalEntryDate">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="6" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StandardizedAddress" type="Address_Type">
+    <xs:annotation>
+      <xs:documentation>Standardized address.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="PreviousAddressSegment" type="Address_Type">
+    <xs:annotation>
+      <xs:documentation>Previous address segment.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="RqHeader">
+    <xs:annotation>
+      <xs:documentation>Request header, containing elements common to all requests.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ConsumerIdentificationType">
+          <xs:annotation>
+            <xs:documentation>Assumes SSN unless 1 is entered; 1 = Tax ID Number</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="1" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="LayoutVersion">
+          <xs:annotation>
+            <xs:documentation>Record layout version. (Internal use only)</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="2" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="RequestOrigin" type="RequestOrigin_Type">
+          <xs:annotation>
+            <xs:documentation>Request origin type (Internal use only)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="CountryCode">
+          <xs:annotation>
+            <xs:documentation>ISO 3166 2-position country code.</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="2" />
+              <xs:minLength value="2" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="HostId">
+          <xs:annotation>
+            <xs:documentation>left justified; zero filled; for 3rd-party processor use only</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:minLength value="5" />
+              <xs:maxLength value="5" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="Locator" type="Locator_Type">
+          <xs:annotation>
+            <xs:documentation>Daily unique transaction identifier for the associated BIN.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element ref="Bin" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RsHeader">
+    <xs:annotation>
+      <xs:documentation>Response header, containing elements common to all responses.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ConsumerIdentificationType">
+          <xs:annotation>
+            <xs:documentation>Assumes SSN unless 1 is entered; 1 = Tax ID Number</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="1" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="LayoutVersion">
+          <xs:annotation>
+            <xs:documentation>Record layout version. (Internal use only)</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="2" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element minOccurs="0" name="RequestOrigin" type="RequestOrigin_Type">
+          <xs:annotation>
+            <xs:documentation>Request origin type (Internal use only)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="InternalProcessIndicator">
+          <xs:annotation>
+            <xs:documentation>N for UK records; otherwise, Y.</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="1" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element ref="Bin" />
+        <xs:element name="Locator" type="Locator_Type">
+          <xs:annotation>
+            <xs:documentation>Daily unique transaction identifier for the associated BIN.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="VaisSortCode">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:maxLength value="3" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Bin">
+    <xs:annotation>
+      <xs:documentation>Unique identifier assigned to the issuer.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ProcessorBin" type="Bin_Type">
+          <xs:annotation>
+            <xs:documentation>BIN for processor.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="MemberBin" type="Bin_Type">
+          <xs:annotation>
+            <xs:documentation>BIN for the member. </xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TaxId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Ssn" type="Ssn_Type">
+          <xs:annotation>
+            <xs:documentation>Social Security number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="TaxIdType">
+          <xs:annotation>
+            <xs:documentation>Indicator to identify the SSN field as an SSN or Federal Tax ID.</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:minLength value="1" />
+              <xs:maxLength value="1" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="Name_Type">
+    <xs:sequence>
+      <xs:element name="FirstName">
+        <xs:annotation>
+          <xs:documentation>First name.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="10" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="MiddleInitial">
+        <xs:annotation>
+          <xs:documentation>Middle initial.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="1" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="LastName">
+        <xs:annotation>
+          <xs:documentation>Last name.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="19" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Address_Type">
+    <xs:sequence>
+      <xs:element maxOccurs="2" name="AddressLine">
+        <xs:annotation>
+          <xs:documentation>The first line is the home address line. Utilize the second address line for apartment number.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="40" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="City">
+        <xs:annotation>
+          <xs:documentation>City</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="28" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="State">
+        <xs:annotation>
+          <xs:documentation>State</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2" />
+            <xs:minLength value="2" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ZipCode">
+        <xs:annotation>
+          <xs:documentation>Base 5 digit ZIP code.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="5" />
+            <xs:minLength value="5" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="ZipCodeExtension">
+        <xs:annotation>
+          <xs:documentation>4 digit ZIP code extension.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="4" />
+            <xs:minLength value="4" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="Ssn_Type">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="9" />
+      <xs:minLength value="9" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ResultSwitch_Type">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Q" />
+      <xs:enumeration value="R" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RequestOrigin_Type">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1" />
+      <xs:enumeration value="I">
+        <xs:annotation>
+          <xs:documentation>ICS interactive mode</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="S">
+        <xs:annotation>
+          <xs:documentation>
+			File Transfer</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Comment_Type">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="34" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="MarketSegment_Type">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Bin_Type">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="6" />
+      <xs:minLength value="6" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PhoneNumber_Type">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="10" />
+      <xs:minLength value="10" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="MonthCounter_Type">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="5" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Inquiry_Type">
+    <xs:sequence>
+      <xs:element minOccurs="0" ref="TaxId" />
+      <xs:element minOccurs="0" name="Name" type="Name_Type">
+        <xs:annotation>
+          <xs:documentation>Applicant's name.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Address" type="Address_Type">
+        <xs:annotation>
+          <xs:documentation>Applicant's address.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="PhoneNumber" type="PhoneNumber_Type">
+        <xs:annotation>
+          <xs:documentation>Applicant's phone number.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="MarketSegment" type="MarketSegment_Type">
+        <xs:annotation>
+          <xs:documentation>Market segment option.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="Comment" type="Comment_Type">
+        <xs:annotation>
+          <xs:documentation>Free form comment area.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="DateOfBirth">
+        <xs:annotation>
+          <xs:documentation>Applicant's date of birth.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="8" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="DriversLicenseInfo" type="DriversLicense_Type" />
+      <xs:element minOccurs="0" name="SecondPhoneNumber" type="PhoneNumber_Type">
+        <xs:annotation>
+          <xs:documentation>Applicant's secondary phone number.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="DepositAccountNumber" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Applicant's deposit or other account number.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ProductCode">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="AcquisitionChannel">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="2" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="Code_Type">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="2" />
+      <xs:maxLength value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Locator_Type">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="11" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EmailAddress_Type">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="42" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="DriversLicense_Type">
+    <xs:sequence>
+      <xs:element name="DriversLicenseNumber">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="30" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="StateOfIssuance">
+        <xs:annotation>
+          <xs:documentation>Must be a valid 2-position state code.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="2" />
+            <xs:maxLength value="2" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ActivityCounter_Type">
+    <xs:sequence>
+      <xs:element name="MonthsCounter1" type="MonthCounter_Type" />
+      <xs:element name="MonthsCounter2" type="MonthCounter_Type" />
+      <xs:element name="MonthsCounter3" type="MonthCounter_Type" />
+      <xs:element name="MonthsCounter4" type="MonthCounter_Type" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="IdaStatus_Type">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="IdaSeq_Type">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="30" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="IdaTimeStamp_Type">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="19" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Score_Type">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ResultCode_Type">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="3" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="IdaSegment_Type">
+    <xs:sequence>
+      <xs:element name="IdaStatus" type="IdaStatus_Type" />
+      <xs:element name="IdaSeq" type="IdaSeq_Type" />
+      <xs:element name="IdaTimeStamp" type="IdaTimeStamp_Type" />
+      <xs:element name="Score" type="Score_Type" />
+      <xs:element name="ResultCode1" type="ResultCode_Type" />
+      <xs:element name="ResultCode2" type="ResultCode_Type" />
+      <xs:element name="ResultCode3" type="ResultCode_Type" />
+      <xs:element name="ResultCode4" type="ResultCode_Type" />
+      <xs:element minOccurs="0" name="ResultCode5" type="ResultCode_Type" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IdaSegment" type="IdaSegment_Type" />
+  <xs:complexType name="InternetSegment_Type">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EmailAddress">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="42" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="IPAddress">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="39" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InternetSegment" type="InternetSegment_Type" />
+  <xs:element name="IdaScoreSegment" type="IdaSegment_Type" />
+  <xs:element name="IdaCreditOpticsAcquisitionsSegment" type="IdaSegment_Type" />
+  <xs:element name="IdaScoreActionSegment" type="IdaSegment_Type" />
+  <xs:simpleType name="VaisTime_Type">
+    <xs:annotation>
+      <xs:documentation>HHMMSS</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="6" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TranLevelIndicator_Type">
+    <xs:annotation>
+      <xs:documentation>00=No severe invalids; 02=Locator Number Not unique; non-numeric or all zero's; 03=Bin not valid; 11=Market segment options invalid; 12=Association code invalid; 15=Invalid record layout</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="2" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SegmentIndicator_Type">
+    <xs:annotation>
+      <xs:documentation>0=Options do not allow this segment; 1=present; e=Other error, see segment for details; S=Scheduled downtime for selected Vendor; T=Vendor was timed out/no response was received; U=Selected vendor unavailable for processing environment; F=Vendor Segment Suppressed due to Visa ICS Security Freeze; X=System exception; B=System Busy not able to process request</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="VaisHeader">
+    <xs:annotation>
+      <xs:documentation> The Transaction Header section is used for VAIS processing; provides the transaction reponse status of each VAIS service.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="RequestTime" type="VaisTime_Type" />
+        <xs:element name="ResponseTime" type="VaisTime_Type" />
+        <xs:element name="TransactionLevelIndicator" type="TranLevelIndicator_Type" />
+        <xs:element name="IcsIndicator" type="SegmentIndicator_Type" />
+        <xs:element name="EfundsIndicator" type="SegmentIndicator_Type" />
+        <xs:element name="IdaIndicator" type="SegmentIndicator_Type" />
+        <xs:element minOccurs="0" name="IdaScoreIndicator" type="SegmentIndicator_Type" />
+        <xs:element minOccurs="0" name="IdaCreditOpticsAcquisitionsIndicator" type="SegmentIndicator_Type" />
+        <xs:element minOccurs="0" name="IdaScoreActionIndicator" type="SegmentIndicator_Type" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="SegmentError_Type">
+    <xs:sequence>
+      <xs:element name="ErrorCode">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="3" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ErrorMessage" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IcsSegmentError" type="SegmentError_Type" />
+  <xs:element name="IdaSegmentError" type="SegmentError_Type" />
+  <xs:element name="IdaScoreSegmentError" type="SegmentError_Type" />
+  <xs:element name="IdaCreditOpticsAcquisitionsSegmentError" type="SegmentError_Type" />
+  <xs:element name="IdaScoreActionSegmentError" type="SegmentError_Type" />
+</xs:schema>

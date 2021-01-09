@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:cmlib="http://www.americafirst.com/20070315/CommonTypesLib" xmlns:tns="http://www.americafirst.com/20070315/StatementMaint" xmlns:cm="http://www.americafirst.com/20070315/CommonTypes" xmlns:hdr="http://www.americafirst.com/20070315/AFCUHeader" targetNamespace="http://www.americafirst.com/20070315/StatementMaint" xmlns="http://www.w3.org/2001/XMLSchema">
+  <import schemaLocation="../afcuheader/AFCUHeader.xsd" namespace="http://www.americafirst.com/20070315/AFCUHeader" />
+  <import schemaLocation="../commontypeslib/CommonTypesLib.xsd" namespace="http://www.americafirst.com/20070315/CommonTypesLib" />
+  <import schemaLocation="../commontypes/CommonTypes.xsd" namespace="http://www.americafirst.com/20070315/CommonTypes" />
+  <annotation>
+    <appinfo>
+			Statement Maintenance author sripley@americafirst.com
+		</appinfo>
+    <documentation>
+			This Schema supports the Web Services and Message Broker
+			flows for statement maintenance. The client will initiate
+			SOAP requests for: 
+			
+			1)inquireStatementOptions:  retrieve current account statement option
+			2)maintainStatementOptions: update account statement options
+			
+		</documentation>
+  </annotation>
+  <element name="inquireStatementOptionsRequest" type="tns:InquireStatementOptionsRequestType" />
+  <element name="inquireStatementOptionsResponse" type="tns:InquireStatementOptionsResponseType" />
+  <element name="maintainStatementOptionsRequest" type="tns:MaintainStatementOptionsRequestType" />
+  <element name="maintainStatementOptionsResponse" type="tns:MaintainStatementOptionsResponseType" />
+  <complexType name="InquireStatementOptionsRequestType">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="tns:InquireSORequestType" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireSORequestType">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireStatementOptionsResponseType">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderResponse" />
+      <element name="data" type="tns:InquireSOResponseType" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireSOResponseType">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <element minOccurs="0" maxOccurs="1" name="statementOption" type="tns:StatementOption" />
+      <element minOccurs="0" maxOccurs="1" name="doNotAsk" type="tns:DoNotAskOption" />
+      <element minOccurs="0" maxOccurs="1" name="webAccessDate" type="date" />
+    </sequence>
+  </complexType>
+  <complexType name="MaintainStatementOptionsRequestType">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="tns:MaintainSORequestType" />
+    </sequence>
+  </complexType>
+  <complexType name="MaintainSORequestType">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <sequence minOccurs="0" maxOccurs="1">
+        <element name="statementOption" type="tns:StatementOption" />
+        <element name="requestType" type="cm:RequestType" />
+      </sequence>
+      <element minOccurs="0" maxOccurs="1" name="doNotAsk" type="tns:DoNotAskOption" />
+      <element minOccurs="0" maxOccurs="1" name="pendingEStatement" type="boolean" />
+      <element minOccurs="0" maxOccurs="1" default="false" name="pendingConsentRequired" type="boolean" />
+    </sequence>
+  </complexType>
+  <complexType name="MaintainStatementOptionsResponseType">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderResponse" />
+      <element name="data" type="tns:MaintainSOResponseType" />
+    </sequence>
+  </complexType>
+  <complexType name="MaintainSOResponseType">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <element minOccurs="0" maxOccurs="1" name="transactionErrors" type="cm:TransactionErrors" />
+    </sequence>
+  </complexType>
+  <simpleType name="StatementOption">
+    <restriction base="string">
+      <enumeration value="paper" />
+      <enumeration value="electronic" />
+    </restriction>
+  </simpleType>
+  <simpleType name="DoNotAskOption">
+    <restriction base="cmlib:String_1">
+      <enumeration value="Y" />
+      <enumeration value="N" />
+    </restriction>
+  </simpleType>
+</schema>

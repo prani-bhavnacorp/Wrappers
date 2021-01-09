@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:tns="http://www.americafirst.com/20070315/AccountTransaction" xmlns:ctl="http://www.americafirst.com/20070315/CommonTypesLib" xmlns:cm="http://www.americafirst.com/20070315/CommonTypes" targetNamespace="http://www.americafirst.com/20070315/AccountTransaction" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema">
+  <include schemaLocation="CommonTransactionTypes.xsd" />
+  <import schemaLocation="../commontypeslib/CommonTypesLib.xsd" namespace="http://www.americafirst.com/20070315/CommonTypesLib" />
+  <import schemaLocation="../commontypes/CommonTypes.xsd" namespace="http://www.americafirst.com/20070315/CommonTypes" />
+  <annotation>
+    <documentation>Uses Cobol Copybook for File Maintenance: TRAN_FM</documentation>
+  </annotation>
+  <complexType name="FileMaintenanceRequest">
+    <complexContent mixed="false">
+      <extension base="tns:TranBaseTypeRequest">
+        <sequence>
+          <element name="accountID" type="cm:AccountID" />
+          <element name="subAccountID" type="cm:SubAccountID" />
+          <element name="fieldName" type="ctl:String_7" />
+          <element minOccurs="0" name="newValue" type="ctl:String_30" />
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="FileMaintenanceResponse">
+    <complexContent mixed="false">
+      <extension base="tns:TranBaseTypeResponse">
+        <sequence>
+          <element name="accountID" type="cm:AccountID" />
+          <element minOccurs="0" maxOccurs="1" name="subAccountID" type="cm:SubAccountID" />
+          <element name="fieldName" type="ctl:String_7" />
+          <element minOccurs="0" name="newValue" type="ctl:String_30" />
+          <element minOccurs="0" name="oldValue" type="ctl:String_30" />
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+</schema>

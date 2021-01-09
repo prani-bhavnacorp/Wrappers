@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:tns="http://www.americafirst.com/20070315/AccountTransaction" xmlns:ctl="http://www.americafirst.com/20070315/CommonTypesLib" xmlns:cm="http://www.americafirst.com/20070315/CommonTypes" targetNamespace="http://www.americafirst.com/20070315/AccountTransaction" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema">
+  <include schemaLocation="CommonTransactionTypes.xsd" />
+  <import schemaLocation="../commontypeslib/CommonTypesLib.xsd" namespace="http://www.americafirst.com/20070315/CommonTypesLib" />
+  <import schemaLocation="../commontypes/CommonTypes.xsd" namespace="http://www.americafirst.com/20070315/CommonTypes" />
+  <annotation>
+    <documentation>Uses Cobol Copybook for GenericTran: TRAN_XXX Version V001</documentation>
+  </annotation>
+  <complexType name="GenericTranResponse">
+    <complexContent mixed="false">
+      <extension base="tns:TranBaseTypeResponse">
+        <sequence>
+          <element name="accountID" type="cm:AccountID" />
+          <element minOccurs="0" maxOccurs="1" name="subAccountID" type="cm:SubAccountID" />
+          <element minOccurs="0" name="certificateID" type="cm:CertificateID" />
+          <element minOccurs="0" name="specialMsg" type="ctl:String_65" />
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+</schema>

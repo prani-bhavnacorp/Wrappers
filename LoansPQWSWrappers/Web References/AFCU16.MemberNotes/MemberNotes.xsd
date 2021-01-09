@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:tns="http://www.americafirst.com/20070420/MemberNotes" xmlns:hdr="http://www.americafirst.com/20070315/AFCUHeader" xmlns:common="http://www.americafirst.com/20070315/CommonTypes" xmlns:commontypes="http://www.americafirst.com/20070315/CommonTypesLib" xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.americafirst.com/20070420/MemberNotes" version="1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="../../_20070315/afcuheader/AFCUHeader.xsd" namespace="http://www.americafirst.com/20070315/AFCUHeader" />
+  <xsd:import schemaLocation="../../_20070315/commontypes/CommonTypes.xsd" namespace="http://www.americafirst.com/20070315/CommonTypes" />
+  <xsd:import schemaLocation="../../_20070315/commontypeslib/CommonTypesLib.xsd" namespace="http://www.americafirst.com/20070315/CommonTypesLib" />
+  <xsd:annotation>
+    <xsd:appinfo>
+			Member Note Search and Maintenance,
+			author jlowrey@us.ibm.com
+		</xsd:appinfo>
+    <xsd:documentation>
+		This Schema supports the Web Service, Message Broker Flow and WebSphere Application Server 
+		java program to provide Member Note operations to AFCU and Teller Pro systems.  This interface 
+		defines SOAP operations to 
+			1) Create a new Member Note synchronously 
+			2) Create a new Member Note asynchronously
+			3) Search for a Member Note
+			4) Maintain a Member Note
+			5) Reassign a Member Note
+			6) Remove a Member Note
+			7) Retrieve all information codes
+		This schema defines separate request and response messages for each operation.
+		The response to #1 will indicate if the Note was successfully created or not.
+		The response to #2 will only indicate that the request was received.
+		The response to #5 and #6 will only indicate the status of the operation.
+		Responses to #3 and #4 will include Note data, either the search results or the maintenance data.
+		For operations #1 and #2, the delinquency can be specified as not required.  If the delinquency 
+		is not required, no attempt to get it is made.  If the operation
+		is considered a failure it will be retried asynchronously in the case of #2.
+		</xsd:documentation>
+  </xsd:annotation>
+  <xsd:complexType name="maintainAndReassignMemberNoteRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element name="header" type="hdr:AFCUHeaderRequest" />
+      <xsd:element name="request" type="tns:maintainAndReassignNoteRequest" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="maintainAndReassignNoteRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element minOccurs="1" maxOccurs="1" name="noteID" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="subAccountID" type="common:SubAccountID" />
+      <xsd:element minOccurs="1" maxOccurs="1" name="assignEmployeeID" type="xsd:int" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="suspenseDate" type="xsd:date" />
+      <xsd:element minOccurs="1" maxOccurs="1" name="noteDetails" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="maintainAndReassignMemberNoteRequest" type="tns:maintainAndReassignMemberNoteRequest" />
+  <xsd:complexType name="maintainMemberNoteRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element name="header" type="hdr:AFCUHeaderRequest" />
+      <xsd:element name="request" type="tns:maintainNoteRequest" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="maintainNoteRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element minOccurs="1" maxOccurs="1" name="noteID" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="subAccountID" type="common:SubAccountID" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="suspenseDate" type="xsd:date" />
+      <xsd:element minOccurs="1" maxOccurs="1" name="noteDetails" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="maintainMemberNoteRequest" type="tns:maintainMemberNoteRequest" />
+  <xsd:complexType name="reassignMemberNotesRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element name="header" type="hdr:AFCUHeaderRequest" />
+      <xsd:element name="request" type="tns:reassignNotesRequest" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="reassignNotesRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element minOccurs="1" maxOccurs="1" name="noteID" type="xsd:string" />
+      <xsd:element minOccurs="1" maxOccurs="1" name="assignEmployeeID" type="xsd:int" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="reassignMemberNotesRequest" type="tns:reassignMemberNotesRequest" />
+  <xsd:complexType name="addInformationCodeMemberNoteRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element name="header" type="hdr:AFCUHeaderRequest" />
+      <xsd:element name="request" type="tns:addInformationCodeNoteRequest" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="addInformationCodeNoteRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element minOccurs="1" maxOccurs="1" name="accountID" type="common:AccountID" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="subAccountID" type="common:SubAccountID" />
+      <xsd:element minOccurs="1" maxOccurs="1" name="informationCode" type="commontypes:String_1" />
+      <xsd:element minOccurs="1" maxOccurs="1" name="noteDetails" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="suspenseDate" type="xsd:date" />
+      <xsd:element minOccurs="0" maxOccurs="1" default="true" name="delinquencyRequired" type="xsd:boolean" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="addInformationCodeMemberNoteRequest" type="tns:addInformationCodeMemberNoteRequest" />
+  <xsd:complexType name="RemoveInformationCodeMemberNoteRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element name="header" type="hdr:AFCUHeaderRequest" />
+      <xsd:element name="request" type="tns:RemoveInformationCodeNoteRequest" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="RemoveInformationCodeNoteRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element minOccurs="1" maxOccurs="1" name="accountID" type="common:AccountID" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="subAccountID" type="common:SubAccountID" />
+      <xsd:element minOccurs="1" maxOccurs="1" name="informationCode" type="commontypes:String_1" />
+      <xsd:element minOccurs="1" maxOccurs="1" name="noteDetails" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" default="true" name="delinquencyRequired" type="xsd:boolean" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="removeInformationCodeRequest" type="tns:RemoveInformationCodeMemberNoteRequest" />
+  <xsd:element name="removeInformationCodeResponse" type="tns:RemoveInformationCodeMemberNoteResponse" />
+  <xsd:complexType name="RemoveInformationCodeMemberNoteResponse">
+    <xsd:sequence>
+      <xsd:element name="status" type="hdr:AFCUHeaderResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="addMemberNoteRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element name="header" type="hdr:AFCUHeaderRequest" />
+      <xsd:element name="request" type="tns:addNoteRequest" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="addNoteRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element minOccurs="1" maxOccurs="1" name="accountID" type="common:AccountID" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="subAccountID" type="common:SubAccountID" />
+      <xsd:element minOccurs="1" maxOccurs="1" name="noteDetails" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="suspenseDate" type="xsd:date" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="assignEmployeeID" type="xsd:int" />
+      <xsd:element minOccurs="0" maxOccurs="1" default="true" name="delinquencyRequired" type="xsd:boolean" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="addMemberNoteRequest" type="tns:addMemberNoteRequest" />
+  <xsd:complexType name="addAccountWarningsRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element name="header" type="hdr:AFCUHeaderRequest" />
+      <xsd:element name="request" type="tns:addWarningsRequest" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="addWarningsRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element minOccurs="1" maxOccurs="1" name="accountID" type="common:AccountID" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="note" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="collectionCodeID" type="commontypes:NonNegativeInteger_3" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="instructions" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="warningID" type="commontypes:NonNegativeInteger_3" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="addAccountWarningsRequest" type="tns:addAccountWarningsRequest" />
+  <xsd:complexType name="inquireAccountWarningsRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element name="header" type="hdr:AFCUHeaderRequest" />
+      <xsd:element name="request" type="tns:inquireWarningsRequest" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="inquireWarningsRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element minOccurs="1" maxOccurs="1" name="accountID" type="common:AccountID" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="inquireAccountWarningsRequest" type="tns:inquireAccountWarningsRequest" />
+  <xsd:complexType name="inquireAccountWarningsHistoryRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element name="header" type="hdr:AFCUHeaderRequest" />
+      <xsd:element name="request" type="tns:inquireWarningsHistoryRequest" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="inquireWarningsHistoryRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element minOccurs="1" maxOccurs="1" name="accountID" type="common:AccountID" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="inquireAccountWarningsHistoryRequest" type="tns:inquireAccountWarningsHistoryRequest" />
+  <xsd:complexType name="maintainAccountWarningsRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element name="header" type="hdr:AFCUHeaderRequest" />
+      <xsd:element name="request" type="tns:maintainWarningsRequest" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="maintainWarningsRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element minOccurs="1" maxOccurs="1" name="accountID" type="common:AccountID" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="note" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="collectionCodeID" type="commontypes:NonNegativeInteger_3" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="instructions" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="warningID" type="commontypes:NonNegativeInteger_3" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="maintainAccountWarningsRequest" type="tns:maintainAccountWarningsRequest" />
+  <xsd:complexType name="removeCollectionDetailWarningRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element name="header" type="hdr:AFCUHeaderRequest" />
+      <xsd:element name="request" type="tns:removeCollectionDetailRequest" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="removeCollectionDetailRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element minOccurs="1" maxOccurs="1" name="accountID" type="common:AccountID" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="removeCollectionDetailWarningRequest" type="tns:removeCollectionDetailWarningRequest" />
+  <xsd:complexType name="removeRestrictionWarningRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element name="header" type="hdr:AFCUHeaderRequest" />
+      <xsd:element name="request" type="tns:removeRestrictionRequest" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="removeRestrictionRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element minOccurs="1" maxOccurs="1" name="accountID" type="common:AccountID" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="removeRestrictionWarningRequest" type="tns:removeRestrictionWarningRequest" />
+  <xsd:complexType name="removeWarningRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element name="header" type="hdr:AFCUHeaderRequest" />
+      <xsd:element name="request" type="tns:removeWarningRequestData" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="removeWarningRequestData">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element minOccurs="1" maxOccurs="1" name="accountID" type="common:AccountID" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="removeWarningRequest" type="tns:removeWarningRequest" />
+  <xsd:complexType name="inquireMemberNotesRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element name="header" type="hdr:AFCUHeaderRequest" />
+      <xsd:element name="request" type="tns:inquireNotesRequest" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="inquireNotesRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element minOccurs="1" maxOccurs="1" name="accountID" type="common:AccountID" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="inquireMemberNotesRequest" type="tns:inquireMemberNotesRequest" />
+  <xsd:complexType name="inquireMemberNotesHistoryRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element name="header" type="hdr:AFCUHeaderRequest" />
+      <xsd:element name="request" type="tns:inquireNotesHistoryRequest" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="inquireNotesHistoryRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element minOccurs="1" maxOccurs="1" name="accountID" type="common:AccountID" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="inquireMemberNotesHistoryRequest" type="tns:inquireMemberNotesHistoryRequest" />
+  <xsd:complexType name="removeMemberNotesRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element name="header" type="hdr:AFCUHeaderRequest" />
+      <xsd:element name="request" type="tns:removeNotesRequest" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="removeNotesRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element minOccurs="1" maxOccurs="1" name="noteID" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="removeMemberNotesRequest" type="tns:removeMemberNotesRequest" />
+  <xsd:complexType name="inquireSuspenseMemberNotesRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element name="header" type="hdr:AFCUHeaderRequest" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="inquireSuspenseMemberNotesRequest" type="tns:inquireSuspenseMemberNotesRequest" />
+  <xsd:complexType name="inquireSuspenseMemberNotesByBranchRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element name="header" type="hdr:AFCUHeaderRequest" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="inquireSuspenseMemberNotesByBranchRequest" type="tns:inquireSuspenseMemberNotesRequest" />
+  <xsd:complexType name="inquireFicheDataRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element name="header" type="hdr:AFCUHeaderRequest" />
+      <xsd:element name="request" type="tns:inquireFicheRequest" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="inquireFicheRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element minOccurs="1" maxOccurs="1" name="accountID" type="common:AccountID" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="inquireFicheDataRequest" type="tns:inquireFicheDataRequest" />
+  <xsd:element name="addMemberNoteResponse" type="tns:addMemberNoteResponse" />
+  <xsd:complexType name="addMemberNoteResponse">
+    <xsd:sequence>
+      <xsd:element name="status" type="hdr:AFCUHeaderResponse" />
+      <xsd:element minOccurs="0" name="data" type="tns:addNoteResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="addNoteResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="1" name="note" type="tns:memberNote" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="addInformationCodeMemberNoteResponse" type="tns:addInformationCodeMemberNoteResponse" />
+  <xsd:complexType name="addInformationCodeMemberNoteResponse">
+    <xsd:sequence>
+      <xsd:element name="status" type="hdr:AFCUHeaderResponse" />
+      <xsd:element minOccurs="0" name="data" type="tns:addInformationCodeNoteResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="addInformationCodeNoteResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="1" name="note" type="tns:memberNote" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="inquireMemberNotesResponse" type="tns:inquireMemberNotesResponse" />
+  <xsd:complexType name="inquireMemberNotesResponse">
+    <xsd:sequence>
+      <xsd:element name="status" type="hdr:AFCUHeaderResponse" />
+      <xsd:element minOccurs="0" name="data" type="tns:inquireNotesResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="inquireNotesResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="note" type="tns:memberNote" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="inquireMemberNotesHistoryResponse" type="tns:inquireMemberNotesHistoryResponse" />
+  <xsd:complexType name="inquireMemberNotesHistoryResponse">
+    <xsd:sequence>
+      <xsd:element name="status" type="hdr:AFCUHeaderResponse" />
+      <xsd:element minOccurs="0" name="data" type="tns:inquireNotesHistoryResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="inquireNotesHistoryResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="noteHistory" type="tns:memberNoteHistory" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="removeMemberNotesResponse" type="tns:removeMemberNotesResponse" />
+  <xsd:complexType name="removeMemberNotesResponse">
+    <xsd:sequence>
+      <xsd:element name="status" type="hdr:AFCUHeaderResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="reassignMemberNotesResponse" type="tns:reassignMemberNotesResponse" />
+  <xsd:complexType name="reassignMemberNotesResponse">
+    <xsd:sequence>
+      <xsd:element name="status" type="hdr:AFCUHeaderResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="maintainAndReassignMemberNoteResponse" type="tns:maintainAndReassignMemberNoteResponse" />
+  <xsd:complexType name="maintainAndReassignMemberNoteResponse">
+    <xsd:sequence>
+      <xsd:element name="status" type="hdr:AFCUHeaderResponse" />
+      <xsd:element minOccurs="0" name="data" type="tns:maintainAndReassignNoteResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="maintainAndReassignNoteResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" name="notes" type="tns:memberNote" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="maintainMemberNoteResponse" type="tns:maintainMemberNoteResponse" />
+  <xsd:complexType name="maintainMemberNoteResponse">
+    <xsd:sequence>
+      <xsd:element name="status" type="hdr:AFCUHeaderResponse" />
+      <xsd:element minOccurs="0" name="data" type="tns:maintainNoteResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="maintainNoteResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" name="notes" type="tns:memberNote" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="inquireSuspenseMemberNotesByBranchResponse" type="tns:inquireSuspenseMemberNotesByBranchResponse" />
+  <xsd:complexType name="inquireSuspenseMemberNotesByBranchResponse">
+    <xsd:sequence>
+      <xsd:element name="status" type="hdr:AFCUHeaderResponse" />
+      <xsd:element minOccurs="0" name="data" type="tns:inquireSuspenseNotesByBranchResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="inquireSuspenseNotesByBranchResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="note" type="tns:memberNote" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="inquireSuspenseMemberNotesResponse" type="tns:inquireSuspenseMemberNotesResponse" />
+  <xsd:complexType name="inquireSuspenseMemberNotesResponse">
+    <xsd:sequence>
+      <xsd:element name="status" type="hdr:AFCUHeaderResponse" />
+      <xsd:element minOccurs="0" name="data" type="tns:inquireSuspenseNotesResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="inquireSuspenseNotesResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="note" type="tns:memberNote" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="addWarningsResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="1" name="warning" type="tns:accountWarning" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="addAccountWarningsResponse" type="tns:addAccountWarningsResponse" />
+  <xsd:complexType name="addAccountWarningsResponse">
+    <xsd:sequence>
+      <xsd:element name="status" type="hdr:AFCUHeaderResponse" />
+      <xsd:element minOccurs="0" name="data" type="tns:addWarningsResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="inquireWarningsResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="1" name="warning" type="tns:accountWarning" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="inquireAccountWarningsResponse" type="tns:inquireAccountWarningsResponse" />
+  <xsd:complexType name="inquireAccountWarningsResponse">
+    <xsd:sequence>
+      <xsd:element name="status" type="hdr:AFCUHeaderResponse" />
+      <xsd:element minOccurs="0" name="data" type="tns:inquireWarningsResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="maintainWarningsResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="1" name="warning" type="tns:accountWarning" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="maintainAccountWarningsResponse" type="tns:maintainAccountWarningsResponse" />
+  <xsd:complexType name="maintainAccountWarningsResponse">
+    <xsd:sequence>
+      <xsd:element name="status" type="hdr:AFCUHeaderResponse" />
+      <xsd:element minOccurs="0" name="data" type="tns:maintainWarningsResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="removeCollectionDetailWarningResponse" type="tns:removeCollectionDetailWarningResponse" />
+  <xsd:complexType name="removeCollectionDetailWarningResponse">
+    <xsd:sequence>
+      <xsd:element name="status" type="hdr:AFCUHeaderResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="removeRestrictionWarningResponse" type="tns:removeRestrictionWarningResponse" />
+  <xsd:complexType name="removeRestrictionWarningResponse">
+    <xsd:sequence>
+      <xsd:element name="status" type="hdr:AFCUHeaderResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="removeWarningResponse" type="tns:removeWarningResponse" />
+  <xsd:complexType name="removeWarningResponse">
+    <xsd:sequence>
+      <xsd:element name="status" type="hdr:AFCUHeaderResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="inquireWarningsHistoryResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="warningHistory" type="tns:accountWarningHistory" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="inquireAccountWarningsHistoryResponse" type="tns:inquireAccountWarningsHistoryResponse" />
+  <xsd:complexType name="inquireAccountWarningsHistoryResponse">
+    <xsd:sequence>
+      <xsd:element name="status" type="hdr:AFCUHeaderResponse" />
+      <xsd:element minOccurs="0" name="data" type="tns:inquireWarningsHistoryResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="inquireFicheDataResponse" type="tns:inquireFicheDataResponse" />
+  <xsd:complexType name="inquireFicheDataResponse">
+    <xsd:sequence>
+      <xsd:element name="status" type="hdr:AFCUHeaderResponse" />
+      <xsd:element minOccurs="0" name="data" type="tns:inquireFicheResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="inquireFicheResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="ficheData" type="tns:ficheData" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="collectionDetail">
+    <xsd:all>
+      <xsd:element minOccurs="0" maxOccurs="1" name="note" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="collectionCodeID" type="commontypes:NonNegativeInteger_3" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="noteDate" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="collectionCode" type="xsd:string" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="restriction">
+    <xsd:all>
+      <xsd:element minOccurs="0" maxOccurs="1" name="instructions" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="instructionsDate" type="xsd:dateTime" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="warning">
+    <xsd:all>
+      <xsd:element minOccurs="0" maxOccurs="1" name="description" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="warningID" type="commontypes:NonNegativeInteger_3" />
+    </xsd:all>
+  </xsd:complexType>
+  <xsd:complexType name="accountWarning">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="1" name="accountID" type="common:AccountID" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="collectionDetail" type="tns:collectionDetail" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="restriction" type="tns:restriction" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="warning" type="tns:warning" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="accountWarningHistory">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="1" name="accountID" type="common:AccountID" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="changeDate" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="field" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="value" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="changedByName" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="memberNote">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="1" name="noteID" type="xsd:string" />
+      <xsd:element minOccurs="1" maxOccurs="1" name="accountID" type="common:AccountID" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="subAccountID" type="common:SubAccountID" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="noteDate" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="suspenseDate" type="xsd:date" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="accountDLQ" type="commontypes:NonNegativeInteger_4" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="subAccountDLQ" type="commontypes:NonNegativeInteger_4" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="departmentID" type="commontypes:NonNegativeInteger_3" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="assignEmployeeID" type="xsd:int" />
+      <xsd:element minOccurs="1" maxOccurs="1" name="authEmployeeID" type="xsd:int" />
+      <xsd:element minOccurs="1" maxOccurs="1" name="channelID" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="informationCode" type="commontypes:String_1" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="noteDetails" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="author" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="departmentName" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="memberNoteHistory">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="1" name="accountID" type="common:AccountID" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="subAccountID" type="common:SubAccountID" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="noteDate" type="xsd:dateTime" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="informationCode" type="commontypes:String_1" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="noteDetails" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="author" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="changeDate" type="xsd:dateTime" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ficheData">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="1" name="accountID" type="common:AccountID" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="subAccountID" type="common:SubAccountID" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="podDate" type="xsd:date" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="podType" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="beneficiaryDate" type="xsd:date" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="beneficiaryType" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="jointDate" type="xsd:date" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="jointType" type="xsd:string" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="membershipDate" type="xsd:date" />
+      <xsd:element minOccurs="0" maxOccurs="1" name="membershipType" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="inquireAllWarningsRequest" type="tns:InquireAllWarningsRequest" />
+  <xsd:element name="inquireAllWarningsResponse" type="tns:InquireAllWarningsResponse" />
+  <xsd:complexType name="InquireAllWarningsRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element name="header" type="hdr:AFCUHeaderRequest" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="InquireAllWarningsResponse">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element name="status" type="hdr:AFCUHeaderResponse" />
+      <xsd:element minOccurs="0" name="data" type="tns:AllWarningsResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AllWarningsResponse">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element minOccurs="0" maxOccurs="1" name="warnings" type="tns:Warnings" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Warnings">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="warning" type="tns:warning" />
+    </xsd:sequence>
+    <xsd:attribute name="count" type="xsd:int" />
+  </xsd:complexType>
+  <xsd:element name="inquireInformationCodesRequest" type="tns:InquireInformationCodesRequest" />
+  <xsd:element name="inquireInformationCodesResponse" type="tns:InquireInformationCodesResponse" />
+  <xsd:complexType name="InquireInformationCodesRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element name="header" type="hdr:AFCUHeaderRequest" />
+      <xsd:element name="request" type="tns:InqInformationCodesRequest" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="InqInformationCodesRequest">
+    <xsd:sequence>
+      <xsd:element name="authEmployeeID" type="commontypes:NonNegativeInteger_7" />
+      <xsd:element name="requestType" type="tns:InqICRequestType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="InqICRequestType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="all" />
+      <xsd:enumeration value="authorized" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="InquireInformationCodesResponse">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element name="status" type="hdr:AFCUHeaderResponse" />
+      <xsd:element minOccurs="0" name="data" type="tns:InqInformationCodesResponse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="InqInformationCodesResponse">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="1" name="informationCodes">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" maxOccurs="unbounded" name="informationCode" type="tns:InformationCode" />
+          </xsd:sequence>
+          <xsd:attribute name="count" type="xsd:int" />
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="InformationCode">
+    <xsd:sequence>
+      <xsd:element name="code" type="commontypes:String_1" />
+      <xsd:element name="description" type="xsd:string" />
+      <xsd:element name="severity" type="xsd:int" />
+      <xsd:element name="priority" type="xsd:int" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="inquireAccountInfoCodesRequest" type="tns:InquireAccountInfoCodesRequest" />
+  <xsd:element name="inquireAccountInfoCodesResponse" type="tns:inquireMemberNotesResponse" />
+  <xsd:complexType name="InquireAccountInfoCodesRequest">
+    <xsd:sequence minOccurs="1" maxOccurs="1">
+      <xsd:element name="header" type="hdr:AFCUHeaderRequest" />
+      <xsd:element name="request" type="tns:InqAcctInfoCodesRequest" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="InqAcctInfoCodesRequest">
+    <xsd:sequence>
+      <xsd:element minOccurs="1" maxOccurs="1" name="accountID" type="common:AccountID" />
+      <xsd:element name="includeDetails" type="xsd:boolean" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

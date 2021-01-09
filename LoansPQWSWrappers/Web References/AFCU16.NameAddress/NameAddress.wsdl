@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns="http://americafirst.com/NameAddress" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:nas="http://www.americafirst.com/20070315/Member/NameAddress" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="NameAddress" targetNamespace="http://americafirst.com/NameAddress" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns:mrm="http://americafirst.com/NameAddress" xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://americafirst.com/NameAddress">
+      <xsd:import schemaLocation="com/americafirst/www/_20070315/member/nameaddress/NameAddress.xsd" namespace="http://www.americafirst.com/20070315/Member/NameAddress" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="addNameAddress_in">
+    <wsdl:part name="addNameAddressRequest" element="nas:addNameAddressRequest" />
+  </wsdl:message>
+  <wsdl:message name="addNameAddress_out">
+    <wsdl:part name="nameAddressResponse" element="nas:nameAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="inquireAccountReference_in">
+    <wsdl:part name="inquireAccountReferenceRequest" element="nas:inquireAccountReferenceRequest" />
+  </wsdl:message>
+  <wsdl:message name="inquireAccountReference_out">
+    <wsdl:part name="inquireAccountReferenceResponse" element="nas:inquireAccountReferenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="inquireChangeHistory_in">
+    <wsdl:part name="inquireChangeHistoryRequest" element="nas:inquireChangeHistoryRequest" />
+  </wsdl:message>
+  <wsdl:message name="inquireChangeHistory_out">
+    <wsdl:part name="inquireChangeHistoryResponse" element="nas:inquireChangeHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="inquireNameAddress_in">
+    <wsdl:part name="inquireNameAddressRequest" element="nas:inquireNameAddressRequest" />
+  </wsdl:message>
+  <wsdl:message name="inquireNameAddress_out">
+    <wsdl:part name="nameAddressResponse" element="nas:nameAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="maintainNameAddress_in">
+    <wsdl:part name="maintainNameAddressRequest" element="nas:maintainNameAddressRequest" />
+  </wsdl:message>
+  <wsdl:message name="maintainNameAddress_out">
+    <wsdl:part name="nameAddressResponse" element="nas:nameAddressResponse" />
+  </wsdl:message>
+  <wsdl:portType name="NameAddress_MSPortType">
+    <wsdl:operation name="addNameAddress">
+      <wsdl:input name="addNameAddress_addNameAddressRequest" message="tns:addNameAddress_in" />
+      <wsdl:output name="addNameAddress_nameAddressResponse" message="tns:addNameAddress_out" />
+    </wsdl:operation>
+    <wsdl:operation name="inquireAccountReference">
+      <wsdl:input name="inquireAccountReference_inquireAccountReferenceRequest" message="tns:inquireAccountReference_in" />
+      <wsdl:output name="inquireAccountReference_inquireAccountReferenceResponse" message="tns:inquireAccountReference_out" />
+    </wsdl:operation>
+    <wsdl:operation name="inquireChangeHistory">
+      <wsdl:input name="inquireChangeHistory_inquireChangeHistoryRequest" message="tns:inquireChangeHistory_in" />
+      <wsdl:output name="inquireChangeHistory_inquireChangeHistoryResponse" message="tns:inquireChangeHistory_out" />
+    </wsdl:operation>
+    <wsdl:operation name="inquireNameAddress">
+      <wsdl:input name="inquireNameAddress_inquireNameAddressRequest" message="tns:inquireNameAddress_in" />
+      <wsdl:output name="inquireNameAddress_nameAddressResponse" message="tns:inquireNameAddress_out" />
+    </wsdl:operation>
+    <wsdl:operation name="maintainNameAddress">
+      <wsdl:input name="maintainNameAddress_maintainNameAddressRequest" message="tns:maintainNameAddress_in" />
+      <wsdl:output name="maintainNameAddress_nameAddressResponse" message="tns:maintainNameAddress_out" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NameAddress_MSSOAP_HTTP_Binding" type="tns:NameAddress_MSPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="addNameAddress">
+      <soap:operation soapAction="" />
+      <wsdl:input name="addNameAddress_addNameAddressRequest">
+        <soap:body use="literal" parts="addNameAddressRequest" />
+      </wsdl:input>
+      <wsdl:output name="addNameAddress_nameAddressResponse">
+        <soap:body use="literal" parts="nameAddressResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inquireAccountReference">
+      <soap:operation soapAction="" />
+      <wsdl:input name="inquireAccountReference_inquireAccountReferenceRequest">
+        <soap:body use="literal" parts="inquireAccountReferenceRequest" />
+      </wsdl:input>
+      <wsdl:output name="inquireAccountReference_inquireAccountReferenceResponse">
+        <soap:body use="literal" parts="inquireAccountReferenceResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inquireChangeHistory">
+      <soap:operation soapAction="" />
+      <wsdl:input name="inquireChangeHistory_inquireChangeHistoryRequest">
+        <soap:body use="literal" parts="inquireChangeHistoryRequest" />
+      </wsdl:input>
+      <wsdl:output name="inquireChangeHistory_inquireChangeHistoryResponse">
+        <soap:body use="literal" parts="inquireChangeHistoryResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inquireNameAddress">
+      <soap:operation soapAction="" />
+      <wsdl:input name="inquireNameAddress_inquireNameAddressRequest">
+        <soap:body use="literal" parts="inquireNameAddressRequest" />
+      </wsdl:input>
+      <wsdl:output name="inquireNameAddress_nameAddressResponse">
+        <soap:body use="literal" parts="nameAddressResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="maintainNameAddress">
+      <soap:operation soapAction="" />
+      <wsdl:input name="maintainNameAddress_maintainNameAddressRequest">
+        <soap:body use="literal" parts="maintainNameAddressRequest" />
+      </wsdl:input>
+      <wsdl:output name="maintainNameAddress_nameAddressResponse">
+        <soap:body use="literal" parts="nameAddressResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NameAddressService">
+    <wsdl:port name="SOAP_HTTP_Port" binding="tns:NameAddress_MSSOAP_HTTP_Binding">
+      <soap:address location="http://10.215.141.15:7080/member/NameAddressService/20070315" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

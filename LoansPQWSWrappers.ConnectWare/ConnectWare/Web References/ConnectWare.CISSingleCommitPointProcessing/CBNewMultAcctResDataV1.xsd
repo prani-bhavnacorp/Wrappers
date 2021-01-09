@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="mtvnCWCBNewMultAcctResData" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="mtvnCWCBNewMultAcctResData" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="CBNewMultAcctResData">
+    <xs:annotation>
+      <xs:documentation>Cardbase New Multiple Account (CB110) - This service is used to add up to four multiple DDA or savings accounts for an established primary DDA or savings account. These additional accounts are also called secondary accounts. Multiple accounts are available only to customers of financial institutions for whom Metavante processes both cardholder accounts and ATMs. Access to multiple accounts is allowed only for on-us ATM transactions. Each primary account type can have up to four multiple accounts linked to it.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="E130015" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>CB Institution Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E130013" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>CB Card Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E130050" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>CB Card Status</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="CBNewMultAcctRptDataLst">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="CBNewMultAcctRptData">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="E130158" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>CB Account Type</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E130159" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>CB Account Number</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E130302" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>CB Note Number</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E130160" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>CB Account Status</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E130162" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>CB Account Description</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="ErrCde" type="xs:string" />
+        <xs:element minOccurs="0" name="ErrResnCde" type="xs:string" />
+        <xs:element minOccurs="0" name="ApplMsgLst">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="ApplMsg">
+                <xs:complexType>
+                  <xs:all>
+                    <xs:element minOccurs="0" name="ApplMsgApplId" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgNbr" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgTxt" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgErrInd" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgFld" type="xs:string" />
+                  </xs:all>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

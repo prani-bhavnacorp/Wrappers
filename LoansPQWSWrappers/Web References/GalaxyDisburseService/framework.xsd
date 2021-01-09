@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:tns="http://www.galaxyplus.com/framework/schema" targetNamespace="http://www.galaxyplus.com/framework/schema" xmlns="http://www.w3.org/2001/XMLSchema">
+  <element name="customerProfile">
+    <complexType>
+      <sequence>
+        <element name="allowedPrincipals" type="string" />
+        <element maxOccurs="unbounded" name="dataSource">
+          <complexType>
+            <sequence>
+              <element name="updateable" type="tns:connectionParameters" />
+              <element name="readOnlySnapshot" type="tns:connectionParameters" />
+            </sequence>
+            <attribute name="name" type="string" use="required" />
+          </complexType>
+        </element>
+        <element minOccurs="0" maxOccurs="unbounded" name="property">
+          <complexType>
+            <sequence>
+              <element name="name" type="string" />
+              <element name="value" type="string" />
+            </sequence>
+          </complexType>
+        </element>
+      </sequence>
+      <attribute name="name" type="string" use="required" />
+    </complexType>
+  </element>
+  <complexType name="connectionParameters">
+    <sequence>
+      <element name="url" type="string" />
+      <element name="dsn" type="string" />
+    </sequence>
+  </complexType>
+  <element name="TellerToken">
+    <complexType>
+      <sequence>
+        <element name="CUID" type="string" />
+        <element minOccurs="0" name="TellerId" type="string" />
+        <element minOccurs="0" name="Password" type="string" />
+        <element minOccurs="0" name="SessionId" type="string" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="ErrorDetail">
+    <complexType>
+      <simpleContent>
+        <extension base="string">
+          <attribute name="Code" type="int" />
+        </extension>
+      </simpleContent>
+    </complexType>
+  </element>
+  <element name="WarningDetail">
+    <complexType>
+      <simpleContent>
+        <extension base="string">
+          <attribute name="Code" type="int" />
+        </extension>
+      </simpleContent>
+    </complexType>
+  </element>
+  <element name="StatusDetail">
+    <complexType>
+      <sequence>
+        <element maxOccurs="unbounded" ref="tns:ErrorDetail" />
+        <element maxOccurs="unbounded" ref="tns:WarningDetail" />
+      </sequence>
+    </complexType>
+  </element>
+  <simpleType name="OverrideLevel">
+    <restriction base="int">
+      <pattern value="\d{1}" />
+    </restriction>
+  </simpleType>
+  <simpleType name="OverrideTeller">
+    <restriction base="int">
+      <pattern value="\d{3}" />
+    </restriction>
+  </simpleType>
+  <complexType name="OverrideableRequest" abstract="true">
+    <attribute name="overridelevel" type="tns:OverrideLevel" />
+    <attribute name="overrideteller" type="tns:OverrideTeller" />
+  </complexType>
+</schema>

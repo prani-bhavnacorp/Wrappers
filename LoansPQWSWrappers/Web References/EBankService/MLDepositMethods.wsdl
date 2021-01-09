@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ancillary.ebanksystems.com/ML" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://ancillary.ebanksystems.com/ML" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Provides Meridian Link methods to write new deposit accounts</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ancillary.ebanksystems.com/ML">
+      <s:element name="SaveNewDeposit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="acctNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="uploadStack" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newDeposit">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveNewDepositResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="getNextAccountNumber">
+        <s:complexType />
+      </s:element>
+      <s:element name="getNextAccountNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getNextAccountNumberResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SaveNewDepositSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveNewDeposit" />
+  </wsdl:message>
+  <wsdl:message name="SaveNewDepositSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveNewDepositResponse" />
+  </wsdl:message>
+  <wsdl:message name="getNextAccountNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:getNextAccountNumber" />
+  </wsdl:message>
+  <wsdl:message name="getNextAccountNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:getNextAccountNumberResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MLDepositMethodsSoap">
+    <wsdl:operation name="SaveNewDeposit">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Adds New Deposit to trinisys</wsdl:documentation>
+      <wsdl:input message="tns:SaveNewDepositSoapIn" />
+      <wsdl:output message="tns:SaveNewDepositSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getNextAccountNumber">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets Next Available Account Number</wsdl:documentation>
+      <wsdl:input message="tns:getNextAccountNumberSoapIn" />
+      <wsdl:output message="tns:getNextAccountNumberSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MLDepositMethodsSoap" type="tns:MLDepositMethodsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SaveNewDeposit">
+      <soap:operation soapAction="http://ancillary.ebanksystems.com/ML/SaveNewDeposit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNextAccountNumber">
+      <soap:operation soapAction="http://ancillary.ebanksystems.com/ML/getNextAccountNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MLDepositMethodsSoap12" type="tns:MLDepositMethodsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SaveNewDeposit">
+      <soap12:operation soapAction="http://ancillary.ebanksystems.com/ML/SaveNewDeposit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNextAccountNumber">
+      <soap12:operation soapAction="http://ancillary.ebanksystems.com/ML/getNextAccountNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MLDepositMethods">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Provides Meridian Link methods to write new deposit accounts</wsdl:documentation>
+    <wsdl:port name="MLDepositMethodsSoap" binding="tns:MLDepositMethodsSoap">
+      <soap:address location="http://10.209.0.16/C1Interface/MLDepositMethods.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MLDepositMethodsSoap12" binding="tns:MLDepositMethodsSoap12">
+      <soap12:address location="http://10.209.0.16/C1Interface/MLDepositMethods.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

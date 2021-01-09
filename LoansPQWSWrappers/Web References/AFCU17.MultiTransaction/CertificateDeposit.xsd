@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:tns="http://www.americafirst.com/20070315/AccountTransaction" xmlns:cmlib="http://www.americafirst.com/20070315/CommonTypesLib" xmlns:cm="http://www.americafirst.com/20070315/CommonTypes" targetNamespace="http://www.americafirst.com/20070315/AccountTransaction" xmlns="http://www.w3.org/2001/XMLSchema">
+  <import schemaLocation="../commontypes/CommonTypes.xsd" namespace="http://www.americafirst.com/20070315/CommonTypes" />
+  <import schemaLocation="../commontypeslib/CommonTypesLib.xsd" namespace="http://www.americafirst.com/20070315/CommonTypesLib" />
+  <include schemaLocation="CommonTransactionTypes.xsd" />
+  <annotation>
+    <documentation>Supports TRAN_TDR  -  CERTIFICATE DEPOSIT INPUT/OUTPUT V001</documentation>
+  </annotation>
+  <complexType name="CertDepositRequest">
+    <complexContent mixed="false">
+      <extension base="tns:TranBaseTypeRequest">
+        <sequence>
+          <element name="accountID" type="cm:AccountID" />
+          <element name="subAccountID" type="cm:SubAccountID" />
+          <element name="tranAmount" type="cmlib:Decimal_15_2" />
+          <element name="certificateID" type="cm:CertificateID" />
+          <element name="checksInAmount" type="cmlib:Decimal_15_2" />
+          <element name="checksOnUsAmount" type="cmlib:Decimal_15_2" />
+          <element name="folio" type="cmlib:String_6" />
+          <element name="description" type="cmlib:String_15" />
+          <element name="IRACode" type="cmlib:String_2" />
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="CertDepositResponse">
+    <complexContent mixed="false">
+      <extension base="tns:TranBaseTypeResponse">
+        <sequence>
+          <element name="accountID" type="cm:AccountID" />
+          <element name="subAccountID" type="cm:SubAccountID" />
+          <element name="tranAmount" type="cmlib:Decimal_15_2" />
+          <element name="certificateID" type="cm:CertificateID" />
+          <element name="checksInAmount" type="cmlib:Decimal_15_2" />
+          <element name="checksOnUsAmount" type="cmlib:Decimal_15_2" />
+          <element name="folio" type="cmlib:String_6" />
+          <element name="description" type="cmlib:String_15" />
+          <element name="IRACode" type="cmlib:String_2" />
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+</schema>

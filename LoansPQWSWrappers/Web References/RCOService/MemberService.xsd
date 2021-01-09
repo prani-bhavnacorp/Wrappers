@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://rco.loanorigination.servicecontracts/2007/08" elementFormDefault="qualified" targetNamespace="http://rco.loanorigination.servicecontracts/2007/08" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://vqa1web.rcolmstead.com:10020/LoanOrigination/MemberService.svc?xsd=xsd2" namespace="http://rco.loanorigination.services.datatypes/2007/08/serialization" />
+  <xs:element name="GetMemberDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://rco.loanorigination.services.datatypes/2007/08/serialization" minOccurs="0" name="Request" nillable="true" type="q1:MemberDetailsRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMemberDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://rco.loanorigination.services.datatypes/2007/08/serialization" minOccurs="0" name="GetMemberDetailsResult" nillable="true" type="q2:Member" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetApprovedLoan">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://rco.loanorigination.services.datatypes/2007/08/serialization" minOccurs="0" name="Request" nillable="true" type="q3:LoanBook" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetApprovedLoanResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://rco.loanorigination.services.datatypes/2007/08/serialization" minOccurs="0" name="SetApprovedLoanResult" nillable="true" type="q4:LoanSetupResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

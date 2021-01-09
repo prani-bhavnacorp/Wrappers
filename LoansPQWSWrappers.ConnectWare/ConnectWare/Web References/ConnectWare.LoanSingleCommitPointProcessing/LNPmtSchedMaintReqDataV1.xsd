@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="mtvnCWLNPmtSchedMaintReqData" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="mtvnCWLNPmtSchedMaintReqData" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="LNPmtSchedMaintReqData">
+    <xs:annotation>
+      <xs:documentation>Loan Payment Schedule Maintenance (LNPSM) -  This function allows for changes, additions, or deletions to the payment schedules of a note.  The service is not valid for Bill Type F floor plan notes.  There cannot be more than 13 active (current or future) schedules or more than 99 schedules total.  However, if coupons are used, you may only have a total of 12 schedules (active or inactive).  You can only have one interest schedule (Payment Type Zero) on the loan at a time.    To change a payment schedule, enter szLNPmtSchedType, szLNEffDte, and szLNPmtTyp, along with the data you wish to change.  To delete a payment schedule, enter szLNPmtSchedType, szLNEffDte, and szLNPmtTyp.  </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="E30051" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Account Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E30054" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Note Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E30114" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Payment Schedule Type</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E33393" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Maintenance Code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E30090" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Effective Date</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E32289" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Payment Type</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E32290" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Number of Payments</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E32291" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Payment Frequency</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E32292" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Business Day</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E32293" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Payment Percent</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E32294" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Minimum Payment Amount</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E32295" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Total Scheduled Payment Amount</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E32296" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Principal and Interest Amount</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E32297" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Escrow Amount</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E32298" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Buydown Amount</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E32299" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Charge Indicator</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E32300" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Charge DDA Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E32301" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Payment Plan Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E33395" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN New Effective Date</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E33396" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Old Payment Type</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E33397" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Old Payment Frequency</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E33398" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Edit Only</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E36515" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Total Next Bill Date</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E36524" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Interest Next Bill Date</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E30009" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Source</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

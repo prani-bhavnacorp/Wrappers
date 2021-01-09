@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xenc="http://www.w3.org/2001/04/xmlenc#" xmlns="http://integration.fiapi.com" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://integration.fiapi.com" version="2.2" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="xenc-schema.xsd" namespace="http://www.w3.org/2001/04/xmlenc#" />
+  <xsd:import schemaLocation="xmldsig-core-schema.xsd" namespace="http://www.w3.org/2000/09/xmldsig#" />
+  <xsd:complexType name="fiHeader_Type">
+    <xsd:annotation>
+      <xsd:documentation>The fiAPI aggregate contains the content model and structure for the header of all standard fiAPI transactions</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="Service" nillable="true" type="Service_Type">
+        <xsd:annotation>
+          <xsd:documentation>Service specifically refers to a collection of related messages.   Information about this particular service request.  </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Security" nillable="true" type="Security_Type">
+        <xsd:annotation>
+          <xsd:documentation>The Authentication aggregate contains the information that is required to authenticate a user.  </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Client" nillable="true" type="Client_Type">
+        <xsd:annotation>
+          <xsd:documentation>The Client aggregate describes the entity making the request.  Typically used for logging.  However, identify of Client may be required for client application authentication purposes. </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="DataSource" nillable="true" type="DataSource_Type">
+        <xsd:annotation>
+          <xsd:documentation>DataSource contains information (i.e. URI) that specifies an address for the source of the data being requested</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="Version" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Version reflects the fiAPI version of the entity making the request or the entity responding to the request</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType name="Service_Type">
+    <xsd:annotation>
+      <xsd:documentation>Service specifically refers to a collection of related messages.   Information about this particular service request.  </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="DateTime" nillable="true" type="xsd:dateTime">
+        <xsd:annotation>
+          <xsd:documentation>Create date and time of this message</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="UUID" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Unique identifier for this message</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="Status" nillable="true" type="Status_Type">
+        <xsd:annotation>
+          <xsd:documentation>The Status aggregate describes Service-level status.  Service level status typically includes such items as fauls, message unavailability or other message agnostic information.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="Version" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Version reflects the version of the Service that is expected by the entity making the request or the actual version of the Service responding to the request</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="Name" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation>Name reflects the name of the Service that is expected by the entity making the request or the actual name of the Service responding to the request</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType name="Security_Type">
+    <xsd:annotation>
+      <xsd:documentation>The Authentication aggregate contains the information that is required to authenticate a user.  </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="AuthenticationMaterial" nillable="true" type="AuthenticationMaterial_Type">
+        <xsd:annotation>
+          <xsd:documentation>AuthenticationMaterial may contain either PlainText, W3C Digital Signature, or Negotiated Composite Token markup to support authentication</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="PrincipalID" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Unique identifier of the principal (originator) of the request/transaction</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="MessageDigest">
+        <xsd:annotation>
+          <xsd:documentation>Used to pass a keyed or non-keyed digest of the entire fiAPI message.  Typically created using the RFC2104 SHA-1 or a similar process.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType mixed="true">
+          <xsd:simpleContent>
+            <xsd:extension base="xsd:base64Binary">
+              <xsd:attribute name="algorithm" use="required">
+                <xsd:annotation>
+                  <xsd:documentation>Open enumeration for listing the algorithm used to create the message digest.</xsd:documentation>
+                </xsd:annotation>
+                <xsd:simpleType>
+                  <xsd:union>
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="SHA-1" />
+                        <xsd:enumeration value="RFC2104 SHA-1" />
+                      </xsd:restriction>
+                    </xsd:simpleType>
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:string" />
+                    </xsd:simpleType>
+                  </xsd:union>
+                </xsd:simpleType>
+              </xsd:attribute>
+            </xsd:extension>
+          </xsd:simpleContent>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Client_Type">
+    <xsd:annotation>
+      <xsd:documentation>The Client aggregate describes the entity making the request.  Typically used for logging.  However, identify of Client may be required for client application authentication purposes.  </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="VendorID" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Client Vendor Identifier</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="AppID" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Client application Identifier</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="OrgID" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Client Organization Identifier</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="SessionID" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Client specific session identication</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="Version" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>Version reflects the version of the client entity making the request</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType name="DataSource_Type">
+    <xsd:annotation>
+      <xsd:documentation>Identification of the data source</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="URI" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Fully qualified URI identifing the location of the data source</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AuthenticationMaterial_Type">
+    <xsd:annotation>
+      <xsd:documentation>Aggregate that identifies authentication parameters.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice>
+      <xsd:element minOccurs="0" name="PrincipalPWD" nillable="true" type="Encrypted_Type">
+        <xsd:annotation>
+          <xsd:documentation>PrincipalPWD supports an open implementation using PlainText authentication that includes support for the W3C EncrtyptedData construct</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="SignedToken" nillable="true" type="Token_Type">
+        <xsd:annotation>
+          <xsd:documentation>SignedToken supports an open implementation Encrypted authentication that includes support for the W3C EncrtyptedData construct</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:choice>
+  </xsd:complexType>
+  <xsd:complexType name="Token_Type" mixed="true">
+    <xsd:annotation>
+      <xsd:documentation>Token definition imported from W3C schemas</xsd:documentation>
+    </xsd:annotation>
+    <xsd:choice minOccurs="0">
+      <xsd:element name="Signature" type="ds:SignatureType" />
+      <xsd:element name="EncryptedData" type="xenc:EncryptedDataType" />
+    </xsd:choice>
+  </xsd:complexType>
+  <xsd:complexType name="Encrypted_Type" mixed="true">
+    <xsd:annotation>
+      <xsd:documentation>Encryption parameters imported from W3C schemas</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence minOccurs="0">
+      <xsd:element name="EncryptedData" type="xenc:EncryptedDataType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Status_Type">
+    <xsd:annotation>
+      <xsd:documentation>Status aggregate</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="StatusCode" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Response Status Code. Valid values depend on context.  If no records were found matching the criteria of the request message a status code of 1120 will be returned.  For a list of valid status codes, see appendix.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="ServerStatusCode" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Server Status Code. The value placed here is used to allow the client to display the status code to the user. This allows the user to read the code to a customer service representative for debugging purposes.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Severity" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Severity. Valid values: ERROR ??? There was an error in the request severe enough that no response could be made. The requested transaction was not processed. WARNING ??? There was a problem with the request, but a valid response is still present. The requested transaction was processed. INFO ??? Information Only. The requested transaction was processed.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="StatusDesc" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Status Description. Explanatory text associated with the status code. The Statue Description may be default text or Service Provider specific.  Host response is included here.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="AdditionalStatus" nillable="true" type="AdditionalStatus_Type">
+        <xsd:annotation>
+          <xsd:documentation>Additional status that can optonally be provided.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="AsynchronousInformation">
+        <xsd:annotation>
+          <xsd:documentation>Parameters used to for asynchronous messages</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="RequestID" nillable="true" type="xsd:base64Binary">
+              <xsd:annotation>
+                <xsd:documentation>RequestID. Ansynchronous responses may include this as a key to be used on subsequent inquiries for the completed response.</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="Availability" nillable="true" type="xsd:dateTime">
+              <xsd:annotation>
+                <xsd:documentation>Availability. Asynchronous responses may include a dateTime that indicates when a completed response is possible or expected.</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="Expiration" nillable="true" type="xsd:dateTime">
+              <xsd:annotation>
+                <xsd:documentation>Expiration. Asynchronous responses may include a dateTime that indicates when a completed response will become expired or unavailable.</xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TypeOfStatus" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>Type of Status. Used to qualify a Status that is application specific (e.g. TypeOfStatus="Trust" would distinguish the Status as a non-fiAPI based value.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  <xsd:complexType name="AdditionalStatus_Type">
+    <xsd:annotation>
+      <xsd:documentation>Additional statuses. The StatusCode above must contain the primary response code. This aggregate may appear once for each additional status that the server intends to provide. For example, if both an account number and a date are invalid, the StatusCode above may contain one of the two errors, and this aggregate may contain the other.</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="StatusCode" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Response Status Code. Valid values depend on context.  If no records were found matching the criteria of the request message a status code of 1120 will be returned.  For a list of valid status codes, see appendix.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="ServerStatusCode" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Server Status Code. The value placed here is used to allow the client to display the status code to the user. This allows the user to read the code to a customer service representative for debugging purposes.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Severity" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Severity. Valid values: ERROR ??? There was an error in the request severe enough that no response could be made. The requested transaction was not processed. WARNING ??? There was a problem with the request, but a valid response is still present. The requested transaction was processed. INFO ??? Information Only. The requested transaction was processed.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element minOccurs="0" name="StatusDesc" nillable="true" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Status Description. Explanatory text associated with the status code. The Statue Description may be default text or Service Provider specific.  Host response is included here.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="TypeOfStatus" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>Type of Status. Used to qualify a Status that is application specific (e.g. TypeOfStatus="Trust" would distinguish the Additional Status as a non-fiAPI based value.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+</xsd:schema>

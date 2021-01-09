@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://IMMOnline.com/IMM.TEAASP.FileTransferExtWebSVC/FileTransferExt" xmlns:s1="http://IMMOnline.com/IMM.TEAASP.FileTransferExtWebSVC/FileTransferExt/AbstractTypes" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://IMMOnline.com/IMM.TEAASP.FileTransferExtWebSVC/FileTransferExt" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://IMMOnline.com/IMM.TEAASP.FileTransferExtWebSVC/FileTransferExt">
+      <s:element name="CreateFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HostID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="HostFIID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccessPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="filename" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="overwrite" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateFileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WriteContentsToFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="contents" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WriteContentsToFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WriteContentsToFileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WriteByteContentsToFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="contents" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WriteByteContentsToFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WriteByteContentsToFileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WriteContentsToSpecificFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contents" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WriteContentsToSpecificFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WriteContentsToSpecificFileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WriteByteContentsToSpecificFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contents" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WriteByteContentsToSpecificFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WriteByteContentsToSpecificFileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HostID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="HostFIID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccessPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="filename" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteFileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateFileAndReturnURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HostID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="HostFIID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccessPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="filename" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="overwrite" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateFileAndReturnURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateFileAndReturnURLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+    <s:schema targetNamespace="http://IMMOnline.com/IMM.TEAASP.FileTransferExtWebSVC/FileTransferExt/AbstractTypes">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="StringArray">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="String" type="s:string" />
+            </s:sequence>
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CreateFileSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateFile" />
+  </wsdl:message>
+  <wsdl:message name="CreateFileSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="WriteContentsToFileSoapIn">
+    <wsdl:part name="parameters" element="tns:WriteContentsToFile" />
+  </wsdl:message>
+  <wsdl:message name="WriteContentsToFileSoapOut">
+    <wsdl:part name="parameters" element="tns:WriteContentsToFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="WriteByteContentsToFileSoapIn">
+    <wsdl:part name="parameters" element="tns:WriteByteContentsToFile" />
+  </wsdl:message>
+  <wsdl:message name="WriteByteContentsToFileSoapOut">
+    <wsdl:part name="parameters" element="tns:WriteByteContentsToFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="WriteContentsToSpecificFileSoapIn">
+    <wsdl:part name="parameters" element="tns:WriteContentsToSpecificFile" />
+  </wsdl:message>
+  <wsdl:message name="WriteContentsToSpecificFileSoapOut">
+    <wsdl:part name="parameters" element="tns:WriteContentsToSpecificFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="WriteByteContentsToSpecificFileSoapIn">
+    <wsdl:part name="parameters" element="tns:WriteByteContentsToSpecificFile" />
+  </wsdl:message>
+  <wsdl:message name="WriteByteContentsToSpecificFileSoapOut">
+    <wsdl:part name="parameters" element="tns:WriteByteContentsToSpecificFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFileSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteFile" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFileSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateFileAndReturnURLSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateFileAndReturnURL" />
+  </wsdl:message>
+  <wsdl:message name="CreateFileAndReturnURLSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateFileAndReturnURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateFileHttpGetIn">
+    <wsdl:part name="HostID" type="s:string" />
+    <wsdl:part name="HostFIID" type="s:string" />
+    <wsdl:part name="AccessPassword" type="s:string" />
+    <wsdl:part name="filename" type="s:string" />
+    <wsdl:part name="overwrite" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateFileHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="WriteContentsToFileHttpGetIn">
+    <wsdl:part name="contents" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="WriteContentsToFileHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="WriteByteContentsToFileHttpGetIn">
+    <wsdl:part name="contents" type="s1:StringArray" />
+  </wsdl:message>
+  <wsdl:message name="WriteByteContentsToFileHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="WriteContentsToSpecificFileHttpGetIn">
+    <wsdl:part name="FileName" type="s:string" />
+    <wsdl:part name="contents" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="WriteContentsToSpecificFileHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="WriteByteContentsToSpecificFileHttpGetIn">
+    <wsdl:part name="FileName" type="s:string" />
+    <wsdl:part name="contents" type="s1:StringArray" />
+  </wsdl:message>
+  <wsdl:message name="WriteByteContentsToSpecificFileHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFileHttpGetIn">
+    <wsdl:part name="HostID" type="s:string" />
+    <wsdl:part name="HostFIID" type="s:string" />
+    <wsdl:part name="AccessPassword" type="s:string" />
+    <wsdl:part name="filename" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFileHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateFileAndReturnURLHttpGetIn">
+    <wsdl:part name="HostID" type="s:string" />
+    <wsdl:part name="HostFIID" type="s:string" />
+    <wsdl:part name="AccessPassword" type="s:string" />
+    <wsdl:part name="filename" type="s:string" />
+    <wsdl:part name="overwrite" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateFileAndReturnURLHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateFileHttpPostIn">
+    <wsdl:part name="HostID" type="s:string" />
+    <wsdl:part name="HostFIID" type="s:string" />
+    <wsdl:part name="AccessPassword" type="s:string" />
+    <wsdl:part name="filename" type="s:string" />
+    <wsdl:part name="overwrite" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateFileHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="WriteContentsToFileHttpPostIn">
+    <wsdl:part name="contents" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="WriteContentsToFileHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="WriteByteContentsToFileHttpPostIn">
+    <wsdl:part name="contents" type="s1:StringArray" />
+  </wsdl:message>
+  <wsdl:message name="WriteByteContentsToFileHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="WriteContentsToSpecificFileHttpPostIn">
+    <wsdl:part name="FileName" type="s:string" />
+    <wsdl:part name="contents" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="WriteContentsToSpecificFileHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="WriteByteContentsToSpecificFileHttpPostIn">
+    <wsdl:part name="FileName" type="s:string" />
+    <wsdl:part name="contents" type="s1:StringArray" />
+  </wsdl:message>
+  <wsdl:message name="WriteByteContentsToSpecificFileHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFileHttpPostIn">
+    <wsdl:part name="HostID" type="s:string" />
+    <wsdl:part name="HostFIID" type="s:string" />
+    <wsdl:part name="AccessPassword" type="s:string" />
+    <wsdl:part name="filename" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeleteFileHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateFileAndReturnURLHttpPostIn">
+    <wsdl:part name="HostID" type="s:string" />
+    <wsdl:part name="HostFIID" type="s:string" />
+    <wsdl:part name="AccessPassword" type="s:string" />
+    <wsdl:part name="filename" type="s:string" />
+    <wsdl:part name="overwrite" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CreateFileAndReturnURLHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="FileTransferExtSoap">
+    <wsdl:operation name="CreateFile">
+      <wsdl:input message="tns:CreateFileSoapIn" />
+      <wsdl:output message="tns:CreateFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WriteContentsToFile">
+      <wsdl:input message="tns:WriteContentsToFileSoapIn" />
+      <wsdl:output message="tns:WriteContentsToFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WriteByteContentsToFile">
+      <wsdl:input message="tns:WriteByteContentsToFileSoapIn" />
+      <wsdl:output message="tns:WriteByteContentsToFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WriteContentsToSpecificFile">
+      <wsdl:input message="tns:WriteContentsToSpecificFileSoapIn" />
+      <wsdl:output message="tns:WriteContentsToSpecificFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WriteByteContentsToSpecificFile">
+      <wsdl:input message="tns:WriteByteContentsToSpecificFileSoapIn" />
+      <wsdl:output message="tns:WriteByteContentsToSpecificFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFile">
+      <wsdl:input message="tns:DeleteFileSoapIn" />
+      <wsdl:output message="tns:DeleteFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateFileAndReturnURL">
+      <wsdl:input message="tns:CreateFileAndReturnURLSoapIn" />
+      <wsdl:output message="tns:CreateFileAndReturnURLSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="FileTransferExtHttpGet">
+    <wsdl:operation name="CreateFile">
+      <wsdl:input message="tns:CreateFileHttpGetIn" />
+      <wsdl:output message="tns:CreateFileHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WriteContentsToFile">
+      <wsdl:input message="tns:WriteContentsToFileHttpGetIn" />
+      <wsdl:output message="tns:WriteContentsToFileHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WriteByteContentsToFile">
+      <wsdl:input message="tns:WriteByteContentsToFileHttpGetIn" />
+      <wsdl:output message="tns:WriteByteContentsToFileHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WriteContentsToSpecificFile">
+      <wsdl:input message="tns:WriteContentsToSpecificFileHttpGetIn" />
+      <wsdl:output message="tns:WriteContentsToSpecificFileHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WriteByteContentsToSpecificFile">
+      <wsdl:input message="tns:WriteByteContentsToSpecificFileHttpGetIn" />
+      <wsdl:output message="tns:WriteByteContentsToSpecificFileHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFile">
+      <wsdl:input message="tns:DeleteFileHttpGetIn" />
+      <wsdl:output message="tns:DeleteFileHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateFileAndReturnURL">
+      <wsdl:input message="tns:CreateFileAndReturnURLHttpGetIn" />
+      <wsdl:output message="tns:CreateFileAndReturnURLHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="FileTransferExtHttpPost">
+    <wsdl:operation name="CreateFile">
+      <wsdl:input message="tns:CreateFileHttpPostIn" />
+      <wsdl:output message="tns:CreateFileHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WriteContentsToFile">
+      <wsdl:input message="tns:WriteContentsToFileHttpPostIn" />
+      <wsdl:output message="tns:WriteContentsToFileHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WriteByteContentsToFile">
+      <wsdl:input message="tns:WriteByteContentsToFileHttpPostIn" />
+      <wsdl:output message="tns:WriteByteContentsToFileHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WriteContentsToSpecificFile">
+      <wsdl:input message="tns:WriteContentsToSpecificFileHttpPostIn" />
+      <wsdl:output message="tns:WriteContentsToSpecificFileHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WriteByteContentsToSpecificFile">
+      <wsdl:input message="tns:WriteByteContentsToSpecificFileHttpPostIn" />
+      <wsdl:output message="tns:WriteByteContentsToSpecificFileHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFile">
+      <wsdl:input message="tns:DeleteFileHttpPostIn" />
+      <wsdl:output message="tns:DeleteFileHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateFileAndReturnURL">
+      <wsdl:input message="tns:CreateFileAndReturnURLHttpPostIn" />
+      <wsdl:output message="tns:CreateFileAndReturnURLHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FileTransferExtSoap" type="tns:FileTransferExtSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateFile">
+      <soap:operation soapAction="http://IMMOnline.com/IMM.TEAASP.FileTransferExtWebSVC/FileTransferExt/CreateFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteContentsToFile">
+      <soap:operation soapAction="http://IMMOnline.com/IMM.TEAASP.FileTransferExtWebSVC/FileTransferExt/WriteContentsToFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteByteContentsToFile">
+      <soap:operation soapAction="http://IMMOnline.com/IMM.TEAASP.FileTransferExtWebSVC/FileTransferExt/WriteByteContentsToFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteContentsToSpecificFile">
+      <soap:operation soapAction="http://IMMOnline.com/IMM.TEAASP.FileTransferExtWebSVC/FileTransferExt/WriteContentsToSpecificFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteByteContentsToSpecificFile">
+      <soap:operation soapAction="http://IMMOnline.com/IMM.TEAASP.FileTransferExtWebSVC/FileTransferExt/WriteByteContentsToSpecificFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFile">
+      <soap:operation soapAction="http://IMMOnline.com/IMM.TEAASP.FileTransferExtWebSVC/FileTransferExt/DeleteFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateFileAndReturnURL">
+      <soap:operation soapAction="http://IMMOnline.com/IMM.TEAASP.FileTransferExtWebSVC/FileTransferExt/CreateFileAndReturnURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FileTransferExtSoap12" type="tns:FileTransferExtSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateFile">
+      <soap12:operation soapAction="http://IMMOnline.com/IMM.TEAASP.FileTransferExtWebSVC/FileTransferExt/CreateFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteContentsToFile">
+      <soap12:operation soapAction="http://IMMOnline.com/IMM.TEAASP.FileTransferExtWebSVC/FileTransferExt/WriteContentsToFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteByteContentsToFile">
+      <soap12:operation soapAction="http://IMMOnline.com/IMM.TEAASP.FileTransferExtWebSVC/FileTransferExt/WriteByteContentsToFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteContentsToSpecificFile">
+      <soap12:operation soapAction="http://IMMOnline.com/IMM.TEAASP.FileTransferExtWebSVC/FileTransferExt/WriteContentsToSpecificFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteByteContentsToSpecificFile">
+      <soap12:operation soapAction="http://IMMOnline.com/IMM.TEAASP.FileTransferExtWebSVC/FileTransferExt/WriteByteContentsToSpecificFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFile">
+      <soap12:operation soapAction="http://IMMOnline.com/IMM.TEAASP.FileTransferExtWebSVC/FileTransferExt/DeleteFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateFileAndReturnURL">
+      <soap12:operation soapAction="http://IMMOnline.com/IMM.TEAASP.FileTransferExtWebSVC/FileTransferExt/CreateFileAndReturnURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FileTransferExtHttpGet" type="tns:FileTransferExtHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="CreateFile">
+      <http:operation location="/CreateFile" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteContentsToFile">
+      <http:operation location="/WriteContentsToFile" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteByteContentsToFile">
+      <http:operation location="/WriteByteContentsToFile" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteContentsToSpecificFile">
+      <http:operation location="/WriteContentsToSpecificFile" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteByteContentsToSpecificFile">
+      <http:operation location="/WriteByteContentsToSpecificFile" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFile">
+      <http:operation location="/DeleteFile" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateFileAndReturnURL">
+      <http:operation location="/CreateFileAndReturnURL" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FileTransferExtHttpPost" type="tns:FileTransferExtHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="CreateFile">
+      <http:operation location="/CreateFile" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteContentsToFile">
+      <http:operation location="/WriteContentsToFile" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteByteContentsToFile">
+      <http:operation location="/WriteByteContentsToFile" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteContentsToSpecificFile">
+      <http:operation location="/WriteContentsToSpecificFile" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteByteContentsToSpecificFile">
+      <http:operation location="/WriteByteContentsToSpecificFile" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFile">
+      <http:operation location="/DeleteFile" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateFileAndReturnURL">
+      <http:operation location="/CreateFileAndReturnURL" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FileTransferExt">
+    <wsdl:port name="FileTransferExtSoap" binding="tns:FileTransferExtSoap">
+      <soap:address location="http://demo.immonline.com/TeA510/TeAASP/FileTransferExt.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FileTransferExtSoap12" binding="tns:FileTransferExtSoap12">
+      <soap12:address location="http://demo.immonline.com/TeA510/TeAASP/FileTransferExt.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FileTransferExtHttpGet" binding="tns:FileTransferExtHttpGet">
+      <http:address location="http://demo.immonline.com/TeA510/TeAASP/FileTransferExt.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FileTransferExtHttpPost" binding="tns:FileTransferExtHttpPost">
+      <http:address location="http://demo.immonline.com/TeA510/TeAASP/FileTransferExt.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

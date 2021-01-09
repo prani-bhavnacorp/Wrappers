@@ -1,0 +1,2123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.cudl.com/CUDLConnect/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://www.cudl.com/CUDLConnect" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.cudl.com/CUDLConnect/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.cudl.com/CUDLConnect/">
+      <s:import namespace="http://www.cudl.com/CUDLConnect" />
+      <s:element name="ProcessSOAPMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:CUDLConnect" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessSOAPMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:CUDLConnect" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessSOAPMessageSOAPReturn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:CUDLConnect" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessSOAPMessageSOAPReturnResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:CUDLConnect" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessSOAPMessageStringReturn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:CUDLConnect" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessSOAPMessageStringReturnResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcessSOAPMessageStringReturnResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessStringMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CUDLConnectMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessStringMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcessStringMessageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessStringMessageStringReturn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CUDLConnectMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessStringMessageStringReturnResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcessStringMessageStringReturnResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessStringMessageSOAPReturn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CUDLConnectMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessStringMessageSOAPReturnResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:CUDLConnect" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessXMLMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CUDLConnectMessage">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessXMLMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:CUDLConnect" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessXMLMessageSOAPReturn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CUDLConnectMessage">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessXMLMessageSOAPReturnResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:CUDLConnect" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessXMLMessageStringReturn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CUDLConnectMessage">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessXMLMessageStringReturnResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcessXMLMessageStringReturnResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessMessageByTargetAction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OrganizationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TargetAction" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessMessageByTargetActionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcessMessageByTargetActionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Test">
+        <s:complexType />
+      </s:element>
+      <s:element name="TestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:CUDLConnect" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TestTargetAction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TargetAction" type="s1:TargetAction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TestTargetActionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" ref="s1:CUDLConnect" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.cudl.com/CUDLConnect">
+      <s:element name="CUDLConnect">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CUDLAuthentication" type="s1:CUDLAuthentication" />
+            <s:element minOccurs="0" maxOccurs="1" name="CUDLConfirmation" type="s1:CUDLConfirmation" />
+            <s:element minOccurs="0" maxOccurs="1" name="CUDLVehicleLoanApplication" type="s1:CUDLVehicleLoanApplication" />
+            <s:element minOccurs="0" maxOccurs="1" name="CUDLAccountLink" type="s1:CUDLAccountLink" />
+            <s:element minOccurs="0" maxOccurs="1" name="CUDLMemberDataLink" type="s1:CUDLMemberDataLink" />
+            <s:element minOccurs="0" maxOccurs="1" name="CUDLLoanApplicationDataRetrieval" type="s1:CUDLLoanApplicationDataRetrieval" />
+            <s:element minOccurs="0" maxOccurs="1" name="CUDLConfiguration" type="s1:CUDLConfiguration" />
+            <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+          </s:sequence>
+          <s:attribute name="Version" type="s1:CUDLConnectVersion" use="required" />
+          <s:attribute name="Direction" type="s1:MessageDirection" use="required" />
+          <s:attribute name="TargetAction" type="s1:TargetAction" use="required" />
+          <s:attribute name="ServiceGUID" type="s:string" />
+          <s:attribute name="OriginalServiceGUID" type="s:string" />
+          <s:attribute name="OtherAction" type="s:string" />
+          <s:anyAttribute />
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CUDLAuthentication">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrganizationCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+        <s:attribute name="Version" type="s1:CUDLAuthenticationVersion" use="required" />
+      </s:complexType>
+      <s:complexType name="OtherData">
+        <s:sequence>
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+        <s:attribute name="Content-Schema" type="s:string" />
+      </s:complexType>
+      <s:simpleType name="CUDLAuthenticationVersion">
+        <s:restriction base="s:string">
+          <s:enumeration value="1.0" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="CUDLConfirmation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ResponseDateTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="MessageType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Errors" type="s1:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="Source" type="s1:Source" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+        <s:attribute name="ID" type="s:string" />
+        <s:attribute name="Version" type="s1:ConfirmationVersion" use="required" />
+        <s:attribute name="ResponseType" type="s1:ResponseType" />
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Error" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Source">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="IPAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MachineName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="URI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="ConfirmationVersion">
+        <s:restriction base="s:string">
+          <s:enumeration value="1.0" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="ResponseType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Asynchronous" />
+          <s:enumeration value="Synchronous" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="CUDLVehicleLoanApplication">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="StageStatus" type="s1:ApplicationStageStatus" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubmittedDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="OriginalApplicationID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ControlNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReferralCodes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoanOfficer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OverrideCodes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RepaymentMethod" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestedAmount" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestedTerm" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DownPaymentAmount" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsBuyRate" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsPreApproved" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsDuplicate" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsFraudulent" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsFundDelay" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsDoNotFund" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="DealerFeeProgramName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OriginalLenderCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lender" type="s1:Lender" />
+          <s:element minOccurs="0" maxOccurs="1" name="Seller" type="s1:Seller" />
+          <s:element minOccurs="0" maxOccurs="1" name="Funding" type="s1:Funding" />
+          <s:element minOccurs="0" maxOccurs="1" name="WithdrawReason" type="s1:WithdrawReason" />
+          <s:element minOccurs="0" maxOccurs="1" name="Applicants" type="s1:ArrayOfApplicant" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApplicationAmounts" type="s1:ArrayOfApplicationAmount" />
+          <s:element minOccurs="0" maxOccurs="1" name="Collaterals" type="s1:ArrayOfCollateralVehicle" />
+          <s:element minOccurs="0" maxOccurs="1" name="TradeIns" type="s1:ArrayOfTradeIn" />
+          <s:element minOccurs="0" maxOccurs="1" name="Decisions" type="s1:ArrayOfDecision" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comments" type="s1:ArrayOfComment" />
+          <s:element minOccurs="0" maxOccurs="1" name="Documents" type="s1:ArrayOfDocument" />
+          <s:element minOccurs="0" maxOccurs="1" name="IntegrationHistory" type="s1:ArrayOfIntegration" />
+          <s:element minOccurs="0" maxOccurs="1" name="PackageTrackings" type="s1:ArrayOfPackageTracking" />
+          <s:element minOccurs="0" maxOccurs="1" name="PackageNotifications" type="s1:ArrayOfPackageNotification" />
+          <s:element minOccurs="0" maxOccurs="1" name="StageStatusHistory" type="s1:ArrayOfApplicationStageStatus" />
+          <s:element minOccurs="0" maxOccurs="1" name="LenderProtectionRequests" type="s1:LenderProtection" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApplicationCounts" type="s1:ApplicationCount" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuditData" type="s1:AuditData" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+        <s:attribute name="ID" type="s:int" use="required" />
+        <s:attribute name="Version" type="s1:CUDLVehicleLoanApplicationVersion" use="required" />
+      </s:complexType>
+      <s:complexType name="ApplicationStageStatus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Stage" type="s1:ApplicationStage" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s1:ApplicationStatus" />
+          <s:element minOccurs="0" maxOccurs="1" name="ChangeType" type="s1:StageStatusChangeType" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuditData" type="s1:AuditData" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="ApplicationStage">
+        <s:restriction base="s:string">
+          <s:enumeration value="Enter App" />
+          <s:enumeration value="App Submitted" />
+          <s:enumeration value="System Decision" />
+          <s:enumeration value="Manual Decision" />
+          <s:enumeration value="Processing Error" />
+          <s:enumeration value="Pending" />
+          <s:enumeration value="Funding..." />
+          <s:enumeration value="Funded" />
+          <s:enumeration value="Withdraw" />
+          <s:enumeration value="PreApproval" />
+          <s:enumeration value="Manual Review" />
+          <s:enumeration value="PID Check" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="ApplicationStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="New" />
+          <s:enumeration value="Processing" />
+          <s:enumeration value="Counter" />
+          <s:enumeration value="Declined" />
+          <s:enumeration value="Approved" />
+          <s:enumeration value="Refer" />
+          <s:enumeration value="Incomplete" />
+          <s:enumeration value="Exception" />
+          <s:enumeration value="Withdraw" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="StageStatusChangeType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Stage" />
+          <s:enumeration value="Status" />
+          <s:enumeration value="Both" />
+          <s:enumeration value="Neither" />
+          <s:enumeration value="PreApp" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="AuditData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedByID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedByName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreatedOn" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdatedByID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdatedByName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UpdatedOn" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Lender">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DecisionEngine" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsNonPrime" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="NonPrimeLenderFax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailAddresses" type="s1:ArrayOfEmailAddress" />
+          <s:element minOccurs="0" maxOccurs="1" name="Contacts" type="s1:ArrayOfContact" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneNumbers" type="s1:ArrayOfPhoneNumber" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuditData" type="s1:AuditData" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+        <s:attribute name="ID" type="s:int" />
+      </s:complexType>
+      <s:complexType name="ArrayOfEmailAddress">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EmailAddress" type="s1:EmailAddress" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EmailAddress">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="EmailAddressType" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfContact">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Contact" type="s1:Contact" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Contact">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneNumbers" type="s1:ArrayOfPhoneNumber" />
+          <s:element minOccurs="0" maxOccurs="1" name="Addresses" type="s1:ArrayOfAddress" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuditData" type="s1:AuditData" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+        <s:attribute name="ID" type="s:int" />
+        <s:attribute default="Personal" name="ContactType" type="s:string" />
+      </s:complexType>
+      <s:complexType name="ArrayOfPhoneNumber">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PhoneNumber" type="s1:PhoneNumber" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PhoneNumber">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Extension" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+        <s:attribute name="PhoneNumberType" type="s1:PhoneNumberType" use="required" />
+        <s:attribute name="ID" type="s:int" />
+      </s:complexType>
+      <s:simpleType name="PhoneNumberType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Home" />
+          <s:enumeration value="Work" />
+          <s:enumeration value="Cell" />
+          <s:enumeration value="Fax" />
+          <s:enumeration value="Other" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfAddress">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Address" type="s1:Address" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Address">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="County" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="State" type="s1:StateAbbreviation" />
+          <s:element minOccurs="0" maxOccurs="1" name="Zip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TimeAtAddress" type="s1:TimePeriod" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ordinal" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuditData" type="s1:AuditData" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+        <s:attribute name="AddressType" type="s1:AddressType" use="required" />
+        <s:attribute name="ID" type="s:int" />
+      </s:complexType>
+      <s:simpleType name="StateAbbreviation">
+        <s:restriction base="s:string">
+          <s:enumeration value="AA" />
+          <s:enumeration value="AE" />
+          <s:enumeration value="AK" />
+          <s:enumeration value="AL" />
+          <s:enumeration value="AP" />
+          <s:enumeration value="AR" />
+          <s:enumeration value="AS" />
+          <s:enumeration value="AZ" />
+          <s:enumeration value="CA" />
+          <s:enumeration value="CO" />
+          <s:enumeration value="CT" />
+          <s:enumeration value="DC" />
+          <s:enumeration value="DE" />
+          <s:enumeration value="FL" />
+          <s:enumeration value="GA" />
+          <s:enumeration value="GU" />
+          <s:enumeration value="HI" />
+          <s:enumeration value="IA" />
+          <s:enumeration value="ID" />
+          <s:enumeration value="IL" />
+          <s:enumeration value="IN" />
+          <s:enumeration value="KS" />
+          <s:enumeration value="KY" />
+          <s:enumeration value="LA" />
+          <s:enumeration value="MA" />
+          <s:enumeration value="MD" />
+          <s:enumeration value="ME" />
+          <s:enumeration value="MH" />
+          <s:enumeration value="MI" />
+          <s:enumeration value="MN" />
+          <s:enumeration value="MO" />
+          <s:enumeration value="MP" />
+          <s:enumeration value="MS" />
+          <s:enumeration value="MT" />
+          <s:enumeration value="NC" />
+          <s:enumeration value="ND" />
+          <s:enumeration value="NE" />
+          <s:enumeration value="NH" />
+          <s:enumeration value="NJ" />
+          <s:enumeration value="NM" />
+          <s:enumeration value="NV" />
+          <s:enumeration value="NY" />
+          <s:enumeration value="OH" />
+          <s:enumeration value="OK" />
+          <s:enumeration value="OR" />
+          <s:enumeration value="PA" />
+          <s:enumeration value="PR" />
+          <s:enumeration value="RI" />
+          <s:enumeration value="SC" />
+          <s:enumeration value="SD" />
+          <s:enumeration value="TN" />
+          <s:enumeration value="TX" />
+          <s:enumeration value="UT" />
+          <s:enumeration value="VA" />
+          <s:enumeration value="VI" />
+          <s:enumeration value="VT" />
+          <s:enumeration value="WA" />
+          <s:enumeration value="WI" />
+          <s:enumeration value="WV" />
+          <s:enumeration value="WY" />
+          <s:enumeration value="PW" />
+          <s:enumeration value="FM" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="TimePeriod">
+        <s:simpleContent>
+          <s:extension base="s:int">
+            <s:attribute name="Period" type="s1:TimePeriodLength" use="required" />
+            <s:attribute name="OtherPeriod" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:simpleType name="TimePeriodLength">
+        <s:restriction base="s:string">
+          <s:enumeration value="Years" />
+          <s:enumeration value="Months" />
+          <s:enumeration value="Weeks" />
+          <s:enumeration value="Days" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="AddressType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Home" />
+          <s:enumeration value="Work" />
+          <s:enumeration value="Previous" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="Seller">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="State" type="s1:StateAbbreviation" />
+          <s:element minOccurs="0" maxOccurs="1" name="Region" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomSellerCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomSellerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Contact" type="s1:Contact" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s1:Address" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneNumbers" type="s1:ArrayOfPhoneNumber" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuditData" type="s1:AuditData" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+        <s:attribute name="ID" type="s:int" />
+      </s:complexType>
+      <s:complexType name="Funding">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Amount" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rate" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContractRate" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaxContractRate" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Term" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Date" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContractDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstPaymentAmount" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstPaymentDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="SettlementDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="SellerFee" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="SellerFeePercent" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="SellerFeeNet" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="FlatFee" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="PercentMarkUp" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReserveAmount" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReserveAmountCalculated" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="ScheduledPayoff" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="ActualPayoff" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="FeeIncludedInACH" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="DoNotACHFund" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="GrossLoanAmount" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CollateralCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PurposeCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FundedVehicle" type="s1:FundedVehicle" />
+          <s:element minOccurs="0" maxOccurs="1" name="FundProducts" type="s1:ArrayOfFundProduct" />
+          <s:element minOccurs="0" maxOccurs="1" name="Adjustments" type="s1:ArrayOfAdjustment" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuditData" type="s1:AuditData" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+        <s:attribute name="ID" type="s:int" />
+        <s:attribute name="Action" type="s1:FundAction" />
+      </s:complexType>
+      <s:complexType name="FundedVehicle">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Make" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Model" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Year" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VIN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mileage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UsedIndicator" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFundProduct">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FundProduct" type="s1:FundProduct" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FundProduct">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuditData" type="s1:AuditData" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+        <s:attribute name="ID" type="s:int" />
+      </s:complexType>
+      <s:complexType name="ArrayOfAdjustment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Adjustment" type="s1:Adjustment" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Adjustment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdjustFrom" type="s1:AdjustFrom" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdjustType" type="s1:AdjustType" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuditData" type="s1:AuditData" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+        <s:attribute name="ID" type="s:int" />
+      </s:complexType>
+      <s:simpleType name="AdjustFrom">
+        <s:restriction base="s:string">
+          <s:enumeration value="F" />
+          <s:enumeration value="L" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="AdjustType">
+        <s:restriction base="s:string">
+          <s:enumeration value="A" />
+          <s:enumeration value="S" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="FundAction">
+        <s:restriction base="s:string">
+          <s:enumeration value="Fund" />
+          <s:enumeration value="CancelFunding" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="WithdrawReason">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:Reason" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Reason">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuditData" type="s1:AuditData" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DataMap" type="s1:DataMap" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DataMap">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Mapping" type="s1:Mapping" />
+        </s:sequence>
+        <s:attribute name="FieldMapped" type="s:string" />
+        <s:attribute name="ObjectName" type="s:string" />
+        <s:attribute name="XPath" type="s:string" />
+        <s:anyAttribute />
+      </s:complexType>
+      <s:complexType name="Mapping">
+        <s:simpleContent>
+          <s:extension base="s:string">
+            <s:attribute name="CUDLValue" type="s:string" />
+            <s:attribute name="ExternalValue" type="s:string" />
+            <s:anyAttribute />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:complexType name="DecisionReason">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:Reason" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfApplicant">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Applicant" type="s1:Applicant" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Applicant">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Liens" type="s1:ArrayOfLien" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s1:PersonName" />
+          <s:element minOccurs="0" maxOccurs="1" name="SSN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateOfBirth" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="Age" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaritalStatus" type="s1:MaritalStatus" />
+          <s:element minOccurs="0" maxOccurs="1" name="RelationshipToApplicant" type="s1:ApplicantRelationshipType" />
+          <s:element minOccurs="0" maxOccurs="1" name="DetailedRelationship" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumberOfDependents" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DriversLicenseNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExpirationDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssuingState" type="s1:StateAbbreviation" />
+          <s:element minOccurs="0" maxOccurs="1" name="HousingType" type="s1:HousingType" />
+          <s:element minOccurs="0" maxOccurs="1" name="HousingExpense" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="HousingCreditor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CitizenshipStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreditQuestionResponse" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="HasCheckingAccount" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="HasSavingsAccount" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemberShipStatusVerified" nillable="true" type="s1:TriState" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsMember" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemberAccountNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsCreditUnionEmployee" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsDealerEmployee" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreditDatas" type="s1:ArrayOfCreditData" />
+          <s:element minOccurs="0" maxOccurs="1" name="Addresses" type="s1:ArrayOfAddress" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneNumbers" type="s1:ArrayOfPhoneNumber" />
+          <s:element minOccurs="0" maxOccurs="1" name="Employers" type="s1:ArrayOfEmployer" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherIncomes" type="s1:ArrayOfOtherIncome" />
+          <s:element minOccurs="0" maxOccurs="1" name="MembershipQualifications" type="s1:ArrayOfMembershipQualification" />
+          <s:element minOccurs="0" maxOccurs="1" name="Debts" type="s1:ArrayOfDebt" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApplicantReferences" type="s1:ArrayOfApplicantReference" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailAddresses" type="s1:ArrayOfEmailAddress" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuditData" type="s1:AuditData" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+        <s:attribute name="ID" type="s:int" />
+        <s:attribute name="ApplicantType" type="s1:ApplicantType" use="required" />
+      </s:complexType>
+      <s:complexType name="ArrayOfLien">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Lien" type="s1:Lien" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Lien">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lender" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Payment" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Frequency" type="s1:Frequency" />
+          <s:element minOccurs="1" maxOccurs="1" name="Balance" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="PayOff" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="PayOffSpecified" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="Frequency">
+        <s:restriction base="s:string">
+          <s:enumeration value="Yearly" />
+          <s:enumeration value="Monthly" />
+          <s:enumeration value="BiWeekly" />
+          <s:enumeration value="Weekly" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="PersonName">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="First" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Middle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Last" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Suffix" type="s1:Suffix" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="Suffix">
+        <s:restriction base="s:string">
+          <s:enumeration value="Jr" />
+          <s:enumeration value="Sr" />
+          <s:enumeration value="II" />
+          <s:enumeration value="III" />
+          <s:enumeration value="IV" />
+          <s:enumeration value="V" />
+          <s:enumeration value="VI" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="MaritalStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="Married" />
+          <s:enumeration value="Separated" />
+          <s:enumeration value="UnMarried" />
+          <s:enumeration value="Unknown" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="ApplicantRelationshipType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Joint and Spousal" />
+          <s:enumeration value="Joint and Non-Spousal" />
+          <s:enumeration value="Co-signer and Non-Spousal" />
+          <s:enumeration value="Unknown" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="HousingType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Boards" />
+          <s:enumeration value="Lease" />
+          <s:enumeration value="Lives With Parents" />
+          <s:enumeration value="Owns" />
+          <s:enumeration value="Owns Free and Clear" />
+          <s:enumeration value="Rents" />
+          <s:enumeration value="Other" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="TriState">
+        <s:restriction base="s:string">
+          <s:enumeration value="true" />
+          <s:enumeration value="false" />
+          <s:enumeration value="error" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfCreditData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CreditData" type="s1:CreditData" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CreditData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DatePulled" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="Provider" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Scores" type="s1:ArrayOfCreditScore" />
+          <s:element minOccurs="0" maxOccurs="1" name="Raw" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MISMO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Print" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HTML" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+        <s:attribute name="ID" type="s:int" />
+        <s:attribute default="CreditReport" name="CreditDataType" type="s1:CreditDataType" />
+      </s:complexType>
+      <s:complexType name="ArrayOfCreditScore">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Score" type="s1:CreditScore" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CreditScore">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Score" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Provider" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Model" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" default="true" name="EvaluateHighIsGood" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+        <s:attribute name="ID" type="s:string" />
+      </s:complexType>
+      <s:simpleType name="CreditDataType">
+        <s:restriction base="s:string">
+          <s:enumeration value="CreditReport" />
+          <s:enumeration value="Other" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfEmployer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Employer" type="s1:Employer" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Employer">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Name" nillable="true" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Occupation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Income" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="IncomeFrequency" type="s1:Frequency" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsCurrentEmployer" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmploymentPeriod" type="s1:TimePeriod" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="s1:PhoneNumber" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuditData" type="s1:AuditData" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+        <s:attribute name="EmploymentType" type="s1:EmploymentType" use="required" />
+        <s:attribute name="ID" type="s:int" />
+      </s:complexType>
+      <s:simpleType name="EmploymentType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Employed" />
+          <s:enumeration value="Retired" />
+          <s:enumeration value="Self-Employed" />
+          <s:enumeration value="Unemployed" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfOtherIncome">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OtherIncome" type="s1:OtherIncome" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OtherIncome">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Source" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Frequency" type="s1:Frequency" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuditData" type="s1:AuditData" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+        <s:attribute name="ID" type="s:int" />
+      </s:complexType>
+      <s:complexType name="ArrayOfMembershipQualification">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Qualification" type="s1:MembershipQualification" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MembershipQualification">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Qualifier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Reason" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ordinal" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+        <s:attribute name="ID" type="s:int" />
+      </s:complexType>
+      <s:complexType name="ArrayOfDebt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Debt" type="s1:Debt" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Debt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Source" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Amount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Frequency" type="s1:Frequency" />
+          <s:element minOccurs="0" maxOccurs="1" name="Balance" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+        <s:attribute name="ID" type="s:int" />
+      </s:complexType>
+      <s:complexType name="ArrayOfApplicantReference">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ApplicantReference" type="s1:ApplicantReference" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ApplicantReference">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s1:PersonName" />
+          <s:element minOccurs="0" maxOccurs="1" name="RelationshiptoApplicant" type="s1:ApplicantRelationshipType" />
+          <s:element minOccurs="0" maxOccurs="1" name="DetailedRelationship" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ordinal" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s1:Address" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="s1:PhoneNumber" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuditData" type="s1:AuditData" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+        <s:attribute name="ID" type="s:int" />
+      </s:complexType>
+      <s:simpleType name="ApplicantType">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="PrimaryApplicant" />
+          <s:enumeration value="CoApplicant" />
+          <s:enumeration value="JointApplicant" />
+          <s:enumeration value="AdditionalApplicant" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfApplicationAmount">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ApplicationAmount" type="s1:ApplicationAmount" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ApplicationAmount">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Amount" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+        <s:attribute name="ID" type="s:int" />
+        <s:attribute name="AmountType" type="s1:ApplicationAmountType" use="required" />
+      </s:complexType>
+      <s:simpleType name="ApplicationAmountType">
+        <s:restriction base="s:string">
+          <s:enumeration value="AdditionalItems" />
+          <s:enumeration value="BalloonResidual" />
+          <s:enumeration value="CreditDisability" />
+          <s:enumeration value="CreditLife" />
+          <s:enumeration value="DocFees" />
+          <s:enumeration value="EnvironmentalPackage" />
+          <s:enumeration value="GAP" />
+          <s:enumeration value="License" />
+          <s:enumeration value="Rebate" />
+          <s:enumeration value="ServiceContract" />
+          <s:enumeration value="Tax" />
+          <s:enumeration value="TheftDeterrent" />
+          <s:enumeration value="TradeAllowance" />
+          <s:enumeration value="TotalPurchasePrice" />
+          <s:enumeration value="Other" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfCollateralVehicle">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Collateral" type="s1:CollateralVehicle" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CollateralVehicle">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:Vehicle">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="IsNew" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="IsPrimary" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="FinanceAmount" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="PurchasePrice" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="SalesPrice" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="TitleRequestedUser" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TitlePolicyRequested" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TitlePolicyLink" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TitlePolicyReceived" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="AdditionalVehicleOptions" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="VehicleOptions" type="s1:ArrayOfVehicleOption" />
+              <s:element minOccurs="0" maxOccurs="1" name="AuditData" type="s1:AuditData" />
+              <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Vehicle">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Make" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Model" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Year" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="VIN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mileage" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="VehicleValuation" type="s1:VehicleValuation" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ordinal" type="s:int" />
+        </s:sequence>
+        <s:attribute name="ID" type="s:int" />
+        <s:attribute default="Auto" name="VehicleType" type="s1:VehicleType" />
+      </s:complexType>
+      <s:complexType name="VehicleValuation">
+        <s:simpleContent>
+          <s:extension base="s:decimal">
+            <s:attribute name="ValuationType" type="s1:VehicleValuationType" use="required" />
+            <s:attribute name="OtherType" type="s:string" />
+          </s:extension>
+        </s:simpleContent>
+      </s:complexType>
+      <s:simpleType name="VehicleValuationType">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="Blue Book Wholesale" />
+          <s:enumeration value="Blue Book Retail" />
+          <s:enumeration value="NADA Wholesale" />
+          <s:enumeration value="NADA Retail" />
+          <s:enumeration value="Black Book Wholesale" />
+          <s:enumeration value="Black Book Retail" />
+          <s:enumeration value="Black Book Trade" />
+          <s:enumeration value="Blue Book Trade" />
+          <s:enumeration value="NADA Trade" />
+          <s:enumeration value="Invoice" />
+          <s:enumeration value="MSRP" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="VehicleType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Auto" />
+          <s:enumeration value="Aircraft" />
+          <s:enumeration value="ATV" />
+          <s:enumeration value="Boat" />
+          <s:enumeration value="Farm Vehicle" />
+          <s:enumeration value="Jetski" />
+          <s:enumeration value="Motorcycle" />
+          <s:enumeration value="RV" />
+          <s:enumeration value="Snowmobile" />
+          <s:enumeration value="Mobility Vehicle" />
+          <s:enumeration value="SMARTApproval" />
+          <s:enumeration value="Personal Watercraft" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="TradeIn">
+        <s:complexContent mixed="false">
+          <s:extension base="s1:Vehicle">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="AmountOwed" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="IsFinanced" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="FinancialInstitution" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="MonthlyPayment" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="TradeAllowance" type="s:decimal" />
+              <s:element minOccurs="0" maxOccurs="1" name="AuditData" type="s1:AuditData" />
+              <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfVehicleOption">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="VehicleOption" type="s1:VehicleOption" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="VehicleOption">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuditData" type="s1:AuditData" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+        <s:attribute name="ID" type="s:int" />
+      </s:complexType>
+      <s:complexType name="ArrayOfTradeIn">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TradeIn" type="s1:TradeIn" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDecision">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Decision" type="s1:Decision" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Decision">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s1:DecisionStatus" />
+          <s:element minOccurs="0" maxOccurs="1" name="Date" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsCurrent" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rate" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaxContractRate" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Amount" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Term" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PolicyAndConditions" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PreApproval" type="s1:PreApproval" />
+          <s:element minOccurs="0" maxOccurs="1" name="Reasons" type="s1:ArrayOfDecisionReason" />
+          <s:element minOccurs="0" maxOccurs="1" name="Stipulations" type="s1:ArrayOfStipulationSpecialConsideration" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecialConsiderations" type="s1:ArrayOfStipulationSpecialConsideration1" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuditData" type="s1:AuditData" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+        <s:attribute name="ID" type="s:int" />
+        <s:attribute name="DecisionType" type="s1:DecisionType" use="required" />
+      </s:complexType>
+      <s:simpleType name="DecisionStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="Counter" />
+          <s:enumeration value="Declined" />
+          <s:enumeration value="Approved" />
+          <s:enumeration value="Refer" />
+          <s:enumeration value="Withdraw" />
+          <s:enumeration value="Exception" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="PreApproval">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="WasPreApprovedChecked" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsPreApproved" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CampaignName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Source" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDecisionReason">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DecisionReason" type="s1:DecisionReason" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfStipulationSpecialConsideration">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Stipulation" type="s1:StipulationSpecialConsideration" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="StipulationSpecialConsideration">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuditData" type="s1:AuditData" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+        <s:attribute name="ID" type="s:int" />
+      </s:complexType>
+      <s:complexType name="ArrayOfStipulationSpecialConsideration1">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SpecialConsideration" type="s1:StipulationSpecialConsideration" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="DecisionType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Manual Decision" />
+          <s:enumeration value="System Decision" />
+          <s:enumeration value="PreApproval" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfComment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Comment" type="s1:Comment" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Comment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Subject" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Body" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Source" type="s1:CommentSource" />
+          <s:element minOccurs="0" maxOccurs="1" name="Date" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsPrivate" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsFundDelayComment" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="SourceOrganizationName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuditData" type="s1:AuditData" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+        <s:attribute name="ID" type="s:int" />
+        <s:attribute name="CommentType" type="s:string" />
+      </s:complexType>
+      <s:simpleType name="CommentSource">
+        <s:restriction base="s:string">
+          <s:enumeration value="Seller" />
+          <s:enumeration value="Lender" />
+          <s:enumeration value="CUDL" />
+          <s:enumeration value="CUSO" />
+          <s:enumeration value="Acceptance Corp" />
+          <s:enumeration value="Other" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfDocument">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Document" type="s1:Document" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Document">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FileCreatedDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="FileQueueDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="FileDeliveryDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="FileContents" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+        <s:attribute name="ID" type="s:int" />
+        <s:attribute default="SmartFundDocument" name="DocumentType" type="s1:DocumentType" />
+      </s:complexType>
+      <s:simpleType name="DocumentType">
+        <s:restriction base="s:string">
+          <s:enumeration value="SmartFundDocument" />
+          <s:enumeration value="Other" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfIntegration">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Integration" type="s1:Integration" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Integration">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Notes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Source" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TellerID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuditData" type="s1:AuditData" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+        <s:attribute name="ID" type="s:int" />
+        <s:attribute default="DP" name="IntegrationType" type="s1:IntegrationType" />
+      </s:complexType>
+      <s:simpleType name="IntegrationType">
+        <s:restriction base="s:string">
+          <s:enumeration value="DP" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfPackageTracking">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PackageTracking" type="s1:PackageTracking" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PackageTracking">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ReceivedDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReceivedByName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompletedDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompletedByName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReturnedDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReturnedByName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EnteredByName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuditData" type="s1:AuditData" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+        <s:attribute name="ID" type="s:int" />
+      </s:complexType>
+      <s:complexType name="ArrayOfPackageNotification">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PackageNotification" type="s1:PackageNotification" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PackageNotification">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="NotificationDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="EnteredByName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ByEmail" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ByFax" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ByPhone" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ByOther" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuditData" type="s1:AuditData" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+        <s:attribute name="ID" type="s:int" />
+      </s:complexType>
+      <s:complexType name="ArrayOfApplicationStageStatus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="StageStatus" type="s1:ApplicationStageStatus" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LenderProtection">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LenderProtectionText" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestedOn" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReturnedOn" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuditData" type="s1:AuditData" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ApplicationCount">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SystemApprovalCount" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SystemReferralCount" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SystemSubmitCount" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApprovalCount" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReferralCount" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubmitCount" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="CUDLVehicleLoanApplicationVersion">
+        <s:restriction base="s:string">
+          <s:enumeration value="1.0" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="CUDLAccountLink">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ApplicationID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Applicants" type="s1:ArrayOfApplicant" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountNumbers" type="s1:ArrayOfString1" />
+          <s:element minOccurs="0" maxOccurs="1" name="DisplayHTML" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReturnData" type="s1:ReturnData" />
+          <s:element minOccurs="0" maxOccurs="1" name="Errors" type="s1:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+        <s:attribute name="ID" type="s:string" />
+        <s:attribute name="Version" type="s:string" />
+      </s:complexType>
+      <s:complexType name="ArrayOfString1">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AccountNumber" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ReturnData">
+        <s:sequence>
+          <s:any minOccurs="0" maxOccurs="unbounded" />
+        </s:sequence>
+        <s:attribute name="HostSystem" type="s:string" />
+      </s:complexType>
+      <s:complexType name="CUDLMemberDataLink">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MemberName" type="s1:PersonName" />
+          <s:element minOccurs="0" maxOccurs="1" name="SSN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateOfBirth" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsMember" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="MembershipQualifications" type="s1:ArrayOfMembershipQualification" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+        <s:attribute name="ID" type="s:string" />
+        <s:attribute name="Version" type="s1:MemberDataLinkVersion" use="required" />
+      </s:complexType>
+      <s:simpleType name="MemberDataLinkVersion">
+        <s:restriction base="s:string">
+          <s:enumeration value="1.0" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="CUDLLoanApplicationDataRetrieval">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SearchCriteria" type="s1:LoanApplicationSearchCriteria" />
+          <s:element minOccurs="0" maxOccurs="1" name="SearchResults" type="s1:LoanApplicationSearchResults" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoanDataRetrieval" type="s1:LoanDataRetrieval" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+        <s:attribute name="Version" type="s1:CUDLLoanApplicationDataRetrievalVersion" use="required" />
+        <s:attribute name="Action" type="s1:CUDLLoanApplicationDataRetrievalAction" use="required" />
+        <s:attribute default="CUDL3" name="Platform" type="s1:CUDLPlatform" />
+      </s:complexType>
+      <s:complexType name="LoanApplicationSearchCriteria">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ApplicantFirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApplicantLastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoApplicantFirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoApplicantLastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApplicantSSN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CoApplicantSSN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BeforeDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="AfterDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrimaryVehicleVIN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Stage" type="s1:ApplicationStage" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Status" type="s1:ApplicationStatus" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SortBy" type="s1:LoanApplicationSortColumn" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="LoanApplicationSortColumn">
+        <s:restriction base="s:string">
+          <s:enumeration value="Search" />
+          <s:enumeration value="Applicant Name" />
+          <s:enumeration value="ApplicationStatus" />
+          <s:enumeration value="ApplicationStage" />
+          <s:enumeration value="Date" />
+          <s:enumeration value="Application Number" />
+          <s:enumeration value="Co-Applicant Name" />
+          <s:enumeration value="Amount Requested" />
+          <s:enumeration value="Seller" />
+          <s:enumeration value="Seller State" />
+          <s:enumeration value="Seller Code" />
+          <s:enumeration value="Decision Amount" />
+          <s:enumeration value="Lender" />
+          <s:enumeration value="Lender Code" />
+          <s:enumeration value="Applicant SSN" />
+          <s:enumeration value="Member Account #" />
+          <s:enumeration value="Co-Applicant SSN" />
+          <s:enumeration value="ApplicationChangeDate" />
+          <s:enumeration value="Lender Branch" />
+          <s:enumeration value="UserName" />
+          <s:enumeration value="SellerRegionID" />
+          <s:enumeration value="Loan Type" />
+          <s:enumeration value="Score" />
+          <s:enumeration value="DPExport" />
+          <s:enumeration value="SellerGroupName" />
+          <s:enumeration value="PID Alert" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="LoanApplicationSearchResults">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LoanApplicationIDs" type="s1:ArrayOfInt" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LoanApplicationID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LoanDataRetrieval">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LoanApplicationID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultSchemaVersion" type="s1:CUDLVehicleLoanApplicationVersion" />
+          <s:element minOccurs="0" maxOccurs="1" name="IncludeCreditReport" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="CUDLLoanApplicationDataRetrievalVersion">
+        <s:restriction base="s:string">
+          <s:enumeration value="1.0" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="CUDLLoanApplicationDataRetrievalAction">
+        <s:restriction base="s:string">
+          <s:enumeration value="Search" />
+          <s:enumeration value="GetLoanApplicationData" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="CUDLPlatform">
+        <s:restriction base="s:string">
+          <s:enumeration value="CUDL3" />
+          <s:enumeration value="CUDLDapp" />
+          <s:enumeration value="Lending360" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="CUDLConfiguration">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DataMaps" type="s1:ArrayOfDataMap" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s1:OtherData" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:complexType name="ArrayOfDataMap">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DataMap" type="s1:DataMap" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="CUDLConnectVersion">
+        <s:restriction base="s:string">
+          <s:enumeration value="1.0" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="MessageDirection">
+        <s:restriction base="s:string">
+          <s:enumeration value="Request" />
+          <s:enumeration value="Response" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="TargetAction">
+        <s:restriction base="s:string">
+          <s:enumeration value="MemberDataLink" />
+          <s:enumeration value="NetFund" />
+          <s:enumeration value="DealerDataImport" />
+          <s:enumeration value="SaveDecision" />
+          <s:enumeration value="ProcessDecision" />
+          <s:enumeration value="LoanComment" />
+          <s:enumeration value="DataCourier" />
+          <s:enumeration value="AccountLink" />
+          <s:enumeration value="DocumentIntegration" />
+          <s:enumeration value="LoanDataRetrieval" />
+          <s:enumeration value="PreApproval" />
+          <s:enumeration value="Other" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ProcessSOAPMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessSOAPMessage" />
+  </wsdl:message>
+  <wsdl:message name="ProcessSOAPMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessSOAPMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessSOAPMessageSOAPReturnSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessSOAPMessageSOAPReturn" />
+  </wsdl:message>
+  <wsdl:message name="ProcessSOAPMessageSOAPReturnSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessSOAPMessageSOAPReturnResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessSOAPMessageStringReturnSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessSOAPMessageStringReturn" />
+  </wsdl:message>
+  <wsdl:message name="ProcessSOAPMessageStringReturnSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessSOAPMessageStringReturnResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessStringMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessStringMessage" />
+  </wsdl:message>
+  <wsdl:message name="ProcessStringMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessStringMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessStringMessageStringReturnSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessStringMessageStringReturn" />
+  </wsdl:message>
+  <wsdl:message name="ProcessStringMessageStringReturnSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessStringMessageStringReturnResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessStringMessageSOAPReturnSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessStringMessageSOAPReturn" />
+  </wsdl:message>
+  <wsdl:message name="ProcessStringMessageSOAPReturnSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessStringMessageSOAPReturnResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessXMLMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessXMLMessage" />
+  </wsdl:message>
+  <wsdl:message name="ProcessXMLMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessXMLMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessXMLMessageSOAPReturnSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessXMLMessageSOAPReturn" />
+  </wsdl:message>
+  <wsdl:message name="ProcessXMLMessageSOAPReturnSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessXMLMessageSOAPReturnResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessXMLMessageStringReturnSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessXMLMessageStringReturn" />
+  </wsdl:message>
+  <wsdl:message name="ProcessXMLMessageStringReturnSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessXMLMessageStringReturnResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessMessageByTargetActionSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessMessageByTargetAction" />
+  </wsdl:message>
+  <wsdl:message name="ProcessMessageByTargetActionSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessMessageByTargetActionResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestSoapIn">
+    <wsdl:part name="parameters" element="tns:Test" />
+  </wsdl:message>
+  <wsdl:message name="TestSoapOut">
+    <wsdl:part name="parameters" element="tns:TestResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestTargetActionSoapIn">
+    <wsdl:part name="parameters" element="tns:TestTargetAction" />
+  </wsdl:message>
+  <wsdl:message name="TestTargetActionSoapOut">
+    <wsdl:part name="parameters" element="tns:TestTargetActionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessStringMessageHttpGetIn">
+    <wsdl:part name="CUDLConnectMessage" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ProcessStringMessageHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ProcessStringMessageStringReturnHttpGetIn">
+    <wsdl:part name="CUDLConnectMessage" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ProcessStringMessageStringReturnHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ProcessStringMessageSOAPReturnHttpGetIn">
+    <wsdl:part name="CUDLConnectMessage" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ProcessStringMessageSOAPReturnHttpGetOut">
+    <wsdl:part name="Body" element="s1:CUDLConnect" />
+  </wsdl:message>
+  <wsdl:message name="ProcessMessageByTargetActionHttpGetIn">
+    <wsdl:part name="OrganizationCode" type="s:string" />
+    <wsdl:part name="Message" type="s:string" />
+    <wsdl:part name="TargetAction" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ProcessMessageByTargetActionHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="TestHttpGetIn" />
+  <wsdl:message name="TestHttpGetOut">
+    <wsdl:part name="Body" element="s1:CUDLConnect" />
+  </wsdl:message>
+  <wsdl:message name="TestTargetActionHttpGetIn">
+    <wsdl:part name="TargetAction" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TestTargetActionHttpGetOut">
+    <wsdl:part name="Body" element="s1:CUDLConnect" />
+  </wsdl:message>
+  <wsdl:message name="ProcessStringMessageHttpPostIn">
+    <wsdl:part name="CUDLConnectMessage" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ProcessStringMessageHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ProcessStringMessageStringReturnHttpPostIn">
+    <wsdl:part name="CUDLConnectMessage" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ProcessStringMessageStringReturnHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ProcessStringMessageSOAPReturnHttpPostIn">
+    <wsdl:part name="CUDLConnectMessage" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ProcessStringMessageSOAPReturnHttpPostOut">
+    <wsdl:part name="Body" element="s1:CUDLConnect" />
+  </wsdl:message>
+  <wsdl:message name="ProcessMessageByTargetActionHttpPostIn">
+    <wsdl:part name="OrganizationCode" type="s:string" />
+    <wsdl:part name="Message" type="s:string" />
+    <wsdl:part name="TargetAction" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ProcessMessageByTargetActionHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="TestHttpPostIn" />
+  <wsdl:message name="TestHttpPostOut">
+    <wsdl:part name="Body" element="s1:CUDLConnect" />
+  </wsdl:message>
+  <wsdl:message name="TestTargetActionHttpPostIn">
+    <wsdl:part name="TargetAction" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TestTargetActionHttpPostOut">
+    <wsdl:part name="Body" element="s1:CUDLConnect" />
+  </wsdl:message>
+  <wsdl:portType name="CUDLConnectInboundServiceSoap">
+    <wsdl:operation name="ProcessSOAPMessage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Allows sending of a SOAP formatted CUDLConnect message. Returns a SOAP Formatted CUDLConnect Object.</wsdl:documentation>
+      <wsdl:input message="tns:ProcessSOAPMessageSoapIn" />
+      <wsdl:output message="tns:ProcessSOAPMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessSOAPMessageSOAPReturn">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Allows sending of a SOAP formatted CUDLConnect message. Returns a SOAP Formatted CUDLConnect Object.</wsdl:documentation>
+      <wsdl:input message="tns:ProcessSOAPMessageSOAPReturnSoapIn" />
+      <wsdl:output message="tns:ProcessSOAPMessageSOAPReturnSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessSOAPMessageStringReturn">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Allows sending of a SOAP formatted CUDLConnect message. Returns a String message formatted as a valid CUDLConnect message.</wsdl:documentation>
+      <wsdl:input message="tns:ProcessSOAPMessageStringReturnSoapIn" />
+      <wsdl:output message="tns:ProcessSOAPMessageStringReturnSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessStringMessage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Allows sending of a String parameter that must be a valid XML formatted CUDLConnect message. Returns a String message formatted as a valid CUDLConnect message.</wsdl:documentation>
+      <wsdl:input message="tns:ProcessStringMessageSoapIn" />
+      <wsdl:output message="tns:ProcessStringMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessStringMessageStringReturn">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Allows sending of a String parameter that must be a valid XML formatted CUDLConnect message. Returns a String message formatted as a valid CUDLConnect message.</wsdl:documentation>
+      <wsdl:input message="tns:ProcessStringMessageStringReturnSoapIn" />
+      <wsdl:output message="tns:ProcessStringMessageStringReturnSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessStringMessageSOAPReturn">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Allows sending of a String parameter that must be a valid XML formatted CUDLConnect message. Returns a SOAP Formatted CUDLConnect Object.</wsdl:documentation>
+      <wsdl:input message="tns:ProcessStringMessageSOAPReturnSoapIn" />
+      <wsdl:output message="tns:ProcessStringMessageSOAPReturnSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessXMLMessage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Allows sending of a formatted CUDLConnect message as an XML Document. Returns a String Required to be formatted as a valid CUDLConnect XML document.</wsdl:documentation>
+      <wsdl:input message="tns:ProcessXMLMessageSoapIn" />
+      <wsdl:output message="tns:ProcessXMLMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessXMLMessageSOAPReturn">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Allows sending of a formatted CUDLConnect message as an XML Document. Returns a SOAP Formatted CUDLConnect Object.</wsdl:documentation>
+      <wsdl:input message="tns:ProcessXMLMessageSOAPReturnSoapIn" />
+      <wsdl:output message="tns:ProcessXMLMessageSOAPReturnSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessXMLMessageStringReturn">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Allows sending of a formatted CUDLConnect message as an XML Document. Returns a String message formatted as a valid CUDLConnect message.</wsdl:documentation>
+      <wsdl:input message="tns:ProcessXMLMessageStringReturnSoapIn" />
+      <wsdl:output message="tns:ProcessXMLMessageStringReturnSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessMessageByTargetAction">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Allows sending of a generic XML message. Returns a String message.</wsdl:documentation>
+      <wsdl:input message="tns:ProcessMessageByTargetActionSoapIn" />
+      <wsdl:output message="tns:ProcessMessageByTargetActionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Performs a simple test of the webservice. Returns a CUDLConfirmation Message</wsdl:documentation>
+      <wsdl:input message="tns:TestSoapIn" />
+      <wsdl:output message="tns:TestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TestTargetAction">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Performs a simple test of the webservice. Returns a CUDLConfirmation Message</wsdl:documentation>
+      <wsdl:input message="tns:TestTargetActionSoapIn" />
+      <wsdl:output message="tns:TestTargetActionSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CUDLConnectInboundServiceHttpGet">
+    <wsdl:operation name="ProcessStringMessage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Allows sending of a String parameter that must be a valid XML formatted CUDLConnect message. Returns a String message formatted as a valid CUDLConnect message.</wsdl:documentation>
+      <wsdl:input message="tns:ProcessStringMessageHttpGetIn" />
+      <wsdl:output message="tns:ProcessStringMessageHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessStringMessageStringReturn">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Allows sending of a String parameter that must be a valid XML formatted CUDLConnect message. Returns a String message formatted as a valid CUDLConnect message.</wsdl:documentation>
+      <wsdl:input message="tns:ProcessStringMessageStringReturnHttpGetIn" />
+      <wsdl:output message="tns:ProcessStringMessageStringReturnHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessStringMessageSOAPReturn">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Allows sending of a String parameter that must be a valid XML formatted CUDLConnect message. Returns a SOAP Formatted CUDLConnect Object.</wsdl:documentation>
+      <wsdl:input message="tns:ProcessStringMessageSOAPReturnHttpGetIn" />
+      <wsdl:output message="tns:ProcessStringMessageSOAPReturnHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessMessageByTargetAction">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Allows sending of a generic XML message. Returns a String message.</wsdl:documentation>
+      <wsdl:input message="tns:ProcessMessageByTargetActionHttpGetIn" />
+      <wsdl:output message="tns:ProcessMessageByTargetActionHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Performs a simple test of the webservice. Returns a CUDLConfirmation Message</wsdl:documentation>
+      <wsdl:input message="tns:TestHttpGetIn" />
+      <wsdl:output message="tns:TestHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TestTargetAction">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Performs a simple test of the webservice. Returns a CUDLConfirmation Message</wsdl:documentation>
+      <wsdl:input message="tns:TestTargetActionHttpGetIn" />
+      <wsdl:output message="tns:TestTargetActionHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CUDLConnectInboundServiceHttpPost">
+    <wsdl:operation name="ProcessStringMessage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Allows sending of a String parameter that must be a valid XML formatted CUDLConnect message. Returns a String message formatted as a valid CUDLConnect message.</wsdl:documentation>
+      <wsdl:input message="tns:ProcessStringMessageHttpPostIn" />
+      <wsdl:output message="tns:ProcessStringMessageHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessStringMessageStringReturn">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Allows sending of a String parameter that must be a valid XML formatted CUDLConnect message. Returns a String message formatted as a valid CUDLConnect message.</wsdl:documentation>
+      <wsdl:input message="tns:ProcessStringMessageStringReturnHttpPostIn" />
+      <wsdl:output message="tns:ProcessStringMessageStringReturnHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessStringMessageSOAPReturn">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Allows sending of a String parameter that must be a valid XML formatted CUDLConnect message. Returns a SOAP Formatted CUDLConnect Object.</wsdl:documentation>
+      <wsdl:input message="tns:ProcessStringMessageSOAPReturnHttpPostIn" />
+      <wsdl:output message="tns:ProcessStringMessageSOAPReturnHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessMessageByTargetAction">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Allows sending of a generic XML message. Returns a String message.</wsdl:documentation>
+      <wsdl:input message="tns:ProcessMessageByTargetActionHttpPostIn" />
+      <wsdl:output message="tns:ProcessMessageByTargetActionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Performs a simple test of the webservice. Returns a CUDLConfirmation Message</wsdl:documentation>
+      <wsdl:input message="tns:TestHttpPostIn" />
+      <wsdl:output message="tns:TestHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TestTargetAction">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Performs a simple test of the webservice. Returns a CUDLConfirmation Message</wsdl:documentation>
+      <wsdl:input message="tns:TestTargetActionHttpPostIn" />
+      <wsdl:output message="tns:TestTargetActionHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CUDLConnectInboundServiceSoap" type="tns:CUDLConnectInboundServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ProcessSOAPMessage">
+      <soap:operation soapAction="http://www.cudl.com/CUDLConnect/ProcessSOAPMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessSOAPMessageSOAPReturn">
+      <soap:operation soapAction="http://www.cudl.com/CUDLConnect/ProcessSOAPMessageSOAPReturn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessSOAPMessageStringReturn">
+      <soap:operation soapAction="http://www.cudl.com/CUDLConnect/ProcessSOAPMessageStringReturn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessStringMessage">
+      <soap:operation soapAction="http://www.cudl.com/CUDLConnect/ProcessStringMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessStringMessageStringReturn">
+      <soap:operation soapAction="http://www.cudl.com/CUDLConnect/ProcessStringMessageStringReturn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessStringMessageSOAPReturn">
+      <soap:operation soapAction="http://www.cudl.com/CUDLConnect/ProcessStringMessageSOAPReturn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessXMLMessage">
+      <soap:operation soapAction="http://www.cudl.com/CUDLConnect/ProcessXMLMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessXMLMessageSOAPReturn">
+      <soap:operation soapAction="http://www.cudl.com/CUDLConnect/ProcessXMLMessageSOAPReturn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessXMLMessageStringReturn">
+      <soap:operation soapAction="http://www.cudl.com/CUDLConnect/ProcessXMLMessageStringReturn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessMessageByTargetAction">
+      <soap:operation soapAction="http://www.cudl.com/CUDLConnect/ProcessMessageByTargetAction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <soap:operation soapAction="http://www.cudl.com/CUDLConnect/Test" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestTargetAction">
+      <soap:operation soapAction="http://www.cudl.com/CUDLConnect/TestTargetAction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CUDLConnectInboundServiceSoap12" type="tns:CUDLConnectInboundServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ProcessSOAPMessage">
+      <soap12:operation soapAction="http://www.cudl.com/CUDLConnect/ProcessSOAPMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessSOAPMessageSOAPReturn">
+      <soap12:operation soapAction="http://www.cudl.com/CUDLConnect/ProcessSOAPMessageSOAPReturn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessSOAPMessageStringReturn">
+      <soap12:operation soapAction="http://www.cudl.com/CUDLConnect/ProcessSOAPMessageStringReturn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessStringMessage">
+      <soap12:operation soapAction="http://www.cudl.com/CUDLConnect/ProcessStringMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessStringMessageStringReturn">
+      <soap12:operation soapAction="http://www.cudl.com/CUDLConnect/ProcessStringMessageStringReturn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessStringMessageSOAPReturn">
+      <soap12:operation soapAction="http://www.cudl.com/CUDLConnect/ProcessStringMessageSOAPReturn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessXMLMessage">
+      <soap12:operation soapAction="http://www.cudl.com/CUDLConnect/ProcessXMLMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessXMLMessageSOAPReturn">
+      <soap12:operation soapAction="http://www.cudl.com/CUDLConnect/ProcessXMLMessageSOAPReturn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessXMLMessageStringReturn">
+      <soap12:operation soapAction="http://www.cudl.com/CUDLConnect/ProcessXMLMessageStringReturn" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessMessageByTargetAction">
+      <soap12:operation soapAction="http://www.cudl.com/CUDLConnect/ProcessMessageByTargetAction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <soap12:operation soapAction="http://www.cudl.com/CUDLConnect/Test" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestTargetAction">
+      <soap12:operation soapAction="http://www.cudl.com/CUDLConnect/TestTargetAction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CUDLConnectInboundServiceHttpGet" type="tns:CUDLConnectInboundServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="ProcessStringMessage">
+      <http:operation location="/ProcessStringMessage" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessStringMessageStringReturn">
+      <http:operation location="/ProcessStringMessageStringReturn" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessStringMessageSOAPReturn">
+      <http:operation location="/ProcessStringMessageSOAPReturn" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessMessageByTargetAction">
+      <http:operation location="/ProcessMessageByTargetAction" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <http:operation location="/Test" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestTargetAction">
+      <http:operation location="/TestTargetAction" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CUDLConnectInboundServiceHttpPost" type="tns:CUDLConnectInboundServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="ProcessStringMessage">
+      <http:operation location="/ProcessStringMessage" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessStringMessageStringReturn">
+      <http:operation location="/ProcessStringMessageStringReturn" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessStringMessageSOAPReturn">
+      <http:operation location="/ProcessStringMessageSOAPReturn" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessMessageByTargetAction">
+      <http:operation location="/ProcessMessageByTargetAction" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <http:operation location="/Test" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestTargetAction">
+      <http:operation location="/TestTargetAction" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CUDLConnectInboundService">
+    <wsdl:port name="CUDLConnectInboundServiceSoap" binding="tns:CUDLConnectInboundServiceSoap">
+      <soap:address location="https://dp.cudl.com/cudlconnect/cudlconnect.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CUDLConnectInboundServiceSoap12" binding="tns:CUDLConnectInboundServiceSoap12">
+      <soap12:address location="https://dp.cudl.com/cudlconnect/cudlconnect.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CUDLConnectInboundServiceHttpGet" binding="tns:CUDLConnectInboundServiceHttpGet">
+      <http:address location="https://dp.cudl.com/cudlconnect/cudlconnect.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CUDLConnectInboundServiceHttpPost" binding="tns:CUDLConnectInboundServiceHttpPost">
+      <http:address location="https://dp.cudl.com/cudlconnect/cudlconnect.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

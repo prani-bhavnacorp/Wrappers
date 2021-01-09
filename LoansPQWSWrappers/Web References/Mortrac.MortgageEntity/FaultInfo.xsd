@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:excep="http://com.fsb.domain/services/FaultInfo" elementFormDefault="qualified" targetNamespace="http://com.fsb.domain/services/FaultInfo" xmlns="http://www.w3.org/2001/XMLSchema">
+  <complexType name="FaultInfo">
+    <sequence>
+      <element minOccurs="1" maxOccurs="unbounded" name="message" type="string" />
+      <element minOccurs="1" maxOccurs="1" name="ExceptionGUID" nillable="true" type="string" />
+      <element name="ExceptionDate" type="dateTime" />
+      <element name="severity" type="excep:SeverityEnum" />
+    </sequence>
+  </complexType>
+  <simpleType name="SeverityEnum">
+    <restriction base="int">
+      <enumeration value="0" />
+      <enumeration value="1" />
+      <enumeration value="2" />
+    </restriction>
+  </simpleType>
+</schema>

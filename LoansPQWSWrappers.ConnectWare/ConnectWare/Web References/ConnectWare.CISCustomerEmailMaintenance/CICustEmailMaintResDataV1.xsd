@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="mtvnCWCICustEmailMaintResData" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="mtvnCWCICustEmailMaintResData" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="CICustEmailMaintResData">
+    <xs:annotation>
+      <xs:documentation>CIS Customer E-mail Maintenance (CI044) - This function will allow you to maintain e-mail addresses for a CIS customer.  This function will allow for adding or deleting up to 10 e-mail addresses per call.  Adds and deletes of the same type of e-mail address can be performed in the same call -- just be sure that the delete occurs before the add. The CICustEmailMaintRptData is an array that needs to be allocated for CI_CUST_EMAIL_MAINT_RPT_DATA_MAX occurrances. </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="E10033" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Customer Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="CICustEmailMaintRptDataLst">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="CICustEmailMaintRptData">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="E10017" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Add/Delete Indicator</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E10525" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Reason Code</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E10526" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Effective Date</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E10527" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Expiration Date</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E10528" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>E-mail Address</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="ErrCde" type="xs:string" />
+        <xs:element minOccurs="0" name="ErrResnCde" type="xs:string" />
+        <xs:element minOccurs="0" name="ApplMsgLst">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="ApplMsg">
+                <xs:complexType>
+                  <xs:all>
+                    <xs:element minOccurs="0" name="ApplMsgApplId" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgNbr" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgTxt" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgErrInd" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgFld" type="xs:string" />
+                  </xs:all>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

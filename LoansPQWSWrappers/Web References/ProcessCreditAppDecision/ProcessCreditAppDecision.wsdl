@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.CuDirect.com/ProcessCreditApp/ProcessCreditAppDecision" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.CuDirect.com/ProcessCreditApp/ProcessCreditAppDecision" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.CuDirect.com/ProcessCreditApp/ProcessCreditAppDecision">
+      <s:element name="ProcessMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DecisionApp_Data" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcessMessageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ProcessMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessMessage" />
+  </wsdl:message>
+  <wsdl:message name="ProcessMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessMessageResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ProcessCreditAppDecisionSoap">
+    <wsdl:operation name="ProcessMessage">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Validate and process STAR Decision xml.</documentation>
+      <wsdl:input message="tns:ProcessMessageSoapIn" />
+      <wsdl:output message="tns:ProcessMessageSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ProcessCreditAppDecisionSoap" type="tns:ProcessCreditAppDecisionSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ProcessMessage">
+      <soap:operation soapAction="http://www.CuDirect.com/ProcessCreditApp/ProcessCreditAppDecision/ProcessMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProcessCreditAppDecision">
+    <wsdl:port name="ProcessCreditAppDecisionSoap" binding="tns:ProcessCreditAppDecisionSoap">
+      <soap:address location="https://dp.cudl.com/ProcessDecisionWSE2/ProcessCreditAppDecision.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

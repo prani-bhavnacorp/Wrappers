@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:common1.1="http://zionsbank.com/soa/common1.1/schema" xmlns:common1.2="http://zionsbank.com/soa/common1.2/schema" xmlns:common="http://zionsbank.com/soa/common/schema" targetNamespace="http://zionsbank.com/soa/common1.2/schema" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="ws-common.xsd" namespace="http://zionsbank.com/soa/common/schema" />
+  <xsd:import schemaLocation="ws-common1.1.xsd" namespace="http://zionsbank.com/soa/common1.1/schema" />
+  <xsd:element name="AccountDetail" type="common1.2:AccountDetailType" />
+  <xsd:element name="AccountName" type="common1.2:AccountNameType" />
+  <xsd:element name="AccountSummary" type="common1.2:AccountSummaryType" />
+  <xsd:element name="AccountSummaryList" type="common1.2:AccountSummaryListType" />
+  <xsd:element name="AuthorizationIdToUse" type="common1.2:AuthorizationIdToUseType" />
+  <xsd:element name="AuthorizationParameters" type="common1.2:AuthorizationParametersType" />
+  <xsd:element name="AuthorsName" type="common1.2:AuthorsNameType" />
+  <xsd:element name="Comment" type="common1.2:CommentType" />
+  <xsd:element name="CommentList" type="common1.2:CommentListType" />
+  <xsd:element name="CommentNumber" type="common1.2:CommentNumberType" />
+  <xsd:element name="CommentRequest" type="common1.2:CommentRequestType" />
+  <xsd:element name="CommonServiceRequest" type="common1.2:CommonServiceRequestType" />
+  <xsd:element name="ElectionCode" type="common:OneCharacterCodeType" />
+  <xsd:element name="ElectionDate" type="xsd:date" />
+  <xsd:element name="NameExtension" type="common:SignerNameType" />
+  <xsd:element name="NextPaymentAmount" type="common1.1:MoneyType" />
+  <xsd:element name="PrimarySignerIndicator" type="xsd:boolean" />
+  <xsd:element name="ServiceGatewayError" type="common1.2:ServiceGatewayErrorType" />
+  <xsd:element name="Signer" type="common1.2:SignerType" />
+  <xsd:element name="SignerList" type="common1.2:SignerListType" />
+  <xsd:element name="TargetEnvironment" type="common1.2:TargetEnvironmentType" />
+  <xsd:simpleType name="AccountNameType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Account Level Name.
+			</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="40" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="AuthorizationIdToUseType">
+    <xsd:annotation>
+      <xsd:documentation>
+                Element to distinguish between using ClientUserId and ApplicationId for 
+                mainframe security.
+            </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="UseClientUserId" />
+      <xsd:enumeration value="UseApplicationId" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="AuthorsNameType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="8" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CommentNumberType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="5" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CommentType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="40" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="MonthDayType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="5" />
+      <xsd:pattern value="[0-9]{2}[\-/][0-9]{2}" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="TargetEnvironmentType">
+    <xsd:restriction base="xsd:string">
+      <xsd:maxLength value="8" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="AccountSummaryType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" ref="common:AccountNumber" />
+      <xsd:element minOccurs="0" ref="common:RcifProductCode" />
+      <xsd:element minOccurs="0" ref="common:ProductType" />
+      <xsd:element minOccurs="0" ref="common1.1:AccountStatusCode" />
+      <xsd:element minOccurs="0" ref="common:RelationshipType" />
+      <xsd:element minOccurs="0" ref="common:OpenDate" />
+      <xsd:element minOccurs="0" ref="common:CloseDate" />
+      <xsd:element minOccurs="0" ref="common:CurrentBalance" />
+      <xsd:element minOccurs="0" ref="common:BranchNumber" />
+      <xsd:element minOccurs="0" ref="common:MailingCode" />
+      <xsd:element minOccurs="0" ref="common1.2:AccountName" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AccountSummaryListType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="common1.1:ListContainerType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" ref="common1.2:AccountSummary" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="AuthorizationParametersType">
+    <xsd:sequence>
+      <xsd:element ref="common1.1:ApplicationId" />
+      <xsd:element ref="common1.1:ClientUserId" />
+      <xsd:element minOccurs="0" ref="common1.2:AuthorizationIdToUse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CommentListType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" ref="common1.2:Comment" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CommonServiceRequestType">
+    <xsd:sequence>
+      <xsd:element ref="common1.1:CorrelationId" />
+      <xsd:element ref="common:Channel" />
+      <xsd:element ref="common1.1:ClientUserId" />
+      <xsd:element minOccurs="0" ref="common1.1:CommonRequestVersion" />
+      <xsd:element minOccurs="0" ref="common1.1:InterfaceVersion" />
+      <xsd:element ref="common1.1:ApplicationId" />
+      <xsd:element ref="common1.1:RequestDateTime" />
+      <xsd:element minOccurs="0" ref="common1.1:TraceLevel" />
+      <xsd:element minOccurs="0" ref="common1.2:TargetEnvironment" />
+      <xsd:element minOccurs="0" ref="common1.2:AuthorizationIdToUse" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="CommentRequestType">
+    <xsd:sequence>
+      <xsd:element ref="common1.2:CommentNumber" />
+      <xsd:element ref="common1.1:EffectiveDate" />
+      <xsd:element minOccurs="0" ref="common:ExpirationDate" />
+      <xsd:element ref="common1.2:AuthorsName" />
+      <xsd:element minOccurs="1" maxOccurs="10" ref="common1.2:CommentList" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ServiceGatewayErrorType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="common:CommonServiceResponseType" />
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="AccountDetailType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" ref="common:AccountNumber" />
+      <xsd:element minOccurs="0" ref="common:ProductCode" />
+      <xsd:element minOccurs="0" ref="common:ProductType" />
+      <xsd:element minOccurs="0" ref="common1.1:AccountStatusCode" />
+      <xsd:element minOccurs="0" ref="common:RelationshipType" />
+      <xsd:element minOccurs="0" ref="common:OpenDate" />
+      <xsd:element minOccurs="0" ref="common:CloseDate" />
+      <xsd:element minOccurs="0" ref="common:RcifProductCode" />
+      <xsd:element minOccurs="0" ref="common:CurrentBalance" />
+      <xsd:element minOccurs="0" ref="common:AvailableBalance" />
+      <xsd:element minOccurs="0" ref="common1.1:CreditReserveAvailable" />
+      <xsd:element minOccurs="0" ref="common1.1:CreditReserveBalance" />
+      <xsd:element minOccurs="0" ref="common1.1:CreditReserveType" />
+      <xsd:element minOccurs="0" ref="common1.1:ReddiCreditStatus" />
+      <xsd:element minOccurs="0" ref="common1.1:CreditReserveAccountNumber" />
+      <xsd:element minOccurs="0" ref="common1.1:OnlineBalance" />
+      <xsd:element minOccurs="0" ref="common1.1:CreditLimit" />
+      <xsd:element minOccurs="0" ref="common1.1:AvailableCredit" />
+      <xsd:element minOccurs="0" ref="common1.1:CreditLinePayoffAmount" />
+      <xsd:element minOccurs="0" ref="common1.1:CreditLinePaymentDueDate" />
+      <xsd:element minOccurs="0" ref="common1.1:CreditLinePaymentDueAmount" />
+      <xsd:element minOccurs="0" ref="common1.1:CreditLineLastPaidDate" />
+      <xsd:element minOccurs="0" ref="common1.1:CreditLineLastPaidAmount" />
+      <xsd:element minOccurs="0" ref="common1.1:CreditLineLastAdvanceDate" />
+      <xsd:element minOccurs="0" ref="common1.1:CreditLineLastAdvanceAmount" />
+      <xsd:element minOccurs="0" ref="common1.1:InterestApplyRate" />
+      <xsd:element minOccurs="0" ref="common1.1:ParentProductCode" />
+      <xsd:element minOccurs="0" ref="common1.1:ParentAccountNumber" />
+      <xsd:element minOccurs="0" ref="common1.1:PaymentApplyCode" />
+      <xsd:element minOccurs="0" ref="common1.1:LoanProductCode" />
+      <xsd:element minOccurs="0" ref="common1.1:MoneyMarketAccountNumber" />
+      <xsd:element minOccurs="0" ref="common1.1:MoneyMarketBalance" />
+      <xsd:element minOccurs="0" ref="common1.2:SignerList" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SignerType">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" ref="common1.1:CustomerName" />
+      <xsd:element minOccurs="0" ref="common1.1:CustomerNumber" />
+      <xsd:element minOccurs="0" ref="common:TiebreakerNumber" />
+      <xsd:element minOccurs="0" ref="common:RelationshipCode" />
+      <xsd:element minOccurs="0" ref="common:RelationshipType" />
+      <xsd:element minOccurs="0" ref="common:CommercialRetailCode" />
+      <xsd:element minOccurs="0" ref="common:FullAddress" />
+      <xsd:element ref="common1.2:PrimarySignerIndicator" />
+      <xsd:element minOccurs="0" ref="common:CipEditCode" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="SignerListType">
+    <xsd:annotation>
+      <xsd:documentation>
+				Signer occurrence is unbounded but the backend limit is 20, when more than 20 signers
+				exist, the StartPosition element will contain the starting key for the next set of signers
+				that may be retrieved on a subsequent call.
+			</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="common1.1:ListContainerType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" ref="common1.2:Signer" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="TransientContextType">
+    <xsd:sequence>
+      <xsd:element ref="common1.2:AuthorizationParameters" />
+      <xsd:element ref="common1.1:ResponseParameters" />
+      <xsd:element ref="common1.1:ContextParameters" />
+      <xsd:element ref="common1.1:ExperianParameters" />
+      <xsd:element ref="common1.1:ChexParameters" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://nwfcu.org/MLA/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://nwfcu.org/MLA/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://nwfcu.org/MLA/">
+      <s:element name="AccountInquiry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="requestString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AccountInquiryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccountInquiryResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DisburseLoan">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="requestString" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DisburseLoanResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DisburseLoanResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AccountInquirySoapIn">
+    <wsdl:part name="parameters" element="tns:AccountInquiry" />
+  </wsdl:message>
+  <wsdl:message name="AccountInquirySoapOut">
+    <wsdl:part name="parameters" element="tns:AccountInquiryResponse" />
+  </wsdl:message>
+  <wsdl:message name="DisburseLoanSoapIn">
+    <wsdl:part name="parameters" element="tns:DisburseLoan" />
+  </wsdl:message>
+  <wsdl:message name="DisburseLoanSoapOut">
+    <wsdl:part name="parameters" element="tns:DisburseLoanResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MeridianLoanApplicationSoap">
+    <wsdl:operation name="AccountInquiry">
+      <wsdl:input message="tns:AccountInquirySoapIn" />
+      <wsdl:output message="tns:AccountInquirySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DisburseLoan">
+      <wsdl:input message="tns:DisburseLoanSoapIn" />
+      <wsdl:output message="tns:DisburseLoanSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MeridianLoanApplicationSoap" type="tns:MeridianLoanApplicationSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AccountInquiry">
+      <soap:operation soapAction="http://nwfcu.org/MLA/AccountInquiry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisburseLoan">
+      <soap:operation soapAction="http://nwfcu.org/MLA/DisburseLoan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MeridianLoanApplicationSoap12" type="tns:MeridianLoanApplicationSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AccountInquiry">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisburseLoan">
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MeridianLoanApplication">
+    <wsdl:port name="MeridianLoanApplicationSoap" binding="tns:MeridianLoanApplicationSoap">
+      <soap:address location="http://10.10.0.76/MeridianLoanApplication/MeridianLoanApplication.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MeridianLoanApplicationSoap12" binding="tns:MeridianLoanApplicationSoap12">
+      <soap12:address location="http://10.10.0.76/MeridianLoanApplication/MeridianLoanApplication.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

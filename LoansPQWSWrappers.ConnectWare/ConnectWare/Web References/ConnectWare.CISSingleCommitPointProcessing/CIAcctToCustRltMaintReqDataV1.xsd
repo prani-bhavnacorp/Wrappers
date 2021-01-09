@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="mtvnCWCIAcctToCustRltMaintReqData" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="mtvnCWCIAcctToCustRltMaintReqData" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="CIAcctToCustRltMaintReqData">
+    <xs:annotation>
+      <xs:documentation>CIS Account To Customer Relationship Maintenance (CI013) - This function is used to add or delete customers related to an account.  If a customer to account relationship is to be changed, you must delete the existing relationship and add the new relationship.  Up to 10 maintenance transactions can be processed with one call to this function.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="E10032" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Application Code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E10033" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Account Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="CIAcctToCustRltMaintRltDataLst">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="1" maxOccurs="unbounded" name="CIAcctToCustRltMaintRltData">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="E10017" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Add/Change/Delete Indicator</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E10176" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Customer Number</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E10180" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Effective Date</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E10181" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Expiration Date</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E10178" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Relationship Code</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E10179" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Primary/Secondary Relationship Code</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E10369" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Mail Indicator</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E10568" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Forced Household Indicator</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

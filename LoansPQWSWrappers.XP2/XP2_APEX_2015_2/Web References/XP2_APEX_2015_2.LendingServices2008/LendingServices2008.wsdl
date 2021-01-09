@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://xpsystems.com/services/apex/2008/01/Lending" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://xpsystems.com/services/apex/types" xmlns:s0="http://xpsystems.com/services/apex/messages" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://xpsystems.com/services/apex/2008/01/Lending" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://xpsystems.com/services/apex/messages">
+      <s:import namespace="http://xpsystems.com/services/apex/types" />
+      <s:element name="LendingTermsUpdateRequest" nillable="true" type="s0:LendingTermsUpdateRequest" />
+      <s:complexType name="LendingTermsUpdateRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ApplicationId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemToCalculate" type="s:string" />
+          <s:choice minOccurs="0" maxOccurs="unbounded">
+            <s:element minOccurs="0" maxOccurs="1" name="DownPaymentPercent" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FinalPaymentAmount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MemberId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EffectiveDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PaymentFrequency" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FirstDueDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LineOfCreditLimit" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PaymentAmount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AlternatePayment" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TermInMonths" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Rate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BalloonAmount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BalloonTermInMonths" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RescissionDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Purpose" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PaymentMethod" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PaymentSourceAccountId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PaymentSourceEFTGroup" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SkipExtraPaymentsInPeriod" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SkipPeriodStartDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SkipPeriodCount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DownPaymentAmount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="InsuranceCoversBalloonPayment" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Amount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PromotionalRateDefinition" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NumberOfPayments" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StandardRateDefinition" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AnnualPercentageRate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FinanceCharge" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TotalPayments" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PrimaryInsuredIndividualId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="JointInsuredIndividualId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PaymentSourceMemberId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FinalPaymentDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AporThreshold" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ActivatePRD" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DebtRatioPaymentAmount" type="s:string" />
+          </s:choice>
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:LifeInsurance" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:DisabilityInsurance" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:CreditUnionDefinedInsurance" />
+          <s:element minOccurs="0" maxOccurs="unbounded" ref="s1:Fee" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransferDay" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:InterestCalculationDays" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:OverrideData" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="LendingTermsResponse" nillable="true" type="s0:LendingTermsResponse" />
+      <s:complexType name="LendingTermsResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:Terms" />
+          <s:element minOccurs="0" maxOccurs="1" name="AmortizationReport" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:TransactionResult" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:ErrorMessage" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://xpsystems.com/services/apex/types">
+      <s:element name="LifeInsurance" type="s1:InsuranceTerms" />
+      <s:complexType name="InsuranceTerms">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="InsuranceCategory" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="InsuranceType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InsuranceCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExpirationDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="Rate" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Premium" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Term" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CunaLifeCostPerDay" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="LifeMICode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PmtMtdIsShrTrf" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ShrTrfPmtSrc" type="s:short" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DisabilityInsurance" type="s1:InsuranceTerms" />
+      <s:element name="CreditUnionDefinedInsurance" type="s1:InsuranceTerms" />
+      <s:element name="Fee" type="s1:LoanFee" />
+      <s:complexType name="LoanFee">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FeeCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Source" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SourceMemberId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="SourceAccountId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IncludeInAPR" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="InterestCalculationDays" type="s1:CustomizedInterestCalculationDaysDetails" />
+      <s:complexType name="CustomizedInterestCalculationDaysDetails">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IsCustomizedInterestCalcDays" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="InterestCalcDays" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShortIntCalcDaysPrepaid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShortIntCalcDaysPayoff" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="OverrideData" type="s1:OverrideData" />
+      <s:complexType name="OverrideData">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="OverrideType" type="s1:OverrideType" />
+          <s:element minOccurs="0" maxOccurs="1" name="OverrideCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="OverrideType">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="Caution" />
+          <s:enumeration value="Warning" />
+          <s:enumeration value="Supervisor" />
+          <s:enumeration value="OtherSupervisor" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="Terms" type="s1:LendingTerms" />
+      <s:complexType name="LendingTerms">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ApplicationId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="LoanId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="EffectiveDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentFrequency" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FirstDueDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="LineOfCreditLimit" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PaymentAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="AlternatePayment" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="TermInMonths" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Rate" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="BalloonAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="BalloonTermInMonths" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RescissionDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="Purpose" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentMethod" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PaymentSourceAccountId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PaymentSourceEFTGroup" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SkipExtraPaymentsInPeriod" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="SkipPeriodStartDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="SkipPeriodCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DownPaymentPercent" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="DownPaymentAmount" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="LifeInsurance" type="s1:InsuranceTerms" />
+          <s:element minOccurs="0" maxOccurs="1" name="DisabilityInsurance" type="s1:InsuranceTerms" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreditUnionDefinedInsurance" type="s1:InsuranceTerms" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Fee" type="s1:LoanFee" />
+          <s:element minOccurs="1" maxOccurs="1" name="InsuranceCoversBalloonPayment" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AnnualPercentageRate" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PeriodicRate" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="FinanceCharge" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPayments" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalInsurance" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="AmountRefinanced" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalRefinancedPrincipal" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="InsuranceRefundAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PricingMatrixVersion" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PricingMatrixID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BaseRate" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumberOfPayments" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FinalPaymentAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="FinalPaymentDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrimaryInsuredIndividualId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="JointInsuredIndividualId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PaymentSourceMemberId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransferDay" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="InterestCalculationDays" type="s1:CustomizedInterestCalculationDaysDetails" />
+          <s:element minOccurs="1" maxOccurs="1" name="DebtRatioPaymentAmount" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="AporThreshold" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StandardRateDefinition" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PromotionalRateDefinition" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ActivatePRD" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="TransactionResult" type="s1:TransactionResult" />
+      <s:complexType name="TransactionResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IsPosted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequiredOverrideLevel" type="s1:OverrideType" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SpecialCondition" type="s1:SpecialCondition" />
+          <s:element minOccurs="1" maxOccurs="1" name="ActivityId" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SpecialCondition">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ConditionId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsStop" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccountLoanId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IndividualId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OverrideType" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ErrorMessage" type="s1:ErrorMessages" />
+      <s:complexType name="ErrorMessages">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Message" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LendingTermsUpdateSoapIn">
+    <wsdl:part name="request" element="s0:LendingTermsUpdateRequest" />
+  </wsdl:message>
+  <wsdl:message name="LendingTermsUpdateSoapOut">
+    <wsdl:part name="LendingTermsUpdateResult" element="s0:LendingTermsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="LendingServices2008Soap">
+    <wsdl:operation name="LendingTermsUpdate">
+      <wsdl:input message="tns:LendingTermsUpdateSoapIn" />
+      <wsdl:output message="tns:LendingTermsUpdateSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LendingServices2008Soap" type="tns:LendingServices2008Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LendingTermsUpdate">
+      <soap:operation soapAction="http://xpsystems.com/services/apex/2008/01/Lending/LendingTermsUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="LendingServices2008Soap12" type="tns:LendingServices2008Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LendingTermsUpdate">
+      <soap12:operation soapAction="http://xpsystems.com/services/apex/2008/01/Lending/LendingTermsUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LendingServices2008">
+    <wsdl:port name="LendingServices2008Soap" binding="tns:LendingServices2008Soap">
+      <soap:address location="http://10.160.82.86/xpweb/services/apex/2008/01/LendingServices.asmx" />
+    </wsdl:port>
+    <wsdl:port name="LendingServices2008Soap12" binding="tns:LendingServices2008Soap12">
+      <soap12:address location="http://10.160.82.86/xpweb/services/apex/2008/01/LendingServices.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

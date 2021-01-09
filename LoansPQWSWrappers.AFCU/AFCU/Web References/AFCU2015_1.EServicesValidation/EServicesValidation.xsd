@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:cmn="http://www.americafirst.com/20070315/CommonTypes" xmlns:ctl="http://www.americafirst.com/20070315/CommonTypesLib" xmlns:hdr="http://www.americafirst.com/20070315/AFCUHeader" xmlns:evs="http://www.americafirst.com/20070315/EServicesValidation" targetNamespace="http://www.americafirst.com/20070315/EServicesValidation" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema">
+  <import schemaLocation="../afcuheader/AFCUHeader.xsd" namespace="http://www.americafirst.com/20070315/AFCUHeader" />
+  <import schemaLocation="../commontypes/CommonTypes.xsd" namespace="http://www.americafirst.com/20070315/CommonTypes" />
+  <import schemaLocation="../commontypeslib/CommonTypesLib.xsd" namespace="http://www.americafirst.com/20070315/CommonTypesLib" />
+  <annotation>
+    <appinfo>ESerivesValidation, Author Jared Monson</appinfo>
+    <documentation>
+			This schema supports the Web Service and Message Broker flow
+			to provide a corporate wide interface to the EServices
+			Validation Operations.
+
+                        TCPA_CONSENT_ID/CODE
+                        1.Blank ??? Default IN for Fraud auto dialer/text messaging
+                              Out for everything else (collections, receipts  etc)
+                              (FRAUD ONLY)
+                        2.B ??? Consent IN for everything (Fraud/Collections/ receipts etc)
+                              (EXPRESS CONSENT ALL CHANNELS)
+                        3.C ??? Consent OUT for everything (Fraud/Collections/ receipts etc)
+                              (CEASE AND DESIST)
+                        4.G ??? Out for text messaging IN for auto dialer on everything
+                              (EXPRESS CONSENT PHONE ONLY)
+                        5.S ??? IN for text messaging Out for auto dialer on everything
+                              (SMS TEXT ONLY)
+
+		</documentation>
+  </annotation>
+  <element name="inquireServicesRequest" type="evs:InquireServicesRequest" />
+  <element name="inquireServicesResponse" type="evs:InquireServicesResponse" />
+  <element name="addBillPayUserRequest" type="evs:AddBillPayUserRequest" />
+  <element name="addBillPayUserResponse" type="evs:BillPayUserResponse" />
+  <element name="removeBillPayUserRequest" type="evs:RemoveBillPayUserRequest" />
+  <element name="removeBillPayUserResponse" type="evs:BillPayUserResponse" />
+  <element name="inquireAcctOptionsRequest" type="evs:InquireAcctOptionsRequest" />
+  <element name="inquireAcctOptionsResponse" type="evs:InquireAcctOptionsResponse" />
+  <element name="maintainFICORequest" type="evs:MaintainFICORequest" />
+  <element name="maintainTCPARequest" type="evs:MaintainTCPARequest" />
+  <element name="maintainEStatementRequest" type="evs:MaintainEStatementRequest" />
+  <element name="maintainDoNotCallRequest" type="evs:MaintainDoNotCallRequest" />
+  <element name="maintainResponse" type="evs:MaintainResponse" />
+  <complexType name="InquireServicesRequest">
+    <sequence minOccurs="1" maxOccurs="1">
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="evs:InqSrvRequest" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireServicesResponse">
+    <sequence minOccurs="1" maxOccurs="1">
+      <element name="status" type="hdr:AFCUHeaderResponse" />
+      <element minOccurs="0" maxOccurs="1" name="data" type="evs:InqSrvResponse" />
+    </sequence>
+  </complexType>
+  <complexType name="AddBillPayUserRequest">
+    <sequence minOccurs="1" maxOccurs="1">
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="evs:AddBPURequest" />
+    </sequence>
+  </complexType>
+  <complexType name="RemoveBillPayUserRequest">
+    <sequence minOccurs="1" maxOccurs="1">
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="evs:RemBPURequest" />
+    </sequence>
+  </complexType>
+  <complexType name="BillPayUserResponse">
+    <sequence minOccurs="1" maxOccurs="1">
+      <element name="status" type="hdr:AFCUHeaderResponse" />
+    </sequence>
+  </complexType>
+  <complexType name="InqSrvRequest">
+    <sequence>
+      <element name="accountID" type="cmn:AccountID" />
+    </sequence>
+  </complexType>
+  <complexType name="InqSrvResponse">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="accountID" type="cmn:AccountID" />
+      <element minOccurs="1" maxOccurs="1" name="services">
+        <complexType>
+          <sequence>
+            <element name="billPayEligible" type="boolean" />
+            <element name="billPayUser" type="boolean" />
+            <element name="checkDepositEligible" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="AddBPURequest">
+    <sequence>
+      <element name="accountID" type="cmn:AccountID" />
+    </sequence>
+  </complexType>
+  <complexType name="RemBPURequest">
+    <sequence>
+      <element name="accountID" type="cmn:AccountID" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireAcctOptionsRequest">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="evs:InquireAcctOptions" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireAcctOptions">
+    <sequence>
+      <element name="accountID" type="cmn:AccountID" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireAcctOptionsResponse">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderResponse" />
+      <element name="response" type="evs:InquireAcctResponse" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireAcctResponse">
+    <sequence>
+      <element name="TCPAConsentID" type="ctl:String_1" />
+      <element minOccurs="0" maxOccurs="1" name="TCPALastConsentDate" type="date" />
+      <element minOccurs="0" maxOccurs="1" name="acctOptions" type="evs:AcctOptions" />
+    </sequence>
+  </complexType>
+  <complexType name="AcctOptions">
+    <sequence>
+      <element minOccurs="0" maxOccurs="unbounded" name="acctOption" type="evs:AcctOption" />
+    </sequence>
+  </complexType>
+  <complexType name="AcctOption">
+    <simpleContent>
+      <extension base="boolean">
+        <attribute name="name" type="string" />
+      </extension>
+    </simpleContent>
+  </complexType>
+  <complexType name="MaintainFICORequest">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="evs:MaintainAcctOptions" />
+    </sequence>
+  </complexType>
+  <complexType name="MaintainTCPARequest">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="evs:MaintainTCPA" />
+    </sequence>
+  </complexType>
+  <complexType name="MaintainTCPA">
+    <sequence>
+      <element name="accountID" type="cmn:AccountID" />
+      <element name="TPCACode" nillable="true" type="ctl:String_1" />
+      <element minOccurs="0" maxOccurs="1" name="TCPAConsentDate" type="date" />
+    </sequence>
+  </complexType>
+  <complexType name="MaintainEStatementRequest">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="evs:MaintainAcctOptions" />
+    </sequence>
+  </complexType>
+  <complexType name="MaintainDoNotCallRequest">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="evs:MaintainAcctOptions" />
+    </sequence>
+  </complexType>
+  <complexType name="MaintainAcctOptions">
+    <sequence>
+      <element name="accountID" type="cmn:AccountID" />
+      <element name="acceptOption" type="boolean" />
+    </sequence>
+  </complexType>
+  <complexType name="MaintainResponse">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderResponse" />
+    </sequence>
+  </complexType>
+</schema>

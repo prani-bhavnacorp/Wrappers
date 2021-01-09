@@ -1,0 +1,931 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{05F310EA-E557-4182-A20D-86EB308E5AE9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>LoansPQ.WebServices.Wrappers</RootNamespace>
+    <AssemblyName>LoansPQWSWrappers.XP2_APEX_2015_1</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>None</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>None</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.Services3, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Microsoft WSE\v3.0\Microsoft.Web.Services3.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Web References\XP2_APEX_2015_1.ComCoreServices\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\XP2_APEX_2015_1.FinancialServices\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\XP2_APEX_2015_1.LendingServices2008\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\XP2_APEX_2015_1.LendingServices\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\XP2_APEX_2015_1.MemberServices\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.ComCoreServices\BusinessAnalysisAccountServicesResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.ComCoreServices\BusinessAnalysisDetailsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.ComCoreServices\BusinessAnalysisHistoryResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.ComCoreServices\BusinessDetailsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.ComCoreServices\BusinessDetailUpdateResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.ComCoreServices\BusinessLoanRiskLevelRemovalResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.ComCoreServices\BusinessOptionsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.ComCoreServices\BusinessResolutionResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.ComCoreServices\BusinessResolutionUpdateResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.ComCoreServices\BusinessSummaryResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.ComCoreServices\ComCoreServices.wsdl" />
+    <None Include="Web References\XP2_APEX_2015_1.ComCoreServices\CommitmentAvailableOptionsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.ComCoreServices\CommitmentAvailableResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.ComCoreServices\CommitmentDetailsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.ComCoreServices\CountyOptionsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.ComCoreServices\MemberBusinessLoanOptionsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.ComCoreServices\MemberBusinessLoanResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.ComCoreServices\OperatorOptionsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.ComCoreServices\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.ComCoreServices\RelationshipDetailsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.ComCoreServices\RelationshipOptionsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.FinancialServices\AccountAdjustmentResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.FinancialServices\DrawerStatusResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.FinancialServices\FinancialServices.wsdl" />
+    <None Include="Web References\XP2_APEX_2015_1.FinancialServices\FinancialTransactionResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.FinancialServices\IndividualLookupResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.FinancialServices\IndividualSummaryResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.FinancialServices\ItemNumberDescriptionResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.FinancialServices\MerchandiseTypesResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.FinancialServices\OptionsMiscChargeCodeResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.FinancialServices\QuantityAvailableResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.FinancialServices\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.FinancialServices\RegisterTokenResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.FinancialServices\SafeDepositBoxDetailsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.FinancialServices\SafeDepositBoxListResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.FinancialServices\SafeDepositBoxRemovalResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.FinancialServices\SerialNumberInventoryResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.FinancialServices\SystemDetailsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.FinancialServices\ValidateTokenResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.FinancialServices\WireXchangeResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices2008\LendingServices2008.wsdl" />
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices2008\LendingTermsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices2008\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\AvailableCreditBureausResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\AvailableProductsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\CnomLendingCompleteApplicationResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\CnomLendingOptionsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\CreditBureauReportResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\CreditBureauReportStatusResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\CreditBureauReportUpdateResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\IndividualLookupResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\IndividualRelationshipTypesResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\IndividualSummaryResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LendingApplicantFinancialInformationUpdateResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LendingApplicantResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LendingApplicationOwnershipListResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LendingApplicationPropertyResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LendingApplicationSetupResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LendingApplicationSourceListResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LendingAssetLiabilityLinksResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LendingAssetsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LendingBookingResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LendingCollateralResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LendingCompleteApplicationResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LendingCustomDataListResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LendingDecisionActionReasonsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LendingDecisionConditionResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LendingDecisionResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LendingDisbursementResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LendingEmployerListResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LendingEmploymentResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LendingExclusionReasonsListResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LendingHmdaResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LendingIncomeResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LendingIndividualUpdateResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LendingLiabilitiesResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LendingLiabilityTypeListResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LendingLoanPurposeListResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LendingOptionsDecisionActionReasonsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LendingOptionsManualConditionsListResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LendingOptionsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LendingOptionsRolesListResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LendingPaymentSourceGroupListResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LendingReferencesResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LendingRoutingResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LendingServices.wsdl" />
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LendingTermsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LendingValueSourceListResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LendingVerificationMethodListResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\LoanOfficerNotesResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\OptionsProductFeesResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\ProcessCreditReportResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\ProductCategoryResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\RegisterTokenResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\SystemDetailsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.LendingServices\ValidateTokenResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\AccountCreationResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\AccountCreationResponse31.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\AccountCustomDataResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\AccountDetailsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\AccountDetailsResponse31.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\AccountDetailsResponse41.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\AccountDividendCalculateResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\AccountHistoryDetailResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\AccountHistorySummaryResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\AccountHoldsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\AccountOverdraftProtectionListResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\AccountOwnershipResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\ACHPendingTransactionsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\AddressMatchDetailsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\AnalysisAccountServicesResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\AnalysisDetailsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\AnalysisHistoryResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\ApplicationCustomDataResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\AssignMembershipResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\AttachExternalProductsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\AttachSalesOpportunitiesResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\AuthorizationHoldResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\CardLostStolenResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\CertificateResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\ChangeProductTypeResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\CompleteAssignMembershipResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\ContactFollowupResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\ContactOptionsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\ContactQueryResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\ContributorDetailsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\CreditBureauReportResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\CrossMemberAuthorizationResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\CrossMemberListResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\CrossSellDetailsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\CrossSellDetailUpdateResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\CrossSellSummaryResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\CTROptionResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\CustomDataOptionsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\ElectronicAuthorizationSummaryResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\EMLPAResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\ExternalMortgageLoanDetailsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\ExternalMortgageLoanOwnershipResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\ExternalMortgageLoanSummaryResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\ExternalProductsSummaryResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\HmdaOptionsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\HsaPlanDetailsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\IDVerifyBusinessResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\IDVerifyOverrideBusinessResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\IDVerifyOverridePersonResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\IDVerifyPersonResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\IndividualAddressListResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\IndividualContactResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\IndividualCustomDataResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\IndividualDetailsResponse11.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\IndividualDetailsResponse2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\IndividualElectronicBankingDetailResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\IndividualElectronicContactResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\IndividualHsaAccountDetailsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\IndividualHsaAccountOptionsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\IndividualHsaPlanResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\IndividualHsaPlanSummaryResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\IndividualLookupResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\IndividualOptionsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\IndividualPhoneResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\IndividualSecurityAnswerValidationResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\IndividualSecurityDetailResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\IndividualSecurityElectronicBankingDetailResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\IndividualSecurityQuestionListResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\IndividualSecurityQuestionMasterListResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\IndividualSecurityUserPinUpdateResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\IndividualSummaryResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\LoanCollateralDetailsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\LoanCollateralOptionsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\LoanCustomDataResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\LoanDetailsResponse11.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\LoanDetailsResponse2.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\LoanDraftHistoryResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\LoanHistoryDetailResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\LoanHistorySummaryResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\LoanHmdaResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\LoanOptionsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\LoanOwnershipResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\LoanProtectionPlanUpdateResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\LoyaltyBenefitResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\LoyaltyBenefitTypeResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\LoyaltyCustomProductsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\LoyaltyLevelRankingRangeResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\LoyaltyLevelResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\LoyaltyQualificationResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\LoyaltyRulesResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\MemberAccountsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\MemberBranchUpdateResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\MemberCustomDataResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\MemberLoyaltyAdministrationResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\MemberLoyaltyIndividualResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\MemberNumberUpdateResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\MemberOwnershipResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\MemberSalesOpportunitiesResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\MemberServices.wsdl" />
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\MembershipDetailResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\MembershipElectronicBankingDetailResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\MemberTelephoneServiceResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\MemberUpdateOptionsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\Metro2ConsumerInformationIndicatorResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\MTSPinInquiryResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\OFACBusinessResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\OFACOverrideBusinessResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\OFACOverridePersonResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\OFACPersonResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\OFAC_IDVBusinessResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\OFAC_IDVPersonResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\OptionBranchListResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\OptionMailCodeStatementResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\OptionMemberStopCodeListResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\OptionMemberTypeListResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\OptionsAccountOwnershipCategoryResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\OptionsLoanOwnershipResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\OptionsLoanProtectionPlanResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\OptionStatementCycleListResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\OptionStopsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\PendingCardAuthorizationResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\PlasticCardActivationResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\PlasticCardDetailsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\PlasticCardLookupResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\PlasticCardOptionsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\PlasticCardRemovalResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\ProductsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\Qualifile_ChexBusinessResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\Qualifile_ChexPersonResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\RegisterTokenResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\RenewCertificateResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\RetirementOptionResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\RetirementPlanAccountsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\RetirementPlanDetailsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\RetirementPlanSummaryResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\ShareDraftHistoryResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\ShareDraftTransactionSummaryResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\StatementNsfFeesResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\StopPaymentCancelReasonsListResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\StopPaymentResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\StopsAndAlertsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\StopsListResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\SystemDetailsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\ValidateTokenResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\VerifyFundsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\VODOptionsResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\XP2_APEX_2015_1.MemberServices\VODOutputResponse1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="U:\integration stuff\xp\2015.1\ComCoreServices.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\XP2_APEX_2015_1.ComCoreServices\</RelPath>
+      <UpdateFromURL>U:\integration stuff\xp\2015.1\ComCoreServices.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_XP2_APEX_2015_1_WebReference1_ComCoreServices</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="U:\integration stuff\xp\2015.1\FinancialServices.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\XP2_APEX_2015_1.FinancialServices\</RelPath>
+      <UpdateFromURL>U:\integration stuff\xp\2015.1\FinancialServices.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_XP2_APEX_2015_1_WebReference1_FinancialServices</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="U:\integration stuff\xp\2015.1\LendingServices.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\XP2_APEX_2015_1.LendingServices\</RelPath>
+      <UpdateFromURL>U:\integration stuff\xp\2015.1\LendingServices.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_XP2_APEX_2015_1_WebReference1_LendingServices</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="U:\integration stuff\xp\2015.1\LendingServices2008.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\XP2_APEX_2015_1.LendingServices2008\</RelPath>
+      <UpdateFromURL>U:\integration stuff\xp\2015.1\LendingServices2008.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_XP2_APEX_2015_1_WebReference1_LendingServices2008</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="U:\integration stuff\xp\2015.1\MemberServices.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\XP2_APEX_2015_1.MemberServices\</RelPath>
+      <UpdateFromURL>U:\integration stuff\xp\2015.1\MemberServices.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_XP2_APEX_2015_1_WebReference1_MemberServices</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

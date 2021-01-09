@@ -1,0 +1,1241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="15.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BEA5242B-6816-4DA0-9856-787A27BC54E4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>LoansPQ.WebServices.Wrappers</RootNamespace>
+    <AssemblyName>LoansPQWSWrappers.ConnectWare</AssemblyName>
+    <MyType>Windows</MyType>
+    <OptionStrict>On</OptionStrict>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>None</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>42353,42354,42355</NoWarn>
+    <Optimize>true</Optimize>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>None</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>42353,42354,42355</NoWarn>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.Services3, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Web References\ConnectWare.CICustomerDueDiligence\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ConnectWare.CISAccountProfile\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ConnectWare.CISCustomerEmailMaintenance\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ConnectWare.CISCustomerProfile\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ConnectWare.CISCustomerRelationshipInquiry\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ConnectWare.CISCustomerSearchByCustomerNumber\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ConnectWare.CISCustomerToAccountRelationship\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ConnectWare.CISOpenIndividualCustomer\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ConnectWare.CISRelationshipDemographicInquiry\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ConnectWare.CISRelationshipDemographicUpdate\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ConnectWare.CISSingleCommitPointProcessing\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ConnectWare.CISCustomerSearchByTaxNumber\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ConnectWare.DepositAccountInquiry\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ConnectWare.DepositAccountNumberGenerator\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ConnectWare.DepositHoldAdd\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ConnectWare.DepositNewAccount\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ConnectWare.IFMSDefictFundsTransfer\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ConnectWare.LoanAccountNumberGenerator\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ConnectWare.LoanAutomatedFeeSetup\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ConnectWare.LoanFloodTrackingMaintenance\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ConnectWare.LoanHMDAMaintenance\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ConnectWare.LoanManualFeeAssessment\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ConnectWare.LoanNewAccount\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ConnectWare.LoanNewChangeNameAndAddress\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ConnectWare.LoanNewCommitment\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ConnectWare.LoanNewNote\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ConnectWare.LoanNoteCollateralMainenance\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ConnectWare.LoanNoteIncrease\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ConnectWare.LoanNoteInquiry\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ConnectWare.LoanNoteListInquiry\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ConnectWare.LoanNotePayment\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\ConnectWare.LoanUserDefinedFields\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ConnectWare.CICustomerDueDiligence\CICustDueDiligenceMtvnSvcRes.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ConnectWare.CICustomerDueDiligence\CICustDueDiligenceReqDataV1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\ConnectWare.CICustomerDueDiligence\CICustDueDiligenceResDataV1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\ConnectWare.CICustomerDueDiligence\CICustDueDiligenceWSV1SvcReq.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\ConnectWare.CICustomerDueDiligence\CICustDueDiligenceWSV1SvcRes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\ConnectWare.CICustomerDueDiligence\mtvnCICustDueDiligenceWSV1.wsdl" />
+    <None Include="Web References\ConnectWare.CICustomerDueDiligence\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ConnectWare.CISAccountProfile\CIAcctPrflMtvnSvcRes1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ConnectWare.CISAccountProfile\CIAcctPrflWSV7SvcReq.xsd" />
+    <None Include="Web References\ConnectWare.CISAccountProfile\CIAcctPrflWSV7SvcReqData.xsd" />
+    <None Include="Web References\ConnectWare.CISAccountProfile\CIAcctPrflWSV7SvcRes.xsd" />
+    <None Include="Web References\ConnectWare.CISAccountProfile\CIAcctPrflWSV7SvcResData.xsd" />
+    <None Include="Web References\ConnectWare.CISAccountProfile\mtvnCIAcctPrflWSV7.wsdl" />
+    <None Include="Web References\ConnectWare.CISAccountProfile\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ConnectWare.CISCustomerEmailMaintenance\CICustEmailMaintMtvnSvcRes.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ConnectWare.CISCustomerEmailMaintenance\CICustEmailMaintReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISCustomerEmailMaintenance\CICustEmailMaintResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISCustomerEmailMaintenance\CICustEmailMaintWSV1SvcReq.xsd" />
+    <None Include="Web References\ConnectWare.CISCustomerEmailMaintenance\CICustEmailMaintWSV1SvcRes.xsd" />
+    <None Include="Web References\ConnectWare.CISCustomerEmailMaintenance\mtvnCICustEmailMaintWSV1.wsdl" />
+    <None Include="Web References\ConnectWare.CISCustomerEmailMaintenance\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ConnectWare.CISCustomerProfile\CICustPrflMtvnSvcRes.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ConnectWare.CISCustomerProfile\CICustPrflWSV6SvcReq.xsd" />
+    <None Include="Web References\ConnectWare.CISCustomerProfile\CICustPrflWSV6SvcReqData.xsd" />
+    <None Include="Web References\ConnectWare.CISCustomerProfile\CICustPrflWSV6SvcRes.xsd" />
+    <None Include="Web References\ConnectWare.CISCustomerProfile\CICustPrflWSV6SvcResData.xsd" />
+    <None Include="Web References\ConnectWare.CISCustomerProfile\mtvnCICustPrflWSV6.wsdl" />
+    <None Include="Web References\ConnectWare.CISCustomerProfile\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ConnectWare.CISCustomerRelationshipInquiry\CICustRltInqMtvnSvcRes.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ConnectWare.CISCustomerRelationshipInquiry\CICustRltInqReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISCustomerRelationshipInquiry\CICustRltInqResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISCustomerRelationshipInquiry\CICustRltInqWSV1SvcReq.xsd" />
+    <None Include="Web References\ConnectWare.CISCustomerRelationshipInquiry\CICustRltInqWSV1SvcRes.xsd" />
+    <None Include="Web References\ConnectWare.CISCustomerRelationshipInquiry\mtvnCICustRltInqWSV1.wsdl" />
+    <None Include="Web References\ConnectWare.CISCustomerRelationshipInquiry\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ConnectWare.CISCustomerSearchByCustomerNumber\CICustNbrSrchMtvnSvcRes1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ConnectWare.CISCustomerSearchByCustomerNumber\CICustNbrSrchWSV7SvcReq.xsd" />
+    <None Include="Web References\ConnectWare.CISCustomerSearchByCustomerNumber\CICustNbrSrchWSV7SvcReqData.xsd" />
+    <None Include="Web References\ConnectWare.CISCustomerSearchByCustomerNumber\CICustNbrSrchWSV7SvcRes.xsd" />
+    <None Include="Web References\ConnectWare.CISCustomerSearchByCustomerNumber\CICustNbrSrchWSV7SvcResData.xsd" />
+    <None Include="Web References\ConnectWare.CISCustomerSearchByCustomerNumber\mtvnCICustNbrSrchWSV7.wsdl" />
+    <None Include="Web References\ConnectWare.CISCustomerSearchByCustomerNumber\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ConnectWare.CISCustomerSearchByTaxNumber\CICustTaxNbrSrchMtvnSvcRes.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ConnectWare.CISCustomerToAccountRelationship\CICustToAcctRltMtvnSvcRes1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ConnectWare.CISCustomerToAccountRelationship\CICustToAcctRltReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISCustomerToAccountRelationship\CICustToAcctRltResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISCustomerToAccountRelationship\CICustToAcctRltWSV1SvcReq.xsd" />
+    <None Include="Web References\ConnectWare.CISCustomerToAccountRelationship\CICustToAcctRltWSV1SvcRes.xsd" />
+    <None Include="Web References\ConnectWare.CISCustomerToAccountRelationship\mtvnCICustToAcctRltWSV1.wsdl" />
+    <None Include="Web References\ConnectWare.CISCustomerToAccountRelationship\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ConnectWare.CISOpenIndividualCustomer\CIOpenIndvCustMtvnSvcRes1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ConnectWare.CISOpenIndividualCustomer\CIOpenIndvCustWSV4SvcReq.xsd" />
+    <None Include="Web References\ConnectWare.CISOpenIndividualCustomer\CIOpenIndvCustWSV4SvcReqData.xsd" />
+    <None Include="Web References\ConnectWare.CISOpenIndividualCustomer\CIOpenIndvCustWSV4SvcRes.xsd" />
+    <None Include="Web References\ConnectWare.CISOpenIndividualCustomer\CIOpenIndvCustWSV4SvcResData.xsd" />
+    <None Include="Web References\ConnectWare.CISOpenIndividualCustomer\mtvnCIOpenIndvCustWSV4.wsdl" />
+    <None Include="Web References\ConnectWare.CISOpenIndividualCustomer\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ConnectWare.CISRelationshipDemographicInquiry\CIRltDemogInqMtvnSvcRes1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ConnectWare.CISRelationshipDemographicInquiry\CIRltDemogInqWSV2SvcReq.xsd" />
+    <None Include="Web References\ConnectWare.CISRelationshipDemographicInquiry\CIRltDemogInqWSV2SvcReqData.xsd" />
+    <None Include="Web References\ConnectWare.CISRelationshipDemographicInquiry\CIRltDemogInqWSV2SvcRes.xsd" />
+    <None Include="Web References\ConnectWare.CISRelationshipDemographicInquiry\CIRltDemogInqWSV2SvcResData.xsd" />
+    <None Include="Web References\ConnectWare.CISRelationshipDemographicInquiry\mtvnCIRltDemogInqWSV2.wsdl" />
+    <None Include="Web References\ConnectWare.CISRelationshipDemographicInquiry\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ConnectWare.CISRelationshipDemographicUpdate\CIRltDemogUpdtMtvnSvcRes1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ConnectWare.CISRelationshipDemographicUpdate\CIRltDemogUpdtWSV2SvcReq.xsd" />
+    <None Include="Web References\ConnectWare.CISRelationshipDemographicUpdate\CIRltDemogUpdtWSV2SvcReqData.xsd" />
+    <None Include="Web References\ConnectWare.CISRelationshipDemographicUpdate\CIRltDemogUpdtWSV2SvcRes.xsd" />
+    <None Include="Web References\ConnectWare.CISRelationshipDemographicUpdate\CIRltDemogUpdtWSV2SvcResData.xsd" />
+    <None Include="Web References\ConnectWare.CISRelationshipDemographicUpdate\mtvnCIRltDemogUpdtWSV2.wsdl" />
+    <None Include="Web References\ConnectWare.CISRelationshipDemographicUpdate\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CBAcctNbrGenReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CBAcctNbrGenResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CBCardReissueNPReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CBCardReissueNPResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CBNegFleMaintReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CBNegFleMaintResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CBNewCrdAcctReqDataV2.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CBNewCrdAcctResDataV2.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CBNewMultAcctReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CBNewMultAcctResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CIAcctNmeAddrMaintReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CIAcctNmeAddrMaintResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CIAcctToAcctRltReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CIAcctToAcctRltResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CIAcctToCustRltMaintReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CIAcctToCustRltMaintResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CIAliasNmeMaintReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CIAliasNmeMaintResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CIConvPrspctToCustReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CIConvPrspctToCustResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CICustDemogMaintReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CICustDemogMaintResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CICustEmailMaintReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CICustEmailMaintResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CICustNameAddrMaintReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CICustNameAddrMaintResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CICustToAcctRltReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CICustToAcctRltResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CICustToCustRltMaintReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CICustToCustRltMaintResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CIExtAcctMaintReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CIExtAcctMaintResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CIMiscAcctMaintReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CIMiscAcctMaintResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CIOpenIndvCustReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CIOpenIndvCustResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CIOpenMiscAcctReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CIOpenMiscAcctResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CIOpenOrgCustReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CIOpenOrgCustResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CIOrgCustDemogMaintReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CIOrgCustDemogMaintResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CIProdIDMaintReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CIProdIDMaintResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CIRltDemogUpdtReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CIRltDemogUpdtResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CustomerInfoSystemSCPMtvnSvcRes1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CustomerInfoSystemSCPWSV1SvcReq.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\CustomerInfoSystemSCPWSV1SvcRes.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\DPAcctNbrGenReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\DPAcctNbrGenResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\DPKywrdReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\DPKywrdResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\DPNewAcctReqDataV3.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\DPNewAcctResDataV3.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\DPNewCDReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\DPNewCDResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\DPNmeAddrMaintReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\DPNmeAddrMaintResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\LNKywrdReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\LNKywrdResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\LNNewAcctReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\LNNewAcctResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\LNNewCommtReqDataV2.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\LNNewCommtResDataV2.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\LNNewNmeAddrReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\LNNewNmeAddrResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\LNNewNoteReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\LNNewNoteResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\MBPassReqDataV2.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\MBPassResDataV2.xsd" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\mtvnCWWebSvcV1.wsdl" />
+    <None Include="Web References\ConnectWare.CISSingleCommitPointProcessing\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ConnectWare.CISCustomerSearchByTaxNumber\CICustTaxNbrSrchWSV7SvcReq.xsd" />
+    <None Include="Web References\ConnectWare.CISCustomerSearchByTaxNumber\CICustTaxNbrSrchWSV7SvcReqData.xsd" />
+    <None Include="Web References\ConnectWare.CISCustomerSearchByTaxNumber\CICustTaxNbrSrchWSV7SvcRes.xsd" />
+    <None Include="Web References\ConnectWare.CISCustomerSearchByTaxNumber\CICustTaxNbrSrchWSV7SvcResData.xsd" />
+    <None Include="Web References\ConnectWare.CISCustomerSearchByTaxNumber\mtvnCICustTaxNbrSrchWSV7.wsdl" />
+    <None Include="Web References\ConnectWare.CISCustomerSearchByTaxNumber\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ConnectWare.DepositAccountInquiry\DPAcctInqMtvnSvcRes.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ConnectWare.DepositAccountInquiry\DPAcctInqWSV8SvcReq.xsd" />
+    <None Include="Web References\ConnectWare.DepositAccountInquiry\DPAcctInqWSV8SvcReqData.xsd" />
+    <None Include="Web References\ConnectWare.DepositAccountInquiry\DPAcctInqWSV8SvcRes.xsd" />
+    <None Include="Web References\ConnectWare.DepositAccountInquiry\DPAcctInqWSV8SvcResData.xsd" />
+    <None Include="Web References\ConnectWare.DepositAccountInquiry\mtvnDPAcctInqWSV8.wsdl" />
+    <None Include="Web References\ConnectWare.DepositAccountInquiry\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ConnectWare.DepositAccountNumberGenerator\DPAcctNbrGenMtvnSvcRes1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ConnectWare.DepositAccountNumberGenerator\DPAcctNbrGenReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.DepositAccountNumberGenerator\DPAcctNbrGenResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.DepositAccountNumberGenerator\DPAcctNbrGenWSV1SvcReq.xsd" />
+    <None Include="Web References\ConnectWare.DepositAccountNumberGenerator\DPAcctNbrGenWSV1SvcRes.xsd" />
+    <None Include="Web References\ConnectWare.DepositAccountNumberGenerator\mtvnDPAcctNbrGenWSV1.wsdl" />
+    <None Include="Web References\ConnectWare.DepositAccountNumberGenerator\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ConnectWare.DepositHoldAdd\DPHoldAddMtvnSvcRes1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ConnectWare.DepositHoldAdd\DPHoldAddReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.DepositHoldAdd\DPHoldAddResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.DepositHoldAdd\DPHoldAddWSV1SvcReq.xsd" />
+    <None Include="Web References\ConnectWare.DepositHoldAdd\DPHoldAddWSV1SvcRes.xsd" />
+    <None Include="Web References\ConnectWare.DepositHoldAdd\mtvnDPHoldAddWSV1.wsdl" />
+    <None Include="Web References\ConnectWare.DepositHoldAdd\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ConnectWare.DepositNewAccount\DPNewAcctMtvnSvcRes1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ConnectWare.DepositNewAccount\DPNewAcctWSV4SvcReq.xsd" />
+    <None Include="Web References\ConnectWare.DepositNewAccount\DPNewAcctWSV4SvcReqData.xsd" />
+    <None Include="Web References\ConnectWare.DepositNewAccount\DPNewAcctWSV4SvcRes.xsd" />
+    <None Include="Web References\ConnectWare.DepositNewAccount\DPNewAcctWSV4SvcResData.xsd" />
+    <None Include="Web References\ConnectWare.DepositNewAccount\mtvnDPNewAcctWSV4.wsdl" />
+    <None Include="Web References\ConnectWare.DepositNewAccount\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ConnectWare.IFMSDefictFundsTransfer\FMDfctTrsfrSetpMtvnSvcRes1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ConnectWare.IFMSDefictFundsTransfer\FMDfctTrsfrSetpReqDataV2.xsd" />
+    <None Include="Web References\ConnectWare.IFMSDefictFundsTransfer\FMDfctTrsfrSetpResDataV2.xsd" />
+    <None Include="Web References\ConnectWare.IFMSDefictFundsTransfer\FMDfctTrsfrSetpWSV2SvcReq.xsd" />
+    <None Include="Web References\ConnectWare.IFMSDefictFundsTransfer\FMDfctTrsfrSetpWSV2SvcRes.xsd" />
+    <None Include="Web References\ConnectWare.IFMSDefictFundsTransfer\mtvnFMDfctTrsfrSetpWSV2.wsdl" />
+    <None Include="Web References\ConnectWare.IFMSDefictFundsTransfer\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ConnectWare.LoanAccountNumberGenerator\LNAcctNbrGenMtvnSvcRes1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ConnectWare.LoanAutomatedFeeSetup\LNAutoFeeSetpMtvnSvcRes1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ConnectWare.LoanFloodTrackingMaintenance\LNFloodTrackingMaintMtvnSvcRes.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ConnectWare.LoanFloodTrackingMaintenance\LNFloodTrackingMaintReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanFloodTrackingMaintenance\LNFloodTrackingMaintResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanFloodTrackingMaintenance\LNFloodTrackingMaintWSV1SvcReq.xsd" />
+    <None Include="Web References\ConnectWare.LoanFloodTrackingMaintenance\LNFloodTrackingMaintWSV1SvcRes.xsd" />
+    <None Include="Web References\ConnectWare.LoanFloodTrackingMaintenance\mtvnLNFloodTrackingMaintWSV1.wsdl" />
+    <None Include="Web References\ConnectWare.LoanFloodTrackingMaintenance\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ConnectWare.LoanHMDAMaintenance\LNHMDAMaintMtvnSvcRes1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ConnectWare.LoanHMDAMaintenance\LNHMDAMaintWSV3SvcReq.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\ConnectWare.LoanHMDAMaintenance\LNHMDAMaintWSV3SvcReqData.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\ConnectWare.LoanHMDAMaintenance\LNHMDAMaintWSV3SvcRes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\ConnectWare.LoanHMDAMaintenance\LNHMDAMaintWSV3SvcResData.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\ConnectWare.LoanHMDAMaintenance\mtvnLNHMDAMaintWSV3.wsdl" />
+    <None Include="Web References\ConnectWare.LoanHMDAMaintenance\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ConnectWare.LoanManualFeeAssessment\LNManFeeMtvnSvcRes1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ConnectWare.LoanNewAccount\LNNewAcctMtvnSvcRes1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ConnectWare.LoanNewChangeNameAndAddress\LNNewNmeAddrMtvnSvcRes1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ConnectWare.LoanNewCommitment\LNNewCommtMtvnSvcRes1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ConnectWare.LoanNewNote\LNNewNoteMtvnSvcRes1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ConnectWare.LoanNoteCollateralMainenance\LNNoteCollMaintMtvnSvcRes1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ConnectWare.LoanNoteIncrease\LNNoteIncrMtvnSvcRes1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ConnectWare.LoanNoteInquiry\LNNoteInqMtvnSvcRes1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ConnectWare.LoanNoteListInquiry\LNNoteListInqMtvnSvcRes.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ConnectWare.LoanNoteListInquiry\LNNoteListInqWSV2SvcReq.xsd" />
+    <None Include="Web References\ConnectWare.LoanNoteListInquiry\LNNoteListInqWSV2SvcReqData.xsd" />
+    <None Include="Web References\ConnectWare.LoanNoteListInquiry\LNNoteListInqWSV2SvcRes.xsd" />
+    <None Include="Web References\ConnectWare.LoanNoteListInquiry\LNNoteListInqWSV2SvcResData.xsd" />
+    <None Include="Web References\ConnectWare.LoanNoteListInquiry\mtvnLNNoteListInqWSV2.wsdl" />
+    <None Include="Web References\ConnectWare.LoanNoteListInquiry\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ConnectWare.LoanNotePayment\LNNotePmtMtvnSvcRes1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LoanSCPMtvnSvcRes1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ConnectWare.LoanAccountNumberGenerator\LNAcctNbrGenReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanAccountNumberGenerator\LNAcctNbrGenResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanAccountNumberGenerator\LNAcctNbrGenWSV1SvcReq.xsd" />
+    <None Include="Web References\ConnectWare.LoanAccountNumberGenerator\LNAcctNbrGenWSV1SvcRes.xsd" />
+    <None Include="Web References\ConnectWare.LoanAccountNumberGenerator\mtvnLNAcctNbrGenWSV1.wsdl" />
+    <None Include="Web References\ConnectWare.LoanAccountNumberGenerator\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ConnectWare.LoanAutomatedFeeSetup\LNAutoFeeSetpReqDataV2.xsd" />
+    <None Include="Web References\ConnectWare.LoanAutomatedFeeSetup\LNAutoFeeSetpResDataV2.xsd" />
+    <None Include="Web References\ConnectWare.LoanAutomatedFeeSetup\LNAutoFeeSetpWSV2SvcReq.xsd" />
+    <None Include="Web References\ConnectWare.LoanAutomatedFeeSetup\LNAutoFeeSetpWSV2SvcRes.xsd" />
+    <None Include="Web References\ConnectWare.LoanAutomatedFeeSetup\mtvnLNAutoFeeSetpWSV2.wsdl" />
+    <None Include="Web References\ConnectWare.LoanAutomatedFeeSetup\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ConnectWare.LoanManualFeeAssessment\LNManFeeReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanManualFeeAssessment\LNManFeeResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanManualFeeAssessment\LNManFeeWSV1SvcReq.xsd" />
+    <None Include="Web References\ConnectWare.LoanManualFeeAssessment\LNManFeeWSV1SvcRes.xsd" />
+    <None Include="Web References\ConnectWare.LoanManualFeeAssessment\mtvnLNManFeeWSV1.wsdl" />
+    <None Include="Web References\ConnectWare.LoanManualFeeAssessment\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ConnectWare.LoanNewAccount\LNNewAcctReqDataV2.xsd" />
+    <None Include="Web References\ConnectWare.LoanNewAccount\LNNewAcctResDataV2.xsd" />
+    <None Include="Web References\ConnectWare.LoanNewAccount\LNNewAcctWSV2SvcReq.xsd" />
+    <None Include="Web References\ConnectWare.LoanNewAccount\LNNewAcctWSV2SvcRes.xsd" />
+    <None Include="Web References\ConnectWare.LoanNewAccount\mtvnLNNewAcctWSV2.wsdl" />
+    <None Include="Web References\ConnectWare.LoanNewAccount\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ConnectWare.LoanNewChangeNameAndAddress\LNNewNmeAddrReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanNewChangeNameAndAddress\LNNewNmeAddrResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanNewChangeNameAndAddress\LNNewNmeAddrWSV1SvcReq.xsd" />
+    <None Include="Web References\ConnectWare.LoanNewChangeNameAndAddress\LNNewNmeAddrWSV1SvcRes.xsd" />
+    <None Include="Web References\ConnectWare.LoanNewChangeNameAndAddress\mtvnLNNewNmeAddrWSV1.wsdl" />
+    <None Include="Web References\ConnectWare.LoanNewChangeNameAndAddress\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ConnectWare.LoanNewCommitment\LNNewCommtReqDataV2.xsd" />
+    <None Include="Web References\ConnectWare.LoanNewCommitment\LNNewCommtResDataV2.xsd" />
+    <None Include="Web References\ConnectWare.LoanNewCommitment\LNNewCommtWSV2SvcReq.xsd" />
+    <None Include="Web References\ConnectWare.LoanNewCommitment\LNNewCommtWSV2SvcRes.xsd" />
+    <None Include="Web References\ConnectWare.LoanNewCommitment\mtvnLNNewCommtWSV2.wsdl" />
+    <None Include="Web References\ConnectWare.LoanNewCommitment\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ConnectWare.LoanNewNote\LNNewNoteWSV6SvcReq.xsd" />
+    <None Include="Web References\ConnectWare.LoanNewNote\LNNewNoteWSV6SvcReqData.xsd" />
+    <None Include="Web References\ConnectWare.LoanNewNote\LNNewNoteWSV6SvcRes.xsd" />
+    <None Include="Web References\ConnectWare.LoanNewNote\LNNewNoteWSV6SvcResData.xsd" />
+    <None Include="Web References\ConnectWare.LoanNewNote\mtvnLNNewNoteWSV6.wsdl" />
+    <None Include="Web References\ConnectWare.LoanNewNote\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ConnectWare.LoanNoteCollateralMainenance\LNNoteCollMaintWSV1SvcReq.xsd" />
+    <None Include="Web References\ConnectWare.LoanNoteCollateralMainenance\LNNoteCollMaintWSV1SvcReqData.xsd" />
+    <None Include="Web References\ConnectWare.LoanNoteCollateralMainenance\LNNoteCollMaintWSV1SvcRes.xsd" />
+    <None Include="Web References\ConnectWare.LoanNoteCollateralMainenance\LNNoteCollMaintWSV1SvcResData.xsd" />
+    <None Include="Web References\ConnectWare.LoanNoteCollateralMainenance\mtvnLNNoteCollMaintWSV1.wsdl" />
+    <None Include="Web References\ConnectWare.LoanNoteCollateralMainenance\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ConnectWare.LoanNoteIncrease\LNNoteIncrReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanNoteIncrease\LNNoteIncrResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanNoteIncrease\LNNoteIncrWSV1SvcReq.xsd" />
+    <None Include="Web References\ConnectWare.LoanNoteIncrease\LNNoteIncrWSV1SvcRes.xsd" />
+    <None Include="Web References\ConnectWare.LoanNoteIncrease\mtvnLNNoteIncrWSV1.wsdl" />
+    <None Include="Web References\ConnectWare.LoanNoteIncrease\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ConnectWare.LoanNoteInquiry\LNNoteInqWSV8SvcReq.xsd" />
+    <None Include="Web References\ConnectWare.LoanNoteInquiry\LNNoteInqWSV8SvcReqData.xsd" />
+    <None Include="Web References\ConnectWare.LoanNoteInquiry\LNNoteInqWSV8SvcRes.xsd" />
+    <None Include="Web References\ConnectWare.LoanNoteInquiry\LNNoteInqWSV8SvcResData.xsd" />
+    <None Include="Web References\ConnectWare.LoanNoteInquiry\mtvnLNNoteInqWSV8.wsdl" />
+    <None Include="Web References\ConnectWare.LoanNoteInquiry\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ConnectWare.LoanNotePayment\LNNotePmtReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanNotePayment\LNNotePmtResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanNotePayment\LNNotePmtWSV1SvcReq.xsd" />
+    <None Include="Web References\ConnectWare.LoanNotePayment\LNNotePmtWSV1SvcRes.xsd" />
+    <None Include="Web References\ConnectWare.LoanNotePayment\mtvnLNNotePmtWSV1.wsdl" />
+    <None Include="Web References\ConnectWare.LoanNotePayment\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\CBNewCrdAcctWSV5SvcReqData.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\CBNewCrdAcctWSV5SvcResData.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\CIAcctToAcctRltReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\CIAcctToAcctRltResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\CICustEmailMaintReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\CICustEmailMaintResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\CICustToAcctRltReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\CICustToAcctRltResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\CIOpenIndvCustWSV4SvcReqData.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\CIOpenIndvCustWSV4SvcResData.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\CIOpenOrgCustWSV4SvcReqData.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\CIOpenOrgCustWSV4SvcResData.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\CIProdIDMaintReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\CIProdIDMaintResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\DPNewAcctWSV4SvcReqData.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\DPNewAcctWSV4SvcResData.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\DPOnlnDolrWSV2SvcReqData.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\DPOnlnDolrWSV2SvcResData.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNAutoFeeSetpReqDataV2.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNAutoFeeSetpResDataV2.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNBillDateMaintReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNBillDateMaintResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNBillMaintReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNBillMaintResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNCommtPrtMaintReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNCommtPrtMaintResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNCommtUpdtReqDataV2.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNCommtUpdtResDataV2.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNCpnOrdrReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNCpnOrdrResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNEscrMaintReqDataV2.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNEscrMaintResDataV2.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNExtensionReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNExtensionResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNFeePmtReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNFeePmtResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNFeeWavReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNFeeWavResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNFloodTrackingMaintReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNFloodTrackingMaintResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNKywrdReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNKywrdResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNManFeeReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNManFeeResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNMultCollWSV2SvcReqData.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNMultCollWSV2SvcResData.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNNewAcctReqDataV2.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNNewAcctResDataV2.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNNewCommtReqDataV2.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNNewCommtResDataV2.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNNewIndirectLiabReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNNewIndirectLiabResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNNewNmeAddrReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNNewNmeAddrResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNNewNoteReqDataV5.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNNewNoteResDataV5.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNNoteIncrReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNNoteIncrResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNNotePmtReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNNotePmtResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNNoteRnwlReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNNoteRnwlResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNPmtSchedMaintReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNPmtSchedMaintResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNRsrvMaintReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNRsrvMaintResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNUsrDefFldsReqDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LNUsrDefFldsResDataV1.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LoanSCPWSV2SvcReq.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\LoanSCPWSV2SvcRes.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\MBPassReqDataV2.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\MBPassResDataV2.xsd" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\mtvnCWWebSvcV1.wsdl" />
+    <None Include="Web References\ConnectWare.LoanSingleCommitPointProcessing\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\ConnectWare.LoanUserDefinedFields\LNUsrDefFldsMtvnSvcRes.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\ConnectWare.LoanUserDefinedFields\LNUsrDefFldsWSV2SvcReq.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\ConnectWare.LoanUserDefinedFields\LNUsrDefFldsWSV2SvcReqData.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\ConnectWare.LoanUserDefinedFields\LNUsrDefFldsWSV2SvcRes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\ConnectWare.LoanUserDefinedFields\LNUsrDefFldsWSV2SvcResData.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\ConnectWare.LoanUserDefinedFields\mtvnLNUsrDefFldsWSV2.wsdl" />
+    <None Include="Web References\ConnectWare.LoanUserDefinedFields\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="https://199.38.140.103/ConnectwareWSDL/CI/CIAcctPrflWSV7.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ConnectWare.CISAccountProfile\</RelPath>
+      <UpdateFromURL>https://199.38.140.103/ConnectwareWSDL/CI/CIAcctPrflWSV7.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_ConnectWare_CISAccountProfile_mtvnCWCIAcctPrflWSV7</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://199.38.140.103/ConnectwareWSDL/CI/CICustEmailMaintWSV1.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ConnectWare.CISCustomerEmailMaintenance\</RelPath>
+      <UpdateFromURL>https://199.38.140.103/ConnectwareWSDL/CI/CICustEmailMaintWSV1.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_ConnectWare_ConnectWare_CISCustomerEmailMaintenance_mtvnCWCICustEmailMaintWSV1</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://199.38.140.103/ConnectwareWSDL/CI/CICustNbrSrchWSV7.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ConnectWare.CISCustomerSearchByCustomerNumber\</RelPath>
+      <UpdateFromURL>https://199.38.140.103/ConnectwareWSDL/CI/CICustNbrSrchWSV7.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_ConnectWare_CISCustomerSearchByCustomerNumber_mtvnCWCICustNbrSrchWSV7</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://199.38.140.103/ConnectwareWSDL/CI/CICustPrflWSV6.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ConnectWare.CISCustomerProfile\</RelPath>
+      <UpdateFromURL>https://199.38.140.103/ConnectwareWSDL/CI/CICustPrflWSV6.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_ConnectWare_ConnectWare_CISCustomerProfile_mtvnCWCICustPrflWSV6</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://199.38.140.103/ConnectwareWSDL/CI/CICustRltInqWSV1.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ConnectWare.CISCustomerRelationshipInquiry\</RelPath>
+      <UpdateFromURL>https://199.38.140.103/ConnectwareWSDL/CI/CICustRltInqWSV1.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_ConnectWare_ConnectWare_CISCustomerRelationshipInquiry_mtvnCWCICustRltInqWSV1</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://199.38.140.103/ConnectwareWSDL/CI/CICustTaxNbrSrchWSV7.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ConnectWare.CISCustomerSearchByTaxNumber\</RelPath>
+      <UpdateFromURL>https://199.38.140.103/ConnectwareWSDL/CI/CICustTaxNbrSrchWSV7.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_ConnectWare_CSICustomerSearchByTaxNumber_mtvnCWCICustTaxNbrSrchWSV7</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://199.38.140.103/ConnectwareWSDL/CI/CICustToAcctRltWSV1.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ConnectWare.CISCustomerToAccountRelationship\</RelPath>
+      <UpdateFromURL>https://199.38.140.103/ConnectwareWSDL/CI/CICustToAcctRltWSV1.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_ConnectWare_CISCustomerToAccountRelationship_mtvnCWCICustToAcctRltWSV1</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://199.38.140.103/ConnectwareWSDL/CI/CIOpenIndvCustWSV4.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ConnectWare.CISOpenIndividualCustomer\</RelPath>
+      <UpdateFromURL>https://199.38.140.103/ConnectwareWSDL/CI/CIOpenIndvCustWSV4.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_ConnectWare_CISOpenIndividualCustomer_mtvnCWCIOpenIndvCustWSV4</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://199.38.140.103/ConnectwareWSDL/CI/CIRltDemogInqWSV2.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ConnectWare.CISRelationshipDemographicInquiry\</RelPath>
+      <UpdateFromURL>https://199.38.140.103/ConnectwareWSDL/CI/CIRltDemogInqWSV2.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_ConnectWare_CISRelationshipDemographicInquiry_mtvnCWCIRltDemogInqWSV2</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://199.38.140.103/ConnectwareWSDL/CI/CIRltDemogUpdtWSV2.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ConnectWare.CISRelationshipDemographicUpdate\</RelPath>
+      <UpdateFromURL>https://199.38.140.103/ConnectwareWSDL/CI/CIRltDemogUpdtWSV2.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_ConnectWare_CISRelationshipDemographicUpdate_mtvnCWCIRltDemogUpdtWSV2</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://199.38.140.103/ConnectwareWSDL/CI/CustomerInfoSystemSCPWSV1.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ConnectWare.CISSingleCommitPointProcessing\</RelPath>
+      <UpdateFromURL>https://199.38.140.103/ConnectwareWSDL/CI/CustomerInfoSystemSCPWSV1.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_ConnectWare_CISSingleCommitPointProcessing_FinancialConnectWebSvcV1</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://199.38.140.103/ConnectwareWSDL/DP/DPAcctInqWSV8.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ConnectWare.DepositAccountInquiry\</RelPath>
+      <UpdateFromURL>https://199.38.140.103/ConnectwareWSDL/DP/DPAcctInqWSV8.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_ConnectWare_ConnectWare_DepositAccountInquiry_mtvnCWDPAcctInqWSV8</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://199.38.140.103/ConnectwareWSDL/DP/DPAcctNbrGenWSV1.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ConnectWare.DepositAccountNumberGenerator\</RelPath>
+      <UpdateFromURL>https://199.38.140.103/ConnectwareWSDL/DP/DPAcctNbrGenWSV1.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_ConnectWare_DepositAccountNumberGenerator_mtvnCWDPAcctNbrGenWSV1</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://199.38.140.103/ConnectwareWSDL/DP/DPHoldAddWSV1.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ConnectWare.DepositHoldAdd\</RelPath>
+      <UpdateFromURL>https://199.38.140.103/ConnectwareWSDL/DP/DPHoldAddWSV1.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_ConnectWare_DepositHoldAdd_mtvnCWDPHoldAddWSV1</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://199.38.140.103/ConnectwareWSDL/DP/DPNewAcctWSV4.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ConnectWare.DepositNewAccount\</RelPath>
+      <UpdateFromURL>https://199.38.140.103/ConnectwareWSDL/DP/DPNewAcctWSV4.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_ConnectWare_DepositNewAccount_mtvnCWDPNewAcctWSV4</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://199.38.140.103/ConnectwareWSDL/FM/FMDfctTrsfrSetpWSV2.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ConnectWare.IFMSDefictFundsTransfer\</RelPath>
+      <UpdateFromURL>https://199.38.140.103/ConnectwareWSDL/FM/FMDfctTrsfrSetpWSV2.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_ConnectWare_IFMSDefictFundsTransfer_mtvnCWFMDfctTrsfrSetpWSV2</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://199.38.140.103/ConnectwareWSDL/LN/LNAcctNbrGenWSV1.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ConnectWare.LoanAccountNumberGenerator\</RelPath>
+      <UpdateFromURL>https://199.38.140.103/ConnectwareWSDL/LN/LNAcctNbrGenWSV1.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_ConnectWare_LoanAccountNumberGenerator_mtvnCWLNAcctNbrGenWSV1</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://199.38.140.103/ConnectwareWSDL/LN/LNAutoFeeSetpWSV2.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ConnectWare.LoanAutomatedFeeSetup\</RelPath>
+      <UpdateFromURL>https://199.38.140.103/ConnectwareWSDL/LN/LNAutoFeeSetpWSV2.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_ConnectWare_LoanAutomatedFeeSetup_mtvnCWLNAutoFeeSetpWSV2</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://199.38.140.103/ConnectwareWSDL/LN/LNManFeeWSV1.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ConnectWare.LoanManualFeeAssessment\</RelPath>
+      <UpdateFromURL>https://199.38.140.103/ConnectwareWSDL/LN/LNManFeeWSV1.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_ConnectWare_LoanManualFeeAssessment_mtvnCWLNManFeeWSV1</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://199.38.140.103/ConnectwareWSDL/LN/LNNewAcctWSV2.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ConnectWare.LoanNewAccount\</RelPath>
+      <UpdateFromURL>https://199.38.140.103/ConnectwareWSDL/LN/LNNewAcctWSV2.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_ConnectWare_LoanNewAccount_mtvnCWLNNewAcctWSV2</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://199.38.140.103/ConnectwareWSDL/LN/LNNewCommtWSV2.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ConnectWare.LoanNewCommitment\</RelPath>
+      <UpdateFromURL>https://199.38.140.103/ConnectwareWSDL/LN/LNNewCommtWSV2.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_ConnectWare_LoanNewCommitment_mtvnCWLNNewCommtWSV2</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://199.38.140.103/ConnectwareWSDL/LN/LNNewNmeAddrWSV1.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ConnectWare.LoanNewChangeNameAndAddress\</RelPath>
+      <UpdateFromURL>https://199.38.140.103/ConnectwareWSDL/LN/LNNewNmeAddrWSV1.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_ConnectWare_LoanNewChangeNameAndAddress_mtvnCWLNNewNmeAddrWSV1</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://199.38.140.103/ConnectwareWSDL/LN/LNNewNoteWSV6.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ConnectWare.LoanNewNote\</RelPath>
+      <UpdateFromURL>https://199.38.140.103/ConnectwareWSDL/LN/LNNewNoteWSV6.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_ConnectWare_LoanNewNote_mtvnCWLNNewNoteWSV6</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://199.38.140.103/ConnectwareWSDL/LN/LNNoteCollMaintWSV1.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ConnectWare.LoanNoteCollateralMainenance\</RelPath>
+      <UpdateFromURL>https://199.38.140.103/ConnectwareWSDL/LN/LNNoteCollMaintWSV1.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_ConnectWare_LoanNoteCollateralMainenance_mtvnCWLNNoteCollMaintWSV1</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://199.38.140.103/ConnectwareWSDL/LN/LNNoteIncrWSV1.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ConnectWare.LoanNoteIncrease\</RelPath>
+      <UpdateFromURL>https://199.38.140.103/ConnectwareWSDL/LN/LNNoteIncrWSV1.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_ConnectWare_LoanNoteIncrease_mtvnCWLNNoteIncrWSV1</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://199.38.140.103/ConnectwareWSDL/LN/LNNoteInqWSV8.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ConnectWare.LoanNoteInquiry\</RelPath>
+      <UpdateFromURL>https://199.38.140.103/ConnectwareWSDL/LN/LNNoteInqWSV8.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_ConnectWare_LoanNoteInquiry_mtvnCWLNNoteInqWSV8</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://199.38.140.103/ConnectwareWSDL/LN/LNNoteListInqWSV2.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ConnectWare.LoanNoteListInquiry\</RelPath>
+      <UpdateFromURL>https://199.38.140.103/ConnectwareWSDL/LN/LNNoteListInqWSV2.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_ConnectWare_ConnectWare_LoanNoteListInquiry_mtvnCWLNNoteListInqWSV2</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://199.38.140.103/ConnectwareWSDL/LN/LNNotePmtWSV1.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ConnectWare.LoanNotePayment\</RelPath>
+      <UpdateFromURL>https://199.38.140.103/ConnectwareWSDL/LN/LNNotePmtWSV1.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_ConnectWare_LoanNotePayment_mtvnCWLNNotePmtWSV1</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://199.38.140.103/ConnectwareWSDL/LN/LoanSCPWSV2.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ConnectWare.LoanSingleCommitPointProcessing\</RelPath>
+      <UpdateFromURL>https://199.38.140.103/ConnectwareWSDL/LN/LoanSCPWSV2.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_ConnectWare_LoanSingleCommitPointProcessing_FinancialConnectWebSvcV1</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://xmlgateway.metavante.org/ConnectwareWSDL/CI/CICustDueDiligenceWSV1.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ConnectWare.CICustomerDueDiligence\</RelPath>
+      <UpdateFromURL>https://xmlgateway.metavante.org/ConnectwareWSDL/CI/CICustDueDiligenceWSV1.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_ConnectWare_ConnectWare_CICustomerDueDiligence_mtvnCWCICustDueDiligenceWSV1</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://xmlgateway.metavante.org/ConnectwareWSDL/LN/LNFloodTrackingMaintWSV1.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ConnectWare.LoanFloodTrackingMaintenance\</RelPath>
+      <UpdateFromURL>https://xmlgateway.metavante.org/ConnectwareWSDL/LN/LNFloodTrackingMaintWSV1.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_ConnectWare_ConnectWare_LoanFloodTrackingMaintenance_mtvnCWLNFloodTrackingMaintWSV1</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://xmlgateway.metavante.org/ConnectwareWSDL/LN/LNHMDAMaintWSV3.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ConnectWare.LoanHMDAMaintenance\</RelPath>
+      <UpdateFromURL>https://xmlgateway.metavante.org/ConnectwareWSDL/LN/LNHMDAMaintWSV3.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_ConnectWare_ConnectWare_LoanHMDAMaintenance1_mtvnCWLNHMDAMaintWSV3</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://xmlgateway.metavante.org/ConnectwareWSDL/LN/LNUsrDefFldsWSV2.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ConnectWare.LoanUserDefinedFields\</RelPath>
+      <UpdateFromURL>https://xmlgateway.metavante.org/ConnectwareWSDL/LN/LNUsrDefFldsWSV2.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_ConnectWare_ConnectWare_LoanUserDefinedFields_mtvnCWLNUsrDefFldsWSV2</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+</Project>

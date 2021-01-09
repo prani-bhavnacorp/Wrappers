@@ -1,0 +1,1827 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9EC83242-F54C-4C7A-81C8-96D2793F746C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>LoansPQ.WebServices.Wrappers</RootNamespace>
+    <AssemblyName>LoansPQWSWrappers.JXChange2019003</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\LoansPQ2\bin\</OutputPath>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.Services3, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Microsoft WSE\v3.0\Microsoft.Web.Services3.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Web References\JXChange2019003.ACH\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\JXChange2019003.BillPay\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\JXChange2019003.BrdCst\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\JXChange2019003.CrCard\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\JXChange2019003.Custom\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\JXChange2019003.Customer\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\JXChange2019003.Deposit\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\JXChange2019003.ENS\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\JXChange2019003.Image\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\JXChange2019003.IMS\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\JXChange2019003.Inquiry\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\JXChange2019003.Loan\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\JXChange2019003.Teller\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\JXChange2019003.Transaction\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\JXChange2019003.Workflow\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\JXChange2019003.ACH\ACHCompModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.ACH\ACHFileAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.ACH\ACHFileInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.ACH\ACHFileModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.ACH\oasis-200401-wss-wssecurity-secext-1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.ACH\oasis-200401-wss-wssecurity-utility-1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.ACH\PingRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.ACH\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\JXChange2019003.ACH\TPG_ACH.wsdl" />
+    <None Include="Web References\JXChange2019003.ACH\TPG_ACHMaster.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.ACH\w3-xml.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.ACH\w3-xmldsig-core-schema.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.BillPay\BilPayChanInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.BillPay\BilPayElecBilSchedInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.BillPay\BilPayElecBilSchedModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.BillPay\BilPayElecBilSchedSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.BillPay\BilPayPayeeAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.BillPay\BilPayPayeeInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.BillPay\BilPayPayeeModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.BillPay\BilPayPayeeSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.BillPay\BilPayPmtHistInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.BillPay\BilPayPmtHistSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.BillPay\BilPaySchedPmtAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.BillPay\BilPaySchedPmtApprvRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.BillPay\BilPaySchedPmtInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.BillPay\BilPaySchedPmtModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.BillPay\BilPaySchedPmtSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.BillPay\BilPaySubAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.BillPay\BilPaySubConsmCustInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.BillPay\BilPaySubInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.BillPay\BilPaySubModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.BillPay\BilPaySubSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.BillPay\oasis-200401-wss-wssecurity-secext-1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.BillPay\oasis-200401-wss-wssecurity-utility-1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.BillPay\PingRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.BillPay\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\JXChange2019003.BillPay\TPG_BillPay.wsdl" />
+    <None Include="Web References\JXChange2019003.BillPay\TPG_BillPayMaster.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.BillPay\w3-xml.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.BillPay\w3-xmldsig-core-schema.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.BrdCst\BrdCstSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.BrdCst\oasis-200401-wss-wssecurity-secext-1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.BrdCst\oasis-200401-wss-wssecurity-utility-1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.BrdCst\PingRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.BrdCst\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\JXChange2019003.BrdCst\TPG_BrdCst.wsdl" />
+    <None Include="Web References\JXChange2019003.BrdCst\TPG_BrdCstMaster.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.BrdCst\w3-xml.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.BrdCst\w3-xmldsig-core-schema.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.CrCard\CrCardAcctInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.CrCard\CrCardAcctSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.CrCard\CrCardActRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.CrCard\CrCardRptLostAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.CrCard\CrCardRwrdInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.CrCard\CrCardStmtGenRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.CrCard\CrCardStmtInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.CrCard\CrCardStmtModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.CrCard\CrCardStmtSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.CrCard\CrCardTrnAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.CrCard\CrCardTrnHistSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.CrCard\oasis-200401-wss-wssecurity-secext-1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.CrCard\oasis-200401-wss-wssecurity-utility-1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.CrCard\PingRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.CrCard\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\JXChange2019003.CrCard\TPG_CrCard.wsdl" />
+    <None Include="Web References\JXChange2019003.CrCard\TPG_CrCardMaster.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.CrCard\w3-xml.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.CrCard\w3-xmldsig-core-schema.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\AcctIdGenRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\AddrAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\AddrInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\AddrModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\AddrSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\BenflOwnSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CardAlrtModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CardAlrtNotfInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CardAlrtSubAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CardAlrtSubInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CardAlrtSubModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CRMActAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CRMActInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CRMActModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CRMActSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CRMCustInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CRMCustSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CRMEventAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CRMEventInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CRMEventModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CRMEventSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CRMMktCmpgnSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CRMPotSaleSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CRMProspAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CRMProspInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CRMProspModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CRMProspSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CRMReferAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CRMReferInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CRMReferModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CRMReferSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CustAcctRelInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CustAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CustCollatSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CustInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CustModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CustMsgAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CustMsgInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CustMsgModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CustMsgSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CustRelAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CustRelAddValidateRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CustRelModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\CustSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\EFTCardAcctIdAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\EFTCardAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\EFTCardAddValidateRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\EFTCardInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\EFTCardModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\EFTCardOrderAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\EFTCardPINOffSetModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\EFTCardSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\EFTCardUsrAuthInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\EmplAppAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\IdVerifyAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\IdVerifyModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\IntnetFinInstAcctIdAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\IntnetFinInstAcctIdAddValidateRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\IntnetFinInstIdAcctAccessInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\IntnetFinInstIdAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\IntnetFinInstIdAddValidateRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\IntnetFinInstIdInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\IntnetFinInstIdModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\IntnetFinInstIdUsrInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\IntnetFinInstIdUsrModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\IntRateAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\IntRateInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\IntRateModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\IntRateSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\IntYieldInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\LnPltfmProdSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\LnUnvIdGenRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\LobbyQueAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\LobbyQueInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\LobbyQueModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\LobbyQueSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\ParmValSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\PersonNameModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\PingRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\PltfmBusEntityValidateRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\PltfmDocInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\PltfmDocStatInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\PltfmEntityValidateRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\PltfmProdInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\PltfmProdSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\SvcDftRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\SvcDictSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\UsrEnrollInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Custom\BrooklineMAWireTrnAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Custom\BrooklineMAWireTrnInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Custom\FarmCrBankRateIdxAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Custom\FarmCrBankRateIdxInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Custom\FarmCrBankRateIdxModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Custom\FtWorthTXCrCardAuthInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Custom\FtWorthTXCrCardLogOffRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Custom\FtWorthTXCrCardLogOnRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Custom\FtWorthTXCrCardSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Custom\IntnetAlrtMsgAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Custom\IntnetFinInstUsrAuthenInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Custom\oasis-200401-wss-wssecurity-secext-1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Custom\oasis-200401-wss-wssecurity-utility-1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Custom\PingRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Custom\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\JXChange2019003.Custom\SheffieldALIVRPINModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Custom\SheffieldALIVRPINValidateRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Custom\TPG_Custom.wsdl" />
+    <None Include="Web References\JXChange2019003.Custom\TPG_CustomMaster.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Custom\w3-xml.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Custom\w3-xmldsig-core-schema.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Custom\WireTrnModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\oasis-200401-wss-wssecurity-secext-1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\oasis-200401-wss-wssecurity-utility-1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\TPG_Customer.wsdl" />
+    <None Include="Web References\JXChange2019003.Customer\TPG_CustomerMaster.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\w3-xml.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Customer\w3-xmldsig-core-schema.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Deposit\AcctAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Deposit\AcctAddValidateRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Deposit\AcctBenfAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Deposit\AcctBenfModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Deposit\AcctCombStmtAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Deposit\AcctCombStmtModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Deposit\AcctModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Deposit\AcctProdOvrrdAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Deposit\AcctProdOvrrdModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Deposit\AcctSweepAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Deposit\AcctSweepModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Deposit\oasis-200401-wss-wssecurity-secext-1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Deposit\oasis-200401-wss-wssecurity-utility-1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Deposit\PingRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Deposit\PltfmAppAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Deposit\PltfmStatInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Deposit\PltfmStatModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Deposit\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\JXChange2019003.Deposit\SafeDepAuditAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Deposit\TaxPlnAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Deposit\TaxPlnAddValidateRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Deposit\TaxPlnBenfAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Deposit\TaxPlnBenfAddValidateRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Deposit\TaxPlnBenfModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Deposit\TaxPlnModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Deposit\TimeDepRenOvrrdRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Deposit\TPG_Deposit.wsdl" />
+    <None Include="Web References\JXChange2019003.Deposit\TPG_DepositMaster.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Deposit\w3-xml.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Deposit\w3-xmldsig-core-schema.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Deposit\WireTmpltAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Deposit\WireTmpltModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.ENS\NotActSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.ENS\NotDistGroupAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.ENS\NotDistGroupInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.ENS\NotDistGroupModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.ENS\NotDistGroupSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.ENS\NotEmailAlrtAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.ENS\NotExplDataAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.ENS\NotMobPhoneValidateRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.ENS\NotRecipAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.ENS\NotRecipInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.ENS\NotRecipModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.ENS\NotRecipSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.ENS\NotRecipSubAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.ENS\NotRecipSubInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.ENS\NotRecipSubModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.ENS\NotRecipSubSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.ENS\NotSMSAlrtAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.ENS\NotSMSKeyWordAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.ENS\NotSMSKeyWordInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.ENS\NotSMSKeyWordModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.ENS\NotSMSKeyWordSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.ENS\NotSndAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.ENS\oasis-200401-wss-wssecurity-secext-1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.ENS\oasis-200401-wss-wssecurity-utility-1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.ENS\PingRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.ENS\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\JXChange2019003.ENS\TPG_ENS.wsdl" />
+    <None Include="Web References\JXChange2019003.ENS\TPG_ENSMaster.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.ENS\w3-xml.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.ENS\w3-xmldsig-core-schema.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Image\ChkImgInqRs_MType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Image\ChkImgSrchRs_MType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Image\ChkImgStmtGenInqRs_MType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Image\ChkImgStmtGenRs_MType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Image\ChkImgStmtSrchRs_MType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Image\DocBatchSrchRs_MType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Image\DocImgAddRs_MType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Image\DocImgModRs_MType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Image\DocImgSrchRs_MType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Image\DocOptFormatInqRs_MType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Image\DocTextFormatInqRs_MType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Image\FormatDocInqRs_MType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Image\oasis-200401-wss-wssecurity-secext-1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Image\oasis-200401-wss-wssecurity-utility-1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Image\PingRs_MType.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Image\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\JXChange2019003.Image\TPG_Image.wsdl" />
+    <None Include="Web References\JXChange2019003.Image\TPG_ImageMaster.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Image\w3-xml.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Image\w3-xmldsig-core-schema.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.IMS\BSADueDilgntPoolSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.IMS\BSADueDilgntRsAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.IMS\BSADueDilgntRsInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.IMS\CredPolInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.IMS\MFAQnAPolInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.IMS\MFAUsrQnAAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.IMS\MFAUsrQnAModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.IMS\MFAWaterMarkSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.IMS\oasis-200401-wss-wssecurity-secext-1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.IMS\oasis-200401-wss-wssecurity-utility-1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.IMS\ODISvcCredRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.IMS\PingRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.IMS\PmtHubUsrDirAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.IMS\PmtHubUsrDirInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.IMS\PmtHubUsrDirModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.IMS\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\JXChange2019003.IMS\TPG_IMS.wsdl" />
+    <None Include="Web References\JXChange2019003.IMS\TPG_IMSMaster.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.IMS\UsrConsmCredAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.IMS\UsrConsmCredModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.IMS\w3-xml.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.IMS\w3-xmldsig-core-schema.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\AcctAnlysInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\AcctBenfInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\AcctCombStmtInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\AcctExcTrnInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\AcctExcTrnSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\AcctHistSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\AcctInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\AcctIntRateInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\AcctMemoPostSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\AcctNSFTrnInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\AcctProdOvrrdInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\AcctProtInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\AcctReconBatchSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\AcctReconItemInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\AcctReconItemSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\AcctRelSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\AcctSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\AcctSweepInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\ACHPndSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\ACHTrnAddeSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\ACHTrnSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\ChkRiskInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\CollatTrackItemInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\CollatTrackSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\CrBurInfoInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\EFTActFraudInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\EFTCardTrnHistSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\EmplJobInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\EmplJobSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\EscrwInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\EscrwTrnHistSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\FASB91SrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\FileMainSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\FinInstInfoInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\GLAcctInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\GLAcctSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\GLHistSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\GLMsgSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\LnAppRgtrSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\LnFeeInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\LnFeeSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\LnPmtSchedInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\LnRateSchedInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\LnRateSchedSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\LnRegLTVInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\LOCAcctInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\LOCAcctSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\LOCSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\LtrOfCrInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\MLLMasterRelInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\MLLRelSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\MLLTrancheRelInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\NSFHistSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\NSFProcStateSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\oasis-200401-wss-wssecurity-secext-1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\oasis-200401-wss-wssecurity-utility-1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\ODPrvlgHistSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\OFACSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\PingRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\PmtHubUsrActSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\PosPayItemInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\PosPayItemSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\RealEstatePropSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\SafeDepAuditInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\SafeDepBoxSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\StopChkSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\SvcGtwyLogSumInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\TaxPlnAcctSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\TaxPlnBenfInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\TaxPlnBenfSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\TaxPlnInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\TaxPlnSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\TimeDepRenOvrrdInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\TPG_Inquiry.wsdl" />
+    <None Include="Web References\JXChange2019003.Inquiry\TPG_InquiryMaster.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\TrnFraudRuleSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\TrnFraudSusSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\TrnSetItemSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\UsrOperInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\w3-xml.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\w3-xmldsig-core-schema.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\WireCompInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\WireCompSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\WireHistSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\WireTmpltInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\WireTmpltSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\WireTrnInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\XferExpSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\XferSrcDestSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Inquiry\XferSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\CollatTrackAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\CollatTrackAddValidateRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\CollatTrackModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\CrBurInfoAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\CrBurInfoAddValidateRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\CrBurInfoModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\EscrwAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\EscrwAddValidateRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\EscrwModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\FASB91AddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\FASB91AddValidateRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\FASB91ModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\LnAcctAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\LnAcctAddValidateRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\LnAcctModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\LnAppRgtrAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\LnAppRgtrAddValidateRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\LnAppRgtrModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\LnFeeAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\LnFeeModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\LnPltfmAppAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\LnPmtExtRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\LnPmtSchedAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\LnPmtSchedAddValidateRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\LnPmtSchedModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\LnRateSchedAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\LnRateSchedAddValidateRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\LnRateSchedModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\LnRenRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\LOCAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\LOCAddValidateRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\LOCModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\MLLMasterRelAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\MLLMasterRelModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\MLLTrancheRelAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\MLLTrancheRelModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\oasis-200401-wss-wssecurity-secext-1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\oasis-200401-wss-wssecurity-utility-1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\PingRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\PltfmStatInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\RealEstatePropAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\RealEstatePropAddValidateRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\RealEstatePropModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\TPG_Loan.wsdl" />
+    <None Include="Web References\JXChange2019003.Loan\TPG_LoanMaster.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\w3-xml.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Loan\w3-xmldsig-core-schema.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Teller\oasis-200401-wss-wssecurity-secext-1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Teller\oasis-200401-wss-wssecurity-utility-1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Teller\PingRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Teller\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\JXChange2019003.Teller\TellerCurrTrnAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Teller\TellerCurrTrnInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Teller\TellerCurrTrnModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Teller\TellerCurrTrnSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Teller\TellerCustSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Teller\TellerDrwModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Teller\TellerDrwSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Teller\TellerDrwTrnsitnSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Teller\TellerNonCustAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Teller\TellerNonCustInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Teller\TellerNonCustModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Teller\TellerTrnAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Teller\TellerTrnInqRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Teller\TellerTrnModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Teller\TellerTrnSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Teller\TPG_Teller.wsdl" />
+    <None Include="Web References\JXChange2019003.Teller\TPG_TellerMaster.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Teller\w3-xml.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Teller\w3-xmldsig-core-schema.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Transaction\AcctAnlysTrnAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Transaction\AcctAnlysTrnModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Transaction\AcctNSFTrnModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Transaction\AcctReconItemModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Transaction\IntlWireTrnAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Transaction\IssItemMultiAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Transaction\oasis-200401-wss-wssecurity-secext-1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Transaction\oasis-200401-wss-wssecurity-utility-1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Transaction\PingRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Transaction\PmtHubCrXferAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Transaction\PmtHubCrXferModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Transaction\PosPayItemModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Transaction\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\JXChange2019003.Transaction\SafeDepPmtAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Transaction\SafeDepPmtModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Transaction\StopChkAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Transaction\StopChkAddValidateRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Transaction\StopChkCanRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Transaction\SvcFeeTrnAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Transaction\SvcFeeTrnModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Transaction\TPG_Transaction.wsdl" />
+    <None Include="Web References\JXChange2019003.Transaction\TPG_TransactionMaster.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Transaction\TrnAddQuoteCanRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Transaction\TrnAddQuoteCommRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Transaction\TrnAddQuoteRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Transaction\TrnAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Transaction\TrnAddValidateRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Transaction\TrnModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Transaction\w3-xml.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Transaction\w3-xmldsig-core-schema.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Transaction\WireTrnAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Transaction\XferAddRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Transaction\XferAddValidateRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Transaction\XferModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Workflow\oasis-200401-wss-wssecurity-secext-1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Workflow\oasis-200401-wss-wssecurity-utility-1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Workflow\PingRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Workflow\PubWorkflowSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Workflow\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\JXChange2019003.Workflow\TPG_Workflow.wsdl" />
+    <None Include="Web References\JXChange2019003.Workflow\TPG_WorkflowMaster.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Workflow\w3-xml.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Workflow\w3-xmldsig-core-schema.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web References\JXChange2019003.Workflow\WorkflowInstcModRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Workflow\WorkflowInstcSrchRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\JXChange2019003.Workflow\WorkflowInstcStartRs_MType1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="C:\DevTools\R2019.0.03TPGPub\Validation\TPG_ACH.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\JXChange2019003.ACH\</RelPath>
+      <UpdateFromURL>C:\DevTools\R2019.0.03TPGPub\Validation\TPG_ACH.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_JXChange2019003_WebReference1_ACHService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="C:\DevTools\R2019.0.03TPGPub\Validation\TPG_BillPay.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\JXChange2019003.BillPay\</RelPath>
+      <UpdateFromURL>C:\DevTools\R2019.0.03TPGPub\Validation\TPG_BillPay.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_JXChange2019003_WebReference1_BillPayService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="C:\DevTools\R2019.0.03TPGPub\Validation\TPG_BrdCst.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\JXChange2019003.BrdCst\</RelPath>
+      <UpdateFromURL>C:\DevTools\R2019.0.03TPGPub\Validation\TPG_BrdCst.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_JXChange2019003_WebReference1_BrdCstService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="C:\DevTools\R2019.0.03TPGPub\Validation\TPG_CrCard.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\JXChange2019003.CrCard\</RelPath>
+      <UpdateFromURL>C:\DevTools\R2019.0.03TPGPub\Validation\TPG_CrCard.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_JXChange2019003_WebReference1_CrCardService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="C:\DevTools\R2019.0.03TPGPub\Validation\TPG_Custom.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\JXChange2019003.Custom\</RelPath>
+      <UpdateFromURL>C:\DevTools\R2019.0.03TPGPub\Validation\TPG_Custom.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_JXChange2019003_WebReference1_CustomService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="C:\DevTools\R2019.0.03TPGPub\Validation\TPG_Customer.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\JXChange2019003.Customer\</RelPath>
+      <UpdateFromURL>C:\DevTools\R2019.0.03TPGPub\Validation\TPG_Customer.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_JXChange2019003_WebReference1_CustomerService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="C:\DevTools\R2019.0.03TPGPub\Validation\TPG_Deposit.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\JXChange2019003.Deposit\</RelPath>
+      <UpdateFromURL>C:\DevTools\R2019.0.03TPGPub\Validation\TPG_Deposit.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_JXChange2019003_WebReference1_DepositService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="C:\DevTools\R2019.0.03TPGPub\Validation\TPG_ENS.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\JXChange2019003.ENS\</RelPath>
+      <UpdateFromURL>C:\DevTools\R2019.0.03TPGPub\Validation\TPG_ENS.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_JXChange2019003_WebReference1_ENSService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="C:\DevTools\R2019.0.03TPGPub\Validation\TPG_Image.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\JXChange2019003.Image\</RelPath>
+      <UpdateFromURL>C:\DevTools\R2019.0.03TPGPub\Validation\TPG_Image.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_JXChange2019003_WebReference1_ImageService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="C:\DevTools\R2019.0.03TPGPub\Validation\TPG_IMS.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\JXChange2019003.IMS\</RelPath>
+      <UpdateFromURL>C:\DevTools\R2019.0.03TPGPub\Validation\TPG_IMS.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_JXChange2019003_WebReference1_IMSService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="C:\DevTools\R2019.0.03TPGPub\Validation\TPG_Inquiry.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\JXChange2019003.Inquiry\</RelPath>
+      <UpdateFromURL>C:\DevTools\R2019.0.03TPGPub\Validation\TPG_Inquiry.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_JXChange2019003_WebReference1_InquiryService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="C:\DevTools\R2019.0.03TPGPub\Validation\TPG_Loan.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\JXChange2019003.Loan\</RelPath>
+      <UpdateFromURL>C:\DevTools\R2019.0.03TPGPub\Validation\TPG_Loan.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_JXChange2019003_WebReference1_LoanService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="C:\DevTools\R2019.0.03TPGPub\Validation\TPG_Teller.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\JXChange2019003.Teller\</RelPath>
+      <UpdateFromURL>C:\DevTools\R2019.0.03TPGPub\Validation\TPG_Teller.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_JXChange2019003_WebReference1_TellerService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="C:\DevTools\R2019.0.03TPGPub\Validation\TPG_Transaction.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\JXChange2019003.Transaction\</RelPath>
+      <UpdateFromURL>C:\DevTools\R2019.0.03TPGPub\Validation\TPG_Transaction.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_JXChange2019003_WebReference1_TransactionService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="C:\DevTools\R2019.0.03TPGPub\Validation\TPG_Workflow.wsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\JXChange2019003.Workflow\</RelPath>
+      <UpdateFromURL>C:\DevTools\R2019.0.03TPGPub\Validation\TPG_Workflow.wsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>LoansPQWSWrappers_JXChange2019003_WebReference1_WorkflowService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>

@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:s0="http://bo.soap.penleyinc.com" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s1="urn:penleyidverification" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="urn:penleyidverification" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <s:schema targetNamespace="http://bo.soap.penleyinc.com">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="FastWatchBEQuery">
+        <s:sequence>
+          <s:element name="name" nillable="true" type="s:string" />
+          <s:element name="ein" nillable="true" type="s:string" />
+          <s:element name="accountNumber" nillable="true" type="s:string" />
+          <s:element name="address1" nillable="true" type="s:string" />
+          <s:element name="address2" nillable="true" type="s:string" />
+          <s:element name="city" nillable="true" type="s:string" />
+          <s:element name="country" nillable="true" type="s:string" />
+          <s:element name="postalCode" nillable="true" type="s:string" />
+          <s:element name="state" nillable="true" type="s:string" />
+          <s:element name="phone" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ValidateBEProfile">
+        <s:sequence>
+          <s:element name="name" nillable="true" type="s:string" />
+          <s:element name="ein" nillable="true" type="s:string" />
+          <s:element name="accountNumber" nillable="true" type="s:string" />
+          <s:element name="verifyDate" nillable="true" type="s:dateTime" />
+          <s:element name="oid" type="s:int" />
+          <s:element name="ofacHit" type="s:boolean" />
+          <s:element name="idCheckOK" type="s:boolean" />
+          <s:element name="idCheckHadRecords" type="s:boolean" />
+          <s:element name="idCheckHadMatchingRecords" type="s:boolean" />
+          <s:element name="nameCheckOK" type="s:boolean" />
+          <s:element name="addressCheckOK" type="s:boolean" />
+          <s:element name="telephoneCheckOK" type="s:boolean" />
+          <s:element name="altNameList" nillable="true" type="s1:ArrayOf_xsd_string" />
+          <s:element name="altAddressList" nillable="true" type="s1:ArrayOf_xsd_string" />
+          <s:element name="altTelephoneList" nillable="true" type="s1:ArrayOf_xsd_string" />
+          <s:element name="execList" nillable="true" type="s1:ArrayOf_xsd_string" />
+          <s:element name="custid" type="s:int" />
+          <s:element name="einCheckOK" type="s:boolean" />
+          <s:element name="einCheckStatus" type="s:int" />
+          <s:element name="nameCheckCorrectOK" type="s:boolean" />
+          <s:element name="score" type="s:int" />
+          <s:element name="POBox" nillable="true" type="s:string" />
+          <s:element name="address1" nillable="true" type="s:string" />
+          <s:element name="address2" nillable="true" type="s:string" />
+          <s:element name="city" nillable="true" type="s:string" />
+          <s:element name="country" nillable="true" type="s:string" />
+          <s:element name="phone" nillable="true" type="s:string" />
+          <s:element name="postalCode" nillable="true" type="s:string" />
+          <s:element name="state" nillable="true" type="s:string" />
+          <s:element name="verifier" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FastWatchQuery">
+        <s:sequence>
+          <s:element name="accountNumber" nillable="true" type="s:string" />
+          <s:element name="address1" nillable="true" type="s:string" />
+          <s:element name="address2" nillable="true" type="s:string" />
+          <s:element name="city" nillable="true" type="s:string" />
+          <s:element name="state" nillable="true" type="s:string" />
+          <s:element name="postalCode" nillable="true" type="s:string" />
+          <s:element name="country" nillable="true" type="s:string" />
+          <s:element name="dob" nillable="true" type="s:string" />
+          <s:element name="driversLicenseNo" nillable="true" type="s:string" />
+          <s:element name="driversLicenseState" nillable="true" type="s:string" />
+          <s:element name="email" nillable="true" type="s:string" />
+          <s:element name="firstName" nillable="true" type="s:string" />
+          <s:element name="homePhone" nillable="true" type="s:string" />
+          <s:element name="lastName" nillable="true" type="s:string" />
+          <s:element name="middleInitial" nillable="true" type="s:string" />
+          <s:element name="ssn" nillable="true" type="s:string" />
+          <s:element name="workPhone" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AddressRecord">
+        <s:sequence>
+          <s:element name="city" nillable="true" type="s:string" />
+          <s:element name="state" nillable="true" type="s:string" />
+          <s:element name="preDirection" nillable="true" type="s:string" />
+          <s:element name="houseNumber" nillable="true" type="s:string" />
+          <s:element name="streetName" nillable="true" type="s:string" />
+          <s:element name="streetSuffix" nillable="true" type="s:string" />
+          <s:element name="postDirection" nillable="true" type="s:string" />
+          <s:element name="aptNumber" nillable="true" type="s:string" />
+          <s:element name="zipCode" nillable="true" type="s:string" />
+          <s:element name="phoneNumber" nillable="true" type="s:string" />
+          <s:element name="reportDate" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FastWatchProfile">
+        <s:sequence>
+          <s:element name="accountNumber" nillable="true" type="s:string" />
+          <s:element name="verifyDate" nillable="true" type="s:dateTime" />
+          <s:element name="oid" type="s:int" />
+          <s:element name="ofacHit" type="s:boolean" />
+          <s:element name="idCheckOK" type="s:boolean" />
+          <s:element name="idCheckHadRecords" type="s:boolean" />
+          <s:element name="idCheckHadMatchingRecords" type="s:boolean" />
+          <s:element name="nameCheckOK" type="s:boolean" />
+          <s:element name="addressCheckOK" type="s:boolean" />
+          <s:element name="telephoneCheckOK" type="s:boolean" />
+          <s:element name="altNameList" nillable="true" type="s1:ArrayOf_xsd_string" />
+          <s:element name="altAddressList" nillable="true" type="s1:ArrayOf_tns2_AddressRecord" />
+          <s:element name="custid" type="s:int" />
+          <s:element name="afterSSNdate" type="s:boolean" />
+          <s:element name="altDobList" nillable="true" type="s1:ArrayOf_xsd_string" />
+          <s:element name="altDriversLicenseNoList" nillable="true" type="s1:ArrayOf_xsd_string" />
+          <s:element name="altHomePhoneList" nillable="true" type="s1:ArrayOf_xsd_string" />
+          <s:element name="dobCheckOK" type="s:boolean" />
+          <s:element name="driversLicenseCheckOK" type="s:boolean" />
+          <s:element name="isDeceased" type="s:boolean" />
+          <s:element name="minorYes" type="s:boolean" />
+          <s:element name="nrfOK" type="s:boolean" />
+          <s:element name="searchDataOK" type="s:boolean" />
+          <s:element name="ssnCheckOK" type="s:boolean" />
+          <s:element name="ssnCorrectOK" type="s:boolean" />
+          <s:element name="score" type="s:int" />
+          <s:element name="POBox" nillable="true" type="s:string" />
+          <s:element name="address1" nillable="true" type="s:string" />
+          <s:element name="address2" nillable="true" type="s:string" />
+          <s:element name="city" nillable="true" type="s:string" />
+          <s:element name="country" nillable="true" type="s:string" />
+          <s:element name="firstName" nillable="true" type="s:string" />
+          <s:element name="lastName" nillable="true" type="s:string" />
+          <s:element name="middleInitial" nillable="true" type="s:string" />
+          <s:element name="phone" nillable="true" type="s:string" />
+          <s:element name="postalCode" nillable="true" type="s:string" />
+          <s:element name="ssn" nillable="true" type="s:string" />
+          <s:element name="state" nillable="true" type="s:string" />
+          <s:element name="verifier" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FastWatchReportQuery">
+        <s:sequence>
+          <s:element name="startDateYear" type="s:int" />
+          <s:element name="startDateMonth" type="s:int" />
+          <s:element name="startDateDay" type="s:int" />
+          <s:element name="endDateYear" type="s:int" />
+          <s:element name="endDateMonth" type="s:int" />
+          <s:element name="endDateDay" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ValidateBEReportQuery">
+        <s:sequence>
+          <s:element name="startDateYear" type="s:int" />
+          <s:element name="startDateMonth" type="s:int" />
+          <s:element name="startDateDay" type="s:int" />
+          <s:element name="endDateYear" type="s:int" />
+          <s:element name="endDateMonth" type="s:int" />
+          <s:element name="endDateDay" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PropertyQuery">
+        <s:sequence>
+          <s:element name="city" nillable="true" type="s:string" />
+          <s:element name="state" nillable="true" type="s:string" />
+          <s:element name="account_Number" nillable="true" type="s:string" />
+          <s:element name="addresstype" nillable="true" type="s:string" />
+          <s:element name="salesprice" type="s:double" />
+          <s:element name="streetname" nillable="true" type="s:string" />
+          <s:element name="zipcode" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Property">
+        <s:sequence>
+          <s:element name="construction_quality_desc" nillable="true" type="s:string" />
+          <s:element name="construction_type_desc" nillable="true" type="s:string" />
+          <s:element name="cooling_detail_desc" nillable="true" type="s:string" />
+          <s:element name="fireplace_flag" nillable="true" type="s:string" />
+          <s:element name="garage_carport_desc" nillable="true" type="s:string" />
+          <s:element name="garage_square_feet" nillable="true" type="s:string" />
+          <s:element name="heat_cool_desc" nillable="true" type="s:string" />
+          <s:element name="heating_detail_desc" nillable="true" type="s:string" />
+          <s:element name="loan_amount" type="s:double" />
+          <s:element name="lot_size" nillable="true" type="s:string" />
+          <s:element name="number_of_baths" nillable="true" type="s:string" />
+          <s:element name="number_of_bedrooms" nillable="true" type="s:string" />
+          <s:element name="number_of_rooms" nillable="true" type="s:string" />
+          <s:element name="number_of_stories" nillable="true" type="s:string" />
+          <s:element name="number_of_units" nillable="true" type="s:string" />
+          <s:element name="perc_change" type="s:double" />
+          <s:element name="person_name" nillable="true" type="s:string" />
+          <s:element name="pool_flag" nillable="true" type="s:string" />
+          <s:element name="roof_type_desc" nillable="true" type="s:string" />
+          <s:element name="sale_amount" type="s:double" />
+          <s:element name="square_feet" nillable="true" type="s:string" />
+          <s:element name="square_feet_basement" nillable="true" type="s:string" />
+          <s:element name="tr_date" nillable="true" type="s:dateTime" />
+          <s:element name="tr_formatted_date" nillable="true" type="s:string" />
+          <s:element name="tr_type" nillable="true" type="s:string" />
+          <s:element name="view_flag" nillable="true" type="s:string" />
+          <s:element name="year_built" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PropertyProximityProfile">
+        <s:sequence>
+          <s:element name="year_built" nillable="true" type="s:string" />
+          <s:element name="address" nillable="true" type="s:string" />
+          <s:element name="bedrooms" nillable="true" type="s:string" />
+          <s:element name="proximity" nillable="true" type="s:string" />
+          <s:element name="sales_date" nillable="true" type="s:string" />
+          <s:element name="sales_price" nillable="true" type="s:string" />
+          <s:element name="sq_feet" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PropertyProfile">
+        <s:sequence>
+          <s:element name="properties" nillable="true" type="s1:ArrayOf_tns2_Property" />
+          <s:element name="city" nillable="true" type="s:string" />
+          <s:element name="state" nillable="true" type="s:string" />
+          <s:element name="verifyDate" nillable="true" type="s:dateTime" />
+          <s:element name="oid" type="s:int" />
+          <s:element name="verifier" nillable="true" type="s:string" />
+          <s:element name="account_number" nillable="true" type="s:string" />
+          <s:element name="addresstype" nillable="true" type="s:string" />
+          <s:element name="flipping" type="s:boolean" />
+          <s:element name="foundprops" type="s:boolean" />
+          <s:element name="geoinfo" nillable="true" type="s:string" />
+          <s:element name="ok" type="s:boolean" />
+          <s:element name="property_desc" nillable="true" type="s0:Property" />
+          <s:element name="propertyDataId" type="s:int" />
+          <s:element name="proximityDataID" type="s:int" />
+          <s:element name="resultdatasource" type="s:int" />
+          <s:element name="salesprice" type="s:double" />
+          <s:element name="searchDataId" type="s:int" />
+          <s:element name="streetname" nillable="true" type="s:string" />
+          <s:element name="zipcode" nillable="true" type="s:string" />
+          <s:element name="proximityvalues" nillable="true" type="s1:ArrayOf_tns2_PropertyProximityProfile" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PropertyReportQuery">
+        <s:sequence>
+          <s:element name="startDateYear" type="s:int" />
+          <s:element name="startDateMonth" type="s:int" />
+          <s:element name="startDateDay" type="s:int" />
+          <s:element name="endDateYear" type="s:int" />
+          <s:element name="endDateMonth" type="s:int" />
+          <s:element name="endDateDay" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ActivityReportQuery">
+        <s:sequence>
+          <s:element name="startDateYear" type="s:int" />
+          <s:element name="startDateMonth" type="s:int" />
+          <s:element name="startDateDay" type="s:int" />
+          <s:element name="endDateYear" type="s:int" />
+          <s:element name="endDateMonth" type="s:int" />
+          <s:element name="endDateDay" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ActivityRecord">
+        <s:sequence>
+          <s:element name="type" nillable="true" type="s:string" />
+          <s:element name="chxsearch_count" nillable="true" type="s:string" />
+          <s:element name="fc_failed" nillable="true" type="s:string" />
+          <s:element name="fc_ok" nillable="true" type="s:string" />
+          <s:element name="fcFailedCount" nillable="true" type="s:string" />
+          <s:element name="fcOkCount" nillable="true" type="s:string" />
+          <s:element name="fcsearch_count" nillable="true" type="s:string" />
+          <s:element name="ofacFailCount" nillable="true" type="s:string" />
+          <s:element name="ofacOkCount" nillable="true" type="s:string" />
+          <s:element name="ofacsearch_count" nillable="true" type="s:string" />
+          <s:element name="ofc_failed" nillable="true" type="s:string" />
+          <s:element name="ofc_ok" nillable="true" type="s:string" />
+          <s:element name="totalTransactions" nillable="true" type="s:string" />
+          <s:element name="vbec_failed" nillable="true" type="s:string" />
+          <s:element name="vbec_ok" nillable="true" type="s:string" />
+          <s:element name="vbesearch_count" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema targetNamespace="urn:penleyidverification">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="ArrayOf_xsd_string">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:attribute xmlns:d7p1="http://schemas.xmlsoap.org/wsdl/" d7p1:arrayType="s:string[]" ref="soapenc:arrayType" />
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOf_tns2_AddressRecord">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:attribute xmlns:d7p1="http://schemas.xmlsoap.org/wsdl/" d7p1:arrayType="s0:AddressRecord[]" ref="soapenc:arrayType" />
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOf_tns2_FastWatchProfile">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:attribute xmlns:d7p1="http://schemas.xmlsoap.org/wsdl/" d7p1:arrayType="s0:FastWatchProfile[]" ref="soapenc:arrayType" />
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOf_tns2_ValidateBEProfile">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:attribute xmlns:d7p1="http://schemas.xmlsoap.org/wsdl/" d7p1:arrayType="s0:ValidateBEProfile[]" ref="soapenc:arrayType" />
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOf_tns2_Property">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:attribute xmlns:d7p1="http://schemas.xmlsoap.org/wsdl/" d7p1:arrayType="s0:Property[]" ref="soapenc:arrayType" />
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOf_tns2_PropertyProximityProfile">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:attribute xmlns:d7p1="http://schemas.xmlsoap.org/wsdl/" d7p1:arrayType="s0:PropertyProximityProfile[]" ref="soapenc:arrayType" />
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOf_tns2_PropertyProfile">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:attribute xmlns:d7p1="http://schemas.xmlsoap.org/wsdl/" d7p1:arrayType="s0:PropertyProfile[]" ref="soapenc:arrayType" />
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOf_tns2_ActivityRecord">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:attribute xmlns:d7p1="http://schemas.xmlsoap.org/wsdl/" d7p1:arrayType="s0:ActivityRecord[]" ref="soapenc:arrayType" />
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </types>
+  <message name="IDCheckbusinessResponse">
+    <part name="IDCheckbusinessReturn" type="s0:ValidateBEProfile" />
+  </message>
+  <message name="IDCheckpersonRequest">
+    <part name="in0" type="s:string" />
+    <part name="in1" type="s0:FastWatchQuery" />
+  </message>
+  <message name="activityReportResponse">
+    <part name="activityReportReturn" type="s1:ArrayOf_tns2_ActivityRecord" />
+  </message>
+  <message name="fastWatchReportRequest">
+    <part name="in0" type="s:string" />
+    <part name="in1" type="s0:FastWatchReportQuery" />
+  </message>
+  <message name="getBusinessProfileFromLogRequest">
+    <part name="in0" type="s:string" />
+    <part name="in1" type="s:int" />
+  </message>
+  <message name="fastWatchReportResponse">
+    <part name="fastWatchReportReturn" type="s1:ArrayOf_tns2_FastWatchProfile" />
+  </message>
+  <message name="addBusinessCommentResponse">
+    <part name="addBusinessCommentReturn" type="s:boolean" />
+  </message>
+  <message name="addFastWatchCommentResponse">
+    <part name="addFastWatchCommentReturn" type="s:boolean" />
+  </message>
+  <message name="getFastWatchProfileFromLogRequest">
+    <part name="in0" type="s:string" />
+    <part name="in1" type="s:int" />
+  </message>
+  <message name="propertyReportResponse">
+    <part name="propertyReportReturn" type="s1:ArrayOf_tns2_PropertyProfile" />
+  </message>
+  <message name="IDCheckbusinessRequest">
+    <part name="in0" type="s:string" />
+    <part name="in1" type="s0:FastWatchBEQuery" />
+  </message>
+  <message name="IDCheckpersonResponse">
+    <part name="IDCheckpersonReturn" type="s0:FastWatchProfile" />
+  </message>
+  <message name="getBusinessProfileFromLogResponse">
+    <part name="getBusinessProfileFromLogReturn" type="s0:ValidateBEProfile" />
+  </message>
+  <message name="getPropertyFromLogResponse">
+    <part name="getPropertyFromLogReturn" type="s0:PropertyProfile" />
+  </message>
+  <message name="getPropertyFromLogRequest">
+    <part name="in0" type="s:string" />
+    <part name="in1" type="s:int" />
+  </message>
+  <message name="activityReportRequest">
+    <part name="in0" type="s:string" />
+    <part name="in1" type="s0:ActivityReportQuery" />
+  </message>
+  <message name="propertyReportRequest">
+    <part name="in0" type="s:string" />
+    <part name="in1" type="s0:PropertyReportQuery" />
+  </message>
+  <message name="isFlippingResponse">
+    <part name="isFlippingReturn" type="s0:PropertyProfile" />
+  </message>
+  <message name="businessReportRequest">
+    <part name="in0" type="s:string" />
+    <part name="in1" type="s0:ValidateBEReportQuery" />
+  </message>
+  <message name="addBusinessCommentRequest">
+    <part name="in0" type="s:string" />
+    <part name="in1" type="s:int" />
+    <part name="in2" type="s:string" />
+  </message>
+  <message name="isFlippingRequest">
+    <part name="in0" type="s:string" />
+    <part name="in1" type="s0:PropertyQuery" />
+    <part name="in2" type="s:int" />
+  </message>
+  <message name="getFastWatchProfileFromLogResponse">
+    <part name="getFastWatchProfileFromLogReturn" type="s0:FastWatchProfile" />
+  </message>
+  <message name="businessReportResponse">
+    <part name="businessReportReturn" type="s1:ArrayOf_tns2_ValidateBEProfile" />
+  </message>
+  <message name="addFastWatchCommentRequest">
+    <part name="in0" type="s:string" />
+    <part name="in1" type="s:int" />
+    <part name="in2" type="s:string" />
+  </message>
+  <portType name="IDVerificationService">
+    <operation name="IDCheckbusiness" parameterOrder="in0 in1">
+      <input name="IDCheckbusinessRequest" message="s1:IDCheckbusinessRequest" />
+      <output name="IDCheckbusinessResponse" message="s1:IDCheckbusinessResponse" />
+    </operation>
+    <operation name="IDCheckperson" parameterOrder="in0 in1">
+      <input name="IDCheckpersonRequest" message="s1:IDCheckpersonRequest" />
+      <output name="IDCheckpersonResponse" message="s1:IDCheckpersonResponse" />
+    </operation>
+    <operation name="addFastWatchComment" parameterOrder="in0 in1 in2">
+      <input name="addFastWatchCommentRequest" message="s1:addFastWatchCommentRequest" />
+      <output name="addFastWatchCommentResponse" message="s1:addFastWatchCommentResponse" />
+    </operation>
+    <operation name="addBusinessComment" parameterOrder="in0 in1 in2">
+      <input name="addBusinessCommentRequest" message="s1:addBusinessCommentRequest" />
+      <output name="addBusinessCommentResponse" message="s1:addBusinessCommentResponse" />
+    </operation>
+    <operation name="getFastWatchProfileFromLog" parameterOrder="in0 in1">
+      <input name="getFastWatchProfileFromLogRequest" message="s1:getFastWatchProfileFromLogRequest" />
+      <output name="getFastWatchProfileFromLogResponse" message="s1:getFastWatchProfileFromLogResponse" />
+    </operation>
+    <operation name="getBusinessProfileFromLog" parameterOrder="in0 in1">
+      <input name="getBusinessProfileFromLogRequest" message="s1:getBusinessProfileFromLogRequest" />
+      <output name="getBusinessProfileFromLogResponse" message="s1:getBusinessProfileFromLogResponse" />
+    </operation>
+    <operation name="fastWatchReport" parameterOrder="in0 in1">
+      <input name="fastWatchReportRequest" message="s1:fastWatchReportRequest" />
+      <output name="fastWatchReportResponse" message="s1:fastWatchReportResponse" />
+    </operation>
+    <operation name="businessReport" parameterOrder="in0 in1">
+      <input name="businessReportRequest" message="s1:businessReportRequest" />
+      <output name="businessReportResponse" message="s1:businessReportResponse" />
+    </operation>
+    <operation name="isFlipping" parameterOrder="in0 in1 in2">
+      <input name="isFlippingRequest" message="s1:isFlippingRequest" />
+      <output name="isFlippingResponse" message="s1:isFlippingResponse" />
+    </operation>
+    <operation name="getPropertyFromLog" parameterOrder="in0 in1">
+      <input name="getPropertyFromLogRequest" message="s1:getPropertyFromLogRequest" />
+      <output name="getPropertyFromLogResponse" message="s1:getPropertyFromLogResponse" />
+    </operation>
+    <operation name="propertyReport" parameterOrder="in0 in1">
+      <input name="propertyReportRequest" message="s1:propertyReportRequest" />
+      <output name="propertyReportResponse" message="s1:propertyReportResponse" />
+    </operation>
+    <operation name="activityReport" parameterOrder="in0 in1">
+      <input name="activityReportRequest" message="s1:activityReportRequest" />
+      <output name="activityReportResponse" message="s1:activityReportResponse" />
+    </operation>
+  </portType>
+  <binding name="idverificationSoapBinding" type="s1:IDVerificationService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <operation name="IDCheckbusiness">
+      <soap:operation soapAction="" />
+      <input name="IDCheckbusinessRequest">
+        <soap:body use="encoded" namespace="urn:penleyidverification" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output name="IDCheckbusinessResponse">
+        <soap:body use="encoded" namespace="urn:penleyidverification" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="IDCheckperson">
+      <soap:operation soapAction="" />
+      <input name="IDCheckpersonRequest">
+        <soap:body use="encoded" namespace="urn:penleyidverification" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output name="IDCheckpersonResponse">
+        <soap:body use="encoded" namespace="urn:penleyidverification" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="addFastWatchComment">
+      <soap:operation soapAction="" />
+      <input name="addFastWatchCommentRequest">
+        <soap:body use="encoded" namespace="urn:penleyidverification" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output name="addFastWatchCommentResponse">
+        <soap:body use="encoded" namespace="urn:penleyidverification" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="addBusinessComment">
+      <soap:operation soapAction="" />
+      <input name="addBusinessCommentRequest">
+        <soap:body use="encoded" namespace="urn:penleyidverification" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output name="addBusinessCommentResponse">
+        <soap:body use="encoded" namespace="urn:penleyidverification" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="getFastWatchProfileFromLog">
+      <soap:operation soapAction="" />
+      <input name="getFastWatchProfileFromLogRequest">
+        <soap:body use="encoded" namespace="urn:penleyidverification" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output name="getFastWatchProfileFromLogResponse">
+        <soap:body use="encoded" namespace="urn:penleyidverification" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="getBusinessProfileFromLog">
+      <soap:operation soapAction="" />
+      <input name="getBusinessProfileFromLogRequest">
+        <soap:body use="encoded" namespace="urn:penleyidverification" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output name="getBusinessProfileFromLogResponse">
+        <soap:body use="encoded" namespace="urn:penleyidverification" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="fastWatchReport">
+      <soap:operation soapAction="" />
+      <input name="fastWatchReportRequest">
+        <soap:body use="encoded" namespace="urn:penleyidverification" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output name="fastWatchReportResponse">
+        <soap:body use="encoded" namespace="urn:penleyidverification" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="businessReport">
+      <soap:operation soapAction="" />
+      <input name="businessReportRequest">
+        <soap:body use="encoded" namespace="urn:penleyidverification" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output name="businessReportResponse">
+        <soap:body use="encoded" namespace="urn:penleyidverification" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="isFlipping">
+      <soap:operation soapAction="" />
+      <input name="isFlippingRequest">
+        <soap:body use="encoded" namespace="urn:penleyidverification" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output name="isFlippingResponse">
+        <soap:body use="encoded" namespace="urn:penleyidverification" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="getPropertyFromLog">
+      <soap:operation soapAction="" />
+      <input name="getPropertyFromLogRequest">
+        <soap:body use="encoded" namespace="urn:penleyidverification" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output name="getPropertyFromLogResponse">
+        <soap:body use="encoded" namespace="urn:penleyidverification" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="propertyReport">
+      <soap:operation soapAction="" />
+      <input name="propertyReportRequest">
+        <soap:body use="encoded" namespace="urn:penleyidverification" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output name="propertyReportResponse">
+        <soap:body use="encoded" namespace="urn:penleyidverification" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="activityReport">
+      <soap:operation soapAction="" />
+      <input name="activityReportRequest">
+        <soap:body use="encoded" namespace="urn:penleyidverification" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output name="activityReportResponse">
+        <soap:body use="encoded" namespace="urn:penleyidverification" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="IDVerificationServiceService">
+    <port name="idverification" binding="s1:idverificationSoapBinding">
+      <soap:address location="https://soap.penleyinc.com/penleysoap3/services/idverification" />
+    </port>
+  </service>
+</definitions>

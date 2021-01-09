@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns="http://com.fwdco.marketplace/hub/usa" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AchAccountService" targetNamespace="http://com.fwdco.marketplace/hub/usa" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns="http://com.fwdco.marketplace/hub/usa" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://com.fwdco.marketplace/hub/usa" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="wsResponse">
+        <xs:sequence>
+          <xs:element name="errorCode" type="xs:int" />
+          <xs:element minOccurs="0" name="errorMessage" type="xs:string" />
+          <xs:element minOccurs="0" name="logMsg" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="sessionId" nillable="true" type="xs:string" />
+      <xs:element name="employeeId" nillable="true" type="xs:string" />
+      <xs:element name="transitNo" nillable="true" type="xs:string" />
+      <xs:element name="accountNo" nillable="true" type="xs:string" />
+      <xs:element name="memo" nillable="true" type="xs:string" />
+      <xs:element name="logMsg" nillable="true" type="xs:string" />
+      <xs:element name="setEmployeeAchAccountInfoResponse" nillable="true" type="tns:wsResponse" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="setEmployeeAchAccountInfoResponse">
+    <wsdl:part name="setEmployeeAchAccountInfoResponse" element="tns:setEmployeeAchAccountInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="setEmployeeAchAccountInfo">
+    <wsdl:part name="sessionId" element="tns:sessionId" />
+    <wsdl:part name="employeeId" element="tns:employeeId" />
+    <wsdl:part name="transitNo" element="tns:transitNo" />
+    <wsdl:part name="accountNo" element="tns:accountNo" />
+    <wsdl:part name="memo" element="tns:memo" />
+    <wsdl:part name="logMsg" element="tns:logMsg" />
+  </wsdl:message>
+  <wsdl:portType name="AchAccount">
+    <wsdl:operation name="setEmployeeAchAccountInfo">
+      <wsdl:input name="setEmployeeAchAccountInfo" message="tns:setEmployeeAchAccountInfo" />
+      <wsdl:output name="setEmployeeAchAccountInfoResponse" message="tns:setEmployeeAchAccountInfoResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AchAccountServiceSoapBinding" type="tns:AchAccount">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="setEmployeeAchAccountInfo">
+      <soap:operation soapAction="" style="document" />
+      <wsdl:input name="setEmployeeAchAccountInfo">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="setEmployeeAchAccountInfoResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AchAccountService">
+    <wsdl:port name="AchAccountPort" binding="tns:AchAccountServiceSoapBinding">
+      <soap:address location="http://localhost:8080/usa/AchAccountService/AchAccount" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:tns="http://www.americafirst.com/20070315/AccountTransaction" xmlns:ctl="http://www.americafirst.com/20070315/CommonTypesLib" xmlns:cm="http://www.americafirst.com/20070315/CommonTypes" targetNamespace="http://www.americafirst.com/20070315/AccountTransaction" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema">
+  <include schemaLocation="CommonTransactionTypes.xsd" />
+  <import schemaLocation="../commontypeslib/CommonTypesLib.xsd" namespace="http://www.americafirst.com/20070315/CommonTypesLib" />
+  <import schemaLocation="../commontypes/CommonTypes.xsd" namespace="http://www.americafirst.com/20070315/CommonTypes" />
+  <annotation>
+    <documentation>Uses Cobol Copybook for CashiersCheck: TRAN_KRG Version V001</documentation>
+  </annotation>
+  <complexType name="CashiersCheckRequest">
+    <complexContent mixed="false">
+      <extension base="tns:TranBaseTypeRequest">
+        <sequence>
+          <element name="tranAmount" type="ctl:Decimal_15_2" />
+          <element name="checkNumber" type="ctl:Decimal_15_2" />
+          <element name="checkPayee" type="ctl:String_30" />
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="CashiersCheckResponse">
+    <complexContent mixed="false">
+      <extension base="tns:TranBaseTypeResponse">
+        <sequence>
+          <element name="tranAmount" type="ctl:Decimal_15_2" />
+          <element name="checkNumber" type="ctl:Decimal_15_2" />
+          <element name="checkPayee" type="ctl:String_30" />
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+</schema>

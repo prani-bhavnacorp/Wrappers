@@ -1,0 +1,704 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://immonline.com/IMM.TEAASP.TeSignLite" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://immonline.com/IMM.TEAASP.TeSignLite" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">TeSignLite is a web service that processes documents submitted by a client conforming to the TeSign API.</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://immonline.com/IMM.TEAASP.TeSignLite">
+      <s:element name="CloseSession">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sSessionID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CloseSessionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CloseSessionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InitializeSession">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sRequest" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InitializeSessionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InitializeSessionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitDocument">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sRequest" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sFlattenPDFs" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitDocumentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubmitDocumentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSessionURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sRequest" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSessionURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSessionURLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDEAuthenticationTypes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sRequest" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDEAuthenticationTypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDEAuthenticationTypesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDESigningURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sRequest" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDESigningURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDESigningURLResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDESigningStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sRequest" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDESigningStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDESigningStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebServiceAvailable">
+        <s:complexType />
+      </s:element>
+      <s:element name="WebServiceAvailableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WebServiceAvailableResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CloseSessionSoapIn">
+    <wsdl:part name="parameters" element="tns:CloseSession" />
+  </wsdl:message>
+  <wsdl:message name="CloseSessionSoapOut">
+    <wsdl:part name="parameters" element="tns:CloseSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="InitializeSessionSoapIn">
+    <wsdl:part name="parameters" element="tns:InitializeSession" />
+  </wsdl:message>
+  <wsdl:message name="InitializeSessionSoapOut">
+    <wsdl:part name="parameters" element="tns:InitializeSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="SubmitDocumentSoapIn">
+    <wsdl:part name="parameters" element="tns:SubmitDocument" />
+  </wsdl:message>
+  <wsdl:message name="SubmitDocumentSoapOut">
+    <wsdl:part name="parameters" element="tns:SubmitDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionURLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSessionURL" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionURLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSessionURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDEAuthenticationTypesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDEAuthenticationTypes" />
+  </wsdl:message>
+  <wsdl:message name="GetDEAuthenticationTypesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDEAuthenticationTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDESigningURLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDESigningURL" />
+  </wsdl:message>
+  <wsdl:message name="GetDESigningURLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDESigningURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDESigningStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDESigningStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetDESigningStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDESigningStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebServiceAvailableSoapIn">
+    <wsdl:part name="parameters" element="tns:WebServiceAvailable" />
+  </wsdl:message>
+  <wsdl:message name="WebServiceAvailableSoapOut">
+    <wsdl:part name="parameters" element="tns:WebServiceAvailableResponse" />
+  </wsdl:message>
+  <wsdl:message name="CloseSessionHttpGetIn">
+    <wsdl:part name="sSessionID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CloseSessionHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="InitializeSessionHttpGetIn">
+    <wsdl:part name="sRequest" type="s:string" />
+    <wsdl:part name="sPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InitializeSessionHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SubmitDocumentHttpGetIn">
+    <wsdl:part name="sRequest" type="s:string" />
+    <wsdl:part name="sFlattenPDFs" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SubmitDocumentHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionURLHttpGetIn">
+    <wsdl:part name="sRequest" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionURLHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDEAuthenticationTypesHttpGetIn">
+    <wsdl:part name="sRequest" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDEAuthenticationTypesHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDESigningURLHttpGetIn">
+    <wsdl:part name="sRequest" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDESigningURLHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDESigningStatusHttpGetIn">
+    <wsdl:part name="sRequest" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDESigningStatusHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="WebServiceAvailableHttpGetIn" />
+  <wsdl:message name="WebServiceAvailableHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="CloseSessionHttpPostIn">
+    <wsdl:part name="sSessionID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CloseSessionHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="InitializeSessionHttpPostIn">
+    <wsdl:part name="sRequest" type="s:string" />
+    <wsdl:part name="sPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="InitializeSessionHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SubmitDocumentHttpPostIn">
+    <wsdl:part name="sRequest" type="s:string" />
+    <wsdl:part name="sFlattenPDFs" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SubmitDocumentHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionURLHttpPostIn">
+    <wsdl:part name="sRequest" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionURLHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDEAuthenticationTypesHttpPostIn">
+    <wsdl:part name="sRequest" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDEAuthenticationTypesHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDESigningURLHttpPostIn">
+    <wsdl:part name="sRequest" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDESigningURLHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDESigningStatusHttpPostIn">
+    <wsdl:part name="sRequest" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDESigningStatusHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="WebServiceAvailableHttpPostIn" />
+  <wsdl:message name="WebServiceAvailableHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="TeSignLiteSoap">
+    <wsdl:operation name="CloseSession">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Close the current session.</wsdl:documentation>
+      <wsdl:input message="tns:CloseSessionSoapIn" />
+      <wsdl:output message="tns:CloseSessionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InitializeSession">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Establish a session for processing a set of documents.</wsdl:documentation>
+      <wsdl:input message="tns:InitializeSessionSoapIn" />
+      <wsdl:output message="tns:InitializeSessionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitDocument">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Submit a document for processing during the current session.</wsdl:documentation>
+      <wsdl:input message="tns:SubmitDocumentSoapIn" />
+      <wsdl:output message="tns:SubmitDocumentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionURL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the URL for direct access to a web page for the current session</wsdl:documentation>
+      <wsdl:input message="tns:GetSessionURLSoapIn" />
+      <wsdl:output message="tns:GetSessionURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDEAuthenticationTypes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get all DE available authentication types</wsdl:documentation>
+      <wsdl:input message="tns:GetDEAuthenticationTypesSoapIn" />
+      <wsdl:output message="tns:GetDEAuthenticationTypesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDESigningURL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the URL for direct access to a web page for the current session</wsdl:documentation>
+      <wsdl:input message="tns:GetDESigningURLSoapIn" />
+      <wsdl:output message="tns:GetDESigningURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDESigningStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the URL for direct access to a web page for the current session</wsdl:documentation>
+      <wsdl:input message="tns:GetDESigningStatusSoapIn" />
+      <wsdl:output message="tns:GetDESigningStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WebServiceAvailable">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Determine whether the web service is available.</wsdl:documentation>
+      <wsdl:input message="tns:WebServiceAvailableSoapIn" />
+      <wsdl:output message="tns:WebServiceAvailableSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="TeSignLiteHttpGet">
+    <wsdl:operation name="CloseSession">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Close the current session.</wsdl:documentation>
+      <wsdl:input message="tns:CloseSessionHttpGetIn" />
+      <wsdl:output message="tns:CloseSessionHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InitializeSession">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Establish a session for processing a set of documents.</wsdl:documentation>
+      <wsdl:input message="tns:InitializeSessionHttpGetIn" />
+      <wsdl:output message="tns:InitializeSessionHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitDocument">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Submit a document for processing during the current session.</wsdl:documentation>
+      <wsdl:input message="tns:SubmitDocumentHttpGetIn" />
+      <wsdl:output message="tns:SubmitDocumentHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionURL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the URL for direct access to a web page for the current session</wsdl:documentation>
+      <wsdl:input message="tns:GetSessionURLHttpGetIn" />
+      <wsdl:output message="tns:GetSessionURLHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDEAuthenticationTypes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get all DE available authentication types</wsdl:documentation>
+      <wsdl:input message="tns:GetDEAuthenticationTypesHttpGetIn" />
+      <wsdl:output message="tns:GetDEAuthenticationTypesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDESigningURL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the URL for direct access to a web page for the current session</wsdl:documentation>
+      <wsdl:input message="tns:GetDESigningURLHttpGetIn" />
+      <wsdl:output message="tns:GetDESigningURLHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDESigningStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the URL for direct access to a web page for the current session</wsdl:documentation>
+      <wsdl:input message="tns:GetDESigningStatusHttpGetIn" />
+      <wsdl:output message="tns:GetDESigningStatusHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WebServiceAvailable">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Determine whether the web service is available.</wsdl:documentation>
+      <wsdl:input message="tns:WebServiceAvailableHttpGetIn" />
+      <wsdl:output message="tns:WebServiceAvailableHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="TeSignLiteHttpPost">
+    <wsdl:operation name="CloseSession">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Close the current session.</wsdl:documentation>
+      <wsdl:input message="tns:CloseSessionHttpPostIn" />
+      <wsdl:output message="tns:CloseSessionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InitializeSession">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Establish a session for processing a set of documents.</wsdl:documentation>
+      <wsdl:input message="tns:InitializeSessionHttpPostIn" />
+      <wsdl:output message="tns:InitializeSessionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitDocument">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Submit a document for processing during the current session.</wsdl:documentation>
+      <wsdl:input message="tns:SubmitDocumentHttpPostIn" />
+      <wsdl:output message="tns:SubmitDocumentHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionURL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the URL for direct access to a web page for the current session</wsdl:documentation>
+      <wsdl:input message="tns:GetSessionURLHttpPostIn" />
+      <wsdl:output message="tns:GetSessionURLHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDEAuthenticationTypes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get all DE available authentication types</wsdl:documentation>
+      <wsdl:input message="tns:GetDEAuthenticationTypesHttpPostIn" />
+      <wsdl:output message="tns:GetDEAuthenticationTypesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDESigningURL">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the URL for direct access to a web page for the current session</wsdl:documentation>
+      <wsdl:input message="tns:GetDESigningURLHttpPostIn" />
+      <wsdl:output message="tns:GetDESigningURLHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDESigningStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the URL for direct access to a web page for the current session</wsdl:documentation>
+      <wsdl:input message="tns:GetDESigningStatusHttpPostIn" />
+      <wsdl:output message="tns:GetDESigningStatusHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WebServiceAvailable">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Determine whether the web service is available.</wsdl:documentation>
+      <wsdl:input message="tns:WebServiceAvailableHttpPostIn" />
+      <wsdl:output message="tns:WebServiceAvailableHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TeSignLiteSoap" type="tns:TeSignLiteSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CloseSession">
+      <soap:operation soapAction="http://immonline.com/IMM.TEAASP.TeSignLite/CloseSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InitializeSession">
+      <soap:operation soapAction="http://immonline.com/IMM.TEAASP.TeSignLite/InitializeSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitDocument">
+      <soap:operation soapAction="http://immonline.com/IMM.TEAASP.TeSignLite/SubmitDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionURL">
+      <soap:operation soapAction="http://immonline.com/IMM.TEAASP.TeSignLite/GetSessionURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDEAuthenticationTypes">
+      <soap:operation soapAction="http://immonline.com/IMM.TEAASP.TeSignLite/GetDEAuthenticationTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDESigningURL">
+      <soap:operation soapAction="http://immonline.com/IMM.TEAASP.TeSignLite/GetDESigningURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDESigningStatus">
+      <soap:operation soapAction="http://immonline.com/IMM.TEAASP.TeSignLite/GetDESigningStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebServiceAvailable">
+      <soap:operation soapAction="http://immonline.com/IMM.TEAASP.TeSignLite/WebServiceAvailable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TeSignLiteSoap12" type="tns:TeSignLiteSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CloseSession">
+      <soap12:operation soapAction="http://immonline.com/IMM.TEAASP.TeSignLite/CloseSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InitializeSession">
+      <soap12:operation soapAction="http://immonline.com/IMM.TEAASP.TeSignLite/InitializeSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitDocument">
+      <soap12:operation soapAction="http://immonline.com/IMM.TEAASP.TeSignLite/SubmitDocument" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionURL">
+      <soap12:operation soapAction="http://immonline.com/IMM.TEAASP.TeSignLite/GetSessionURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDEAuthenticationTypes">
+      <soap12:operation soapAction="http://immonline.com/IMM.TEAASP.TeSignLite/GetDEAuthenticationTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDESigningURL">
+      <soap12:operation soapAction="http://immonline.com/IMM.TEAASP.TeSignLite/GetDESigningURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDESigningStatus">
+      <soap12:operation soapAction="http://immonline.com/IMM.TEAASP.TeSignLite/GetDESigningStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebServiceAvailable">
+      <soap12:operation soapAction="http://immonline.com/IMM.TEAASP.TeSignLite/WebServiceAvailable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TeSignLiteHttpGet" type="tns:TeSignLiteHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="CloseSession">
+      <http:operation location="/CloseSession" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InitializeSession">
+      <http:operation location="/InitializeSession" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitDocument">
+      <http:operation location="/SubmitDocument" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionURL">
+      <http:operation location="/GetSessionURL" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDEAuthenticationTypes">
+      <http:operation location="/GetDEAuthenticationTypes" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDESigningURL">
+      <http:operation location="/GetDESigningURL" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDESigningStatus">
+      <http:operation location="/GetDESigningStatus" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebServiceAvailable">
+      <http:operation location="/WebServiceAvailable" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TeSignLiteHttpPost" type="tns:TeSignLiteHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="CloseSession">
+      <http:operation location="/CloseSession" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InitializeSession">
+      <http:operation location="/InitializeSession" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitDocument">
+      <http:operation location="/SubmitDocument" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSessionURL">
+      <http:operation location="/GetSessionURL" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDEAuthenticationTypes">
+      <http:operation location="/GetDEAuthenticationTypes" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDESigningURL">
+      <http:operation location="/GetDESigningURL" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDESigningStatus">
+      <http:operation location="/GetDESigningStatus" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebServiceAvailable">
+      <http:operation location="/WebServiceAvailable" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TeSignLite">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">TeSignLite is a web service that processes documents submitted by a client conforming to the TeSign API.</wsdl:documentation>
+    <wsdl:port name="TeSignLiteSoap" binding="tns:TeSignLiteSoap">
+      <soap:address location="http://localhost/v2016.1.0/TEAASP/tesignlite.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TeSignLiteSoap12" binding="tns:TeSignLiteSoap12">
+      <soap12:address location="http://localhost/v2016.1.0/TEAASP/tesignlite.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TeSignLiteHttpGet" binding="tns:TeSignLiteHttpGet">
+      <http:address location="http://localhost/v2016.1.0/TEAASP/tesignlite.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TeSignLiteHttpPost" binding="tns:TeSignLiteHttpPost">
+      <http:address location="http://localhost/v2016.1.0/TEAASP/tesignlite.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

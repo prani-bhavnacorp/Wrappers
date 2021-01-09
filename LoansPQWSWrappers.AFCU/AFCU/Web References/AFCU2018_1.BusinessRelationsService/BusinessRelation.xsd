@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:hdr="http://www.americafirst.com/20070315/AFCUHeader" xmlns:ecm="http://www.americafirst.com/20070315/EntityCommon" xmlns:ctl="http://www.americafirst.com/20070315/CommonTypesLib" xmlns:cm="http://www.americafirst.com/20070315/CommonTypes" xmlns:br="http://www.americafirst.com/20070315/BusinessRelation" targetNamespace="http://www.americafirst.com/20070315/BusinessRelation" version="2.0" xmlns="http://www.w3.org/2001/XMLSchema">
+  <import schemaLocation="../afcuheader/AFCUHeader.xsd" namespace="http://www.americafirst.com/20070315/AFCUHeader" />
+  <import schemaLocation="../commontypes/CommonTypes.xsd" namespace="http://www.americafirst.com/20070315/CommonTypes" />
+  <import schemaLocation="../commontypeslib/CommonTypesLib.xsd" namespace="http://www.americafirst.com/20070315/CommonTypesLib" />
+  <import schemaLocation="../entitycommon/EntityCommon.xsd" namespace="http://www.americafirst.com/20070315/EntityCommon" />
+  <annotation>
+    <appinfo>
+			BusinessRelation author nmulvenna@americafirst.com
+		</appinfo>
+    <documentation>
+			This Schema supports the Web Service and Message Broker
+			flow to query and maintain member and non-member relationships 
+			typical of Business Accounts. At present their are two relationships,
+			Beneficial Ownership and Authorized Signer. 
+			INQUIRE
+				The "inquire" requests will return all current persons tied to the account+suffix for that relationship. 
+				At present only the first 20 will be displayed.
+			ADD, UPDATE, DELETE
+				Only a single person per request can be added, updated or deleted from a relationship.
+				In all cases the response will return all current persons, same as an inquire response.
+		</documentation>
+  </annotation>
+  <element name="inquireBeneficialOwnersRequest" type="br:InquireBeneficialOwnersRequest" />
+  <element name="inquireBeneficialOwnersResponse" type="br:BeneficialOwnersResponse" />
+  <element name="addBeneficialOwnerRequest" type="br:AddBeneficialOwnerRequest" />
+  <element name="addBeneficialOwnerResponse" type="br:BeneficialOwnersResponse" />
+  <element name="updateBeneficialOwnerRequest" type="br:UpdateBeneficialOwnerRequest" />
+  <element name="updateBeneficialOwnerResponse" type="br:BeneficialOwnersResponse" />
+  <element name="deleteBeneficialOwnerRequest" type="br:DeleteBeneficialOwnerRequest" />
+  <element name="deleteBeneficialOwnerResponse" type="br:BeneficialOwnersResponse" />
+  <element name="inquireAuthorizedSignersRequest" type="br:InquireAuthorizedSignersRequest" />
+  <element name="inquireAuthorizedSignersResponse" type="br:AuthorizedSignersResponse" />
+  <element name="addAuthorizedSignerRequest" type="br:AddAuthorizedSignerRequest" />
+  <element name="addAuthorizedSignerResponse" type="br:AuthorizedSignersResponse" />
+  <element name="updateAuthorizedSignerRequest" type="br:UpdateAuthorizedSignerRequest" />
+  <element name="updateAuthorizedSignerResponse" type="br:AuthorizedSignersResponse" />
+  <element name="deleteAuthorizedSignerRequest" type="br:DeleteAuthorizedSignerRequest" />
+  <element name="deleteAuthorizedSignerResponse" type="br:AuthorizedSignersResponse" />
+  <complexType name="BeneficialOwnersResponse">
+    <sequence>
+      <element name="status" type="hdr:AFCUHeaderResponse" />
+      <element minOccurs="0" name="data" type="br:BOResponseData" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireBeneficialOwnersRequest">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="br:InquireRequestType" />
+    </sequence>
+  </complexType>
+  <complexType name="AddBeneficialOwnerRequest">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="br:AddBORequest" />
+    </sequence>
+  </complexType>
+  <complexType name="UpdateBeneficialOwnerRequest">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="br:UpdateBORequest" />
+    </sequence>
+  </complexType>
+  <complexType name="DeleteBeneficialOwnerRequest">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="br:DeleteRequestKey" />
+    </sequence>
+  </complexType>
+  <complexType name="AuthorizedSignersResponse">
+    <sequence>
+      <element name="status" type="hdr:AFCUHeaderResponse" />
+      <element minOccurs="0" name="data" type="br:ASResponseData" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireAuthorizedSignersRequest">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="br:InquireRequestType" />
+    </sequence>
+  </complexType>
+  <complexType name="AddAuthorizedSignerRequest">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="br:AddASRequest" />
+    </sequence>
+  </complexType>
+  <complexType name="UpdateAuthorizedSignerRequest">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="br:UpdateASRequest" />
+    </sequence>
+  </complexType>
+  <complexType name="DeleteAuthorizedSignerRequest">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="br:DeleteRequestKey" />
+    </sequence>
+  </complexType>
+  <complexType name="DeleteRequestKey">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <element name="subAccountID" type="cm:SubAccountID" />
+      <element minOccurs="0" name="authorization" type="ecm:Authorization" />
+      <element name="deletePersonEntityData" type="br:EntityDeleteKey" />
+    </sequence>
+  </complexType>
+  <complexType name="EntityDeleteKey">
+    <sequence>
+      <element name="taxType" type="ecm:TaxType" />
+      <element name="taxID" type="ecm:TaxID" />
+      <element name="entityID" type="integer" />
+    </sequence>
+  </complexType>
+  <complexType name="AddBORequest">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <element name="subAccountID" type="cm:SubAccountID" />
+      <element minOccurs="0" name="authorization" type="ecm:Authorization" />
+      <element name="person" type="br:BOPersonDetails" />
+    </sequence>
+  </complexType>
+  <complexType name="UpdateBORequest">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <element name="subAccountID" type="cm:SubAccountID" />
+      <element minOccurs="0" name="authorization" type="ecm:Authorization" />
+      <element name="person" type="br:BOPersonDetailsWithID" />
+    </sequence>
+  </complexType>
+  <complexType name="AddASRequest">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <element name="subAccountID" type="cm:SubAccountID" />
+      <element minOccurs="0" name="authorization" type="ecm:Authorization" />
+      <element name="person" type="br:ASPersonDetails" />
+    </sequence>
+  </complexType>
+  <complexType name="UpdateASRequest">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <element name="subAccountID" type="cm:SubAccountID" />
+      <element minOccurs="0" name="authorization" type="ecm:Authorization" />
+      <element name="person" type="br:ASPersonDetailsWithID" />
+    </sequence>
+  </complexType>
+  <complexType name="BOResponseData">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <element name="subAccountID" type="cm:SubAccountID" />
+      <element minOccurs="0" maxOccurs="20" name="person" type="br:BOPersonDetailsWithID" />
+    </sequence>
+  </complexType>
+  <complexType name="ASResponseData">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <element name="subAccountID" type="cm:SubAccountID" />
+      <element minOccurs="0" maxOccurs="20" name="person" type="br:ASPersonDetailsWithID" />
+    </sequence>
+  </complexType>
+  <complexType name="BOPersonDetails">
+    <sequence>
+      <element name="workTitle" type="ctl:String_50" />
+      <element name="ownershipPercent" type="ctl:Decimal_3_1" />
+      <element minOccurs="0" name="isController" type="boolean" />
+      <element name="entityData" type="ecm:EntityData" />
+      <element name="nameData" type="ecm:NameData" />
+      <element minOccurs="0" name="addressData" type="ecm:AddressData" />
+      <element minOccurs="0" name="homePhone" type="ecm:PhoneData" />
+      <element minOccurs="0" name="workPhone" type="ecm:PhoneData" />
+      <element minOccurs="0" name="cellPhone" type="ecm:PhoneData" />
+      <element minOccurs="0" name="foreignPhone" type="ecm:PhoneData" />
+      <element minOccurs="0" name="emailData" type="ecm:EmailData" />
+    </sequence>
+  </complexType>
+  <complexType name="BOPersonDetailsWithID">
+    <sequence>
+      <element name="workTitle" type="ctl:String_50" />
+      <element name="ownershipPercent" type="ctl:Decimal_3_1" />
+      <element minOccurs="0" name="isController" type="boolean" />
+      <element name="entityData" type="ecm:EntityDataWithID" />
+      <element name="nameData" type="ecm:NameData" />
+      <element minOccurs="0" name="addressData" type="ecm:AddressData" />
+      <element minOccurs="0" name="homePhone" type="ecm:PhoneData" />
+      <element minOccurs="0" name="workPhone" type="ecm:PhoneData" />
+      <element minOccurs="0" name="cellPhone" type="ecm:PhoneData" />
+      <element minOccurs="0" name="foreignPhone" type="ecm:PhoneData" />
+      <element minOccurs="0" name="emailData" type="ecm:EmailData" />
+    </sequence>
+  </complexType>
+  <complexType name="ASPersonDetails">
+    <sequence>
+      <element name="workTitle" type="ctl:String_50" />
+      <element name="entityData" type="ecm:EntityData" />
+      <element name="nameData" type="ecm:NameData" />
+      <element minOccurs="0" name="addressData" type="ecm:AddressData" />
+      <element minOccurs="0" name="homePhone" type="ecm:PhoneData" />
+      <element minOccurs="0" name="workPhone" type="ecm:PhoneData" />
+      <element minOccurs="0" name="cellPhone" type="ecm:PhoneData" />
+      <element minOccurs="0" name="foreignPhone" type="ecm:PhoneData" />
+      <element minOccurs="0" name="emailData" type="ecm:EmailData" />
+    </sequence>
+  </complexType>
+  <complexType name="ASPersonDetailsWithID">
+    <sequence>
+      <element name="workTitle" type="ctl:String_50" />
+      <element name="entityData" type="ecm:EntityDataWithID" />
+      <element name="nameData" type="ecm:NameData" />
+      <element minOccurs="0" name="addressData" type="ecm:AddressData" />
+      <element minOccurs="0" name="homePhone" type="ecm:PhoneData" />
+      <element minOccurs="0" name="workPhone" type="ecm:PhoneData" />
+      <element minOccurs="0" name="cellPhone" type="ecm:PhoneData" />
+      <element minOccurs="0" name="foreignPhone" type="ecm:PhoneData" />
+      <element minOccurs="0" name="emailData" type="ecm:EmailData" />
+    </sequence>
+  </complexType>
+  <complexType name="EntityDataForUpdate">
+    <complexContent mixed="false">
+      <extension base="ecm:EntityData">
+        <sequence>
+          <element name="entityID" type="integer" />
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="InquireRequestType">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <element name="subAccountID" type="cm:SubAccountID" />
+    </sequence>
+  </complexType>
+</schema>

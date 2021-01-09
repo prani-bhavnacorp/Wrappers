@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="mtvnCWCBAcctNbrGenReqData" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="mtvnCWCBAcctNbrGenReqData" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="CBAcctNbrGenReqData">
+    <xs:annotation>
+      <xs:documentation>Cardbase Account Number Generation (CB120) - This function is used to generate a unique card number during the Cardbase System account opening process.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="E130001" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>CB Record ID</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E130013" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>CB Card Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E130015" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>CB Institution Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E130016" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>CB Card Prefix Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

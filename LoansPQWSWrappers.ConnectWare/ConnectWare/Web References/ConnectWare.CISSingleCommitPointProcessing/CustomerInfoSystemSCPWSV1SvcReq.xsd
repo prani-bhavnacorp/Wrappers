@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:cw145="mtvnCWCBNewMultAcctReqData" xmlns:cw147="mtvnCWCIAcctNmeAddrMaintReqData" xmlns:cw035="mtvnCWDPNewCDReqData" xmlns:cw096="mtvnCWCIOpenMiscAcctReqData" xmlns:cw149="mtvnCWCIOrgCustDemogMaintReqData" xmlns:cw148="mtvnCWCIMiscAcctMaintReqData" xmlns:cw093="mtvnCWCICustNameAddrMaintReqData" xmlns:cw032="mtvnCWDPKywrdReqData" xmlns:cw324="mtvnCWCIProdIDMaintReqData" xmlns:cw320="mtvnCWCBNegFleMaintReqData" xmlns:cw323="mtvnCWCBCardReissueNPReqData" xmlns:cw017="mtvnCWCIOpenIndvCustReqData" xmlns:cw016="mtvnCWCICustToAcctRltReqData" xmlns:cw351="mtvnCWCIExtAcctMaintReqData" xmlns:cw018="mtvnCWCIOpenOrgCustReqData" xmlns:cw084="mtvnCWCBNewCrdAcctReqData" xmlns:cw303="mtvnCWCIRltDemogUpdtReqData" xmlns:cw138="mtvnCWCICustEmailMaintReqData" xmlns:cw034="mtvnCWDPNewAcctReqData" xmlns:cw083="mtvnCWCBAcctNbrGenReqData" xmlns:cw036="mtvnCWDPNmeAddrMaintReqData" xmlns:cw314="mtvnCWCIAliasNmeMaintReqData" xmlns:cw317="mtvnCWCIAcctToCustRltMaintReqData" xmlns:cw089="mtvnCWCICustDemogMaintReqData" xmlns:cw153="mtvnCWCIConvPrspctToCustReqData" xmlns:cw065="mtvnCWLNNewAcctReqData" xmlns:cw095="mtvnCWCIAcctToAcctRltReqData" xmlns:cw066="mtvnCWLNNewCommtReqData" xmlns:cw000="mtvnCWCustomerInfoSystemSCPSvcReq" xmlns:cw341="mtvnCWMBPassReqData" xmlns:cw284="mtvnCWCICustToCustRltMaintReqData" xmlns:cw069="mtvnCWLNNewNoteReqData" xmlns:cw068="mtvnCWLNNewNmeAddrReqData" xmlns:cw099="mtvnCWLNKywrdReqData" xmlns:cw176="mtvnCWDPAcctNbrGenReqData" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="mtvnCWCustomerInfoSystemSCPSvcReq" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="../CB/CBAcctNbrGenReqDataV1.xsd" namespace="mtvnCWCBAcctNbrGenReqData" />
+  <xs:import schemaLocation="../CB/CBCardReissueNPReqDataV1.xsd" namespace="mtvnCWCBCardReissueNPReqData" />
+  <xs:import schemaLocation="../CB/CBNegFleMaintReqDataV1.xsd" namespace="mtvnCWCBNegFleMaintReqData" />
+  <xs:import schemaLocation="../CB/CBNewCrdAcctReqDataV2.xsd" namespace="mtvnCWCBNewCrdAcctReqData" />
+  <xs:import schemaLocation="../CB/CBNewMultAcctReqDataV1.xsd" namespace="mtvnCWCBNewMultAcctReqData" />
+  <xs:import schemaLocation="./CIAcctNmeAddrMaintReqDataV1.xsd" namespace="mtvnCWCIAcctNmeAddrMaintReqData" />
+  <xs:import schemaLocation="./CIAcctToAcctRltReqDataV1.xsd" namespace="mtvnCWCIAcctToAcctRltReqData" />
+  <xs:import schemaLocation="./CIAcctToCustRltMaintReqDataV1.xsd" namespace="mtvnCWCIAcctToCustRltMaintReqData" />
+  <xs:import schemaLocation="./CIAliasNmeMaintReqDataV1.xsd" namespace="mtvnCWCIAliasNmeMaintReqData" />
+  <xs:import schemaLocation="./CIConvPrspctToCustReqDataV1.xsd" namespace="mtvnCWCIConvPrspctToCustReqData" />
+  <xs:import schemaLocation="./CICustDemogMaintReqDataV1.xsd" namespace="mtvnCWCICustDemogMaintReqData" />
+  <xs:import schemaLocation="./CICustEmailMaintReqDataV1.xsd" namespace="mtvnCWCICustEmailMaintReqData" />
+  <xs:import schemaLocation="./CICustNameAddrMaintReqDataV1.xsd" namespace="mtvnCWCICustNameAddrMaintReqData" />
+  <xs:import schemaLocation="./CICustToAcctRltReqDataV1.xsd" namespace="mtvnCWCICustToAcctRltReqData" />
+  <xs:import schemaLocation="./CICustToCustRltMaintReqDataV1.xsd" namespace="mtvnCWCICustToCustRltMaintReqData" />
+  <xs:import schemaLocation="./CIExtAcctMaintReqDataV1.xsd" namespace="mtvnCWCIExtAcctMaintReqData" />
+  <xs:import schemaLocation="./CIMiscAcctMaintReqDataV1.xsd" namespace="mtvnCWCIMiscAcctMaintReqData" />
+  <xs:import schemaLocation="./CIOpenIndvCustReqDataV1.xsd" namespace="mtvnCWCIOpenIndvCustReqData" />
+  <xs:import schemaLocation="./CIOpenMiscAcctReqDataV1.xsd" namespace="mtvnCWCIOpenMiscAcctReqData" />
+  <xs:import schemaLocation="./CIOpenOrgCustReqDataV1.xsd" namespace="mtvnCWCIOpenOrgCustReqData" />
+  <xs:import schemaLocation="./CIOrgCustDemogMaintReqDataV1.xsd" namespace="mtvnCWCIOrgCustDemogMaintReqData" />
+  <xs:import schemaLocation="./CIProdIDMaintReqDataV1.xsd" namespace="mtvnCWCIProdIDMaintReqData" />
+  <xs:import schemaLocation="./CIRltDemogUpdtReqDataV1.xsd" namespace="mtvnCWCIRltDemogUpdtReqData" />
+  <xs:import schemaLocation="../DP/DPAcctNbrGenReqDataV1.xsd" namespace="mtvnCWDPAcctNbrGenReqData" />
+  <xs:import schemaLocation="../DP/DPKywrdReqDataV1.xsd" namespace="mtvnCWDPKywrdReqData" />
+  <xs:import schemaLocation="../DP/DPNewAcctReqDataV3.xsd" namespace="mtvnCWDPNewAcctReqData" />
+  <xs:import schemaLocation="../DP/DPNewCDReqDataV1.xsd" namespace="mtvnCWDPNewCDReqData" />
+  <xs:import schemaLocation="../DP/DPNmeAddrMaintReqDataV1.xsd" namespace="mtvnCWDPNmeAddrMaintReqData" />
+  <xs:import schemaLocation="../LN/LNKywrdReqDataV1.xsd" namespace="mtvnCWLNKywrdReqData" />
+  <xs:import schemaLocation="../LN/LNNewAcctReqDataV1.xsd" namespace="mtvnCWLNNewAcctReqData" />
+  <xs:import schemaLocation="../LN/LNNewCommtReqDataV2.xsd" namespace="mtvnCWLNNewCommtReqData" />
+  <xs:import schemaLocation="../LN/LNNewNmeAddrReqDataV1.xsd" namespace="mtvnCWLNNewNmeAddrReqData" />
+  <xs:import schemaLocation="../LN/LNNewNoteReqDataV1.xsd" namespace="mtvnCWLNNewNoteReqData" />
+  <xs:import schemaLocation="../MB/MBPassReqDataV2.xsd" namespace="mtvnCWMBPassReqData" />
+  <xs:element name="CustomerInfoSystemSCPMtvnSvcReq">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="MtvnSvcVer">
+          <xs:annotation>
+            <xs:documentation>The version of this message.   Currently 1.0</xs:documentation>
+          </xs:annotation>
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="1.0" />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="MsgUUID" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>A UUID in the format XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX.</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="PrcsParms">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SrcID" type="xs:string">
+                <xs:annotation>
+                  <xs:documentation>Connectware Vendor ID</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element minOccurs="0" name="TestInd" type="xs:string">
+                <xs:annotation>
+                  <xs:documentation>A value of Y will cause any database updates to be removed when the service completes.</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="PrcsRule">
+                <xs:complexType>
+                  <xs:choice>
+                    <xs:element name="PrcsAsTran">
+                      <xs:annotation>
+                        <xs:documentation>Process this group of services using single commit point using the lead application indicated.</xs:documentation>
+                      </xs:annotation>
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:enumeration value="CI" />
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="PrcsAsTranStpOnFrstErr">
+                      <xs:annotation>
+                        <xs:documentation>Process this group of services using single commit point using the lead application indicated.  Stop processing when the first error is encountered.</xs:documentation>
+                      </xs:annotation>
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:enumeration value="CI" />
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                  </xs:choice>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element maxOccurs="unbounded" name="Svc">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="SvcParms">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="ApplID">
+                      <xs:annotation>
+                        <xs:documentation>The application ID of the service.</xs:documentation>
+                      </xs:annotation>
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:enumeration value="CB" />
+                          <xs:enumeration value="CI" />
+                          <xs:enumeration value="DP" />
+                          <xs:enumeration value="LN" />
+                          <xs:enumeration value="MB" />
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="SvcID">
+                      <xs:annotation>
+                        <xs:documentation>The service ID.</xs:documentation>
+                      </xs:annotation>
+                      <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                          <xs:enumeration value="CBAcctNbrGen" />
+                          <xs:enumeration value="CBCardReissueNP" />
+                          <xs:enumeration value="CBNegFleMaint" />
+                          <xs:enumeration value="CBNewCrdAcct" />
+                          <xs:enumeration value="CBNewMultAcct" />
+                          <xs:enumeration value="CIAcctNmeAddrMaint" />
+                          <xs:enumeration value="CIAcctToAcctRlt" />
+                          <xs:enumeration value="CIAcctToCustRltMaint" />
+                          <xs:enumeration value="CIAliasNmeMaint" />
+                          <xs:enumeration value="CIConvPrspctToCust" />
+                          <xs:enumeration value="CICustDemogMaint" />
+                          <xs:enumeration value="CICustEmailMaint" />
+                          <xs:enumeration value="CICustNameAddrMaint" />
+                          <xs:enumeration value="CICustToAcctRlt" />
+                          <xs:enumeration value="CICustToCustRltMaint" />
+                          <xs:enumeration value="CIExtAcctMaint" />
+                          <xs:enumeration value="CIMiscAcctMaint" />
+                          <xs:enumeration value="CIOpenIndvCust" />
+                          <xs:enumeration value="CIOpenMiscAcct" />
+                          <xs:enumeration value="CIOpenOrgCust" />
+                          <xs:enumeration value="CIOrgCustDemogMaint" />
+                          <xs:enumeration value="CIProdIDMaint" />
+                          <xs:enumeration value="CIRltDemogUpdt" />
+                          <xs:enumeration value="DPAcctNbrGen" />
+                          <xs:enumeration value="DPKywrd" />
+                          <xs:enumeration value="DPNewAcct" />
+                          <xs:enumeration value="DPNewCD" />
+                          <xs:enumeration value="DPNmeAddrMaint" />
+                          <xs:enumeration value="LNKywrd" />
+                          <xs:enumeration value="LNNewAcct" />
+                          <xs:enumeration value="LNNewCommt" />
+                          <xs:enumeration value="LNNewNmeAddr" />
+                          <xs:enumeration value="LNNewNote" />
+                          <xs:enumeration value="MBPass" />
+                        </xs:restriction>
+                      </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="SvcVer" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>The service version.</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="SvcNme" type="xs:string" />
+                    <xs:element minOccurs="0" name="RqstUUID" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>A UUID in the format XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX.</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="RoutingID" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Metavante processing organization ID.</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="Src">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" name="FieldList">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element maxOccurs="unbounded" name="Field">
+                                  <xs:complexType>
+                                    <xs:sequence>
+                                      <xs:element name="FieldNme" type="xs:string" />
+                                      <xs:element name="FieldVal" type="xs:string" />
+                                    </xs:sequence>
+                                  </xs:complexType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element minOccurs="0" name="GrpBusFunc" type="xs:string" />
+                          <xs:element minOccurs="0" name="TranInfo" type="xs:string" />
+                          <xs:element minOccurs="0" name="CustDefMsgSrc1" type="xs:string" />
+                          <xs:element minOccurs="0" name="CustDefMsgSrc2" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Security">
+                <xs:complexType>
+                  <xs:choice>
+                    <xs:element name="NoAuth" type="xs:string" />
+                    <xs:element name="BasicAuth">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="UsrID" type="xs:string">
+                            <xs:annotation>
+                              <xs:documentation>Metavante RACF user id.</xs:documentation>
+                            </xs:annotation>
+                          </xs:element>
+                          <xs:element name="Pwd" type="xs:string">
+                            <xs:annotation>
+                              <xs:documentation>Metavante RACF password.</xs:documentation>
+                            </xs:annotation>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="SessionAuth">
+                      <xs:complexType>
+                        <xs:choice>
+                          <xs:element name="SessionID" type="xs:string" />
+                          <xs:element name="HttpSessionID" type="xs:string" />
+                        </xs:choice>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="SAMLAuth">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element maxOccurs="unbounded" name="Assertion" type="xs:string" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:choice>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="MsgData">
+                <xs:complexType>
+                  <xs:choice>
+                    <xs:element ref="cw083:CBAcctNbrGenReqData" />
+                    <xs:element ref="cw323:CBCardReissueNPReqData" />
+                    <xs:element ref="cw320:CBNegFleMaintReqData" />
+                    <xs:element ref="cw084:CBNewCrdAcctReqData" />
+                    <xs:element ref="cw145:CBNewMultAcctReqData" />
+                    <xs:element ref="cw147:CIAcctNmeAddrMaintReqData" />
+                    <xs:element ref="cw095:CIAcctToAcctRltReqData" />
+                    <xs:element ref="cw317:CIAcctToCustRltMaintReqData" />
+                    <xs:element ref="cw314:CIAliasNmeMaintReqData" />
+                    <xs:element ref="cw153:CIConvPrspctToCustReqData" />
+                    <xs:element ref="cw089:CICustDemogMaintReqData" />
+                    <xs:element ref="cw138:CICustEmailMaintReqData" />
+                    <xs:element ref="cw093:CICustNameAddrMaintReqData" />
+                    <xs:element ref="cw016:CICustToAcctRltReqData" />
+                    <xs:element ref="cw284:CICustToCustRltMaintReqData" />
+                    <xs:element ref="cw351:CIExtAcctMaintReqData" />
+                    <xs:element ref="cw148:CIMiscAcctMaintReqData" />
+                    <xs:element ref="cw017:CIOpenIndvCustReqData" />
+                    <xs:element ref="cw096:CIOpenMiscAcctReqData" />
+                    <xs:element ref="cw018:CIOpenOrgCustReqData" />
+                    <xs:element ref="cw149:CIOrgCustDemogMaintReqData" />
+                    <xs:element ref="cw324:CIProdIDMaintReqData" />
+                    <xs:element ref="cw303:CIRltDemogUpdtReqData" />
+                    <xs:element ref="cw176:DPAcctNbrGenReqData" />
+                    <xs:element ref="cw032:DPKywrdReqData" />
+                    <xs:element ref="cw034:DPNewAcctReqData" />
+                    <xs:element ref="cw035:DPNewCDReqData" />
+                    <xs:element ref="cw036:DPNmeAddrMaintReqData" />
+                    <xs:element ref="cw099:LNKywrdReqData" />
+                    <xs:element ref="cw065:LNNewAcctReqData" />
+                    <xs:element ref="cw066:LNNewCommtReqData" />
+                    <xs:element ref="cw068:LNNewNmeAddrReqData" />
+                    <xs:element ref="cw069:LNNewNoteReqData" />
+                    <xs:element ref="cw341:MBPassReqData" />
+                  </xs:choice>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

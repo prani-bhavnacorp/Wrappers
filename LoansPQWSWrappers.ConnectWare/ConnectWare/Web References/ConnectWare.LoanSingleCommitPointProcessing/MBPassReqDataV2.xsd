@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="mtvnCWMBPassReqData" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="mtvnCWMBPassReqData" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="MBPassReqData">
+    <xs:annotation>
+      <xs:documentation>Message Broker Pass Facility (MBPAS) - This function can be used to pass result data from one service as input data to another service.  The most common usage of this facility is to pass the customer number from a new customer function to the customer relationship function.  The customer number is generated so the user can't provide the information on the input.  Another opportunity to use this would be in conjunction with the Cardbase Account Number generation service to generate the account number and pass it to the Cardbase New Account service.  The MBPass service is included in the request directly after the service that will contain the data to be passed.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="MBPasDataLst">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="1" maxOccurs="unbounded" name="MBPasData">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="E1005" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Source Data Tag</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="E1006" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Destination Service Id</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element name="E1007" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Destination Data Tag</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E1008" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Trim Type</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E1009" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Trim Skip</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

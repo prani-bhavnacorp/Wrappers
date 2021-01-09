@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.ClassicCars" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.ClassicCars" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://www.nadaguideswebservices.com/ClassicCarsService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" />
+  <xs:complexType name="ArrayOfClassicCarModelReturnTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClassicCarModelReturnTO" nillable="true" type="tns:ClassicCarModelReturnTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClassicCarModelReturnTO" nillable="true" type="tns:ArrayOfClassicCarModelReturnTO" />
+  <xs:complexType name="ClassicCarModelReturnTO">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="ModelReturnTO" nillable="true" type="q1:ModelReturnTO" />
+      <xs:element minOccurs="0" name="VehicleID" type="xs:int" />
+      <xs:element minOccurs="0" name="VehicleDisplayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MakeNotes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="YearNotes" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClassicCarModelReturnTO" nillable="true" type="tns:ClassicCarModelReturnTO" />
+  <xs:complexType name="ClassicCarReturnTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MakeID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MakeDisplayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModelID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModelDisplayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VehicleID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TrimDisplayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PriceList" nillable="true" type="tns:ArrayOfClassicCarPriceReturnTO" />
+      <xs:element minOccurs="0" name="Year" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OptionPriceList" nillable="true" type="tns:ArrayOfClassCarOptionPriceReturnTO" />
+      <xs:element minOccurs="0" name="TotalOptionLowRetail" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalOptionAvgRetail" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalOptionHighRetail" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalLowRetail" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalAvgRetail" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalHighRetail" type="xs:int" />
+      <xs:element minOccurs="0" name="MakeNotes" nillable="true" type="tns:ArrayOfClassicCarWcfNoteTO" />
+      <xs:element minOccurs="0" name="MakeYearNotes" nillable="true" type="tns:ArrayOfClassicCarWcfNoteTO" />
+      <xs:element minOccurs="0" name="TrimNotes" nillable="true" type="tns:ArrayOfClassicCarWcfNoteTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClassicCarReturnTO" nillable="true" type="tns:ClassicCarReturnTO" />
+  <xs:complexType name="ArrayOfClassicCarPriceReturnTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClassicCarPriceReturnTO" nillable="true" type="tns:ClassicCarPriceReturnTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClassicCarPriceReturnTO" nillable="true" type="tns:ArrayOfClassicCarPriceReturnTO" />
+  <xs:complexType name="ClassicCarPriceReturnTO">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" base="q2:PriceTypeReturnTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Price" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Weight" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ClassicCarPriceReturnTO" nillable="true" type="tns:ClassicCarPriceReturnTO" />
+  <xs:complexType name="ArrayOfClassCarOptionPriceReturnTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClassCarOptionPriceReturnTO" nillable="true" type="tns:ClassCarOptionPriceReturnTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClassCarOptionPriceReturnTO" nillable="true" type="tns:ArrayOfClassCarOptionPriceReturnTO" />
+  <xs:complexType name="ClassCarOptionPriceReturnTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PriceTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="PriceTypeDisplayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OptionPrice" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsPercent" type="xs:boolean" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="OptionReturnTO" nillable="true" type="q3:OptionReturnTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClassCarOptionPriceReturnTO" nillable="true" type="tns:ClassCarOptionPriceReturnTO" />
+  <xs:complexType name="ArrayOfClassicCarWcfNoteTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClassicCarWcfNoteTO" nillable="true" type="tns:ClassicCarWcfNoteTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClassicCarWcfNoteTO" nillable="true" type="tns:ArrayOfClassicCarWcfNoteTO" />
+  <xs:complexType name="ClassicCarWcfNoteTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DisplayNoteType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NoteType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClassicCarWcfNoteTO" nillable="true" type="tns:ClassicCarWcfNoteTO" />
+</xs:schema>

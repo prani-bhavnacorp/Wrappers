@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:ftp.spectrum.summitsite.com" targetNamespace="urn:ftp.spectrum.summitsite.com" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="https://pathways.spectrum.fiserv.com:443/pathways/wsiservices/SubmitCreditReportImportService?xsd=1" namespace="urn:ftp.spectrum.summitsite.com" />
+    </xsd:schema>
+  </types>
+  <message name="submitCreditReportImport">
+    <part name="parameters" element="tns:submitCreditReportImport" />
+  </message>
+  <message name="submitCreditReportImportResponse">
+    <part name="parameters" element="tns:submitCreditReportImportResponse" />
+  </message>
+  <portType name="SubmitCreditReportImport">
+    <operation name="submitCreditReportImport">
+      <input message="tns:submitCreditReportImport" />
+      <output message="tns:submitCreditReportImportResponse" />
+    </operation>
+  </portType>
+</definitions>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns="http://americafirst.com/BadDebt" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns2="http://www.americafirst.com/20070315/BadDebt" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="BadDebt" targetNamespace="http://americafirst.com/BadDebt" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns:mrm="http://americafirst.com/BadDebt" xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://americafirst.com/BadDebt">
+      <xsd:import schemaLocation="com/americafirst/www/_20070315/baddebt/BadDebt.xsd" namespace="http://www.americafirst.com/20070315/BadDebt" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="inquireBadDebt_in">
+    <wsdl:part name="inquireBadDebtRequest" element="tns2:inquireBadDebtRequest" />
+  </wsdl:message>
+  <wsdl:message name="inquireBadDebt_out">
+    <wsdl:part name="inquireBadDebtResponse" element="tns2:inquireBadDebtResponse" />
+  </wsdl:message>
+  <wsdl:message name="inquireBadDebtHistory_in">
+    <wsdl:part name="inquireBadDebtHistoryRequest" element="tns2:inquireBadDebtHistoryRequest" />
+  </wsdl:message>
+  <wsdl:message name="inquireBadDebtHistory_out">
+    <wsdl:part name="inquireBadDebtHistoryResponse" element="tns2:inquireBadDebtHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="inquireBadDebtSSNList_in">
+    <wsdl:part name="inquireBadDebtSSNListRequest" element="tns2:inquireBadDebtSSNListRequest" />
+  </wsdl:message>
+  <wsdl:message name="inquireBadDebtSSNList_out">
+    <wsdl:part name="inquireBadDebtSSNListResponse" element="tns2:inquireBadDebtSSNListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BadDebt_MSPortType">
+    <wsdl:operation name="inquireBadDebt">
+      <wsdl:input name="inquireBadDebt_inquireBadDebtRequest" message="tns:inquireBadDebt_in" />
+      <wsdl:output name="inquireBadDebt_inquireBadDebtResponse" message="tns:inquireBadDebt_out" />
+    </wsdl:operation>
+    <wsdl:operation name="inquireBadDebtHistory">
+      <wsdl:input name="inquireBadDebtHistory_inquireBadDebtHistoryRequest" message="tns:inquireBadDebtHistory_in" />
+      <wsdl:output name="inquireBadDebtHistory_inquireBadDebtHistoryResponse" message="tns:inquireBadDebtHistory_out" />
+    </wsdl:operation>
+    <wsdl:operation name="inquireBadDebtSSNList">
+      <wsdl:input name="inquireBadDebtSSNList_Input" message="tns:inquireBadDebtSSNList_in" />
+      <wsdl:output name="inquireBadDebtSSNList_Output" message="tns:inquireBadDebtSSNList_out" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BadDebt_MSSOAP_HTTP_Binding" type="tns:BadDebt_MSPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="inquireBadDebt">
+      <soap:operation soapAction="" />
+      <wsdl:input name="inquireBadDebt_inquireBadDebtRequest">
+        <soap:body use="literal" parts="inquireBadDebtRequest" />
+      </wsdl:input>
+      <wsdl:output name="inquireBadDebt_inquireBadDebtResponse">
+        <soap:body use="literal" parts="inquireBadDebtResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inquireBadDebtHistory">
+      <soap:operation soapAction="" />
+      <wsdl:input name="inquireBadDebtHistory_inquireBadDebtHistoryRequest">
+        <soap:body use="literal" parts="inquireBadDebtHistoryRequest" />
+      </wsdl:input>
+      <wsdl:output name="inquireBadDebtHistory_inquireBadDebtHistoryResponse">
+        <soap:body use="literal" parts="inquireBadDebtHistoryResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inquireBadDebtSSNList">
+      <soap:operation soapAction="" />
+      <wsdl:input name="inquireBadDebtSSNList_Input">
+        <soap:body use="literal" parts="inquireBadDebtSSNListRequest" />
+      </wsdl:input>
+      <wsdl:output name="inquireBadDebtSSNList_Output">
+        <soap:body use="literal" parts="inquireBadDebtSSNListResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BadDebtService">
+    <wsdl:port name="SOAP_HTTP_Port" binding="tns:BadDebt_MSSOAP_HTTP_Binding">
+      <soap:address location="http://lnxmqdev.americafirst.com:7080/account/BadDebtService/20070315" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

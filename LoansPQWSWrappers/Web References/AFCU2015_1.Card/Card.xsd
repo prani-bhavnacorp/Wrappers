@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:tns="http://www.americafirst.com/20070315/Card" xmlns:cct="http://www.americafirst.com/20070315/CommonCardTypes" xmlns:ctl="http://www.americafirst.com/20070315/CommonTypesLib" xmlns:cm="http://www.americafirst.com/20070315/CommonTypes" xmlns:hdr="http://www.americafirst.com/20070315/AFCUHeader" targetNamespace="http://www.americafirst.com/20070315/Card" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema">
+  <import schemaLocation="../afcuheader/AFCUHeader.xsd" namespace="http://www.americafirst.com/20070315/AFCUHeader" />
+  <import schemaLocation="../commontypes/CommonTypes.xsd" namespace="http://www.americafirst.com/20070315/CommonTypes" />
+  <import schemaLocation="../commontypeslib/CommonTypesLib.xsd" namespace="http://www.americafirst.com/20070315/CommonTypesLib" />
+  <import schemaLocation="../commoncardtypes/CommonCardTypes.xsd" namespace="http://www.americafirst.com/20070315/CommonCardTypes" />
+  <annotation>
+    <documentation>
+			The Card WebService has several Operations: - inquire -
+			inquireDetails - inquireBillingHistory -
+			changePinStatus -
+			changePinLevel - maintainCard - orderNewCard - reorderCard -
+			reportLostStolen - rushCard -
+			setBlocking
+		</documentation>
+  </annotation>
+  <element name="inquireRequest" type="tns:InquireRequestType" />
+  <element name="inquireResponse" type="tns:MaintenanceInquiryResponseType" />
+  <element name="inquireBillingHistoryRequest" type="tns:InquireBillingHistoryRequestType" />
+  <element name="inquireBillingHistoryResponse" type="tns:InquireBillingHistoryResponseType" />
+  <element name="changePinStatusRequest" type="tns:ChangePinStatusRequestType" />
+  <element name="changePinStatusResponse" type="tns:MaintenanceInquiryResponseType" />
+  <element name="changePinLevelRequest" type="tns:ChangePinLevelRequestType" />
+  <element name="changePinLevelResponse" type="tns:MaintenanceInquiryResponseType" />
+  <element name="orderNewCardRequest" type="tns:OrderNewCardRequestType" />
+  <element name="orderNewCardResponse" type="tns:MaintenanceInquiryResponseType" />
+  <element name="reorderCardRequest" type="tns:ReorderCardRequestType" />
+  <element name="reorderCardResponse" type="tns:MaintenanceInquiryResponseType" />
+  <element name="reportLostStolenRequest" type="tns:ReportLostStolenRequestType" />
+  <element name="reportLostStolenResponse" type="tns:MaintenanceInquiryResponseType" />
+  <element name="rushCardRequest" type="tns:RushCardRequestType" />
+  <element name="rushCardResponse" type="tns:RushCardResponseType" />
+  <element name="setBlockingRequest" type="tns:SetBlockingRequestType" />
+  <element name="setBlockingResponse" type="tns:SetBlockingResponseType" />
+  <element name="inquireNewAcctRequest" type="tns:InquireNewAcctRequestType" />
+  <element name="inquireNewAcctResponse" type="tns:InquireNewAcctResponseType" />
+  <simpleType name="CardType">
+    <restriction base="string">
+      <enumeration value="Access" />
+      <enumeration value="Credit" />
+      <enumeration value="Debit" />
+      <enumeration value="Help" />
+      <enumeration value="Other" />
+    </restriction>
+  </simpleType>
+  <simpleType name="NewCardClassType">
+    <restriction base="string">
+      <enumeration value="Access" />
+      <enumeration value="Business Platinum" />
+      <enumeration value="Business Debit" />
+      <enumeration value="Classic" />
+      <enumeration value="Debit" />
+      <enumeration value="Fundz" />
+      <enumeration value="FUNDZ Debit" />
+      <enumeration value="Signature" />
+      <enumeration value="Help" />
+      <enumeration value="Platinum" />
+      <enumeration value="Zero Limit" />
+    </restriction>
+  </simpleType>
+  <simpleType name="HolderType">
+    <restriction base="string">
+      <enumeration value="Single" />
+      <enumeration value="Owner" />
+      <enumeration value="1st Joint" />
+      <enumeration value="Both" />
+      <enumeration value="Other" />
+    </restriction>
+  </simpleType>
+  <simpleType name="StatusType">
+    <restriction base="string">
+      <enumeration value="Valid" />
+      <enumeration value="Lost" />
+      <enumeration value="Stolen" />
+      <enumeration value="Conversion" />
+      <enumeration value="Collection" />
+      <enumeration value="Pending" />
+      <enumeration value="Other" />
+    </restriction>
+  </simpleType>
+  <simpleType name="PINStatusChangeType">
+    <restriction base="string">
+      <enumeration value="Deactivated" />
+      <enumeration value="Terminated" />
+      <enumeration value="Active" />
+      <enumeration value="PIN Ordered" />
+      <enumeration value="Send PIN Reminder" />
+      <enumeration value="First Time PIN Order" />
+      <enumeration value="Order Different PIN" />
+    </restriction>
+  </simpleType>
+  <simpleType name="PINStatusType">
+    <restriction base="string">
+      <enumeration value="Deactivated" />
+      <enumeration value="Terminated" />
+      <enumeration value="Active" />
+      <enumeration value="PIN Ordered" />
+      <enumeration value="Send PIN Reminder" />
+      <enumeration value="First Time PIN Order" />
+      <enumeration value="Order Different PIN" />
+      <enumeration value="Produced" />
+      <enumeration value="Bad Address" />
+      <enumeration value="Incorrect Flag" />
+      <enumeration value="Deceased" />
+      <enumeration value="Other" />
+    </restriction>
+  </simpleType>
+  <simpleType name="PinLevelReasonType">
+    <restriction base="string">
+      <enumeration value="Release Joint Owner" />
+      <enumeration value="PIN Compromised" />
+      <enumeration value="Card Compromised" />
+      <enumeration value="Lost Access Card" />
+      <enumeration value="Card Lost in Mail" />
+      <enumeration value="Other" />
+    </restriction>
+  </simpleType>
+  <annotation>
+    <documentation>The inquire operation requires just the account ID as
+			input.</documentation>
+  </annotation>
+  <complexType name="InquireRequestType">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="tns:InquireType" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireType">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+    </sequence>
+  </complexType>
+  <complexType name="MaintenanceInquiryResponseType">
+    <sequence>
+      <element name="status" type="hdr:AFCUHeaderResponse" />
+      <element name="data" type="tns:MaintenanceInquiryResponseDataType" />
+    </sequence>
+  </complexType>
+  <complexType name="MaintenanceInquiryResponseDataType">
+    <sequence>
+      <element name="cardInfoList" type="tns:CardInfoListType" />
+      <element minOccurs="0" name="postingErrors" nillable="true" type="tns:PostingErrorsType" />
+      <element minOccurs="0" name="extendedNameAddress" type="tns:ExtendedNameAddress" />
+      <element minOccurs="0" name="authorizedUserList" type="tns:AuthorizedUserListType" />
+    </sequence>
+  </complexType>
+  <complexType name="CardInfoListType">
+    <sequence>
+      <element minOccurs="0" maxOccurs="9" name="cardInfo">
+        <complexType>
+          <sequence>
+            <element name="accountID" type="cm:AccountID" />
+            <element name="subAccountID" type="cm:SubAccountID" />
+            <element name="cardType" type="tns:CardType" />
+            <element name="cardTypeHostVal" type="ctl:String_6" />
+            <element name="cardClass" type="cct:CardClassType" />
+            <element name="cardClassHostVal" type="ctl:String_1" />
+            <element name="number" type="ctl:NonNegativeInteger_16" />
+            <element name="level" type="ctl:NonNegativeInteger_1" />
+            <element minOccurs="0" name="issueDate" nillable="true" type="date" />
+            <element minOccurs="0" name="expDate" nillable="true" type="date" />
+            <element minOccurs="0" name="status" type="tns:StatusType" />
+            <element minOccurs="0" name="statusHostVal" type="ctl:String_2" />
+            <element minOccurs="0" name="statusPIN" type="tns:PINStatusType" />
+            <element minOccurs="0" name="statusPINHostVal" type="ctl:String_1" />
+            <element name="verificationValue1" type="ctl:NonNegativeInteger_3" />
+            <element name="verificationValue2" type="ctl:NonNegativeInteger_3" />
+            <element name="offset" type="ctl:NonNegativeInteger_4" />
+            <element name="loanLimit" type="ctl:NonNegativeInteger_7" />
+            <element name="vip" type="ctl:String_1" />
+            <element name="holder" type="tns:HolderType" />
+            <element name="holderHostVal" type="ctl:NonNegativeInteger_1" />
+            <element name="numberOfCards" type="ctl:NonNegativeInteger_1" />
+            <element name="primaryImage" type="ctl:NonNegativeInteger_3" />
+            <element name="secondaryImage" type="ctl:NonNegativeInteger_3" />
+            <element name="activeStatus" type="ctl:String_1" />
+            <element minOccurs="0" name="priorIssueDate" nillable="true" type="date" />
+            <element minOccurs="0" name="priorExpDate" nillable="true" type="date" />
+            <element name="priorLevel" type="ctl:NonNegativeInteger_1" />
+            <element minOccurs="0" name="dualAuthExpDate" nillable="true" type="date" />
+            <element name="cardActivated" type="ctl:String_1" />
+            <element minOccurs="0" name="countLastLevelDays" type="ctl:NonNegativeInt_5" />
+            <element minOccurs="0" name="lastLevelChangeDate" nillable="true" type="date" />
+            <element minOccurs="0" name="errors" type="tns:ErrorsType" />
+            <element name="businessName" type="ctl:String_25" />
+            <element minOccurs="0" maxOccurs="5" name="ownerName" type="ctl:String_25" />
+          </sequence>
+        </complexType>
+      </element>
+    </sequence>
+    <attribute name="count" type="int" />
+  </complexType>
+  <complexType name="ErrorsType">
+    <sequence>
+      <element minOccurs="0" maxOccurs="20" name="errorDescription">
+        <complexType>
+          <simpleContent>
+            <extension base="string">
+              <attribute name="errorCode" type="string" />
+            </extension>
+          </simpleContent>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="PostingErrorsType">
+    <sequence>
+      <element minOccurs="0" maxOccurs="10" name="postingError">
+        <complexType>
+          <simpleContent>
+            <extension base="string">
+              <attribute name="errorCode" type="string" />
+            </extension>
+          </simpleContent>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="AuthorizedUserListType">
+    <sequence>
+      <element minOccurs="0" maxOccurs="unbounded" name="authorizedUser">
+        <complexType>
+          <sequence>
+            <element name="accountID" type="cm:AccountID" />
+            <element minOccurs="0" name="subAccountID" type="cm:SubAccountID" />
+            <element name="memberSeqNumber" type="ctl:NonNegativeInt_5" />
+            <element name="cardSeqNumber" type="ctl:NonNegativeInt_5" />
+            <element name="legalName" type="ctl:String_25" />
+          </sequence>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+  <annotation>
+    <documentation>The changePin operation ....</documentation>
+  </annotation>
+  <complexType name="ChangePinStatusRequestType">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element minOccurs="0" name="overrideData" type="cm:OverrideData" />
+      <element name="request" type="tns:ChangePinStatusType" />
+    </sequence>
+  </complexType>
+  <complexType name="ChangePinStatusType">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <element minOccurs="0" name="sourceMemberID" type="ctl:String_1" />
+      <element minOccurs="0" name="cashBoxID" type="ctl:NonNegativeInteger_7" />
+      <element name="statusPIN" type="tns:PINStatusChangeType" />
+    </sequence>
+  </complexType>
+  <annotation>
+    <documentation>The changePinLevel operation ....</documentation>
+  </annotation>
+  <complexType name="ChangePinLevelRequestType">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element minOccurs="0" name="overrideData" type="cm:OverrideData" />
+      <element name="request" type="tns:ChangePinLevelType" />
+    </sequence>
+  </complexType>
+  <complexType name="ChangePinLevelType">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <element minOccurs="0" name="sourceMemberID" type="ctl:String_1" />
+      <element minOccurs="0" name="cashBoxID" type="ctl:NonNegativeInteger_7" />
+      <element minOccurs="0" default="Release Joint Owner" name="reason" type="tns:PinLevelReasonType" />
+      <element minOccurs="0" name="other" nillable="true" type="ctl:String_30" />
+      <element minOccurs="0" default="false" name="orderAccessCard" nillable="true" type="boolean" />
+    </sequence>
+  </complexType>
+  <annotation>
+    <documentation>The orderNewCard operation ...</documentation>
+  </annotation>
+  <complexType name="OrderNewCardRequestType">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element minOccurs="0" name="overrideData" type="cm:OverrideData" />
+      <element name="request" type="tns:OrderNewCardType" />
+    </sequence>
+  </complexType>
+  <annotation>
+    <documentation>
+			cardClass is only needed for cardType = 'Debit', as the
+			Host cannot determine which class of (non-business)
+			debit card
+			without. Thus, the values allowed are are restricted to several debit
+			card classes.
+		</documentation>
+  </annotation>
+  <complexType name="OrderNewCardType">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <element name="subAccountID" type="cm:SubAccountID" />
+      <element minOccurs="0" name="sourceMemberID" type="ctl:String_1" />
+      <element minOccurs="0" name="cashBoxID" type="ctl:NonNegativeInteger_7" />
+      <element name="cardType" type="tns:CardType" />
+      <element minOccurs="0" name="cardClass" type="tns:NewCardClassType" />
+      <element name="holder" type="tns:HolderType" />
+      <element name="primaryImage" type="ctl:NonNegativeInteger_3" />
+      <element name="secondaryImage" type="ctl:NonNegativeInteger_3" />
+    </sequence>
+  </complexType>
+  <annotation>
+    <documentation>The reorderCard operation ...</documentation>
+  </annotation>
+  <complexType name="ReorderCardRequestType">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element minOccurs="0" name="overrideData" type="cm:OverrideData" />
+      <element name="request" type="tns:ReorderCardType" />
+    </sequence>
+  </complexType>
+  <complexType name="ReorderCardType">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <element minOccurs="0" name="sourceMemberID" type="ctl:String_1" />
+      <element minOccurs="0" name="cashBoxID" type="ctl:NonNegativeInteger_7" />
+      <element name="cardsData" type="tns:ReorderCardsDataType" />
+    </sequence>
+  </complexType>
+  <complexType name="ReorderCardsDataType">
+    <sequence>
+      <element maxOccurs="9" name="cardData" type="tns:ReorderCardDataType" />
+    </sequence>
+    <attribute name="count" type="int" />
+  </complexType>
+  <complexType name="ReorderCardDataType">
+    <sequence>
+      <element name="subAccountID" type="cm:SubAccountID" />
+      <element name="holder" type="tns:HolderType" />
+      <element name="primaryImage" type="ctl:NonNegativeInteger_3" />
+      <element name="secondaryImage" type="ctl:NonNegativeInteger_3" />
+    </sequence>
+  </complexType>
+  <annotation>
+    <documentation>
+			The reportLostStolen operation expects input
+			inforamtion on ALL cards on the customer account. This includes
+			the
+			cards that were lost/stolen and those that weren't. Using this
+			operation will cause all cards to have
+			their numbers and pin levels
+			reset. Those that are lost/stolen (lostStolen = true) will be
+			reported to the
+			CardFraud service and a member Note will be entered.
+			Those cards that were not (lostStolen = False) can have
+			a number of
+			grace days assigned to allow for the use of those current cards for
+			several more days.
+
+			The response from this operation contains the same
+			data as the "inquire" operation response, updated to the
+			post-maintenance action state. Note: A card's pin level can only be
+			changed 9 times. A 10th attempt will
+			return a failure response.
+		</documentation>
+  </annotation>
+  <complexType name="ReportLostStolenRequestType">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element minOccurs="0" name="overrideData" type="cm:OverrideData" />
+      <element name="request" type="tns:LostStolenCardsType" />
+    </sequence>
+  </complexType>
+  <complexType name="LostStolenCardsType">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <element minOccurs="0" name="sourceMemberID" type="ctl:String_1" />
+      <element minOccurs="0" name="cashBoxID" type="ctl:NonNegativeInteger_7" />
+      <element name="issue" type="tns:IssueDataType" />
+      <element minOccurs="0" default="false" name="orderAccessCard" nillable="true" type="boolean" />
+      <element name="cardsData" type="tns:LostStolenCardsDataType" />
+    </sequence>
+  </complexType>
+  <complexType name="LostStolenCardsDataType">
+    <sequence>
+      <element maxOccurs="9" name="cardData" type="tns:LostStolenCardDataType" />
+    </sequence>
+    <attribute name="count" type="int" />
+  </complexType>
+  <simpleType name="CardsOwnerType">
+    <restriction base="string">
+      <enumeration value="Joint" />
+      <enumeration value="Primary" />
+      <enumeration value="Both" />
+    </restriction>
+  </simpleType>
+  <complexType name="LostStolenCardDataType">
+    <sequence>
+      <element name="subAccountID" type="cm:SubAccountID" />
+      <element name="cardType" type="tns:CardType" />
+      <element name="cardClass" type="cct:CardClassType" />
+      <element name="lostStolen" type="boolean" />
+      <element minOccurs="0" name="fraudReported" type="boolean" />
+      <element name="cardsOwnerType" type="tns:CardsOwnerType" />
+      <element minOccurs="0" name="graceDays" type="ctl:NonNegativeInteger_4" />
+    </sequence>
+  </complexType>
+  <complexType name="IssueDataType">
+    <sequence>
+      <element name="primaryOwner" type="string" />
+      <element default="Suspect" name="conclusion" type="cct:ConclusionType" />
+      <element name="occurrence" type="cct:OccurrenceType" />
+      <element name="occurrenceDate" type="date" />
+      <element name="reporterName" type="string" />
+      <element name="lastUsedDate" type="date" />
+      <element name="location" type="ctl:String_15" />
+      <element name="pinCompromised" type="boolean" />
+      <element name="maidenName" type="ctl:String_15" />
+      <element name="phoneNumber" type="ctl:String_10" />
+      <element name="policeNotified" type="boolean" />
+      <element minOccurs="0" name="precinct" type="ctl:String_15" />
+      <element minOccurs="0" name="caseNumber" type="ctl:String_15" />
+      <element minOccurs="0" name="idLostLocation" type="ctl:String_30" />
+      <element minOccurs="0" name="idStolen" type="tns:YesNo" />
+    </sequence>
+  </complexType>
+  <annotation>
+    <documentation>
+			The setBlocking operation's purpose is to inform the
+			Visa dept via email that a particular type of card is
+			to be blocked or
+			unblocked.
+		</documentation>
+  </annotation>
+  <complexType name="SetBlockingRequestType">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="tns:SetBlockingType" />
+    </sequence>
+  </complexType>
+  <complexType name="SetBlockingType">
+    <sequence>
+      <element name="service" type="tns:BlockingStatusType" />
+      <element name="accountID" type="cm:AccountID" />
+      <element name="subAccountID" type="cm:SubAccountID" />
+      <element name="cardType" type="tns:CardType" />
+      <element name="requestorName" type="string" />
+    </sequence>
+  </complexType>
+  <simpleType name="BlockingStatusType">
+    <restriction base="string">
+      <enumeration value="Block" />
+      <enumeration value="Unblock" />
+    </restriction>
+  </simpleType>
+  <complexType name="SetBlockingResponseType">
+    <sequence>
+      <element name="status" type="hdr:AFCUHeaderResponse" />
+    </sequence>
+  </complexType>
+  <annotation>
+    <documentation>The inquireBillingHistory operation ....
+		</documentation>
+  </annotation>
+  <complexType name="InquireBillingHistoryRequestType">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="tns:InquireBillingHistoryType" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireBillingHistoryType">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireBillingHistoryResponseType">
+    <sequence>
+      <element name="status" type="hdr:AFCUHeaderResponse" />
+      <element name="data" type="tns:InquireBillingHistoryResponseDataType" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireBillingHistoryResponseDataType">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <element name="loanBalance" type="ctl:Decimal_15_2" />
+      <element name="unpaidInterest" type="ctl:Decimal_15_2" />
+      <element name="accruedFee" type="ctl:Decimal_15_2" />
+      <element name="loanPayoffAmount" type="ctl:Decimal_15_2" />
+      <element name="billedUnpaidInterest" type="ctl:Decimal_15_2" />
+      <element name="billedUnpaidFee" type="ctl:Decimal_15_2" />
+      <element name="delinquentDays" type="ctl:Short_3" />
+      <element name="delinquentAmount" type="ctl:Decimal_15_2" />
+      <element minOccurs="0" name="billingHistoryRecords">
+        <complexType>
+          <sequence>
+            <element minOccurs="0" maxOccurs="unbounded" name="record" type="tns:BillingHistoryRecordType" />
+          </sequence>
+          <attribute name="count" type="int" />
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="BillingHistoryRecordType">
+    <sequence>
+      <element minOccurs="0" name="billedDate" nillable="true" type="date" />
+      <element minOccurs="0" name="paymentDueDate" nillable="true" type="date" />
+      <element name="billedPayment" type="ctl:Decimal_15_2" />
+      <element name="interestPrinciple" type="ctl:Decimal_15_2" />
+      <element name="billedFee" type="ctl:Decimal_15_2" />
+      <element name="unpaidPayment" type="ctl:Decimal_15_2" />
+      <element name="unpaidInterestPrinciple" type="ctl:Decimal_15_2" />
+      <element name="unpaidFee" type="ctl:Decimal_15_2" />
+    </sequence>
+  </complexType>
+  <annotation>
+    <documentation>
+			The rushCard operation .... In the response data, the
+			embossRecord data will be a CDATA section due to the
+			special
+			characters
+		</documentation>
+  </annotation>
+  <complexType name="RushCardRequestType">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="tns:RushCardType" />
+    </sequence>
+  </complexType>
+  <complexType name="RushCardType">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <element name="subAccountID" type="cm:SubAccountID" />
+    </sequence>
+  </complexType>
+  <complexType name="RushCardResponseType">
+    <sequence>
+      <element name="status" type="hdr:AFCUHeaderResponse" />
+      <element name="data" type="tns:RushCardResponseDataType" />
+    </sequence>
+  </complexType>
+  <complexType name="RushCardResponseDataType">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <element name="subAccountID" type="cm:SubAccountID" />
+      <element minOccurs="0" maxOccurs="5" name="embossingRecord">
+        <complexType>
+          <sequence>
+            <element name="sequenceNum" type="nonNegativeInteger" />
+            <element name="embossData" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="InquireNewAcctRequestType">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="tns:NewAcctRequest" />
+    </sequence>
+  </complexType>
+  <complexType name="NewAcctRequest">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <element name="subAccountID" type="cm:SubAccountID" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireNewAcctResponseType">
+    <sequence>
+      <element name="status" type="hdr:AFCUHeaderResponse" />
+      <element name="data" type="tns:NewAcctResponse" />
+    </sequence>
+  </complexType>
+  <complexType name="NewAcctResponse">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <element name="subAccountID" type="cm:SubAccountID" />
+      <element minOccurs="0" maxOccurs="5" name="embossingRecord">
+        <complexType>
+          <sequence>
+            <element name="sequenceNum" type="nonNegativeInteger" />
+            <element name="embossData" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element minOccurs="0" name="newCardData">
+        <complexType>
+          <sequence>
+            <element name="number" type="ctl:NonNegativeInteger_16" />
+            <element name="offset" type="ctl:NonNegativeInteger_4" />
+            <element name="level" type="ctl:NonNegativeInteger_1" />
+            <element name="referenceID" type="ctl:String_7" />
+          </sequence>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="ExtendedNameAddress">
+    <sequence>
+      <element minOccurs="0" name="nameLine1" type="ctl:String_21" />
+      <element minOccurs="0" name="nameLine12" type="ctl:String_21" />
+      <element minOccurs="0" name="addressLine1" type="ctl:String_40" />
+      <element minOccurs="0" name="addressLine2" type="ctl:String_40" />
+      <element minOccurs="0" name="city" type="ctl:String_40" />
+      <element minOccurs="0" name="state" type="ctl:String_2" />
+      <element minOccurs="0" name="zip" type="ctl:NonNegativeInteger_5" />
+      <element minOccurs="0" name="zip4" type="ctl:NonNegativeInteger_4" />
+      <element minOccurs="0" name="country" type="ctl:String_40" />
+      <element minOccurs="0" name="enrolledSchoolName" type="string" />
+    </sequence>
+  </complexType>
+  <simpleType name="YesNo">
+    <restriction base="string">
+      <enumeration value="Yes" />
+      <enumeration value="No" />
+    </restriction>
+  </simpleType>
+  <element name="changeSpecificPinLevelRequest" type="tns:ChangeSpecificPinLevelRequestType" />
+  <element name="changeSpecificPinLevelResponse" type="tns:MaintenanceInquiryResponseType" />
+  <element name="reportSpecificLostStolenRequest" type="tns:ReportSpecificLostStolenRequestType" />
+  <element name="reportSpecificLostStolenResponse" type="tns:MaintenanceInquiryResponseType" />
+  <element name="changePinLevelDownRequest" type="tns:ChangePinLevelDownRequestType" />
+  <element name="changePinLevelDownResponse" type="tns:MaintenanceInquiryResponseType" />
+  <element name="convertCardRequest" type="tns:ConvertCardRequestType" />
+  <element name="convertCardResponse" type="tns:ConvertCardResponseType" />
+  <complexType name="ChangePinLevelDownRequestType">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element minOccurs="0" name="overrideData" type="cm:OverrideData" />
+      <element name="request" type="tns:ChangePinLevelDownType" />
+    </sequence>
+  </complexType>
+  <complexType name="ChangePinLevelDownType">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <element minOccurs="0" name="sourceMemberID" type="ctl:String_1" />
+      <element minOccurs="0" name="cashBoxID" type="ctl:NonNegativeInteger_7" />
+      <element maxOccurs="9" name="cardData">
+        <complexType>
+          <sequence>
+            <element name="subAccountID" type="cm:SubAccountID" />
+            <element name="level" type="ctl:NonNegativeInteger_1" />
+            <element minOccurs="0" default="Release Joint Owner" name="reason" type="tns:SpecificPinLevelReasonType" />
+            <element minOccurs="0" name="other" nillable="true" type="ctl:String_30" />
+          </sequence>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="ChangeSpecificPinLevelRequestType">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element minOccurs="0" name="overrideData" type="cm:OverrideData" />
+      <element name="request" type="tns:ChangeSpecificPinLevelType" />
+    </sequence>
+  </complexType>
+  <complexType name="ChangeSpecificPinLevelType">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <element minOccurs="0" name="sourceMemberID" type="ctl:String_1" />
+      <element minOccurs="0" name="cashBoxID" type="ctl:NonNegativeInteger_7" />
+      <element maxOccurs="9" name="cardData">
+        <complexType>
+          <sequence>
+            <element name="subAccountID" type="cm:SubAccountID" />
+            <element minOccurs="0" default="Release Joint Owner" name="reason" type="tns:SpecificPinLevelReasonType" />
+            <element minOccurs="0" name="other" nillable="true" type="ctl:String_30" />
+          </sequence>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+  <simpleType name="SpecificPinLevelReasonType">
+    <restriction base="string">
+      <enumeration value="Release Joint Owner" />
+      <enumeration value="Other" />
+    </restriction>
+  </simpleType>
+  <complexType name="ReportSpecificLostStolenRequestType">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element minOccurs="0" name="overrideData" type="cm:OverrideData" />
+      <element name="request" type="tns:SpecficLostStolenCardsType" />
+    </sequence>
+  </complexType>
+  <complexType name="SpecficLostStolenCardsType">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <element minOccurs="0" name="sourceMemberID" type="ctl:String_1" />
+      <element minOccurs="0" name="cashBoxID" type="ctl:NonNegativeInteger_7" />
+      <element name="issue" type="tns:IssueDataType" />
+      <element name="cardsData" type="tns:LostStolenCardsDataType" />
+    </sequence>
+  </complexType>
+  <complexType name="ConvertCardRequestType">
+    <sequence>
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element minOccurs="0" name="overrideData" type="cm:OverrideData" />
+      <element name="request" type="tns:ConvertCardRequest" />
+    </sequence>
+  </complexType>
+  <complexType name="ConvertCardResponseType">
+    <sequence>
+      <element name="status" type="hdr:AFCUHeaderResponse" />
+    </sequence>
+  </complexType>
+  <complexType name="ConvertCardRequest">
+    <sequence>
+      <element name="accountID" type="cm:AccountID" />
+      <element name="subAccountID" type="cm:SubAccountID" />
+      <element name="cardType" type="tns:CardType" />
+      <element name="cardClass" type="cct:CardClassType" />
+    </sequence>
+  </complexType>
+</schema>

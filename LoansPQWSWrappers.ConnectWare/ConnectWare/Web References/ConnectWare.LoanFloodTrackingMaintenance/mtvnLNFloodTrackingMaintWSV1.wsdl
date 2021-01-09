@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="mtvnLNFloodTrackingMaintWSV1" xmlns:import0="mtvnCWLNFloodTrackingMaintSvcReq" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:import1="mtvnCWLNFloodTrackingMaintSvcRes" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="mtvnLNFloodTrackingMaintWSV1" targetNamespace="mtvnLNFloodTrackingMaintWSV1" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Connectware Web Service Interface</documentation>
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="./LNFloodTrackingMaintWSV1SvcReq.xsd" namespace="mtvnCWLNFloodTrackingMaintSvcReq" />
+      <xsd:import schemaLocation="./LNFloodTrackingMaintWSV1SvcRes.xsd" namespace="mtvnCWLNFloodTrackingMaintSvcRes" />
+    </xsd:schema>
+  </types>
+  <message name="LNFloodTrackingMaintMtvnSvcReqMsg">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <part name="messagePart" element="import0:LNFloodTrackingMaintMtvnSvcReq" />
+  </message>
+  <message name="LNFloodTrackingMaintMtvnSvcResMsg">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <part name="messagePart" element="import1:LNFloodTrackingMaintMtvnSvcRes" />
+  </message>
+  <portType name="mtvnCWLNFloodTrackingMaintWSV1Interface">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">LNFloodTrackingMaintWSV1</documentation>
+    <operation name="LNFloodTrackingMaint">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+      <input message="tns:LNFloodTrackingMaintMtvnSvcReqMsg" />
+      <output message="tns:LNFloodTrackingMaintMtvnSvcResMsg" />
+    </operation>
+  </portType>
+  <binding name="mtvnCWLNFloodTrackingMaintWSV1" type="tns:mtvnCWLNFloodTrackingMaintWSV1Interface">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="LNFloodTrackingMaint">
+      <soap:operation soapAction="LNFloodTrackingMaintWSV1:LNFloodTrackingMaintMtvnSvcReqMsg" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="mtvnCWLNFloodTrackingMaintWSV1">
+    <port name="mtvnCWLNFloodTrackingMaintWSV1Port" binding="tns:mtvnCWLNFloodTrackingMaintWSV1">
+      <soap:address location="https://xmlgateway.metavante.org/ConnectwareWS/LNFloodTrackingMaintWSV1" />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="CUNAMutual.Loanliner.Services" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="http://tempuri.org/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Utility" targetNamespace="CUNAMutual.Loanliner.Services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://tempuri.org/" location="https://beta.loanliner.com/Gateway/GatewaySecured/EncryptPassword/Utility.svc?wsdl=wsdl0" />
+  <wsdl:types>
+    <xsd:schema targetNamespace="CUNAMutual.Loanliner.Services/Imports">
+      <xsd:import schemaLocation="https://beta.loanliner.com/Gateway/GatewaySecured/EncryptPassword/Utility.svc?xsd=xsd0" namespace="CUNAMutual.Loanliner.Services" />
+      <xsd:import schemaLocation="https://beta.loanliner.com/Gateway/GatewaySecured/EncryptPassword/Utility.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://beta.loanliner.com/Gateway/GatewaySecured/EncryptPassword/Utility.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CUNAMutual.Loanliner.Services.Utility" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IUtility_EncryptPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:EncryptPassword" />
+  </wsdl:message>
+  <wsdl:message name="IUtility_EncryptPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EncryptPasswordResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IUtility">
+    <wsdl:operation name="EncryptPassword">
+      <wsdl:input wsaw:Action="CUNAMutual.Loanliner.Services/IUtility/EncryptPassword" message="tns:IUtility_EncryptPassword_InputMessage" />
+      <wsdl:output wsaw:Action="CUNAMutual.Loanliner.Services/IUtility/EncryptPasswordResponse" message="tns:IUtility_EncryptPassword_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:service name="Utility">
+    <wsdl:port name="BasicHttpBinding_IUtility" binding="i0:BasicHttpBinding_IUtility">
+      <soap:address location="https://beta.loanliner.com/Gateway/GatewaySecured/EncryptPassword/Utility.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

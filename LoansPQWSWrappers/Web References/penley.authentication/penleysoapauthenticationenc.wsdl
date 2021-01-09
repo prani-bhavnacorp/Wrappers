@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="urn:penleyauthentication" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="urn:penleyauthentication" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types />
+  <message name="instancevalidationRequest">
+    <part name="in0" type="s:string" />
+  </message>
+  <message name="penleyauthenticateResponse">
+    <part name="penleyauthenticateReturn" type="s:string" />
+  </message>
+  <message name="penleyauthenticateRequest">
+    <part name="in0" type="s:string" />
+    <part name="in1" type="s:string" />
+  </message>
+  <message name="instancevalidationResponse">
+    <part name="instancevalidationReturn" type="s:string" />
+  </message>
+  <message name="instanceauthenticateRequest">
+    <part name="in0" type="s:string" />
+    <part name="in1" type="s:string" />
+    <part name="in2" type="s:string" />
+    <part name="in3" type="s:string" />
+  </message>
+  <message name="instanceauthenticateResponse">
+    <part name="instanceauthenticateReturn" type="s:string" />
+  </message>
+  <portType name="PenleyAuthenticationService">
+    <operation name="penleyauthenticate" parameterOrder="in0 in1">
+      <input name="penleyauthenticateRequest" message="tns:penleyauthenticateRequest" />
+      <output name="penleyauthenticateResponse" message="tns:penleyauthenticateResponse" />
+    </operation>
+    <operation name="instanceauthenticate" parameterOrder="in0 in1 in2 in3">
+      <input name="instanceauthenticateRequest" message="tns:instanceauthenticateRequest" />
+      <output name="instanceauthenticateResponse" message="tns:instanceauthenticateResponse" />
+    </operation>
+    <operation name="instancevalidation" parameterOrder="in0">
+      <input name="instancevalidationRequest" message="tns:instancevalidationRequest" />
+      <output name="instancevalidationResponse" message="tns:instancevalidationResponse" />
+    </operation>
+  </portType>
+  <binding name="authenticationSoapBinding" type="tns:PenleyAuthenticationService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <operation name="penleyauthenticate">
+      <soap:operation soapAction="" />
+      <input name="penleyauthenticateRequest">
+        <soap:body use="encoded" namespace="urn:penleyauthentication" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output name="penleyauthenticateResponse">
+        <soap:body use="encoded" namespace="urn:penleyauthentication" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="instanceauthenticate">
+      <soap:operation soapAction="" />
+      <input name="instanceauthenticateRequest">
+        <soap:body use="encoded" namespace="urn:penleyauthentication" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output name="instanceauthenticateResponse">
+        <soap:body use="encoded" namespace="urn:penleyauthentication" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+    <operation name="instancevalidation">
+      <soap:operation soapAction="" />
+      <input name="instancevalidationRequest">
+        <soap:body use="encoded" namespace="urn:penleyauthentication" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </input>
+      <output name="instancevalidationResponse">
+        <soap:body use="encoded" namespace="urn:penleyauthentication" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="PenleyAuthenticationServiceService">
+    <port name="authentication" binding="tns:authenticationSoapBinding">
+      <soap:address location="https://soap.penleyinc.com/penleysoap3/services/authentication" />
+    </port>
+  </service>
+</definitions>

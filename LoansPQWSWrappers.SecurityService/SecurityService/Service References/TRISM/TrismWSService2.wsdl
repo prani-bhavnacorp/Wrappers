@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:tns="http://DemoTeller.com" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" targetNamespace="http://DemoTeller.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://DemoTeller.com/Imports">
+      <xsd:import schemaLocation="Trism0.xsd" namespace="http://DemoTeller.com" />
+      <xsd:import schemaLocation="Trism1.xsd" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="Trism2.xsd" namespace="http://schemas.datacontract.org/2004/07/Demoteller" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICard_GetPin_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPin" />
+  </wsdl:message>
+  <wsdl:message name="ICard_GetPin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPinResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICard_InstantIssue_InputMessage">
+    <wsdl:part name="parameters" element="tns:InstantIssue" />
+  </wsdl:message>
+  <wsdl:message name="ICard_InstantIssue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InstantIssueResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICard_ReIssue_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReIssue" />
+  </wsdl:message>
+  <wsdl:message name="ICard_ReIssue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReIssueResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICard_RePin_InputMessage">
+    <wsdl:part name="parameters" element="tns:RePin" />
+  </wsdl:message>
+  <wsdl:message name="ICard_RePin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RePinResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ICard">
+    <wsdl:operation name="GetPin">
+      <wsdl:input wsam:Action="http://DemoTeller.com/ICard/GetPin" message="tns:ICard_GetPin_InputMessage" />
+      <wsdl:output wsam:Action="http://DemoTeller.com/ICard/GetPinResponse" message="tns:ICard_GetPin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InstantIssue">
+      <wsdl:input wsam:Action="http://DemoTeller.com/ICard/InstantIssue" message="tns:ICard_InstantIssue_InputMessage" />
+      <wsdl:output wsam:Action="http://DemoTeller.com/ICard/InstantIssueResponse" message="tns:ICard_InstantIssue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReIssue">
+      <wsdl:input wsam:Action="http://DemoTeller.com/ICard/ReIssue" message="tns:ICard_ReIssue_InputMessage" />
+      <wsdl:output wsam:Action="http://DemoTeller.com/ICard/ReIssueResponse" message="tns:ICard_ReIssue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RePin">
+      <wsdl:input wsam:Action="http://DemoTeller.com/ICard/RePin" message="tns:ICard_RePin_InputMessage" />
+      <wsdl:output wsam:Action="http://DemoTeller.com/ICard/RePinResponse" message="tns:ICard_RePin_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

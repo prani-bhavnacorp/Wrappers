@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:tns="http://www.americafirst.com/20070315/AFCUHeader" xmlns:ctl="http://www.americafirst.com/20070315/CommonTypesLib" targetNamespace="http://www.americafirst.com/20070315/AFCUHeader" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema">
+  <import schemaLocation="../commontypeslib/CommonTypesLib.xsd" namespace="http://www.americafirst.com/20070315/CommonTypesLib" />
+  <complexType name="AFCUHeaderRequest">
+    <sequence minOccurs="1" maxOccurs="1">
+      <element minOccurs="1" maxOccurs="1" name="processingDate" type="date" />
+      <element minOccurs="0" maxOccurs="1" name="companyID" type="string" />
+      <element minOccurs="0" maxOccurs="1" name="channelID" type="string" />
+      <element minOccurs="1" maxOccurs="1" name="branchID" type="ctl:NonNegativeInteger_7" />
+      <element minOccurs="1" maxOccurs="1" name="tellerID" type="ctl:NonNegativeInteger_7" />
+      <element minOccurs="1" maxOccurs="1" name="employeeID" type="ctl:NonNegativeInteger_7" />
+      <element minOccurs="0" maxOccurs="1" name="workstationID" type="string" />
+      <element minOccurs="0" maxOccurs="1" name="transactionID" type="ctl:NonNegativeInteger_16" />
+      <element minOccurs="0" maxOccurs="1" name="transactionRetry" type="boolean" />
+      <element minOccurs="0" maxOccurs="1" name="offlineIndicator" type="boolean" />
+    </sequence>
+  </complexType>
+  <simpleType name="Result">
+    <restriction base="string">
+      <enumeration value="success" />
+      <enumeration value="failure" />
+      <enumeration value="warning" />
+    </restriction>
+  </simpleType>
+  <complexType name="AFCUHeaderResponse">
+    <sequence minOccurs="1" maxOccurs="1">
+      <element minOccurs="1" maxOccurs="unbounded" name="systemResponse" type="tns:SystemResponse" />
+    </sequence>
+    <attribute name="result" type="tns:Result" use="required" />
+  </complexType>
+  <complexType name="SystemResponse">
+    <sequence minOccurs="1" maxOccurs="1">
+      <element minOccurs="1" maxOccurs="1" name="responseSource" type="string" />
+      <element minOccurs="1" maxOccurs="1" name="responseCode" type="string" />
+      <element minOccurs="1" maxOccurs="1" name="reasonCode" type="string" />
+      <element minOccurs="1" maxOccurs="1" name="message" type="string" />
+    </sequence>
+  </complexType>
+</schema>

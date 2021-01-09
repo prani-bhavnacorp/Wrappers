@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="http://www.galaxyplus.com/service/transaction/schema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:fi="http://integration.fiapi.com" targetNamespace="http://www.galaxyplus.com/service/transaction/schema" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xs:schema>
+      <xs:import schemaLocation="fiAPI.xsd" namespace="http://integration.fiapi.com" />
+      <xs:import schemaLocation="fiHeader.xsd" namespace="http://integration.fiapi.com" />
+      <xs:import schemaLocation="xenc-schema.xsd" namespace="http://www.w3.org/2001/04/xmlenc#" />
+      <xs:import schemaLocation="xmldsig-core-schema.xsd" namespace="http://www.w3.org/2000/09/xmldsig#" />
+      <xs:import schemaLocation="TransactionService.xsd" namespace="http://www.galaxyplus.com/service/transaction/schema" />
+    </xs:schema>
+  </types>
+  <message name="PostTransactionsRqMsg">
+    <part name="fiHeader" element="fi:fiHeader" />
+    <part name="Payload" element="tns:PostTransactionsRq" />
+  </message>
+  <message name="PostTransactionsRsMsg">
+    <part name="fiHeader" element="fi:fiHeader" />
+    <part name="Payload" element="tns:PostTransactionsRs" />
+  </message>
+  <portType name="TransactionServicePortType">
+    <operation name="PostTransactions">
+      <input message="tns:PostTransactionsRqMsg" />
+      <output message="tns:PostTransactionsRsMsg" />
+    </operation>
+  </portType>
+  <binding name="TransactionServiceBinding" type="tns:TransactionServicePortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="PostTransactions">
+      <soap:operation soapAction="TransactionService/PostTransactions" />
+      <input>
+        <soap:header message="tns:PostTransactionsRqMsg" part="fiHeader" use="literal" />
+        <soap:body use="literal" parts="Payload" />
+      </input>
+      <output>
+        <soap:header message="tns:PostTransactionsRsMsg" part="fiHeader" use="literal" />
+        <soap:body use="literal" parts="Payload" />
+      </output>
+    </operation>
+  </binding>
+  <service name="TransactionService">
+    <port name="TransactionServicePort" binding="tns:TransactionServiceBinding">
+      <soap:address location="https://REPLACE_WITH_ACTUAL_URL" />
+    </port>
+  </service>
+</definitions>

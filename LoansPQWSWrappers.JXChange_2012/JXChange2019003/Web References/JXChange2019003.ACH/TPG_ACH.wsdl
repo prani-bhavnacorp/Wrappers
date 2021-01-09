@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:ns="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://jackhenry.com/jxchange/TPG/2008" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" targetNamespace="http://jackhenry.com/jxchange/TPG/2008" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema xmlns="http://jackhenry.com/jxchange/TPG/2008" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://jackhenry.com/jxchange/TPG/2008" version="2019.0.03" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:include schemaLocation="TPG_ACHMaster.xsd" />
+    </xsd:schema>
+  </types>
+  <message name="MessageFault">
+    <part name="params" element="tns:HdrFault" />
+  </message>
+  <message name="PingInput">
+    <part name="params" element="tns:Ping" />
+  </message>
+  <message name="PingOutput">
+    <part name="params" element="tns:PingResponse" />
+  </message>
+  <message name="ACHFileAddInput">
+    <part name="params" element="tns:ACHFileAdd" />
+  </message>
+  <message name="ACHFileAddOutput">
+    <part name="params" element="tns:ACHFileAddResponse" />
+  </message>
+  <message name="ACHFileModInput">
+    <part name="params" element="tns:ACHFileMod" />
+  </message>
+  <message name="ACHFileModOutput">
+    <part name="params" element="tns:ACHFileModResponse" />
+  </message>
+  <message name="ACHFileInqInput">
+    <part name="params" element="tns:ACHFileInq" />
+  </message>
+  <message name="ACHFileInqOutput">
+    <part name="params" element="tns:ACHFileInqResponse" />
+  </message>
+  <message name="ACHCompModInput">
+    <part name="params" element="tns:ACHCompMod" />
+  </message>
+  <message name="ACHCompModOutput">
+    <part name="params" element="tns:ACHCompModResponse" />
+  </message>
+  <portType name="ACHService">
+    <operation name="Ping">
+      <input message="tns:PingInput" />
+      <output message="tns:PingOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="ACHFileAdd">
+      <input message="tns:ACHFileAddInput" />
+      <output message="tns:ACHFileAddOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="ACHFileMod">
+      <input message="tns:ACHFileModInput" />
+      <output message="tns:ACHFileModOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="ACHFileInq">
+      <input message="tns:ACHFileInqInput" />
+      <output message="tns:ACHFileInqOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="ACHCompMod">
+      <input message="tns:ACHCompModInput" />
+      <output message="tns:ACHCompModOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+  </portType>
+  <binding name="ACHServiceSoapBinding" type="tns:ACHService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="Ping">
+      <soap:operation soapAction="http://jackhenry.com/ws/Ping" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="ACHFileAdd">
+      <soap:operation soapAction="http://jackhenry.com/ws/ACHFileAdd" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="ACHFileMod">
+      <soap:operation soapAction="http://jackhenry.com/ws/ACHFileMod" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="ACHFileInq">
+      <soap:operation soapAction="http://jackhenry.com/ws/ACHFileInq" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="ACHCompMod">
+      <soap:operation soapAction="http://jackhenry.com/ws/ACHCompMod" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="ACHService">
+    <documentation>Service Description for the ACHService Interface</documentation>
+    <port name="ACHServiceSoap" binding="tns:ACHServiceSoapBinding">
+      <soap:address location="https://jackhenry.com/jxchange/2008/ServiceGateway/ACH.svc" />
+    </port>
+  </service>
+</definitions>

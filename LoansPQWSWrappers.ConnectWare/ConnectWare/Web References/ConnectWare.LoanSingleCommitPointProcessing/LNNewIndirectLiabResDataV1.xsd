@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="mtvnCWLNNewIndirectLiabResData" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="mtvnCWLNNewIndirectLiabResData" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="LNNewIndirectLiabResData">
+    <xs:annotation>
+      <xs:documentation>Loan New Indirect Liability (LNLNW) - This function is used to assign a cosigner, guarantor, or endorser to all or part of a loan account or note. For more information, see "Setting Up an Indirect Liability" in Chapter 2 of the Loans General Procedures Manual.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="E30051" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Account Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E30054" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Note Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E30069" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Endorsing Account Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E33203" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Liability Amount</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E36048" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Liability Indicator</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E36050" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Liability Type</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E30053" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Confirmation Account Name</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E36047" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Confirmation Liability Limit</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E33205" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Confirmation Liability Balance</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E36051" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Confirmation Liability Date</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="ErrCde" type="xs:string" />
+        <xs:element minOccurs="0" name="ErrResnCde" type="xs:string" />
+        <xs:element minOccurs="0" name="ApplMsgLst">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="ApplMsg">
+                <xs:complexType>
+                  <xs:all>
+                    <xs:element minOccurs="0" name="ApplMsgApplId" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgNbr" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgTxt" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgErrInd" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgFld" type="xs:string" />
+                  </xs:all>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

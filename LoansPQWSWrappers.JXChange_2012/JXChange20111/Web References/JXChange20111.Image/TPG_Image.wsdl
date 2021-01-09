@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://jackhenry.com/jxchange/TPG/2008" xmlns:ns="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://jackhenry.com/jxchange/TPG/2008" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema xmlns="http://jackhenry.com/jxchange/TPG/2008" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://jackhenry.com/jxchange/TPG/2008" version="R2011.1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:include schemaLocation="TPG_ImageMaster.xsd" />
+    </xsd:schema>
+  </types>
+  <message name="MessageFault">
+    <part name="params" element="tns:HdrFault" />
+  </message>
+  <message name="PingInput">
+    <part name="params" element="tns:Ping" />
+  </message>
+  <message name="PingOutput">
+    <part name="params" element="tns:PingResponse" />
+  </message>
+  <message name="ChkImgInqInput">
+    <part name="params" element="tns:ChkImgInq" />
+  </message>
+  <message name="ChkImgInqOutput">
+    <part name="params" element="tns:ChkImgInqResponse" />
+  </message>
+  <message name="DocImgAddInput">
+    <part name="params" element="tns:DocImgAdd" />
+  </message>
+  <message name="DocImgAddOutput">
+    <part name="params" element="tns:DocImgAddResponse" />
+  </message>
+  <message name="DocImgSrchInput">
+    <part name="params" element="tns:DocImgSrch" />
+  </message>
+  <message name="DocImgSrchOutput">
+    <part name="params" element="tns:DocImgSrchResponse" />
+  </message>
+  <portType name="ImageService">
+    <operation name="Ping">
+      <input message="tns:PingInput" />
+      <output message="tns:PingOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="ChkImgInq">
+      <input message="tns:ChkImgInqInput" />
+      <output message="tns:ChkImgInqOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="DocImgAdd">
+      <input message="tns:DocImgAddInput" />
+      <output message="tns:DocImgAddOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="DocImgSrch">
+      <input message="tns:DocImgSrchInput" />
+      <output message="tns:DocImgSrchOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+  </portType>
+  <binding name="ImageServiceSoapBinding" type="tns:ImageService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="Ping">
+      <soap:operation soapAction="http://jackhenry.com/ws/Ping" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="ChkImgInq">
+      <soap:operation soapAction="http://jackhenry.com/ws/ChkImgInq" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="DocImgAdd">
+      <soap:operation soapAction="http://jackhenry.com/ws/DocImgAdd" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="DocImgSrch">
+      <soap:operation soapAction="http://jackhenry.com/ws/DocImgSrch" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="ImageService">
+    <documentation>Service Description for the Image Interface</documentation>
+    <port name="ImageServiceSoap" binding="tns:ImageServiceSoapBinding">
+      <soap:address location="https://jackhenry.com/jxchange/2008/ServiceGateway/Image.svc" />
+    </port>
+  </service>
+</definitions>

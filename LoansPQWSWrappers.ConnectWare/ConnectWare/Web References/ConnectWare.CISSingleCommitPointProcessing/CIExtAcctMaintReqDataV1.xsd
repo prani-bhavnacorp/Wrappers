@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="mtvnCWCIExtAcctMaintReqData" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="mtvnCWCIExtAcctMaintReqData" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="CIExtAcctMaintReqData">
+    <xs:annotation>
+      <xs:documentation>CIS External Account Maintenance (CI216) - This function allows the user to add, change, and delete external accounts. When an external account is added, a system generated number (date and time combination) will be created and stored as the application number.  In addition, customer to account relationships will be created.  When an external account's data is updated, certain fields are not allowed to be changed, as noted in the field descriptions below.  When an external account is deleted, all relationships to this account will be removed.  In addition, an option to return the external contact, if it were the primary customer, will be available.  </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="E16921" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Add Change Delete Indicator</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E16054" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Application Code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E16055" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Application Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E16937" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>External Account Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E16938" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>External Sub Account Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E16939" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>External ACH Account Type Code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E16940" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>External Account Bank ABA</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E16941" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>External Account Bank Swift Code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E16942" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Account Description</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E16943" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Verification Date</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E16944" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>VerificationMethod</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E16945" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Return External Contact Indicator</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="CIExtAcctMaintCustDataLst">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="1" maxOccurs="unbounded" name="CIExtAcctMaintCustData">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="E10175" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Application Code</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E10176" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Customer Number</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E10178" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Account Relationship to Customer</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E10183" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Primary Secondary Customer Indicator</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CIExtAcctMaintBnkDataLst">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="1" maxOccurs="unbounded" name="CIExtAcctMaintBnkData">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="E16946" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Intermediary Bank ABA</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E16947" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Intermediary Bank Swift Code</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

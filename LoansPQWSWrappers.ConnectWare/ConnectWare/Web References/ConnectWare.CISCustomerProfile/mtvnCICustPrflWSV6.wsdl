@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="mtvnCICustPrflWSV6" xmlns:import0="mtvnCWCICustPrflSvcReq" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:import1="mtvnCWCICustPrflSvcRes" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="mtvnCICustPrflWSV6" targetNamespace="mtvnCICustPrflWSV6" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Connectware Web Service Interface</documentation>
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="./CICustPrflWSV6SvcReq.xsd" namespace="mtvnCWCICustPrflSvcReq" />
+      <xsd:import schemaLocation="./CICustPrflWSV6SvcRes.xsd" namespace="mtvnCWCICustPrflSvcRes" />
+    </xsd:schema>
+  </types>
+  <message name="CICustPrflMtvnSvcReqMsg">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <part name="messagePart" element="import0:CICustPrflMtvnSvcReq" />
+  </message>
+  <message name="CICustPrflMtvnSvcResMsg">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <part name="messagePart" element="import1:CICustPrflMtvnSvcRes" />
+  </message>
+  <portType name="mtvnCWCICustPrflWSV6Interface">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">CICustPrflWSV6</documentation>
+    <operation name="CICustPrfl">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+      <input message="tns:CICustPrflMtvnSvcReqMsg" />
+      <output message="tns:CICustPrflMtvnSvcResMsg" />
+    </operation>
+  </portType>
+  <binding name="mtvnCWCICustPrflWSV6" type="tns:mtvnCWCICustPrflWSV6Interface">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="CICustPrfl">
+      <soap:operation soapAction="CICustPrflWSV6:CICustPrflMtvnSvcReqMsg" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="mtvnCWCICustPrflWSV6">
+    <port name="mtvnCWCICustPrflWSV6Port" binding="tns:mtvnCWCICustPrflWSV6">
+      <soap:address location="https://xmlgateway.metavante.org/ConnectwareWS/CICustPrflWSV6" />
+    </port>
+  </service>
+</definitions>

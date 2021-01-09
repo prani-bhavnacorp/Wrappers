@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="mtvnCWLNUsrDefFldsReqData" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="mtvnCWLNUsrDefFldsReqData" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="LNUsrDefFldsReqData">
+    <xs:annotation>
+      <xs:documentation>Loan User-Defined Fields (LNUSR) - This function allows the user to perform inquiry and maintenance functions on 30 note level and 30 commitment level user-defined fields. The user can record customer details on each of the ten user-defined dates, amounts, and descriptions fields.  The financial institution can define the detail for each user field, and these definitions should be maintained at your institution for reference purposes.  These fields can be selected for reporting through InFormatter and can sort on two Loan reports. The commitment user fields will sort on the Commitments by Type report (R-6275), and the note user fields will sort on the Short Trial Balance report (R-6402).  A status indicator on the Account Inquiry report (R-6300) will indicate whether the commitment user fields are being utilized on the user definition screen.  If the note user fields are utilized, the information for each field will display on the Note Inquiry report (R-6310).</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="E37962" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Activity Code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E30051" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Account Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E30115" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Commitment Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E30054" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Note Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="LNUsrDefFldsArrayDataLst">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="10" name="LNUsrDefFldsArrayData">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="E37956" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>User-Defined Date</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E37957" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>User-Defined Amount</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E37958" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>User-Defined Description</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" name="LNUsrDefFldsPolicyArrayDataLst">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="15" name="LNUsrDefFldsPolicyArrayData">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="E37119" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Policy Exception Code</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E37120" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Policy Exception Date</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E37121" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>Policy Exception Description</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="mtvnCIAcctPrflWSV7" xmlns:import0="mtvnCWCIAcctPrflSvcReq" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:import1="mtvnCWCIAcctPrflSvcRes" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="mtvnCIAcctPrflWSV7" targetNamespace="mtvnCIAcctPrflWSV7" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Connectware Web Service Interface</documentation>
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="./CIAcctPrflWSV7SvcReq.xsd" namespace="mtvnCWCIAcctPrflSvcReq" />
+      <xsd:import schemaLocation="./CIAcctPrflWSV7SvcRes.xsd" namespace="mtvnCWCIAcctPrflSvcRes" />
+    </xsd:schema>
+  </types>
+  <message name="CIAcctPrflMtvnSvcReqMsg">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <part name="messagePart" element="import0:CIAcctPrflMtvnSvcReq" />
+  </message>
+  <message name="CIAcctPrflMtvnSvcResMsg">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <part name="messagePart" element="import1:CIAcctPrflMtvnSvcRes" />
+  </message>
+  <portType name="mtvnCWCIAcctPrflWSV7Interface">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">CIAcctPrflWSV7</documentation>
+    <operation name="CIAcctPrfl">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+      <input message="tns:CIAcctPrflMtvnSvcReqMsg" />
+      <output message="tns:CIAcctPrflMtvnSvcResMsg" />
+    </operation>
+  </portType>
+  <binding name="mtvnCWCIAcctPrflWSV7" type="tns:mtvnCWCIAcctPrflWSV7Interface">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="CIAcctPrfl">
+      <soap:operation soapAction="CIAcctPrflWSV7:CIAcctPrflMtvnSvcReqMsg" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="mtvnCWCIAcctPrflWSV7">
+    <port name="mtvnCWCIAcctPrflWSV7Port" binding="tns:mtvnCWCIAcctPrflWSV7">
+      <soap:address location="https://xmlgateway.metavante.org/ConnectwareWS/CIAcctPrflWSV7" />
+    </port>
+  </service>
+</definitions>

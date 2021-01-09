@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="mtvnCWLNAutoFeeSetpReqData" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="mtvnCWLNAutoFeeSetpReqData" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="LNAutoFeeSetpReqData">
+    <xs:annotation>
+      <xs:documentation>Loan Automated Fee Setup (LNAFE) -  This function is used to assess ongoing fees.  The system will calculate the fee amount and when the fee should be assessed based on the fee plan established on Fee Plan Segment 430 of Bank Control.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="E30009" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Source</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E30051" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Account Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E33407" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Fee Plan</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E33409" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Minimum Fee Amount</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E33410" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN First Bill Due Date</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E33411" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Maximum Fee Amount</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E33412" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Assessment Start Date</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E33413" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Accruing Fees Basis</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E33414" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Assessment End Date</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E33415" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Charge Deposit Indicator</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E33416" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Bill Frequency</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E33417" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Deposit Account Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E33418" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Combined Bill Indicator</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E33419" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Capitalization Indicator</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E33420" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Exclude Late Fee Maturity Indicator</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E33421" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>LN Display to Customer Indicator</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="LNAutoFeeSetpCmptDataLst">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="1" maxOccurs="unbounded" name="LNAutoFeeSetpCmptData">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="E33422" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>LN Fee Related Index</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E33425" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>LN Fee Rate</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="E33428" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>LN Fee Relationship</xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

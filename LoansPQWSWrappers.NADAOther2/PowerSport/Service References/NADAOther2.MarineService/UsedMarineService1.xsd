@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.Powersports" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.Powersports" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://www.nadaguideswebservices.com/UsedMarineService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" />
+  <xs:complexType name="ModelTypeReturnTO">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="VersionTO" nillable="true" type="q1:VersionTO" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="MakeTO" nillable="true" type="q2:MakeReturnTO" />
+      <xs:element minOccurs="0" name="ModelTypeList" nillable="true" type="tns:ArrayOfModelTypeTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ModelTypeReturnTO" nillable="true" type="tns:ModelTypeReturnTO" />
+  <xs:complexType name="ArrayOfModelTypeTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ModelTypeTO" nillable="true" type="tns:ModelTypeTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfModelTypeTO" nillable="true" type="tns:ArrayOfModelTypeTO" />
+  <xs:complexType name="ModelTypeTO">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="CategoryTO" nillable="true" type="q3:CategoryReturnTO" />
+      <xs:element minOccurs="0" name="ModelTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="ModelTypeName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ModelTypeTO" nillable="true" type="tns:ModelTypeTO" />
+</xs:schema>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://v2.soap.webservice.xml.core/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="LPSOAPv2" targetNamespace="http://v2.soap.webservice.xml.core/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="https://www.lend-pro.com:443/lp/LPSOAPv2?xsd=1" namespace="http://v2.soap.webservice.xml.core/" />
+    </xsd:schema>
+  </types>
+  <message name="pingLendersProtectionSOAPService">
+    <part name="parameters" element="tns:pingLendersProtectionSOAPService" />
+  </message>
+  <message name="pingLendersProtectionSOAPServiceResponse">
+    <part name="parameters" element="tns:pingLendersProtectionSOAPServiceResponse" />
+  </message>
+  <message name="processLendersProtectionApplication">
+    <part name="parameters" element="tns:processLendersProtectionApplication" />
+    <part name="AuthHeader" element="tns:AuthHeader" />
+  </message>
+  <message name="processLendersProtectionApplicationResponse">
+    <part name="result" element="tns:processLendersProtectionApplicationResponse" />
+  </message>
+  <message name="certifyLendersProtectionApplication">
+    <part name="parameters" element="tns:certifyLendersProtectionApplication" />
+    <part name="AuthHeader" element="tns:AuthHeader" />
+  </message>
+  <message name="certifyLendersProtectionApplicationResponse">
+    <part name="result" element="tns:certifyLendersProtectionApplicationResponse" />
+  </message>
+  <portType name="SOAPApplicationSubmissionServletv2">
+    <operation name="pingLendersProtectionSOAPService">
+      <input wsam:Action="http://v2.soap.webservice.xml.core/SOAPApplicationSubmissionServletv2/pingLendersProtectionSOAPServiceRequest" message="tns:pingLendersProtectionSOAPService" />
+      <output wsam:Action="http://v2.soap.webservice.xml.core/SOAPApplicationSubmissionServletv2/pingLendersProtectionSOAPServiceResponse" message="tns:pingLendersProtectionSOAPServiceResponse" />
+    </operation>
+    <operation name="processLendersProtectionApplication" parameterOrder="parameters AuthHeader">
+      <input wsam:Action="http://v2.soap.webservice.xml.core/SOAPApplicationSubmissionServletv2/processLendersProtectionApplicationRequest" message="tns:processLendersProtectionApplication" />
+      <output wsam:Action="http://v2.soap.webservice.xml.core/SOAPApplicationSubmissionServletv2/processLendersProtectionApplicationResponse" message="tns:processLendersProtectionApplicationResponse" />
+    </operation>
+    <operation name="certifyLendersProtectionApplication" parameterOrder="parameters AuthHeader">
+      <input wsam:Action="http://v2.soap.webservice.xml.core/SOAPApplicationSubmissionServletv2/certifyLendersProtectionApplicationRequest" message="tns:certifyLendersProtectionApplication" />
+      <output wsam:Action="http://v2.soap.webservice.xml.core/SOAPApplicationSubmissionServletv2/certifyLendersProtectionApplicationResponse" message="tns:certifyLendersProtectionApplicationResponse" />
+    </operation>
+  </portType>
+  <binding name="SOAPApplicationSubmissionServletv2PortBinding" type="tns:SOAPApplicationSubmissionServletv2">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="pingLendersProtectionSOAPService">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="processLendersProtectionApplication">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:processLendersProtectionApplication" part="AuthHeader" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="certifyLendersProtectionApplication">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" parts="parameters" />
+        <soap:header message="tns:certifyLendersProtectionApplication" part="AuthHeader" use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="LPSOAPv2">
+    <port name="SOAPApplicationSubmissionServletv2Port" binding="tns:SOAPApplicationSubmissionServletv2PortBinding">
+      <soap:address location="https://www.lend-pro.com:443/lp/LPSOAPv2" />
+    </port>
+  </service>
+</definitions>

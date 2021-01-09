@@ -1,0 +1,2584 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="https://bridgerinsight.lexisnexis.com/webservices/8.0" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="https://bridgerinsight.lexisnexis.com/webservices/8.0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="https://bridgerinsight.lexisnexis.com/webservices/8.0">
+      <s:element name="ChangePassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sNewPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangePasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ChangePasswordResult" type="tns:BIPasswordChange" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BIPasswordChange">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PasswordHasChanged" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Error" type="tns:BIError" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIError">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Code" type="s:unsignedInt" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AuthenticationHeader" type="tns:AuthenticationHeader" />
+      <s:complexType name="AuthenticationHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="sCustomerID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sUserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sPassword" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="Wire">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WireRequest" type="tns:WireRequest" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPredefineSearchName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clAssignResultsTo" type="tns:AssignResultsTo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="WireRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Session" type="tns:Session" />
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:WireType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Wire" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Session">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ClientReference" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="GLB" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DPPA" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PermissibleUse" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="WireType">
+        <s:restriction base="s:string">
+          <s:enumeration value="NONE" />
+          <s:enumeration value="UNSTRUCTURED" />
+          <s:enumeration value="ACH" />
+          <s:enumeration value="FEDWIRE" />
+          <s:enumeration value="SWIFT" />
+          <s:enumeration value="ISO20022" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="AssignResultsTo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="RecordAssignmentType" type="tns:BIRecordAssignmentType" />
+          <s:element minOccurs="1" maxOccurs="1" name="EmailNotification" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Division" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Roles" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="Users" type="tns:ArrayOfString1" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="BIRecordAssignmentType">
+        <s:restriction base="s:string">
+          <s:enumeration value="RECORD_ASSIGN_USER" />
+          <s:enumeration value="RECORD_ASSIGN_ROLE" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Role" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString1">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="WireResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WireResult" type="tns:BISearchResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BISearchResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Error" type="tns:BIError" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClientReference" type="tns:BIClientReference" />
+          <s:element minOccurs="0" maxOccurs="1" name="DaysUntilPasswordExpires" type="tns:BIDaysUntilPasswordExpires" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecordList" type="tns:ArrayOfBIRecord" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIClientReference">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Reference" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIDaysUntilPasswordExpires">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Days" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBIRecord">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Record" nillable="true" type="tns:BIRecord" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIRecord">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Record" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequestIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResultID" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecordDetailInfo" type="tns:BIRecordDetailInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="WatchList" type="tns:BIWatchList" />
+          <s:element minOccurs="0" maxOccurs="1" name="InstantID" type="tns:BIInstantID" />
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessInstantID" type="tns:BIBusinessInstantID" />
+          <s:element minOccurs="0" maxOccurs="1" name="FraudPoint" type="tns:BIFraudPoint" />
+          <s:element minOccurs="0" maxOccurs="1" name="InstantIDIntl" type="tns:BIInstantIDIntl" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIRecordDetailInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="EntityType" type="tns:ResponseEntityType" />
+          <s:element minOccurs="1" maxOccurs="1" name="WireType" type="tns:ResponseWireType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Gender" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountAmount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountGroupId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountOtherData" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountProviderId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WireContext" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SearchDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="tns:BIName" />
+          <s:element minOccurs="0" maxOccurs="1" name="AchWire" type="tns:BIAchWire" />
+          <s:element minOccurs="0" maxOccurs="1" name="FedwireWire" type="tns:BIFedwireWire" />
+          <s:element minOccurs="0" maxOccurs="1" name="ISO20022Wire" type="tns:BIISO20022Wire" />
+          <s:element minOccurs="0" maxOccurs="1" name="SwiftWire" type="tns:BISwiftWire" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdditionalInfoList" type="tns:ArrayOfBIAdditionalInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressList" type="tns:ArrayOfBIAddress" />
+          <s:element minOccurs="0" maxOccurs="1" name="IDList" type="tns:ArrayOfBIID" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneNumberList" type="tns:ArrayOfBIPhone" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="ResponseEntityType">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="Unknown" />
+          <s:enumeration value="Individual" />
+          <s:enumeration value="Business" />
+          <s:enumeration value="Vessel" />
+          <s:enumeration value="Country" />
+          <s:enumeration value="Wire" />
+          <s:enumeration value="Text" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="ResponseWireType">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="Unstructured" />
+          <s:enumeration value="ACH" />
+          <s:enumeration value="CHIPS" />
+          <s:enumeration value="Fedwire" />
+          <s:enumeration value="SWIFT" />
+          <s:enumeration value="ISO20022" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="BIName">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Business" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Full" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="First" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Middle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Last" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Generation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Text" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIAchWire">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BatchNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardExpirationDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardTransactionTypeCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompanyEntryDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompanyEntryDescriptiveDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EffectiveEntryDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FileCreationDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FileCreationTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FileIdentification" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ForeignExchangeIndicator" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ForeignExchangeReference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ForeignExchangeReferenceIndicator" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GatewayOperatorOFACScreeningIndicator" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IATIndicator" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ISODestinationCountryCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ISODestinationCurrencyCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ISOOriginatingCurrencyCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemTypeIndicator" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="JulianDateOnWhichThisAdviceIsCreated" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentTypeCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProcessControlField" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReferenceCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RefusedAcknowledgmentCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SecondaryOFACScreeningIndicator" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ServiceClassCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SettlementDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StandardEntryClassCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalAmount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TraceNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteList" type="tns:ArrayOfBIAchNote" />
+          <s:element minOccurs="0" maxOccurs="1" name="PartyList" type="tns:ArrayOfBIAchParty" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBIAchNote">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Note" nillable="true" type="tns:BIAchNote" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIAchNote">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AuthorizationCodeOrCardExpirationDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ChangeCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContestedDishonoredReturnReasonCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CORTraceSequenceNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateOfDeath" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateOriginalEntryReturned" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DishonoredReturnReasonCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DishonoredReturnSettlementDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DishonoredReturnTraceNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ForeignPaymentAmount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ForeignTraceNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NetworkIdentificationCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Note" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OriginalEntryTraceNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OriginalForwardEntryPaymentAmount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OriginalReceivingDFIIdentification" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OriginalSettlementDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReceiverIdentificationNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReferenceInformation1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReferenceInformation2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RefusedCORCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReturnReasonCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReturnSettlementDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReturnTraceNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SequenceNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TerminalIdentificationCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TraceNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionSerialNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionTypeCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBIAchParty">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Party" nillable="true" type="tns:BIAchParty" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIAchParty">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:WirePartyType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdditionalInfoList" type="tns:ArrayOfString2" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressList" type="tns:ArrayOfBIAchPartyAddress" />
+          <s:element minOccurs="0" maxOccurs="1" name="IDList" type="tns:ArrayOfBIAchPartyID" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="WirePartyType">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="AccountCredited" />
+          <s:enumeration value="AccountDebited" />
+          <s:enumeration value="Beneficiary" />
+          <s:enumeration value="BeneficiaryFI" />
+          <s:enumeration value="InstructingFI" />
+          <s:enumeration value="InstructionParty" />
+          <s:enumeration value="IntermediaryFI" />
+          <s:enumeration value="Originator" />
+          <s:enumeration value="OriginationFI" />
+          <s:enumeration value="Receiver" />
+          <s:enumeration value="ReceiversCorrespondent" />
+          <s:enumeration value="ReceivingFI" />
+          <s:enumeration value="SendersCorrespondent" />
+          <s:enumeration value="SendingFI" />
+          <s:enumeration value="ThirdReimbursementFI" />
+          <s:enumeration value="CorrespondentFI" />
+          <s:enumeration value="OriginalReceivingFI" />
+          <s:enumeration value="AccountIdentification" />
+          <s:enumeration value="AccountServicingFI" />
+          <s:enumeration value="AccountWithInstitution" />
+          <s:enumeration value="AdviseThroughFI" />
+          <s:enumeration value="Applicant" />
+          <s:enumeration value="ApplicantFI" />
+          <s:enumeration value="AvailableWithFI" />
+          <s:enumeration value="ChargesAccount" />
+          <s:enumeration value="ChargesAccountAgent" />
+          <s:enumeration value="ChequeDeliverTo" />
+          <s:enumeration value="ChequeFrom" />
+          <s:enumeration value="Contact" />
+          <s:enumeration value="CreditMandateSigner" />
+          <s:enumeration value="Creditor" />
+          <s:enumeration value="CreditorAccount" />
+          <s:enumeration value="CreditorAgent" />
+          <s:enumeration value="CreditorAgentAccount" />
+          <s:enumeration value="Debtor" />
+          <s:enumeration value="DebtorAccount" />
+          <s:enumeration value="DebtorAgent" />
+          <s:enumeration value="DebtorAgentAccount" />
+          <s:enumeration value="DocumentIssuer" />
+          <s:enumeration value="Drawee" />
+          <s:enumeration value="ForwardingAgent" />
+          <s:enumeration value="InitiatingParty" />
+          <s:enumeration value="IntermediaryAgent" />
+          <s:enumeration value="IntermediaryAgentAccount" />
+          <s:enumeration value="Invoicee" />
+          <s:enumeration value="Invoicer" />
+          <s:enumeration value="Issuer" />
+          <s:enumeration value="IssuingFI" />
+          <s:enumeration value="NegotiatingFI" />
+          <s:enumeration value="OrderingCustomer" />
+          <s:enumeration value="OrderingFI" />
+          <s:enumeration value="OriginalCreditMandateSigner" />
+          <s:enumeration value="OriginalCreditorAgent" />
+          <s:enumeration value="OriginalCreditorAgentAccount" />
+          <s:enumeration value="OriginalDebtor" />
+          <s:enumeration value="OriginalDebtorAccount" />
+          <s:enumeration value="OriginalDebtorAgent" />
+          <s:enumeration value="OriginalDebtorAgentAccount" />
+          <s:enumeration value="PrimaryDocumentIssuer" />
+          <s:enumeration value="Principal" />
+          <s:enumeration value="ReimbursingFI" />
+          <s:enumeration value="Remittance" />
+          <s:enumeration value="SecondaryDocumentIssuer" />
+          <s:enumeration value="SenderOfCashLetter" />
+          <s:enumeration value="UltimateCreditor" />
+          <s:enumeration value="UltimateDebtor" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfString2">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AdditionalInfo" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBIAchPartyAddress">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Address" nillable="true" type="tns:BIAchPartyAddress" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIAchPartyAddress">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:AddressType" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CityStateProvince" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryPostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StateProvince" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StreetAddress" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="AddressType">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="Current" />
+          <s:enumeration value="Mailing" />
+          <s:enumeration value="Previous" />
+          <s:enumeration value="Unknown" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfBIAchPartyID">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ID" nillable="true" type="tns:BIAchPartyID" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIAchPartyID">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:IDType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Number" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="IDType">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="AccountID" />
+          <s:enumeration value="Cedula" />
+          <s:enumeration value="DriversLicense" />
+          <s:enumeration value="EIN" />
+          <s:enumeration value="MemberID" />
+          <s:enumeration value="MilitaryID" />
+          <s:enumeration value="NationalID" />
+          <s:enumeration value="NIT" />
+          <s:enumeration value="OtherID" />
+          <s:enumeration value="Passport" />
+          <s:enumeration value="SSN" />
+          <s:enumeration value="TaxID" />
+          <s:enumeration value="Visa" />
+          <s:enumeration value="EFTCode" />
+          <s:enumeration value="ABARouting" />
+          <s:enumeration value="AlienRegistration" />
+          <s:enumeration value="ChipsUID" />
+          <s:enumeration value="DUNS" />
+          <s:enumeration value="IBAN" />
+          <s:enumeration value="SwiftBIC" />
+          <s:enumeration value="BankIdentifierCode" />
+          <s:enumeration value="BankPartyID" />
+          <s:enumeration value="CustomerNumber" />
+          <s:enumeration value="GLN" />
+          <s:enumeration value="IBEI" />
+          <s:enumeration value="SwiftBEI" />
+          <s:enumeration value="Proprietary_UID" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="BIFedwireWire">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CurrencyInstructedAmount" type="tns:BIFedwireAmount" />
+          <s:element minOccurs="0" maxOccurs="1" name="InstructedAmount" type="tns:BIFedwireAmount" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdjustmentEffectiveDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdjustmentReasonCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessFunctionCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DetailsOfCharges" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DollarAmount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExchangeRate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LocalInstrumentCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LocalInstrumentProprietaryCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentNotificationIndicator" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReferenceForBeneficiary" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RemittanceLocationMethod" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SenderReferenceNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SenderSuppliedInformation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TypeCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ActualAmountList" type="tns:ArrayOfBIFedwireAmount" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdjustmentList" type="tns:ArrayOfBIFedwireAdjustment" />
+          <s:element minOccurs="0" maxOccurs="1" name="ChargeList" type="tns:ArrayOfBIFedwireAmount1" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentList" type="tns:ArrayOfBIFedwireDocument" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentDateList" type="tns:ArrayOfString3" />
+          <s:element minOccurs="0" maxOccurs="1" name="GrossAmountList" type="tns:ArrayOfBIFedwireAmount2" />
+          <s:element minOccurs="0" maxOccurs="1" name="NegotiatedDiscountList" type="tns:ArrayOfBIFedwireAmount3" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteList" type="tns:ArrayOfBIFedwireNote" />
+          <s:element minOccurs="0" maxOccurs="1" name="PartyList" type="tns:ArrayOfBIFedwireParty" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIFedwireAmount">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Amount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CurrencyCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBIFedwireAmount">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ActualAmount" nillable="true" type="tns:BIFedwireAmount" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBIFedwireAdjustment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Adjustment" nillable="true" type="tns:BIFedwireAdjustment" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIFedwireAdjustment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AdditionalInformation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdjustmentReasonCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Amount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreditDebitIndicator" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CurrencyCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBIFedwireAmount1">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Charge" nillable="true" type="tns:BIFedwireAmount" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBIFedwireDocument">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Document" nillable="true" type="tns:BIFedwireDocument" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIFedwireDocument">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Tag" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentTypeCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProprietaryDocumentTypeCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentIdentificationNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Issuer" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString3">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DocumentDate" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBIFedwireAmount2">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="GrossAmount" nillable="true" type="tns:BIFedwireAmount" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBIFedwireAmount3">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="NegotiatedDiscount" nillable="true" type="tns:BIFedwireAmount" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBIFedwireNote">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Note" nillable="true" type="tns:BIFedwireNote" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIFedwireNote">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Note" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tag" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBIFedwireParty">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Party" nillable="true" type="tns:BIFedwireParty" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIFedwireParty">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="EntityType" type="tns:ResponseEntityType" />
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:WirePartyType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdditionalInfoList" type="tns:ArrayOfBIFedwirePartyAdditionalInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressList" type="tns:ArrayOfBIFedwirePartyAddress" />
+          <s:element minOccurs="0" maxOccurs="1" name="FieldList" type="tns:ArrayOfString4" />
+          <s:element minOccurs="0" maxOccurs="1" name="IDList" type="tns:ArrayOfBIFedwirePartyID" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneList" type="tns:ArrayOfBIFedwirePartyPhone" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBIFedwirePartyAdditionalInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AdditionalInfo" nillable="true" type="tns:BIFedwirePartyAdditionalInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIFedwirePartyAdditionalInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:InfoType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Info" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ParsedInfo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="InfoType">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="Citizenship" />
+          <s:enumeration value="Complexion" />
+          <s:enumeration value="DistinguishingMarks" />
+          <s:enumeration value="DateOfBirth" />
+          <s:enumeration value="EyeColor" />
+          <s:enumeration value="HairColor" />
+          <s:enumeration value="Height" />
+          <s:enumeration value="MothersMaidenName" />
+          <s:enumeration value="Nationality" />
+          <s:enumeration value="Occupation" />
+          <s:enumeration value="PlaceOfBirth" />
+          <s:enumeration value="Position" />
+          <s:enumeration value="Race" />
+          <s:enumeration value="VesselCallSign" />
+          <s:enumeration value="VesselFlag" />
+          <s:enumeration value="VesselGRT" />
+          <s:enumeration value="VesselOwner" />
+          <s:enumeration value="VesselTonnage" />
+          <s:enumeration value="VesselType" />
+          <s:enumeration value="Weight" />
+          <s:enumeration value="Incident" />
+          <s:enumeration value="OtherInfo" />
+          <s:enumeration value="IPAddress" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfBIFedwirePartyAddress">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Address" nillable="true" type="tns:BIFedwirePartyAddress" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIFedwirePartyAddress">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:AddressType" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressLine1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressLine2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressLine3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressLine4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressLine5" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressLine6" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressLine7" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildingNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Department" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StateProvince" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StreetName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubDepartment" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString4">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Field" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBIFedwirePartyID">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ID" nillable="true" type="tns:BIFedwirePartyID" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIFedwirePartyID">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:IDType" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Issuer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Number" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBIFedwirePartyPhone">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Phone" nillable="true" type="tns:BIFedwirePartyPhone" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIFedwirePartyPhone">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:PhoneType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Number" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="PhoneType">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="Business" />
+          <s:enumeration value="Cell" />
+          <s:enumeration value="Fax" />
+          <s:enumeration value="Home" />
+          <s:enumeration value="Work" />
+          <s:enumeration value="Unknown" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="BIISO20022Wire">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ChequeMaturityDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ChequeNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContractIdentification" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreationDateTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CurrencyOfTransfer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateOfSignature" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EndToEndIdentification" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EquivalentAmount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EquivalentAmountCurrency" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExchangeRate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExchangeRateType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FinalCollectionDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstCollectionDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InstructedAmount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InstructedAmountCurrency" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InstructionIdentification" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MandateIdentification" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MessageIdentification" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OriginalFinalCollectionDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OriginalMandateIdentification" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentInformationIdentification" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentMethod" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PoolingAdjustmentDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PreNotificationDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PreNotificationIdentification" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestedCollectionDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestedExecutionDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteList" type="tns:ArrayOfBIISO20022Note" />
+          <s:element minOccurs="0" maxOccurs="1" name="PartyList" type="tns:ArrayOfBIISO20022Party" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBIISO20022Note">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Note" nillable="true" type="tns:BIISO20022Note" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIISO20022Note">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Note" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tag" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBIISO20022Party">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Party" nillable="true" type="tns:BIISO20022Party" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIISO20022Party">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="EntityType" type="tns:ResponseEntityType" />
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:WirePartyType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdditionalInfoList" type="tns:ArrayOfBIISO20022PartyAdditionalInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressList" type="tns:ArrayOfBIISO20022PartyAddress" />
+          <s:element minOccurs="0" maxOccurs="1" name="IDList" type="tns:ArrayOfBIISO20022PartyID" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteList" type="tns:ArrayOfString6" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneList" type="tns:ArrayOfBIISO20022PartyPhone" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBIISO20022PartyAdditionalInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AdditionalInfo" nillable="true" type="tns:BIISO20022PartyAdditionalInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIISO20022PartyAdditionalInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:InfoType" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryOfBirth" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Info" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ParsedInfo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProvinceOfBirth" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBIISO20022PartyAddress">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Address" nillable="true" type="tns:BIISO20022PartyAddress" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIISO20022PartyAddress">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:AddressType" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildingNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Department" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StateProvince" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StreetName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubDepartment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LineList" type="tns:ArrayOfString5" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString5">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Line" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBIISO20022PartyID">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ID" nillable="true" type="tns:BIISO20022PartyID" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIISO20022PartyID">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:IDType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Issuer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Label" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Number" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString6">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Note" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBIISO20022PartyPhone">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Phone" nillable="true" type="tns:BIISO20022PartyPhone" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIISO20022PartyPhone">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:PhoneType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Number" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BISwiftWire">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AdditionalAmount" type="tns:BISwiftAmount" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdjustmentAmount" type="tns:BISwiftAmount" />
+          <s:element minOccurs="0" maxOccurs="1" name="Amount" type="tns:BISwiftAmount" />
+          <s:element minOccurs="0" maxOccurs="1" name="AmountOfCharges" type="tns:BISwiftAmount" />
+          <s:element minOccurs="0" maxOccurs="1" name="AmountOutstanding" type="tns:BISwiftAmount" />
+          <s:element minOccurs="0" maxOccurs="1" name="DecreaseAmount" type="tns:BISwiftAmount" />
+          <s:element minOccurs="0" maxOccurs="1" name="IncreaseAmount" type="tns:BISwiftAmount" />
+          <s:element minOccurs="0" maxOccurs="1" name="InstructedAmount" type="tns:BISwiftAmount" />
+          <s:element minOccurs="0" maxOccurs="1" name="NetAmount" type="tns:BISwiftAmount" />
+          <s:element minOccurs="0" maxOccurs="1" name="NewAmount" type="tns:BISwiftAmount" />
+          <s:element minOccurs="0" maxOccurs="1" name="OriginalAmount" type="tns:BISwiftAmount" />
+          <s:element minOccurs="0" maxOccurs="1" name="OriginalOrderedAmount" type="tns:BISwiftAmount" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrincipalAmount" type="tns:BISwiftAmount" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProceedsRemitted" type="tns:BISwiftAmount" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReceiversCharges" type="tns:BISwiftAmount" />
+          <s:element minOccurs="0" maxOccurs="1" name="SendersChargesA" type="tns:BISwiftAmount" />
+          <s:element minOccurs="0" maxOccurs="1" name="SendersChargesB" type="tns:BISwiftAmount" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalAmount" type="tns:BISwiftAmount" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdviceTypeA" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdviceTypeB" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApplicableRules" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AvailableBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankOperationCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClaimingBanksReference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConfirmationInstructions" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerSpecifiedReference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Date" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateMessageAcknowledged" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateOfAdvice" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateOfAmendment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateOfCashLetter" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateOfCollectionOrder" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateOfExpiry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateOfIssue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateOfOriginalAuthorization" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateOfReductionOrRelease" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DetailsOfCharges" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentaryCreditNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExchangeRate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FormOfDocumentaryCredit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FurtherIdentification" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FXDealReference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssuingBanksReference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LatestDateOfShipment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaximumCreditAmount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MessageType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NewDateOfExpiry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OriginalMessageDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OriginalMessageNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OriginalMessageType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PartialShipments" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PercentageCreditAmountTolerance" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PlaceOfExpiry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PresentingBanksReference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrincipalsReference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReceiversReference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReferenceToPreAdvice" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReimbursingBanksCharges" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReimbursingBanksReference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RelatedReference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RelatedSequenceReference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestExecutionDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SendersReference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubMessageType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionReference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionTypeCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransferringBanksReference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Transshipment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SendersChargesList" type="tns:ArrayOfBISwiftAmount" />
+          <s:element minOccurs="0" maxOccurs="1" name="MT4XXRepeatedSequenceList" type="tns:ArrayOfBISwift4XXData" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteList" type="tns:ArrayOfBISwiftNote" />
+          <s:element minOccurs="0" maxOccurs="1" name="PartyList" type="tns:ArrayOfBISwiftParty" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BISwiftAmount">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AdditionalInformation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Amount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CurrencyCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Date" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MaturityPeriodType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumberOfDaysOrMonths" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBISwiftAmount">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SendersCharges" nillable="true" type="tns:BISwiftAmount" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBISwift4XXData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RepeatedSequence" nillable="true" type="tns:BISwift4XXData" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BISwift4XXData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AmendedAmount" type="tns:BISwiftAmount" />
+          <s:element minOccurs="0" maxOccurs="1" name="Amount" type="tns:BISwiftAmount" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExistingAmount" type="tns:BISwiftAmount" />
+          <s:element minOccurs="0" maxOccurs="1" name="RelatedReference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionReference" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBISwiftNote">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Note" nillable="true" type="tns:BISwiftNote" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BISwiftNote">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Note" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Tag" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBISwiftParty">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Party" nillable="true" type="tns:BISwiftParty" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BISwiftParty">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:WirePartyType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdditionalInfoList" type="tns:ArrayOfBISwiftPartyAdditionalInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressList" type="tns:ArrayOfBISwiftPartyAddress" />
+          <s:element minOccurs="0" maxOccurs="1" name="IDList" type="tns:ArrayOfBISwiftPartyID" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBISwiftPartyAdditionalInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AdditionalInfo" nillable="true" type="tns:BISwiftPartyAdditionalInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BISwiftPartyAdditionalInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:InfoType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Info" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ParsedInfo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBISwiftPartyAddress">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Address" nillable="true" type="tns:BISwiftPartyAddress" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BISwiftPartyAddress">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:AddressType" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressLine1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressLine2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressLine3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressLine4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBISwiftPartyID">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ID" nillable="true" type="tns:BISwiftPartyID" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BISwiftPartyID">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:IDType" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Issuer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Number" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBIAdditionalInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AdditionalInfo" nillable="true" type="tns:BIAdditionalInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIAdditionalInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:InfoType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Information" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comments" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBIAddress">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Address" nillable="true" type="tns:BIAddress" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIAddress">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:AddressType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Street1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Street2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comments" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBIID">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ID" nillable="true" type="tns:BIID" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIID">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:IDType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Label" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssuedBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateIssued" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateExpires" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comments" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBIPhone">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Phone" nillable="true" type="tns:BIPhone" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIPhone">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:PhoneType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comments" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIWatchList">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="tns:BISearchStatusType" />
+          <s:element minOccurs="0" maxOccurs="1" name="MatchList" type="tns:ArrayOfBIMatch" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="BISearchStatusType">
+        <s:restriction base="s:string">
+          <s:enumeration value="NotSearched" />
+          <s:enumeration value="NoResults" />
+          <s:enumeration value="Results" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfBIMatch">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Match" nillable="true" type="tns:BIMatch" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIMatch">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BestCountryScore" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BestNameScore" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="EntityScore" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="GatewayOFACScreeningIndicator" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SecondaryOFACScreeningIndicator" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BestCountry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BestName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntityName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SourceDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DistributionDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Error" type="tns:BIError" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntityDetails" type="tns:BIEntity" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryDetails" type="tns:BICountry" />
+          <s:element minOccurs="0" maxOccurs="1" name="MatchSummary" type="tns:BIMatchSummary" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressMatches" type="tns:ArrayOfBIAddressMatch" />
+          <s:element minOccurs="0" maxOccurs="1" name="IDMatches" type="tns:ArrayOfBIIDMatch" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneMatches" type="tns:ArrayOfBIPhoneMatch" />
+          <s:element minOccurs="0" maxOccurs="1" name="DOBMatches" type="tns:ArrayOfBIDOBMatch" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIEntity">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="EntityType" type="tns:ResponseEntityType" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateListed" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ListReferenceNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comments" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReasonListed" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Gender" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="tns:BIName" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressList" type="tns:ArrayOfBIAddress" />
+          <s:element minOccurs="0" maxOccurs="1" name="AKAList" type="tns:ArrayOfBIAKA" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdditionalInfoList" type="tns:ArrayOfBIAdditionalInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="IDList" type="tns:ArrayOfBIID" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneList" type="tns:ArrayOfBIPhone" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBIAKA">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AKA" nillable="true" type="tns:BIAKA" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIAKA">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:AKAType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="tns:BIName" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comments" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MatchStrength" type="tns:BIMatchStrength" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="AKAType">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="AKA" />
+          <s:enumeration value="FKA" />
+          <s:enumeration value="NKA" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="BIMatchStrength">
+        <s:restriction base="s:string">
+          <s:enumeration value="NA" />
+          <s:enumeration value="STRONG" />
+          <s:enumeration value="WEAK" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="BICountry">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="EntityType" type="tns:ResponseEntityType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateListed" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ListReferenceNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comments" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReasonListed" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AKAList" type="tns:ArrayOfString7" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryCodeList" type="tns:ArrayOfString8" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryTermList" type="tns:ArrayOfString9" />
+          <s:element minOccurs="0" maxOccurs="1" name="CityList" type="tns:ArrayOfString10" />
+          <s:element minOccurs="0" maxOccurs="1" name="PortsList" type="tns:ArrayOfString11" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString7">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AKA" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString8">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Code" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString9">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Term" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString10">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="City" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString11">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Port" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIMatchSummary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Gender" type="tns:BISummary" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressMatches" type="tns:ArrayOfBISummary" />
+          <s:element minOccurs="0" maxOccurs="1" name="IDMatches" type="tns:ArrayOfBISummary1" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneMatches" type="tns:ArrayOfBISummary2" />
+          <s:element minOccurs="0" maxOccurs="1" name="DOBMatches" type="tns:ArrayOfBISummary3" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BISummary">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Score" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Input" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="List" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBISummary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Address" nillable="true" type="tns:BISummary" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBISummary1">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ID" nillable="true" type="tns:BISummary" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBISummary2">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Phone" nillable="true" type="tns:BISummary" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBISummary3">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DOB" nillable="true" type="tns:BISummary" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBIAddressMatch">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Address" nillable="true" type="tns:BIAddressMatch" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIAddressMatch">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Score" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AddressType" type="tns:AddressType" />
+          <s:element minOccurs="0" maxOccurs="1" name="InputValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ListValue" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBIIDMatch">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ID" nillable="true" type="tns:BIIDMatch" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIIDMatch">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Score" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IDType" type="tns:IDType" />
+          <s:element minOccurs="0" maxOccurs="1" name="InputValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ListValue" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBIPhoneMatch">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Phone" nillable="true" type="tns:BIPhoneMatch" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIPhoneMatch">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Score" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PhoneType" type="tns:PhoneType" />
+          <s:element minOccurs="0" maxOccurs="1" name="InputValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ListValue" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBIDOBMatch">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DOB" nillable="true" type="tns:BIDOBMatch" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIDOBMatch">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Score" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="InputValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ListValue" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIInstantID">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfBIError" />
+          <s:element minOccurs="0" maxOccurs="1" name="Input" type="tns:IIDInput" />
+          <s:element minOccurs="0" maxOccurs="1" name="VerifiedInput" type="tns:IIDInput" />
+          <s:element minOccurs="1" maxOccurs="1" name="ComprehensiveVerificationIndex" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressHistory" type="tns:ArrayOfIIDAddressInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="RiskIndicators" type="tns:ArrayOfIIDIndicator" />
+          <s:element minOccurs="0" maxOccurs="1" name="NameAddressPhone" type="tns:IIDIndicator" />
+          <s:element minOccurs="0" maxOccurs="1" name="NameAddressSSN" type="tns:IIDIndicator" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneOfNameAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AlternateNames" type="tns:ArrayOfIIDAlternateName" />
+          <s:element minOccurs="0" maxOccurs="1" name="PotentialFollowupActions" type="tns:ArrayOfIIDIndicator1" />
+          <s:element minOccurs="0" maxOccurs="1" name="RedFlags" type="tns:ArrayOfIIDRedFlag" />
+          <s:element minOccurs="0" maxOccurs="1" name="SSNInfo" type="tns:IIDSSNInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="WatchList" type="tns:IIDWatchList" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReversePhone" type="tns:IIDReversePhone" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBIError">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Error" nillable="true" type="tns:BIError" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IIDInput">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="tns:BIName" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="tns:IIDAddress" />
+          <s:element minOccurs="0" maxOccurs="1" name="DOBVerified" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DOB" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SSN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FEIN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IIDAddress">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Street1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="County" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfIIDAddressInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Address" nillable="true" type="tns:IIDAddressInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IIDAddressInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="tns:IIDAddress" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateFirstSeen" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateLastSeen" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsBestAddress" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfIIDIndicator">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RiskIndicator" nillable="true" type="tns:IIDIndicator" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IIDIndicator">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="RiskCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfIIDAlternateName">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AlternateName" nillable="true" type="tns:IIDAlternateName" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IIDAlternateName">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastSeenDate" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfIIDIndicator1">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FollowupAction" nillable="true" type="tns:IIDIndicator" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfIIDRedFlag">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RedFlag" nillable="true" type="tns:IIDRedFlag" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IIDRedFlag">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RiskIndicators" type="tns:ArrayOfIIDIndicator" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IIDSSNInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="IssuedLocation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssuedStartDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssuedEndDate" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IIDWatchList">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Table" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecordNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EntityName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="County" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="tns:IIDAddress" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IIDReversePhone">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="tns:BIName" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="tns:IIDAddress" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIBusinessInstantID">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfBIError" />
+          <s:element minOccurs="0" maxOccurs="1" name="Input" type="tns:IIDInput" />
+          <s:element minOccurs="0" maxOccurs="1" name="VerifiedInput" type="tns:IIDInput" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorrectedCompanyName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ComprehensiveVerificationIndex" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NameAddressPhoneIndicator" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NameAddressFEINIndicator" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NameAddressSSNIndicator" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="VerificationIndicators" type="tns:IIDVerificationIndicators" />
+          <s:element minOccurs="0" maxOccurs="1" name="PotentialRiskIndicators" type="tns:ArrayOfIIDIndicator" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneOfNameAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BankruptcyFilingsCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnreleasedJudgmentLienCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReleasedJudgmentLienCount" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MostRecentBankrupctyFiling" type="tns:IIDFiling" />
+          <s:element minOccurs="0" maxOccurs="1" name="MostRecentJudgmentLienFiling" type="tns:IIDFiling" />
+          <s:element minOccurs="0" maxOccurs="1" name="FEINMatchResults" type="tns:ArrayOfIIDFEINMatchResult" />
+          <s:element minOccurs="0" maxOccurs="1" name="WatchList" type="tns:IIDWatchList" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReversePhone" type="tns:IIDReversePhone" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IIDVerificationIndicators">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FEIN" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IIDFiling">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="tns:IIDAddress" />
+          <s:element minOccurs="0" maxOccurs="1" name="Date" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfIIDFEINMatchResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FEINMatchResult" nillable="true" type="tns:IIDFEINMatchResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IIDFEINMatchResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CompanyName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="tns:IIDAddress" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIFraudPoint">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfBIError" />
+          <s:element minOccurs="0" maxOccurs="1" name="Input" type="tns:FPInput" />
+          <s:element minOccurs="1" maxOccurs="1" name="Score" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RiskIndicators" type="tns:ArrayOfFPIndicator" />
+          <s:element minOccurs="0" maxOccurs="1" name="RedFlags" type="tns:ArrayOfFPRedFlag" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FPInput">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="tns:BIName" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="tns:FPAddress" />
+          <s:element minOccurs="0" maxOccurs="1" name="DOB" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SSN" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FPAddress">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Street1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFPIndicator">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RiskIndicator" nillable="true" type="tns:FPIndicator" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FPIndicator">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="RiskCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFPRedFlag">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RedFlag" nillable="true" type="tns:FPRedFlag" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FPRedFlag">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RiskIndicators" type="tns:ArrayOfFPIndicator" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIInstantIDIntl">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="response" type="tns:IIDIResponse" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IIDIResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Header" type="tns:IIDIHeader" />
+          <s:element minOccurs="0" maxOccurs="1" name="Result" type="tns:IIDIResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IIDIHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QueryId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Exceptions" type="tns:ArrayOfIIDIException" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfIIDIException">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Exception" nillable="true" type="tns:IIDIException" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IIDIException">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Source" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Code" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IIDIResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="InputEcho" type="tns:IIDIInput" />
+          <s:element minOccurs="0" maxOccurs="1" name="VerificationIndex" type="tns:IIDIVerificationIndex" />
+          <s:element minOccurs="0" maxOccurs="1" name="ComplianceLevel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RiskIndicators" type="tns:ArrayOfIIDIIndicator" />
+          <s:element minOccurs="0" maxOccurs="1" name="VerificationResults" type="tns:ArrayOfIIDIVerificationResult" />
+          <s:element minOccurs="0" maxOccurs="1" name="PassportNumberValidated" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VisaNumberValidated" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataSourceResults" type="tns:ArrayOfIIDIDataSource" />
+          <s:element minOccurs="0" maxOccurs="1" name="WatchList" type="tns:IIDWatchList" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IIDIInput">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="tns:BIName" />
+          <s:element minOccurs="0" maxOccurs="1" name="DOB" type="tns:IIDIDate" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="tns:IIDIAddress" />
+          <s:element minOccurs="0" maxOccurs="1" name="NationalIDNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NationalIDCountry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Passport" type="tns:IIDIPassport" />
+          <s:element minOccurs="0" maxOccurs="1" name="HomePhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IPAddress" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IIDIDate">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Year" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Month" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Day" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IIDIAddress">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="StreetName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StreetNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StreetSuffix" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnitDesignation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StreetAddress1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Province" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IIDIPassport">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExpirationDate" type="tns:IIDIDate" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MachineReadableLine1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MachineReadableLine2" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IIDIVerificationIndex">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="IVI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CitVL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ComVL" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfIIDIIndicator">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RiskIndicator" nillable="true" type="tns:IIDIIndicator" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IIDIIndicator">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="RiskCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfIIDIVerificationResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="VerificationResult" nillable="true" type="tns:IIDIVerificationResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IIDIVerificationResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FieldName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsVerified" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Count" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfIIDIDataSource">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DataSourceResult" nillable="true" type="tns:IIDIDataSource" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IIDIDataSource">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DataSourceName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataSourceID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataSourceType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataSourceError" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataSourceMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataSourceVerifications" type="tns:ArrayOfIIDIDataSourceVerification" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfIIDIDataSourceVerification">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DataSourceVerification" nillable="true" type="tns:IIDIDataSourceVerification" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IIDIDataSourceVerification">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="FieldName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Verification" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Search">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SearchRequest" nillable="true" type="tns:SearchRequest" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPredefineSearchName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="clAssignResultsTo" type="tns:AssignResultsTo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SearchRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Session" type="tns:Session" />
+          <s:element minOccurs="0" maxOccurs="1" name="Requests" type="tns:ArrayOfRequest" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Request" type="tns:Request" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Request">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Entity" type="tns:Entity" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="tns:Name" />
+          <s:element minOccurs="0" maxOccurs="1" name="Account" type="tns:Account" />
+          <s:element minOccurs="0" maxOccurs="1" name="Identifications" type="tns:ArrayOfIdentification" />
+          <s:element minOccurs="0" maxOccurs="1" name="Phones" type="tns:ArrayOfPhone" />
+          <s:element minOccurs="0" maxOccurs="1" name="Addresses" type="tns:ArrayOfAddress" />
+          <s:element minOccurs="0" maxOccurs="1" name="AdditionalInformation" type="tns:ArrayOfInformation" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="Entity">
+        <s:restriction base="s:string">
+          <s:enumeration value="Individual" />
+          <s:enumeration value="Business" />
+          <s:enumeration value="Text" />
+          <s:enumeration value="Unknown" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="Name">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Business" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Full" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="First" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Middle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Last" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Generation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Text" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Gender" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Account">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Date" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Amount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProviderID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GroupID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherData" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfIdentification">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Identification" nillable="true" type="tns:Identification" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Identification">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:IDType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Number" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IssuedBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Label" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateIssued" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateExpires" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="MachineReadable1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MachineReadable2" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPhone">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Phone" nillable="true" type="tns:Phone" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Phone">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:PhoneType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Number" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAddress">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Address" nillable="true" type="tns:Address" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Address">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:AddressType" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildingNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubBuildingNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StreetName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StreetType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Street1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Street2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInformation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Information" nillable="true" type="tns:Information" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Information">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:InfoType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Info" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SearchResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchResult" type="tns:BISearchResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IndexAcceptList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sAcceptListName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IndexAcceptListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IndexAcceptListResult" type="tns:BIUpdateResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BIUpdateResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Error" type="tns:BIError" />
+          <s:element minOccurs="1" maxOccurs="1" name="Successful" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecordInfo" type="tns:BIRecordInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIRecordInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AlertState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AssignmentList" type="tns:ArrayOfString12" />
+          <s:element minOccurs="0" maxOccurs="1" name="Division" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AssignmentType" type="tns:BIRecordAssignmentType" />
+          <s:element minOccurs="1" maxOccurs="1" name="AddedToAcceptList" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="HistoryList" type="tns:ArrayOfBIAuditItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString12">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Assignment" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBIAuditItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="History" nillable="true" type="tns:BIAuditItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIAuditItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Date" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="User" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Note" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Event" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddToAcceptList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="lResultID" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="sAcceptListName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sComment" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddToAcceptListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddToAcceptListResult" type="tns:BIUpdateResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRecordState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="lResultID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRecordStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRecordStateResult" type="tns:BIUpdateResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetRecordState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="lResultID" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="sRecordStatus" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="eAlertState" type="tns:BIAlertState" />
+            <s:element minOccurs="0" maxOccurs="1" name="clUpdateAssignResultsTo" type="tns:UpdateAssignResultsTo" />
+            <s:element minOccurs="0" maxOccurs="1" name="sNote" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="BIAlertState">
+        <s:restriction base="s:string">
+          <s:enumeration value="Open" />
+          <s:enumeration value="Closed" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="UpdateAssignResultsTo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="RecordAssignmentType" type="tns:BIRecordAssignmentType" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoleOrUser" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetRecordStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetRecordStateResult" type="tns:BIUpdateResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetResultDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetResultDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetResultDetailsResult" type="tns:BIResultDetailResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BIResultDetailResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Error" type="tns:BIError" />
+          <s:element minOccurs="0" maxOccurs="1" name="DaysUntilPasswordExpires" type="tns:BIDaysUntilPasswordExpires" />
+          <s:element minOccurs="0" maxOccurs="1" name="Record" type="tns:BIRecord" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetRunDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRunDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRunDetailsResult" type="tns:BIRunDetailResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BIRunDetailResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Error" type="tns:BIError" />
+          <s:element minOccurs="0" maxOccurs="1" name="DaysUntilPasswordExpires" type="tns:BIDaysUntilPasswordExpires" />
+          <s:element minOccurs="0" maxOccurs="1" name="RunInfo" type="tns:BIRunInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BIRunInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Glb" type="s:unsignedByte" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartTimeUtc" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastUpdateTimeUtc" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Dppa" type="tns:ResponseDppaChoice" />
+          <s:element minOccurs="1" maxOccurs="1" name="EntityType" type="tns:ResponseEntityType" />
+          <s:element minOccurs="1" maxOccurs="1" name="WireType" type="tns:ResponseWireType" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProcessingState" type="tns:ProcessingStateType" />
+          <s:element minOccurs="1" maxOccurs="1" name="AlertCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DivisionID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ErrorCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumRecordsProcessed" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalNumRecords" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalNumRows" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WLMatchCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RunID" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultsFile1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultsFile2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FileFormatName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PredefinedSearchName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubmitType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="ResponseDppaChoice">
+        <s:restriction base="s:string">
+          <s:enumeration value="DPPA_CHOICE_NA" />
+          <s:enumeration value="DPPA_CHOICE_0" />
+          <s:enumeration value="DPPA_CHOICE_1" />
+          <s:enumeration value="DPPA_CHOICE_2" />
+          <s:enumeration value="DPPA_CHOICE_3" />
+          <s:enumeration value="DPPA_CHOICE_4" />
+          <s:enumeration value="DPPA_CHOICE_6" />
+          <s:enumeration value="DPPA_CHOICE_7" />
+          <s:enumeration value="DPPA_CHOICE_8" />
+          <s:enumeration value="DPPA_CHOICE_10" />
+          <s:enumeration value="DPPA_CHOICE_14" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="ProcessingStateType">
+        <s:restriction base="s:string">
+          <s:enumeration value="BI_PROCESSING_STATE_COMPLETED" />
+          <s:enumeration value="BI_PROCESSING_STATE_PROCESSING" />
+          <s:enumeration value="BI_PROCESSING_STATE_CANCELED" />
+          <s:enumeration value="BI_PROCESSING_STATE_INTERRUPTED" />
+          <s:enumeration value="BI_PROCESSING_STATE_ERROR" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetEventNotification">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="type" type="tns:QueuedEventType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="QueuedEventType">
+        <s:list>
+          <s:simpleType>
+            <s:restriction base="s:string">
+              <s:enumeration value="None" />
+              <s:enumeration value="AlertStateChanged" />
+              <s:enumeration value="RecordStatusChanged" />
+              <s:enumeration value="BatchStatusChanged" />
+              <s:enumeration value="All" />
+            </s:restriction>
+          </s:simpleType>
+        </s:list>
+      </s:simpleType>
+      <s:element name="GetEventNotificationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetEventNotificationResult" type="tns:BIEventQueueResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BIEventQueueResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Error" type="tns:BIError" />
+          <s:element minOccurs="0" maxOccurs="1" name="DaysUntilPasswordExpires" type="tns:BIDaysUntilPasswordExpires" />
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="EventType" type="tns:BIQueuedEventType" />
+          <s:element minOccurs="1" maxOccurs="1" name="EventId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="QueuedAt" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="BIQueuedEventType">
+        <s:list>
+          <s:simpleType>
+            <s:restriction base="s:string">
+              <s:enumeration value="None" />
+              <s:enumeration value="AlertStateChanged" />
+              <s:enumeration value="RecordStatusChanged" />
+              <s:enumeration value="BatchStatusChanged" />
+              <s:enumeration value="All" />
+            </s:restriction>
+          </s:simpleType>
+        </s:list>
+      </s:simpleType>
+      <s:element name="GetAlertChangedDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="key" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAlertChangedDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAlertChangedDetailsResult" type="tns:BIAlertStateChangedResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BIAlertStateChangedResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Error" type="tns:BIError" />
+          <s:element minOccurs="0" maxOccurs="1" name="DaysUntilPasswordExpires" type="tns:BIDaysUntilPasswordExpires" />
+          <s:element minOccurs="0" maxOccurs="1" name="EventItem" type="tns:EventItemAlertStateChanged" />
+          <s:element minOccurs="0" maxOccurs="1" name="Record" type="tns:BIRecord" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EventItemAlertStateChanged">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="EventId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResultId" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="User" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PreviousState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NewState" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetStatusChangedDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="key" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStatusChangedDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStatusChangedDetailsResult" type="tns:BIStatusChangedResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BIStatusChangedResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Error" type="tns:BIError" />
+          <s:element minOccurs="0" maxOccurs="1" name="DaysUntilPasswordExpires" type="tns:BIDaysUntilPasswordExpires" />
+          <s:element minOccurs="0" maxOccurs="1" name="EventItem" type="tns:EventItemStatusChanged" />
+          <s:element minOccurs="0" maxOccurs="1" name="Record" type="tns:BIRecord" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EventItemStatusChanged">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="EventId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResultId" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="User" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PreviousStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NewStatus" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetBatchStatusChangedDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="key" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBatchStatusChangedDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBatchStatusChangedDetailsResult" type="tns:BIBatchStatusChangedResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BIBatchStatusChangedResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Error" type="tns:BIError" />
+          <s:element minOccurs="0" maxOccurs="1" name="DaysUntilPasswordExpires" type="tns:BIDaysUntilPasswordExpires" />
+          <s:element minOccurs="0" maxOccurs="1" name="EventItem" type="tns:EventItemBatchStatusChanged" />
+          <s:element minOccurs="0" maxOccurs="1" name="RunInfo" type="tns:BIRunInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EventItemBatchStatusChanged">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="EventId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="RunId" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="EventProcessingComplete">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="key" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EventProcessingCompleteResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ChangePasswordSoapIn">
+    <wsdl:part name="params" element="tns:ChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordSoapOut">
+    <wsdl:part name="params" element="tns:ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="WireSoapIn">
+    <wsdl:part name="params" element="tns:Wire" />
+  </wsdl:message>
+  <wsdl:message name="WireSoapOut">
+    <wsdl:part name="params" element="tns:WireResponse" />
+  </wsdl:message>
+  <wsdl:message name="WireAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="SearchSoapIn">
+    <wsdl:part name="params" element="tns:Search" />
+  </wsdl:message>
+  <wsdl:message name="SearchSoapOut">
+    <wsdl:part name="params" element="tns:SearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="IndexAcceptListSoapIn">
+    <wsdl:part name="params" element="tns:IndexAcceptList" />
+  </wsdl:message>
+  <wsdl:message name="IndexAcceptListSoapOut">
+    <wsdl:part name="params" element="tns:IndexAcceptListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IndexAcceptListAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddToAcceptListSoapIn">
+    <wsdl:part name="params" element="tns:AddToAcceptList" />
+  </wsdl:message>
+  <wsdl:message name="AddToAcceptListSoapOut">
+    <wsdl:part name="params" element="tns:AddToAcceptListResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddToAcceptListAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetRecordStateSoapIn">
+    <wsdl:part name="params" element="tns:GetRecordState" />
+  </wsdl:message>
+  <wsdl:message name="GetRecordStateSoapOut">
+    <wsdl:part name="params" element="tns:GetRecordStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRecordStateAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="SetRecordStateSoapIn">
+    <wsdl:part name="params" element="tns:SetRecordState" />
+  </wsdl:message>
+  <wsdl:message name="SetRecordStateSoapOut">
+    <wsdl:part name="params" element="tns:SetRecordStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetRecordStateAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetResultDetailsSoapIn">
+    <wsdl:part name="params" element="tns:GetResultDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetResultDetailsSoapOut">
+    <wsdl:part name="params" element="tns:GetResultDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetResultDetailsAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetRunDetailsSoapIn">
+    <wsdl:part name="params" element="tns:GetRunDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetRunDetailsSoapOut">
+    <wsdl:part name="params" element="tns:GetRunDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRunDetailsAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetEventNotificationSoapIn">
+    <wsdl:part name="params" element="tns:GetEventNotification" />
+  </wsdl:message>
+  <wsdl:message name="GetEventNotificationSoapOut">
+    <wsdl:part name="params" element="tns:GetEventNotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEventNotificationAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetAlertChangedDetailsSoapIn">
+    <wsdl:part name="params" element="tns:GetAlertChangedDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetAlertChangedDetailsSoapOut">
+    <wsdl:part name="params" element="tns:GetAlertChangedDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAlertChangedDetailsAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetStatusChangedDetailsSoapIn">
+    <wsdl:part name="params" element="tns:GetStatusChangedDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetStatusChangedDetailsSoapOut">
+    <wsdl:part name="params" element="tns:GetStatusChangedDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStatusChangedDetailsAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetBatchStatusChangedDetailsSoapIn">
+    <wsdl:part name="params" element="tns:GetBatchStatusChangedDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetBatchStatusChangedDetailsSoapOut">
+    <wsdl:part name="params" element="tns:GetBatchStatusChangedDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBatchStatusChangedDetailsAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="EventProcessingCompleteSoapIn">
+    <wsdl:part name="params" element="tns:EventProcessingComplete" />
+  </wsdl:message>
+  <wsdl:message name="EventProcessingCompleteSoapOut">
+    <wsdl:part name="params" element="tns:EventProcessingCompleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="EventProcessingCompleteAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:portType name="Common">
+    <wsdl:operation name="ChangePassword">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Change Password</wsdl:documentation>
+      <wsdl:input message="tns:ChangePasswordSoapIn" />
+      <wsdl:output message="tns:ChangePasswordSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SearchAPI1">
+    <wsdl:operation name="Wire">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Wire Search</wsdl:documentation>
+      <wsdl:input message="tns:WireSoapIn" />
+      <wsdl:output message="tns:WireSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Search</wsdl:documentation>
+      <wsdl:input message="tns:SearchSoapIn" />
+      <wsdl:output message="tns:SearchSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IndexAcceptList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Index accept lists</wsdl:documentation>
+      <wsdl:input message="tns:IndexAcceptListSoapIn" />
+      <wsdl:output message="tns:IndexAcceptListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddToAcceptList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add to accept list</wsdl:documentation>
+      <wsdl:input message="tns:AddToAcceptListSoapIn" />
+      <wsdl:output message="tns:AddToAcceptListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRecordState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Record by ID</wsdl:documentation>
+      <wsdl:input message="tns:GetRecordStateSoapIn" />
+      <wsdl:output message="tns:GetRecordStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetRecordState">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Update Record by ID</wsdl:documentation>
+      <wsdl:input message="tns:SetRecordStateSoapIn" />
+      <wsdl:output message="tns:SetRecordStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetResultDetails">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Result Information</wsdl:documentation>
+      <wsdl:input message="tns:GetResultDetailsSoapIn" />
+      <wsdl:output message="tns:GetResultDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRunDetails">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Run Information</wsdl:documentation>
+      <wsdl:input message="tns:GetRunDetailsSoapIn" />
+      <wsdl:output message="tns:GetRunDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEventNotification">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get A Queued Event</wsdl:documentation>
+      <wsdl:input message="tns:GetEventNotificationSoapIn" />
+      <wsdl:output message="tns:GetEventNotificationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlertChangedDetails">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Alert Changed Event Information</wsdl:documentation>
+      <wsdl:input message="tns:GetAlertChangedDetailsSoapIn" />
+      <wsdl:output message="tns:GetAlertChangedDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusChangedDetails">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Status Changed Event Information</wsdl:documentation>
+      <wsdl:input message="tns:GetStatusChangedDetailsSoapIn" />
+      <wsdl:output message="tns:GetStatusChangedDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchStatusChangedDetails">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Batch Status Changed Event Information</wsdl:documentation>
+      <wsdl:input message="tns:GetBatchStatusChangedDetailsSoapIn" />
+      <wsdl:output message="tns:GetBatchStatusChangedDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EventProcessingComplete">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Remove An Event</wsdl:documentation>
+      <wsdl:input message="tns:EventProcessingCompleteSoapIn" />
+      <wsdl:output message="tns:EventProcessingCompleteSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Common" type="tns:Common">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="https://bridgerinsight.lexisnexis.com/webservices/8.0/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ChangePasswordAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SearchAPI1" type="tns:SearchAPI1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Wire">
+      <soap:operation soapAction="https://bridgerinsight.lexisnexis.com/webservices/8.0/Wire" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WireAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <soap:operation soapAction="https://bridgerinsight.lexisnexis.com/webservices/8.0/Search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SearchAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IndexAcceptList">
+      <soap:operation soapAction="https://bridgerinsight.lexisnexis.com/webservices/8.0/IndexAcceptList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:IndexAcceptListAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddToAcceptList">
+      <soap:operation soapAction="https://bridgerinsight.lexisnexis.com/webservices/8.0/AddToAcceptList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AddToAcceptListAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecordState">
+      <soap:operation soapAction="https://bridgerinsight.lexisnexis.com/webservices/8.0/GetRecordState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetRecordStateAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetRecordState">
+      <soap:operation soapAction="https://bridgerinsight.lexisnexis.com/webservices/8.0/SetRecordState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SetRecordStateAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResultDetails">
+      <soap:operation soapAction="https://bridgerinsight.lexisnexis.com/webservices/8.0/GetResultDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetResultDetailsAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRunDetails">
+      <soap:operation soapAction="https://bridgerinsight.lexisnexis.com/webservices/8.0/GetRunDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetRunDetailsAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEventNotification">
+      <soap:operation soapAction="https://bridgerinsight.lexisnexis.com/webservices/8.0/GetEventNotification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetEventNotificationAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlertChangedDetails">
+      <soap:operation soapAction="https://bridgerinsight.lexisnexis.com/webservices/8.0/GetAlertChangedDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAlertChangedDetailsAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusChangedDetails">
+      <soap:operation soapAction="https://bridgerinsight.lexisnexis.com/webservices/8.0/GetStatusChangedDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetStatusChangedDetailsAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchStatusChangedDetails">
+      <soap:operation soapAction="https://bridgerinsight.lexisnexis.com/webservices/8.0/GetBatchStatusChangedDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetBatchStatusChangedDetailsAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EventProcessingComplete">
+      <soap:operation soapAction="https://bridgerinsight.lexisnexis.com/webservices/8.0/EventProcessingComplete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:EventProcessingCompleteAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Common1" type="tns:Common">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ChangePassword">
+      <soap12:operation soapAction="https://bridgerinsight.lexisnexis.com/webservices/8.0/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ChangePasswordAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SearchAPI11" type="tns:SearchAPI1">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Wire">
+      <soap12:operation soapAction="https://bridgerinsight.lexisnexis.com/webservices/8.0/Wire" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WireAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <soap12:operation soapAction="https://bridgerinsight.lexisnexis.com/webservices/8.0/Search" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SearchAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IndexAcceptList">
+      <soap12:operation soapAction="https://bridgerinsight.lexisnexis.com/webservices/8.0/IndexAcceptList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:IndexAcceptListAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddToAcceptList">
+      <soap12:operation soapAction="https://bridgerinsight.lexisnexis.com/webservices/8.0/AddToAcceptList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:AddToAcceptListAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecordState">
+      <soap12:operation soapAction="https://bridgerinsight.lexisnexis.com/webservices/8.0/GetRecordState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetRecordStateAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetRecordState">
+      <soap12:operation soapAction="https://bridgerinsight.lexisnexis.com/webservices/8.0/SetRecordState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SetRecordStateAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetResultDetails">
+      <soap12:operation soapAction="https://bridgerinsight.lexisnexis.com/webservices/8.0/GetResultDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetResultDetailsAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRunDetails">
+      <soap12:operation soapAction="https://bridgerinsight.lexisnexis.com/webservices/8.0/GetRunDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetRunDetailsAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEventNotification">
+      <soap12:operation soapAction="https://bridgerinsight.lexisnexis.com/webservices/8.0/GetEventNotification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetEventNotificationAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlertChangedDetails">
+      <soap12:operation soapAction="https://bridgerinsight.lexisnexis.com/webservices/8.0/GetAlertChangedDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetAlertChangedDetailsAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusChangedDetails">
+      <soap12:operation soapAction="https://bridgerinsight.lexisnexis.com/webservices/8.0/GetStatusChangedDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetStatusChangedDetailsAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBatchStatusChangedDetails">
+      <soap12:operation soapAction="https://bridgerinsight.lexisnexis.com/webservices/8.0/GetBatchStatusChangedDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetBatchStatusChangedDetailsAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EventProcessingComplete">
+      <soap12:operation soapAction="https://bridgerinsight.lexisnexis.com/webservices/8.0/EventProcessingComplete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:EventProcessingCompleteAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SearchAPI1">
+    <wsdl:port name="Common" binding="tns:Common">
+      <soap:address location="https://bridgertest.lexisnexis.com/webservices/8.0/searchapi1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SearchAPI1" binding="tns:SearchAPI1">
+      <soap:address location="https://bridgertest.lexisnexis.com/webservices/8.0/searchapi1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Common1" binding="tns:Common1">
+      <soap12:address location="https://bridgertest.lexisnexis.com/webservices/8.0/searchapi1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SearchAPI11" binding="tns:SearchAPI11">
+      <soap12:address location="https://bridgertest.lexisnexis.com/webservices/8.0/searchapi1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

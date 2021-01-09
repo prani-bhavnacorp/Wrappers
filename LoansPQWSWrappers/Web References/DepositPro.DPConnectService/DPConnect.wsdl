@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns="http://harlandfs.com/interface/DPConnect" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DPConnect" targetNamespace="http://harlandfs.com/interface/DPConnect" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://harlandfs.com/interface/DPConnect">
+      <xsd:simpleType name="hfs_YN">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Y" />
+          <xsd:enumeration value="N" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="hfs_SSNTIN">
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="(\d{3}-\d{2}-\d{4})|(\d{2}-\d{7})" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="hfs_state">
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="((AL)|(AK)|(AS)|(AZ)|(AR)|(CA)|(CO)|(CT)|(DE)|(DC)|(FM)|(FL)|(GA)|(GU)|(HI)|(ID)|(IL)|(IN)|(IA)|(KS)|(KY)|(LA)|(ME)|(MH)|(MD)|(MA)|(MI)|(MN)|(MS)|(MO)|(MT)|(NE)|(NV)|(NH)|(NJ)|(NM)|(NY)|(NC)|(ND)|(MP)|(OH)|(OK)|(OR)|(PW)|(PA)|(PR)|(RI)|(SC)|(SD)|(TN)|(TX)|(UT)|(VT)|(VI)|(VA)|(WA)|(WV)|(WI)|(WY))" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="hfs_date">
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="hfs_phone">
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="(\d{3}-)?\d{3}-\d{4}" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="hfs_AddrType">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Street" />
+          <xsd:enumeration value="Mailing" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="hfs_AddrFormat">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="USA" />
+          <xsd:enumeration value="Military" />
+          <xsd:enumeration value="Foreign" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="hfs_CustType">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Personal" />
+          <xsd:enumeration value="Fiduciary" />
+          <xsd:enumeration value="Sole Proprietorship" />
+          <xsd:enumeration value="Partnership/Joint Venture" />
+          <xsd:enumeration value="Limited Liability Company" />
+          <xsd:enumeration value="Corporation" />
+          <xsd:enumeration value="Unincorporated Association" />
+          <xsd:enumeration value="Estate" />
+          <xsd:enumeration value="Trust" />
+          <xsd:enumeration value="IRETA" />
+          <xsd:enumeration value="Real Estate Broker Client Trust (General)" />
+          <xsd:enumeration value="Real Estate Broker Client Trust (Individual)" />
+          <xsd:enumeration value="IOLTA/IOTA" />
+          <xsd:enumeration value="Genral Attorney/Client Trust" />
+          <xsd:enumeration value="Individual Attorney/Client Trust" />
+          <xsd:enumeration value="Government/Municipal/Public Funds" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="hfs_PartnershipType">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Partnership/Joint Venture" />
+          <xsd:enumeration value="General Partnership" />
+          <xsd:enumeration value="Limited Partnership" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="hfs_AcctPurpose">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Consumer (Personal, Family, Household Purpose)" />
+          <xsd:enumeration value="Non Consumer (Business, or in a Professional Capacity)" />
+          <xsd:enumeration value="Consumer (Acting as Representative is Not Part of Member's Profession)" />
+          <xsd:enumeration value="Non Consumer (Acting as Representative is Part of Member's Profession)" />
+          <xsd:enumeration value="Consumer (Acting as Representative is Not Part of Customer's Profession)" />
+          <xsd:enumeration value="Non Consumer (Acting as Representative is Part of Customer's Profession)" />
+          <xsd:enumeration value="Non Consumer" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="hfs_Capacity">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Holder" />
+          <xsd:enumeration value="Agent" />
+          <xsd:enumeration value="Officer" />
+          <xsd:enumeration value="Partner" />
+          <xsd:enumeration value="Trustee" />
+          <xsd:enumeration value="Member" />
+          <xsd:enumeration value="Representative" />
+          <xsd:enumeration value="Sole Proprietorship" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="hfs_Entity">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Individual" />
+          <xsd:enumeration value="Sole Proprietorship" />
+          <xsd:enumeration value="Partnership" />
+          <xsd:enumeration value="Corporation" />
+          <xsd:enumeration value="Limited Liability Company" />
+          <xsd:enumeration value="Association" />
+          <xsd:enumeration value="Government" />
+          <xsd:enumeration value="Trust" />
+          <xsd:enumeration value="Estate" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="hfs_Authorized">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Authorized" />
+          <xsd:enumeration value="Not Authorized" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="hfs_ID">
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="\d*" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:group name="Age">
+        <xsd:choice>
+          <xsd:element minOccurs="0" maxOccurs="1" name="BirthDt" type="tns:hfs_date" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="Age" type="xsd:positiveInteger" />
+        </xsd:choice>
+      </xsd:group>
+      <xsd:element name="DPConnect">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="DPRequest" type="tns:DPRequestType" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="DPRequestType">
+        <xsd:sequence>
+          <xsd:element ref="tns:TISTransaction" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="TISTransaction">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tns:MainOffice" />
+            <xsd:element ref="tns:TISTransactionFields" />
+            <xsd:element minOccurs="0" ref="tns:EntityList" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="MainOffice" type="tns:hfs_ID">
+        <xsd:annotation>
+          <xsd:documentation> MainOffice must contain the Institution license ID  </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="TISTransactionFields">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tns:PrimaryAccountHolderST" />
+            <xsd:element minOccurs="0" ref="tns:CustType" />
+            <xsd:element minOccurs="0" ref="tns:AcctPurpose" />
+            <xsd:element minOccurs="0" ref="tns:Ownship" />
+            <xsd:element minOccurs="0" ref="tns:VerfdBy" />
+            <xsd:element minOccurs="0" ref="tns:AcctNo" />
+            <xsd:element minOccurs="0" ref="tns:OpndBy" />
+            <xsd:element minOccurs="0" ref="tns:DateOpn" />
+            <xsd:element minOccurs="0" ref="tns:CDNo" />
+            <xsd:element minOccurs="0" ref="tns:MarketingCategory" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="PrimaryAccountHolderST" type="tns:hfs_state" />
+      <xsd:element name="CustType" type="tns:hfs_CustType" />
+      <xsd:element name="AcctPurpose" type="tns:hfs_AcctPurpose" />
+      <xsd:element name="Ownship" type="xsd:string" />
+      <xsd:element name="VerfdBy" type="xsd:string" />
+      <xsd:element name="AcctNo" type="xsd:string" />
+      <xsd:element name="OpndBy" type="xsd:string" />
+      <xsd:element name="DateOpn" type="tns:hfs_date" />
+      <xsd:element name="CDNo" type="xsd:string" />
+      <xsd:element name="MarketingCategory" type="xsd:string" />
+      <xsd:element name="EntityList">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="unbounded" ref="tns:Entity" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Entity">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" ref="tns:EntityFields" />
+            <xsd:element minOccurs="0" ref="tns:AddressList" />
+            <xsd:element minOccurs="0" ref="tns:CapacityList" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EntityFields">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tns:EntityType" />
+            <xsd:element minOccurs="0" ref="tns:EntityKey" />
+            <xsd:element minOccurs="0" ref="tns:FirstName" />
+            <xsd:element ref="tns:LastOrBusnName" />
+            <xsd:element minOccurs="0" ref="tns:SSNTIN" />
+            <xsd:element minOccurs="0" ref="tns:MotherMaidenName" />
+            <xsd:group minOccurs="0" ref="tns:Age" />
+            <xsd:element minOccurs="0" ref="tns:BirthCity" />
+            <xsd:element minOccurs="0" ref="tns:StateOfOrganization" />
+            <xsd:element minOccurs="0" ref="tns:QualifiedInLPStYN" />
+            <xsd:element minOccurs="0" ref="tns:PartnershipType" />
+            <xsd:element minOccurs="0" ref="tns:DateOfAuthorization" />
+            <xsd:element minOccurs="0" ref="tns:TaxpayerIDNumberAppliedForYN" />
+            <xsd:element minOccurs="0" ref="tns:NextofKinName" />
+            <xsd:element minOccurs="0" ref="tns:NextofKinAddress" />
+            <xsd:element minOccurs="0" ref="tns:NextofKinCity" />
+            <xsd:element minOccurs="0" ref="tns:NextofKinSt" />
+            <xsd:element minOccurs="0" ref="tns:NextofKinZip" />
+            <xsd:element minOccurs="0" ref="tns:NextofKinPhone" />
+            <xsd:element minOccurs="0" ref="tns:NextofKinRelationship" />
+            <xsd:element minOccurs="0" ref="tns:PrimaryPhone" />
+            <xsd:element minOccurs="0" ref="tns:PrimaryPhoneExt" />
+            <xsd:element ref="tns:PrimaryPhoneNotes" />
+            <xsd:element minOccurs="0" ref="tns:SecondPhone" />
+            <xsd:element minOccurs="0" ref="tns:SecondPhoneExt" />
+            <xsd:element minOccurs="0" ref="tns:SecondPhoneNotes" />
+            <xsd:element minOccurs="0" ref="tns:WorkPhone" />
+            <xsd:element minOccurs="0" ref="tns:WorkPhoneExt" />
+            <xsd:element minOccurs="0" ref="tns:WorkPhoneNotes" />
+            <xsd:element minOccurs="0" ref="tns:CellPhone" />
+            <xsd:element minOccurs="0" ref="tns:CellPhoneExt" />
+            <xsd:element minOccurs="0" ref="tns:CellPhoneNotes" />
+            <xsd:element minOccurs="0" ref="tns:ForeignPhone" />
+            <xsd:element minOccurs="0" ref="tns:ForeignPhoneNotes" />
+            <xsd:element minOccurs="0" ref="tns:FaxPhone" />
+            <xsd:element minOccurs="0" ref="tns:FaxPhoneExt" />
+            <xsd:element minOccurs="0" ref="tns:FaxPhoneNotes" />
+            <xsd:element minOccurs="0" ref="tns:SecondFaxPhone" />
+            <xsd:element minOccurs="0" ref="tns:SecondFaxPhoneExt" />
+            <xsd:element minOccurs="0" ref="tns:SecondFaxPhoneNotes" />
+            <xsd:element minOccurs="0" ref="tns:PagerPhone" />
+            <xsd:element minOccurs="0" ref="tns:PagerPhoneExt" />
+            <xsd:element minOccurs="0" ref="tns:PagerPhoneNotes" />
+            <xsd:element minOccurs="0" ref="tns:EMailAddr" />
+            <xsd:element minOccurs="0" ref="tns:EMailAddrNotes" />
+            <xsd:element minOccurs="0" ref="tns:SecondEMailAddr" />
+            <xsd:element minOccurs="0" ref="tns:SecondEMailAddrNotes" />
+            <xsd:element minOccurs="0" ref="tns:CustNumber" />
+            <xsd:element minOccurs="0" ref="tns:PrimaryIDType" />
+            <xsd:element minOccurs="0" ref="tns:PrimaryIDNumber" />
+            <xsd:element minOccurs="0" ref="tns:PrimaryIDIssueDate" />
+            <xsd:element minOccurs="0" ref="tns:PrimaryIDExpirationDate" />
+            <xsd:element minOccurs="0" ref="tns:PrimaryIDIssuingGovtOffice" />
+            <xsd:element minOccurs="0" ref="tns:PrimaryIDIssuingCountry" />
+            <xsd:element minOccurs="0" ref="tns:PrimaryIDIssuingState" />
+            <xsd:element minOccurs="0" ref="tns:SecondaryIDType" />
+            <xsd:element minOccurs="0" ref="tns:SecondaryIDNumber" />
+            <xsd:element minOccurs="0" ref="tns:SecondaryIDIssueDate" />
+            <xsd:element minOccurs="0" ref="tns:SecondaryIDExpirationDate" />
+            <xsd:element minOccurs="0" ref="tns:SecondaryIDIssuingGovtOffice" />
+            <xsd:element minOccurs="0" ref="tns:SecondaryIDIssuingCountry" />
+            <xsd:element minOccurs="0" ref="tns:SecondaryIDIssuingState" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="EntityType" type="tns:hfs_Entity" />
+      <xsd:element name="EntityKey" type="xsd:positiveInteger" />
+      <xsd:element name="FirstName" type="xsd:string" />
+      <xsd:element name="LastOrBusnName" type="xsd:string" />
+      <xsd:element name="SSNTIN" type="tns:hfs_SSNTIN" />
+      <xsd:element name="MotherMaidenName" type="xsd:string" />
+      <xsd:element name="BirthCity" type="xsd:string" />
+      <xsd:element name="StateOfOrganization" type="tns:hfs_state" />
+      <xsd:element name="QualifiedInLPStYN" type="tns:hfs_YN" />
+      <xsd:element name="PartnershipType" type="tns:hfs_PartnershipType" />
+      <xsd:element name="DateOfAuthorization" type="tns:hfs_date" />
+      <xsd:element name="TaxpayerIDNumberAppliedForYN" type="tns:hfs_YN" />
+      <xsd:element name="NextofKinName" type="xsd:string" />
+      <xsd:element name="NextofKinAddress" type="xsd:string" />
+      <xsd:element name="NextofKinCity" type="xsd:string" />
+      <xsd:element name="NextofKinSt" type="tns:hfs_state" />
+      <xsd:element name="NextofKinZip" type="xsd:string" />
+      <xsd:element name="NextofKinPhone" type="tns:hfs_phone" />
+      <xsd:element name="NextofKinRelationship" type="xsd:string" />
+      <xsd:element name="PrimaryPhone" type="tns:hfs_phone" />
+      <xsd:element name="PrimaryPhoneExt" type="xsd:string" />
+      <xsd:element name="PrimaryPhoneNotes" type="xsd:string" />
+      <xsd:element name="SecondPhone" type="tns:hfs_phone" />
+      <xsd:element name="SecondPhoneExt" type="xsd:string" />
+      <xsd:element name="SecondPhoneNotes" type="xsd:string" />
+      <xsd:element name="WorkPhone" type="tns:hfs_phone" />
+      <xsd:element name="WorkPhoneExt" type="xsd:string" />
+      <xsd:element name="WorkPhoneNotes" type="xsd:string" />
+      <xsd:element name="CellPhone" type="tns:hfs_phone" />
+      <xsd:element name="CellPhoneExt" type="xsd:string" />
+      <xsd:element name="CellPhoneNotes" type="xsd:string" />
+      <xsd:element name="ForeignPhone" type="xsd:string" />
+      <xsd:element name="ForeignPhoneNotes" type="xsd:string" />
+      <xsd:element name="FaxPhone" type="tns:hfs_phone" />
+      <xsd:element name="FaxPhoneExt" type="xsd:string" />
+      <xsd:element name="FaxPhoneNotes" type="xsd:string" />
+      <xsd:element name="SecondFaxPhone" type="tns:hfs_phone" />
+      <xsd:element name="SecondFaxPhoneExt" type="xsd:string" />
+      <xsd:element name="SecondFaxPhoneNotes" type="xsd:string" />
+      <xsd:element name="PagerPhone" type="tns:hfs_phone" />
+      <xsd:element name="PagerPhoneExt" type="xsd:string" />
+      <xsd:element name="PagerPhoneNotes" type="xsd:string" />
+      <xsd:element name="EMailAddr" type="xsd:string" />
+      <xsd:element name="EMailAddrNotes" type="xsd:string" />
+      <xsd:element name="SecondEMailAddr" type="xsd:string" />
+      <xsd:element name="SecondEMailAddrNotes" type="xsd:string" />
+      <xsd:element name="CustNumber" type="xsd:string" />
+      <xsd:element name="PrimaryIDType" type="xsd:string" />
+      <xsd:element name="PrimaryIDNumber" type="xsd:string" />
+      <xsd:element name="PrimaryIDIssueDate" type="tns:hfs_date" />
+      <xsd:element name="PrimaryIDExpirationDate" type="tns:hfs_date" />
+      <xsd:element name="PrimaryIDIssuingGovtOffice" type="xsd:string" />
+      <xsd:element name="PrimaryIDIssuingCountry" type="xsd:string" />
+      <xsd:element name="PrimaryIDIssuingState" type="xsd:string" />
+      <xsd:element name="SecondaryIDType" type="xsd:string" />
+      <xsd:element name="SecondaryIDNumber" type="xsd:string" />
+      <xsd:element name="SecondaryIDIssueDate" type="tns:hfs_date" />
+      <xsd:element name="SecondaryIDExpirationDate" type="tns:hfs_date" />
+      <xsd:element name="SecondaryIDIssuingGovtOffice" type="xsd:string" />
+      <xsd:element name="SecondaryIDIssuingCountry" type="xsd:string" />
+      <xsd:element name="SecondaryIDIssuingState" type="xsd:string" />
+      <xsd:element name="AddressList">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element maxOccurs="2" ref="tns:Address" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Address">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tns:AddressFields" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AddressFields">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tns:AddressType" />
+            <xsd:element minOccurs="0" ref="tns:AddrLine1" />
+            <xsd:element minOccurs="0" ref="tns:City" />
+            <xsd:element minOccurs="0" ref="tns:ST" />
+            <xsd:element minOccurs="0" ref="tns:Zip" />
+            <xsd:element minOccurs="0" ref="tns:Country" />
+            <xsd:element minOccurs="0" ref="tns:AddressFormat" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AddressType" type="tns:hfs_AddrType" />
+      <xsd:element name="AddrLine1" type="xsd:string" />
+      <xsd:element name="City" type="xsd:string" />
+      <xsd:element name="ST" type="xsd:string" />
+      <xsd:element name="Zip" type="xsd:string" />
+      <xsd:element name="Country" type="xsd:string" />
+      <xsd:element name="AddressFormat" type="tns:hfs_AddrFormat" />
+      <xsd:element name="CapacityList">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tns:Capacity" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Capacity">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tns:CapacityFields" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CapacityFields">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tns:CapacityType" />
+            <xsd:element minOccurs="0" ref="tns:ParentEIN" />
+            <xsd:element minOccurs="0" ref="tns:Authority" />
+            <xsd:element minOccurs="0" ref="tns:Title" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CapacityType" type="tns:hfs_Capacity" />
+      <xsd:element name="ParentEIN" type="xsd:positiveInteger">
+        <xsd:annotation>
+          <xsd:documentation> Refer to EntityKey of Parent entity </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Authority" type="tns:hfs_Authorized" />
+      <xsd:element name="Title" type="xsd:string" />
+      <xsd:element name="DPConnectResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tns:DPConnectResult" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="DPConnectResult">
+        <xsd:complexType>
+          <xsd:choice>
+            <xsd:element maxOccurs="unbounded" ref="tns:item" />
+            <xsd:element ref="tns:Success" />
+          </xsd:choice>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="item">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" ref="tns:Error" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Success">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="tns:TransactionNumber" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="TransactionNumber" type="xsd:string" />
+      <xsd:element name="Error">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" ref="tns:Message" />
+            <xsd:element minOccurs="0" ref="tns:Source" />
+            <xsd:element minOccurs="0" ref="tns:ErrorType" />
+            <xsd:element minOccurs="0" ref="tns:ErrorCode" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Message" type="xsd:string" />
+      <xsd:element name="Source" type="xsd:string" />
+      <xsd:element name="ErrorType" type="xsd:string" />
+      <xsd:element name="ErrorCode" type="xsd:string" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="DPConnectRequest">
+    <wsdl:part name="DPRequest" element="tns:DPConnect" />
+  </wsdl:message>
+  <wsdl:message name="DPConnectResponse">
+    <wsdl:part name="DPResponse" element="tns:DPConnectResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DPConnect_PortType">
+    <wsdl:operation name="DPConnect">
+      <wsdl:input message="tns:DPConnectRequest" />
+      <wsdl:output message="tns:DPConnectResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DPConnect_Binding" type="tns:DPConnect_PortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DPConnect">
+      <soap:operation soapAction="DPConnect" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DPConnect_Service">
+    <wsdl:port name="DPConnect_Port" binding="tns:DPConnect_Binding">
+      <soap:address location="http://localhost:8081" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

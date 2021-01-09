@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="VoltaWCFService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpBinding_IVoltaWCFService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://demo.culearn.org/VoltaWCFService/Service.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://demo.culearn.org/VoltaWCFService/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://demo.culearn.org/VoltaWCFService/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WCFService" />
+      <xsd:import schemaLocation="https://demo.culearn.org/VoltaWCFService/Service.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IVoltaWCFService_GetPrequalQuestions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrequalQuestions" />
+  </wsdl:message>
+  <wsdl:message name="IVoltaWCFService_GetPrequalQuestions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrequalQuestionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVoltaWCFService_ValidatePrequalAnswers_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidatePrequalAnswers" />
+  </wsdl:message>
+  <wsdl:message name="IVoltaWCFService_ValidatePrequalAnswers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidatePrequalAnswersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVoltaWCFService_ProcessPrivateApplication_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessPrivateApplication" />
+  </wsdl:message>
+  <wsdl:message name="IVoltaWCFService_ProcessPrivateApplication_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessPrivateApplicationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVoltaWCFService_ProcessPrivateApplication2_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessPrivateApplication2" />
+  </wsdl:message>
+  <wsdl:message name="IVoltaWCFService_ProcessPrivateApplication2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessPrivateApplication2Response" />
+  </wsdl:message>
+  <wsdl:message name="IVoltaWCFService_ProcessCreditApplication_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessCreditApplication" />
+  </wsdl:message>
+  <wsdl:message name="IVoltaWCFService_ProcessCreditApplication_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessCreditApplicationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVoltaWCFService_ProcessCreditApplication2_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessCreditApplication2" />
+  </wsdl:message>
+  <wsdl:message name="IVoltaWCFService_ProcessCreditApplication2_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessCreditApplication2Response" />
+  </wsdl:message>
+  <wsdl:message name="IVoltaWCFService_ProcessSignatureRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessSignatureRequest" />
+  </wsdl:message>
+  <wsdl:message name="IVoltaWCFService_ProcessSignatureRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProcessSignatureRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVoltaWCFService_AddNote_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNote" />
+  </wsdl:message>
+  <wsdl:message name="IVoltaWCFService_AddNote_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNoteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVoltaWCFService_AddDocument_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDocument" />
+  </wsdl:message>
+  <wsdl:message name="IVoltaWCFService_AddDocument_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVoltaWCFService_UpdateExternaUseFields_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExternaUseFields" />
+  </wsdl:message>
+  <wsdl:message name="IVoltaWCFService_UpdateExternaUseFields_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateExternaUseFieldsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVoltaWCFService_GetEligSchoolList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEligSchoolList" />
+  </wsdl:message>
+  <wsdl:message name="IVoltaWCFService_GetEligSchoolList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEligSchoolListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IVoltaWCFService">
+    <wsdl:operation name="GetPrequalQuestions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVoltaWCFService/GetPrequalQuestions" message="tns:IVoltaWCFService_GetPrequalQuestions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVoltaWCFService/GetPrequalQuestionsResponse" message="tns:IVoltaWCFService_GetPrequalQuestions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidatePrequalAnswers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVoltaWCFService/ValidatePrequalAnswers" message="tns:IVoltaWCFService_ValidatePrequalAnswers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVoltaWCFService/ValidatePrequalAnswersResponse" message="tns:IVoltaWCFService_ValidatePrequalAnswers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessPrivateApplication">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVoltaWCFService/ProcessPrivateApplication" message="tns:IVoltaWCFService_ProcessPrivateApplication_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVoltaWCFService/ProcessPrivateApplicationResponse" message="tns:IVoltaWCFService_ProcessPrivateApplication_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessPrivateApplication2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVoltaWCFService/ProcessPrivateApplication2" message="tns:IVoltaWCFService_ProcessPrivateApplication2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVoltaWCFService/ProcessPrivateApplication2Response" message="tns:IVoltaWCFService_ProcessPrivateApplication2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessCreditApplication">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVoltaWCFService/ProcessCreditApplication" message="tns:IVoltaWCFService_ProcessCreditApplication_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVoltaWCFService/ProcessCreditApplicationResponse" message="tns:IVoltaWCFService_ProcessCreditApplication_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessCreditApplication2">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVoltaWCFService/ProcessCreditApplication2" message="tns:IVoltaWCFService_ProcessCreditApplication2_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVoltaWCFService/ProcessCreditApplication2Response" message="tns:IVoltaWCFService_ProcessCreditApplication2_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessSignatureRequest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVoltaWCFService/ProcessSignatureRequest" message="tns:IVoltaWCFService_ProcessSignatureRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVoltaWCFService/ProcessSignatureRequestResponse" message="tns:IVoltaWCFService_ProcessSignatureRequest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNote">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVoltaWCFService/AddNote" message="tns:IVoltaWCFService_AddNote_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVoltaWCFService/AddNoteResponse" message="tns:IVoltaWCFService_AddNote_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDocument">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVoltaWCFService/AddDocument" message="tns:IVoltaWCFService_AddDocument_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVoltaWCFService/AddDocumentResponse" message="tns:IVoltaWCFService_AddDocument_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExternaUseFields">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVoltaWCFService/UpdateExternaUseFields" message="tns:IVoltaWCFService_UpdateExternaUseFields_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVoltaWCFService/UpdateExternaUseFieldsResponse" message="tns:IVoltaWCFService_UpdateExternaUseFields_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEligSchoolList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVoltaWCFService/GetEligSchoolList" message="tns:IVoltaWCFService_GetEligSchoolList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVoltaWCFService/GetEligSchoolListResponse" message="tns:IVoltaWCFService_GetEligSchoolList_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IVoltaWCFService" type="tns:IVoltaWCFService">
+    <wsp:PolicyReference URI="#BasicHttpBinding_IVoltaWCFService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPrequalQuestions">
+      <soap:operation soapAction="http://tempuri.org/IVoltaWCFService/GetPrequalQuestions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidatePrequalAnswers">
+      <soap:operation soapAction="http://tempuri.org/IVoltaWCFService/ValidatePrequalAnswers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessPrivateApplication">
+      <soap:operation soapAction="http://tempuri.org/IVoltaWCFService/ProcessPrivateApplication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessPrivateApplication2">
+      <soap:operation soapAction="http://tempuri.org/IVoltaWCFService/ProcessPrivateApplication2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessCreditApplication">
+      <soap:operation soapAction="http://tempuri.org/IVoltaWCFService/ProcessCreditApplication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessCreditApplication2">
+      <soap:operation soapAction="http://tempuri.org/IVoltaWCFService/ProcessCreditApplication2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessSignatureRequest">
+      <soap:operation soapAction="http://tempuri.org/IVoltaWCFService/ProcessSignatureRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNote">
+      <soap:operation soapAction="http://tempuri.org/IVoltaWCFService/AddNote" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDocument">
+      <soap:operation soapAction="http://tempuri.org/IVoltaWCFService/AddDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateExternaUseFields">
+      <soap:operation soapAction="http://tempuri.org/IVoltaWCFService/UpdateExternaUseFields" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEligSchoolList">
+      <soap:operation soapAction="http://tempuri.org/IVoltaWCFService/GetEligSchoolList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="VoltaWCFService">
+    <wsdl:port name="BasicHttpBinding_IVoltaWCFService" binding="tns:BasicHttpBinding_IVoltaWCFService">
+      <soap:address location="https://demo.culearn.org/VoltaWCFService/Service.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s0="http://www.loanspq.com/services/consumer/literalTypes" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.loanspq.com/services/consumer" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.loanspq.com/services/consumer" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.loanspq.com/services/consumer/literalTypes">
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getSSOTokenByMemberNumberSoapIn">
+    <wsdl:part name="psLenderID" type="s:string" />
+    <wsdl:part name="psMemberNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getSSOTokenByMemberNumberSoapOut">
+    <wsdl:part name="getSSOTokenByMemberNumberResult" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getSSOTokenByMemberNumberHttpGetIn">
+    <wsdl:part name="psLenderID" type="s:string" />
+    <wsdl:part name="psMemberNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getSSOTokenByMemberNumberHttpGetOut">
+    <wsdl:part name="Body" element="s0:string" />
+  </wsdl:message>
+  <wsdl:message name="getSSOTokenByMemberNumberHttpPostIn">
+    <wsdl:part name="psLenderID" type="s:string" />
+    <wsdl:part name="psMemberNumber" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getSSOTokenByMemberNumberHttpPostOut">
+    <wsdl:part name="Body" element="s0:string" />
+  </wsdl:message>
+  <wsdl:portType name="GetSSOTokenSoap">
+    <wsdl:operation name="getSSOTokenByMemberNumber">
+      <wsdl:input message="tns:getSSOTokenByMemberNumberSoapIn" />
+      <wsdl:output message="tns:getSSOTokenByMemberNumberSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="GetSSOTokenHttpGet">
+    <wsdl:operation name="getSSOTokenByMemberNumber">
+      <wsdl:input message="tns:getSSOTokenByMemberNumberHttpGetIn" />
+      <wsdl:output message="tns:getSSOTokenByMemberNumberHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="GetSSOTokenHttpPost">
+    <wsdl:operation name="getSSOTokenByMemberNumber">
+      <wsdl:input message="tns:getSSOTokenByMemberNumberHttpPostIn" />
+      <wsdl:output message="tns:getSSOTokenByMemberNumberHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GetSSOTokenSoap" type="tns:GetSSOTokenSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="getSSOTokenByMemberNumber">
+      <soap:operation soapAction="http://www.loanspq.com/services/consumer/getSSOTokenByMemberNumber" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://www.loanspq.com/services/consumer" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://www.loanspq.com/services/consumer" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GetSSOTokenSoap12" type="tns:GetSSOTokenSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="getSSOTokenByMemberNumber">
+      <soap12:operation soapAction="http://www.loanspq.com/services/consumer/getSSOTokenByMemberNumber" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://www.loanspq.com/services/consumer" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://www.loanspq.com/services/consumer" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GetSSOTokenHttpGet" type="tns:GetSSOTokenHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="getSSOTokenByMemberNumber">
+      <http:operation location="/getSSOTokenByMemberNumber" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GetSSOTokenHttpPost" type="tns:GetSSOTokenHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="getSSOTokenByMemberNumber">
+      <http:operation location="/getSSOTokenByMemberNumber" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GetSSOToken">
+    <wsdl:port name="GetSSOTokenSoap" binding="tns:GetSSOTokenSoap">
+      <soap:address location="http://loanspq.localhost/services/consumer/GetSSOToken.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GetSSOTokenSoap12" binding="tns:GetSSOTokenSoap12">
+      <soap12:address location="http://loanspq.localhost/services/consumer/GetSSOToken.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GetSSOTokenHttpGet" binding="tns:GetSSOTokenHttpGet">
+      <http:address location="http://loanspq.localhost/services/consumer/GetSSOToken.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GetSSOTokenHttpPost" binding="tns:GetSSOTokenHttpPost">
+      <http:address location="http://loanspq.localhost/services/consumer/GetSSOToken.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

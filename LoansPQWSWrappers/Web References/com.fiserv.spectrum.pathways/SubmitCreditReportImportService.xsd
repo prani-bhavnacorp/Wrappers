@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="urn:ftp.spectrum.summitsite.com" targetNamespace="urn:ftp.spectrum.summitsite.com" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="submitCreditReportImport" type="tns:submitCreditReportImport" />
+  <xs:element name="submitCreditReportImportResponse" type="tns:submitCreditReportImportResponse" />
+  <xs:complexType name="submitCreditReportImport">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="scri" type="tns:submitCreditReportInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="submitCreditReportInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="borrowerAddress" type="xs:string" />
+      <xs:element minOccurs="0" name="borrowerCity" type="xs:string" />
+      <xs:element minOccurs="0" name="borrowerState" type="xs:string" />
+      <xs:element minOccurs="0" name="bureauKey" type="xs:string" />
+      <xs:element minOccurs="0" name="HRMRFlag" type="xs:string" />
+      <xs:element name="jointBorrower" type="xs:boolean" />
+      <xs:element minOccurs="0" name="jointBorrowerTIN" type="xs:string" />
+      <xs:element minOccurs="0" name="primaryBorrowerName" type="xs:string" />
+      <xs:element minOccurs="0" name="primaryBorrowerTIN" type="xs:string" />
+      <xs:element minOccurs="0" name="primaryBorrowerZip" type="xs:string" />
+      <xs:element minOccurs="0" name="priority" type="xs:string" />
+      <xs:element minOccurs="0" name="reportData" type="xs:string" />
+      <xs:element name="reportLength" type="xs:int" />
+      <xs:element minOccurs="0" name="requestKey" type="xs:string" />
+      <xs:element minOccurs="0" name="requestType" type="xs:string" />
+      <xs:element minOccurs="0" name="secondaryBorrowerName" type="xs:string" />
+      <xs:element minOccurs="0" name="tellerInitials" type="xs:string" />
+      <xs:element minOccurs="0" name="vendorId" type="xs:string" />
+      <xs:element minOccurs="0" name="vendorKey" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="submitCreditReportImportResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="submitCreditReportImportResponse" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

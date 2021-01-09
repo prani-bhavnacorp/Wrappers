@@ -1,0 +1,2063 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.galaxyplus.com/domain/schema" xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.galaxyplus.com/domain/schema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="MemberNumber">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{10}" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ObjectId">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+  <xs:simpleType name="Ssn">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]{9}" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CardNumber">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\d{1,19}" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Override">
+    <xs:restriction base="xs:int">
+      <xs:pattern value="\d{1}" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AccountHoldType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CHECK" />
+      <xs:enumeration value="AUTHORIZATION" />
+      <xs:enumeration value="DOLLAR_100" />
+      <xs:enumeration value="NEXTDAY" />
+      <xs:enumeration value="PAYROLL" />
+      <xs:enumeration value="CERTIFIED_DRAFT" />
+      <xs:enumeration value="MISCELLANEOUS" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AccountType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CERTIFICATE" />
+      <xs:enumeration value="IRA" />
+      <xs:enumeration value="LOAN" />
+      <xs:enumeration value="SHARE" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ActionType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PENDING" />
+      <xs:enumeration value="CLEARED" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AuthorizationHoldAuthorizationType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PARTIAL_REVERSAL" />
+      <xs:enumeration value="STATUS_CHECK" />
+      <xs:enumeration value="INCREMENTAL" />
+      <xs:enumeration value="MULTIPLE_CLEARINGS" />
+      <xs:enumeration value="NORMAL" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AuthorizationHoldOverdraftType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NONE" />
+      <xs:enumeration value="NORMAL" />
+      <xs:enumeration value="NEGATIVE" />
+      <xs:enumeration value="AT_AUTH" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AuthorizationHoldStatusFlag_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="EXPIRED" />
+      <xs:enumeration value="NOT_EXPIRED" />
+      <xs:enumeration value="RECYCLED" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="BusinessAccountType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NONE" />
+      <xs:enumeration value="EIN" />
+      <xs:enumeration value="LLC" />
+      <xs:enumeration value="CORP" />
+      <xs:enumeration value="GENERAL_PARTNERSHIP" />
+      <xs:enumeration value="LIMITED_PARTNERSHIP" />
+      <xs:enumeration value="LLP" />
+      <xs:enumeration value="NPO" />
+      <xs:enumeration value="OTHER" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CardType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ATM" />
+      <xs:enumeration value="MASTERCARD_DEBIT" />
+      <xs:enumeration value="MASTERCARD_CREDIT" />
+      <xs:enumeration value="VISA_DEBIT" />
+      <xs:enumeration value="VISA_CREDIT" />
+      <xs:enumeration value="OTHER" />
+      <xs:enumeration value="OTHER_DEBIT" />
+      <xs:enumeration value="OTHER_CREDIT" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CashSlotType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="LEFT" />
+      <xs:enumeration value="RIGHT" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CheckNameType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MEMBER_NAME" />
+      <xs:enumeration value="JOINT_NAME" />
+      <xs:enumeration value="MEMBER_OR_JOINT_NAME" />
+      <xs:enumeration value="MEMBER_AND_JOINT_NAME" />
+      <xs:enumeration value="NAME_FILL_IN" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CollectionAccountClassType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CREDITCARD" />
+      <xs:enumeration value="LOAN" />
+      <xs:enumeration value="MORTGAGE" />
+      <xs:enumeration value="SHARE" />
+      <xs:enumeration value="NONMEMBER" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CollectionAccountStandingType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DELINQUENT" />
+      <xs:enumeration value="CHARGE_OFF" />
+      <xs:enumeration value="PENDING_CHARGE_OFF" />
+      <xs:enumeration value="NEGATIVE_BALANCE_SHARE" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="CreditBureau_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NONE" />
+      <xs:enumeration value="EXPERIAN" />
+      <xs:enumeration value="EQUIFAX" />
+      <xs:enumeration value="TRANSUNION" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DeviceType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="TCR" />
+      <xs:enumeration value="TCD" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DeviceTransactionType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CASH_IN" />
+      <xs:enumeration value="CASH_OUT" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DisclosureType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NONE" />
+      <xs:enumeration value="WITHOUT_CHECK" />
+      <xs:enumeration value="WITH_CHECK" />
+      <xs:enumeration value="LL_FIXED_OR_VAR_RATE_BORROWER_INS" />
+      <xs:enumeration value="LL_FIXED_RATE_BORROWER_INS" />
+      <xs:enumeration value="LL_SINGLE_PREMIUM_BORROWER_INS" />
+      <xs:enumeration value="LL_FIXED_OR_VAR_RATE_SCD_SCL_JCL_INS" />
+      <xs:enumeration value="LL_FIXED_RATE_SCD_SCL_JCL_INS" />
+      <xs:enumeration value="LL_SINGLE_PREMIUM_SCD_SCL_JCL_INS" />
+      <xs:enumeration value="TX_LL_FIXED_OR_VAR_RATE_SCD_SCL_JCL_INS" />
+      <xs:enumeration value="TX_LL_FIXED_RATE_SCD_SCL_JCL_INS" />
+      <xs:enumeration value="TX_LL_SINGLE_PREMIUM_SCD_SCL_JCL_INS" />
+      <xs:enumeration value="LL_FIXED_OR_VAR_RATE_SCD_JCD_SCL_JCL_INS" />
+      <xs:enumeration value="LL_FIXED_RATE_SCD_JCD_SCL_JCL_INS" />
+      <xs:enumeration value="LL_SINGLE_PREMIUM_SCD_JCD_SCL_JCL_INS" />
+      <xs:enumeration value="MI_LL_FIXED_OR_VAR_RATE_SCD_SCL_JCL_INS" />
+      <xs:enumeration value="MI_LL_FIXED_RATE_SCD_SCL_JCL_INS" />
+      <xs:enumeration value="MI_LL_SINGLE_PREMIUM_SCD_SCL_JCL_INS" />
+      <xs:enumeration value="MI_LL_FIXED_OR_VAR_RATE_SCD_JCD_SCL_JCL_INS" />
+      <xs:enumeration value="MI_LL_FIXED_RATE_SCD_JCD_SCL_JCL_INS" />
+      <xs:enumeration value="MI_LL_SINGLE_PREMIUM_SCD_JCD_SCL_JCL_INS" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DistributionType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CONTRIBUTION" />
+      <xs:enumeration value="CONTRIBUTION_OR_DISTRIBUTION" />
+      <xs:enumeration value="DISTRIBUTION" />
+      <xs:enumeration value="DISTRIBUTION_HOLD" />
+      <xs:enumeration value="SPOUSE_BENEFICIARY_DISTRIBUTION" />
+      <xs:enumeration value="NON_SPOUSAL_BENEFICIARY_DISTRIBUTION" />
+      <xs:enumeration value="FIVE_YEAR_DISTRIBUTION" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DividendType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DIDO_COMPOUNDED_DAILY" />
+      <xs:enumeration value="DIDO_COMPOUNDED_BY_PERIOD" />
+      <xs:enumeration value="GRACE_PERIOD_END_OF_MONTH" />
+      <xs:enumeration value="GRACE_PERIOD_END_OF_PERIOD" />
+      <xs:enumeration value="SPECIAL_TYPES" />
+      <xs:enumeration value="TIERED_ACCRUAL" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DividendBaseYearType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="THREE_SIXTY_SIX_DAYS" />
+      <xs:enumeration value="THREE_SIXTY_DAYS_THIRTY_DAY_MONTHS" />
+      <xs:enumeration value="THREE_SIXTY_ACTUAL_DAYS" />
+      <xs:enumeration value="THREE_SIXTY_FIVE_DAYS" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EmploymentType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PRIMARY" />
+      <xs:enumeration value="SECONDARY" />
+      <xs:enumeration value="PREVIOUS" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EntityType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PERSONAL" />
+      <xs:enumeration value="OTHER" />
+      <xs:enumeration value="ORGANIZATION" />
+      <xs:enumeration value="TRUST" />
+      <xs:enumeration value="ESTATE" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="GlAccountBalanceType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CREDIT" />
+      <xs:enumeration value="DEBIT" />
+      <xs:enumeration value="TITLE_ONLY" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="GlAccountStatusType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OPEN" />
+      <xs:enumeration value="FROZEN" />
+      <xs:enumeration value="CLOSED" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="HotCardFlag_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="COLD" />
+      <xs:enumeration value="WARM" />
+      <xs:enumeration value="HOT" />
+      <xs:enumeration value="UNKNOWN" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="InterestRateType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FIXED" />
+      <xs:enumeration value="VARIABLE" />
+      <xs:enumeration value="ADJUSTABLE" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="LateChargeMethodType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FEDERAL_I" />
+      <xs:enumeration value="CALIFORNIA_I" />
+      <xs:enumeration value="TEXAS" />
+      <xs:enumeration value="FEDERAL_II" />
+      <xs:enumeration value="CALIFORNIA_II" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="LogicalOperatorType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AND" />
+      <xs:enumeration value="OR" />
+      <xs:enumeration value="BLANK" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="MaritalStatus_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MARRIED" />
+      <xs:enumeration value="SEPARATED" />
+      <xs:enumeration value="SINGLE" />
+      <xs:enumeration value="UNKNOWN" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="MemberType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MAIN" />
+      <xs:enumeration value="JOINT" />
+      <xs:enumeration value="ADDITIONAL" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="MembershipServiceCounterType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ATM" />
+      <xs:enumeration value="BILLPAY" />
+      <xs:enumeration value="HISTORY" />
+      <xs:enumeration value="LOAN_DISBURSAL" />
+      <xs:enumeration value="LOAN_TRANSFER" />
+      <xs:enumeration value="LOGON" />
+      <xs:enumeration value="PAYROLL" />
+      <xs:enumeration value="SHARE_TRANSFER" />
+      <xs:enumeration value="WITHDRAWAL" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OpenEndVoucherType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NONE" />
+      <xs:enumeration value="DEF_LOAN_RATE_WITHOUT_CHECK" />
+      <xs:enumeration value="DEF_CURRENT_RATE_WITHOUT_CHECK" />
+      <xs:enumeration value="DEF_LOAN_RATE_WITH_CHECK" />
+      <xs:enumeration value="DEF_CURRENT_RATE_WITH_CHECK" />
+      <xs:enumeration value="LL_OPEN_END_VOUCHER_VXX04" />
+      <xs:enumeration value="LL_OPEN_END_DISB_VOUCHER_VXX31_VXX32_VXX33" />
+      <xs:enumeration value="LL_OPEN_END_DISB_VOUCHER_VXX36" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PaymentCalculationType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DO_NOT_CHANGE" />
+      <xs:enumeration value="PERCENT_OF_BALANCE" />
+      <xs:enumeration value="USE_PMT_TABLE" />
+      <xs:enumeration value="USE_PMT_TABLE_RECALC_AFTER_PMT" />
+      <xs:enumeration value="USE_PERCENTAGE_RECALC_AFTER_PMT" />
+      <xs:enumeration value="USE_PMT_TABLE_RECALC_WITH_BILLING_NOTICE" />
+      <xs:enumeration value="USE_PERCENTAGE_RECALC_WITH_BILLING_NOTICE" />
+      <xs:enumeration value="USE_BALANCE_RECALC_WITH_PMT_CHANGE" />
+      <xs:enumeration value="USE_LOC_RECALC_WITH_PMT_CHANGE" />
+      <xs:enumeration value="INTEREST_ONLY_RECALC_WITH_BILLING_NOTICE" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PayFrequency_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ANNUAL" />
+      <xs:enumeration value="SEMI_ANNUAL" />
+      <xs:enumeration value="QUARTERLY" />
+      <xs:enumeration value="MONTHLY" />
+      <xs:enumeration value="SEMI_MONTHLY" />
+      <xs:enumeration value="BIWEEKLY_SEMI_MONTHLY" />
+      <xs:enumeration value="BIWEEKLY" />
+      <xs:enumeration value="WEEKLY" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PhoneType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="HOME" />
+      <xs:enumeration value="WORK" />
+      <xs:enumeration value="CELL" />
+      <xs:enumeration value="FAX" />
+      <xs:enumeration value="OTHER" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PlanType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="TRADITIONAL" />
+      <xs:enumeration value="ROTH" />
+      <xs:enumeration value="COVERDELL_ESA" />
+      <xs:enumeration value="CONDUIT" />
+      <xs:enumeration value="SEP" />
+      <xs:enumeration value="FAMILY_HSA" />
+      <xs:enumeration value="INDIVIDUAL_HSA" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PrintActionType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="TO_DOCUMENT_PRINTER" />
+      <xs:enumeration value="TO_CONTINUOUS_FORM_PRINTER" />
+      <xs:enumeration value="TO_REPORT_QUEUE" />
+      <xs:enumeration value="DO_NOT_GENERATE" />
+      <xs:enumeration value="SUPPRESS_PRINTING" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PrintFunctionType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CERTIFICATE" />
+      <xs:enumeration value="CHECK" />
+      <xs:enumeration value="COUPON" />
+      <xs:enumeration value="DISCLOSURE" />
+      <xs:enumeration value="GL_RECEIPT" />
+      <xs:enumeration value="INQUIRY" />
+      <xs:enumeration value="PASSBOOK" />
+      <xs:enumeration value="RECEIPT" />
+      <xs:enumeration value="VOUCHER" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PrinterType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DOC" />
+      <xs:enumeration value="CFP" />
+      <xs:enumeration value="LPT" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ProductType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SHARE" />
+      <xs:enumeration value="LOAN" />
+      <xs:enumeration value="CARD" />
+      <xs:enumeration value="DRAFT" />
+      <xs:enumeration value="CERTIFICATE" />
+      <xs:enumeration value="TAX_FAVORED" />
+      <xs:enumeration value="CLUB" />
+      <xs:enumeration value="SPECIAL" />
+      <xs:enumeration value="OTHER" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RentOrOwn_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="RENT" />
+      <xs:enumeration value="OWN" />
+      <xs:enumeration value="UNKNOWN" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="LoanPaymentType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="LEVEL_PAYMENT" />
+      <xs:enumeration value="INTEREST_ONLY" />
+      <xs:enumeration value="FIXED_PRINCIPAL_AND_INTEREST" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="LoanTermsType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CLOSED_END" />
+      <xs:enumeration value="OPEN_END" />
+      <xs:enumeration value="OPEN_END_LINE_OF_CREDIT" />
+      <xs:enumeration value="CREDIT_CARD" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="MailingType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MAIL" />
+      <xs:enumeration value="UNKNOWN_ADDRESS" />
+      <xs:enumeration value="OTHER" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="MembershipServiceType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ACH" />
+      <xs:enumeration value="ARU" />
+      <xs:enumeration value="ATM" />
+      <xs:enumeration value="BILLPAY" />
+      <xs:enumeration value="BMI" />
+      <xs:enumeration value="MRP" />
+      <xs:enumeration value="PAYROLL" />
+      <xs:enumeration value="PBI" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PaymentCouponCodeType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="RECEIVED" />
+      <xs:enumeration value="REISSUE" />
+      <xs:enumeration value="RESERVED" />
+      <xs:enumeration value="GENERATED" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SinglePremiumRefundReasonType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="REFINANCE" />
+      <xs:enumeration value="REPAYMENT" />
+      <xs:enumeration value="DEATH" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SsnCertification_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CERTIFIED" />
+      <xs:enumeration value="NON_CERTIFIED" />
+      <xs:enumeration value="CERT_FOREIGN" />
+      <xs:enumeration value="NON_CERT_FOREIGN" />
+      <xs:enumeration value="FOREIGN_NO_REPORT" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SpecialCodeType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MEMBER" />
+      <xs:enumeration value="USER" />
+      <xs:enumeration value="CARD" />
+      <xs:enumeration value="LOAN" />
+      <xs:enumeration value="SHARE" />
+      <xs:enumeration value="OTHER" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TaxFavoredContributionType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NORMAL" />
+      <xs:enumeration value="RETURN" />
+      <xs:enumeration value="PREV_YEAR_RETURN" />
+      <xs:enumeration value="CURRENT_YEAR_PREV_NORMAL" />
+      <xs:enumeration value="ROLLOVER" />
+      <xs:enumeration value="TRANSFER" />
+      <xs:enumeration value="SEP_EMPLOYER" />
+      <xs:enumeration value="ROTH_CONVERSION" />
+      <xs:enumeration value="RECHARACTERIZATION" />
+      <xs:enumeration value="CURRENT_YEAR_PREV_RECHARACTERIZATION" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TaxFavoredDistributionType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PREMATURE_NO_EXCEPTIONS" />
+      <xs:enumeration value="PREMATURE_EXCEPTIONS" />
+      <xs:enumeration value="DISABILITY" />
+      <xs:enumeration value="DEATH" />
+      <xs:enumeration value="PROHIBITED" />
+      <xs:enumeration value="TEN_THIRTY_FIVE_EXCHANGE" />
+      <xs:enumeration value="DEATH_OTHER" />
+      <xs:enumeration value="DEFAULT" />
+      <xs:enumeration value="NORMAL" />
+      <xs:enumeration value="EXCESS_NO_EXCEPTION" />
+      <xs:enumeration value="EXCESS_EXCEPTION" />
+      <xs:enumeration value="RECHARACTERIZATION" />
+      <xs:enumeration value="DIRECT_ROLLOVER" />
+      <xs:enumeration value="REVOCATION" />
+      <xs:enumeration value="TRANSFER" />
+      <xs:enumeration value="CURRENT_YEAR_PREV_RECHARACTERIZATION" />
+      <xs:enumeration value="CURRENT_YEAR_PREV_EXCESS_NO_EXCEPTION" />
+      <xs:enumeration value="CURRENT_YEAR_PREV_EXCESS_EXCEPTION" />
+      <xs:enumeration value="PREMATURE_NO_EXCEPTION_PREV_YEAR_RMD" />
+      <xs:enumeration value="PREMATURE_EXCEPTION_PREV_YEAR_RMD" />
+      <xs:enumeration value="DISABILITY_PREV_YEAR_RMD" />
+      <xs:enumeration value="DEATH_PREV_YEAR_RMD" />
+      <xs:enumeration value="PROHIBITED_PREV_YEAR_RMD" />
+      <xs:enumeration value="TEN_THIRTY_FIVE_EXCHANGE_PREV_YEAR_RMD" />
+      <xs:enumeration value="NORMAL_PREV_YEAR_RMD" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TermsType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="MONTHS" />
+      <xs:enumeration value="DAYS" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TransactionType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SHARE_DEPOSIT" />
+      <xs:enumeration value="SHARE_WITHDRAWAL" />
+      <xs:enumeration value="SHARE_ADJUSTMENTS" />
+      <xs:enumeration value="NEW_LOANS" />
+      <xs:enumeration value="LOAN_ADD_ONS" />
+      <xs:enumeration value="REFINANCED_LOANS" />
+      <xs:enumeration value="LOAN_PRINCIPAL_PAYMENT" />
+      <xs:enumeration value="LOAN_PRINCIPAL_ADJUSTMENT" />
+      <xs:enumeration value="LOAN_INTEREST_PAYMENT" />
+      <xs:enumeration value="LOAN_INTEREST_ADJUSTMENT" />
+      <xs:enumeration value="NEW_SHARE_FEES" />
+      <xs:enumeration value="NON_IRA_IRS_WITHHOLDING" />
+      <xs:enumeration value="LATE_CHARGES" />
+      <xs:enumeration value="CASH_RECEIVED" />
+      <xs:enumeration value="CASH_DISBURSED" />
+      <xs:enumeration value="CHECKS_RECEIVED" />
+      <xs:enumeration value="CHECKS_DISBURSED" />
+      <xs:enumeration value="CHECKS_VOIDED" />
+      <xs:enumeration value="INSURANCE_CLEARING" />
+      <xs:enumeration value="UNPAID_FEES" />
+      <xs:enumeration value="SHARE_DRAFT_CLEARING" />
+      <xs:enumeration value="OVERDRAFT_OR_STOP_PAY_FEES" />
+      <xs:enumeration value="SPECIAL_ACCOUNT_FEES" />
+      <xs:enumeration value="BILL_PAYMENT_CLEARING" />
+      <xs:enumeration value="ACH_CLEARING" />
+      <xs:enumeration value="ATM_CLEARING" />
+      <xs:enumeration value="PAYROLL_CLEARING" />
+      <xs:enumeration value="SHARE_TRANSFER_SUSPENSE" />
+      <xs:enumeration value="SHARE_DIVIDENDS_BATCH" />
+      <xs:enumeration value="INTEREST_REFUNDS" />
+      <xs:enumeration value="MONEY_ORDERS" />
+      <xs:enumeration value="MONEY_ORDER_FEES" />
+      <xs:enumeration value="TRAVELERS_CHECKS" />
+      <xs:enumeration value="TRAVELERS_CHECKS_FEES" />
+      <xs:enumeration value="MORTGAGE_PACKAGE_CLEARING" />
+      <xs:enumeration value="CREDIT_CARD_CLEARING" />
+      <xs:enumeration value="TRANSACTION_DISPUTES" />
+      <xs:enumeration value="SHARE_WITHDRAWAL_INS_CLEARING" />
+      <xs:enumeration value="DAILY_CD_DIVIDEND_ACCRUAL" />
+      <xs:enumeration value="ITEM_CLEARING" />
+      <xs:enumeration value="CASHIERS_CHECK" />
+      <xs:enumeration value="CU_CHECK_OR_DRAFT" />
+      <xs:enumeration value="THIRD_PARTY_CC_CLEARING" />
+      <xs:enumeration value="IRA_IRS_WITHHOLDING" />
+      <xs:enumeration value="SHARE_DIVIDENDS_TELLER" />
+      <xs:enumeration value="ATM_FEES_1" />
+      <xs:enumeration value="ATM_FEES_2" />
+      <xs:enumeration value="ATM_FEES_3" />
+      <xs:enumeration value="ATM_FEES_4" />
+      <xs:enumeration value="ATM_FEES_5" />
+      <xs:enumeration value="ATM_FEES_6" />
+      <xs:enumeration value="ATM_FEES_7" />
+      <xs:enumeration value="ATM_FEES_8" />
+      <xs:enumeration value="ATM_FEES_9" />
+      <xs:enumeration value="DEBIT_CARD_CLEARING" />
+      <xs:enumeration value="NEGATIVE_OVERDRAFT_FEES" />
+      <xs:enumeration value="GL" />
+      <xs:enumeration value="CASH_DEVICE" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="Account_Type" abstract="true">
+    <xs:annotation>
+      <xs:appinfo />
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Product_Type">
+        <xs:sequence>
+          <xs:element name="AccountId" type="xs:int">
+            <xs:annotation>
+              <xs:appinfo />
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="PreviousAccountNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="SecondaryId" type="xs:string" />
+          <xs:element minOccurs="0" name="ReportingSsn" type="xs:string" />
+          <xs:element minOccurs="0" name="OpenDate" type="xs:date">
+            <xs:annotation>
+              <xs:appinfo />
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="OpeningTellerId" type="xs:int" />
+          <xs:element minOccurs="0" name="OpeningTellerName" type="xs:string" />
+          <xs:element minOccurs="0" name="CloseDate" type="xs:date">
+            <xs:annotation>
+              <xs:appinfo />
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="ClosingTellerId" type="xs:int" />
+          <xs:element minOccurs="0" name="ClosingTellerName" type="xs:string" />
+          <xs:element minOccurs="0" name="ClosingReason" type="xs:string" />
+          <xs:element minOccurs="0" name="Branch" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Warning" type="xs:int" />
+          <xs:element minOccurs="0" name="StatementCycle" type="xs:int" />
+          <xs:element minOccurs="0" name="StatementDate" type="xs:date" />
+          <xs:element minOccurs="0" name="ActualBalance" type="xs:decimal">
+            <xs:annotation>
+              <xs:appinfo />
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="LastTransactionPostDate" type="xs:date" />
+          <xs:element minOccurs="0" name="BatchWarningLevel" type="xs:int" />
+          <xs:element minOccurs="0" name="Title" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Comment" type="tns:MembershipComment_Type" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Hold" type="tns:AccountHold_Type" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="StopDraft" type="tns:StopDraft_Type" />
+          <xs:element minOccurs="0" name="MailingType" type="tns:MailingType_Enum" />
+          <xs:element minOccurs="0" name="LastRevisionDate" type="xs:date" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Messages" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AccountHold_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="HoldType" type="tns:AccountHoldType_Enum" />
+          <xs:element name="Amount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Description" type="xs:string" />
+          <xs:element minOccurs="0" name="ExpirationDate" type="xs:date" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AccountService_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:MembershipService_Type">
+        <xs:sequence>
+          <xs:element name="ServiceAccountUid" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AchService_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:MembershipService_Type">
+        <xs:sequence>
+          <xs:element name="IsAchReceived" type="xs:boolean" />
+          <xs:element name="AchReceivedDate" type="xs:date" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Address_Type">
+    <xs:annotation>
+      <xs:appinfo />
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Line1">
+            <xs:annotation>
+              <xs:appinfo />
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string" />
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="Line2">
+            <xs:annotation>
+              <xs:appinfo />
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string" />
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="City">
+            <xs:annotation>
+              <xs:appinfo />
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string" />
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="State">
+            <xs:annotation>
+              <xs:appinfo />
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:pattern value="[A-Z]{2}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="ZipCode">
+            <xs:annotation>
+              <xs:appinfo />
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="11" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="County">
+            <xs:annotation>
+              <xs:appinfo />
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="30" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="Country">
+            <xs:annotation>
+              <xs:appinfo />
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:pattern value="[A-Z]{2}" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="LastRevisionDate" type="xs:date" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AddressSchedule_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="AddressUid" type="tns:ObjectId" />
+          <xs:element minOccurs="0" name="AccountUid" type="tns:ObjectId" />
+          <xs:element minOccurs="0" name="IsResidential" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsMailing" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsReccurring" type="xs:boolean" />
+          <xs:element minOccurs="0" name="StartDate" type="xs:date" />
+          <xs:element minOccurs="0" name="EndDate" type="xs:date" />
+          <xs:element minOccurs="0" name="IsPhysical" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AruService_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:OnlineService_Type">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AudioPassword" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AuthorizationHold_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:AccountHold_Type">
+        <xs:sequence>
+          <xs:element name="CardNumber" type="xs:string" />
+          <xs:element name="CardSuffix" type="xs:string" />
+          <xs:element name="CardType" type="tns:CardType_Enum" />
+          <xs:element name="CardTypeCode" type="xs:string" />
+          <xs:element minOccurs="0" name="NetworkId" type="xs:string" />
+          <xs:element minOccurs="0" name="TraceNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="AuthorizationType" type="tns:AuthorizationHoldAuthorizationType_Enum" />
+          <xs:element minOccurs="0" name="AuthorizationId" type="xs:string" />
+          <xs:element minOccurs="0" name="MerchantType" type="xs:string" />
+          <xs:element minOccurs="0" name="TransactionTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="StatusFlag" type="tns:AuthorizationHoldStatusFlag_Enum" />
+          <xs:element minOccurs="0" name="RegELocation" type="xs:string" />
+          <xs:element minOccurs="0" name="OverdraftType" type="tns:AuthorizationHoldOverdraftType_Enum" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BatchWarning_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="Level" type="xs:int" />
+          <xs:element name="Message" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BusinessAccount_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Name" type="xs:string" />
+          <xs:element minOccurs="0" name="EntityType" type="tns:EntityType_Enum" />
+          <xs:element minOccurs="0" name="BusinessAccountType" type="tns:BusinessAccountType_Enum" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="BusinessOfficer" type="tns:BusinessOfficer_Type" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="AdditionalInformation" type="xs:string" />
+          <xs:element minOccurs="0" name="AccountId" type="xs:int" />
+          <xs:element minOccurs="0" name="ProductType" type="tns:ProductType_Enum" />
+          <xs:element minOccurs="0" name="EstablishedDate" type="xs:date" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BusinessOfficer_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="Name" type="xs:string" />
+          <xs:element name="Title" type="xs:string" />
+          <xs:element name="Signer" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Card_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Product_Type">
+        <xs:sequence>
+          <xs:element name="AccountUid" type="tns:ObjectId" />
+          <xs:element name="Number" type="tns:CardNumber" />
+          <xs:element name="Suffix" type="xs:int" />
+          <xs:element name="CardType" type="tns:CardType_Enum" />
+          <xs:element minOccurs="0" name="HotCardFlag" type="tns:HotCardFlag_Enum" />
+          <xs:element minOccurs="0" name="CashLimit" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CashDevice_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="DeviceName" type="xs:string" />
+          <xs:element name="Branch" type="xs:short" />
+          <xs:element name="GlAccountNumber" type="xs:string" />
+          <xs:element name="TypeOfDevice" type="tns:DeviceType_Enum" />
+          <xs:element minOccurs="0" maxOccurs="2" name="CoinDevice" type="tns:CoinDevice_Type" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DeviceStatistics" type="tns:DeviceStatistics_Type" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DeviceTransaction" type="tns:DeviceTransaction_Type" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DeviceError" type="tns:DeviceError_Type" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CashDrawer_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="LooseDollarBills" type="tns:DollarBill_Type" />
+          <xs:element minOccurs="0" name="BundledDollarBills" type="tns:DollarBill_Type" />
+          <xs:element minOccurs="0" name="LooseCoins" type="tns:Coin_Type" />
+          <xs:element minOccurs="0" name="RolledCoins" type="tns:Coin_Type" />
+          <xs:element minOccurs="0" name="TellerChecks" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Certificate_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="MaturityDate" type="xs:date">
+            <xs:annotation>
+              <xs:appinfo />
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="TotalWithdrawalAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TermsType" type="tns:TermsType_Enum" />
+          <xs:element minOccurs="0" name="TermsPeriod" type="xs:int" />
+          <xs:element minOccurs="0" name="OriginalBalance" type="xs:decimal" />
+          <xs:element minOccurs="0" name="RenewalPenaltyGraceDays" type="xs:int" />
+          <xs:element minOccurs="0" name="PenalizedDays" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CertifiedDraftHold_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:AccountHold_Type">
+        <xs:sequence>
+          <xs:element name="DraftNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="DateCreated" type="xs:date" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CheckHoldParameter_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="Index" type="xs:int" />
+          <xs:element name="Description" type="xs:string" />
+          <xs:element name="HoldDays" type="xs:int" />
+          <xs:element name="IsDollarHundredNextDay" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CheckHoldHolidayParameter_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="DraftCheckHoldHoliday" type="xs:date" />
+          <xs:element maxOccurs="unbounded" name="NonDraftCheckHoldHoliday" type="xs:date" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CodeExtension_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="RangeValue" type="xs:int" />
+          <xs:element minOccurs="0" name="Description" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Coin_Type">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="PennyAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="NickelAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="DimeAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="QuarterAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="HalfAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="DollarAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" maxOccurs="2" name="OtherAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SilverDollarAmount" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CoinDevice_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="DeviceName" type="xs:string" />
+          <xs:element minOccurs="0" name="Branch" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DeviceStatistics" type="tns:DeviceStatistics_Type" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DeviceError" type="tns:DeviceError_Type" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DeviceTransaction" type="tns:DeviceTransaction_Type" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CollectionCriteria_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Id" type="xs:string" />
+          <xs:element name="Field" type="xs:string" />
+          <xs:element name="ComparisonOperator" type="xs:string" />
+          <xs:element name="FieldValue" type="xs:string" />
+          <xs:element name="LogicalOperator" type="tns:LogicalOperatorType_Enum" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CollectionGroup_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="Id" type="xs:string" />
+          <xs:element name="Name" type="xs:string" />
+          <xs:element name="Priority" type="xs:string" />
+          <xs:element name="AgentId" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="AccountStanding" type="tns:CollectionAccountStandingType_Enum" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="AccountClass" type="tns:CollectionAccountClassType_Enum" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Criteria" type="tns:CollectionCriteria_Type" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Console_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="ID" type="xs:int" />
+          <xs:element name="AssignTellerFlag" type="xs:boolean" />
+          <xs:element minOccurs="0" name="EffectiveDate" type="xs:date" />
+          <xs:element minOccurs="0" name="DisplayWidth" type="xs:int" />
+          <xs:element minOccurs="0" name="Branch" type="xs:int" />
+          <xs:element minOccurs="0" name="DefaultLPTQueueNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="CheckBankNumber" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="PrintFunction" type="tns:PrintFunction_Type" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CreditScore_Type">
+    <xs:sequence>
+      <xs:element name="CreditBureau" type="tns:CreditBureau_Enum" />
+      <xs:element name="Score" type="xs:int" />
+      <xs:element name="BankruptcyPredictor" type="xs:int" />
+      <xs:element name="Date" type="xs:date" />
+      <xs:element name="RequesterId" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CreditUnion_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="CreditUnionId" type="xs:string" />
+          <xs:element name="Name" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="GlAccount" type="tns:GlAccount_Type" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Teller" type="tns:Teller_Type" />
+          <xs:element minOccurs="0" name="SystemParameters" type="tns:SystemParameters_Type" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductDefault" type="tns:ProductDefault_Type" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="SpecialCode" type="tns:SpecialCode_Type" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Printer" type="tns:Printer_Type" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Console" type="tns:Console_Type" />
+          <xs:element minOccurs="0" name="IsMonitoringRequired" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsCustomCheckHold" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsRoutingNumberUsed" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsRegulationCCNextDay" type="xs:boolean" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="CheckHoldParameter" type="tns:CheckHoldParameter_Type" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="RoutingNumberDefault" type="tns:RoutingNumberDefault_Type" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="CustomTransaction" type="tns:CustomTransaction_Type" />
+          <xs:element minOccurs="0" name="IsDatacenter" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="CunaSinglePremium_Type">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SinglePremiumRefundAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CreditDiabilityRefundAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CreditLifeRefundAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="RefundReasonType" type="tns:SinglePremiumRefundReasonType_Enum" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CustomTransaction_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" type="xs:string" />
+          <xs:element minOccurs="0" name="AccountNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="Description" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DelinquencyComment_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="Comment" type="xs:string" />
+          <xs:element minOccurs="0" name="TimeCreated" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="AgentName" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DeviceController_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="Branch" type="xs:short" />
+          <xs:element name="ControllerUrl" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="CashDevice" type="tns:CashDevice_Type" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="CoinDevice" type="tns:CoinDevice_Type" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DeviceStatistics_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="SystemDate" type="xs:date" />
+          <xs:element minOccurs="0" name="StartingCash" type="xs:decimal" />
+          <xs:element minOccurs="0" name="EndingCash" type="xs:decimal" />
+          <xs:element minOccurs="0" name="DollarBill" type="tns:DollarBill_Type" />
+          <xs:element minOccurs="0" name="Coin" type="tns:Coin_Type" />
+          <xs:element minOccurs="0" name="NumberOFLoads" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DeviceError_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="ErrorCode" type="xs:int" />
+          <xs:element minOccurs="0" name="ErrorLevel" type="xs:int" />
+          <xs:element minOccurs="0" name="ErrorText" type="xs:string" />
+          <xs:element minOccurs="0" name="Hint" type="xs:string" />
+          <xs:element minOccurs="0" name="ExtendedErrorCode" type="xs:int" />
+          <xs:element minOccurs="0" name="ExtendedErrorText" type="xs:string" />
+          <xs:element minOccurs="0" name="ExtendedHint" type="xs:string" />
+          <xs:element name="Date" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="SequenceNumber" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DeviceTransaction_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="Teller" type="tns:Teller_Type" />
+          <xs:element name="SequenceNumber" type="xs:int" />
+          <xs:element name="MemberNumber" type="xs:string" />
+          <xs:element name="Amount" type="xs:decimal" />
+          <xs:element name="TransactionDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="DollarBill" type="tns:DollarBill_Type" />
+          <xs:element minOccurs="0" name="Coin" type="tns:Coin_Type" />
+          <xs:element name="DeviceTransactionType" type="tns:DeviceTransactionType_Enum" />
+          <xs:element name="Action" type="tns:ActionType_Enum" />
+          <xs:element name="TransactionGlAccountCode" type="xs:int" />
+          <xs:element minOccurs="0" name="DeviceError" type="tns:DeviceError_Type" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="DollarBill_Type">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SingleAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TwoAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="FiveAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TenAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TwentyAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="FiftyAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="HundredAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="BaitAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="MutilatedAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="OtherAmount" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="DomainObject_Type" abstract="true">
+    <xs:attribute name="uid" type="tns:ObjectId" use="required" />
+    <xs:attribute default="-2147483648" name="originalHashCode" type="xs:int" use="optional" />
+  </xs:complexType>
+  <xs:complexType name="DriversLicense_Type">
+    <xs:sequence>
+      <xs:element name="Number" type="xs:string" />
+      <xs:element name="State">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z]{2}" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Employer_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="Name">
+            <xs:annotation>
+              <xs:documentation>Optional - string Identifies Employer Name</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string" />
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="EmployerNumber">
+            <xs:annotation>
+              <xs:documentation>Required - 10 character numeric - Identifies a specific employer</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string" />
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="Address" type="tns:Address_Type" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Phone" type="tns:Phone_Type" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Employment_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Type" type="tns:EmploymentType_Enum" />
+          <xs:element minOccurs="0" name="StartDate" type="xs:date">
+            <xs:annotation>
+              <xs:documentation>Required - date Indicates the applicant's start date for this emplyer</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="EndDate" type="xs:date">
+            <xs:annotation>
+              <xs:documentation>Optional - date Indicates the last day of work for this employer</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Position" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Optional - string alpha numeric - Identifies the applicants job title or classification</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="TimeInPosition" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Optional - string - Indicates the time spent in the position as text.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="HourlyRate" type="xs:decimal">
+            <xs:annotation>
+              <xs:documentation>Optional - numeric - Indicates the applicant's hourly rate of pay.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="HoursPerWeek" type="xs:int">
+            <xs:annotation>
+              <xs:documentation>Optional - numeric - Indicates the number of hours allotted to work per week.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="GrossPay" type="xs:decimal">
+            <xs:annotation>
+              <xs:documentation>Optional - numeric - Applicant's gross pay</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="NetPay" type="xs:decimal">
+            <xs:annotation>
+              <xs:documentation>Optional - numeric - Applican't net pay</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="PayrollGroup" type="xs:int">
+            <xs:annotation>
+              <xs:documentation>Optional - intnumeric - Indicates which payroll group the member is associated with</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Supervisor" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Optional - string Identifies the applicant's supervisor</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Contact" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Optional - string Indicates the person to contact to verify applicant's employment</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="PaymentType" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Optional - 20 character alpha numeric - Determines how applicant's pay is received</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="PayFrequency" type="tns:PayFrequency_Enum">
+            <xs:annotation>
+              <xs:documentation>Optional - 2 character numeric - Defines the applicant's pay frequency - Valid
+						values are
+						01 = Annual
+						02 = Semi Annual
+						04 = Quarterly
+						12 = Monthly
+						24 = Semi Monthly
+						25 = Bi Weekly / Semi Monthly
+						26 = Bi Weekly
+						52 = Weekly
+					</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="EmployeeStatus" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Optional - 10 character alpha numeric - Defines applicant's emplyment status</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="SelfEmployed" type="xs:boolean">
+            <xs:annotation>
+              <xs:documentation>Optional - boolean 
+						false -  Applicant is not self-employed 
+						true - Applicant is self-employed
+					</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="SameAsPreviousPosition" type="xs:boolean">
+            <xs:annotation>
+              <xs:documentation>Optional - boolean
+						false-  Line of work of Current employment is not same as previous employment
+						true - Line of work of Current employment is same as previous employment
+					</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="LastVerifiedDate" type="xs:date">
+            <xs:annotation>
+              <xs:documentation>Optional - date
+						Date emplyoyment was last verified.
+					</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="LastVerifiedByTellerId" type="xs:int">
+            <xs:annotation>
+              <xs:documentation>The TellerId of the Last Verifying officer.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="LastVerifiedBy" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Optional - string
+						ID of person (teller, loan office, etc,) who last verified 
+					</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="Employer" type="tns:Employer_Type" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="FeeDefault_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="Code" type="xs:int" />
+          <xs:element minOccurs="0" name="Description" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GlAccount_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="AccountNumber" type="xs:string" />
+          <xs:element name="Name" type="xs:string" />
+          <xs:element name="Branch" type="xs:int" />
+          <xs:element name="BalanceType" type="tns:GlAccountBalanceType_Enum" />
+          <xs:element name="StatusType" type="tns:GlAccountStatusType_Enum" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Group_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="Description" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Teller" type="tns:Teller_Type" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Token" type="tns:Token_Type" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="InterestOnly_Type">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EndDate" type="xs:date" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Loan_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Account_Type">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CurrentAmountDue" type="xs:decimal" />
+          <xs:element minOccurs="0" name="InterestYtd" type="xs:decimal" />
+          <xs:element minOccurs="0" name="InterestLastYear" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PayoffAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="SchedulePaymentAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="DueDate" type="xs:date" />
+          <xs:element minOccurs="0" name="InterestRate" type="xs:decimal" />
+          <xs:element minOccurs="0" name="InterestRateType" type="tns:InterestRateType_Enum" />
+          <xs:element minOccurs="0" name="Delinquent1To30" type="xs:int" />
+          <xs:element minOccurs="0" name="Delinquent31To60" type="xs:int" />
+          <xs:element minOccurs="0" name="Delinquent61To120" type="xs:int" />
+          <xs:element minOccurs="0" name="DelinquentOver120" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DelinquencyComment" type="tns:DelinquencyComment_Type" />
+          <xs:element minOccurs="0" name="IsDelinquent" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PartialPaymentAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="InterestDueAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LateChargeMethodType" type="tns:LateChargeMethodType_Enum" />
+          <xs:element minOccurs="0" name="LateChargeAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="ApprovedLineOfCreditAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="AvailableLineOfCreditAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="UnpaidLateChargeAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="DelinquencyDate" type="xs:date" />
+          <xs:element minOccurs="0" name="DelinquencyAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LoanTermsType" type="tns:LoanTermsType_Enum" />
+          <xs:element minOccurs="0" name="LoanPaymentType" type="tns:LoanPaymentType_Enum" />
+          <xs:element minOccurs="0" name="PaymentsDelinquent" type="xs:int" />
+          <xs:element minOccurs="0" name="PaymentsDelinquentBeforeSkip" type="xs:int" />
+          <xs:element minOccurs="0" name="InterestOnly" type="tns:InterestOnly_Type" />
+          <xs:element minOccurs="0" name="CunaSinglePremium" type="tns:CunaSinglePremium_Type" />
+          <xs:element minOccurs="0" name="MaximumLateChargeAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MinimumLateChargeAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="BalloonDate" type="xs:date" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Member_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="MemberType" type="tns:MemberType_Enum" />
+          <xs:element name="Person" type="tns:Person_Type" />
+          <xs:element minOccurs="0" name="PersonalVerificationCode" type="tns:PersonalVerificationCode_Type" />
+          <xs:element minOccurs="0" name="PrivacyFlag" type="xs:boolean" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="AddressSchedule" type="tns:AddressSchedule_Type" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Membership_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="MemberNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="OpenDate" type="xs:date" />
+          <xs:element minOccurs="0" name="OpeningBranch" type="xs:int" />
+          <xs:element minOccurs="0" name="OpeningTellerId" type="xs:int" />
+          <xs:element minOccurs="0" name="OpeningTellerName" type="xs:string" />
+          <xs:element minOccurs="0" name="CloseDate" type="xs:date" />
+          <xs:element minOccurs="0" name="ClosingTellerId" type="xs:int" />
+          <xs:element minOccurs="0" name="ClosingTellerName" type="xs:string" />
+          <xs:element minOccurs="0" name="ClosingReason" type="xs:string" />
+          <xs:element minOccurs="0" name="MiscellaneousDate" type="xs:date" />
+          <xs:element minOccurs="0" name="ReferringTellerId" type="xs:int" />
+          <xs:element minOccurs="0" name="ReferralTellerName" type="xs:string" />
+          <xs:element minOccurs="0" name="ReferralReason" type="xs:string" />
+          <xs:element minOccurs="0" name="MinimumBalanceShareId" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="MemberCode" type="xs:int" />
+          <xs:element minOccurs="0" name="IsRestricted" type="xs:boolean" />
+          <xs:element minOccurs="0" name="BatchWarningLevel" type="xs:int" />
+          <xs:element minOccurs="0" name="SignUpPackage" type="tns:ProductPackage_Type" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Member" type="tns:Member_Type" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Product" type="tns:Product_Type" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Comment" type="tns:MembershipComment_Type" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Service" type="tns:MembershipService_Type" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="UserCode" type="tns:UserCode_Type" />
+          <xs:element minOccurs="0" name="LastRevisionDate" type="xs:date" />
+          <xs:element minOccurs="0" name="RestrictedAccessCode" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="BusinessAccount" type="tns:BusinessAccount_Type" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Messages" type="xs:string" />
+          <xs:element minOccurs="0" name="IsDelinquent" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MembershipComment_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="Group" type="xs:int" />
+          <xs:element name="Level" type="xs:int" />
+          <xs:element minOccurs="0" name="Comment" type="xs:string" />
+          <xs:element minOccurs="0" name="TellerId" type="xs:int" />
+          <xs:element minOccurs="0" name="LastModified" type="xs:date" />
+          <xs:element minOccurs="0" name="ExpirationDate" type="xs:date" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MembershipCommentDefault_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="Comment" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MembershipService_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="ServiceType" type="tns:MembershipServiceType_Enum" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Counter" type="tns:MembershipServiceCounter_Type" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MessageOfTheDay_Type">
+    <xs:annotation>
+      <xs:appinfo />
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Url">
+            <xs:annotation>
+              <xs:appinfo />
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:maxLength value="500" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="StartDate" type="xs:date">
+            <xs:annotation>
+              <xs:appinfo />
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="FinishDate" type="xs:date">
+            <xs:annotation>
+              <xs:appinfo />
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Mandatory" type="xs:boolean">
+            <xs:annotation>
+              <xs:appinfo />
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MembershipServiceCounter_Type">
+    <xs:sequence>
+      <xs:element name="CounterType" type="tns:MembershipServiceCounterType_Enum" />
+      <xs:element minOccurs="0" name="CurrentPeriodCount" type="xs:int" />
+      <xs:element minOccurs="0" name="PreviousPeriodCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NegativeOverdraftParameter_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="Limit" />
+          <xs:element name="Description" />
+          <xs:element name="Fee" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="OnlineService_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:MembershipService_Type">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="StartDate" type="xs:date" />
+          <xs:element minOccurs="0" name="BillPayerStartDate" type="xs:date" />
+          <xs:element minOccurs="0" name="LastActive" type="xs:date" />
+          <xs:element minOccurs="0" name="PayerLastActive" type="xs:date" />
+          <xs:element minOccurs="0" name="FeeShareId" type="xs:int" />
+          <xs:element minOccurs="0" name="Comment" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ExemptShareId" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ExemptLoanId" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="OverrideAuthentication_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="Password" type="xs:string" />
+          <xs:element name="Encryption" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Parameter_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Name" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>CreditUnion Parameter Name</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Value" type="xs:anySimpleType">
+            <xs:annotation>
+              <xs:documentation>Parmeter Value of any data type refer to GP_DataTypes	</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ParameterNamespace_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="NamespaceName" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Name of the namespace define for the credit union</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="NamespaceDescription" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Description of the namespace</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Parameter" type="tns:Parameter_Type">
+            <xs:annotation>
+              <xs:documentation>Parameters defined within the scope ofnamespace with name and value</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Person_Type">
+    <xs:annotation>
+      <xs:appinfo />
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Ssn" type="tns:Ssn">
+            <xs:annotation>
+              <xs:appinfo />
+              <xs:documentation>Nillable, but ths assumes that a Person does not need an SSN in the domain.  A rule may be needed to require a non-null value in the service or data model.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="PrefixTitle" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="FirstName" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="MiddleName" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="LastName" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="SuffixTitle" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="SsnCertification" type="tns:SsnCertification_Enum">
+            <xs:annotation>
+              <xs:appinfo />
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="BirthDate" type="xs:date">
+            <xs:annotation>
+              <xs:appinfo />
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="MaritalStatus" type="tns:MaritalStatus_Enum" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Address" type="tns:PersonalAddress_Type">
+            <xs:annotation>
+              <xs:appinfo />
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Phone" type="tns:Phone_Type">
+            <xs:annotation>
+              <xs:appinfo />
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="EmailAddress" type="xs:string" />
+          <xs:element minOccurs="0" name="DriversLicense" type="tns:DriversLicense_Type" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="CreditScore" type="tns:CreditScore_Type" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Employment" type="tns:Employment_Type" />
+          <xs:element minOccurs="0" name="NumberOfDependents" type="xs:int" />
+          <xs:element minOccurs="0" name="DependentsDescription" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>Free-form field to describe dependents, typically age of each.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PersonalAddress_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Address_Type">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IsCurrent" type="xs:boolean" />
+          <xs:element minOccurs="0" name="RentOrOwn" type="tns:RentOrOwn_Enum" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PersonalVerificationCode_Type">
+    <xs:sequence>
+      <xs:element name="CodeName" type="xs:string" />
+      <xs:element name="Hint" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Phone_Type">
+    <xs:annotation>
+      <xs:appinfo />
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Number">
+        <xs:annotation>
+          <xs:appinfo />
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="\d{10}" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="Extension">
+        <xs:annotation>
+          <xs:appinfo />
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:pattern value="\d{1,4}" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="Type" type="tns:PhoneType_Enum">
+        <xs:annotation>
+          <xs:appinfo />
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PlanBeneficiary_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="Index" type="xs:int" />
+          <xs:element minOccurs="0" name="Ssn" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Printer_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="Type" type="tns:PrinterType_Enum" />
+          <xs:element name="Number" type="xs:int" />
+          <xs:element minOccurs="0" name="BankNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="CheckNumber" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PrintFunction_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="FunctionType" type="tns:PrintFunctionType_Enum" />
+          <xs:element name="ActionType" type="tns:PrintActionType_Enum" />
+          <xs:element minOccurs="0" name="PrinterUid" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Product_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="Type" type="tns:ProductType_Enum" />
+          <xs:element minOccurs="0" name="Code" type="xs:int" />
+          <xs:element minOccurs="0" name="Description" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ProductDefault_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="Type" type="tns:ProductType_Enum" />
+          <xs:element name="Code" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ProductPackage_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="Code" type="xs:string" />
+          <xs:element minOccurs="0" name="Description" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ReceiptParameter_Type">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsSuppressReceipt" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPrintAvailableBalances" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPrintActualBalances" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsTransferReceipts" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsPrintAddress" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RoutingNumberDefault_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="Branch" type="xs:int" />
+          <xs:element name="RoutingNumber" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Share_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Account_Type">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AvailableBalance" type="xs:decimal" />
+          <xs:element minOccurs="0" name="DividendsYtd" type="xs:decimal" />
+          <xs:element minOccurs="0" name="DividendsLastYear" type="xs:decimal" />
+          <xs:element minOccurs="0" name="DividendRate" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TotalHoldAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LastActivityDate" type="xs:date" />
+          <xs:element minOccurs="0" name="MinimumDepositAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="UnpaidFee" type="tns:UnpaidFee_Type" />
+          <xs:element minOccurs="0" name="WithdrawalCountYtd" type="xs:int" />
+          <xs:element minOccurs="0" name="WithdrawalCountCycleToDate" type="xs:int" />
+          <xs:element minOccurs="0" name="MinimumWithdrawalAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MinimumBalanceAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MaximumWithdrawalCount" type="xs:int" />
+          <xs:element minOccurs="0" name="SecuredShareAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PayrollHoldAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TotalCertifiedDraftAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="NegativeOverdraftParameterUid" type="xs:string" />
+          <xs:element minOccurs="0" name="ExcessWithdrawalFeeAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="DividendType" type="tns:DividendType_Enum" />
+          <xs:element minOccurs="0" name="DividendBaseYearType" type="tns:DividendBaseYearType_Enum" />
+          <xs:element minOccurs="0" name="DividendRateCode" type="xs:int" />
+          <xs:element minOccurs="0" name="DividendsPaidAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Certificate" type="tns:Certificate_Type" />
+          <xs:element minOccurs="0" name="TotalAvailableBalance" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ShareDefault_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ProductDefault_Type">
+        <xs:sequence>
+          <xs:element name="NewAccountWarningDays" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SpecialCode_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="Type" type="tns:SpecialCodeType_Enum" />
+          <xs:choice>
+            <xs:element name="CodeNumber" type="xs:int" />
+            <xs:element name="CodeText" type="xs:string" />
+          </xs:choice>
+          <xs:element name="Name" type="xs:string" />
+          <xs:element minOccurs="0" name="RangeStart" type="xs:int" />
+          <xs:element minOccurs="0" name="RangeEnd" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Extension" type="tns:CodeExtension_Type" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="StopDraft_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="Amount" type="xs:decimal" />
+          <xs:element name="DraftNumberHigh" type="xs:int" />
+          <xs:element name="DraftNumberLow" type="xs:int" />
+          <xs:element minOccurs="0" name="IsStopped" type="xs:boolean" />
+          <xs:element minOccurs="0" name="DateCreated" type="xs:date" />
+          <xs:element minOccurs="0" name="Reason" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="StopDraftReasonDefault_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="Reason" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SystemParameters_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IsSystemOffline" type="xs:boolean" />
+          <xs:element name="SystemDate" type="xs:date" />
+          <xs:element name="NumberOfDormantDays" type="xs:int" />
+          <xs:element name="NewAccountFee" type="xs:decimal" />
+          <xs:element name="MinimumShareBalance" type="xs:decimal" />
+          <xs:element name="MaximumShareBalance" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MaximumNegativeShareBalance" type="xs:decimal" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="StopDraftReasonDefault" type="tns:StopDraftReasonDefault_Type" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="MembershipCommentDefault" type="tns:MembershipCommentDefault_Type" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="BatchWarnings" type="tns:BatchWarning_Type" />
+          <xs:element minOccurs="0" name="IsTaxFavoredPenalty" type="xs:boolean" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="NegativeOverdraftParameters" type="tns:NegativeOverdraftParameter_Type" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="FeeDefault" type="tns:FeeDefault_Type" />
+          <xs:element minOccurs="0" name="IsMonitoringRequired" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsPrintGlReceipts" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsCustomCheckHold" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsRoutingNumberUsed" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsRegulationCCNextDay" type="xs:boolean" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="CheckHoldParameter" type="tns:CheckHoldParameter_Type" />
+          <xs:element minOccurs="0" name="IsNegativeOverdraft" type="xs:boolean" />
+          <xs:element minOccurs="0" name="MoneyOrderFeeAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TravelersCheckFeeAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="IsLateChargePartOfPayment" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ReceiptParameter" type="tns:ReceiptParameter_Type" />
+          <xs:element minOccurs="0" name="CheckHoldHolidayParameter" type="tns:CheckHoldHolidayParameter_Type" />
+          <xs:element minOccurs="0" name="DisclosureType" type="tns:DisclosureType_Enum" />
+          <xs:element minOccurs="0" name="MaximumLoanDisbursementAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PaymentCalculationType" type="tns:PaymentCalculationType_Enum" />
+          <xs:element minOccurs="0" name="OpenEndVoucherType" type="tns:OpenEndVoucherType_Enum" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="TaxFavoredShare_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Share_Type">
+        <xs:sequence>
+          <xs:element name="PlanNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="TotalCurrentYearContributionAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CurrentYearDistributionAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PriorYearDistributionAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="MaximumContributionAmount" type="xs:decimal" />
+          <xs:element name="Plan" type="tns:TaxFavoredPlan_Type" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="PlanBeneficiary" type="tns:PlanBeneficiary_Type" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="TaxFavoredPlan_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="PlanType" type="tns:PlanType_Enum" />
+          <xs:element name="OpenDate" type="xs:date" />
+          <xs:element minOccurs="0" name="CloseDate" type="xs:date" />
+          <xs:element minOccurs="0" name="DeathDate" type="xs:date" />
+          <xs:element minOccurs="0" name="FederalWithholdingRate" type="xs:decimal" />
+          <xs:element minOccurs="0" name="StateWithholdingRate" type="xs:decimal" />
+          <xs:element minOccurs="0" name="DistributionType" type="tns:DistributionType_Enum" />
+          <xs:element minOccurs="0" name="TotalContributionsAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TotalDistributionsAmount" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Teller_Type">
+    <xs:annotation>
+      <xs:appinfo />
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="ID" type="xs:int">
+            <xs:annotation>
+              <xs:appinfo />
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Password" type="xs:string">
+            <xs:annotation>
+              <xs:appinfo />
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Name" type="xs:string" />
+          <xs:element minOccurs="0" name="BeginningCash" type="xs:decimal" />
+          <xs:element minOccurs="0" name="EndingCash" type="xs:decimal" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ConsoleUid" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Message" type="tns:MessageOfTheDay_Type" />
+          <xs:element minOccurs="0" name="IsMonitoringRequired" type="xs:boolean" />
+          <xs:element minOccurs="0" name="TotalChecksAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="CashDrawer" type="tns:CashDrawer_Type" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="TransactionDetail" type="tns:TransactionDetail_Type" />
+          <xs:element minOccurs="0" name="LastSignOnDate" type="xs:date" />
+          <xs:element minOccurs="0" name="PasswordExpiryDays" type="xs:int" />
+          <xs:element minOccurs="0" name="Position" type="xs:string" />
+          <xs:element minOccurs="0" name="LastPasswordChangeDate" type="xs:date" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Token" type="tns:Token_Type" />
+          <xs:element minOccurs="0" name="HashedPassword" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Token_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="Category" type="xs:string" />
+          <xs:element name="Description" type="xs:string" />
+          <xs:element minOccurs="0" name="SpecialMessage" type="xs:string" />
+          <xs:element name="Authorization">
+            <xs:complexType>
+              <xs:complexContent mixed="false">
+                <xs:extension base="tns:DomainObject_Type">
+                  <xs:sequence>
+                    <xs:element name="InquiryOverrideLevel" type="tns:Override" />
+                    <xs:element name="ReviseOverrideLevel" type="tns:Override" />
+                  </xs:sequence>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="TransactionDetail_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Branch" type="xs:int" />
+          <xs:element minOccurs="0" name="SequenceNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="ItemNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="PostTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="MemberNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="Account" type="tns:Account_Type" />
+          <xs:element minOccurs="0" name="AccountBranch" type="xs:int" />
+          <xs:element minOccurs="0" name="GlAccount" type="tns:GlAccount_Type" />
+          <xs:element minOccurs="0" name="TransactionType" type="tns:TransactionType_Enum" />
+          <xs:element minOccurs="0" name="PostingSecurityCode" type="xs:string" />
+          <xs:element minOccurs="0" name="CheckWithdrawalCode" type="xs:string" />
+          <xs:element minOccurs="0" name="JournalNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="EffectiveDate" type="xs:date" />
+          <xs:element minOccurs="0" name="ReferenceNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="Amount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="IsBatchTransaction" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Comment" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="UnpaidFee_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="Amount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Description" type="xs:string" />
+          <xs:element minOccurs="0" name="EffectiveDate" type="xs:date" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="UserCode_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="Index" type="xs:int" />
+          <xs:element minOccurs="0" name="SpecialCodeText" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="WorkstationParameter_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:DomainObject_Type">
+        <xs:sequence>
+          <xs:element name="WorkstationIp" type="xs:string" />
+          <xs:element name="CashDevice" type="tns:CashDevice_Type" />
+          <xs:element name="CoinDevice" type="tns:CoinDevice_Type" />
+          <xs:element name="CashSlot" type="tns:CashSlotType_Enum" />
+          <xs:element name="IsRecyclerConnected" type="xs:boolean" />
+          <xs:element name="IsRecyclerUsed" type="xs:boolean" />
+          <xs:element name="Active" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>

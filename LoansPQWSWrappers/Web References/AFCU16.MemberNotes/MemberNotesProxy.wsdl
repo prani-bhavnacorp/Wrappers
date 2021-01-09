@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns="http://americafirst.com/MemberNotes" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns2="http://www.americafirst.com/20070420/MemberNotes" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MemberNotesProxy" targetNamespace="http://americafirst.com/MemberNotes" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns:mrm="http://americafirst.com/MemberNotes" targetNamespace="http://americafirst.com/MemberNotes">
+      <xsd:import schemaLocation="com/americafirst/www/_20070420/membernotes/MemberNotes.xsd" namespace="http://www.americafirst.com/20070420/MemberNotes" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="addAccountWarnings_in">
+    <wsdl:part name="addAccountWarningsRequest" element="tns2:addAccountWarningsRequest" />
+  </wsdl:message>
+  <wsdl:message name="addAccountWarnings_out">
+    <wsdl:part name="addAccountWarningsResponse" element="tns2:addAccountWarningsResponse" />
+  </wsdl:message>
+  <wsdl:message name="addInformationCodeMemberNote_in">
+    <wsdl:part name="addInformationCodeMemberNoteRequest" element="tns2:addInformationCodeMemberNoteRequest" />
+  </wsdl:message>
+  <wsdl:message name="addInformationCodeMemberNote_out">
+    <wsdl:part name="addInformationCodeMemberNoteResponse" element="tns2:addInformationCodeMemberNoteResponse" />
+  </wsdl:message>
+  <wsdl:message name="addMemberNote_in">
+    <wsdl:part name="addMemberNoteRequest" element="tns2:addMemberNoteRequest" />
+  </wsdl:message>
+  <wsdl:message name="addMemberNote_out">
+    <wsdl:part name="addMemberNoteResponse" element="tns2:addMemberNoteResponse" />
+  </wsdl:message>
+  <wsdl:message name="inquireAccountInfoCodes_in">
+    <wsdl:part name="inquireAccountInfoCodesRequest" element="tns2:inquireAccountInfoCodesRequest" />
+  </wsdl:message>
+  <wsdl:message name="inquireAccountInfoCodes_out">
+    <wsdl:part name="inquireAccountInfoCodesResponse" element="tns2:inquireAccountInfoCodesResponse" />
+  </wsdl:message>
+  <wsdl:message name="inquireAccountWarnings_in">
+    <wsdl:part name="inquireAccountWarningsRequest" element="tns2:inquireAccountWarningsRequest" />
+  </wsdl:message>
+  <wsdl:message name="inquireAccountWarnings_out">
+    <wsdl:part name="inquireAccountWarningsResponse" element="tns2:inquireAccountWarningsResponse" />
+  </wsdl:message>
+  <wsdl:message name="inquireAccountWarningsHistory_in">
+    <wsdl:part name="inquireAccountWarningsHistoryRequest" element="tns2:inquireAccountWarningsHistoryRequest" />
+  </wsdl:message>
+  <wsdl:message name="inquireAccountWarningsHistory_out">
+    <wsdl:part name="inquireAccountWarningsHistoryResponse" element="tns2:inquireAccountWarningsHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="inquireAllWarnings_in">
+    <wsdl:part name="inquireAllWarningsRequest" element="tns2:inquireAllWarningsRequest" />
+  </wsdl:message>
+  <wsdl:message name="inquireAllWarnings_out">
+    <wsdl:part name="inquireAllWarningsResponse" element="tns2:inquireAllWarningsResponse" />
+  </wsdl:message>
+  <wsdl:message name="inquireFicheData_in">
+    <wsdl:part name="inquireFicheDataRequest" element="tns2:inquireFicheDataRequest" />
+  </wsdl:message>
+  <wsdl:message name="inquireFicheData_out">
+    <wsdl:part name="inquireFicheDataResponse" element="tns2:inquireFicheDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="inquireInformationCodes_in">
+    <wsdl:part name="inquireInformationCodesRequest" element="tns2:inquireInformationCodesRequest" />
+  </wsdl:message>
+  <wsdl:message name="inquireInformationCodes_out">
+    <wsdl:part name="inquireInformationCodesResponse" element="tns2:inquireInformationCodesResponse" />
+  </wsdl:message>
+  <wsdl:message name="inquireMemberNotes_in">
+    <wsdl:part name="inquireMemberNotesRequest" element="tns2:inquireMemberNotesRequest" />
+  </wsdl:message>
+  <wsdl:message name="inquireMemberNotes_out">
+    <wsdl:part name="inquireMemberNotesResponse" element="tns2:inquireMemberNotesResponse" />
+  </wsdl:message>
+  <wsdl:message name="inquireMemberNotesHistory_in">
+    <wsdl:part name="inquireMemberNotesHistoryRequest" element="tns2:inquireMemberNotesHistoryRequest" />
+  </wsdl:message>
+  <wsdl:message name="inquireMemberNotesHistory_out">
+    <wsdl:part name="inquireMemberNotesHistoryResponse" element="tns2:inquireMemberNotesHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="inquireSuspenseMemberNotes_in">
+    <wsdl:part name="inquireSuspenseMemberNotesRequest" element="tns2:inquireSuspenseMemberNotesRequest" />
+  </wsdl:message>
+  <wsdl:message name="inquireSuspenseMemberNotes_out">
+    <wsdl:part name="inquireSuspenseMemberNotesResponse" element="tns2:inquireSuspenseMemberNotesResponse" />
+  </wsdl:message>
+  <wsdl:message name="inquireSuspenseMemberNotesByBranch_in">
+    <wsdl:part name="inquireSuspenseMemberNotesByBranchRequest" element="tns2:inquireSuspenseMemberNotesByBranchRequest" />
+  </wsdl:message>
+  <wsdl:message name="inquireSuspenseMemberNotesByBranch_out">
+    <wsdl:part name="inquireSuspenseMemberNotesByBranchResponse" element="tns2:inquireSuspenseMemberNotesByBranchResponse" />
+  </wsdl:message>
+  <wsdl:message name="maintainAccountWarnings_in">
+    <wsdl:part name="maintainAccountWarningsRequest" element="tns2:maintainAccountWarningsRequest" />
+  </wsdl:message>
+  <wsdl:message name="maintainAccountWarnings_out">
+    <wsdl:part name="maintainAccountWarningsResponse" element="tns2:maintainAccountWarningsResponse" />
+  </wsdl:message>
+  <wsdl:message name="maintainAndReassignMemberNote_in">
+    <wsdl:part name="maintainAndReassignMemberNoteRequest" element="tns2:maintainAndReassignMemberNoteRequest" />
+  </wsdl:message>
+  <wsdl:message name="maintainAndReassignMemberNote_out">
+    <wsdl:part name="maintainAndReassignMemberNoteResponse" element="tns2:maintainAndReassignMemberNoteResponse" />
+  </wsdl:message>
+  <wsdl:message name="maintainMemberNote_in">
+    <wsdl:part name="maintainMemberNoteRequest" element="tns2:maintainMemberNoteRequest" />
+  </wsdl:message>
+  <wsdl:message name="maintainMemberNote_out">
+    <wsdl:part name="maintainMemberNoteResponse" element="tns2:maintainMemberNoteResponse" />
+  </wsdl:message>
+  <wsdl:message name="reassignMemberNotes_in">
+    <wsdl:part name="reassignMemberNotesRequest" element="tns2:reassignMemberNotesRequest" />
+  </wsdl:message>
+  <wsdl:message name="reassignMemberNotes_out">
+    <wsdl:part name="reassignMemberNotesResponse" element="tns2:reassignMemberNotesResponse" />
+  </wsdl:message>
+  <wsdl:message name="removeCollectionDetailWarning_in">
+    <wsdl:part name="removeCollectionDetailWarningRequest" element="tns2:removeCollectionDetailWarningRequest" />
+  </wsdl:message>
+  <wsdl:message name="removeCollectionDetailWarning_out">
+    <wsdl:part name="removeCollectionDetailWarningResponse" element="tns2:removeCollectionDetailWarningResponse" />
+  </wsdl:message>
+  <wsdl:message name="removeInformationCode_in">
+    <wsdl:part name="removeInformationCodeRequest" element="tns2:removeInformationCodeRequest" />
+  </wsdl:message>
+  <wsdl:message name="removeInformationCode_out">
+    <wsdl:part name="removeInformationCodeResponse" element="tns2:removeInformationCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="removeMemberNotes_in">
+    <wsdl:part name="removeMemberNotesRequest" element="tns2:removeMemberNotesRequest" />
+  </wsdl:message>
+  <wsdl:message name="removeMemberNotes_out">
+    <wsdl:part name="removeMemberNotesResponse" element="tns2:removeMemberNotesResponse" />
+  </wsdl:message>
+  <wsdl:message name="removeRestrictionWarning_in">
+    <wsdl:part name="removeRestrictionWarningRequest" element="tns2:removeRestrictionWarningRequest" />
+  </wsdl:message>
+  <wsdl:message name="removeRestrictionWarning_out">
+    <wsdl:part name="removeRestrictionWarningResponse" element="tns2:removeRestrictionWarningResponse" />
+  </wsdl:message>
+  <wsdl:message name="removeWarning_in">
+    <wsdl:part name="removeWarningRequest" element="tns2:removeWarningRequest" />
+  </wsdl:message>
+  <wsdl:message name="removeWarning_out">
+    <wsdl:part name="removeWarningResponse" element="tns2:removeWarningResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MemberNotesProxy_MSPortType">
+    <wsdl:operation name="addAccountWarnings">
+      <wsdl:input name="addAccountWarnings_addAccountWarningsRequest" message="tns:addAccountWarnings_in" />
+      <wsdl:output name="addAccountWarnings_addAccountWarningsResponse" message="tns:addAccountWarnings_out" />
+    </wsdl:operation>
+    <wsdl:operation name="addInformationCodeMemberNote">
+      <wsdl:input name="addInformationCodeMemberNote_addInformationCodeMemberNoteRequest" message="tns:addInformationCodeMemberNote_in" />
+      <wsdl:output name="addInformationCodeMemberNote_addInformationCodeMemberNoteResponse" message="tns:addInformationCodeMemberNote_out" />
+    </wsdl:operation>
+    <wsdl:operation name="addMemberNote">
+      <wsdl:input name="addMemberNote_addMemberNoteRequest" message="tns:addMemberNote_in" />
+      <wsdl:output name="addMemberNote_addMemberNoteResponse" message="tns:addMemberNote_out" />
+    </wsdl:operation>
+    <wsdl:operation name="inquireAccountInfoCodes">
+      <wsdl:input name="inquireAccountInfoCodes_inquireAccountInfoCodesRequest" message="tns:inquireAccountInfoCodes_in" />
+      <wsdl:output name="inquireAccountInfoCodes_inquireAccountInfoCodesResponse" message="tns:inquireAccountInfoCodes_out" />
+    </wsdl:operation>
+    <wsdl:operation name="inquireAccountWarnings">
+      <wsdl:input name="inquireAccountWarnings_inquireAccountWarningsRequest" message="tns:inquireAccountWarnings_in" />
+      <wsdl:output name="inquireAccountWarnings_inquireAccountWarningsResponse" message="tns:inquireAccountWarnings_out" />
+    </wsdl:operation>
+    <wsdl:operation name="inquireAccountWarningsHistory">
+      <wsdl:input name="inquireAccountWarningsHistory_inquireAccountWarningsHistoryRequest" message="tns:inquireAccountWarningsHistory_in" />
+      <wsdl:output name="inquireAccountWarningsHistory_inquireAccountWarningsHistoryResponse" message="tns:inquireAccountWarningsHistory_out" />
+    </wsdl:operation>
+    <wsdl:operation name="inquireAllWarnings">
+      <wsdl:input name="inquireAllWarnings_inquireAllWarningsRequest" message="tns:inquireAllWarnings_in" />
+      <wsdl:output name="inquireAllWarnings_inquireAllWarningsResponse" message="tns:inquireAllWarnings_out" />
+    </wsdl:operation>
+    <wsdl:operation name="inquireFicheData">
+      <wsdl:input name="inquireFicheData_inquireFicheDataRequest" message="tns:inquireFicheData_in" />
+      <wsdl:output name="inquireFicheData_inquireFicheDataResponse" message="tns:inquireFicheData_out" />
+    </wsdl:operation>
+    <wsdl:operation name="inquireInformationCodes">
+      <wsdl:input name="inquireInformationCodes_inquireInformationCodesRequest" message="tns:inquireInformationCodes_in" />
+      <wsdl:output name="inquireInformationCodes_inquireInformationCodesResponse" message="tns:inquireInformationCodes_out" />
+    </wsdl:operation>
+    <wsdl:operation name="inquireMemberNotes">
+      <wsdl:input name="inquireMemberNotes_inquireMemberNotesRequest" message="tns:inquireMemberNotes_in" />
+      <wsdl:output name="inquireMemberNotes_inquireMemberNotesResponse" message="tns:inquireMemberNotes_out" />
+    </wsdl:operation>
+    <wsdl:operation name="inquireMemberNotesHistory">
+      <wsdl:input name="inquireMemberNotesHistory_inquireMemberNotesHistoryRequest" message="tns:inquireMemberNotesHistory_in" />
+      <wsdl:output name="inquireMemberNotesHistory_inquireMemberNotesHistoryResponse" message="tns:inquireMemberNotesHistory_out" />
+    </wsdl:operation>
+    <wsdl:operation name="inquireSuspenseMemberNotes">
+      <wsdl:input name="inquireSuspenseMemberNotes_inquireSuspenseMemberNotesRequest" message="tns:inquireSuspenseMemberNotes_in" />
+      <wsdl:output name="inquireSuspenseMemberNotes_inquireSuspenseMemberNotesResponse" message="tns:inquireSuspenseMemberNotes_out" />
+    </wsdl:operation>
+    <wsdl:operation name="inquireSuspenseMemberNotesByBranch">
+      <wsdl:input name="inquireSuspenseMemberNotesByBranch_inquireSuspenseMemberNotesByBranchRequest" message="tns:inquireSuspenseMemberNotesByBranch_in" />
+      <wsdl:output name="inquireSuspenseMemberNotesByBranch_inquireSuspenseMemberNotesByBranchResponse" message="tns:inquireSuspenseMemberNotesByBranch_out" />
+    </wsdl:operation>
+    <wsdl:operation name="maintainAccountWarnings">
+      <wsdl:input name="maintainAccountWarnings_maintainAccountWarningsRequest" message="tns:maintainAccountWarnings_in" />
+      <wsdl:output name="maintainAccountWarnings_maintainAccountWarningsResponse" message="tns:maintainAccountWarnings_out" />
+    </wsdl:operation>
+    <wsdl:operation name="maintainAndReassignMemberNote">
+      <wsdl:input name="maintainAndReassignMemberNote_maintainAndReassignMemberNoteRequest" message="tns:maintainAndReassignMemberNote_in" />
+      <wsdl:output name="maintainAndReassignMemberNote_maintainAndReassignMemberNoteResponse" message="tns:maintainAndReassignMemberNote_out" />
+    </wsdl:operation>
+    <wsdl:operation name="maintainMemberNote">
+      <wsdl:input name="maintainMemberNote_maintainMemberNoteRequest" message="tns:maintainMemberNote_in" />
+      <wsdl:output name="maintainMemberNote_maintainMemberNoteResponse" message="tns:maintainMemberNote_out" />
+    </wsdl:operation>
+    <wsdl:operation name="reassignMemberNotes">
+      <wsdl:input name="reassignMemberNotes_reassignMemberNotesRequest" message="tns:reassignMemberNotes_in" />
+      <wsdl:output name="reassignMemberNotes_reassignMemberNotesResponse" message="tns:reassignMemberNotes_out" />
+    </wsdl:operation>
+    <wsdl:operation name="removeCollectionDetailWarning">
+      <wsdl:input name="removeCollectionDetailWarning_removeCollectionDetailWarningRequest" message="tns:removeCollectionDetailWarning_in" />
+      <wsdl:output name="removeCollectionDetailWarning_removeCollectionDetailWarningResponse" message="tns:removeCollectionDetailWarning_out" />
+    </wsdl:operation>
+    <wsdl:operation name="removeInformationCode">
+      <wsdl:input name="removeInformationCode_removeInformationCodeRequest" message="tns:removeInformationCode_in" />
+      <wsdl:output name="removeInformationCode_removeInformationCodeResponse" message="tns:removeInformationCode_out" />
+    </wsdl:operation>
+    <wsdl:operation name="removeMemberNotes">
+      <wsdl:input name="removeMemberNotes_removeMemberNotesRequest" message="tns:removeMemberNotes_in" />
+      <wsdl:output name="removeMemberNotes_removeMemberNotesResponse" message="tns:removeMemberNotes_out" />
+    </wsdl:operation>
+    <wsdl:operation name="removeRestrictionWarning">
+      <wsdl:input name="removeRestrictionWarning_removeRestrictionWarningRequest" message="tns:removeRestrictionWarning_in" />
+      <wsdl:output name="removeRestrictionWarning_removeRestrictionWarningResponse" message="tns:removeRestrictionWarning_out" />
+    </wsdl:operation>
+    <wsdl:operation name="removeWarning">
+      <wsdl:input name="removeWarning_removeWarningRequest" message="tns:removeWarning_in" />
+      <wsdl:output name="removeWarning_removeWarningResponse" message="tns:removeWarning_out" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MemberNotesProxy_MSSOAP_HTTP_Binding" type="tns:MemberNotesProxy_MSPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="addAccountWarnings">
+      <soap:operation soapAction="" />
+      <wsdl:input name="addAccountWarnings_addAccountWarningsRequest">
+        <soap:body use="literal" parts="addAccountWarningsRequest" />
+      </wsdl:input>
+      <wsdl:output name="addAccountWarnings_addAccountWarningsResponse">
+        <soap:body use="literal" parts="addAccountWarningsResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addInformationCodeMemberNote">
+      <soap:operation soapAction="" />
+      <wsdl:input name="addInformationCodeMemberNote_addInformationCodeMemberNoteRequest">
+        <soap:body use="literal" parts="addInformationCodeMemberNoteRequest" />
+      </wsdl:input>
+      <wsdl:output name="addInformationCodeMemberNote_addInformationCodeMemberNoteResponse">
+        <soap:body use="literal" parts="addInformationCodeMemberNoteResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addMemberNote">
+      <soap:operation soapAction="" />
+      <wsdl:input name="addMemberNote_addMemberNoteRequest">
+        <soap:body use="literal" parts="addMemberNoteRequest" />
+      </wsdl:input>
+      <wsdl:output name="addMemberNote_addMemberNoteResponse">
+        <soap:body use="literal" parts="addMemberNoteResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inquireAccountInfoCodes">
+      <soap:operation soapAction="" />
+      <wsdl:input name="inquireAccountInfoCodes_inquireAccountInfoCodesRequest">
+        <soap:body use="literal" parts="inquireAccountInfoCodesRequest" />
+      </wsdl:input>
+      <wsdl:output name="inquireAccountInfoCodes_inquireAccountInfoCodesResponse">
+        <soap:body use="literal" parts="inquireAccountInfoCodesResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inquireAccountWarnings">
+      <soap:operation soapAction="" />
+      <wsdl:input name="inquireAccountWarnings_inquireAccountWarningsRequest">
+        <soap:body use="literal" parts="inquireAccountWarningsRequest" />
+      </wsdl:input>
+      <wsdl:output name="inquireAccountWarnings_inquireAccountWarningsResponse">
+        <soap:body use="literal" parts="inquireAccountWarningsResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inquireAccountWarningsHistory">
+      <soap:operation soapAction="" />
+      <wsdl:input name="inquireAccountWarningsHistory_inquireAccountWarningsHistoryRequest">
+        <soap:body use="literal" parts="inquireAccountWarningsHistoryRequest" />
+      </wsdl:input>
+      <wsdl:output name="inquireAccountWarningsHistory_inquireAccountWarningsHistoryResponse">
+        <soap:body use="literal" parts="inquireAccountWarningsHistoryResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inquireAllWarnings">
+      <soap:operation soapAction="" />
+      <wsdl:input name="inquireAllWarnings_inquireAllWarningsRequest">
+        <soap:body use="literal" parts="inquireAllWarningsRequest" />
+      </wsdl:input>
+      <wsdl:output name="inquireAllWarnings_inquireAllWarningsResponse">
+        <soap:body use="literal" parts="inquireAllWarningsResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inquireFicheData">
+      <soap:operation soapAction="" />
+      <wsdl:input name="inquireFicheData_inquireFicheDataRequest">
+        <soap:body use="literal" parts="inquireFicheDataRequest" />
+      </wsdl:input>
+      <wsdl:output name="inquireFicheData_inquireFicheDataResponse">
+        <soap:body use="literal" parts="inquireFicheDataResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inquireInformationCodes">
+      <soap:operation soapAction="" />
+      <wsdl:input name="inquireInformationCodes_inquireInformationCodesRequest">
+        <soap:body use="literal" parts="inquireInformationCodesRequest" />
+      </wsdl:input>
+      <wsdl:output name="inquireInformationCodes_inquireInformationCodesResponse">
+        <soap:body use="literal" parts="inquireInformationCodesResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inquireMemberNotes">
+      <soap:operation soapAction="" />
+      <wsdl:input name="inquireMemberNotes_inquireMemberNotesRequest">
+        <soap:body use="literal" parts="inquireMemberNotesRequest" />
+      </wsdl:input>
+      <wsdl:output name="inquireMemberNotes_inquireMemberNotesResponse">
+        <soap:body use="literal" parts="inquireMemberNotesResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inquireMemberNotesHistory">
+      <soap:operation soapAction="" />
+      <wsdl:input name="inquireMemberNotesHistory_inquireMemberNotesHistoryRequest">
+        <soap:body use="literal" parts="inquireMemberNotesHistoryRequest" />
+      </wsdl:input>
+      <wsdl:output name="inquireMemberNotesHistory_inquireMemberNotesHistoryResponse">
+        <soap:body use="literal" parts="inquireMemberNotesHistoryResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inquireSuspenseMemberNotes">
+      <soap:operation soapAction="" />
+      <wsdl:input name="inquireSuspenseMemberNotes_inquireSuspenseMemberNotesRequest">
+        <soap:body use="literal" parts="inquireSuspenseMemberNotesRequest" />
+      </wsdl:input>
+      <wsdl:output name="inquireSuspenseMemberNotes_inquireSuspenseMemberNotesResponse">
+        <soap:body use="literal" parts="inquireSuspenseMemberNotesResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inquireSuspenseMemberNotesByBranch">
+      <soap:operation soapAction="" />
+      <wsdl:input name="inquireSuspenseMemberNotesByBranch_inquireSuspenseMemberNotesByBranchRequest">
+        <soap:body use="literal" parts="inquireSuspenseMemberNotesByBranchRequest" />
+      </wsdl:input>
+      <wsdl:output name="inquireSuspenseMemberNotesByBranch_inquireSuspenseMemberNotesByBranchResponse">
+        <soap:body use="literal" parts="inquireSuspenseMemberNotesByBranchResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="maintainAccountWarnings">
+      <soap:operation soapAction="" />
+      <wsdl:input name="maintainAccountWarnings_maintainAccountWarningsRequest">
+        <soap:body use="literal" parts="maintainAccountWarningsRequest" />
+      </wsdl:input>
+      <wsdl:output name="maintainAccountWarnings_maintainAccountWarningsResponse">
+        <soap:body use="literal" parts="maintainAccountWarningsResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="maintainAndReassignMemberNote">
+      <soap:operation soapAction="" />
+      <wsdl:input name="maintainAndReassignMemberNote_maintainAndReassignMemberNoteRequest">
+        <soap:body use="literal" parts="maintainAndReassignMemberNoteRequest" />
+      </wsdl:input>
+      <wsdl:output name="maintainAndReassignMemberNote_maintainAndReassignMemberNoteResponse">
+        <soap:body use="literal" parts="maintainAndReassignMemberNoteResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="maintainMemberNote">
+      <soap:operation soapAction="" />
+      <wsdl:input name="maintainMemberNote_maintainMemberNoteRequest">
+        <soap:body use="literal" parts="maintainMemberNoteRequest" />
+      </wsdl:input>
+      <wsdl:output name="maintainMemberNote_maintainMemberNoteResponse">
+        <soap:body use="literal" parts="maintainMemberNoteResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="reassignMemberNotes">
+      <soap:operation soapAction="" />
+      <wsdl:input name="reassignMemberNotes_reassignMemberNotesRequest">
+        <soap:body use="literal" parts="reassignMemberNotesRequest" />
+      </wsdl:input>
+      <wsdl:output name="reassignMemberNotes_reassignMemberNotesResponse">
+        <soap:body use="literal" parts="reassignMemberNotesResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeCollectionDetailWarning">
+      <soap:operation soapAction="" />
+      <wsdl:input name="removeCollectionDetailWarning_removeCollectionDetailWarningRequest">
+        <soap:body use="literal" parts="removeCollectionDetailWarningRequest" />
+      </wsdl:input>
+      <wsdl:output name="removeCollectionDetailWarning_removeCollectionDetailWarningResponse">
+        <soap:body use="literal" parts="removeCollectionDetailWarningResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeInformationCode">
+      <soap:operation soapAction="" />
+      <wsdl:input name="removeInformationCode_removeInformationCodeRequest">
+        <soap:body use="literal" parts="removeInformationCodeRequest" />
+      </wsdl:input>
+      <wsdl:output name="removeInformationCode_removeInformationCodeResponse">
+        <soap:body use="literal" parts="removeInformationCodeResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeMemberNotes">
+      <soap:operation soapAction="" />
+      <wsdl:input name="removeMemberNotes_removeMemberNotesRequest">
+        <soap:body use="literal" parts="removeMemberNotesRequest" />
+      </wsdl:input>
+      <wsdl:output name="removeMemberNotes_removeMemberNotesResponse">
+        <soap:body use="literal" parts="removeMemberNotesResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeRestrictionWarning">
+      <soap:operation soapAction="" />
+      <wsdl:input name="removeRestrictionWarning_removeRestrictionWarningRequest">
+        <soap:body use="literal" parts="removeRestrictionWarningRequest" />
+      </wsdl:input>
+      <wsdl:output name="removeRestrictionWarning_removeRestrictionWarningResponse">
+        <soap:body use="literal" parts="removeRestrictionWarningResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeWarning">
+      <soap:operation soapAction="" />
+      <wsdl:input name="removeWarning_removeWarningRequest">
+        <soap:body use="literal" parts="removeWarningRequest" />
+      </wsdl:input>
+      <wsdl:output name="removeWarning_removeWarningResponse">
+        <soap:body use="literal" parts="removeWarningResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MemberNotesProxy_HTTP_Service">
+    <wsdl:port name="SOAP_HTTP_Port" binding="tns:MemberNotesProxy_MSSOAP_HTTP_Binding">
+      <soap:address location="http://lnxmqdev:7080/member/NotesService/20070420" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:connections.ispectrum.summitsite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:connections.ispectrum.summitsite.com" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="https://gocucorvallis.acumen.fiserv.com:443/ispectrum-webservices/BusinessDate?xsd=1" namespace="urn:connections.ispectrum.summitsite.com" />
+    </xsd:schema>
+  </types>
+  <message name="getBusinessDate">
+    <part name="parameters" element="tns:getBusinessDate" />
+  </message>
+  <message name="getBusinessDateResponse">
+    <part name="parameters" element="tns:getBusinessDateResponse" />
+  </message>
+  <message name="SOAPException">
+    <part name="fault" element="tns:SOAPException" />
+  </message>
+  <message name="doBusinessDateTransition">
+    <part name="parameters" element="tns:doBusinessDateTransition" />
+  </message>
+  <message name="doBusinessDateTransitionResponse">
+    <part name="parameters" element="tns:doBusinessDateTransitionResponse" />
+  </message>
+  <message name="getBusinessCalendarFromRealTimestamp">
+    <part name="parameters" element="tns:getBusinessCalendarFromRealTimestamp" />
+  </message>
+  <message name="getBusinessCalendarFromRealTimestampResponse">
+    <part name="parameters" element="tns:getBusinessCalendarFromRealTimestampResponse" />
+  </message>
+  <message name="getBusinessDateFromRealTimestamp">
+    <part name="parameters" element="tns:getBusinessDateFromRealTimestamp" />
+  </message>
+  <message name="getBusinessDateFromRealTimestampResponse">
+    <part name="parameters" element="tns:getBusinessDateFromRealTimestampResponse" />
+  </message>
+  <message name="getBusinessDateHistoryRecords">
+    <part name="parameters" element="tns:getBusinessDateHistoryRecords" />
+  </message>
+  <message name="getBusinessDateHistoryRecordsResponse">
+    <part name="parameters" element="tns:getBusinessDateHistoryRecordsResponse" />
+  </message>
+  <message name="getISpectrumDBVersion">
+    <part name="parameters" element="tns:getISpectrumDBVersion" />
+  </message>
+  <message name="getISpectrumDBVersionResponse">
+    <part name="parameters" element="tns:getISpectrumDBVersionResponse" />
+  </message>
+  <message name="getPreviousBizDate">
+    <part name="parameters" element="tns:getPreviousBizDate" />
+  </message>
+  <message name="getPreviousBizDateResponse">
+    <part name="parameters" element="tns:getPreviousBizDateResponse" />
+  </message>
+  <message name="getDrawerByUserId">
+    <part name="parameters" element="tns:getDrawerByUserId" />
+  </message>
+  <message name="getDrawerByUserIdResponse">
+    <part name="parameters" element="tns:getDrawerByUserIdResponse" />
+  </message>
+  <message name="getUndoSuspenseDetails">
+    <part name="parameters" element="tns:getUndoSuspenseDetails" />
+  </message>
+  <message name="getUndoSuspenseDetailsResponse">
+    <part name="parameters" element="tns:getUndoSuspenseDetailsResponse" />
+  </message>
+  <message name="getDrawerByLogonName">
+    <part name="parameters" element="tns:getDrawerByLogonName" />
+  </message>
+  <message name="getDrawerByLogonNameResponse">
+    <part name="parameters" element="tns:getDrawerByLogonNameResponse" />
+  </message>
+  <message name="getDrawerByDrawerCode">
+    <part name="parameters" element="tns:getDrawerByDrawerCode" />
+  </message>
+  <message name="getDrawerByDrawerCodeResponse">
+    <part name="parameters" element="tns:getDrawerByDrawerCodeResponse" />
+  </message>
+  <message name="getAvailableDrawerList">
+    <part name="parameters" element="tns:getAvailableDrawerList" />
+  </message>
+  <message name="getAvailableDrawerListResponse">
+    <part name="parameters" element="tns:getAvailableDrawerListResponse" />
+  </message>
+  <message name="getAllDrawerList">
+    <part name="parameters" element="tns:getAllDrawerList" />
+  </message>
+  <message name="getAllDrawerListResponse">
+    <part name="parameters" element="tns:getAllDrawerListResponse" />
+  </message>
+  <message name="openDrawer">
+    <part name="parameters" element="tns:openDrawer" />
+  </message>
+  <message name="openDrawerResponse">
+    <part name="parameters" element="tns:openDrawerResponse" />
+  </message>
+  <message name="getDrawerAggregateByUserId">
+    <part name="parameters" element="tns:getDrawerAggregateByUserId" />
+  </message>
+  <message name="getDrawerAggregateByUserIdResponse">
+    <part name="parameters" element="tns:getDrawerAggregateByUserIdResponse" />
+  </message>
+  <message name="openDefaultDrawerForUser">
+    <part name="parameters" element="tns:openDefaultDrawerForUser" />
+  </message>
+  <message name="openDefaultDrawerForUserResponse">
+    <part name="parameters" element="tns:openDefaultDrawerForUserResponse" />
+  </message>
+  <message name="getForcedClosed">
+    <part name="parameters" element="tns:getForcedClosed" />
+  </message>
+  <message name="getForcedClosedResponse">
+    <part name="parameters" element="tns:getForcedClosedResponse" />
+  </message>
+  <message name="getDefaultDrawerForUser">
+    <part name="parameters" element="tns:getDefaultDrawerForUser" />
+  </message>
+  <message name="getDefaultDrawerForUserResponse">
+    <part name="parameters" element="tns:getDefaultDrawerForUserResponse" />
+  </message>
+  <message name="getInstitutionFtpPath">
+    <part name="parameters" element="tns:getInstitutionFtpPath" />
+  </message>
+  <message name="getInstitutionFtpPathResponse">
+    <part name="parameters" element="tns:getInstitutionFtpPathResponse" />
+  </message>
+  <message name="getInstitutionPeriodicPath">
+    <part name="parameters" element="tns:getInstitutionPeriodicPath" />
+  </message>
+  <message name="getInstitutionPeriodicPathResponse">
+    <part name="parameters" element="tns:getInstitutionPeriodicPathResponse" />
+  </message>
+  <message name="getSystemDate">
+    <part name="parameters" element="tns:getSystemDate" />
+  </message>
+  <message name="getSystemDateResponse">
+    <part name="parameters" element="tns:getSystemDateResponse" />
+  </message>
+  <message name="findDrawerDetails">
+    <part name="parameters" element="tns:findDrawerDetails" />
+  </message>
+  <message name="findDrawerDetailsResponse">
+    <part name="parameters" element="tns:findDrawerDetailsResponse" />
+  </message>
+  <message name="getDrawerByPrimaryKey">
+    <part name="parameters" element="tns:getDrawerByPrimaryKey" />
+  </message>
+  <message name="getDrawerByPrimaryKeyResponse">
+    <part name="parameters" element="tns:getDrawerByPrimaryKeyResponse" />
+  </message>
+  <message name="doDrawerAdjust">
+    <part name="parameters" element="tns:doDrawerAdjust" />
+  </message>
+  <message name="doDrawerAdjustResponse">
+    <part name="parameters" element="tns:doDrawerAdjustResponse" />
+  </message>
+  <message name="createUpdateDeleteDrawer">
+    <part name="parameters" element="tns:createUpdateDeleteDrawer" />
+  </message>
+  <message name="createUpdateDeleteDrawerResponse">
+    <part name="parameters" element="tns:createUpdateDeleteDrawerResponse" />
+  </message>
+  <message name="closeDrawer">
+    <part name="parameters" element="tns:closeDrawer" />
+  </message>
+  <message name="closeDrawerResponse">
+    <part name="parameters" element="tns:closeDrawerResponse" />
+  </message>
+  <message name="getDrawersOnBranch">
+    <part name="parameters" element="tns:getDrawersOnBranch" />
+  </message>
+  <message name="getDrawersOnBranchResponse">
+    <part name="parameters" element="tns:getDrawersOnBranchResponse" />
+  </message>
+  <message name="getSystemDateForSchema">
+    <part name="parameters" element="tns:getSystemDateForSchema" />
+  </message>
+  <message name="getSystemDateForSchemaResponse">
+    <part name="parameters" element="tns:getSystemDateForSchemaResponse" />
+  </message>
+  <message name="getDrawerByUserIdAndFinControls">
+    <part name="parameters" element="tns:getDrawerByUserIdAndFinControls" />
+  </message>
+  <message name="getDrawerByUserIdAndFinControlsResponse">
+    <part name="parameters" element="tns:getDrawerByUserIdAndFinControlsResponse" />
+  </message>
+  <message name="getDrawerByLogonNameAndFincontrols">
+    <part name="parameters" element="tns:getDrawerByLogonNameAndFincontrols" />
+  </message>
+  <message name="getDrawerByLogonNameAndFincontrolsResponse">
+    <part name="parameters" element="tns:getDrawerByLogonNameAndFincontrolsResponse" />
+  </message>
+  <message name="getDrawerByDrawerCodeAndFinControls">
+    <part name="parameters" element="tns:getDrawerByDrawerCodeAndFinControls" />
+  </message>
+  <message name="getDrawerByDrawerCodeAndFinControlsResponse">
+    <part name="parameters" element="tns:getDrawerByDrawerCodeAndFinControlsResponse" />
+  </message>
+  <message name="getAllDrawerListByDeleted">
+    <part name="parameters" element="tns:getAllDrawerListByDeleted" />
+  </message>
+  <message name="getAllDrawerListByDeletedResponse">
+    <part name="parameters" element="tns:getAllDrawerListByDeletedResponse" />
+  </message>
+  <message name="openDefaultDrawerForUserByReset">
+    <part name="parameters" element="tns:openDefaultDrawerForUserByReset" />
+  </message>
+  <message name="openDefaultDrawerForUserByResetResponse">
+    <part name="parameters" element="tns:openDefaultDrawerForUserByResetResponse" />
+  </message>
+  <portType name="BusinessDate">
+    <operation name="getBusinessDate">
+      <input message="tns:getBusinessDate" />
+      <output message="tns:getBusinessDateResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="doBusinessDateTransition">
+      <input message="tns:doBusinessDateTransition" />
+      <output message="tns:doBusinessDateTransitionResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getBusinessCalendarFromRealTimestamp">
+      <input message="tns:getBusinessCalendarFromRealTimestamp" />
+      <output message="tns:getBusinessCalendarFromRealTimestampResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getBusinessDateFromRealTimestamp">
+      <input message="tns:getBusinessDateFromRealTimestamp" />
+      <output message="tns:getBusinessDateFromRealTimestampResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getBusinessDateHistoryRecords">
+      <input message="tns:getBusinessDateHistoryRecords" />
+      <output message="tns:getBusinessDateHistoryRecordsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getISpectrumDBVersion">
+      <input message="tns:getISpectrumDBVersion" />
+      <output message="tns:getISpectrumDBVersionResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getPreviousBizDate">
+      <input message="tns:getPreviousBizDate" />
+      <output message="tns:getPreviousBizDateResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getDrawerByUserId">
+      <input message="tns:getDrawerByUserId" />
+      <output message="tns:getDrawerByUserIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getUndoSuspenseDetails">
+      <input message="tns:getUndoSuspenseDetails" />
+      <output message="tns:getUndoSuspenseDetailsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getDrawerByLogonName">
+      <input message="tns:getDrawerByLogonName" />
+      <output message="tns:getDrawerByLogonNameResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getDrawerByDrawerCode">
+      <input message="tns:getDrawerByDrawerCode" />
+      <output message="tns:getDrawerByDrawerCodeResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAvailableDrawerList">
+      <input message="tns:getAvailableDrawerList" />
+      <output message="tns:getAvailableDrawerListResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllDrawerList">
+      <input message="tns:getAllDrawerList" />
+      <output message="tns:getAllDrawerListResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="openDrawer">
+      <input message="tns:openDrawer" />
+      <output message="tns:openDrawerResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getDrawerAggregateByUserId">
+      <input message="tns:getDrawerAggregateByUserId" />
+      <output message="tns:getDrawerAggregateByUserIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="openDefaultDrawerForUser">
+      <input message="tns:openDefaultDrawerForUser" />
+      <output message="tns:openDefaultDrawerForUserResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getForcedClosed">
+      <input message="tns:getForcedClosed" />
+      <output message="tns:getForcedClosedResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getDefaultDrawerForUser">
+      <input message="tns:getDefaultDrawerForUser" />
+      <output message="tns:getDefaultDrawerForUserResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getInstitutionFtpPath">
+      <input message="tns:getInstitutionFtpPath" />
+      <output message="tns:getInstitutionFtpPathResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getInstitutionPeriodicPath">
+      <input message="tns:getInstitutionPeriodicPath" />
+      <output message="tns:getInstitutionPeriodicPathResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getSystemDate">
+      <input message="tns:getSystemDate" />
+      <output message="tns:getSystemDateResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findDrawerDetails">
+      <input message="tns:findDrawerDetails" />
+      <output message="tns:findDrawerDetailsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getDrawerByPrimaryKey">
+      <input message="tns:getDrawerByPrimaryKey" />
+      <output message="tns:getDrawerByPrimaryKeyResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="doDrawerAdjust">
+      <input message="tns:doDrawerAdjust" />
+      <output message="tns:doDrawerAdjustResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateDeleteDrawer">
+      <input message="tns:createUpdateDeleteDrawer" />
+      <output message="tns:createUpdateDeleteDrawerResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="closeDrawer">
+      <input message="tns:closeDrawer" />
+      <output message="tns:closeDrawerResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getDrawersOnBranch">
+      <input message="tns:getDrawersOnBranch" />
+      <output message="tns:getDrawersOnBranchResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getSystemDateForSchema">
+      <input message="tns:getSystemDateForSchema" />
+      <output message="tns:getSystemDateForSchemaResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getDrawerByUserIdAndFinControls">
+      <input message="tns:getDrawerByUserIdAndFinControls" />
+      <output message="tns:getDrawerByUserIdAndFinControlsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getDrawerByLogonNameAndFincontrols">
+      <input message="tns:getDrawerByLogonNameAndFincontrols" />
+      <output message="tns:getDrawerByLogonNameAndFincontrolsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getDrawerByDrawerCodeAndFinControls">
+      <input message="tns:getDrawerByDrawerCodeAndFinControls" />
+      <output message="tns:getDrawerByDrawerCodeAndFinControlsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllDrawerListByDeleted">
+      <input message="tns:getAllDrawerListByDeleted" />
+      <output message="tns:getAllDrawerListByDeletedResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="openDefaultDrawerForUserByReset">
+      <input message="tns:openDefaultDrawerForUserByReset" />
+      <output message="tns:openDefaultDrawerForUserByResetResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+  </portType>
+</definitions>

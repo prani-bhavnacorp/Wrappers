@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:tns="http://www.americafirst.com/20070315/AccountTransaction" xmlns:cmlib="http://www.americafirst.com/20070315/CommonTypesLib" xmlns:cm="http://www.americafirst.com/20070315/CommonTypes" targetNamespace="http://www.americafirst.com/20070315/AccountTransaction" xmlns="http://www.w3.org/2001/XMLSchema">
+  <import schemaLocation="../commontypes/CommonTypes.xsd" namespace="http://www.americafirst.com/20070315/CommonTypes" />
+  <import schemaLocation="../commontypeslib/CommonTypesLib.xsd" namespace="http://www.americafirst.com/20070315/CommonTypesLib" />
+  <include schemaLocation="CommonTransactionTypes.xsd" />
+  <annotation>
+    <documentation>Supports TRAN_TDR  -  CERTIFICATE DEPOSIT INPUT/OUTPUT  V002</documentation>
+  </annotation>
+  <complexType name="OpenCertificateByCashRequest">
+    <complexContent mixed="false">
+      <extension base="tns:TranBaseTypeRequest">
+        <sequence>
+          <element name="accountID" type="cm:AccountID" />
+          <element name="subAccountID" type="cm:SubAccountID" />
+          <element name="tranAmount" type="cmlib:Decimal_15_2" />
+          <element name="certificateID" type="cm:CertificateID" />
+          <element name="checksInAmount" type="cmlib:Decimal_15_2" />
+          <element name="checksOnUsAmount" type="cmlib:Decimal_15_2" />
+          <element name="folio" type="cmlib:String_6" />
+          <element name="description" type="cmlib:String_15" />
+          <element name="IRACode" type="cmlib:String_2" />
+          <element name="term" type="cmlib:Short_3" />
+          <element name="rateCode" type="cmlib:String_1" />
+          <element name="numericRate" type="cmlib:Decimal_5_3" />
+          <element name="dividendMethod" type="cmlib:String_1" />
+          <element name="dividendFrequency" type="cmlib:String_1" />
+          <element name="renewalFlag" type="boolean" />
+          <element minOccurs="0" name="maturityDate" nillable="true" type="date" />
+          <element minOccurs="0" name="minBalanceAmount" type="cmlib:Decimal_15_2" />
+          <element minOccurs="0" default="false" name="rateOverrideFlag" type="boolean" />
+          <element minOccurs="0" name="rateApprovedBy" type="cmlib:String_60_min1" />
+          <element minOccurs="0" name="IRASpecialType" type="cmlib:String_1" />
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="OpenCertificateByCashResponse">
+    <complexContent mixed="false">
+      <extension base="tns:TranBaseTypeResponse">
+        <sequence>
+          <element name="accountID" type="cm:AccountID" />
+          <element name="subAccountID" type="cm:SubAccountID" />
+          <element name="tranAmount" type="cmlib:Decimal_15_2" />
+          <element name="certificateID" type="cm:CertificateID" />
+          <element name="checksInAmount" type="cmlib:Decimal_15_2" />
+          <element name="checksOnUsAmount" type="cmlib:Decimal_15_2" />
+          <element name="folio" type="cmlib:String_6" />
+          <element name="description" type="cmlib:String_15" />
+          <element name="IRACode" type="cmlib:String_2" />
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+</schema>

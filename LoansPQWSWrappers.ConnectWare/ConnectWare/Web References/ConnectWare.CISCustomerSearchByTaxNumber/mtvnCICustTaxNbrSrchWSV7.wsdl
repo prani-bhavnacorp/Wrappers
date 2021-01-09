@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="mtvnCICustTaxNbrSrchWSV7" xmlns:import0="mtvnCWCICustTaxNbrSrchSvcReq" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:import1="mtvnCWCICustTaxNbrSrchSvcRes" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="mtvnCICustTaxNbrSrchWSV7" targetNamespace="mtvnCICustTaxNbrSrchWSV7" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Connectware Web Service Interface</documentation>
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="./CICustTaxNbrSrchWSV7SvcReq.xsd" namespace="mtvnCWCICustTaxNbrSrchSvcReq" />
+      <xsd:import schemaLocation="./CICustTaxNbrSrchWSV7SvcRes.xsd" namespace="mtvnCWCICustTaxNbrSrchSvcRes" />
+    </xsd:schema>
+  </types>
+  <message name="CICustTaxNbrSrchMtvnSvcReqMsg">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <part name="messagePart" element="import0:CICustTaxNbrSrchMtvnSvcReq" />
+  </message>
+  <message name="CICustTaxNbrSrchMtvnSvcResMsg">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <part name="messagePart" element="import1:CICustTaxNbrSrchMtvnSvcRes" />
+  </message>
+  <portType name="mtvnCWCICustTaxNbrSrchWSV7Interface">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">CICustTaxNbrSrchWSV7</documentation>
+    <operation name="CICustTaxNbrSrch">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+      <input message="tns:CICustTaxNbrSrchMtvnSvcReqMsg" />
+      <output message="tns:CICustTaxNbrSrchMtvnSvcResMsg" />
+    </operation>
+  </portType>
+  <binding name="mtvnCWCICustTaxNbrSrchWSV7" type="tns:mtvnCWCICustTaxNbrSrchWSV7Interface">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="CICustTaxNbrSrch">
+      <soap:operation soapAction="CICustTaxNbrSrchWSV7:CICustTaxNbrSrchMtvnSvcReqMsg" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="mtvnCWCICustTaxNbrSrchWSV7">
+    <port name="mtvnCWCICustTaxNbrSrchWSV7Port" binding="tns:mtvnCWCICustTaxNbrSrchWSV7">
+      <soap:address location="https://xmlgateway.metavante.org/ConnectwareWS/CICustTaxNbrSrchWSV7" />
+    </port>
+  </service>
+</definitions>

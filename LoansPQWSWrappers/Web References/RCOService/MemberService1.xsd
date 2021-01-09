@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://rco.loanorigination.services.datatypes/2007/08/serialization" elementFormDefault="qualified" targetNamespace="http://rco.loanorigination.services.datatypes/2007/08/serialization" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://vqa1web.rcolmstead.com:10020/LoanOrigination/MemberService.svc?xsd=xsd3" namespace="http://rco.loanorigination.common.services.datatypes/2007/08/serialization" />
+  <xs:complexType name="MemberDetailsRequest">
+    <xs:sequence>
+      <xs:element name="FIID" nillable="true" type="xs:string" />
+      <xs:element name="CustomerID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RCOMemberCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MemberDetailsRequest" nillable="true" type="tns:MemberDetailsRequest" />
+  <xs:complexType name="Member">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://rco.loanorigination.common.services.datatypes/2007/08/serialization" base="q1:ServiceError">
+        <xs:sequence>
+          <xs:element name="RCOMemberCode" nillable="true" type="xs:string" />
+          <xs:element name="FirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MiddleName" nillable="true" type="xs:string" />
+          <xs:element name="LastName" nillable="true" type="xs:string" />
+          <xs:element name="HomeAddress" nillable="true" type="q1:Address" />
+          <xs:element name="DOB" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="OccupancyStatus" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ContactInfo" nillable="true" type="q1:Contact" />
+          <xs:element minOccurs="0" name="EmploymentInfo" nillable="true" type="q1:Employment" />
+          <xs:element minOccurs="0" name="LoanAccounts" nillable="true" type="tns:ArrayOfLoanAccount" />
+          <xs:element minOccurs="0" name="ShareAccounts" nillable="true" type="tns:ArrayOfShareAccount" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Member" nillable="true" type="tns:Member" />
+  <xs:complexType name="ArrayOfLoanAccount">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LoanAccount" nillable="true" type="tns:LoanAccount" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLoanAccount" nillable="true" type="tns:ArrayOfLoanAccount" />
+  <xs:complexType name="LoanAccount">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SubAccount">
+        <xs:sequence>
+          <xs:element name="LoanDate" nillable="true" type="xs:string" />
+          <xs:element name="LoanType" nillable="true" type="xs:string" />
+          <xs:element name="Payoff" type="xs:double" />
+          <xs:element name="Payment" type="xs:double" />
+          <xs:element name="Purpose" nillable="true" type="xs:string" />
+          <xs:element name="Rate" type="xs:double" />
+          <xs:element name="RateType" type="tns:InterestRateType" />
+          <xs:element name="Frequency" type="tns:LoanPaymentFrequency" />
+          <xs:element name="Balance" type="xs:double" />
+          <xs:element name="Term" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LoanAccount" nillable="true" type="tns:LoanAccount" />
+  <xs:complexType name="SubAccount">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Account">
+        <xs:sequence>
+          <xs:element name="Suffix" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SubAccount" nillable="true" type="tns:SubAccount" />
+  <xs:complexType name="Account">
+    <xs:sequence>
+      <xs:element name="CustomerID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Account" nillable="true" type="tns:Account" />
+  <xs:complexType name="ShareAccount">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SubAccount">
+        <xs:sequence>
+          <xs:element name="AccountType" nillable="true" type="xs:string" />
+          <xs:element name="Balance" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ShareAccount" nillable="true" type="tns:ShareAccount" />
+  <xs:simpleType name="InterestRateType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="F" />
+      <xs:enumeration value="V" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="InterestRateType" nillable="true" type="tns:InterestRateType" />
+  <xs:simpleType name="LoanPaymentFrequency">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="None" />
+      <xs:enumeration value="W" />
+      <xs:enumeration value="BW" />
+      <xs:enumeration value="SM" />
+      <xs:enumeration value="M" />
+      <xs:enumeration value="Q" />
+      <xs:enumeration value="SA" />
+      <xs:enumeration value="A" />
+      <xs:enumeration value="D" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="LoanPaymentFrequency" nillable="true" type="tns:LoanPaymentFrequency" />
+  <xs:complexType name="ArrayOfShareAccount">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ShareAccount" nillable="true" type="tns:ShareAccount" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfShareAccount" nillable="true" type="tns:ArrayOfShareAccount" />
+  <xs:complexType name="LoanBook">
+    <xs:sequence>
+      <xs:element name="FIID" nillable="true" type="xs:string" />
+      <xs:element name="CustomerID" nillable="true" type="xs:string" />
+      <xs:element name="Suffix" nillable="true" type="xs:string" />
+      <xs:element name="LoanType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LoanTypeDescription" nillable="true" type="xs:string" />
+      <xs:element name="InterestRate" type="xs:double" />
+      <xs:element name="LoanAmount" type="xs:double" />
+      <xs:element name="FirstDueDate" nillable="true" type="xs:string" />
+      <xs:element name="MinPaymentAmount" type="xs:double" />
+      <xs:element name="PaymentFrequency" type="tns:LoanPaymentFrequency" />
+      <xs:element name="NoOfPayments" type="xs:int" />
+      <xs:element name="ApprovedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VariableInterestMargin" type="xs:double" />
+      <xs:element minOccurs="0" name="MortgageOriginalPropertyValue" type="xs:double" />
+      <xs:element minOccurs="0" name="HasMortgageInsurance" nillable="true" type="xs:string" />
+      <xs:element name="InsuranceType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InsurancePayment" type="xs:double" />
+      <xs:element minOccurs="0" name="OpenEndLoanMaxCredit" type="xs:double" />
+      <xs:element minOccurs="0" name="InterestGuaranteedRate" type="xs:double" />
+      <xs:element minOccurs="0" name="InterestGuaranteedDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaxVarRate" type="xs:double" />
+      <xs:element minOccurs="0" name="MinVarRate" type="xs:double" />
+      <xs:element minOccurs="0" name="Mortgage1098Points" type="xs:double" />
+      <xs:element minOccurs="0" name="ResidualValue" type="xs:double" />
+      <xs:element name="CreditScore" type="xs:int" />
+      <xs:element name="PaperGrade" nillable="true" type="xs:string" />
+      <xs:element name="ECOACode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LoanNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OriginatorID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FundingOfficerID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServiceContract" type="xs:double" />
+      <xs:element minOccurs="0" name="GAP" type="xs:double" />
+      <xs:element minOccurs="0" name="SpecialChecking" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cc_authorized_user_1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cc_authorized_user_2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cc_authorized_user_3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cc_authorized_user_1_Mother_Maiden_Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Bankruptcy_score" type="xs:int" />
+      <xs:element minOccurs="0" name="Custom_Score_1" type="xs:int" />
+      <xs:element minOccurs="0" name="Custom_Score_2" type="xs:int" />
+      <xs:element minOccurs="0" name="PmtTerm" type="xs:int" />
+      <xs:element minOccurs="0" name="CoApps" nillable="true" type="tns:ArrayOfCoApp" />
+      <xs:element minOccurs="0" name="Collateral" nillable="true" type="tns:Collateral" />
+      <xs:element name="LoanFundDisb" nillable="true" type="tns:FundDisbursement" />
+      <xs:element minOccurs="0" name="Pledges" nillable="true" type="tns:ArrayOfPledge" />
+      <xs:element minOccurs="0" name="CreditDisabilityPremium" type="xs:double" />
+      <xs:element minOccurs="0" name="CreditLifePremium" type="xs:double" />
+      <xs:element minOccurs="0" name="DebtCancelization" type="xs:double" />
+      <xs:element minOccurs="0" name="LoanDate" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LoanBook" nillable="true" type="tns:LoanBook" />
+  <xs:complexType name="ArrayOfCoApp">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CoApp" nillable="true" type="tns:CoApp" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCoApp" nillable="true" type="tns:ArrayOfCoApp" />
+  <xs:complexType name="CoApp">
+    <xs:sequence>
+      <xs:element name="CoAppType" nillable="true" type="xs:string" />
+      <xs:element name="RCOCoAppCode" nillable="true" type="xs:string" />
+      <xs:element name="FirstName" nillable="true" type="xs:string" />
+      <xs:element name="MiddleName" nillable="true" type="xs:string" />
+      <xs:element name="LastName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://rco.loanorigination.common.services.datatypes/2007/08/serialization" name="HomeAddress" nillable="true" type="q2:Address" />
+      <xs:element name="CoAppCreditScore" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CoApp" nillable="true" type="tns:CoApp" />
+  <xs:complexType name="Collateral">
+    <xs:sequence>
+      <xs:element name="VehicleType" nillable="true" type="xs:string" />
+      <xs:element name="Year" nillable="true" type="xs:string" />
+      <xs:element name="Make" nillable="true" type="xs:string" />
+      <xs:element name="Model" nillable="true" type="xs:string" />
+      <xs:element name="SerialNumber" nillable="true" type="xs:string" />
+      <xs:element name="Value" type="xs:double" />
+      <xs:element name="Description" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Collateral" nillable="true" type="tns:Collateral" />
+  <xs:complexType name="FundDisbursement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Transfers" nillable="true" type="tns:ArrayOfTransfer" />
+      <xs:element minOccurs="0" name="Fees" nillable="true" type="tns:ArrayOfFee" />
+      <xs:element minOccurs="0" name="Payoffs" nillable="true" type="tns:ArrayOfPayoff" />
+      <xs:element minOccurs="0" name="Checks" nillable="true" type="tns:ArrayOfCheck" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FundDisbursement" nillable="true" type="tns:FundDisbursement" />
+  <xs:complexType name="ArrayOfTransfer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Transfer" nillable="true" type="tns:Transfer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTransfer" nillable="true" type="tns:ArrayOfTransfer" />
+  <xs:complexType name="Transfer">
+    <xs:sequence>
+      <xs:element name="CustomerID" nillable="true" type="xs:string" />
+      <xs:element name="Suffix" nillable="true" type="xs:string" />
+      <xs:element name="AccountType" nillable="true" type="xs:string" />
+      <xs:element name="Amount" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Transfer" nillable="true" type="tns:Transfer" />
+  <xs:complexType name="ArrayOfFee">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Fee" nillable="true" type="tns:Fee" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFee" nillable="true" type="tns:ArrayOfFee" />
+  <xs:complexType name="Fee">
+    <xs:sequence>
+      <xs:element name="GLAccount" nillable="true" type="xs:string" />
+      <xs:element name="Description" nillable="true" type="xs:string" />
+      <xs:element name="Amount" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Fee" nillable="true" type="tns:Fee" />
+  <xs:complexType name="ArrayOfPayoff">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Payoff" nillable="true" type="tns:Payoff" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPayoff" nillable="true" type="tns:ArrayOfPayoff" />
+  <xs:complexType name="Payoff">
+    <xs:sequence>
+      <xs:element name="CustomerID" nillable="true" type="xs:string" />
+      <xs:element name="Suffix" nillable="true" type="xs:string" />
+      <xs:element name="Amount" type="xs:double" />
+      <xs:element name="PayOff" nillable="true" type="xs:string" />
+      <xs:element name="Description" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Payoff" nillable="true" type="tns:Payoff" />
+  <xs:complexType name="ArrayOfCheck">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Check" nillable="true" type="tns:Check" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCheck" nillable="true" type="tns:ArrayOfCheck" />
+  <xs:complexType name="Check">
+    <xs:sequence>
+      <xs:element name="Payable" nillable="true" type="xs:string" />
+      <xs:element name="Re" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://rco.loanorigination.common.services.datatypes/2007/08/serialization" name="CheckAddress" nillable="true" type="q3:Address" />
+      <xs:element name="Amount" type="xs:double" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Creator" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CheckNumber" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Check" nillable="true" type="tns:Check" />
+  <xs:complexType name="ArrayOfPledge">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Pledge" nillable="true" type="tns:Pledge" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPledge" nillable="true" type="tns:ArrayOfPledge" />
+  <xs:complexType name="Pledge">
+    <xs:sequence>
+      <xs:element name="CustomerID" nillable="true" type="xs:string" />
+      <xs:element name="Suffix" nillable="true" type="xs:string" />
+      <xs:element name="AccountType" nillable="true" type="xs:string" />
+      <xs:element name="PledgeType" nillable="true" type="xs:string" />
+      <xs:element name="Amount" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Pledge" nillable="true" type="tns:Pledge" />
+  <xs:complexType name="LoanSetupResponse">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://rco.loanorigination.common.services.datatypes/2007/08/serialization" base="q4:ServiceError">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LoanSetupResponse" nillable="true" type="tns:LoanSetupResponse" />
+</xs:schema>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="mtvnCWLNExtensionReqData" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="mtvnCWLNExtensionReqData" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="LNExtensionReqData">
+    <xs:annotation>
+      <xs:documentation>Loan Extension (LNEXT) - This function is used to extend a payment of a loan.  Only billed payments can be extended.  An extension transaction cannot be backdated over other payments and cannot be used for interest-only, matured or bill type F floor plan loans</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="E30051" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Account Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E30054" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Note Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E31702" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Batch Nbr</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E33200" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Effective Date</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E33201" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Months to Extend</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

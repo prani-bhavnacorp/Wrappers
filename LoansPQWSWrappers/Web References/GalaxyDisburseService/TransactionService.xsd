@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.galaxyplus.com/service/transaction/schema" xmlns:frm="http://www.galaxyplus.com/framework/schema" xmlns:mstr="http://www.galaxyplus.com/domain/schema" xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.galaxyplus.com/service/transaction/schema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="domain.xsd" namespace="http://www.galaxyplus.com/domain/schema" />
+  <xs:import schemaLocation="framework.xsd" namespace="http://www.galaxyplus.com/framework/schema" />
+  <xs:simpleType name="CreditType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="GL" />
+      <xs:enumeration value="CASH_OUT" />
+      <xs:enumeration value="SHARE_DEPOSIT" />
+      <xs:enumeration value="CHECK_DISBURSED" />
+      <xs:enumeration value="CREDIT_UNION_CHECK" />
+      <xs:enumeration value="CASHIERS_CHECK" />
+      <xs:enumeration value="MONEY_ORDER" />
+      <xs:enumeration value="TRAVELERS_CHECK" />
+      <xs:enumeration value="LOAN_PAYMENT" />
+      <xs:enumeration value="XFER_SHARE_DEPOSIT" />
+      <xs:enumeration value="XFER_LOAN_PAYMENT" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DebitType_Enum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="GL" />
+      <xs:enumeration value="CASH_IN" />
+      <xs:enumeration value="SHARE_WITHDRAWAL" />
+      <xs:enumeration value="CHECK_RECEIVED" />
+      <xs:enumeration value="XFER_SHARE_WITHDRAWAL" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PostTransactionsRq">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="TransactionEntry" type="tns:TransactionEntry_Type" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PostTransactionsRs">
+    <xs:complexType />
+  </xs:element>
+  <xs:complexType name="Credit_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Transaction_Type">
+        <xs:sequence>
+          <xs:element name="Code" type="tns:CreditType_Enum" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Check_Type">
+    <xs:sequence>
+      <xs:element name="PayableTo" type="xs:string" />
+      <xs:element minOccurs="0" name="Comment" type="xs:string" />
+      <xs:element minOccurs="0" name="Address" type="mstr:Address_Type" />
+      <xs:element minOccurs="0" name="CheckNumber" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CheckReceived_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="mstr:Product_Type">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AccountId" type="xs:int" />
+          <xs:element minOccurs="0" name="CustomHoldDays" type="xs:int" />
+          <xs:element minOccurs="0" name="CheckHoldParameterIndex" type="xs:int" />
+          <xs:element minOccurs="0" name="Dollar100HoldAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="NextDayHoldAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="HoldAmount" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Debit_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Transaction_Type">
+        <xs:sequence>
+          <xs:element name="Code" type="tns:DebitType_Enum" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GlTransaction_Type">
+    <xs:sequence>
+      <xs:element name="GlAccountNumber" type="xs:string" />
+      <xs:element name="GlBranch" type="xs:int" />
+      <xs:element minOccurs="0" name="GlComment" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LoanPayment_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="mstr:Product_Type">
+        <xs:sequence>
+          <xs:element name="AccountId" type="xs:int" />
+          <xs:element name="PreCalculated" type="tns:PreCalculated_Type" />
+          <xs:element minOccurs="0" name="Comment" type="xs:string" />
+          <xs:element minOccurs="0" name="AuxilliaryComment" type="xs:string" />
+          <xs:element minOccurs="0" name="BillPaymentVendorNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="RegulationFlag" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PrincipalPaidAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="LateChargePaidAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="InterestPaidAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PaymentCouponCode" type="xs:int" />
+          <xs:element minOccurs="0" name="RefundReasonType" type="mstr:SinglePremiumRefundReasonType_Enum" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="MoneyOrder_Type">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MoneyOrderFeeAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SerialNumber" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ShareDeposit_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="mstr:Product_Type">
+        <xs:sequence>
+          <xs:element name="AccountId" type="xs:int" />
+          <xs:element minOccurs="0" name="UnpaidFeeAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Comment" type="xs:string" />
+          <xs:element minOccurs="0" name="AuxilliaryComment" type="xs:string" />
+          <xs:element minOccurs="0" name="RegulationFlag" type="xs:boolean" />
+          <xs:element minOccurs="0" name="TaxFavoredContributionType" type="mstr:TaxFavoredContributionType_Enum" />
+          <xs:element minOccurs="0" name="PlanType" type="mstr:PlanType_Enum" />
+          <xs:element minOccurs="0" name="PlanBeneficiaryIndex" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="XferShareWithdrawal_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ShareWithdrawal_Type">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="MemberNumber" type="mstr:MemberNumber" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="XferShareDeposit_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ShareDeposit_Type">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="MemberNumber" type="mstr:MemberNumber" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ShareWithdrawal_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="mstr:Product_Type">
+        <xs:sequence>
+          <xs:element name="AccountId" type="xs:int" />
+          <xs:element minOccurs="0" name="Comment" type="xs:string" />
+          <xs:element minOccurs="0" name="AuxilliaryComment" type="xs:string" />
+          <xs:element minOccurs="0" name="RegulationFlag" type="xs:boolean" />
+          <xs:element minOccurs="0" name="FeeDescription" type="xs:string" />
+          <xs:element minOccurs="0" name="BillPaymentVendorNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="ExcessWithdrawalFee" type="xs:decimal" />
+          <xs:element minOccurs="0" name="NegativeOverdraftFee" type="xs:decimal" />
+          <xs:element minOccurs="0" name="IsWithholding" type="xs:boolean" />
+          <xs:element minOccurs="0" name="FederalWithholdingAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="StateWithholdingAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="TaxFavoredDistributionType" type="mstr:TaxFavoredDistributionType_Enum" />
+          <xs:element minOccurs="0" name="PenaltyAmount" type="xs:decimal" />
+          <xs:element minOccurs="0" name="PlanType" type="mstr:PlanType_Enum" />
+          <xs:element minOccurs="0" name="PlanBeneficiaryIndex" type="xs:int" />
+          <xs:element minOccurs="0" name="DraftNumber" type="xs:string" />
+          <xs:element minOccurs="0" name="DraftTracerNumber" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="Transaction_Type">
+    <xs:sequence>
+      <xs:element name="Amount" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TransactionEntry_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="frm:OverrideableRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="MemberNumber" type="mstr:MemberNumber" />
+          <xs:element minOccurs="0" name="Ip" type="xs:string" />
+          <xs:element minOccurs="0" name="Printing">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element minOccurs="0" name="PrintReceipt" type="xs:boolean" />
+                <xs:element minOccurs="0" name="IncludeShareAccountBalance" type="xs:boolean" />
+                <xs:element minOccurs="0" name="IncludeLoanAccountBalance" type="xs:boolean" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element maxOccurs="unbounded" name="Debit">
+            <xs:complexType>
+              <xs:complexContent mixed="false">
+                <xs:extension base="tns:Debit_Type">
+                  <xs:choice minOccurs="0">
+                    <xs:element name="GlDebit" type="tns:GlTransaction_Type" />
+                    <xs:element name="ShareWithdrawal" type="tns:ShareWithdrawal_Type" />
+                    <xs:element name="XferShareWithdrawal" type="tns:XferShareWithdrawal_Type" />
+                    <xs:element name="CheckReceived" type="tns:CheckReceived_Type" />
+                  </xs:choice>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element maxOccurs="unbounded" name="Credit">
+            <xs:complexType>
+              <xs:complexContent mixed="false">
+                <xs:extension base="tns:Credit_Type">
+                  <xs:choice minOccurs="0">
+                    <xs:element name="GlCredit" type="tns:GlTransaction_Type" />
+                    <xs:element name="ShareDeposit" type="tns:ShareDeposit_Type" />
+                    <xs:element name="XferShareDeposit" type="tns:XferShareDeposit_Type" />
+                    <xs:element name="CashiersCheck" type="tns:Check_Type" />
+                    <xs:element name="CheckDisbursed" type="tns:Check_Type" />
+                    <xs:element name="CreditUnionCheck" type="tns:Check_Type" />
+                    <xs:element name="MoneyOrder" type="tns:MoneyOrder_Type" />
+                    <xs:element name="TravelersCheck" type="tns:TravelersCheck_Type" />
+                    <xs:element name="LoanPayment" type="tns:LoanPayment_Type" />
+                    <xs:element name="XferLoanPayment" type="tns:XferLoanPayment_Type" />
+                  </xs:choice>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="TravelersCheck_Type">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TravelersCheckFeeAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SerialNumber" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="XferLoanPayment_Type">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:LoanPayment_Type">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="MemberNumber" type="mstr:MemberNumber" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="LoanAddon_Type">
+    <xs:sequence>
+      <xs:element name="LoanAddonAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Comment" type="xs:string" />
+      <xs:element minOccurs="0" name="AuxilliaryComment" type="xs:string" />
+      <xs:element minOccurs="0" name="BillPaymentVendorNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="RegulationFlag" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PaymentCouponCode" type="xs:int" />
+      <xs:element minOccurs="0" name="PreCalculated" type="tns:PreCalculated_Type" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PreCalculated_Type">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DelinquencyDate" type="xs:date" />
+      <xs:element minOccurs="0" name="DelinquencyAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PaymentsDelinquent" type="xs:int" />
+      <xs:element minOccurs="0" name="PaymentsDelinquentBeforeSkip" type="xs:int" />
+      <xs:element minOccurs="0" name="InterestDueAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="LateChargeAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="DueDate" type="xs:date" />
+      <xs:element minOccurs="0" name="PayoffAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PartialPaymentAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="SchedulePaymentAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="UnpaidLateChargeAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="CunaSinglePremium" type="mstr:CunaSinglePremium_Type" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

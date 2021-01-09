@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:tns="http://www.americafirst.com/20070315/AccountTransaction" xmlns:hdr="http://www.americafirst.com/20070315/AFCUHeader" xmlns:ctl="http://www.americafirst.com/20070315/CommonTypesLib" xmlns:cm="http://www.americafirst.com/20070315/CommonTypes" targetNamespace="http://www.americafirst.com/20070315/AccountTransaction" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema">
+  <import schemaLocation="../afcuheader/AFCUHeader.xsd" namespace="http://www.americafirst.com/20070315/AFCUHeader" />
+  <import schemaLocation="../commontypeslib/CommonTypesLib.xsd" namespace="http://www.americafirst.com/20070315/CommonTypesLib" />
+  <import schemaLocation="../commontypes/CommonTypes.xsd" namespace="http://www.americafirst.com/20070315/CommonTypes" />
+  <include schemaLocation="CommonMultiTran.xsd" />
+  <annotation>
+    <documentation>
+		The Multitran webservice enables soap request to construct up to 20 different 
+		transactions to be processed by the host.  It uses SOA2067 host function.
+		The Multi Tran request consists of a AFCUHeader, an override (optional) and the
+		request body.
+		The request body consists of an account id and sun account id and a list of different 
+		types of transactions to be posted.
+		</documentation>
+  </annotation>
+  <element name="multiTranRequest" type="tns:MultiTranRequest" />
+  <element name="multiTranResponse" type="tns:MultiTranResponse" />
+  <complexType name="MultiTranRequest">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="header" type="hdr:AFCUHeaderRequest" />
+      <element minOccurs="0" maxOccurs="1" name="overrideData" type="cm:OverrideData" />
+      <element minOccurs="1" maxOccurs="1" name="request" type="tns:Request" />
+    </sequence>
+  </complexType>
+  <complexType name="Request">
+    <sequence>
+      <element name="requestType" type="cm:RequestType" />
+      <element name="sourceMemberID" type="ctl:String_1" />
+      <element name="cashBoxID" type="ctl:NonNegativeInteger_7" />
+      <element name="numberOfTran" type="ctl:NonNegativeInteger_7" />
+      <element name="requestTransactions" type="tns:RequestTransactions" />
+    </sequence>
+  </complexType>
+  <complexType name="RequestTransactions">
+    <sequence>
+      <element minOccurs="0" maxOccurs="unbounded" name="requestTransaction" type="tns:TranBaseTypeRequest" />
+    </sequence>
+  </complexType>
+  <complexType name="MultiTranResponse">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="header" type="hdr:AFCUHeaderResponse" />
+      <element minOccurs="0" maxOccurs="1" name="response" type="tns:Response" />
+    </sequence>
+  </complexType>
+  <complexType name="Response">
+    <sequence>
+      <element name="responseTransactions" type="tns:ResponseTransactions" />
+    </sequence>
+  </complexType>
+  <complexType name="ResponseTransactions">
+    <sequence>
+      <element minOccurs="0" maxOccurs="unbounded" name="responseTransaction" type="tns:TranBaseTypeResponse" />
+    </sequence>
+    <attribute name="transactionID" type="ctl:NonNegativeInteger_16" />
+  </complexType>
+</schema>

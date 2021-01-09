@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="mtvnCWDPHoldAddResData" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="mtvnCWDPHoldAddResData" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="DPHoldAddResData">
+    <xs:annotation>
+      <xs:documentation>Deposit Hold Add (DLHLD) -  This function is used to add a new hold to a deposit account.</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="E20007" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Account Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E20010" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Transaction Code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20048" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Account Name</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20501" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Hold Expire Date</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20502" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Hold Expires Date Default</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E20503" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Hold Amount</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E20504" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Hold Type</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20505" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Hold Description</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20506" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Hold Requestor</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20507" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Hold Override</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20508" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Hold ID Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20837" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Hold Delete Indicator</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="ErrCde" type="xs:string" />
+        <xs:element minOccurs="0" name="ErrResnCde" type="xs:string" />
+        <xs:element minOccurs="0" name="ApplMsgLst">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="ApplMsg">
+                <xs:complexType>
+                  <xs:all>
+                    <xs:element minOccurs="0" name="ApplMsgApplId" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgNbr" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgTxt" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgErrInd" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgFld" type="xs:string" />
+                  </xs:all>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

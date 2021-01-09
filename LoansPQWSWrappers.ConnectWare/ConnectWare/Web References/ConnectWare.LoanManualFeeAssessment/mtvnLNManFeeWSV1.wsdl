@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="mtvnLNManFeeWSV1" xmlns:import0="mtvnCWLNManFeeSvcReq" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:import1="mtvnCWLNManFeeSvcRes" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="mtvnLNManFeeWSV1" targetNamespace="mtvnLNManFeeWSV1" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Connectware Web Service Interface</documentation>
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="./LNManFeeWSV1SvcReq.xsd" namespace="mtvnCWLNManFeeSvcReq" />
+      <xsd:import schemaLocation="./LNManFeeWSV1SvcRes.xsd" namespace="mtvnCWLNManFeeSvcRes" />
+    </xsd:schema>
+  </types>
+  <message name="LNManFeeMtvnSvcReqMsg">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <part name="messagePart" element="import0:LNManFeeMtvnSvcReq" />
+  </message>
+  <message name="LNManFeeMtvnSvcResMsg">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <part name="messagePart" element="import1:LNManFeeMtvnSvcRes" />
+  </message>
+  <portType name="mtvnCWLNManFeeWSV1Interface">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">LNManFeeWSV1</documentation>
+    <operation name="LNManFee">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+      <input message="tns:LNManFeeMtvnSvcReqMsg" />
+      <output message="tns:LNManFeeMtvnSvcResMsg" />
+    </operation>
+  </portType>
+  <binding name="mtvnCWLNManFeeWSV1" type="tns:mtvnCWLNManFeeWSV1Interface">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="LNManFee">
+      <soap:operation soapAction="LNManFeeWSV1:LNManFeeMtvnSvcReqMsg" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="mtvnCWLNManFeeWSV1">
+    <port name="mtvnCWLNManFeeWSV1Port" binding="tns:mtvnCWLNManFeeWSV1">
+      <soap:address location="https://xmlgateway.metavante.org/ConnectwareWS/LNManFeeWSV1" />
+    </port>
+  </service>
+</definitions>

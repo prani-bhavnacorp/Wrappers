@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="FisCommonRqstHdr" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="FisCommonRqstHdr" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="RqstHdr" type="tRqstHdr" />
+  <xs:complexType name="tRqstHdr">
+    <xs:sequence>
+      <xs:element name="RqstHdrVer">
+        <xs:annotation>
+          <xs:documentation>Request Header Version.   Currently 2.0.0</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="5" />
+            <xs:enumeration value="2.0.0" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="MsgUuid">
+        <xs:annotation>
+          <xs:documentation>UUID - can be reused across service invocations for tracking.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tUuid">
+            <xs:length value="36" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="SrcId" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Vendor or source identifier for this request</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="ActyId" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Consumer defined used for tracking purposes.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="TstInd">
+        <xs:annotation>
+          <xs:documentation>A value of "Y" in this field indicates test mode processing.   Test mode processing will result in the transaction processing normal until the end of the transaction when all data or status changes will be rescinded.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Y" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="LclPref">
+        <xs:annotation>
+          <xs:documentation>Preferred locale of this request.  Must follow standard specificed by internationalization project RFC4646.  Format is two letters followed by a dash followed by two letters, example: en-US</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="tLocale" />
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="PrcsRules" type="tPrcsRules">
+        <xs:annotation>
+          <xs:documentation>Processing options for bundled services
+											</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Sec">
+        <xs:complexType>
+          <xs:choice>
+            <xs:element name="Trusted">
+              <xs:annotation>
+                <xs:documentation>A value of "Y" in this field indicates no authentication required	</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="Y" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+            <xs:element name="BasicAuthen">
+              <xs:annotation>
+                <xs:documentation>UserId and Password credentials</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="UsrId" type="xs:string" />
+                  <xs:element name="Pswrd" type="xs:string" />
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="SessAuthen">
+              <xs:annotation>
+                <xs:documentation>Session Identifier</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:choice>
+                  <xs:element name="SessId" type="xs:string" />
+                  <xs:element name="HttpSessId" type="xs:string" />
+                </xs:choice>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="TokenAuthen">
+              <xs:annotation>
+                <xs:documentation>Security Token, e.g., SAML, SLAPI, Username, other</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
+                </xs:sequence>
+                <xs:anyAttribute processContents="lax" />
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="WsSec">
+              <xs:annotation>
+                <xs:documentation>A value of "Y" in this field indicates WS-Security used for authentication</xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="Y" />
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ServPrmtrsLst">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="ServPrmtrs">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="FeId" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>Financial Entity Identifier</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="ServId" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>Service Identifier</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="ServVer" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>Version number.  Format is major.minor.revision </xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element name="ApplId" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>Application associated with this service request.	</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="DataLnkId" type="xs:string">
+                    <xs:annotation>
+                      <xs:documentation>Unique identifier used to correlate service
+parameters to a matching message Section in the request.  Used for bundled service requests.</xs:documentation>
+                    </xs:annotation>
+                  </xs:element>
+                  <xs:element minOccurs="0" name="FldLst">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element maxOccurs="unbounded" name="Fld">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:element name="FldNme" type="xs:string" />
+                              <xs:element name="FldVal" type="xs:string" />
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tFldLst" />
+  <xs:simpleType name="tLocale">
+    <xs:restriction base="xs:string">
+      <xs:length value="5" />
+      <xs:pattern value="[a-z]{2}-[A-Z]{2}" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="tPrcsRules">
+    <xs:sequence>
+      <xs:element name="PrcsRule">
+        <xs:annotation>
+          <xs:documentation>Enumeration
+PrcsAsTxn = Process this request using single commit point.
+PrcsAsTranStpOnFrstErr = Process this request using single commit point.  Stop processing when the first error is encountered.
+PrcsAsMultiServ = Process each service as an individual service</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1" />
+            <xs:maxLength value="32" />
+            <xs:enumeration value="PrcsAsTxn" />
+            <xs:enumeration value="PrcsAsTranStpOnFrstErr" />
+            <xs:enumeration value="PrcsAsMultiServ" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" name="RunAs" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>An option directive for executing services from multiple applications under a single application ID</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="FeId" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Financial Entity Identifier associated with the services bundle</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ServId" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Service Identifier for the services bundle.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ServVer" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Version number of the services bundle.  Format is major.minor.revision </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ApplId" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Application associated with this services bundle	</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="tUuid">
+    <xs:restriction base="xs:string">
+      <xs:length value="36" />
+      <xs:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

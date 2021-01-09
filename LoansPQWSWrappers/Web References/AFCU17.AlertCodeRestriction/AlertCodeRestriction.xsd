@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:tns="http://www.americafirst.com/20070315/AlertCodeRestriction" xmlns:hdr="http://www.americafirst.com/20070315/AFCUHeader" xmlns:cm="http://www.americafirst.com/20070315/CommonTypes" targetNamespace="http://www.americafirst.com/20070315/AlertCodeRestriction" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema">
+  <import schemaLocation="../afcuheader/AFCUHeader.xsd" namespace="http://www.americafirst.com/20070315/AFCUHeader" />
+  <import schemaLocation="../commontypes/CommonTypes.xsd" namespace="http://www.americafirst.com/20070315/CommonTypes" />
+  <annotation>
+    <appinfo>Alert Code and Status Codes, author: Travis Martin</appinfo>
+    <documentation>
+			This Schema supports the Web Service, Message Broker Flow and WebSphere Application
+			Server java program to provide alert code and status code operations to AFCU and Teller
+			Pro systems. This interface defines SOAP operations to: 1) Add alert codes to an account
+			2) remove alert code from an account 3) Retrieve all alert codes on an account -
+			currently the backend only supports one 4) Maintain Status code for an account 5)
+			Retrieve Status codes for an account 6) Retrieve Change History for Account
+			Instructions, Warnings, and Collections Notes.
+
+			Alert codes include: the class1 field which flags account identification requirements
+
+			Status codes include: SSN withholding, primary or secondard account designation, mail
+			flag
+
+		</documentation>
+  </annotation>
+  <element name="inquireAlertCodeRequest" type="tns:InquireAlertCodeRequest" />
+  <element name="inquireAlertCodeResponse" type="tns:InquireAlertCodeResponse" />
+  <element name="addAlertCodeRequest" type="tns:AddAlertCodeRequest" />
+  <element name="addAlertCodeResponse" type="tns:AddAlertCodeResponse" />
+  <element name="removeAlertCodeRequest" type="tns:RemoveAlertCodeRequest" />
+  <element name="removeAlertCodeResponse" type="tns:RemoveAlertCodeResponse" />
+  <element name="inquireChangeHistoryRequest" type="tns:InquireChangeHistoryRequest" />
+  <element name="inquireChangeHistoryResponse" type="tns:InquireChangeHistoryResponse" />
+  <complexType name="InquireAlertCodeRequest">
+    <sequence minOccurs="1" maxOccurs="1">
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element minOccurs="1" maxOccurs="1" name="request" type="tns:InquireAlertRequest" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireAlertRequest">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="accountID" type="cm:AccountID" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireAlertCodeResponse">
+    <sequence>
+      <element name="status" type="hdr:AFCUHeaderResponse" />
+      <element minOccurs="0" name="data">
+        <complexType>
+          <sequence>
+            <element minOccurs="0" maxOccurs="1" name="alerts">
+              <complexType>
+                <sequence>
+                  <element minOccurs="1" maxOccurs="unbounded" name="alert" type="tns:Alert" />
+                </sequence>
+                <attribute name="count" type="int" />
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="AddAlertCodeRequest">
+    <sequence minOccurs="1" maxOccurs="1">
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element minOccurs="1" maxOccurs="1" name="request">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="accountID" type="cm:AccountID" />
+            <element minOccurs="1" maxOccurs="1" name="alert" type="tns:Alert" />
+          </sequence>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="RemoveAlertCodeRequest">
+    <sequence minOccurs="1" maxOccurs="1">
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element minOccurs="1" maxOccurs="1" name="request">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="accountID" type="cm:AccountID" />
+            <element minOccurs="1" maxOccurs="1" name="alertCode" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+  <annotation>
+    <documentation>Validation of alertCodes is done at runtime.</documentation>
+  </annotation>
+  <complexType name="Alert">
+    <sequence>
+      <element minOccurs="0" maxOccurs="1" name="alertCode" type="string" />
+      <element minOccurs="0" maxOccurs="1" name="expDate" type="date" />
+    </sequence>
+  </complexType>
+  <complexType name="RemoveAlertCodeResponse">
+    <sequence>
+      <element name="status" type="hdr:AFCUHeaderResponse" />
+    </sequence>
+  </complexType>
+  <complexType name="AddAlertCodeResponse">
+    <sequence>
+      <element name="status" type="hdr:AFCUHeaderResponse" />
+    </sequence>
+  </complexType>
+  <element name="inquireStatusCodeRequest" type="tns:InquireStatusCodeRequest" />
+  <element name="inquireStatusCodeResponse" type="tns:InquireStatusCodeResponse" />
+  <element name="maintainStatusCodeRequest" type="tns:MaintainStatusCodeRequest" />
+  <element name="maintainStatusCodeResponse" type="tns:MaintainStatusCodeResponse" />
+  <complexType name="InquireStatusCodeRequest">
+    <sequence minOccurs="1" maxOccurs="1">
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element minOccurs="1" maxOccurs="1" name="request" type="tns:InquireStatusRequest" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireStatusRequest">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="accountID" type="cm:AccountID" />
+    </sequence>
+  </complexType>
+  <complexType name="MaintainStatusCodeResponse">
+    <sequence>
+      <element name="status" type="hdr:AFCUHeaderResponse" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireStatusCodeResponse">
+    <sequence>
+      <element name="status" type="hdr:AFCUHeaderResponse" />
+      <element minOccurs="0" name="data">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="accountID" type="cm:AccountID" />
+            <element minOccurs="0" maxOccurs="1" name="accountDesignation" type="cm:AccountDesignation" />
+            <element minOccurs="0" maxOccurs="1" name="ssnStatus" type="string" />
+            <element minOccurs="0" maxOccurs="1" name="mailStatus" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="MaintainStatusCodeRequest">
+    <sequence minOccurs="1" maxOccurs="1">
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element minOccurs="1" maxOccurs="1" name="request">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="accountID" type="cm:AccountID" />
+            <element minOccurs="0" maxOccurs="1" name="accountDesignation" type="cm:AccountDesignation" />
+            <element minOccurs="0" maxOccurs="1" name="ssnStatus" type="string" />
+            <element minOccurs="0" maxOccurs="1" name="mailStatus" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="InquireChangeHistoryRequest">
+    <sequence minOccurs="1" maxOccurs="1">
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element minOccurs="1" maxOccurs="1" name="request" type="tns:InquireHistoryRequest" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireHistoryRequest">
+    <sequence>
+      <element minOccurs="1" maxOccurs="1" name="accountID" type="cm:AccountID" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireChangeHistoryResponse">
+    <sequence>
+      <element name="status" type="hdr:AFCUHeaderResponse" />
+      <element minOccurs="0" name="data">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="accountID" type="cm:AccountID" />
+            <element minOccurs="0" maxOccurs="1" name="changeHistoryList">
+              <complexType>
+                <sequence>
+                  <element minOccurs="1" maxOccurs="unbounded" name="changeHistory" type="tns:ChangeHistory" />
+                </sequence>
+                <attribute name="count" type="int" />
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="ChangeHistory">
+    <sequence>
+      <element minOccurs="0" maxOccurs="1" name="changeDate" nillable="true" type="dateTime" />
+      <element minOccurs="0" maxOccurs="1" name="changedBy" type="string" />
+      <element minOccurs="0" maxOccurs="1" name="fieldName" type="string" />
+      <element minOccurs="0" maxOccurs="1" name="oldValue" nillable="true" type="string" />
+    </sequence>
+  </complexType>
+</schema>

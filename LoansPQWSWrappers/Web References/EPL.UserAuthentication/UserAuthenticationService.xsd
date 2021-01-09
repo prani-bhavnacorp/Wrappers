@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:tns="http://www.eplinc.com/services/UserAuthenticationService/2006-05-01/schema" elementFormDefault="qualified" targetNamespace="http://www.eplinc.com/services/UserAuthenticationService/2006-05-01/schema" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:complexType name="MsgReqHeader">
+    <xsd:sequence>
+      <xsd:element name="serviceRequesterUID" type="xsd:string" />
+      <xsd:element name="serviceProviderUID" type="xsd:string" />
+      <xsd:element name="sessionToken" nillable="true" type="xsd:string" />
+      <xsd:element name="overridingUser" nillable="true" type="tns:UserCredentials" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="MsgRespHeader">
+    <xsd:sequence>
+      <xsd:element name="errors" nillable="true" type="tns:ErrorTypes" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ErrorType">
+    <xsd:sequence>
+      <xsd:element name="errorCode" nillable="true" type="xsd:string" />
+      <xsd:element name="errorDescription" nillable="true" type="xsd:string" />
+      <xsd:element name="errorSource" nillable="true" type="xsd:string" />
+      <xsd:element name="overrideAllowed" type="xsd:boolean" />
+      <xsd:element name="overrideLevelNeeded" type="xsd:int" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="ErrorTypes">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" maxOccurs="unbounded" name="errorType" type="tns:ErrorType" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="UserCredentials">
+    <xsd:sequence>
+      <xsd:element name="userId" type="xsd:string" />
+      <xsd:element name="userPassword" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="SignOnReq" type="tns:SignOnReq" />
+  <xsd:complexType name="SignOnReq">
+    <xsd:sequence>
+      <xsd:element name="msgReqHeader" type="tns:MsgReqHeader" />
+      <xsd:element name="userCredentials" type="tns:UserCredentials" />
+      <xsd:element name="drawerNum" type="xsd:long" />
+      <xsd:element name="terminalIPAddress" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="SignOnResp" type="tns:SignOnResp" />
+  <xsd:complexType name="SignOnResp">
+    <xsd:sequence>
+      <xsd:element name="msgRespHeader" type="tns:MsgRespHeader" />
+      <xsd:element name="sessionToken" nillable="true" type="xsd:string" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="SignOffReq" type="tns:SignOffReq" />
+  <xsd:complexType name="SignOffReq">
+    <xsd:sequence>
+      <xsd:element name="msgReqHeader" type="tns:MsgReqHeader" />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="SignOffResp" type="tns:SignOffResp" />
+  <xsd:complexType name="SignOffResp">
+    <xsd:sequence>
+      <xsd:element name="msgRespHeader" nillable="true" type="tns:MsgRespHeader" />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

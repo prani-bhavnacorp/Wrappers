@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:this="http://zionsbank.com/soa/customer1.1/wsdl" xmlns:customer1.1="http://zionsbank.com/soa/customer1.1/schema" name="Customer1.1" targetNamespace="http://zionsbank.com/soa/customer1.1/wsdl" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema targetNamespace="http://zionsbank.com/soa/customer1.1/wsdl">
+      <xsd:import schemaLocation="customer1.1.xsd" namespace="http://zionsbank.com/soa/customer1.1/schema" />
+    </xsd:schema>
+  </types>
+  <message name="GetSearchListRequestMessage">
+    <part name="RequestParameter" element="customer1.1:getSearchList" />
+  </message>
+  <message name="GetSearchListResponseMessage">
+    <part name="ResponseParameter" element="customer1.1:GetSearchListResponse" />
+  </message>
+  <portType name="CustomerInterface1.1">
+    <operation name="getSearchList">
+      <input message="this:GetSearchListRequestMessage" />
+      <output message="this:GetSearchListResponseMessage" />
+    </operation>
+  </portType>
+  <binding name="CustomerBinding1.1" type="this:CustomerInterface1.1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="getSearchList">
+      <soap:operation soapAction="Customer/v1.1/getSearchList" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+</definitions>

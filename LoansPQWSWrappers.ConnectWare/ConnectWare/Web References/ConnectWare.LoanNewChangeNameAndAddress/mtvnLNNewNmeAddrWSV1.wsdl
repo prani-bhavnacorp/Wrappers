@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="mtvnLNNewNmeAddrWSV1" xmlns:import0="mtvnCWLNNewNmeAddrSvcReq" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:import1="mtvnCWLNNewNmeAddrSvcRes" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="mtvnLNNewNmeAddrWSV1" targetNamespace="mtvnLNNewNmeAddrWSV1" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Connectware Web Service Interface</documentation>
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="./LNNewNmeAddrWSV1SvcReq.xsd" namespace="mtvnCWLNNewNmeAddrSvcReq" />
+      <xsd:import schemaLocation="./LNNewNmeAddrWSV1SvcRes.xsd" namespace="mtvnCWLNNewNmeAddrSvcRes" />
+    </xsd:schema>
+  </types>
+  <message name="LNNewNmeAddrMtvnSvcReqMsg">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <part name="messagePart" element="import0:LNNewNmeAddrMtvnSvcReq" />
+  </message>
+  <message name="LNNewNmeAddrMtvnSvcResMsg">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <part name="messagePart" element="import1:LNNewNmeAddrMtvnSvcRes" />
+  </message>
+  <portType name="mtvnCWLNNewNmeAddrWSV1Interface">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">LNNewNmeAddrWSV1</documentation>
+    <operation name="LNNewNmeAddr">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+      <input message="tns:LNNewNmeAddrMtvnSvcReqMsg" />
+      <output message="tns:LNNewNmeAddrMtvnSvcResMsg" />
+    </operation>
+  </portType>
+  <binding name="mtvnCWLNNewNmeAddrWSV1" type="tns:mtvnCWLNNewNmeAddrWSV1Interface">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="LNNewNmeAddr">
+      <soap:operation soapAction="LNNewNmeAddrWSV1:LNNewNmeAddrMtvnSvcReqMsg" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="mtvnCWLNNewNmeAddrWSV1">
+    <port name="mtvnCWLNNewNmeAddrWSV1Port" binding="tns:mtvnCWLNNewNmeAddrWSV1">
+      <soap:address location="https://xmlgateway.metavante.org/ConnectwareWS/LNNewNmeAddrWSV1" />
+    </port>
+  </service>
+</definitions>

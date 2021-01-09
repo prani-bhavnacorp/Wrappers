@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:customer="http://zionsbank.com/soa/customer/schema" xmlns:customer1.2="http://zionsbank.com/soa/customer1.2/schema" xmlns:common="http://zionsbank.com/soa/common/schema" xmlns:customer1.1="http://zionsbank.com/soa/customer1.1/schema" xmlns:common1.2="http://zionsbank.com/soa/common1.2/schema" xmlns:getDemographics1.3="http://zionsbank.com/soa/customer/getDemographics1.3/schema" xmlns:getDemographics1.2="http://zionsbank.com/soa/customer/getDemographics1.2/schema" xmlns:common1.1="http://zionsbank.com/soa/common1.1/schema" targetNamespace="http://zionsbank.com/soa/customer/getDemographics1.3/schema" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="Customer.getDemographics1.2.xsd" namespace="http://zionsbank.com/soa/customer/getDemographics1.2/schema" />
+  <xsd:import schemaLocation="customer1.0.xsd" namespace="http://zionsbank.com/soa/customer/schema" />
+  <xsd:import schemaLocation="customer1.1.xsd" namespace="http://zionsbank.com/soa/customer1.1/schema" />
+  <xsd:import schemaLocation="customer1.2.xsd" namespace="http://zionsbank.com/soa/customer1.2/schema" />
+  <xsd:import schemaLocation="ws-common.xsd" namespace="http://zionsbank.com/soa/common/schema" />
+  <xsd:import schemaLocation="ws-common1.1.xsd" namespace="http://zionsbank.com/soa/common1.1/schema" />
+  <xsd:import schemaLocation="ws-common1.2.xsd" namespace="http://zionsbank.com/soa/common1.2/schema" />
+  <xsd:element name="Demographics" type="getDemographics1.3:DemographicsType" />
+  <xsd:complexType name="DemographicsType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="getDemographics1.2:DemographicsType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" ref="customer1.1:Chapter3Status" />
+          <xsd:element minOccurs="0" ref="customer1.1:FatcaStatus" />
+          <xsd:element minOccurs="0" ref="customer1.1:W8Status" />
+          <xsd:element minOccurs="0" ref="customer1.1:FatcaId" />
+          <xsd:element minOccurs="0" ref="customer1.1:ForeignTin" />
+          <xsd:element minOccurs="0" ref="customer1.1:ForeignPhone" />
+          <xsd:element minOccurs="0" ref="customer1.1:TaxClassification" />
+          <xsd:element minOccurs="0" ref="customer1.2:BancsCustomerNumber" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="GetDemographicsRequest" type="getDemographics1.2:GetDemographicsRequestType" />
+  <xsd:element name="getDemographics">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="getDemographics1.3:GetDemographicsRequest" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="GetDemographicsResponse" type="getDemographics1.3:GetDemographicsResponseType" />
+  <xsd:complexType name="GetDemographicsResponseType">
+    <xsd:complexContent mixed="false">
+      <xsd:extension base="common1.1:CommonServiceResponseType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" ref="getDemographics1.3:Demographics" />
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,2001 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s0="http://xpsystems.com/services/apex/messages" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://integration.fiserv.com/xp2/services/apex/2010/ComCore" xmlns:s1="http://xpsystems.com/services/apex/types" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://integration.fiserv.com/xp2/services/apex/2010/ComCore" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://xpsystems.com/services/apex/messages">
+      <s:import namespace="http://xpsystems.com/services/apex/types" />
+      <s:element name="BusinessDetailUpdateRequest" nillable="true" type="s0:BusinessDetailUpdateRequest" />
+      <s:complexType name="BusinessDetailUpdateRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:BusinessDetail" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:OverrideData" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BusinessDetailUpdateResponse" nillable="true" type="s0:BusinessDetailUpdateResponse" />
+      <s:complexType name="BusinessDetailUpdateResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:BusinessDetail" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:TransactionResult" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:ErrorMessage" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BusinessResolutionRequest" nillable="true" type="s0:BusinessResolutionRequest" />
+      <s:complexType name="BusinessResolutionRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IndividualId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BusinessResolutionResponse" nillable="true" type="s0:BusinessResolutionResponse" />
+      <s:complexType name="BusinessResolutionResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:BusinessResolution" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:ErrorMessage" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BusinessResolutionUpdateRequest" nillable="true" type="s0:BusinessResolutionUpdateRequest" />
+      <s:complexType name="BusinessResolutionUpdateRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IndividualId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResolutionDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="PreviousResolutionDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuthorizationLimitDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" ref="s1:AddResolutionAuthorizations" />
+          <s:element minOccurs="0" maxOccurs="unbounded" ref="s1:UpdateResolutionAuthorizations" />
+          <s:element minOccurs="0" maxOccurs="unbounded" ref="s1:DeleteResolutionAuthorizations" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:OverrideData" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BusinessResolutionUpdateResponse" nillable="true" type="s0:BusinessResolutionUpdateResponse" />
+      <s:complexType name="BusinessResolutionUpdateResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:TransactionResult" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:ErrorMessage" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BusinessDetailRequest" nillable="true" type="s0:BusinessDetailRequest" />
+      <s:complexType name="BusinessDetailRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BusinessIndividualId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BusinessDetailsResponse" nillable="true" type="s0:BusinessDetailsResponse" />
+      <s:complexType name="BusinessDetailsResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BusinessIndividualId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:BusinessDetails" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:TransactionResult" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:ErrorMessage" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BusinessSummaryRequest" nillable="true" type="s0:BusinessSummaryRequest" />
+      <s:complexType name="BusinessSummaryRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BusinessIndividualId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BusinessSummaryResponse" nillable="true" type="s0:BusinessSummaryResponse" />
+      <s:complexType name="BusinessSummaryResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:Business" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:ErrorMessage" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BusinessAnalysisDetailsRequest" nillable="true" type="s0:BusinessAnalysisDetailsRequest" />
+      <s:complexType name="BusinessAnalysisDetailsRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BusinessIndividualId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BusinessAnalysisDetailsResponse" nillable="true" type="s0:BusinessAnalysisDetailsResponse" />
+      <s:complexType name="BusinessAnalysisDetailsResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BusinessIndividualId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" ref="s1:PlanDetails" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:ErrorMessage" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BusinessAnalysisHistoryRequest" nillable="true" type="s0:BusinessAnalysisHistoryRequest" />
+      <s:complexType name="BusinessAnalysisHistoryRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BusinessIndividualId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PlanNumber" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="MonthOfPeriod" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="YearOfPeriod" type="s:short" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BusinessAnalysisHistoryResponse" nillable="true" type="s0:BusinessAnalysisHistoryResponse" />
+      <s:complexType name="BusinessAnalysisHistoryResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BusinessIndividualId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PlanNumber" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="PricingPackageId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PackageName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MonthOfPeriod" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="YearOfPeriod" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="AverageLedgerBalance" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Reserve" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="NetInvestableBalance" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="EarningsCreditRate" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="EarningsCreditAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompensableChargeAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="DividendsPaid" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="NetAmount" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="unbounded" ref="s1:AnalysisHistoryDetails" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:ErrorMessage" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BusinessAnalysisAccountServicesRequest" nillable="true" type="s0:BusinessAnalysisAccountServicesRequest" />
+      <s:complexType name="BusinessAnalysisAccountServicesRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccountId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BusinessIndividualId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MonthOfPeriod" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="YearOfPeriod" type="s:short" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BusinessAnalysisAccountServicesResponse" nillable="true" type="s0:BusinessAnalysisAccountServicesResponse" />
+      <s:complexType name="BusinessAnalysisAccountServicesResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BusinessIndividualId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PlanNumber" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="PricingPackageId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PackageName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccountId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountTitle" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BranchCode" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MonthOfPeriod" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="YearOfPeriod" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="unbounded" ref="s1:FlatFeeServices" />
+          <s:element minOccurs="0" maxOccurs="unbounded" ref="s1:PerUnitFeeServices" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:ErrorMessage" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:TransactionResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BusinessUpdateRequest" nillable="true" type="s0:BusinessUpdateRequest" />
+      <s:complexType name="BusinessUpdateRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BusinessIndividualId" type="s:int" />
+          <s:choice minOccurs="0" maxOccurs="unbounded">
+            <s:element minOccurs="0" maxOccurs="1" name="AnnualSales" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BusinessStartDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EmailAddress2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="WebAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GoodsSold" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ContactPreference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AccessLevel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BusinessName2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BusinessShortName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ReferenceNotes" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrganizationType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="InPlantAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TaxID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TaxIdVerification" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BirthDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RelationshipManager" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="County" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PrimaryMarket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CurrentAffiliation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OriginalAffiliation" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NAICSCode1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NAICSCode2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SICCode1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SICCode2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IndustryType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NbrOfEmp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BusinessName1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Branch" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ContactName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EmailAddress1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Qualification" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Profitability" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MaxThreshholdCheckAmount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MTSUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="InternetBankUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BillPayUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DirectDeposit" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="HasMarketingMailOptOut" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExtendedHolds" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AlternateHolds" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CreditScore1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CreditScore2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CreditScore3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RiskLevel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FiscalYearEnd" type="s:string" />
+          </s:choice>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RemoveField" type="s0:BusinessItemType" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressUpdate" type="s0:IndividualAddressUpdateRequest" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneUpdate" type="s1:IndividualPhoneUpdateRequest" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:OverrideData" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="BusinessItemType">
+        <s:restriction base="s:string">
+          <s:enumeration value="BusinessName1" />
+          <s:enumeration value="BusinessName2" />
+          <s:enumeration value="BusinessShortName" />
+          <s:enumeration value="OrganizationType" />
+          <s:enumeration value="InPlantAddress" />
+          <s:enumeration value="TaxID" />
+          <s:enumeration value="TaxIdVerification" />
+          <s:enumeration value="BusinessStartDate" />
+          <s:enumeration value="BirthDate" />
+          <s:enumeration value="RelationshipManager" />
+          <s:enumeration value="County" />
+          <s:enumeration value="PrimaryMarket" />
+          <s:enumeration value="CurrentAffiliation" />
+          <s:enumeration value="OriginalAffiliation" />
+          <s:enumeration value="NAICSCode1" />
+          <s:enumeration value="NAICSCode2" />
+          <s:enumeration value="SICCode1" />
+          <s:enumeration value="SICCode2" />
+          <s:enumeration value="IndustryType" />
+          <s:enumeration value="NbrOfEmp" />
+          <s:enumeration value="Password" />
+          <s:enumeration value="AccessLevel" />
+          <s:enumeration value="ContactPreference" />
+          <s:enumeration value="Branch" />
+          <s:enumeration value="GoodsSold" />
+          <s:enumeration value="ContactName" />
+          <s:enumeration value="EmailAddress1" />
+          <s:enumeration value="EmailAddress2" />
+          <s:enumeration value="WebAddress" />
+          <s:enumeration value="Qualification" />
+          <s:enumeration value="Profitability" />
+          <s:enumeration value="MaxThreshholdCheckAmount" />
+          <s:enumeration value="MTSUser" />
+          <s:enumeration value="InternetBankUser" />
+          <s:enumeration value="BillPayUser" />
+          <s:enumeration value="DirectDeposit" />
+          <s:enumeration value="HasMarketingMailOptOut" />
+          <s:enumeration value="ExtendedHolds" />
+          <s:enumeration value="AlternateHolds" />
+          <s:enumeration value="CreditScore1" />
+          <s:enumeration value="CreditScore2" />
+          <s:enumeration value="CreditScore3" />
+          <s:enumeration value="RiskLevel" />
+          <s:enumeration value="FiscalYearEnd" />
+          <s:enumeration value="AnnualSales" />
+          <s:enumeration value="ReferenceNotes" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="IndividualAddressUpdateRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IndividualId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="unbounded" ref="s1:AddressDetail" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:OverrideData" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BusinessOptionsRequest" nillable="true" type="s0:BusinessOptionsRequest" />
+      <s:complexType name="BusinessOptionsRequest" />
+      <s:element name="BusinessOptionsResponse" nillable="true" type="s0:BusinessOptionsResponse" />
+      <s:complexType name="BusinessOptionsResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IndustryType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OrganizationType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PrimaryMarket" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Affiliation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RiskLevel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TaxIdVerification" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ContactPreference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Branch" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AccessLevel" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PhoneType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AddressType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Metro2AddressIndicator" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Occupancy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AlternateAddressType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:ErrorMessage" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CountyOptionsRequest" nillable="true" type="s0:CountyOptionsRequest" />
+      <s:complexType name="CountyOptionsRequest" />
+      <s:element name="CountyOptionsResponse" nillable="true" type="s0:CountyOptionsResponse" />
+      <s:complexType name="CountyOptionsResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" ref="s1:County" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:ErrorMessage" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="OperatorOptionsRequest" nillable="true" type="s0:OperatorOptionsRequest" />
+      <s:complexType name="OperatorOptionsRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BranchId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PageNumber" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemCount" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="OperatorOptionsResponse" nillable="true" type="s0:OperatorOptionsResponse" />
+      <s:complexType name="OperatorOptionsResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" ref="s1:Operator" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalRecords" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:ErrorMessage" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BusinessAnalysisAccountServicesUpdateRequest" nillable="true" type="s0:BusinessAnalysisAccountServicesUpdateRequest" />
+      <s:complexType name="BusinessAnalysisAccountServicesUpdateRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BusinessIndividualId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccountId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MonthOfPeriod" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="YearOfPeriod" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="unbounded" ref="s1:FlatFeeServiceUpdate" />
+          <s:element minOccurs="0" maxOccurs="unbounded" ref="s1:PerUnitFeeServiceUpdate" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:OverrideData" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CommitmentDetailsRequest" nillable="true" type="s0:CommitmentDetailsRequest" />
+      <s:complexType name="CommitmentDetailsRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IndividualId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CommitmentDetailsResponse" nillable="true" type="s0:CommitmentDetailsResponse" />
+      <s:complexType name="CommitmentDetailsResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IndividualId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IndividualType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" ref="s1:CommitmentDetail" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:ErrorMessage" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:TransactionResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CommitmentUpdateRequest" nillable="true" type="s0:CommitmentUpdateRequest" />
+      <s:complexType name="CommitmentUpdateRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IndividualId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="unbounded" ref="s1:CommitmentDetailUpdate" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:OverrideData" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CommitmentRemovalRequest" nillable="true" type="s0:CommitmentRemovalRequest" />
+      <s:complexType name="CommitmentRemovalRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IndividualId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CommitmentNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:OverrideData" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CommitmentAvailableRequest" nillable="true" type="s0:CommitmentAvailableRequest" />
+      <s:complexType name="CommitmentAvailableRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IndividualId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CommitmentAvailableResponse" nillable="true" type="s0:CommitmentAvailableResponse" />
+      <s:complexType name="CommitmentAvailableResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IndividualId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IndividualType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" ref="s1:LoanAvailableForCommitment" />
+          <s:element minOccurs="0" maxOccurs="unbounded" ref="s1:ApplicationAssociatedToCommitment" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:ErrorMessage" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:TransactionResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CommitmentAvailableUpdateRequest" nillable="true" type="s0:CommitmentAvailableUpdateRequest" />
+      <s:complexType name="CommitmentAvailableUpdateRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IndividualId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="unbounded" ref="s1:CommitmentAvailableUpdate" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:OverrideData" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CommitmentAvailableOptionsRequest" nillable="true" type="s0:CommitmentAvailableOptionsRequest" />
+      <s:complexType name="CommitmentAvailableOptionsRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IndividualId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CommitmentAvailableOptionsResponse" nillable="true" type="s0:CommitmentAvailableOptionsResponse" />
+      <s:complexType name="CommitmentAvailableOptionsResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CommitmentNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:ErrorMessage" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MemberBusinessLoanDetailsRequest" nillable="true" type="s0:MemberBusinessLoanDetailsRequest" />
+      <s:complexType name="MemberBusinessLoanDetailsRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="LoanId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MemberBusinessLoanResponse" nillable="true" type="s0:MemberBusinessLoanResponse" />
+      <s:complexType name="MemberBusinessLoanResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="LoanId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:MemberBusinessLoanDetails" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:ErrorMessage" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:TransactionResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MemberBusinessLoanUpdateRequest" nillable="true" type="s0:MemberBusinessLoanUpdateRequest" />
+      <s:complexType name="MemberBusinessLoanUpdateRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="LoanId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:MemberBusinessLoanDetailsUpdate" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:OverrideData" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MemberBusinessLoanOptionsRequest" nillable="true" type="s0:MemberBusinessLoanOptionsRequest" />
+      <s:complexType name="MemberBusinessLoanOptionsRequest" />
+      <s:element name="MemberBusinessLoanOptionsResponse" nillable="true" type="s0:MemberBusinessLoanOptionsResponse" />
+      <s:complexType name="MemberBusinessLoanOptionsResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:MemberBusinessLoanOptions" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:ErrorMessage" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BusinessLoanRiskLevelRemovalRequest_x0020_" nillable="true" type="s0:BusinessLoanRiskLevelRemovalRequest" />
+      <s:complexType name="BusinessLoanRiskLevelRemovalRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="LoanId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SeqNumber" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:OverrideData" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BusinessLoanRiskLevelRemovalResponse" nillable="true" type="s0:BusinessLoanRiskLevelRemovalResponse" />
+      <s:complexType name="BusinessLoanRiskLevelRemovalResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="LoanId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BusinessLoanRiskLevelDetails" type="s1:BusinessLoanRiskLevelInformation" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:ErrorMessage" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:TransactionResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RelationshipDetailsRequest" nillable="true" type="s0:RelationshipDetailsRequest" />
+      <s:complexType name="RelationshipDetailsRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IndividualId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RelationshipDetailsResponse" nillable="true" type="s0:RelationshipDetailsResponse" />
+      <s:complexType name="RelationshipDetailsResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" ref="s1:RelationshipDetails" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:ErrorMessage" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:TransactionResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RelationshipUpdateRequest" nillable="true" type="s0:RelationshipUpdateRequest" />
+      <s:complexType name="RelationshipUpdateRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IndividualIdA" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="unbounded" ref="s1:RelationshipUpdate" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:OverrideData" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RelationshipRemovalRequest" nillable="true" type="s0:RelationshipRemovalRequest" />
+      <s:complexType name="RelationshipRemovalRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IndividualIdA" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IndividualIdB" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:OverrideData" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RelationshipOptionsRequest" nillable="true" type="s0:RelationshipOptionsRequest" />
+      <s:complexType name="RelationshipOptionsRequest" />
+      <s:element name="RelationshipOptionsResponse" nillable="true" type="s0:RelationshipOptionsResponse" />
+      <s:complexType name="RelationshipOptionsResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" ref="s1:Relationship" />
+          <s:element minOccurs="0" maxOccurs="1" ref="s1:ErrorMessage" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://xpsystems.com/services/apex/types">
+      <s:element name="BusinessDetail" type="s1:BusinessDetail" />
+      <s:complexType name="BusinessDetail">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IndividualId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessNameLine1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessNameLine2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReferenceNotes" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BusinessStartDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="RelationshipManager" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountyCode" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrimaryMarketCode" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrganizationTypeCode" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="IndustryTypeCode" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="SicCode" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="SicCode2" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="NaicsCode" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NaicsCode2" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumberOfEmployees" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="GoodsSold" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContactName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WebAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaxId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaxIdVerificationCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessShortName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InplantAddress" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BranchId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccessLevel" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CurrentAffiliation" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OriginalAffiliation" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ContactPreference" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email2" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ConvertToIndividual" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="OverrideData" type="s1:OverrideData" />
+      <s:complexType name="OverrideData">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="OverrideType" type="s1:OverrideType" />
+          <s:element minOccurs="0" maxOccurs="1" name="OverrideCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="OverrideType">
+        <s:restriction base="s:string">
+          <s:enumeration value="None" />
+          <s:enumeration value="Caution" />
+          <s:enumeration value="Warning" />
+          <s:enumeration value="Supervisor" />
+          <s:enumeration value="OtherSupervisor" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="TransactionResult" type="s1:TransactionResult" />
+      <s:complexType name="TransactionResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IsPosted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequiredOverrideLevel" type="s1:OverrideType" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SpecialCondition" type="s1:SpecialCondition" />
+          <s:element minOccurs="1" maxOccurs="1" name="ActivityId" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SpecialCondition">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ConditionId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsStop" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccountLoanId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IndividualId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OverrideType" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ErrorMessage" type="s1:ErrorMessages" />
+      <s:complexType name="ErrorMessages">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Message" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="BusinessResolution" type="s1:BusinessResolution" />
+      <s:complexType name="BusinessResolution">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IndividualId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResolutionDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="PreviousResolutionDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuthorizationLimitDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ResolutionAuthorizations" type="s1:BusinessResolutionAuthorization" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BusinessResolutionAuthorization">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IndividualId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResolutionSequenceId" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuthorizationDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumberOfSignaturesRequired" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ResolutionAgents" type="s1:BusinessResolutionAgent" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BusinessResolutionAgent">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IndividualId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ResolutionSequenceId" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="AgentIndividualId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AgentName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddResolutionAuthorizations" type="s1:BusinessResolutionAuthorization" />
+      <s:element name="UpdateResolutionAuthorizations" type="s1:BusinessResolutionAuthorization" />
+      <s:element name="DeleteResolutionAuthorizations" type="s1:BusinessResolutionAuthorization" />
+      <s:element name="BusinessDetails" type="s1:BusinessDetails" />
+      <s:complexType name="BusinessDetails">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BusinessIndividualId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessName1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessName2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessShortName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrganizationType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InPlantAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaxID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaxIdVerification" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BusinessStartDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="BirthDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="RelationshipManagerId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RelationshipManagerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="County" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrimaryMarket" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CurrentAffiliation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OriginalAffiliation" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NAICSCode1" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NAICSCode2" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SICCode1" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="SICCode2" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="NbrOfEmp" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccessLevel" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="IndustryType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContactPreference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Branch" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GoodsSold" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContactName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailAddress1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailAddress2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WebAddress" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberSince" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastContactDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastContactChannel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Qualification" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Profitability" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxThreshholdCheckAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrimaryAddressId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Address" type="s1:Address" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Phone" type="s1:Phone" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreditScore1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreditScore2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreditScore3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RiskLevel" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FiscalYearEnd" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="AnnualSales" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="MTSUser" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="InternetBankUser" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="BillPayUser" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="DirectDeposit" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasMarketingMailOptOut" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExtendedHolds" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AlternateHolds" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReferenceNotes" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Address">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AddressId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Line1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Line2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Line3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZipCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountyName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsPrimary" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsInternational" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AddressVerification" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Occupancy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="LongAddress1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LongAddress2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Membership" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CoBorrower" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UseAlternateAsOf" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="RestorePrimaryAsOf" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="AlternateType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comments" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Met2AddressIndicator" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Phone">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneKey" type="s1:PhoneKey" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsPrimaryForType" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsInternational" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AreaCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Extension" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comment" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MarkAsPrevious" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsPrevious" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PhoneKey">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IndividualId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sequence" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Business" type="s1:BusinessSummary" />
+      <s:complexType name="BusinessSummary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessDetails" type="s1:BusinessDetails" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Account" type="s1:BusinessAccountSummary" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Loan" type="s1:BusinessLoanSummary" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Membership" type="s1:IndividualMember" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CrossMember" type="s1:CrossMemberDetails" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Relationship" type="s1:Relationship" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Services" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BusinessAccountSummary">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccountId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductClass" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProductId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductCategory" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccountType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Balance" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="AvailableBalance" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ownership" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CurrentRate" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastDividendPaidAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="DividendsYTD" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="DividendsPYTD" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaturityDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SDCNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BusinessIndividualEntity" type="s1:BusinessIndividualEntity" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BusinessIndividualEntity">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IndividualId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IndividualType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ownership" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BusinessLoanSummary">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccountId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExternalLoanId" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductClass" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProductId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductCategory" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccountType" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Balance" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="AvailableBalance" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="NextDueDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="Payment" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MinimumAmountToBringCurrent" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ownership" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EscrowBalance" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Payoff" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastStatementAccruedInterest" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="InterestRate" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="InterestYTD" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="InterestPYTD" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="LateCharge" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BusinessIndividualEntity" type="s1:BusinessIndividualEntity" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IndividualMember">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ownership" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Inhibited" type="s:short" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CrossMemberDetails">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="CrossMemberId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="CrossMemberAccountId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="AllowTransactionTo" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AllowTransactionFrom" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Relationship">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IndividualId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Relation" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Percentage" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="IndividualType" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PlanDetails" type="s1:PlanDetails" />
+      <s:complexType name="PlanDetails">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PlanNumber" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="PricingPackageId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MailCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateAdded" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="EarningsCreditRate" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="NegativeBalanceRate" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AccountInformation" type="s1:AccountInformation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AccountInformation">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccountId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountTitle" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Balance" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="AvailableBalance" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="AnalysisStartDate" type="s:date" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AnalysisHistoryDetails" type="s1:AnalysisHistoryDetails" />
+      <s:complexType name="AnalysisHistoryDetails">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccountId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AverageLedgerBalance" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="NonCompensableChargeAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompensableChargeAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="BalanceEquivalent" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AccountServicesHistoryDetails" type="s1:AccountServicesHistoryDetails" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AccountServicesHistoryDetails">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ServiceCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitPrice" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumberFree" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FeeAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountForPeriod" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BalanceEquivalent" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FlatFeeServices" type="s1:FlatFeeServices" />
+      <s:complexType name="FlatFeeServices">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ServiceCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FeeAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ChargeFee" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PerUnitFeeServices" type="s1:PerUnitFeeServices" />
+      <s:complexType name="PerUnitFeeServices">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ServiceCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FeeAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="NumberFree" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CountForPeriod" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ActivityCounter" type="s1:ActivityCounter" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ActivityCounter">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ActivityCounterId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ActivityCounterDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PeriodCount" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddressDetail" type="s1:AddressDetail" />
+      <s:complexType name="AddressDetail">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AddressId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Line1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Line2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZipCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="County" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsInternational" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsPrimary" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AddressVerification" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Occupancy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndDate" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comments" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AlternateType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UseAlternateAsOf" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="RestorePrimaryAsOf" type="s:date" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="UpdateMemberAddress" type="s1:UpdateMemberAddress" />
+          <s:element minOccurs="0" maxOccurs="1" name="LongAddress1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LongAddress2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Met2AddressIndicator" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UpdateMemberAddress">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="MemberId" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="LoanId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrimaryAddress" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CoborrowerAddress" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AlternativeAddress" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IndividualPhoneUpdateRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IndividualId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PhoneDetail" type="s1:Phone" />
+          <s:element minOccurs="0" maxOccurs="1" name="OverrideData" type="s1:OverrideData" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="County" type="s1:County" />
+      <s:complexType name="County">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CountyCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountyName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Operator" type="s1:OperatorSummary" />
+      <s:complexType name="OperatorSummary">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="OperatorId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="OperatorName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BranchId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Teller" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FlatFeeServiceUpdate" type="s1:FlatFeeServiceUpdate" />
+      <s:complexType name="FlatFeeServiceUpdate">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ServiceCode" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ChargeFee" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PerUnitFeeServiceUpdate" type="s1:PerUnitFeeServiceUpdate" />
+      <s:complexType name="PerUnitFeeServiceUpdate">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ServiceCode" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AdjustCount" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CommitmentDetail" type="s1:CommitmentDetail" />
+      <s:complexType name="CommitmentDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CommitmentNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OriginalAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CommitmentDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="NextReviewDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaturityDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="AmountAvailable" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="AmountAdvanced" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsLegal" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CurrentBalance" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Note" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CommitmentDetailUpdate" type="s1:CommitmentDetailUpdate" />
+      <s:complexType name="CommitmentDetailUpdate">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CommitmentNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OriginalAmount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CommitmentDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="NextReviewDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaturityDate" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsLegal" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CurrentBalance" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Note" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="LoanAvailableForCommitment" type="s1:LoanAvailableForCommitment" />
+      <s:complexType name="LoanAvailableForCommitment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LoanNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoanTitle" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProductId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ownership" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Balance" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Available" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OriginalAmount" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="CommitmentNumber" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ApplicationAssociatedToCommitment" type="s1:ApplicationAssociatedToCommitment" />
+      <s:complexType name="ApplicationAssociatedToCommitment">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DateStarted" type="s:date" />
+          <s:element minOccurs="1" maxOccurs="1" name="ApplicationNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CommitmentNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Product" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProductId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastActivity" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="AmountRequested" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="LocLccLimit" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CommitmentAvailableUpdate" type="s1:CommitmentAvailableUpdate" />
+      <s:complexType name="CommitmentAvailableUpdate">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CommitmentNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LoanNumber" type="s:short" />
+          <s:element minOccurs="1" maxOccurs="1" name="MemberNumber" type="s:long" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MemberBusinessLoanDetails" type="s1:MemberBusinessLoanDetails" />
+      <s:complexType name="MemberBusinessLoanDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessLoanInformation" type="s1:BusinessLoanInformation" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BusinessLoanRiskLevelInformation" type="s1:BusinessLoanRiskLevelInformation" />
+          <s:element minOccurs="0" maxOccurs="1" name="GovernmentGuaranteedLoanInformation" type="s1:GovernmentGuaranteedLoanInformation" />
+          <s:element minOccurs="0" maxOccurs="1" name="ParticipationInformation" type="s1:ParticipationInformation" />
+          <s:element minOccurs="1" maxOccurs="1" name="PercentSoldManual" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BusinessLoanInvestors" type="s1:BusinessLoanInvestors" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalAmountSold" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalInvestorBalance" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Notes" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BusinessLoanInformation">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BusinessLoan" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecializedLendingCategory" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RiskBasedNetWorthStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CollateralCategory" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BusinessLoanRiskLevelInformation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SeqNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessLoanRiskId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RiskLevel" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RiskLevelDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="RiskLevelNotes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RiskSetByOperator" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RiskSetByOperatorDate" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="GovernmentGuaranteedLoanInformation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="GuaranteedLoanType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GuaranteedPercent" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SBALoan" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="GuaranteedLoanStatus" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeferredDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransferDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="PurchasedDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="SoldUnsold" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SoldDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ServicingFee" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="SBAGPNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SBAInterestRate" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReportForm1502" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="CurrentPeriod" type="s1:CurrentPeriod" />
+          <s:element minOccurs="0" maxOccurs="1" name="PreviousPeriod" type="s1:PreviousPeriod" />
+          <s:element minOccurs="0" maxOccurs="1" name="PriorPeriod" type="s1:PriorPeriod" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CurrentPeriod">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CurrentReportingPeriod" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CurrentFromDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CurrentToDate" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PreviousPeriod">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PreviousReportingPeriod" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PreviousFromDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="PreviousToDate" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PriorPeriod">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PriorReportingPeriod" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PriorFromDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="PriorToDate" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ParticipationInformation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ParticipationType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GLPool" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BusinessLoanInvestors">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="InvestorId" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="InvestorSequenceNumber" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="InvestorName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AmountSold" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="SoldDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="PercentSold" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="InvestorBalance" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ServicingPremium" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="SoldRate" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SharedLateCharges" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MemberBusinessLoanDetailsUpdate" type="s1:MemberBusinessLoanDetailsUpdate" />
+      <s:complexType name="MemberBusinessLoanDetailsUpdate">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessLoanInformation" type="s1:BusinessLoanInformation" />
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessLoanRiskLevelInformationUpdate" type="s1:BusinessLoanRiskLevelUpdate" />
+          <s:element minOccurs="0" maxOccurs="1" name="GovernmentGuaranteedLoanInformation" type="s1:GovernmentGuaranteedLoanInformation" />
+          <s:element minOccurs="0" maxOccurs="1" name="ParticipationInformation" type="s1:ParticipationInformation" />
+          <s:element minOccurs="0" maxOccurs="1" name="Notes" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BusinessLoanRiskLevelUpdate">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="SeqNumber" type="s:short" />
+          <s:element minOccurs="0" maxOccurs="1" name="RiskLevel" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RiskLevelDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="RiskLevelNotes" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="MemberBusinessLoanOptions" type="s1:MemberBusinessLoanOptions" />
+      <s:complexType name="MemberBusinessLoanOptions">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="GuaranteedLoanTypeOption" type="s1:GuaranteedLoanTypeOption" />
+          <s:element minOccurs="0" maxOccurs="1" name="GuaranteedLoanStatusOption" type="s1:GuaranteedLoanStatusOption" />
+          <s:element minOccurs="0" maxOccurs="1" name="SoldUnsoldOption" type="s1:SoldUnsoldOption" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoanRiskLevelOption" type="s1:LoanRiskLevelOption" />
+          <s:element minOccurs="0" maxOccurs="1" name="ParticipationTypeOption" type="s1:ParticipationTypeOption" />
+          <s:element minOccurs="0" maxOccurs="1" name="GLPoolOption" type="s1:GLPoolOption" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecializedLendingCategoryOption" type="s1:SpecializedLendingCategoryOption" />
+          <s:element minOccurs="0" maxOccurs="1" name="CollateralCategoryOption" type="s1:CollateralCategoryOption" />
+          <s:element minOccurs="0" maxOccurs="1" name="RiskBasedNetWorthStatusOption" type="s1:RiskBasedNetWorthStatusOption" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="GuaranteedLoanTypeOption">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="GuaranteedLoanType" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="GuaranteedLoanStatusOption">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="GuaranteedLoanStatus" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SoldUnsoldOption">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SoldUnsold" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LoanRiskLevelOption">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LoanRiskLevel" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ParticipationTypeOption">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ParticipationType" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="GLPoolOption">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="GLPool" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SpecializedLendingCategoryOption">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SpecializedLendingCategory" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CollateralCategoryOption">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CollateralCategoryCodes" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RiskBasedNetWorthStatusOption">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RiskBasedNetWorthCodes" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RelationshipDetails" type="s1:RelationshipDetails" />
+      <s:complexType name="RelationshipDetails">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="IndividualIdA" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="IndividualAType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IndividualNameA" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RelationshipAtoB" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Percent" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="IndividualIdB" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="IndividualBType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IndividualNameB" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RelationshipBtoA" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RelationshipUpdate" type="s1:RelationshipUpdate" />
+      <s:complexType name="RelationshipUpdate">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="RelationshipAtoB" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Percent" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="IndividualIdB" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RelationshipBtoA" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Relationship" type="s1:RelationshipTypes" />
+      <s:complexType name="RelationshipTypes">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="RelationshipCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="BusinessDetailUpdateSoapIn">
+    <wsdl:part name="request" element="s0:BusinessDetailUpdateRequest" />
+  </wsdl:message>
+  <wsdl:message name="BusinessDetailUpdateSoapOut">
+    <wsdl:part name="BusinessDetailUpdateResult" element="s0:BusinessDetailUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="BusinessResolutionSoapIn">
+    <wsdl:part name="request" element="s0:BusinessResolutionRequest" />
+  </wsdl:message>
+  <wsdl:message name="BusinessResolutionSoapOut">
+    <wsdl:part name="BusinessResolutionResult" element="s0:BusinessResolutionResponse" />
+  </wsdl:message>
+  <wsdl:message name="BusinessResolutionUpdateSoapIn">
+    <wsdl:part name="request" element="s0:BusinessResolutionUpdateRequest" />
+  </wsdl:message>
+  <wsdl:message name="BusinessResolutionUpdateSoapOut">
+    <wsdl:part name="BusinessResolutionUpdateResult" element="s0:BusinessResolutionUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="BusinessDetailsSoapIn">
+    <wsdl:part name="request" element="s0:BusinessDetailRequest" />
+  </wsdl:message>
+  <wsdl:message name="BusinessDetailsSoapOut">
+    <wsdl:part name="BusinessDetailsResult" element="s0:BusinessDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="BusinessSummarySoapIn">
+    <wsdl:part name="request" element="s0:BusinessSummaryRequest" />
+  </wsdl:message>
+  <wsdl:message name="BusinessSummarySoapOut">
+    <wsdl:part name="BusinessSummaryResult" element="s0:BusinessSummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="BusinessAnalysisDetailsSoapIn">
+    <wsdl:part name="request" element="s0:BusinessAnalysisDetailsRequest" />
+  </wsdl:message>
+  <wsdl:message name="BusinessAnalysisDetailsSoapOut">
+    <wsdl:part name="BusinessAnalysisDetailsResult" element="s0:BusinessAnalysisDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="BusinessAnalysisHistorySoapIn">
+    <wsdl:part name="request" element="s0:BusinessAnalysisHistoryRequest" />
+  </wsdl:message>
+  <wsdl:message name="BusinessAnalysisHistorySoapOut">
+    <wsdl:part name="BusinessAnalysisHistoryResult" element="s0:BusinessAnalysisHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="BusinessAnalysisAccountServicesSoapIn">
+    <wsdl:part name="request" element="s0:BusinessAnalysisAccountServicesRequest" />
+  </wsdl:message>
+  <wsdl:message name="BusinessAnalysisAccountServicesSoapOut">
+    <wsdl:part name="BusinessAnalysisAccountServicesResult" element="s0:BusinessAnalysisAccountServicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="BusinessUpdateSoapIn">
+    <wsdl:part name="request" element="s0:BusinessUpdateRequest" />
+  </wsdl:message>
+  <wsdl:message name="BusinessUpdateSoapOut">
+    <wsdl:part name="BusinessUpdateResult" element="s0:BusinessDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="BusinessOptionsSoapIn">
+    <wsdl:part name="request" element="s0:BusinessOptionsRequest" />
+  </wsdl:message>
+  <wsdl:message name="BusinessOptionsSoapOut">
+    <wsdl:part name="BusinessOptionsResult" element="s0:BusinessOptionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CountyOptionsSoapIn">
+    <wsdl:part name="request" element="s0:CountyOptionsRequest" />
+  </wsdl:message>
+  <wsdl:message name="CountyOptionsSoapOut">
+    <wsdl:part name="CountyOptionsResult" element="s0:CountyOptionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="OperatorOptionsSoapIn">
+    <wsdl:part name="request" element="s0:OperatorOptionsRequest" />
+  </wsdl:message>
+  <wsdl:message name="OperatorOptionsSoapOut">
+    <wsdl:part name="OperatorOptionsResult" element="s0:OperatorOptionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="BusinessAnalysisAccountServicesUpdateSoapIn">
+    <wsdl:part name="request" element="s0:BusinessAnalysisAccountServicesUpdateRequest" />
+  </wsdl:message>
+  <wsdl:message name="BusinessAnalysisAccountServicesUpdateSoapOut">
+    <wsdl:part name="BusinessAnalysisAccountServicesUpdateResult" element="s0:BusinessAnalysisAccountServicesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CommitmentDetailsSoapIn">
+    <wsdl:part name="request" element="s0:CommitmentDetailsRequest" />
+  </wsdl:message>
+  <wsdl:message name="CommitmentDetailsSoapOut">
+    <wsdl:part name="CommitmentDetailsResult" element="s0:CommitmentDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CommitmentUpdateSoapIn">
+    <wsdl:part name="request" element="s0:CommitmentUpdateRequest" />
+  </wsdl:message>
+  <wsdl:message name="CommitmentUpdateSoapOut">
+    <wsdl:part name="CommitmentUpdateResult" element="s0:CommitmentDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CommitmentRemovalSoapIn">
+    <wsdl:part name="request" element="s0:CommitmentRemovalRequest" />
+  </wsdl:message>
+  <wsdl:message name="CommitmentRemovalSoapOut">
+    <wsdl:part name="CommitmentRemovalResult" element="s0:CommitmentDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CommitmentAvailableSoapIn">
+    <wsdl:part name="request" element="s0:CommitmentAvailableRequest" />
+  </wsdl:message>
+  <wsdl:message name="CommitmentAvailableSoapOut">
+    <wsdl:part name="CommitmentAvailableResult" element="s0:CommitmentAvailableResponse" />
+  </wsdl:message>
+  <wsdl:message name="CommitmentAvailableUpdateSoapIn">
+    <wsdl:part name="request" element="s0:CommitmentAvailableUpdateRequest" />
+  </wsdl:message>
+  <wsdl:message name="CommitmentAvailableUpdateSoapOut">
+    <wsdl:part name="CommitmentAvailableUpdateResult" element="s0:CommitmentAvailableResponse" />
+  </wsdl:message>
+  <wsdl:message name="CommitmentAvailableOptionsSoapIn">
+    <wsdl:part name="request" element="s0:CommitmentAvailableOptionsRequest" />
+  </wsdl:message>
+  <wsdl:message name="CommitmentAvailableOptionsSoapOut">
+    <wsdl:part name="CommitmentAvailableOptionsResult" element="s0:CommitmentAvailableOptionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="MemberBusinessLoanDetailsSoapIn">
+    <wsdl:part name="request" element="s0:MemberBusinessLoanDetailsRequest" />
+  </wsdl:message>
+  <wsdl:message name="MemberBusinessLoanDetailsSoapOut">
+    <wsdl:part name="MemberBusinessLoanDetailsResult" element="s0:MemberBusinessLoanResponse" />
+  </wsdl:message>
+  <wsdl:message name="MemberBusinessLoanUpdateSoapIn">
+    <wsdl:part name="request" element="s0:MemberBusinessLoanUpdateRequest" />
+  </wsdl:message>
+  <wsdl:message name="MemberBusinessLoanUpdateSoapOut">
+    <wsdl:part name="MemberBusinessLoanUpdateResult" element="s0:MemberBusinessLoanResponse" />
+  </wsdl:message>
+  <wsdl:message name="MemberBusinessLoanOptionsSoapIn">
+    <wsdl:part name="request" element="s0:MemberBusinessLoanOptionsRequest" />
+  </wsdl:message>
+  <wsdl:message name="MemberBusinessLoanOptionsSoapOut">
+    <wsdl:part name="MemberBusinessLoanOptionsResult" element="s0:MemberBusinessLoanOptionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="BusinessLoanRiskLevelRemovalSoapIn">
+    <wsdl:part name="request" element="s0:BusinessLoanRiskLevelRemovalRequest_x0020_" />
+  </wsdl:message>
+  <wsdl:message name="BusinessLoanRiskLevelRemovalSoapOut">
+    <wsdl:part name="BusinessLoanRiskLevelRemovalResult" element="s0:BusinessLoanRiskLevelRemovalResponse" />
+  </wsdl:message>
+  <wsdl:message name="RelationshipDetailsSoapIn">
+    <wsdl:part name="request" element="s0:RelationshipDetailsRequest" />
+  </wsdl:message>
+  <wsdl:message name="RelationshipDetailsSoapOut">
+    <wsdl:part name="RelationshipDetailsResult" element="s0:RelationshipDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="RelationshipUpdateSoapIn">
+    <wsdl:part name="request" element="s0:RelationshipUpdateRequest" />
+  </wsdl:message>
+  <wsdl:message name="RelationshipUpdateSoapOut">
+    <wsdl:part name="RelationshipUpdateResult" element="s0:RelationshipDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="RelationshipRemovalSoapIn">
+    <wsdl:part name="request" element="s0:RelationshipRemovalRequest" />
+  </wsdl:message>
+  <wsdl:message name="RelationshipRemovalSoapOut">
+    <wsdl:part name="RelationshipRemovalResult" element="s0:RelationshipDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="RelationshipOptionsSoapIn">
+    <wsdl:part name="request" element="s0:RelationshipOptionsRequest" />
+  </wsdl:message>
+  <wsdl:message name="RelationshipOptionsSoapOut">
+    <wsdl:part name="RelationshipOptionsResult" element="s0:RelationshipOptionsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ComCoreServicesSoap">
+    <wsdl:operation name="BusinessDetailUpdate">
+      <wsdl:input message="tns:BusinessDetailUpdateSoapIn" />
+      <wsdl:output message="tns:BusinessDetailUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BusinessResolution">
+      <wsdl:input message="tns:BusinessResolutionSoapIn" />
+      <wsdl:output message="tns:BusinessResolutionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BusinessResolutionUpdate">
+      <wsdl:input message="tns:BusinessResolutionUpdateSoapIn" />
+      <wsdl:output message="tns:BusinessResolutionUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BusinessDetails">
+      <wsdl:input message="tns:BusinessDetailsSoapIn" />
+      <wsdl:output message="tns:BusinessDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BusinessSummary">
+      <wsdl:input message="tns:BusinessSummarySoapIn" />
+      <wsdl:output message="tns:BusinessSummarySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BusinessAnalysisDetails">
+      <wsdl:input message="tns:BusinessAnalysisDetailsSoapIn" />
+      <wsdl:output message="tns:BusinessAnalysisDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BusinessAnalysisHistory">
+      <wsdl:input message="tns:BusinessAnalysisHistorySoapIn" />
+      <wsdl:output message="tns:BusinessAnalysisHistorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BusinessAnalysisAccountServices">
+      <wsdl:input message="tns:BusinessAnalysisAccountServicesSoapIn" />
+      <wsdl:output message="tns:BusinessAnalysisAccountServicesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BusinessUpdate">
+      <wsdl:input message="tns:BusinessUpdateSoapIn" />
+      <wsdl:output message="tns:BusinessUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BusinessOptions">
+      <wsdl:input message="tns:BusinessOptionsSoapIn" />
+      <wsdl:output message="tns:BusinessOptionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CountyOptions">
+      <wsdl:input message="tns:CountyOptionsSoapIn" />
+      <wsdl:output message="tns:CountyOptionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OperatorOptions">
+      <wsdl:input message="tns:OperatorOptionsSoapIn" />
+      <wsdl:output message="tns:OperatorOptionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BusinessAnalysisAccountServicesUpdate">
+      <wsdl:input message="tns:BusinessAnalysisAccountServicesUpdateSoapIn" />
+      <wsdl:output message="tns:BusinessAnalysisAccountServicesUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CommitmentDetails">
+      <wsdl:input message="tns:CommitmentDetailsSoapIn" />
+      <wsdl:output message="tns:CommitmentDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CommitmentUpdate">
+      <wsdl:input message="tns:CommitmentUpdateSoapIn" />
+      <wsdl:output message="tns:CommitmentUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CommitmentRemoval">
+      <wsdl:input message="tns:CommitmentRemovalSoapIn" />
+      <wsdl:output message="tns:CommitmentRemovalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CommitmentAvailable">
+      <wsdl:input message="tns:CommitmentAvailableSoapIn" />
+      <wsdl:output message="tns:CommitmentAvailableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CommitmentAvailableUpdate">
+      <wsdl:input message="tns:CommitmentAvailableUpdateSoapIn" />
+      <wsdl:output message="tns:CommitmentAvailableUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CommitmentAvailableOptions">
+      <wsdl:input message="tns:CommitmentAvailableOptionsSoapIn" />
+      <wsdl:output message="tns:CommitmentAvailableOptionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MemberBusinessLoanDetails">
+      <wsdl:input message="tns:MemberBusinessLoanDetailsSoapIn" />
+      <wsdl:output message="tns:MemberBusinessLoanDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MemberBusinessLoanUpdate">
+      <wsdl:input message="tns:MemberBusinessLoanUpdateSoapIn" />
+      <wsdl:output message="tns:MemberBusinessLoanUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MemberBusinessLoanOptions">
+      <wsdl:input message="tns:MemberBusinessLoanOptionsSoapIn" />
+      <wsdl:output message="tns:MemberBusinessLoanOptionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BusinessLoanRiskLevelRemoval">
+      <wsdl:input message="tns:BusinessLoanRiskLevelRemovalSoapIn" />
+      <wsdl:output message="tns:BusinessLoanRiskLevelRemovalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RelationshipDetails">
+      <wsdl:input message="tns:RelationshipDetailsSoapIn" />
+      <wsdl:output message="tns:RelationshipDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RelationshipUpdate">
+      <wsdl:input message="tns:RelationshipUpdateSoapIn" />
+      <wsdl:output message="tns:RelationshipUpdateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RelationshipRemoval">
+      <wsdl:input message="tns:RelationshipRemovalSoapIn" />
+      <wsdl:output message="tns:RelationshipRemovalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RelationshipOptions">
+      <wsdl:input message="tns:RelationshipOptionsSoapIn" />
+      <wsdl:output message="tns:RelationshipOptionsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ComCoreServicesSoap" type="tns:ComCoreServicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BusinessDetailUpdate">
+      <soap:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/BusinessDetailUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BusinessResolution">
+      <soap:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/BusinessResolution" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BusinessResolutionUpdate">
+      <soap:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/BusinessResolutionUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BusinessDetails">
+      <soap:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/BusinessDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BusinessSummary">
+      <soap:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/BusinessSummary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BusinessAnalysisDetails">
+      <soap:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/BusinessAnalysisDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BusinessAnalysisHistory">
+      <soap:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/BusinessAnalysisHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BusinessAnalysisAccountServices">
+      <soap:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/BusinessAnalysisAccountServices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BusinessUpdate">
+      <soap:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/BusinessUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BusinessOptions">
+      <soap:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/BusinessOptions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountyOptions">
+      <soap:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/CountyOptions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OperatorOptions">
+      <soap:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/OperatorOptions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BusinessAnalysisAccountServicesUpdate">
+      <soap:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/BusinessAnalysisAccountServicesUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitmentDetails">
+      <soap:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/CommitmentDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitmentUpdate">
+      <soap:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/CommitmentUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitmentRemoval">
+      <soap:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/CommitmentRemoval" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitmentAvailable">
+      <soap:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/CommitmentAvailable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitmentAvailableUpdate">
+      <soap:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/CommitmentAvailableUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitmentAvailableOptions">
+      <soap:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/CommitmentAvailableOptions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberBusinessLoanDetails">
+      <soap:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/MemberBusinessLoanDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberBusinessLoanUpdate">
+      <soap:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/MemberBusinessLoanUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberBusinessLoanOptions">
+      <soap:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/MemberBusinessLoanOptions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BusinessLoanRiskLevelRemoval">
+      <soap:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/BusinessLoanRiskLevelRemoval" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RelationshipDetails">
+      <soap:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/RelationshipDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RelationshipUpdate">
+      <soap:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/RelationshipUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RelationshipRemoval">
+      <soap:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/RelationshipRemoval" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RelationshipOptions">
+      <soap:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/RelationshipOptions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ComCoreServicesSoap12" type="tns:ComCoreServicesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BusinessDetailUpdate">
+      <soap12:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/BusinessDetailUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BusinessResolution">
+      <soap12:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/BusinessResolution" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BusinessResolutionUpdate">
+      <soap12:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/BusinessResolutionUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BusinessDetails">
+      <soap12:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/BusinessDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BusinessSummary">
+      <soap12:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/BusinessSummary" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BusinessAnalysisDetails">
+      <soap12:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/BusinessAnalysisDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BusinessAnalysisHistory">
+      <soap12:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/BusinessAnalysisHistory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BusinessAnalysisAccountServices">
+      <soap12:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/BusinessAnalysisAccountServices" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BusinessUpdate">
+      <soap12:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/BusinessUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BusinessOptions">
+      <soap12:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/BusinessOptions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountyOptions">
+      <soap12:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/CountyOptions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OperatorOptions">
+      <soap12:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/OperatorOptions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BusinessAnalysisAccountServicesUpdate">
+      <soap12:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/BusinessAnalysisAccountServicesUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitmentDetails">
+      <soap12:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/CommitmentDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitmentUpdate">
+      <soap12:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/CommitmentUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitmentRemoval">
+      <soap12:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/CommitmentRemoval" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitmentAvailable">
+      <soap12:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/CommitmentAvailable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitmentAvailableUpdate">
+      <soap12:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/CommitmentAvailableUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitmentAvailableOptions">
+      <soap12:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/CommitmentAvailableOptions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberBusinessLoanDetails">
+      <soap12:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/MemberBusinessLoanDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberBusinessLoanUpdate">
+      <soap12:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/MemberBusinessLoanUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MemberBusinessLoanOptions">
+      <soap12:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/MemberBusinessLoanOptions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BusinessLoanRiskLevelRemoval">
+      <soap12:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/BusinessLoanRiskLevelRemoval" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RelationshipDetails">
+      <soap12:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/RelationshipDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RelationshipUpdate">
+      <soap12:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/RelationshipUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RelationshipRemoval">
+      <soap12:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/RelationshipRemoval" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RelationshipOptions">
+      <soap12:operation soapAction="http://integration.fiserv.com/xp2/services/apex/2010/ComCore/RelationshipOptions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ComCoreServices">
+    <wsdl:port name="ComCoreServicesSoap" binding="tns:ComCoreServicesSoap">
+      <soap:address location="http://10.160.82.86/xpweb/services/apex/2006/ComCoreServices.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ComCoreServicesSoap12" binding="tns:ComCoreServicesSoap12">
+      <soap12:address location="http://10.160.82.86/xpweb/services/apex/2006/ComCoreServices.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

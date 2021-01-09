@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="mtvnCWDPOnlnDolrResData" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="mtvnCWDPOnlnDolrResData" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="DPOnlnDolrResData">
+    <xs:annotation>
+      <xs:documentation>Deposit Online Dollar Transaction (DLDLR) -  This function is used to enter a dollar transaction against a Level 0 (transactional) deposit account.  If certain exception conditions are present on the account when this transaction is performed, error messages identifying the conditions will be returned from the host.  If the errors can be overridden, host message "Transaction voided by above errors, press Enter to override, else reset screen" is returned.  If they cannot be overridden, host message "Transaction voided by above errors.  By bank option, void cannot be overridden" is returned.    If the errors can be overridden and you wish to do so, resubmit the transaction, including in szTxnSecurityInd and szDPOvrideInfo what was returned on the first pass, and the transaction is processed.     If you want the Connectware to automatically resubmit transactions to override errors, input the appropriate value in szAutoOvrideInd (see below) on the first call to this function.  If the transaction is processed with no error conditions present, the host message, "[Type of Transaction] Processed [Account Short Name]" will be returned.  If the transaction is processed by override, the host error message(s) identifying the exception condition(s) will be returned, along with the host message, "[Type of Transaction] Processed by Override [Account Short Name]."  If the transaction cannot be processed, the host message(s) identifying the exception condition(s) will be returned, along with the host message, "Transaction voided by above errors.  By bank option, void cannot be overridden."</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="E312" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Transaction Security Indicator</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20006" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Override Information</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E20007" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Account Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20009" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Log Type</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E20010" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Transaction Code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="E20011" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Dollar Transaction Amount</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20012" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Dollar Serial Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20013" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Dollar Transaction Number Days Float</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20014" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Dollar Transaction Original Transaction Date</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20015" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Dollar Transaction Original Transaction Code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20016" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Retirement Account Transaction Code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20017" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Dollar Transaction Deposit Category</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20018" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Transaction Source Code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20020" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Transaction Trailer Description 1</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20021" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Transaction Trailer Description 2</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20022" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Transaction Trailer Description 3</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20023" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Transaction Trailer Description 4</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20024" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Transaction Trailer Description 5</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20025" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Transaction Trailer Description 6</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20026" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Transaction Control Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20027" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP General Ledger Account Number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20028" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP General Ledger Cost Center</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20030" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Retirement Account Withholding Action</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20032" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Retirement Account New Withholding Amount</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20033" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Retirement Account Withholding Description</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20035" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Retirement Account Withholding Amount</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20037" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Retirement Account Withholding Transaction Code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21034" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Disbursement Type Indicator</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E20019" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>DP Hidden Source Code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21036" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Disbursement Check Address Line 1</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21038" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Disbursement Check Address Line 2</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21042" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Disbursement Check Address Line 3</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21044" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Disbursement Check Address Line 4</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21046" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Disbursement Check Address Line 5</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21048" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Disbursement Check Foreign Address Indicator</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E22738" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>HSA Transaction Code</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21634" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Short Name</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E21613" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Deposit Category</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="E22872" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Transaction Image ID</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element minOccurs="0" name="ErrCde" type="xs:string" />
+        <xs:element minOccurs="0" name="ErrResnCde" type="xs:string" />
+        <xs:element minOccurs="0" name="ApplMsgLst">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="ApplMsg">
+                <xs:complexType>
+                  <xs:all>
+                    <xs:element minOccurs="0" name="ApplMsgApplId" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgNbr" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgTxt" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgErrInd" type="xs:string" />
+                    <xs:element minOccurs="0" name="ApplMsgFld" type="xs:string" />
+                  </xs:all>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Demoteller" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Demoteller" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="RepinCardApp">
+    <xs:sequence>
+      <xs:element name="Cardinfo" nillable="true" type="tns:Cardobj">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="OriginatorPcId" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="OriginatorUserId" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RepinCardApp" nillable="true" type="tns:RepinCardApp" />
+  <xs:complexType name="Cardobj">
+    <xs:sequence>
+      <xs:element name="CardNumber" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ExpirationDate" nillable="true" type="xs:string" />
+      <xs:element name="Offset" nillable="true" type="xs:string" />
+      <xs:element name="StockID" nillable="true" type="xs:string" />
+      <xs:element name="VaultName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Cardobj" nillable="true" type="tns:Cardobj" />
+  <xs:complexType name="ResponseObj">
+    <xs:sequence>
+      <xs:element name="ActionStatus" nillable="true" type="xs:string" />
+      <xs:element name="CalculatedOffset" nillable="true" type="xs:string" />
+      <xs:element name="Cardnumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorInfo" nillable="true" type="tns:ErrorObj" />
+      <xs:element name="ExpirationDate" nillable="true" type="xs:string" />
+      <xs:element name="ExpireDate" nillable="true" type="xs:string" />
+      <xs:element name="Offset" nillable="true" type="xs:string" />
+      <xs:element name="OriginatorPcId" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="OriginatorUserId" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element minOccurs="0" name="StockCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResponseObj" nillable="true" type="tns:ResponseObj" />
+  <xs:complexType name="ErrorObj">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorDescription" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ErrorObj" nillable="true" type="tns:ErrorObj" />
+  <xs:complexType name="NewCardApp">
+    <xs:sequence>
+      <xs:element name="AccountsInfo" nillable="true" type="tns:AccountObj" />
+      <xs:element name="AddressInfo" nillable="true" type="tns:Addressobj" />
+      <xs:element name="CardholderInfo" nillable="true" type="tns:Cardholderobj">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Cardinfo" nillable="true" type="tns:Cardobj">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ContactInfo" nillable="true" type="tns:Contactobj" />
+      <xs:element name="NoWait" type="xs:boolean" />
+      <xs:element name="OriginatorPcId" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="OriginatorUserId" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="SecurityInfo" nillable="true" type="tns:SecurityObj" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NewCardApp" nillable="true" type="tns:NewCardApp" />
+  <xs:complexType name="AccountObj">
+    <xs:sequence>
+      <xs:element name="MiscAccount" nillable="true" type="xs:string" />
+      <xs:element name="PrimaryChecking" nillable="true" type="xs:string" />
+      <xs:element name="PrimarySavings" nillable="true" type="xs:string" />
+      <xs:element name="SecondayChecking" nillable="true" type="xs:string" />
+      <xs:element name="SecondaySavings" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AccountObj" nillable="true" type="tns:AccountObj" />
+  <xs:complexType name="Addressobj">
+    <xs:sequence>
+      <xs:element name="Address1" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Address2" nillable="true" type="xs:string" />
+      <xs:element name="City" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="State" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Zip" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Addressobj" nillable="true" type="tns:Addressobj" />
+  <xs:complexType name="Cardholderobj">
+    <xs:sequence>
+      <xs:element name="BusinessName" nillable="true" type="xs:string" />
+      <xs:element name="FirstName" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="LastName" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="MiddleInitial" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Cardholderobj" nillable="true" type="tns:Cardholderobj" />
+  <xs:complexType name="Contactobj">
+    <xs:sequence>
+      <xs:element name="Phone1" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Phone2" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Phone3" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Phone4" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Contactobj" nillable="true" type="tns:Contactobj" />
+  <xs:complexType name="SecurityObj">
+    <xs:sequence>
+      <xs:element name="DateOfBirth" nillable="true" type="xs:string" />
+      <xs:element name="DriversLicense" nillable="true" type="xs:string" />
+      <xs:element name="MotherMaiden" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SecurityObj" nillable="true" type="tns:SecurityObj" />
+</xs:schema>

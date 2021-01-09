@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:insMtgCommentsRes="http://com.fsb.domain/services/mortgage/InsertMortgageCommentsResponse" elementFormDefault="qualified" targetNamespace="http://com.fsb.domain/services/mortgage/InsertMortgageCommentsResponse" xmlns="http://www.w3.org/2001/XMLSchema">
+  <complexType name="InsertMortgageCommentsResponseType">
+    <sequence>
+      <element name="returnCode" type="insMtgCommentsRes:ReturnCodeEnum" />
+      <element name="message" nillable="true" type="string" />
+    </sequence>
+  </complexType>
+  <simpleType name="ReturnCodeEnum">
+    <restriction base="string">
+      <enumeration value="SUCCESS" />
+      <enumeration value="FAILURE" />
+    </restriction>
+  </simpleType>
+  <element name="InsertMortgageCommentsResponse" type="insMtgCommentsRes:InsertMortgageCommentsResponseType" />
+</schema>

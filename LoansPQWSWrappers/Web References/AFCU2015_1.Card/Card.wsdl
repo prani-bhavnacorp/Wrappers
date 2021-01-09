@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://americafirst.com/Card" xmlns:tns2="http://www.americafirst.com/20070315/Card" name="Card" targetNamespace="http://americafirst.com/Card" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns:mrm="http://americafirst.com/Card" targetNamespace="http://americafirst.com/Card">
+      <xsd:import schemaLocation="com/americafirst/www/_20070315/card/Card.xsd" namespace="http://www.americafirst.com/20070315/Card" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="changePinLevel_in">
+    <wsdl:part name="changePinLevelRequest" element="tns2:changePinLevelRequest" />
+  </wsdl:message>
+  <wsdl:message name="changePinLevel_out">
+    <wsdl:part name="changePinLevelResponse" element="tns2:changePinLevelResponse" />
+  </wsdl:message>
+  <wsdl:message name="changePinLevelDown_in">
+    <wsdl:part name="changePinLevelDownRequest" element="tns2:changePinLevelDownRequest" />
+  </wsdl:message>
+  <wsdl:message name="changePinLevelDown_out">
+    <wsdl:part name="changePinLevelDownResponse" element="tns2:changePinLevelDownResponse" />
+  </wsdl:message>
+  <wsdl:message name="changePinStatus_in">
+    <wsdl:part name="changePinStatusRequest" element="tns2:changePinStatusRequest" />
+  </wsdl:message>
+  <wsdl:message name="changePinStatus_out">
+    <wsdl:part name="changePinStatusResponse" element="tns2:changePinStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="changeSpecificPinLevel_in">
+    <wsdl:part name="changeSpecificPinLevelRequest" element="tns2:changeSpecificPinLevelRequest" />
+  </wsdl:message>
+  <wsdl:message name="changeSpecificPinLevel_out">
+    <wsdl:part name="changeSpecificPinLevelResponse" element="tns2:changeSpecificPinLevelResponse" />
+  </wsdl:message>
+  <wsdl:message name="convertCard_in">
+    <wsdl:part name="convertCardRequest" element="tns2:convertCardRequest" />
+  </wsdl:message>
+  <wsdl:message name="convertCard_out">
+    <wsdl:part name="convertCardResponse" element="tns2:convertCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="inquire_in">
+    <wsdl:part name="inquireRequest" element="tns2:inquireRequest" />
+  </wsdl:message>
+  <wsdl:message name="inquire_out">
+    <wsdl:part name="inquireResponse" element="tns2:inquireResponse" />
+  </wsdl:message>
+  <wsdl:message name="inquireBillingHistory_in">
+    <wsdl:part name="inquireBillingHistoryRequest" element="tns2:inquireBillingHistoryRequest" />
+  </wsdl:message>
+  <wsdl:message name="inquireBillingHistory_out">
+    <wsdl:part name="inquireBillingHistoryResponse" element="tns2:inquireBillingHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="inquireNewAcct_in">
+    <wsdl:part name="inquireNewAcctRequest" element="tns2:inquireNewAcctRequest" />
+  </wsdl:message>
+  <wsdl:message name="inquireNewAcct_out">
+    <wsdl:part name="inquireNewAcctResponse" element="tns2:inquireNewAcctResponse" />
+  </wsdl:message>
+  <wsdl:message name="orderNewCard_in">
+    <wsdl:part name="orderNewCardRequest" element="tns2:orderNewCardRequest" />
+  </wsdl:message>
+  <wsdl:message name="orderNewCard_out">
+    <wsdl:part name="orderNewCardResponse" element="tns2:orderNewCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="reorderCard_in">
+    <wsdl:part name="reorderCardRequest" element="tns2:reorderCardRequest" />
+  </wsdl:message>
+  <wsdl:message name="reorderCard_out">
+    <wsdl:part name="reorderCardResponse" element="tns2:reorderCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="reportLostStolen_in">
+    <wsdl:part name="reportLostStolenRequest" element="tns2:reportLostStolenRequest" />
+  </wsdl:message>
+  <wsdl:message name="reportLostStolen_out">
+    <wsdl:part name="reportLostStolenResponse" element="tns2:reportLostStolenResponse" />
+  </wsdl:message>
+  <wsdl:message name="reportSpecificLostStolen_in">
+    <wsdl:part name="reportSpecificLostStolenRequest" element="tns2:reportSpecificLostStolenRequest" />
+  </wsdl:message>
+  <wsdl:message name="reportSpecificLostStolen_out">
+    <wsdl:part name="reportSpecificLostStolenResponse" element="tns2:reportSpecificLostStolenResponse" />
+  </wsdl:message>
+  <wsdl:message name="rushCard_in">
+    <wsdl:part name="rushCardRequest" element="tns2:rushCardRequest" />
+  </wsdl:message>
+  <wsdl:message name="rushCard_out">
+    <wsdl:part name="rushCardResponse" element="tns2:rushCardResponse" />
+  </wsdl:message>
+  <wsdl:message name="setBlocking_in">
+    <wsdl:part name="setBlockingRequest" element="tns2:setBlockingRequest" />
+  </wsdl:message>
+  <wsdl:message name="setBlocking_out">
+    <wsdl:part name="setBlockingResponse" element="tns2:setBlockingResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Card_MSPortType">
+    <wsdl:operation name="changePinLevel">
+      <wsdl:input name="changePinLevel_changePinLevelRequest" message="tns:changePinLevel_in" />
+      <wsdl:output name="changePinLevel_changePinLevelResponse" message="tns:changePinLevel_out" />
+    </wsdl:operation>
+    <wsdl:operation name="changePinLevelDown">
+      <wsdl:input name="changePinLevelDown_changePinLevelDownRequest" message="tns:changePinLevelDown_in" />
+      <wsdl:output name="changePinLevelDown_changePinLevelDownResponse" message="tns:changePinLevelDown_out" />
+    </wsdl:operation>
+    <wsdl:operation name="changePinStatus">
+      <wsdl:input name="changePinStatus_changePinStatusRequest" message="tns:changePinStatus_in" />
+      <wsdl:output name="changePinStatus_changePinStatusResponse" message="tns:changePinStatus_out" />
+    </wsdl:operation>
+    <wsdl:operation name="changeSpecificPinLevel">
+      <wsdl:input name="changeSpecificPinLevel_changeSpecificPinLevelRequest" message="tns:changeSpecificPinLevel_in" />
+      <wsdl:output name="changeSpecificPinLevel_changeSpecificPinLevelResponse" message="tns:changeSpecificPinLevel_out" />
+    </wsdl:operation>
+    <wsdl:operation name="convertCard">
+      <wsdl:input name="convertCard_convertCardRequest" message="tns:convertCard_in" />
+      <wsdl:output name="convertCard_convertCardResponse" message="tns:convertCard_out" />
+    </wsdl:operation>
+    <wsdl:operation name="inquire">
+      <wsdl:input name="inquire_inquireRequest" message="tns:inquire_in" />
+      <wsdl:output name="inquire_inquireResponse" message="tns:inquire_out" />
+    </wsdl:operation>
+    <wsdl:operation name="inquireBillingHistory">
+      <wsdl:input name="inquireBillingHistory_inquireBillingHistoryRequest" message="tns:inquireBillingHistory_in" />
+      <wsdl:output name="inquireBillingHistory_inquireBillingHistoryResponse" message="tns:inquireBillingHistory_out" />
+    </wsdl:operation>
+    <wsdl:operation name="inquireNewAcct">
+      <wsdl:input name="inquireNewAcct_inquireNewAcctRequest" message="tns:inquireNewAcct_in" />
+      <wsdl:output name="inquireNewAcct_inquireNewAcctResponse" message="tns:inquireNewAcct_out" />
+    </wsdl:operation>
+    <wsdl:operation name="orderNewCard">
+      <wsdl:input name="orderNewCard_orderNewCardRequest" message="tns:orderNewCard_in" />
+      <wsdl:output name="orderNewCard_orderNewCardResponse" message="tns:orderNewCard_out" />
+    </wsdl:operation>
+    <wsdl:operation name="reorderCard">
+      <wsdl:input name="reorderCard_reorderCardRequest" message="tns:reorderCard_in" />
+      <wsdl:output name="reorderCard_reorderCardResponse" message="tns:reorderCard_out" />
+    </wsdl:operation>
+    <wsdl:operation name="reportLostStolen">
+      <wsdl:input name="reportLostStolen_reportLostStolenRequest" message="tns:reportLostStolen_in" />
+      <wsdl:output name="reportLostStolen_reportLostStolenResponse" message="tns:reportLostStolen_out" />
+    </wsdl:operation>
+    <wsdl:operation name="reportSpecificLostStolen">
+      <wsdl:input name="reportSpecificLostStolen_reportSpecificLostStolenRequest" message="tns:reportSpecificLostStolen_in" />
+      <wsdl:output name="reportSpecificLostStolen_reportSpecificLostStolenResponse" message="tns:reportSpecificLostStolen_out" />
+    </wsdl:operation>
+    <wsdl:operation name="rushCard">
+      <wsdl:input name="rushCard_rushCardRequest" message="tns:rushCard_in" />
+      <wsdl:output name="rushCard_rushCardResponse" message="tns:rushCard_out" />
+    </wsdl:operation>
+    <wsdl:operation name="setBlocking">
+      <wsdl:input name="setBlocking_setBlockingRequest" message="tns:setBlocking_in" />
+      <wsdl:output name="setBlocking_setBlockingResponse" message="tns:setBlocking_out" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Card_MSSOAP_HTTP_Binding" type="tns:Card_MSPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="changePinLevel">
+      <soap:operation soapAction="" />
+      <wsdl:input name="changePinLevel_changePinLevelRequest">
+        <soap:body use="literal" parts="changePinLevelRequest" />
+      </wsdl:input>
+      <wsdl:output name="changePinLevel_changePinLevelResponse">
+        <soap:body use="literal" parts="changePinLevelResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="changePinLevelDown">
+      <soap:operation soapAction="" />
+      <wsdl:input name="changePinLevelDown_changePinLevelDownRequest">
+        <soap:body use="literal" parts="changePinLevelDownRequest" />
+      </wsdl:input>
+      <wsdl:output name="changePinLevelDown_changePinLevelDownResponse">
+        <soap:body use="literal" parts="changePinLevelDownResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="changePinStatus">
+      <soap:operation soapAction="" />
+      <wsdl:input name="changePinStatus_changePinStatusRequest">
+        <soap:body use="literal" parts="changePinStatusRequest" />
+      </wsdl:input>
+      <wsdl:output name="changePinStatus_changePinStatusResponse">
+        <soap:body use="literal" parts="changePinStatusResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="changeSpecificPinLevel">
+      <soap:operation soapAction="" />
+      <wsdl:input name="changeSpecificPinLevel_changeSpecificPinLevelRequest">
+        <soap:body use="literal" parts="changeSpecificPinLevelRequest" />
+      </wsdl:input>
+      <wsdl:output name="changeSpecificPinLevel_changeSpecificPinLevelResponse">
+        <soap:body use="literal" parts="changeSpecificPinLevelResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="convertCard">
+      <soap:operation soapAction="" />
+      <wsdl:input name="convertCard_convertCardRequest">
+        <soap:body use="literal" parts="convertCardRequest" />
+      </wsdl:input>
+      <wsdl:output name="convertCard_convertCardResponse">
+        <soap:body use="literal" parts="convertCardResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inquire">
+      <soap:operation soapAction="" />
+      <wsdl:input name="inquire_inquireRequest">
+        <soap:body use="literal" parts="inquireRequest" />
+      </wsdl:input>
+      <wsdl:output name="inquire_inquireResponse">
+        <soap:body use="literal" parts="inquireResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inquireBillingHistory">
+      <soap:operation soapAction="" />
+      <wsdl:input name="inquireBillingHistory_inquireBillingHistoryRequest">
+        <soap:body use="literal" parts="inquireBillingHistoryRequest" />
+      </wsdl:input>
+      <wsdl:output name="inquireBillingHistory_inquireBillingHistoryResponse">
+        <soap:body use="literal" parts="inquireBillingHistoryResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inquireNewAcct">
+      <soap:operation soapAction="" />
+      <wsdl:input name="inquireNewAcct_inquireNewAcctRequest">
+        <soap:body use="literal" parts="inquireNewAcctRequest" />
+      </wsdl:input>
+      <wsdl:output name="inquireNewAcct_inquireNewAcctResponse">
+        <soap:body use="literal" parts="inquireNewAcctResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="orderNewCard">
+      <soap:operation soapAction="" />
+      <wsdl:input name="orderNewCard_orderNewCardRequest">
+        <soap:body use="literal" parts="orderNewCardRequest" />
+      </wsdl:input>
+      <wsdl:output name="orderNewCard_orderNewCardResponse">
+        <soap:body use="literal" parts="orderNewCardResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="reorderCard">
+      <soap:operation soapAction="" />
+      <wsdl:input name="reorderCard_reorderCardRequest">
+        <soap:body use="literal" parts="reorderCardRequest" />
+      </wsdl:input>
+      <wsdl:output name="reorderCard_reorderCardResponse">
+        <soap:body use="literal" parts="reorderCardResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="reportLostStolen">
+      <soap:operation soapAction="" />
+      <wsdl:input name="reportLostStolen_reportLostStolenRequest">
+        <soap:body use="literal" parts="reportLostStolenRequest" />
+      </wsdl:input>
+      <wsdl:output name="reportLostStolen_reportLostStolenResponse">
+        <soap:body use="literal" parts="reportLostStolenResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="reportSpecificLostStolen">
+      <soap:operation soapAction="" />
+      <wsdl:input name="reportSpecificLostStolen_reportSpecificLostStolenRequest">
+        <soap:body use="literal" parts="reportSpecificLostStolenRequest" />
+      </wsdl:input>
+      <wsdl:output name="reportSpecificLostStolen_reportSpecificLostStolenResponse">
+        <soap:body use="literal" parts="reportSpecificLostStolenResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="rushCard">
+      <soap:operation soapAction="" />
+      <wsdl:input name="rushCard_rushCardRequest">
+        <soap:body use="literal" parts="rushCardRequest" />
+      </wsdl:input>
+      <wsdl:output name="rushCard_rushCardResponse">
+        <soap:body use="literal" parts="rushCardResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setBlocking">
+      <soap:operation soapAction="" />
+      <wsdl:input name="setBlocking_setBlockingRequest">
+        <soap:body use="literal" parts="setBlockingRequest" />
+      </wsdl:input>
+      <wsdl:output name="setBlocking_setBlockingResponse">
+        <soap:body use="literal" parts="setBlockingResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CardService">
+    <wsdl:port name="SOAP_HTTP_Port" binding="tns:Card_MSSOAP_HTTP_Binding">
+      <soap:address location="http://ltadevb1:7080/card/CardService/20070315" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

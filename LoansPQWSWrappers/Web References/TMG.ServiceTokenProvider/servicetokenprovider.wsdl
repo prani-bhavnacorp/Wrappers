@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ServiceTokenProvider.secure.themembersgroup.com" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://ServiceTokenProvider.secure.themembersgroup.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ServiceTokenProvider.secure.themembersgroup.com">
+      <s:element name="GetSessionIdentifier">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ApplicationID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSessionIdentifierResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSessionIdentifierResult" type="tns:SecureHeader" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SecureHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SessionKey" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetSessionIdentifierSoapIn">
+    <wsdl:part name="params" element="tns:GetSessionIdentifier" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionIdentifierSoapOut">
+    <wsdl:part name="params" element="tns:GetSessionIdentifierResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceTokenProviderSoap">
+    <wsdl:operation name="GetSessionIdentifier">
+      <wsdl:input message="tns:GetSessionIdentifierSoapIn" />
+      <wsdl:output message="tns:GetSessionIdentifierSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceTokenProviderSoap" type="tns:ServiceTokenProviderSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSessionIdentifier">
+      <soap:operation soapAction="http://ServiceTokenProvider.secure.themembersgroup.com/GetSessionIdentifier" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceTokenProvider">
+    <wsdl:port name="ServiceTokenProviderSoap" binding="tns:ServiceTokenProviderSoap">
+      <soap:address location="https://openservices.beta.themembersgroup.com/servicetokenprovider.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

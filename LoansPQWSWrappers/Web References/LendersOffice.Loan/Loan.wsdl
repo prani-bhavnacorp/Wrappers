@@ -1,0 +1,999 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.lendersoffice.com/los/webservices/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.lendersoffice.com/los/webservices/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.lendersoffice.com/los/webservices/">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="Load">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sTicket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sLNm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sXmlQuery" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="format" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadPDFDocument">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sTicket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sLNm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="documentType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="notes" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sDataContent" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadPDFDocumentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UploadPDFDocumentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Save">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sTicket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sLNm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sDataContent" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="format" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsLoanExisted">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sTicket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sLNm" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsLoanExistedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsLoanExistedResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveCustomReport">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sTicket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sQueryNm" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="includeAllWithAccess" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveCustomReportResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveCustomReportResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Create">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sTicket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sTemplateNm" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PrepareLoanForResubmission">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sTicket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sLNm" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PrepareLoanForResubmissionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PrepareLoanForResubmissionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateWithFannieMaeFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sTicket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="content" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateWithFannieMaeFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateWithFannieMaeFileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateWithCalyxPointFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sTicket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="base64content" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateWithCalyxPointFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateWithCalyxPointFileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListModifiedLoans">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sTicket" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListModifiedLoansResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListModifiedLoansResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ClearModifiedLoansList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sTicket" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="lastModifiedDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ClearModifiedLoansListResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ClearModifiedLoanByName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sTicket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="loanName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ClearModifiedLoanByNameResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="LoadMismo21">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sTicket" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="loanId" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="sXmlQuery" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadMismo21Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadMismo21Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveMismo21">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sTicket" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="loanId" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="sXmlData" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveMismo21Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveMismo21Result" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadMismo23">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sTicket" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="loanId" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="sXmlQuery" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadMismo23Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadMismo23Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveMismo23">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sTicket" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="loanId" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="sXmlData" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveMismo23Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveMismo23Result" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadMismo23ByLoanName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sTicket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sLNm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sXmlQuery" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadMismo23ByLoanNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadMismo23ByLoanNameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPdfByLoanName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sTicket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sLNm" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sPdfName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPdfByLoanNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPdfByLoanNameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadFannieMaeFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sTicket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="content" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadFannieMaeFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UploadFannieMaeFileResult" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadCalyxPointFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sTicket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="base64content" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadCalyxPointFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UploadCalyxPointFileResult" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadLONXml">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sTicket" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="loanId" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="sXmlData" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadLONXmlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UploadLONXmlResult" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RunQuickPricer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sTicket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sXmlData" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RunQuickPricerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RunQuickPricerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LoadSoapIn">
+    <wsdl:part name="parameters" element="tns:Load" />
+  </wsdl:message>
+  <wsdl:message name="LoadSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadPDFDocumentSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadPDFDocument" />
+  </wsdl:message>
+  <wsdl:message name="UploadPDFDocumentSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadPDFDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveSoapIn">
+    <wsdl:part name="parameters" element="tns:Save" />
+  </wsdl:message>
+  <wsdl:message name="SaveSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsLoanExistedSoapIn">
+    <wsdl:part name="parameters" element="tns:IsLoanExisted" />
+  </wsdl:message>
+  <wsdl:message name="IsLoanExistedSoapOut">
+    <wsdl:part name="parameters" element="tns:IsLoanExistedResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveCustomReportSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveCustomReport" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveCustomReportSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveCustomReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateSoapIn">
+    <wsdl:part name="parameters" element="tns:Create" />
+  </wsdl:message>
+  <wsdl:message name="CreateSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="PrepareLoanForResubmissionSoapIn">
+    <wsdl:part name="parameters" element="tns:PrepareLoanForResubmission" />
+  </wsdl:message>
+  <wsdl:message name="PrepareLoanForResubmissionSoapOut">
+    <wsdl:part name="parameters" element="tns:PrepareLoanForResubmissionResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateWithFannieMaeFileSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateWithFannieMaeFile" />
+  </wsdl:message>
+  <wsdl:message name="CreateWithFannieMaeFileSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateWithFannieMaeFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateWithCalyxPointFileSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateWithCalyxPointFile" />
+  </wsdl:message>
+  <wsdl:message name="CreateWithCalyxPointFileSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateWithCalyxPointFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListModifiedLoansSoapIn">
+    <wsdl:part name="parameters" element="tns:ListModifiedLoans" />
+  </wsdl:message>
+  <wsdl:message name="ListModifiedLoansSoapOut">
+    <wsdl:part name="parameters" element="tns:ListModifiedLoansResponse" />
+  </wsdl:message>
+  <wsdl:message name="ClearModifiedLoansListSoapIn">
+    <wsdl:part name="parameters" element="tns:ClearModifiedLoansList" />
+  </wsdl:message>
+  <wsdl:message name="ClearModifiedLoansListSoapOut">
+    <wsdl:part name="parameters" element="tns:ClearModifiedLoansListResponse" />
+  </wsdl:message>
+  <wsdl:message name="ClearModifiedLoanByNameSoapIn">
+    <wsdl:part name="parameters" element="tns:ClearModifiedLoanByName" />
+  </wsdl:message>
+  <wsdl:message name="ClearModifiedLoanByNameSoapOut">
+    <wsdl:part name="parameters" element="tns:ClearModifiedLoanByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadMismo21SoapIn">
+    <wsdl:part name="parameters" element="tns:LoadMismo21" />
+  </wsdl:message>
+  <wsdl:message name="LoadMismo21SoapOut">
+    <wsdl:part name="parameters" element="tns:LoadMismo21Response" />
+  </wsdl:message>
+  <wsdl:message name="SaveMismo21SoapIn">
+    <wsdl:part name="parameters" element="tns:SaveMismo21" />
+  </wsdl:message>
+  <wsdl:message name="SaveMismo21SoapOut">
+    <wsdl:part name="parameters" element="tns:SaveMismo21Response" />
+  </wsdl:message>
+  <wsdl:message name="LoadMismo23SoapIn">
+    <wsdl:part name="parameters" element="tns:LoadMismo23" />
+  </wsdl:message>
+  <wsdl:message name="LoadMismo23SoapOut">
+    <wsdl:part name="parameters" element="tns:LoadMismo23Response" />
+  </wsdl:message>
+  <wsdl:message name="SaveMismo23SoapIn">
+    <wsdl:part name="parameters" element="tns:SaveMismo23" />
+  </wsdl:message>
+  <wsdl:message name="SaveMismo23SoapOut">
+    <wsdl:part name="parameters" element="tns:SaveMismo23Response" />
+  </wsdl:message>
+  <wsdl:message name="LoadMismo23ByLoanNameSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadMismo23ByLoanName" />
+  </wsdl:message>
+  <wsdl:message name="LoadMismo23ByLoanNameSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadMismo23ByLoanNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPdfByLoanNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPdfByLoanName" />
+  </wsdl:message>
+  <wsdl:message name="GetPdfByLoanNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPdfByLoanNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadFannieMaeFileSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadFannieMaeFile" />
+  </wsdl:message>
+  <wsdl:message name="UploadFannieMaeFileSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadFannieMaeFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadCalyxPointFileSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadCalyxPointFile" />
+  </wsdl:message>
+  <wsdl:message name="UploadCalyxPointFileSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadCalyxPointFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="UploadLONXmlSoapIn">
+    <wsdl:part name="parameters" element="tns:UploadLONXml" />
+  </wsdl:message>
+  <wsdl:message name="UploadLONXmlSoapOut">
+    <wsdl:part name="parameters" element="tns:UploadLONXmlResponse" />
+  </wsdl:message>
+  <wsdl:message name="RunQuickPricerSoapIn">
+    <wsdl:part name="parameters" element="tns:RunQuickPricer" />
+  </wsdl:message>
+  <wsdl:message name="RunQuickPricerSoapOut">
+    <wsdl:part name="parameters" element="tns:RunQuickPricerResponse" />
+  </wsdl:message>
+  <wsdl:portType name="LoanSoap">
+    <wsdl:operation name="Load">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Query data from a loan file. [sTicket] Ticket returned by AuthService.asmx. [sLNm] The Lender's Office Loan Name. [sXmlQuery] The Xml defines the list of fields to be included in the response. Refer to lo_xmlquery_blank.xml for an example. [format] Identifies the output format to use. 0 - LO XML Query. 3 - Calyx Point (This is returned as a encoded base-64 Xml encased string. This is because the Calyx Point file is a binary file. 4 - Fannie Mae 3.2</wsdl:documentation>
+      <wsdl:input message="tns:LoadSoapIn" />
+      <wsdl:output message="tns:LoadSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadPDFDocument">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Add a PDF to a loan file. [sTicket] Ticket returned by AuthService.asmx.  [sLNm] The Lender's Office Loan Name.  [documentType] The PDF document type name.  [notes] Notes related to the PDF document.  [sDataContent] The base 64 encoded PDF document.</wsdl:documentation>
+      <wsdl:input message="tns:UploadPDFDocumentSoapIn" />
+      <wsdl:output message="tns:UploadPDFDocumentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Save">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Update the loan file with new information. [sDataContent] The information to update. Only fields that needs updating should be sent over. [format] Identifies the output format to use. 0 - LO XML Query. &lt;RETURN&gt; - XML result string indicating if the Save operation succeeded or not.</wsdl:documentation>
+      <wsdl:input message="tns:SaveSoapIn" />
+      <wsdl:output message="tns:SaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsLoanExisted">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a TRUE if the loan # exists.</wsdl:documentation>
+      <wsdl:input message="tns:IsLoanExistedSoapIn" />
+      <wsdl:output message="tns:IsLoanExistedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveCustomReport">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This method returns a CSV string containing the requested custom report data.</wsdl:documentation>
+      <wsdl:input message="tns:RetrieveCustomReportSoapIn" />
+      <wsdl:output message="tns:RetrieveCustomReportSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Create">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Create a new loan file and return a randomly generated loan name. [sTemplateNm] - The loan template number used to initialized the loan file. This value can be left blank.</wsdl:documentation>
+      <wsdl:input message="tns:CreateSoapIn" />
+      <wsdl:output message="tns:CreateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PrepareLoanForResubmission">
+      <wsdl:input message="tns:PrepareLoanForResubmissionSoapIn" />
+      <wsdl:output message="tns:PrepareLoanForResubmissionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateWithFannieMaeFile">
+      <wsdl:input message="tns:CreateWithFannieMaeFileSoapIn" />
+      <wsdl:output message="tns:CreateWithFannieMaeFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateWithCalyxPointFile">
+      <wsdl:input message="tns:CreateWithCalyxPointFileSoapIn" />
+      <wsdl:output message="tns:CreateWithCalyxPointFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ListModifiedLoans">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an XML string containing a list of recently modified loans. This method is used if the client wants to poll the LO/PML system on a fixed interval (try to keep this interval big) for recently modified files so that they can be imported into a 3rd-party LOS.</wsdl:documentation>
+      <wsdl:input message="tns:ListModifiedLoansSoapIn" />
+      <wsdl:output message="tns:ListModifiedLoansSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearModifiedLoansList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Clear the list of recently modified loans with a Modified Date older than the [lastModifiedDate]</wsdl:documentation>
+      <wsdl:input message="tns:ClearModifiedLoansListSoapIn" />
+      <wsdl:output message="tns:ClearModifiedLoansListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearModifiedLoanByName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Remove a particular loan name [loanName] from the list of recently modified loans.</wsdl:documentation>
+      <wsdl:input message="tns:ClearModifiedLoanByNameSoapIn" />
+      <wsdl:output message="tns:ClearModifiedLoanByNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadMismo21">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Do not use this method</wsdl:documentation>
+      <wsdl:input message="tns:LoadMismo21SoapIn" />
+      <wsdl:output message="tns:LoadMismo21SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveMismo21">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Do not use this method</wsdl:documentation>
+      <wsdl:input message="tns:SaveMismo21SoapIn" />
+      <wsdl:output message="tns:SaveMismo21SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadMismo23">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Do not use this method</wsdl:documentation>
+      <wsdl:input message="tns:LoadMismo23SoapIn" />
+      <wsdl:output message="tns:LoadMismo23SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveMismo23">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Do not use this method</wsdl:documentation>
+      <wsdl:input message="tns:SaveMismo23SoapIn" />
+      <wsdl:output message="tns:SaveMismo23SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadMismo23ByLoanName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Load the loan identified by the sLNm in Mismo 2.3.1 Format. [sTicket] Ticket returned by AuthService.asmx. [sLNm] The Lender's Office Loan Name. [sXmlQuery] The Xml defines the list of fields to be included in the response. Refer to lo_xmlquery_blank.xml for an example.</wsdl:documentation>
+      <wsdl:input message="tns:LoadMismo23ByLoanNameSoapIn" />
+      <wsdl:output message="tns:LoadMismo23ByLoanNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPdfByLoanName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve a PDF document for a particular loan file. [Result] - The PDF content in base64 format.</wsdl:documentation>
+      <wsdl:input message="tns:GetPdfByLoanNameSoapIn" />
+      <wsdl:output message="tns:GetPdfByLoanNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadFannieMaeFile">
+      <wsdl:input message="tns:UploadFannieMaeFileSoapIn" />
+      <wsdl:output message="tns:UploadFannieMaeFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadCalyxPointFile">
+      <wsdl:input message="tns:UploadCalyxPointFileSoapIn" />
+      <wsdl:output message="tns:UploadCalyxPointFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UploadLONXml">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Do not use this method</wsdl:documentation>
+      <wsdl:input message="tns:UploadLONXmlSoapIn" />
+      <wsdl:output message="tns:UploadLONXmlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RunQuickPricer">
+      <wsdl:input message="tns:RunQuickPricerSoapIn" />
+      <wsdl:output message="tns:RunQuickPricerSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LoanSoap" type="tns:LoanSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Load">
+      <soap:operation soapAction="http://www.lendersoffice.com/los/webservices/Load" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadPDFDocument">
+      <soap:operation soapAction="http://www.lendersoffice.com/los/webservices/UploadPDFDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Save">
+      <soap:operation soapAction="http://www.lendersoffice.com/los/webservices/Save" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsLoanExisted">
+      <soap:operation soapAction="http://www.lendersoffice.com/los/webservices/IsLoanExisted" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveCustomReport">
+      <soap:operation soapAction="http://www.lendersoffice.com/los/webservices/RetrieveCustomReport" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Create">
+      <soap:operation soapAction="http://www.lendersoffice.com/los/webservices/Create" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrepareLoanForResubmission">
+      <soap:operation soapAction="http://www.lendersoffice.com/los/webservices/PrepareLoanForResubmission" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateWithFannieMaeFile">
+      <soap:operation soapAction="http://www.lendersoffice.com/los/webservices/CreateWithFannieMaeFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateWithCalyxPointFile">
+      <soap:operation soapAction="http://www.lendersoffice.com/los/webservices/CreateWithCalyxPointFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListModifiedLoans">
+      <soap:operation soapAction="http://www.lendersoffice.com/los/webservices/ListModifiedLoans" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearModifiedLoansList">
+      <soap:operation soapAction="http://www.lendersoffice.com/los/webservices/ClearModifiedLoansList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearModifiedLoanByName">
+      <soap:operation soapAction="http://www.lendersoffice.com/los/webservices/ClearModifiedLoanByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadMismo21">
+      <soap:operation soapAction="http://www.lendersoffice.com/los/webservices/LoadMismo21" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMismo21">
+      <soap:operation soapAction="http://www.lendersoffice.com/los/webservices/SaveMismo21" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadMismo23">
+      <soap:operation soapAction="http://www.lendersoffice.com/los/webservices/LoadMismo23" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMismo23">
+      <soap:operation soapAction="http://www.lendersoffice.com/los/webservices/SaveMismo23" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadMismo23ByLoanName">
+      <soap:operation soapAction="http://www.lendersoffice.com/los/webservices/LoadMismo23ByLoanName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPdfByLoanName">
+      <soap:operation soapAction="http://www.lendersoffice.com/los/webservices/GetPdfByLoanName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadFannieMaeFile">
+      <soap:operation soapAction="http://www.lendersoffice.com/los/webservices/UploadFannieMaeFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadCalyxPointFile">
+      <soap:operation soapAction="http://www.lendersoffice.com/los/webservices/UploadCalyxPointFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadLONXml">
+      <soap:operation soapAction="http://www.lendersoffice.com/los/webservices/UploadLONXml" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RunQuickPricer">
+      <soap:operation soapAction="http://www.lendersoffice.com/los/webservices/RunQuickPricer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="LoanSoap12" type="tns:LoanSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Load">
+      <soap12:operation soapAction="http://www.lendersoffice.com/los/webservices/Load" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadPDFDocument">
+      <soap12:operation soapAction="http://www.lendersoffice.com/los/webservices/UploadPDFDocument" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Save">
+      <soap12:operation soapAction="http://www.lendersoffice.com/los/webservices/Save" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsLoanExisted">
+      <soap12:operation soapAction="http://www.lendersoffice.com/los/webservices/IsLoanExisted" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveCustomReport">
+      <soap12:operation soapAction="http://www.lendersoffice.com/los/webservices/RetrieveCustomReport" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Create">
+      <soap12:operation soapAction="http://www.lendersoffice.com/los/webservices/Create" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrepareLoanForResubmission">
+      <soap12:operation soapAction="http://www.lendersoffice.com/los/webservices/PrepareLoanForResubmission" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateWithFannieMaeFile">
+      <soap12:operation soapAction="http://www.lendersoffice.com/los/webservices/CreateWithFannieMaeFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateWithCalyxPointFile">
+      <soap12:operation soapAction="http://www.lendersoffice.com/los/webservices/CreateWithCalyxPointFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListModifiedLoans">
+      <soap12:operation soapAction="http://www.lendersoffice.com/los/webservices/ListModifiedLoans" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearModifiedLoansList">
+      <soap12:operation soapAction="http://www.lendersoffice.com/los/webservices/ClearModifiedLoansList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearModifiedLoanByName">
+      <soap12:operation soapAction="http://www.lendersoffice.com/los/webservices/ClearModifiedLoanByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadMismo21">
+      <soap12:operation soapAction="http://www.lendersoffice.com/los/webservices/LoadMismo21" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMismo21">
+      <soap12:operation soapAction="http://www.lendersoffice.com/los/webservices/SaveMismo21" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadMismo23">
+      <soap12:operation soapAction="http://www.lendersoffice.com/los/webservices/LoadMismo23" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMismo23">
+      <soap12:operation soapAction="http://www.lendersoffice.com/los/webservices/SaveMismo23" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadMismo23ByLoanName">
+      <soap12:operation soapAction="http://www.lendersoffice.com/los/webservices/LoadMismo23ByLoanName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPdfByLoanName">
+      <soap12:operation soapAction="http://www.lendersoffice.com/los/webservices/GetPdfByLoanName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadFannieMaeFile">
+      <soap12:operation soapAction="http://www.lendersoffice.com/los/webservices/UploadFannieMaeFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadCalyxPointFile">
+      <soap12:operation soapAction="http://www.lendersoffice.com/los/webservices/UploadCalyxPointFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UploadLONXml">
+      <soap12:operation soapAction="http://www.lendersoffice.com/los/webservices/UploadLONXml" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RunQuickPricer">
+      <soap12:operation soapAction="http://www.lendersoffice.com/los/webservices/RunQuickPricer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Loan">
+    <wsdl:port name="LoanSoap" binding="tns:LoanSoap">
+      <soap:address location="https://secure.lendersoffice.com/los/webservice/Loan.asmx" />
+    </wsdl:port>
+    <wsdl:port name="LoanSoap12" binding="tns:LoanSoap12">
+      <soap12:address location="https://secure.lendersoffice.com/los/webservice/Loan.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

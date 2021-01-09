@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:mstns="http://tempuri.org/JobDataEx.xsd" xmlns="http://tempuri.org/JobDataEx.xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://tempuri.org/JobDataEx.xsd" id="JobDataEx" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element msdata:IsDataSet="true" msdata:UseCurrentLocale="true" name="JobDataEx">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Jobs">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" name="Job" type="xs:string" />
+              <xs:element minOccurs="0" name="Date" type="xs:string" />
+              <xs:element minOccurs="0" name="Type" type="xs:string" />
+              <xs:element minOccurs="0" name="Status" type="xs:string" />
+              <xs:element minOccurs="0" name="Total" type="xs:int" />
+              <xs:element minOccurs="0" name="Sent" type="xs:int" />
+              <xs:element minOccurs="0" name="Failed" type="xs:int" />
+              <xs:element minOccurs="0" name="Retries" type="xs:int" />
+              <xs:element minOccurs="0" name="Remaining" type="xs:int" />
+              <xs:element minOccurs="0" name="FirstList" type="xs:string" />
+              <xs:element minOccurs="0" name="FirstDoc" type="xs:string" />
+              <xs:element minOccurs="0" name="TrackingID" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1">
+      <xs:selector xpath=".//mstns:Jobs" />
+      <xs:field xpath="mstns:Job" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

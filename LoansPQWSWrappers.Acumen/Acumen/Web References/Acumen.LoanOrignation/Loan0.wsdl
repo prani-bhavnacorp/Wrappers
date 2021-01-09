@@ -1,0 +1,937 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:connections.ispectrum.summitsite.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:connections.ispectrum.summitsite.com" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="https://gocucorvallis.acumen.fiserv.com:443/ispectrum-webservices/Loan?xsd=1" namespace="urn:connections.ispectrum.summitsite.com" />
+    </xsd:schema>
+  </types>
+  <message name="getLoanLimits">
+    <part name="parameters" element="tns:getLoanLimits" />
+  </message>
+  <message name="getLoanLimitsResponse">
+    <part name="parameters" element="tns:getLoanLimitsResponse" />
+  </message>
+  <message name="SOAPException">
+    <part name="fault" element="tns:SOAPException" />
+  </message>
+  <message name="persistHMDADetail">
+    <part name="parameters" element="tns:persistHMDADetail" />
+  </message>
+  <message name="persistHMDADetailResponse">
+    <part name="parameters" element="tns:persistHMDADetailResponse" />
+  </message>
+  <message name="getLoanInsuranceDetails">
+    <part name="parameters" element="tns:getLoanInsuranceDetails" />
+  </message>
+  <message name="getLoanInsuranceDetailsResponse">
+    <part name="parameters" element="tns:getLoanInsuranceDetailsResponse" />
+  </message>
+  <message name="getLoanApplication">
+    <part name="parameters" element="tns:getLoanApplication" />
+  </message>
+  <message name="getLoanApplicationResponse">
+    <part name="parameters" element="tns:getLoanApplicationResponse" />
+  </message>
+  <message name="getWorkQueueList">
+    <part name="parameters" element="tns:getWorkQueueList" />
+  </message>
+  <message name="getWorkQueueListResponse">
+    <part name="parameters" element="tns:getWorkQueueListResponse" />
+  </message>
+  <message name="getWorkQueueDefinationsByUser">
+    <part name="parameters" element="tns:getWorkQueueDefinationsByUser" />
+  </message>
+  <message name="getWorkQueueDefinationsByUserResponse">
+    <part name="parameters" element="tns:getWorkQueueDefinationsByUserResponse" />
+  </message>
+  <message name="getWorkQueueDefinationByDescription">
+    <part name="parameters" element="tns:getWorkQueueDefinationByDescription" />
+  </message>
+  <message name="getWorkQueueDefinationByDescriptionResponse">
+    <part name="parameters" element="tns:getWorkQueueDefinationByDescriptionResponse" />
+  </message>
+  <message name="calculateLendingValue">
+    <part name="parameters" element="tns:calculateLendingValue" />
+  </message>
+  <message name="calculateLendingValueResponse">
+    <part name="parameters" element="tns:calculateLendingValueResponse" />
+  </message>
+  <message name="generateDecision">
+    <part name="parameters" element="tns:generateDecision" />
+  </message>
+  <message name="generateDecisionResponse">
+    <part name="parameters" element="tns:generateDecisionResponse" />
+  </message>
+  <message name="getLoanStatus">
+    <part name="parameters" element="tns:getLoanStatus" />
+  </message>
+  <message name="getLoanStatusResponse">
+    <part name="parameters" element="tns:getLoanStatusResponse" />
+  </message>
+  <message name="getLoanApplicationsByCustomerId">
+    <part name="parameters" element="tns:getLoanApplicationsByCustomerId" />
+  </message>
+  <message name="getLoanApplicationsByCustomerIdResponse">
+    <part name="parameters" element="tns:getLoanApplicationsByCustomerIdResponse" />
+  </message>
+  <message name="getCompleteLoanApplicationDetails">
+    <part name="parameters" element="tns:getCompleteLoanApplicationDetails" />
+  </message>
+  <message name="getCompleteLoanApplicationDetailsResponse">
+    <part name="parameters" element="tns:getCompleteLoanApplicationDetailsResponse" />
+  </message>
+  <message name="getCoApplicantList">
+    <part name="parameters" element="tns:getCoApplicantList" />
+  </message>
+  <message name="getCoApplicantListResponse">
+    <part name="parameters" element="tns:getCoApplicantListResponse" />
+  </message>
+  <message name="createUpdateApplicationEscrowDetails">
+    <part name="parameters" element="tns:createUpdateApplicationEscrowDetails" />
+  </message>
+  <message name="createUpdateApplicationEscrowDetailsResponse">
+    <part name="parameters" element="tns:createUpdateApplicationEscrowDetailsResponse" />
+  </message>
+  <message name="persistLoanPaymentOptions">
+    <part name="parameters" element="tns:persistLoanPaymentOptions" />
+  </message>
+  <message name="persistLoanPaymentOptionsResponse">
+    <part name="parameters" element="tns:persistLoanPaymentOptionsResponse" />
+  </message>
+  <message name="getLoanApplicationIdsByCustomerId">
+    <part name="parameters" element="tns:getLoanApplicationIdsByCustomerId" />
+  </message>
+  <message name="getLoanApplicationIdsByCustomerIdResponse">
+    <part name="parameters" element="tns:getLoanApplicationIdsByCustomerIdResponse" />
+  </message>
+  <message name="getAllLoanApplicationIdsByCustomerId">
+    <part name="parameters" element="tns:getAllLoanApplicationIdsByCustomerId" />
+  </message>
+  <message name="getAllLoanApplicationIdsByCustomerIdResponse">
+    <part name="parameters" element="tns:getAllLoanApplicationIdsByCustomerIdResponse" />
+  </message>
+  <message name="getLoanDescriptionsByCustomerId">
+    <part name="parameters" element="tns:getLoanDescriptionsByCustomerId" />
+  </message>
+  <message name="getLoanDescriptionsByCustomerIdResponse">
+    <part name="parameters" element="tns:getLoanDescriptionsByCustomerIdResponse" />
+  </message>
+  <message name="getCustomerIdByLoanApplicationId">
+    <part name="parameters" element="tns:getCustomerIdByLoanApplicationId" />
+  </message>
+  <message name="getCustomerIdByLoanApplicationIdResponse">
+    <part name="parameters" element="tns:getCustomerIdByLoanApplicationIdResponse" />
+  </message>
+  <message name="getLoanProductIdByLoanApplicationId">
+    <part name="parameters" element="tns:getLoanProductIdByLoanApplicationId" />
+  </message>
+  <message name="getLoanProductIdByLoanApplicationIdResponse">
+    <part name="parameters" element="tns:getLoanProductIdByLoanApplicationIdResponse" />
+  </message>
+  <message name="getApplicantsForApplication">
+    <part name="parameters" element="tns:getApplicantsForApplication" />
+  </message>
+  <message name="getApplicantsForApplicationResponse">
+    <part name="parameters" element="tns:getApplicantsForApplicationResponse" />
+  </message>
+  <message name="getInsuranceForLoanApplicationFromLoanAccount">
+    <part name="parameters" element="tns:getInsuranceForLoanApplicationFromLoanAccount" />
+  </message>
+  <message name="getInsuranceForLoanApplicationFromLoanAccountResponse">
+    <part name="parameters" element="tns:getInsuranceForLoanApplicationFromLoanAccountResponse" />
+  </message>
+  <message name="calculateLoanRateVariance">
+    <part name="parameters" element="tns:calculateLoanRateVariance" />
+  </message>
+  <message name="calculateLoanRateVarianceResponse">
+    <part name="parameters" element="tns:calculateLoanRateVarianceResponse" />
+  </message>
+  <message name="findVehicleByAssetId">
+    <part name="parameters" element="tns:findVehicleByAssetId" />
+  </message>
+  <message name="findVehicleByAssetIdResponse">
+    <part name="parameters" element="tns:findVehicleByAssetIdResponse" />
+  </message>
+  <message name="findRealEstateByAssetId">
+    <part name="parameters" element="tns:findRealEstateByAssetId" />
+  </message>
+  <message name="findRealEstateByAssetIdResponse">
+    <part name="parameters" element="tns:findRealEstateByAssetIdResponse" />
+  </message>
+  <message name="findPledgeAccountByAssetId">
+    <part name="parameters" element="tns:findPledgeAccountByAssetId" />
+  </message>
+  <message name="findPledgeAccountByAssetIdResponse">
+    <part name="parameters" element="tns:findPledgeAccountByAssetIdResponse" />
+  </message>
+  <message name="findObligationByAssetId">
+    <part name="parameters" element="tns:findObligationByAssetId" />
+  </message>
+  <message name="findObligationByAssetIdResponse">
+    <part name="parameters" element="tns:findObligationByAssetIdResponse" />
+  </message>
+  <message name="findAssetInfoForAccount">
+    <part name="parameters" element="tns:findAssetInfoForAccount" />
+  </message>
+  <message name="findAssetInfoForAccountResponse">
+    <part name="parameters" element="tns:findAssetInfoForAccountResponse" />
+  </message>
+  <message name="findCULiabilitiesForAsset">
+    <part name="parameters" element="tns:findCULiabilitiesForAsset" />
+  </message>
+  <message name="findCULiabilitiesForAssetResponse">
+    <part name="parameters" element="tns:findCULiabilitiesForAssetResponse" />
+  </message>
+  <message name="getSavDepAccountListByCustomerId">
+    <part name="parameters" element="tns:getSavDepAccountListByCustomerId" />
+  </message>
+  <message name="getSavDepAccountListByCustomerIdResponse">
+    <part name="parameters" element="tns:getSavDepAccountListByCustomerIdResponse" />
+  </message>
+  <message name="findVRLChgHistoryInfosByAccountId">
+    <part name="parameters" element="tns:findVRLChgHistoryInfosByAccountId" />
+  </message>
+  <message name="findVRLChgHistoryInfosByAccountIdResponse">
+    <part name="parameters" element="tns:findVRLChgHistoryInfosByAccountIdResponse" />
+  </message>
+  <message name="findManualVRLChgHistoryInfosByAccountId">
+    <part name="parameters" element="tns:findManualVRLChgHistoryInfosByAccountId" />
+  </message>
+  <message name="findManualVRLChgHistoryInfosByAccountIdResponse">
+    <part name="parameters" element="tns:findManualVRLChgHistoryInfosByAccountIdResponse" />
+  </message>
+  <message name="getManualVRLChgHistoryInfosByAccountId">
+    <part name="parameters" element="tns:getManualVRLChgHistoryInfosByAccountId" />
+  </message>
+  <message name="getManualVRLChgHistoryInfosByAccountIdResponse">
+    <part name="parameters" element="tns:getManualVRLChgHistoryInfosByAccountIdResponse" />
+  </message>
+  <message name="calculateAvgDailyMonthlyIntChg">
+    <part name="parameters" element="tns:calculateAvgDailyMonthlyIntChg" />
+  </message>
+  <message name="calculateAvgDailyMonthlyIntChgResponse">
+    <part name="parameters" element="tns:calculateAvgDailyMonthlyIntChgResponse" />
+  </message>
+  <message name="checkOverrideBadAddress">
+    <part name="parameters" element="tns:checkOverrideBadAddress" />
+  </message>
+  <message name="checkOverrideBadAddressResponse">
+    <part name="parameters" element="tns:checkOverrideBadAddressResponse" />
+  </message>
+  <message name="checkModifiedLoanApplNotBooked">
+    <part name="parameters" element="tns:checkModifiedLoanApplNotBooked" />
+  </message>
+  <message name="checkModifiedLoanApplNotBookedResponse">
+    <part name="parameters" element="tns:checkModifiedLoanApplNotBookedResponse" />
+  </message>
+  <message name="getOnUsLiabBreakdownInfo">
+    <part name="parameters" element="tns:getOnUsLiabBreakdownInfo" />
+  </message>
+  <message name="getOnUsLiabBreakdownInfoResponse">
+    <part name="parameters" element="tns:getOnUsLiabBreakdownInfoResponse" />
+  </message>
+  <message name="CalcOnUsLiabBreakdownPercentage">
+    <part name="parameters" element="tns:CalcOnUsLiabBreakdownPercentage" />
+  </message>
+  <message name="CalcOnUsLiabBreakdownPercentageResponse">
+    <part name="parameters" element="tns:CalcOnUsLiabBreakdownPercentageResponse" />
+  </message>
+  <message name="updateOnUsLiabBreakdownInfo">
+    <part name="parameters" element="tns:updateOnUsLiabBreakdownInfo" />
+  </message>
+  <message name="updateOnUsLiabBreakdownInfoResponse">
+    <part name="parameters" element="tns:updateOnUsLiabBreakdownInfoResponse" />
+  </message>
+  <message name="fetchCurrentAssetForAllApplicant">
+    <part name="parameters" element="tns:fetchCurrentAssetForAllApplicant" />
+  </message>
+  <message name="fetchCurrentAssetForAllApplicantResponse">
+    <part name="parameters" element="tns:fetchCurrentAssetForAllApplicantResponse" />
+  </message>
+  <message name="persistHMDADecisionDetails">
+    <part name="parameters" element="tns:persistHMDADecisionDetails" />
+  </message>
+  <message name="persistHMDADecisionDetailsResponse">
+    <part name="parameters" element="tns:persistHMDADecisionDetailsResponse" />
+  </message>
+  <message name="getHMDADetailByLoanApplicationID">
+    <part name="parameters" element="tns:getHMDADetailByLoanApplicationID" />
+  </message>
+  <message name="getHMDADetailByLoanApplicationIDResponse">
+    <part name="parameters" element="tns:getHMDADetailByLoanApplicationIDResponse" />
+  </message>
+  <message name="createLoanApplication">
+    <part name="parameters" element="tns:createLoanApplication" />
+  </message>
+  <message name="createLoanApplicationResponse">
+    <part name="parameters" element="tns:createLoanApplicationResponse" />
+  </message>
+  <message name="updateLoanApplication">
+    <part name="parameters" element="tns:updateLoanApplication" />
+  </message>
+  <message name="updateLoanApplicationResponse">
+    <part name="parameters" element="tns:updateLoanApplicationResponse" />
+  </message>
+  <message name="getRequiredLoanApplicationDetails">
+    <part name="parameters" element="tns:getRequiredLoanApplicationDetails" />
+  </message>
+  <message name="getRequiredLoanApplicationDetailsResponse">
+    <part name="parameters" element="tns:getRequiredLoanApplicationDetailsResponse" />
+  </message>
+  <message name="createLoanCoApplicant">
+    <part name="parameters" element="tns:createLoanCoApplicant" />
+  </message>
+  <message name="createLoanCoApplicantResponse">
+    <part name="parameters" element="tns:createLoanCoApplicantResponse" />
+  </message>
+  <message name="updateLoanApplicants">
+    <part name="parameters" element="tns:updateLoanApplicants" />
+  </message>
+  <message name="updateLoanApplicantsResponse">
+    <part name="parameters" element="tns:updateLoanApplicantsResponse" />
+  </message>
+  <message name="updateLoanApplicantsAndInsurance">
+    <part name="parameters" element="tns:updateLoanApplicantsAndInsurance" />
+  </message>
+  <message name="updateLoanApplicantsAndInsuranceResponse">
+    <part name="parameters" element="tns:updateLoanApplicantsAndInsuranceResponse" />
+  </message>
+  <message name="updateLoanApplicant">
+    <part name="parameters" element="tns:updateLoanApplicant" />
+  </message>
+  <message name="updateLoanApplicantResponse">
+    <part name="parameters" element="tns:updateLoanApplicantResponse" />
+  </message>
+  <message name="getLoanApplicant">
+    <part name="parameters" element="tns:getLoanApplicant" />
+  </message>
+  <message name="getLoanApplicantResponse">
+    <part name="parameters" element="tns:getLoanApplicantResponse" />
+  </message>
+  <message name="bookLoan">
+    <part name="parameters" element="tns:bookLoan" />
+  </message>
+  <message name="bookLoanResponse">
+    <part name="parameters" element="tns:bookLoanResponse" />
+  </message>
+  <message name="getFirstApplicant">
+    <part name="parameters" element="tns:getFirstApplicant" />
+  </message>
+  <message name="getFirstApplicantResponse">
+    <part name="parameters" element="tns:getFirstApplicantResponse" />
+  </message>
+  <message name="getNextApplicant">
+    <part name="parameters" element="tns:getNextApplicant" />
+  </message>
+  <message name="getNextApplicantResponse">
+    <part name="parameters" element="tns:getNextApplicantResponse" />
+  </message>
+  <message name="getPreviousApplicant">
+    <part name="parameters" element="tns:getPreviousApplicant" />
+  </message>
+  <message name="getPreviousApplicantResponse">
+    <part name="parameters" element="tns:getPreviousApplicantResponse" />
+  </message>
+  <message name="getLastApplicant">
+    <part name="parameters" element="tns:getLastApplicant" />
+  </message>
+  <message name="getLastApplicantResponse">
+    <part name="parameters" element="tns:getLastApplicantResponse" />
+  </message>
+  <message name="getKeyIndicators">
+    <part name="parameters" element="tns:getKeyIndicators" />
+  </message>
+  <message name="getKeyIndicatorsResponse">
+    <part name="parameters" element="tns:getKeyIndicatorsResponse" />
+  </message>
+  <message name="reAssignLoanApplications">
+    <part name="parameters" element="tns:reAssignLoanApplications" />
+  </message>
+  <message name="reAssignLoanApplicationsResponse">
+    <part name="parameters" element="tns:reAssignLoanApplicationsResponse" />
+  </message>
+  <message name="undoStatus">
+    <part name="parameters" element="tns:undoStatus" />
+  </message>
+  <message name="undoStatusResponse">
+    <part name="parameters" element="tns:undoStatusResponse" />
+  </message>
+  <message name="getAllApplicantsSavDepAccountList">
+    <part name="parameters" element="tns:getAllApplicantsSavDepAccountList" />
+  </message>
+  <message name="getAllApplicantsSavDepAccountListResponse">
+    <part name="parameters" element="tns:getAllApplicantsSavDepAccountListResponse" />
+  </message>
+  <message name="getAllAssociatesSavDepAccountList">
+    <part name="parameters" element="tns:getAllAssociatesSavDepAccountList" />
+  </message>
+  <message name="getAllAssociatesSavDepAccountListResponse">
+    <part name="parameters" element="tns:getAllAssociatesSavDepAccountListResponse" />
+  </message>
+  <message name="constructLoanCalcFromLoanApp">
+    <part name="parameters" element="tns:constructLoanCalcFromLoanApp" />
+  </message>
+  <message name="constructLoanCalcFromLoanAppResponse">
+    <part name="parameters" element="tns:constructLoanCalcFromLoanAppResponse" />
+  </message>
+  <message name="updateAndFetchSecurityDetails">
+    <part name="parameters" element="tns:updateAndFetchSecurityDetails" />
+  </message>
+  <message name="updateAndFetchSecurityDetailsResponse">
+    <part name="parameters" element="tns:updateAndFetchSecurityDetailsResponse" />
+  </message>
+  <message name="initiateWebPlusTransaction">
+    <part name="parameters" element="tns:initiateWebPlusTransaction" />
+  </message>
+  <message name="initiateWebPlusTransactionResponse">
+    <part name="parameters" element="tns:initiateWebPlusTransactionResponse" />
+  </message>
+  <message name="getPropTaxPerPmtForLoanAccount">
+    <part name="parameters" element="tns:getPropTaxPerPmtForLoanAccount" />
+  </message>
+  <message name="getPropTaxPerPmtForLoanAccountResponse">
+    <part name="parameters" element="tns:getPropTaxPerPmtForLoanAccountResponse" />
+  </message>
+  <message name="getPropTaxPerPmtForLoanApplication">
+    <part name="parameters" element="tns:getPropTaxPerPmtForLoanApplication" />
+  </message>
+  <message name="getPropTaxPerPmtForLoanApplicationResponse">
+    <part name="parameters" element="tns:getPropTaxPerPmtForLoanApplicationResponse" />
+  </message>
+  <message name="createWebLoanApplication">
+    <part name="parameters" element="tns:createWebLoanApplication" />
+  </message>
+  <message name="createWebLoanApplicationResponse">
+    <part name="parameters" element="tns:createWebLoanApplicationResponse" />
+  </message>
+  <message name="getApplicantsWithPortfoliosAndAggregatesForApplication">
+    <part name="parameters" element="tns:getApplicantsWithPortfoliosAndAggregatesForApplication" />
+  </message>
+  <message name="getApplicantsWithPortfoliosAndAggregatesForApplicationResponse">
+    <part name="parameters" element="tns:getApplicantsWithPortfoliosAndAggregatesForApplicationResponse" />
+  </message>
+  <message name="changeCustomerIdForLoanApplicant">
+    <part name="parameters" element="tns:changeCustomerIdForLoanApplicant" />
+  </message>
+  <message name="changeCustomerIdForLoanApplicantResponse">
+    <part name="parameters" element="tns:changeCustomerIdForLoanApplicantResponse" />
+  </message>
+  <message name="populateAggregatesFromCustomer">
+    <part name="parameters" element="tns:populateAggregatesFromCustomer" />
+  </message>
+  <message name="populateAggregatesFromCustomerResponse">
+    <part name="parameters" element="tns:populateAggregatesFromCustomerResponse" />
+  </message>
+  <message name="setCustomerLoanAggregates">
+    <part name="parameters" element="tns:setCustomerLoanAggregates" />
+  </message>
+  <message name="setCustomerLoanAggregatesResponse">
+    <part name="parameters" element="tns:setCustomerLoanAggregatesResponse" />
+  </message>
+  <message name="addWebLoanCoApplicant">
+    <part name="parameters" element="tns:addWebLoanCoApplicant" />
+  </message>
+  <message name="addWebLoanCoApplicantResponse">
+    <part name="parameters" element="tns:addWebLoanCoApplicantResponse" />
+  </message>
+  <message name="addWebLoanCoApplicantNonMember">
+    <part name="parameters" element="tns:addWebLoanCoApplicantNonMember" />
+  </message>
+  <message name="addWebLoanCoApplicantNonMemberResponse">
+    <part name="parameters" element="tns:addWebLoanCoApplicantNonMemberResponse" />
+  </message>
+  <message name="vinExists">
+    <part name="parameters" element="tns:vinExists" />
+  </message>
+  <message name="vinExistsResponse">
+    <part name="parameters" element="tns:vinExistsResponse" />
+  </message>
+  <message name="fetchCurrentLiabilitiesForApplicant">
+    <part name="parameters" element="tns:fetchCurrentLiabilitiesForApplicant" />
+  </message>
+  <message name="fetchCurrentLiabilitiesForApplicantResponse">
+    <part name="parameters" element="tns:fetchCurrentLiabilitiesForApplicantResponse" />
+  </message>
+  <message name="fetchCurrentAssetForApplicant">
+    <part name="parameters" element="tns:fetchCurrentAssetForApplicant" />
+  </message>
+  <message name="fetchCurrentAssetForApplicantResponse">
+    <part name="parameters" element="tns:fetchCurrentAssetForApplicantResponse" />
+  </message>
+  <message name="findVehicleBySecurityAddendumId">
+    <part name="parameters" element="tns:findVehicleBySecurityAddendumId" />
+  </message>
+  <message name="findVehicleBySecurityAddendumIdResponse">
+    <part name="parameters" element="tns:findVehicleBySecurityAddendumIdResponse" />
+  </message>
+  <message name="getLoanApplicationInfoByApplicationNo">
+    <part name="parameters" element="tns:getLoanApplicationInfoByApplicationNo" />
+  </message>
+  <message name="getLoanApplicationInfoByApplicationNoResponse">
+    <part name="parameters" element="tns:getLoanApplicationInfoByApplicationNoResponse" />
+  </message>
+  <message name="getLoanAppControlCodesDetails">
+    <part name="parameters" element="tns:getLoanAppControlCodesDetails" />
+  </message>
+  <message name="getLoanAppControlCodesDetailsResponse">
+    <part name="parameters" element="tns:getLoanAppControlCodesDetailsResponse" />
+  </message>
+  <message name="submitRequest">
+    <part name="parameters" element="tns:submitRequest" />
+  </message>
+  <message name="submitRequestResponse">
+    <part name="parameters" element="tns:submitRequestResponse" />
+  </message>
+  <message name="createUpdateLoanWorkQueueDef">
+    <part name="parameters" element="tns:createUpdateLoanWorkQueueDef" />
+  </message>
+  <message name="createUpdateLoanWorkQueueDefResponse">
+    <part name="parameters" element="tns:createUpdateLoanWorkQueueDefResponse" />
+  </message>
+  <message name="getCompleteLoanApplicationDetailsByLastWorked">
+    <part name="parameters" element="tns:getCompleteLoanApplicationDetailsByLastWorked" />
+  </message>
+  <message name="getCompleteLoanApplicationDetailsByLastWorkedResponse">
+    <part name="parameters" element="tns:getCompleteLoanApplicationDetailsByLastWorkedResponse" />
+  </message>
+  <message name="getRequiredLoanApplicationDetailsWithisStepSixLoaded">
+    <part name="parameters" element="tns:getRequiredLoanApplicationDetailsWithisStepSixLoaded" />
+  </message>
+  <message name="getRequiredLoanApplicationDetailsWithisStepSixLoadedResponse">
+    <part name="parameters" element="tns:getRequiredLoanApplicationDetailsWithisStepSixLoadedResponse" />
+  </message>
+  <message name="generateRequest">
+    <part name="parameters" element="tns:generateRequest" />
+  </message>
+  <message name="generateRequestResponse">
+    <part name="parameters" element="tns:generateRequestResponse" />
+  </message>
+  <message name="fetchInsuranceDetailsFromEmili">
+    <part name="parameters" element="tns:fetchInsuranceDetailsFromEmili" />
+  </message>
+  <message name="fetchInsuranceDetailsFromEmiliResponse">
+    <part name="parameters" element="tns:fetchInsuranceDetailsFromEmiliResponse" />
+  </message>
+  <portType name="Loan">
+    <operation name="getLoanLimits">
+      <input message="tns:getLoanLimits" />
+      <output message="tns:getLoanLimitsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="persistHMDADetail">
+      <input message="tns:persistHMDADetail" />
+      <output message="tns:persistHMDADetailResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getLoanInsuranceDetails">
+      <input message="tns:getLoanInsuranceDetails" />
+      <output message="tns:getLoanInsuranceDetailsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getLoanApplication">
+      <input message="tns:getLoanApplication" />
+      <output message="tns:getLoanApplicationResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getWorkQueueList">
+      <input message="tns:getWorkQueueList" />
+      <output message="tns:getWorkQueueListResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getWorkQueueDefinationsByUser">
+      <input message="tns:getWorkQueueDefinationsByUser" />
+      <output message="tns:getWorkQueueDefinationsByUserResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getWorkQueueDefinationByDescription">
+      <input message="tns:getWorkQueueDefinationByDescription" />
+      <output message="tns:getWorkQueueDefinationByDescriptionResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="calculateLendingValue">
+      <input message="tns:calculateLendingValue" />
+      <output message="tns:calculateLendingValueResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="generateDecision">
+      <input message="tns:generateDecision" />
+      <output message="tns:generateDecisionResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getLoanStatus">
+      <input message="tns:getLoanStatus" />
+      <output message="tns:getLoanStatusResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getLoanApplicationsByCustomerId">
+      <input message="tns:getLoanApplicationsByCustomerId" />
+      <output message="tns:getLoanApplicationsByCustomerIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getCompleteLoanApplicationDetails">
+      <input message="tns:getCompleteLoanApplicationDetails" />
+      <output message="tns:getCompleteLoanApplicationDetailsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getCoApplicantList">
+      <input message="tns:getCoApplicantList" />
+      <output message="tns:getCoApplicantListResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateApplicationEscrowDetails">
+      <input message="tns:createUpdateApplicationEscrowDetails" />
+      <output message="tns:createUpdateApplicationEscrowDetailsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="persistLoanPaymentOptions">
+      <input message="tns:persistLoanPaymentOptions" />
+      <output message="tns:persistLoanPaymentOptionsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getLoanApplicationIdsByCustomerId">
+      <input message="tns:getLoanApplicationIdsByCustomerId" />
+      <output message="tns:getLoanApplicationIdsByCustomerIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllLoanApplicationIdsByCustomerId">
+      <input message="tns:getAllLoanApplicationIdsByCustomerId" />
+      <output message="tns:getAllLoanApplicationIdsByCustomerIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getLoanDescriptionsByCustomerId">
+      <input message="tns:getLoanDescriptionsByCustomerId" />
+      <output message="tns:getLoanDescriptionsByCustomerIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getCustomerIdByLoanApplicationId">
+      <input message="tns:getCustomerIdByLoanApplicationId" />
+      <output message="tns:getCustomerIdByLoanApplicationIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getLoanProductIdByLoanApplicationId">
+      <input message="tns:getLoanProductIdByLoanApplicationId" />
+      <output message="tns:getLoanProductIdByLoanApplicationIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getApplicantsForApplication">
+      <input message="tns:getApplicantsForApplication" />
+      <output message="tns:getApplicantsForApplicationResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getInsuranceForLoanApplicationFromLoanAccount">
+      <input message="tns:getInsuranceForLoanApplicationFromLoanAccount" />
+      <output message="tns:getInsuranceForLoanApplicationFromLoanAccountResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="calculateLoanRateVariance">
+      <input message="tns:calculateLoanRateVariance" />
+      <output message="tns:calculateLoanRateVarianceResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findVehicleByAssetId">
+      <input message="tns:findVehicleByAssetId" />
+      <output message="tns:findVehicleByAssetIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findRealEstateByAssetId">
+      <input message="tns:findRealEstateByAssetId" />
+      <output message="tns:findRealEstateByAssetIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findPledgeAccountByAssetId">
+      <input message="tns:findPledgeAccountByAssetId" />
+      <output message="tns:findPledgeAccountByAssetIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findObligationByAssetId">
+      <input message="tns:findObligationByAssetId" />
+      <output message="tns:findObligationByAssetIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findAssetInfoForAccount">
+      <input message="tns:findAssetInfoForAccount" />
+      <output message="tns:findAssetInfoForAccountResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findCULiabilitiesForAsset">
+      <input message="tns:findCULiabilitiesForAsset" />
+      <output message="tns:findCULiabilitiesForAssetResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getSavDepAccountListByCustomerId">
+      <input message="tns:getSavDepAccountListByCustomerId" />
+      <output message="tns:getSavDepAccountListByCustomerIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findVRLChgHistoryInfosByAccountId">
+      <input message="tns:findVRLChgHistoryInfosByAccountId" />
+      <output message="tns:findVRLChgHistoryInfosByAccountIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findManualVRLChgHistoryInfosByAccountId">
+      <input message="tns:findManualVRLChgHistoryInfosByAccountId" />
+      <output message="tns:findManualVRLChgHistoryInfosByAccountIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getManualVRLChgHistoryInfosByAccountId">
+      <input message="tns:getManualVRLChgHistoryInfosByAccountId" />
+      <output message="tns:getManualVRLChgHistoryInfosByAccountIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="calculateAvgDailyMonthlyIntChg">
+      <input message="tns:calculateAvgDailyMonthlyIntChg" />
+      <output message="tns:calculateAvgDailyMonthlyIntChgResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="checkOverrideBadAddress">
+      <input message="tns:checkOverrideBadAddress" />
+      <output message="tns:checkOverrideBadAddressResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="checkModifiedLoanApplNotBooked">
+      <input message="tns:checkModifiedLoanApplNotBooked" />
+      <output message="tns:checkModifiedLoanApplNotBookedResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getOnUsLiabBreakdownInfo">
+      <input message="tns:getOnUsLiabBreakdownInfo" />
+      <output message="tns:getOnUsLiabBreakdownInfoResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="CalcOnUsLiabBreakdownPercentage">
+      <input message="tns:CalcOnUsLiabBreakdownPercentage" />
+      <output message="tns:CalcOnUsLiabBreakdownPercentageResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="updateOnUsLiabBreakdownInfo">
+      <input message="tns:updateOnUsLiabBreakdownInfo" />
+      <output message="tns:updateOnUsLiabBreakdownInfoResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="fetchCurrentAssetForAllApplicant">
+      <input message="tns:fetchCurrentAssetForAllApplicant" />
+      <output message="tns:fetchCurrentAssetForAllApplicantResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="persistHMDADecisionDetails">
+      <input message="tns:persistHMDADecisionDetails" />
+      <output message="tns:persistHMDADecisionDetailsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getHMDADetailByLoanApplicationID">
+      <input message="tns:getHMDADetailByLoanApplicationID" />
+      <output message="tns:getHMDADetailByLoanApplicationIDResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createLoanApplication">
+      <input message="tns:createLoanApplication" />
+      <output message="tns:createLoanApplicationResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="updateLoanApplication">
+      <input message="tns:updateLoanApplication" />
+      <output message="tns:updateLoanApplicationResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getRequiredLoanApplicationDetails">
+      <input message="tns:getRequiredLoanApplicationDetails" />
+      <output message="tns:getRequiredLoanApplicationDetailsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createLoanCoApplicant">
+      <input message="tns:createLoanCoApplicant" />
+      <output message="tns:createLoanCoApplicantResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="updateLoanApplicants">
+      <input message="tns:updateLoanApplicants" />
+      <output message="tns:updateLoanApplicantsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="updateLoanApplicantsAndInsurance">
+      <input message="tns:updateLoanApplicantsAndInsurance" />
+      <output message="tns:updateLoanApplicantsAndInsuranceResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="updateLoanApplicant">
+      <input message="tns:updateLoanApplicant" />
+      <output message="tns:updateLoanApplicantResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getLoanApplicant">
+      <input message="tns:getLoanApplicant" />
+      <output message="tns:getLoanApplicantResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="bookLoan">
+      <input message="tns:bookLoan" />
+      <output message="tns:bookLoanResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getFirstApplicant">
+      <input message="tns:getFirstApplicant" />
+      <output message="tns:getFirstApplicantResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getNextApplicant">
+      <input message="tns:getNextApplicant" />
+      <output message="tns:getNextApplicantResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getPreviousApplicant">
+      <input message="tns:getPreviousApplicant" />
+      <output message="tns:getPreviousApplicantResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getLastApplicant">
+      <input message="tns:getLastApplicant" />
+      <output message="tns:getLastApplicantResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getKeyIndicators">
+      <input message="tns:getKeyIndicators" />
+      <output message="tns:getKeyIndicatorsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="reAssignLoanApplications">
+      <input message="tns:reAssignLoanApplications" />
+      <output message="tns:reAssignLoanApplicationsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="undoStatus">
+      <input message="tns:undoStatus" />
+      <output message="tns:undoStatusResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllApplicantsSavDepAccountList">
+      <input message="tns:getAllApplicantsSavDepAccountList" />
+      <output message="tns:getAllApplicantsSavDepAccountListResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getAllAssociatesSavDepAccountList">
+      <input message="tns:getAllAssociatesSavDepAccountList" />
+      <output message="tns:getAllAssociatesSavDepAccountListResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="constructLoanCalcFromLoanApp">
+      <input message="tns:constructLoanCalcFromLoanApp" />
+      <output message="tns:constructLoanCalcFromLoanAppResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="updateAndFetchSecurityDetails">
+      <input message="tns:updateAndFetchSecurityDetails" />
+      <output message="tns:updateAndFetchSecurityDetailsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="initiateWebPlusTransaction">
+      <input message="tns:initiateWebPlusTransaction" />
+      <output message="tns:initiateWebPlusTransactionResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getPropTaxPerPmtForLoanAccount">
+      <input message="tns:getPropTaxPerPmtForLoanAccount" />
+      <output message="tns:getPropTaxPerPmtForLoanAccountResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getPropTaxPerPmtForLoanApplication">
+      <input message="tns:getPropTaxPerPmtForLoanApplication" />
+      <output message="tns:getPropTaxPerPmtForLoanApplicationResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createWebLoanApplication">
+      <input message="tns:createWebLoanApplication" />
+      <output message="tns:createWebLoanApplicationResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getApplicantsWithPortfoliosAndAggregatesForApplication">
+      <input message="tns:getApplicantsWithPortfoliosAndAggregatesForApplication" />
+      <output message="tns:getApplicantsWithPortfoliosAndAggregatesForApplicationResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="changeCustomerIdForLoanApplicant">
+      <input message="tns:changeCustomerIdForLoanApplicant" />
+      <output message="tns:changeCustomerIdForLoanApplicantResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="populateAggregatesFromCustomer">
+      <input message="tns:populateAggregatesFromCustomer" />
+      <output message="tns:populateAggregatesFromCustomerResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="setCustomerLoanAggregates">
+      <input message="tns:setCustomerLoanAggregates" />
+      <output message="tns:setCustomerLoanAggregatesResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="addWebLoanCoApplicant">
+      <input message="tns:addWebLoanCoApplicant" />
+      <output message="tns:addWebLoanCoApplicantResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="addWebLoanCoApplicantNonMember">
+      <input message="tns:addWebLoanCoApplicantNonMember" />
+      <output message="tns:addWebLoanCoApplicantNonMemberResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="vinExists">
+      <input message="tns:vinExists" />
+      <output message="tns:vinExistsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="fetchCurrentLiabilitiesForApplicant">
+      <input message="tns:fetchCurrentLiabilitiesForApplicant" />
+      <output message="tns:fetchCurrentLiabilitiesForApplicantResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="fetchCurrentAssetForApplicant">
+      <input message="tns:fetchCurrentAssetForApplicant" />
+      <output message="tns:fetchCurrentAssetForApplicantResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="findVehicleBySecurityAddendumId">
+      <input message="tns:findVehicleBySecurityAddendumId" />
+      <output message="tns:findVehicleBySecurityAddendumIdResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getLoanApplicationInfoByApplicationNo">
+      <input message="tns:getLoanApplicationInfoByApplicationNo" />
+      <output message="tns:getLoanApplicationInfoByApplicationNoResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getLoanAppControlCodesDetails">
+      <input message="tns:getLoanAppControlCodesDetails" />
+      <output message="tns:getLoanAppControlCodesDetailsResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="submitRequest">
+      <input message="tns:submitRequest" />
+      <output message="tns:submitRequestResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="createUpdateLoanWorkQueueDef">
+      <input message="tns:createUpdateLoanWorkQueueDef" />
+      <output message="tns:createUpdateLoanWorkQueueDefResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getCompleteLoanApplicationDetailsByLastWorked">
+      <input message="tns:getCompleteLoanApplicationDetailsByLastWorked" />
+      <output message="tns:getCompleteLoanApplicationDetailsByLastWorkedResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="getRequiredLoanApplicationDetailsWithisStepSixLoaded">
+      <input message="tns:getRequiredLoanApplicationDetailsWithisStepSixLoaded" />
+      <output message="tns:getRequiredLoanApplicationDetailsWithisStepSixLoadedResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="generateRequest">
+      <input message="tns:generateRequest" />
+      <output message="tns:generateRequestResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+    <operation name="fetchInsuranceDetailsFromEmili">
+      <input message="tns:fetchInsuranceDetailsFromEmili" />
+      <output message="tns:fetchInsuranceDetailsFromEmiliResponse" />
+      <fault name="SOAPException" message="tns:SOAPException" />
+    </operation>
+  </portType>
+</definitions>

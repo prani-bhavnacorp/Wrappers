@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns="http://americafirst.com/Delinquency" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns2="http://www.americafirst.com/20070315/Delinquency" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Delinquency" targetNamespace="http://americafirst.com/Delinquency" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns:mrm="http://americafirst.com/Delinquency" xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://americafirst.com/Delinquency">
+      <xsd:import schemaLocation="com/americafirst/www/_20070315/delinquency/Delinquency.xsd" namespace="http://www.americafirst.com/20070315/Delinquency" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="inquireCurrentDelinquency_in">
+    <wsdl:part name="inquireCurrentDelinquencyRequest" element="tns2:inquireCurrentDelinquencyRequest" />
+  </wsdl:message>
+  <wsdl:message name="inquireCurrentDelinquency_out">
+    <wsdl:part name="inquireCurrentDelinquencyResponse" element="tns2:inquireCurrentDelinquencyResponse" />
+  </wsdl:message>
+  <wsdl:message name="inquireFiveYearDelinquency_in">
+    <wsdl:part name="inquireFiveYearDelinquencyRequest" element="tns2:inquireFiveYearDelinquencyRequest" />
+  </wsdl:message>
+  <wsdl:message name="inquireFiveYearDelinquency_out">
+    <wsdl:part name="fiveYearDelinquencyResponse" element="tns2:fiveYearDelinquencyResponse" />
+  </wsdl:message>
+  <wsdl:message name="maintainFiveYearDelinquency_in">
+    <wsdl:part name="maintainFiveYearDelinquencyRequest" element="tns2:maintainFiveYearDelinquencyRequest" />
+  </wsdl:message>
+  <wsdl:message name="maintainFiveYearDelinquency_out">
+    <wsdl:part name="fiveYearDelinquencyResponse" element="tns2:fiveYearDelinquencyResponse" />
+  </wsdl:message>
+  <wsdl:message name="inquireDelinquencySSNList_in">
+    <wsdl:part name="inquireDelinquencySSNListRequest" element="tns2:inquireDelinquencySSNListRequest" />
+  </wsdl:message>
+  <wsdl:message name="inquireDelinquencySSNList_out">
+    <wsdl:part name="inquireDelinquencySSNListResponse" element="tns2:inquireDelinquencySSNListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Delinquency_MSPortType">
+    <wsdl:operation name="inquireCurrentDelinquency">
+      <wsdl:input name="inquireCurrentDelinquency_inquireCurrentDelinquencyRequest" message="tns:inquireCurrentDelinquency_in" />
+      <wsdl:output name="inquireCurrentDelinquency_inquireCurrentDelinquencyResponse" message="tns:inquireCurrentDelinquency_out" />
+    </wsdl:operation>
+    <wsdl:operation name="inquireFiveYearDelinquency">
+      <wsdl:input name="inquireFiveYearDelinquency_inquireFiveYearDelinquencyRequest" message="tns:inquireFiveYearDelinquency_in" />
+      <wsdl:output name="inquireFiveYearDelinquency_fiveYearDelinquencyResponse" message="tns:inquireFiveYearDelinquency_out" />
+    </wsdl:operation>
+    <wsdl:operation name="maintainFiveYearDelinquency">
+      <wsdl:input name="maintainFiveYearDelinquency_maintainFiveYearDelinquencyRequest" message="tns:maintainFiveYearDelinquency_in" />
+      <wsdl:output name="maintainFiveYearDelinquency_fiveYearDelinquencyResponse" message="tns:maintainFiveYearDelinquency_out" />
+    </wsdl:operation>
+    <wsdl:operation name="inquireDelinquencySSNList">
+      <wsdl:input name="inquireDelinquencySSNList_Input" message="tns:inquireDelinquencySSNList_in" />
+      <wsdl:output name="inquireDelinquencySSNList_Output" message="tns:inquireDelinquencySSNList_out" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Delinquency_MSSOAP_HTTP_Binding" type="tns:Delinquency_MSPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="inquireCurrentDelinquency">
+      <soap:operation soapAction="" />
+      <wsdl:input name="inquireCurrentDelinquency_inquireCurrentDelinquencyRequest">
+        <soap:body use="literal" parts="inquireCurrentDelinquencyRequest" />
+      </wsdl:input>
+      <wsdl:output name="inquireCurrentDelinquency_inquireCurrentDelinquencyResponse">
+        <soap:body use="literal" parts="inquireCurrentDelinquencyResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inquireFiveYearDelinquency">
+      <soap:operation soapAction="" />
+      <wsdl:input name="inquireFiveYearDelinquency_inquireFiveYearDelinquencyRequest">
+        <soap:body use="literal" parts="inquireFiveYearDelinquencyRequest" />
+      </wsdl:input>
+      <wsdl:output name="inquireFiveYearDelinquency_fiveYearDelinquencyResponse">
+        <soap:body use="literal" parts="fiveYearDelinquencyResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="maintainFiveYearDelinquency">
+      <soap:operation soapAction="" />
+      <wsdl:input name="maintainFiveYearDelinquency_maintainFiveYearDelinquencyRequest">
+        <soap:body use="literal" parts="maintainFiveYearDelinquencyRequest" />
+      </wsdl:input>
+      <wsdl:output name="maintainFiveYearDelinquency_fiveYearDelinquencyResponse">
+        <soap:body use="literal" parts="fiveYearDelinquencyResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inquireDelinquencySSNList">
+      <soap:operation soapAction="" />
+      <wsdl:input name="inquireDelinquencySSNList_Input">
+        <soap:body use="literal" parts="inquireDelinquencySSNListRequest" />
+      </wsdl:input>
+      <wsdl:output name="inquireDelinquencySSNList_Output">
+        <soap:body use="literal" parts="inquireDelinquencySSNListResponse" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DelinquencyService">
+    <wsdl:port name="SOAP_HTTP_Port" binding="tns:Delinquency_MSSOAP_HTTP_Binding">
+      <soap:address location="http://lnxmqdev.americafirst.com:7080/account/DelinquencyService/20070315" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

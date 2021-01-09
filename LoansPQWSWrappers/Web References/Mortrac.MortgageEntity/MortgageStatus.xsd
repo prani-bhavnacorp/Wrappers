@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:mortStatus="http://com.fsb.domain/services/mortgage/MortgageStatus" xmlns:Q1="http://com.fsb.domain/services/BaseLoanInfo" elementFormDefault="qualified" targetNamespace="http://com.fsb.domain/services/mortgage/MortgageStatus" xmlns="http://www.w3.org/2001/XMLSchema">
+  <import schemaLocation="BaseLoanInfo.xsd" namespace="http://com.fsb.domain/services/BaseLoanInfo" />
+  <element name="MortgageStatus" type="mortStatus:MortgageStatusType" />
+  <complexType name="MortgageStatusType">
+    <complexContent mixed="false">
+      <extension base="Q1:BaseLoanInfoType">
+        <sequence>
+          <element name="LoanStatus" nillable="true" type="string" />
+          <element name="LoanStatusCode" nillable="true" type="string" />
+          <element name="LoanStatusDateTime" nillable="true" type="dateTime" />
+          <element name="MortgageStatusKey" nillable="true" type="long" />
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+</schema>

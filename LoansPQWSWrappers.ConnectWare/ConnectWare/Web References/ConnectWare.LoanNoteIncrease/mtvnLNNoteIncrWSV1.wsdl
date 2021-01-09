@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="mtvnLNNoteIncrWSV1" xmlns:import0="mtvnCWLNNoteIncrSvcReq" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:import1="mtvnCWLNNoteIncrSvcRes" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="mtvnLNNoteIncrWSV1" targetNamespace="mtvnLNNoteIncrWSV1" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">Connectware Web Service Interface</documentation>
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="./LNNoteIncrWSV1SvcReq.xsd" namespace="mtvnCWLNNoteIncrSvcReq" />
+      <xsd:import schemaLocation="./LNNoteIncrWSV1SvcRes.xsd" namespace="mtvnCWLNNoteIncrSvcRes" />
+    </xsd:schema>
+  </types>
+  <message name="LNNoteIncrMtvnSvcReqMsg">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <part name="messagePart" element="import0:LNNoteIncrMtvnSvcReq" />
+  </message>
+  <message name="LNNoteIncrMtvnSvcResMsg">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+    <part name="messagePart" element="import1:LNNoteIncrMtvnSvcRes" />
+  </message>
+  <portType name="mtvnCWLNNoteIncrWSV1Interface">
+    <documentation xmlns="http://schemas.xmlsoap.org/wsdl/">LNNoteIncrWSV1</documentation>
+    <operation name="LNNoteIncr">
+      <documentation xmlns="http://schemas.xmlsoap.org/wsdl/" />
+      <input message="tns:LNNoteIncrMtvnSvcReqMsg" />
+      <output message="tns:LNNoteIncrMtvnSvcResMsg" />
+    </operation>
+  </portType>
+  <binding name="mtvnCWLNNoteIncrWSV1" type="tns:mtvnCWLNNoteIncrWSV1Interface">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="LNNoteIncr">
+      <soap:operation soapAction="LNNoteIncrWSV1:LNNoteIncrMtvnSvcReqMsg" style="document" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="mtvnCWLNNoteIncrWSV1">
+    <port name="mtvnCWLNNoteIncrWSV1Port" binding="tns:mtvnCWLNNoteIncrWSV1">
+      <soap:address location="https://xmlgateway.metavante.org/ConnectwareWS/LNNoteIncrWSV1" />
+    </port>
+  </service>
+</definitions>

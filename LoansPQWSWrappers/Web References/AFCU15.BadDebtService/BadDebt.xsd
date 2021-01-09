@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:tns="http://www.americafirst.com/20070315/BadDebt" xmlns:cmn="http://www.americafirst.com/20070315/CommonTypes" xmlns:hdr="http://www.americafirst.com/20070315/AFCUHeader" targetNamespace="http://www.americafirst.com/20070315/BadDebt" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema">
+  <import schemaLocation="../afcuheader/AFCUHeader.xsd" namespace="http://www.americafirst.com/20070315/AFCUHeader" />
+  <import schemaLocation="../commontypes/CommonTypes.xsd" namespace="http://www.americafirst.com/20070315/CommonTypes" />
+  <annotation>
+    <documentation>
+			The BadDebt WebService returns Bad Debt Info from Oracle
+			database. There are 2 operations inquireBadDebt and
+			inquirebadDebtHistory. 1. inquireBadDebt opertaion will
+			return bad debt records for the search by value. searchBy -
+			String to indicate what field the webservice to search on.
+			SS, Name or AccountID searchValue - String search value. 2.
+			inquireBadDebtHistory opertaion will return the bad debt
+			history for a spcific SSN. SSN - long must be specified.
+		</documentation>
+  </annotation>
+  <element name="inquireBadDebtRequest" type="tns:InquireBadDebtRequest" />
+  <element name="inquireBadDebtResponse" type="tns:InquireBadDebtResponse" />
+  <element name="inquireBadDebtHistoryRequest" type="tns:InquireBadDebtHistoryRequest" />
+  <element name="inquireBadDebtHistoryResponse" type="tns:InquireBadDebtHistoryResponse" />
+  <element name="inquireBadDebtSSNListRequest" type="tns:InquireBadDebtSSNLRequest" />
+  <element name="inquireBadDebtSSNListResponse" type="tns:InquireBadDebtSSNLResponse" />
+  <complexType name="InquireBadDebtRequest">
+    <sequence minOccurs="1" maxOccurs="1">
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="tns:BadDebtRequest" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireBadDebtResponse">
+    <sequence>
+      <element name="status" type="hdr:AFCUHeaderResponse" />
+      <element name="data" type="tns:BadDebtData" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireBadDebtHistoryRequest">
+    <sequence minOccurs="1" maxOccurs="1">
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="tns:BadDebtHistoryRequest" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireBadDebtHistoryResponse">
+    <sequence>
+      <element name="status" type="hdr:AFCUHeaderResponse" />
+      <element name="data" type="tns:BadDebtHistoryData" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireBadDebtSSNLRequest">
+    <sequence minOccurs="1" maxOccurs="1">
+      <element name="header" type="hdr:AFCUHeaderRequest" />
+      <element name="request" type="tns:BDSSNListRequest" />
+    </sequence>
+  </complexType>
+  <complexType name="InquireBadDebtSSNLResponse">
+    <sequence>
+      <element name="status" type="hdr:AFCUHeaderResponse" />
+      <element name="data" type="tns:BDSSNListResponse" />
+    </sequence>
+  </complexType>
+  <complexType name="BadDebtRequest">
+    <sequence>
+      <element name="searchBy" type="tns:SearchBy" />
+      <element name="searchValue" type="string" />
+      <element minOccurs="0" name="firstRow" type="long" />
+      <element minOccurs="0" name="maxRows" type="long" />
+    </sequence>
+  </complexType>
+  <complexType name="BadDebtHistoryRequest">
+    <sequence>
+      <element name="ssn" type="cmn:SsnType" />
+      <element minOccurs="0" name="firstRow" type="long" />
+      <element minOccurs="0" name="maxRows" type="long" />
+    </sequence>
+  </complexType>
+  <complexType name="BadDebtData">
+    <sequence>
+      <element minOccurs="0" maxOccurs="unbounded" name="badDebt" type="tns:BadDebtResponse" />
+    </sequence>
+  </complexType>
+  <complexType name="BadDebtResponse">
+    <sequence>
+      <element minOccurs="0" maxOccurs="1" name="name" type="string" />
+      <element minOccurs="0" maxOccurs="1" name="accountID" type="cmn:AccountID" />
+      <element minOccurs="0" maxOccurs="1" name="ssn" type="cmn:SsnType" />
+      <element minOccurs="0" maxOccurs="1" name="reason" type="string" />
+      <element minOccurs="0" maxOccurs="1" name="caseNum" type="string" />
+      <element minOccurs="0" maxOccurs="1" name="maintainedBy" type="string" />
+      <element minOccurs="0" maxOccurs="1" name="maintainedDate" nillable="true" type="dateTime" />
+    </sequence>
+    <attribute name="rowNumber" type="long" use="optional" />
+  </complexType>
+  <complexType name="BadDebtHistoryData">
+    <sequence>
+      <element minOccurs="0" maxOccurs="unbounded" name="badDebtHistory" type="tns:BadDebtHistoryResponse" />
+    </sequence>
+  </complexType>
+  <complexType name="BadDebtHistoryResponse">
+    <sequence>
+      <element minOccurs="0" maxOccurs="1" name="name" type="string" />
+      <element minOccurs="0" maxOccurs="1" name="accountID" type="cmn:AccountID" />
+      <element minOccurs="0" maxOccurs="1" name="ssn" type="cmn:SsnType" />
+      <element minOccurs="0" maxOccurs="1" name="reason" type="string" />
+      <element minOccurs="0" maxOccurs="1" name="changeReason" type="string" />
+      <element minOccurs="0" maxOccurs="1" name="maintainedBy" type="string" />
+      <element minOccurs="0" maxOccurs="1" name="lastChangeDate" nillable="true" type="dateTime" />
+      <element minOccurs="0" maxOccurs="1" name="changedBy" type="string" />
+      <element minOccurs="0" maxOccurs="1" name="changedDate" nillable="true" type="dateTime" />
+    </sequence>
+    <attribute name="rowNumber" type="long" use="optional" />
+  </complexType>
+  <complexType name="BDSSNListRequest" />
+  <complexType name="BDSSNListResponse">
+    <sequence>
+      <element minOccurs="0" maxOccurs="unbounded" name="ssn" type="cmn:SsnType" />
+    </sequence>
+    <attribute name="count" type="long" use="optional" />
+  </complexType>
+  <simpleType name="SearchBy">
+    <restriction base="string">
+      <enumeration value="SSN" />
+      <enumeration value="Name" />
+      <enumeration value="Account" />
+    </restriction>
+  </simpleType>
+</schema>

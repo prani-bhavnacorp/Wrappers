@@ -1,0 +1,1065 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="https://www.blackbookws.com/CPIWS" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="https://www.blackbookws.com/CPIWS" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="https://www.blackbookws.com/CPIWS">
+      <s:element name="Years">
+        <s:complexType />
+      </s:element>
+      <s:element name="YearsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="YearsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserCredentials" type="tns:UserCredentials" />
+      <s:complexType name="UserCredentials">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="userid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="customer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="producttype" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="returncode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="returnmessage" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="Makes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sYear" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MakesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MakesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Models">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sYear" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sMake" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModelsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ModelsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CurrentUVCValues">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sUVC" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="bFillDrilldown" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CurrentUVCValuesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CurrentUVCValuesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HistoricalUVCValues">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sUVC" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="bFillDrilldown" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="dHistoricalDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HistoricalUVCValuesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HistoricalUVCValuesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CurrentValues">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sYear" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sMake" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sModel" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="bFillDrilldown" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CurrentValuesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CurrentValuesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HistoricalValues">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sYear" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sMake" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sModel" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="bFillDrilldown" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="dHistoricalDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HistoricalValuesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HistoricalValuesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TrendAnalysis">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sYear" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sMake" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sModel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sAnnualOrMonthly" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dStartDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="dEndDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TrendAnalysisResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TrendAnalysisResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PDF">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sYear" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sMake" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sModel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sJustCheck" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PDFResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PDFResult" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IPAddress">
+        <s:complexType />
+      </s:element>
+      <s:element name="IPAddressResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IPAddressResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DataSet" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:element ref="s:schema" />
+            <s:any />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="base64Binary" nillable="true" type="s:base64Binary" />
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="YearsSoapIn">
+    <wsdl:part name="parameters" element="tns:Years" />
+  </wsdl:message>
+  <wsdl:message name="YearsSoapOut">
+    <wsdl:part name="parameters" element="tns:YearsResponse" />
+  </wsdl:message>
+  <wsdl:message name="YearsUserCredentials">
+    <wsdl:part name="UserCredentials" element="tns:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="MakesSoapIn">
+    <wsdl:part name="parameters" element="tns:Makes" />
+  </wsdl:message>
+  <wsdl:message name="MakesSoapOut">
+    <wsdl:part name="parameters" element="tns:MakesResponse" />
+  </wsdl:message>
+  <wsdl:message name="MakesUserCredentials">
+    <wsdl:part name="UserCredentials" element="tns:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="ModelsSoapIn">
+    <wsdl:part name="parameters" element="tns:Models" />
+  </wsdl:message>
+  <wsdl:message name="ModelsSoapOut">
+    <wsdl:part name="parameters" element="tns:ModelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModelsUserCredentials">
+    <wsdl:part name="UserCredentials" element="tns:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="CurrentUVCValuesSoapIn">
+    <wsdl:part name="parameters" element="tns:CurrentUVCValues" />
+  </wsdl:message>
+  <wsdl:message name="CurrentUVCValuesSoapOut">
+    <wsdl:part name="parameters" element="tns:CurrentUVCValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CurrentUVCValuesUserCredentials">
+    <wsdl:part name="UserCredentials" element="tns:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="HistoricalUVCValuesSoapIn">
+    <wsdl:part name="parameters" element="tns:HistoricalUVCValues" />
+  </wsdl:message>
+  <wsdl:message name="HistoricalUVCValuesSoapOut">
+    <wsdl:part name="parameters" element="tns:HistoricalUVCValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="HistoricalUVCValuesUserCredentials">
+    <wsdl:part name="UserCredentials" element="tns:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="CurrentValuesSoapIn">
+    <wsdl:part name="parameters" element="tns:CurrentValues" />
+  </wsdl:message>
+  <wsdl:message name="CurrentValuesSoapOut">
+    <wsdl:part name="parameters" element="tns:CurrentValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CurrentValuesUserCredentials">
+    <wsdl:part name="UserCredentials" element="tns:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="HistoricalValuesSoapIn">
+    <wsdl:part name="parameters" element="tns:HistoricalValues" />
+  </wsdl:message>
+  <wsdl:message name="HistoricalValuesSoapOut">
+    <wsdl:part name="parameters" element="tns:HistoricalValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="HistoricalValuesUserCredentials">
+    <wsdl:part name="UserCredentials" element="tns:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="TrendAnalysisSoapIn">
+    <wsdl:part name="parameters" element="tns:TrendAnalysis" />
+  </wsdl:message>
+  <wsdl:message name="TrendAnalysisSoapOut">
+    <wsdl:part name="parameters" element="tns:TrendAnalysisResponse" />
+  </wsdl:message>
+  <wsdl:message name="TrendAnalysisUserCredentials">
+    <wsdl:part name="UserCredentials" element="tns:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="PDFSoapIn">
+    <wsdl:part name="parameters" element="tns:PDF" />
+  </wsdl:message>
+  <wsdl:message name="PDFSoapOut">
+    <wsdl:part name="parameters" element="tns:PDFResponse" />
+  </wsdl:message>
+  <wsdl:message name="PDFUserCredentials">
+    <wsdl:part name="UserCredentials" element="tns:UserCredentials" />
+  </wsdl:message>
+  <wsdl:message name="IPAddressSoapIn">
+    <wsdl:part name="parameters" element="tns:IPAddress" />
+  </wsdl:message>
+  <wsdl:message name="IPAddressSoapOut">
+    <wsdl:part name="parameters" element="tns:IPAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="YearsHttpGetIn" />
+  <wsdl:message name="YearsHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="MakesHttpGetIn">
+    <wsdl:part name="sYear" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MakesHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ModelsHttpGetIn">
+    <wsdl:part name="sYear" type="s:string" />
+    <wsdl:part name="sMake" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ModelsHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="CurrentUVCValuesHttpGetIn">
+    <wsdl:part name="sUVC" type="s:string" />
+    <wsdl:part name="bFillDrilldown" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CurrentUVCValuesHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="HistoricalUVCValuesHttpGetIn">
+    <wsdl:part name="sUVC" type="s:string" />
+    <wsdl:part name="bFillDrilldown" type="s:string" />
+    <wsdl:part name="dHistoricalDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="HistoricalUVCValuesHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="CurrentValuesHttpGetIn">
+    <wsdl:part name="sYear" type="s:string" />
+    <wsdl:part name="sMake" type="s:string" />
+    <wsdl:part name="sModel" type="s:string" />
+    <wsdl:part name="bFillDrilldown" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CurrentValuesHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="HistoricalValuesHttpGetIn">
+    <wsdl:part name="sYear" type="s:string" />
+    <wsdl:part name="sMake" type="s:string" />
+    <wsdl:part name="sModel" type="s:string" />
+    <wsdl:part name="bFillDrilldown" type="s:string" />
+    <wsdl:part name="dHistoricalDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="HistoricalValuesHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="TrendAnalysisHttpGetIn">
+    <wsdl:part name="sYear" type="s:string" />
+    <wsdl:part name="sMake" type="s:string" />
+    <wsdl:part name="sModel" type="s:string" />
+    <wsdl:part name="sAnnualOrMonthly" type="s:string" />
+    <wsdl:part name="dStartDate" type="s:string" />
+    <wsdl:part name="dEndDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TrendAnalysisHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="PDFHttpGetIn">
+    <wsdl:part name="sYear" type="s:string" />
+    <wsdl:part name="sMake" type="s:string" />
+    <wsdl:part name="sModel" type="s:string" />
+    <wsdl:part name="sJustCheck" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PDFHttpGetOut">
+    <wsdl:part name="Body" element="tns:base64Binary" />
+  </wsdl:message>
+  <wsdl:message name="IPAddressHttpGetIn" />
+  <wsdl:message name="IPAddressHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="YearsHttpPostIn" />
+  <wsdl:message name="YearsHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="MakesHttpPostIn">
+    <wsdl:part name="sYear" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MakesHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="ModelsHttpPostIn">
+    <wsdl:part name="sYear" type="s:string" />
+    <wsdl:part name="sMake" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ModelsHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="CurrentUVCValuesHttpPostIn">
+    <wsdl:part name="sUVC" type="s:string" />
+    <wsdl:part name="bFillDrilldown" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CurrentUVCValuesHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="HistoricalUVCValuesHttpPostIn">
+    <wsdl:part name="sUVC" type="s:string" />
+    <wsdl:part name="bFillDrilldown" type="s:string" />
+    <wsdl:part name="dHistoricalDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="HistoricalUVCValuesHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="CurrentValuesHttpPostIn">
+    <wsdl:part name="sYear" type="s:string" />
+    <wsdl:part name="sMake" type="s:string" />
+    <wsdl:part name="sModel" type="s:string" />
+    <wsdl:part name="bFillDrilldown" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="CurrentValuesHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="HistoricalValuesHttpPostIn">
+    <wsdl:part name="sYear" type="s:string" />
+    <wsdl:part name="sMake" type="s:string" />
+    <wsdl:part name="sModel" type="s:string" />
+    <wsdl:part name="bFillDrilldown" type="s:string" />
+    <wsdl:part name="dHistoricalDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="HistoricalValuesHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="TrendAnalysisHttpPostIn">
+    <wsdl:part name="sYear" type="s:string" />
+    <wsdl:part name="sMake" type="s:string" />
+    <wsdl:part name="sModel" type="s:string" />
+    <wsdl:part name="sAnnualOrMonthly" type="s:string" />
+    <wsdl:part name="dStartDate" type="s:string" />
+    <wsdl:part name="dEndDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TrendAnalysisHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataSet" />
+  </wsdl:message>
+  <wsdl:message name="PDFHttpPostIn">
+    <wsdl:part name="sYear" type="s:string" />
+    <wsdl:part name="sMake" type="s:string" />
+    <wsdl:part name="sModel" type="s:string" />
+    <wsdl:part name="sJustCheck" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PDFHttpPostOut">
+    <wsdl:part name="Body" element="tns:base64Binary" />
+  </wsdl:message>
+  <wsdl:message name="IPAddressHttpPostIn" />
+  <wsdl:message name="IPAddressHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="CPIWS">
+    <wsdl:operation name="getYears">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve years</wsdl:documentation>
+      <wsdl:input name="Years" message="tns:YearsSoapIn" />
+      <wsdl:output name="Years" message="tns:YearsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getMakes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve makes</wsdl:documentation>
+      <wsdl:input name="Makes" message="tns:MakesSoapIn" />
+      <wsdl:output name="Makes" message="tns:MakesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getModels">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve models</wsdl:documentation>
+      <wsdl:input name="Models" message="tns:ModelsSoapIn" />
+      <wsdl:output name="Models" message="tns:ModelsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUVCValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve current values by UVC</wsdl:documentation>
+      <wsdl:input name="CurrentUVCValues" message="tns:CurrentUVCValuesSoapIn" />
+      <wsdl:output name="CurrentUVCValues" message="tns:CurrentUVCValuesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUVCValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve historical values by UVC</wsdl:documentation>
+      <wsdl:input name="HistoricalUVCValues" message="tns:HistoricalUVCValuesSoapIn" />
+      <wsdl:output name="HistoricalUVCValues" message="tns:HistoricalUVCValuesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve current values by vehicle description</wsdl:documentation>
+      <wsdl:input name="CurrentValues" message="tns:CurrentValuesSoapIn" />
+      <wsdl:output name="CurrentValues" message="tns:CurrentValuesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve historical values by vehicle description</wsdl:documentation>
+      <wsdl:input name="HistoricalValues" message="tns:HistoricalValuesSoapIn" />
+      <wsdl:output name="HistoricalValues" message="tns:HistoricalValuesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTrendAnalysisValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve vehicle trend analysis values</wsdl:documentation>
+      <wsdl:input name="TrendAnalysis" message="tns:TrendAnalysisSoapIn" />
+      <wsdl:output name="TrendAnalysis" message="tns:TrendAnalysisSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPDFSpec">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve vehicle specification in PDF format</wsdl:documentation>
+      <wsdl:input name="PDF" message="tns:PDFSoapIn" />
+      <wsdl:output name="PDF" message="tns:PDFSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CPIWSSoap">
+    <wsdl:operation name="getIPAddress">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve my server IP address</wsdl:documentation>
+      <wsdl:input name="IPAddress" message="tns:IPAddressSoapIn" />
+      <wsdl:output name="IPAddress" message="tns:IPAddressSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CPIWSHttpGet">
+    <wsdl:operation name="getYears">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve years</wsdl:documentation>
+      <wsdl:input name="Years" message="tns:YearsHttpGetIn" />
+      <wsdl:output name="Years" message="tns:YearsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getMakes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve makes</wsdl:documentation>
+      <wsdl:input name="Makes" message="tns:MakesHttpGetIn" />
+      <wsdl:output name="Makes" message="tns:MakesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getModels">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve models</wsdl:documentation>
+      <wsdl:input name="Models" message="tns:ModelsHttpGetIn" />
+      <wsdl:output name="Models" message="tns:ModelsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUVCValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve current values by UVC</wsdl:documentation>
+      <wsdl:input name="CurrentUVCValues" message="tns:CurrentUVCValuesHttpGetIn" />
+      <wsdl:output name="CurrentUVCValues" message="tns:CurrentUVCValuesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUVCValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve historical values by UVC</wsdl:documentation>
+      <wsdl:input name="HistoricalUVCValues" message="tns:HistoricalUVCValuesHttpGetIn" />
+      <wsdl:output name="HistoricalUVCValues" message="tns:HistoricalUVCValuesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve current values by vehicle description</wsdl:documentation>
+      <wsdl:input name="CurrentValues" message="tns:CurrentValuesHttpGetIn" />
+      <wsdl:output name="CurrentValues" message="tns:CurrentValuesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve historical values by vehicle description</wsdl:documentation>
+      <wsdl:input name="HistoricalValues" message="tns:HistoricalValuesHttpGetIn" />
+      <wsdl:output name="HistoricalValues" message="tns:HistoricalValuesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTrendAnalysisValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve vehicle trend analysis values</wsdl:documentation>
+      <wsdl:input name="TrendAnalysis" message="tns:TrendAnalysisHttpGetIn" />
+      <wsdl:output name="TrendAnalysis" message="tns:TrendAnalysisHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPDFSpec">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve vehicle specification in PDF format</wsdl:documentation>
+      <wsdl:input name="PDF" message="tns:PDFHttpGetIn" />
+      <wsdl:output name="PDF" message="tns:PDFHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getIPAddress">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve my server IP address</wsdl:documentation>
+      <wsdl:input name="IPAddress" message="tns:IPAddressHttpGetIn" />
+      <wsdl:output name="IPAddress" message="tns:IPAddressHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CPIWSHttpPost">
+    <wsdl:operation name="getYears">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve years</wsdl:documentation>
+      <wsdl:input name="Years" message="tns:YearsHttpPostIn" />
+      <wsdl:output name="Years" message="tns:YearsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getMakes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve makes</wsdl:documentation>
+      <wsdl:input name="Makes" message="tns:MakesHttpPostIn" />
+      <wsdl:output name="Makes" message="tns:MakesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getModels">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve models</wsdl:documentation>
+      <wsdl:input name="Models" message="tns:ModelsHttpPostIn" />
+      <wsdl:output name="Models" message="tns:ModelsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUVCValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve current values by UVC</wsdl:documentation>
+      <wsdl:input name="CurrentUVCValues" message="tns:CurrentUVCValuesHttpPostIn" />
+      <wsdl:output name="CurrentUVCValues" message="tns:CurrentUVCValuesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getUVCValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve historical values by UVC</wsdl:documentation>
+      <wsdl:input name="HistoricalUVCValues" message="tns:HistoricalUVCValuesHttpPostIn" />
+      <wsdl:output name="HistoricalUVCValues" message="tns:HistoricalUVCValuesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve current values by vehicle description</wsdl:documentation>
+      <wsdl:input name="CurrentValues" message="tns:CurrentValuesHttpPostIn" />
+      <wsdl:output name="CurrentValues" message="tns:CurrentValuesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve historical values by vehicle description</wsdl:documentation>
+      <wsdl:input name="HistoricalValues" message="tns:HistoricalValuesHttpPostIn" />
+      <wsdl:output name="HistoricalValues" message="tns:HistoricalValuesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTrendAnalysisValues">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve vehicle trend analysis values</wsdl:documentation>
+      <wsdl:input name="TrendAnalysis" message="tns:TrendAnalysisHttpPostIn" />
+      <wsdl:output name="TrendAnalysis" message="tns:TrendAnalysisHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPDFSpec">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve vehicle specification in PDF format</wsdl:documentation>
+      <wsdl:input name="PDF" message="tns:PDFHttpPostIn" />
+      <wsdl:output name="PDF" message="tns:PDFHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getIPAddress">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve my server IP address</wsdl:documentation>
+      <wsdl:input name="IPAddress" message="tns:IPAddressHttpPostIn" />
+      <wsdl:output name="IPAddress" message="tns:IPAddressHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CPIWS" type="tns:CPIWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getYears">
+      <soap:operation soapAction="https://www.blackbookws.com/CPIWS/Years" style="document" />
+      <wsdl:input name="Years">
+        <soap:body use="literal" />
+        <soap:header message="tns:YearsUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Years">
+        <soap:body use="literal" />
+        <soap:header message="tns:YearsUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMakes">
+      <soap:operation soapAction="https://www.blackbookws.com/CPIWS/Makes" style="document" />
+      <wsdl:input name="Makes">
+        <soap:body use="literal" />
+        <soap:header message="tns:MakesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Makes">
+        <soap:body use="literal" />
+        <soap:header message="tns:MakesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getModels">
+      <soap:operation soapAction="https://www.blackbookws.com/CPIWS/Models" style="document" />
+      <wsdl:input name="Models">
+        <soap:body use="literal" />
+        <soap:header message="tns:ModelsUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Models">
+        <soap:body use="literal" />
+        <soap:header message="tns:ModelsUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUVCValues">
+      <soap:operation soapAction="https://www.blackbookws.com/CPIWS/CurrentUVCValues" style="document" />
+      <wsdl:input name="CurrentUVCValues">
+        <soap:body use="literal" />
+        <soap:header message="tns:CurrentUVCValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CurrentUVCValues">
+        <soap:body use="literal" />
+        <soap:header message="tns:CurrentUVCValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUVCValues">
+      <soap:operation soapAction="https://www.blackbookws.com/CPIWS/HistoricalUVCValues" style="document" />
+      <wsdl:input name="HistoricalUVCValues">
+        <soap:body use="literal" />
+        <soap:header message="tns:HistoricalUVCValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="HistoricalUVCValues">
+        <soap:body use="literal" />
+        <soap:header message="tns:HistoricalUVCValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getValues">
+      <soap:operation soapAction="https://www.blackbookws.com/CPIWS/CurrentValues" style="document" />
+      <wsdl:input name="CurrentValues">
+        <soap:body use="literal" />
+        <soap:header message="tns:CurrentValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CurrentValues">
+        <soap:body use="literal" />
+        <soap:header message="tns:CurrentValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getValues">
+      <soap:operation soapAction="https://www.blackbookws.com/CPIWS/HistoricalValues" style="document" />
+      <wsdl:input name="HistoricalValues">
+        <soap:body use="literal" />
+        <soap:header message="tns:HistoricalValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="HistoricalValues">
+        <soap:body use="literal" />
+        <soap:header message="tns:HistoricalValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTrendAnalysisValues">
+      <soap:operation soapAction="https://www.blackbookws.com/CPIWS/TrendAnalysis" style="document" />
+      <wsdl:input name="TrendAnalysis">
+        <soap:body use="literal" />
+        <soap:header message="tns:TrendAnalysisUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="TrendAnalysis">
+        <soap:body use="literal" />
+        <soap:header message="tns:TrendAnalysisUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPDFSpec">
+      <soap:operation soapAction="https://www.blackbookws.com/CPIWS/PDF" style="document" />
+      <wsdl:input name="PDF">
+        <soap:body use="literal" />
+        <soap:header message="tns:PDFUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="PDF">
+        <soap:body use="literal" />
+        <soap:header message="tns:PDFUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CPIWSSoap" type="tns:CPIWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getIPAddress">
+      <soap:operation soapAction="https://www.blackbookws.com/CPIWS/IPAddress" style="document" />
+      <wsdl:input name="IPAddress">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="IPAddress">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CPIWS1" type="tns:CPIWS">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getYears">
+      <soap12:operation soapAction="https://www.blackbookws.com/CPIWS/Years" style="document" />
+      <wsdl:input name="Years">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:YearsUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Years">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:YearsUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMakes">
+      <soap12:operation soapAction="https://www.blackbookws.com/CPIWS/Makes" style="document" />
+      <wsdl:input name="Makes">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:MakesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Makes">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:MakesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getModels">
+      <soap12:operation soapAction="https://www.blackbookws.com/CPIWS/Models" style="document" />
+      <wsdl:input name="Models">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ModelsUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Models">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ModelsUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUVCValues">
+      <soap12:operation soapAction="https://www.blackbookws.com/CPIWS/CurrentUVCValues" style="document" />
+      <wsdl:input name="CurrentUVCValues">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CurrentUVCValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CurrentUVCValues">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CurrentUVCValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUVCValues">
+      <soap12:operation soapAction="https://www.blackbookws.com/CPIWS/HistoricalUVCValues" style="document" />
+      <wsdl:input name="HistoricalUVCValues">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:HistoricalUVCValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="HistoricalUVCValues">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:HistoricalUVCValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getValues">
+      <soap12:operation soapAction="https://www.blackbookws.com/CPIWS/CurrentValues" style="document" />
+      <wsdl:input name="CurrentValues">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CurrentValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CurrentValues">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CurrentValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getValues">
+      <soap12:operation soapAction="https://www.blackbookws.com/CPIWS/HistoricalValues" style="document" />
+      <wsdl:input name="HistoricalValues">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:HistoricalValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="HistoricalValues">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:HistoricalValuesUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTrendAnalysisValues">
+      <soap12:operation soapAction="https://www.blackbookws.com/CPIWS/TrendAnalysis" style="document" />
+      <wsdl:input name="TrendAnalysis">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:TrendAnalysisUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="TrendAnalysis">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:TrendAnalysisUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPDFSpec">
+      <soap12:operation soapAction="https://www.blackbookws.com/CPIWS/PDF" style="document" />
+      <wsdl:input name="PDF">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:PDFUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="PDF">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:PDFUserCredentials" part="UserCredentials" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CPIWSSoap12" type="tns:CPIWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getIPAddress">
+      <soap12:operation soapAction="https://www.blackbookws.com/CPIWS/IPAddress" style="document" />
+      <wsdl:input name="IPAddress">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="IPAddress">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CPIWSHttpGet" type="tns:CPIWSHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="getYears">
+      <http:operation location="/Years" />
+      <wsdl:input name="Years">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="Years">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMakes">
+      <http:operation location="/Makes" />
+      <wsdl:input name="Makes">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="Makes">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getModels">
+      <http:operation location="/Models" />
+      <wsdl:input name="Models">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="Models">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUVCValues">
+      <http:operation location="/CurrentUVCValues" />
+      <wsdl:input name="CurrentUVCValues">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="CurrentUVCValues">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUVCValues">
+      <http:operation location="/HistoricalUVCValues" />
+      <wsdl:input name="HistoricalUVCValues">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="HistoricalUVCValues">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getValues">
+      <http:operation location="/CurrentValues" />
+      <wsdl:input name="CurrentValues">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="CurrentValues">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getValues">
+      <http:operation location="/HistoricalValues" />
+      <wsdl:input name="HistoricalValues">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="HistoricalValues">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTrendAnalysisValues">
+      <http:operation location="/TrendAnalysis" />
+      <wsdl:input name="TrendAnalysis">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="TrendAnalysis">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPDFSpec">
+      <http:operation location="/PDF" />
+      <wsdl:input name="PDF">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="PDF">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getIPAddress">
+      <http:operation location="/IPAddress" />
+      <wsdl:input name="IPAddress">
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output name="IPAddress">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CPIWSHttpPost" type="tns:CPIWSHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="getYears">
+      <http:operation location="/Years" />
+      <wsdl:input name="Years">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="Years">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMakes">
+      <http:operation location="/Makes" />
+      <wsdl:input name="Makes">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="Makes">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getModels">
+      <http:operation location="/Models" />
+      <wsdl:input name="Models">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="Models">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUVCValues">
+      <http:operation location="/CurrentUVCValues" />
+      <wsdl:input name="CurrentUVCValues">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="CurrentUVCValues">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUVCValues">
+      <http:operation location="/HistoricalUVCValues" />
+      <wsdl:input name="HistoricalUVCValues">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="HistoricalUVCValues">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getValues">
+      <http:operation location="/CurrentValues" />
+      <wsdl:input name="CurrentValues">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="CurrentValues">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getValues">
+      <http:operation location="/HistoricalValues" />
+      <wsdl:input name="HistoricalValues">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="HistoricalValues">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTrendAnalysisValues">
+      <http:operation location="/TrendAnalysis" />
+      <wsdl:input name="TrendAnalysis">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="TrendAnalysis">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPDFSpec">
+      <http:operation location="/PDF" />
+      <wsdl:input name="PDF">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="PDF">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getIPAddress">
+      <http:operation location="/IPAddress" />
+      <wsdl:input name="IPAddress">
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output name="IPAddress">
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CPIWS">
+    <wsdl:port name="CPIWS" binding="tns:CPIWS">
+      <soap:address location="http://www.blackbookguides.com/webservices/cpiws.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CPIWSSoap" binding="tns:CPIWSSoap">
+      <soap:address location="http://www.blackbookguides.com/webservices/cpiws.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CPIWS1" binding="tns:CPIWS1">
+      <soap12:address location="http://www.blackbookguides.com/webservices/cpiws.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CPIWSSoap12" binding="tns:CPIWSSoap12">
+      <soap12:address location="http://www.blackbookguides.com/webservices/cpiws.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CPIWSHttpGet" binding="tns:CPIWSHttpGet">
+      <http:address location="http://www.blackbookguides.com/webservices/cpiws.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CPIWSHttpPost" binding="tns:CPIWSHttpPost">
+      <http:address location="http://www.blackbookguides.com/webservices/cpiws.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

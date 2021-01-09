@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schema xmlns:tns="http://www.americafirst.com/20070315/AccountTransaction" xmlns:ctl="http://www.americafirst.com/20070315/CommonTypesLib" targetNamespace="http://www.americafirst.com/20070315/AccountTransaction" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema">
+  <include schemaLocation="CommonTransactionTypes.xsd" />
+  <import schemaLocation="../commontypeslib/CommonTypesLib.xsd" namespace="http://www.americafirst.com/20070315/CommonTypesLib" />
+  <annotation>
+    <documentation>
+			Uses Cobol Copybook for General Ledger Minus Receipt TRAN_GRM
+		</documentation>
+  </annotation>
+  <complexType name="GeneralLedgerMinusReceiptRequest">
+    <complexContent mixed="false">
+      <extension base="tns:TranBaseTypeRequest">
+        <sequence>
+          <element name="glAccountNo" type="tns:GLAccountNo" />
+          <element name="tranAmount" type="ctl:Decimal_15_2" />
+          <element name="interestAmount" type="ctl:Decimal_15_2" />
+          <element name="checksInAmount" type="ctl:Decimal_15_2" />
+          <element name="checksOnUsAmount" type="ctl:Decimal_15_2" />
+          <element name="feeAmount" type="ctl:Decimal_15_2" />
+          <element name="folio" type="ctl:String_6" />
+          <element name="description" type="ctl:String_15" />
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="GeneralLedgerMinusReceiptResponse">
+    <complexContent mixed="false">
+      <extension base="tns:TranBaseTypeResponse">
+        <sequence>
+          <element name="glAccountNo" type="tns:GLAccountNo" />
+          <element minOccurs="0" maxOccurs="1" name="tranAmount" type="ctl:Decimal_15_2" />
+          <element minOccurs="0" maxOccurs="1" name="interestAmount" type="ctl:Decimal_15_2" />
+          <element minOccurs="0" maxOccurs="1" name="feeAmount" type="ctl:Decimal_15_2" />
+          <element minOccurs="0" maxOccurs="1" name="folio" type="ctl:String_6" />
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+</schema>

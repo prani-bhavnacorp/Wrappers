@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:ns="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://jackhenry.com/jxchange/TPG/2008" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" targetNamespace="http://jackhenry.com/jxchange/TPG/2008" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema xmlns="http://jackhenry.com/jxchange/TPG/2008" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://jackhenry.com/jxchange/TPG/2008" version="2019.0.03" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:include schemaLocation="TPG_ImageMaster.xsd" />
+    </xsd:schema>
+  </types>
+  <message name="MessageFault">
+    <part name="params" element="tns:HdrFault" />
+  </message>
+  <message name="PingInput">
+    <part name="params" element="tns:Ping" />
+  </message>
+  <message name="PingOutput">
+    <part name="params" element="tns:PingResponse" />
+  </message>
+  <message name="ChkImgInqInput">
+    <part name="params" element="tns:ChkImgInq" />
+  </message>
+  <message name="ChkImgInqOutput">
+    <part name="params" element="tns:ChkImgInqResponse" />
+  </message>
+  <message name="DocImgAddInput">
+    <part name="params" element="tns:DocImgAdd" />
+  </message>
+  <message name="DocImgAddOutput">
+    <part name="params" element="tns:DocImgAddResponse" />
+  </message>
+  <message name="DocImgSrchInput">
+    <part name="params" element="tns:DocImgSrch" />
+  </message>
+  <message name="DocImgSrchOutput">
+    <part name="params" element="tns:DocImgSrchResponse" />
+  </message>
+  <message name="DocImgModInput">
+    <part name="params" element="tns:DocImgMod" />
+  </message>
+  <message name="DocImgModOutput">
+    <part name="params" element="tns:DocImgModResponse" />
+  </message>
+  <message name="ChkImgStmtSrchInput">
+    <part name="params" element="tns:ChkImgStmtSrch" />
+  </message>
+  <message name="ChkImgStmtSrchOutput">
+    <part name="params" element="tns:ChkImgStmtSrchResponse" />
+  </message>
+  <message name="ChkImgStmtGenInput">
+    <part name="params" element="tns:ChkImgStmtGen" />
+  </message>
+  <message name="ChkImgStmtGenOutput">
+    <part name="params" element="tns:ChkImgStmtGenResponse" />
+  </message>
+  <message name="ChkImgStmtGenInqInput">
+    <part name="params" element="tns:ChkImgStmtGenInq" />
+  </message>
+  <message name="ChkImgStmtGenInqOutput">
+    <part name="params" element="tns:ChkImgStmtGenInqResponse" />
+  </message>
+  <message name="ChkImgSrchInput">
+    <part name="params" element="tns:ChkImgSrch" />
+  </message>
+  <message name="ChkImgSrchOutput">
+    <part name="params" element="tns:ChkImgSrchResponse" />
+  </message>
+  <message name="DocBatchSrchInput">
+    <part name="params" element="tns:DocBatchSrch" />
+  </message>
+  <message name="DocBatchSrchOutput">
+    <part name="params" element="tns:DocBatchSrchResponse" />
+  </message>
+  <message name="DocTextFormatInqInput">
+    <part name="params" element="tns:DocTextFormatInq" />
+  </message>
+  <message name="DocTextFormatInqOutput">
+    <part name="params" element="tns:DocTextFormatInqResponse" />
+  </message>
+  <message name="DocOptFormatInqInput">
+    <part name="params" element="tns:DocOptFormatInq" />
+  </message>
+  <message name="DocOptFormatInqOutput">
+    <part name="params" element="tns:DocOptFormatInqResponse" />
+  </message>
+  <message name="FormatDocInqInput">
+    <part name="params" element="tns:FormatDocInq" />
+  </message>
+  <message name="FormatDocInqOutput">
+    <part name="params" element="tns:FormatDocInqResponse" />
+  </message>
+  <portType name="ImageService">
+    <operation name="Ping">
+      <input message="tns:PingInput" />
+      <output message="tns:PingOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="ChkImgInq">
+      <input message="tns:ChkImgInqInput" />
+      <output message="tns:ChkImgInqOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="DocImgAdd">
+      <input message="tns:DocImgAddInput" />
+      <output message="tns:DocImgAddOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="DocImgSrch">
+      <input message="tns:DocImgSrchInput" />
+      <output message="tns:DocImgSrchOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="DocImgMod">
+      <input message="tns:DocImgModInput" />
+      <output message="tns:DocImgModOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="ChkImgStmtSrch">
+      <input message="tns:ChkImgStmtSrchInput" />
+      <output message="tns:ChkImgStmtSrchOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="ChkImgStmtGen">
+      <input message="tns:ChkImgStmtGenInput" />
+      <output message="tns:ChkImgStmtGenOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="ChkImgStmtGenInq">
+      <input message="tns:ChkImgStmtGenInqInput" />
+      <output message="tns:ChkImgStmtGenInqOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="ChkImgSrch">
+      <input message="tns:ChkImgSrchInput" />
+      <output message="tns:ChkImgSrchOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="DocBatchSrch">
+      <input message="tns:DocBatchSrchInput" />
+      <output message="tns:DocBatchSrchOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="DocTextFormatInq">
+      <input message="tns:DocTextFormatInqInput" />
+      <output message="tns:DocTextFormatInqOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="DocOptFormatInq">
+      <input message="tns:DocOptFormatInqInput" />
+      <output message="tns:DocOptFormatInqOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+    <operation name="FormatDocInq">
+      <input message="tns:FormatDocInqInput" />
+      <output message="tns:FormatDocInqOutput" />
+      <fault name="Fault" message="tns:MessageFault" />
+    </operation>
+  </portType>
+  <binding name="ImageServiceSoapBinding" type="tns:ImageService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="Ping">
+      <soap:operation soapAction="http://jackhenry.com/ws/Ping" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="ChkImgInq">
+      <soap:operation soapAction="http://jackhenry.com/ws/ChkImgInq" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="DocImgAdd">
+      <soap:operation soapAction="http://jackhenry.com/ws/DocImgAdd" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="DocImgSrch">
+      <soap:operation soapAction="http://jackhenry.com/ws/DocImgSrch" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="DocImgMod">
+      <soap:operation soapAction="http://jackhenry.com/ws/DocImgMod" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="ChkImgStmtSrch">
+      <soap:operation soapAction="http://jackhenry.com/ws/ChkImgStmtSrch" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="ChkImgStmtGen">
+      <soap:operation soapAction="http://jackhenry.com/ws/ChkImgStmtGen" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="ChkImgStmtGenInq">
+      <soap:operation soapAction="http://jackhenry.com/ws/ChkImgStmtGenInq" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="ChkImgSrch">
+      <soap:operation soapAction="http://jackhenry.com/ws/ChkImgSrch" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="DocBatchSrch">
+      <soap:operation soapAction="http://jackhenry.com/ws/DocBatchSrch" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="DocTextFormatInq">
+      <soap:operation soapAction="http://jackhenry.com/ws/DocTextFormatInq" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="DocOptFormatInq">
+      <soap:operation soapAction="http://jackhenry.com/ws/DocOptFormatInq" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+    <operation name="FormatDocInq">
+      <soap:operation soapAction="http://jackhenry.com/ws/FormatDocInq" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Fault">
+        <soap:fault use="literal" name="Fault" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="ImageService">
+    <documentation>Service Description for the ImageService Interface</documentation>
+    <port name="ImageServiceSoap" binding="tns:ImageServiceSoapBinding">
+      <soap:address location="https://jackhenry.com/jxchange/2008/ServiceGateway/Image.svc" />
+    </port>
+  </service>
+</definitions>

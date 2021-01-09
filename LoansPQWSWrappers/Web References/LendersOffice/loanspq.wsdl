@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="https://www.lendersoffice.com/los/webservices/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="https://www.lendersoffice.com/los/webservices/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="https://www.lendersoffice.com/los/webservices/">
+      <s:element name="TransferDataToLendersOffice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="loansPQFileID" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="clfData" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TransferDataToLendersOfficeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TransferDataToLendersOfficeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditLoanFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="loansPQFileID" type="s:long" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EditLoanFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EditLoanFileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveLoanFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="loansPQFileID" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="clfData" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RetrieveLoanFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RetrieveLoanFileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="TransferDataToLendersOfficeSoapIn">
+    <wsdl:part name="parameters" element="tns:TransferDataToLendersOffice" />
+  </wsdl:message>
+  <wsdl:message name="TransferDataToLendersOfficeSoapOut">
+    <wsdl:part name="parameters" element="tns:TransferDataToLendersOfficeResponse" />
+  </wsdl:message>
+  <wsdl:message name="EditLoanFileSoapIn">
+    <wsdl:part name="parameters" element="tns:EditLoanFile" />
+  </wsdl:message>
+  <wsdl:message name="EditLoanFileSoapOut">
+    <wsdl:part name="parameters" element="tns:EditLoanFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveLoanFileSoapIn">
+    <wsdl:part name="parameters" element="tns:RetrieveLoanFile" />
+  </wsdl:message>
+  <wsdl:message name="RetrieveLoanFileSoapOut">
+    <wsdl:part name="parameters" element="tns:RetrieveLoanFileResponse" />
+  </wsdl:message>
+  <wsdl:portType name="LoansPQ_x0020_Web_x0020_ServiceSoap">
+    <wsdl:operation name="TransferDataToLendersOffice">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Creates/Updates a Lender's Office loan file using the given credentials, id and import data. The id returned can be used  to redirect the user to the loan editor.</wsdl:documentation>
+      <wsdl:input message="tns:TransferDataToLendersOfficeSoapIn" />
+      <wsdl:output message="tns:TransferDataToLendersOfficeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EditLoanFile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves an id that can be used to redirect the user to the loan editor for the specified loan.</wsdl:documentation>
+      <wsdl:input message="tns:EditLoanFileSoapIn" />
+      <wsdl:output message="tns:EditLoanFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveLoanFile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves the specified Lender's Office loan file and updates the given CLF data file with the new changes.</wsdl:documentation>
+      <wsdl:input message="tns:RetrieveLoanFileSoapIn" />
+      <wsdl:output message="tns:RetrieveLoanFileSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LoansPQ_x0020_Web_x0020_ServiceSoap" type="tns:LoansPQ_x0020_Web_x0020_ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TransferDataToLendersOffice">
+      <soap:operation soapAction="https://www.lendersoffice.com/los/webservices/TransferDataToLendersOffice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditLoanFile">
+      <soap:operation soapAction="https://www.lendersoffice.com/los/webservices/EditLoanFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveLoanFile">
+      <soap:operation soapAction="https://www.lendersoffice.com/los/webservices/RetrieveLoanFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="LoansPQ_x0020_Web_x0020_ServiceSoap12" type="tns:LoansPQ_x0020_Web_x0020_ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="TransferDataToLendersOffice">
+      <soap12:operation soapAction="https://www.lendersoffice.com/los/webservices/TransferDataToLendersOffice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditLoanFile">
+      <soap12:operation soapAction="https://www.lendersoffice.com/los/webservices/EditLoanFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveLoanFile">
+      <soap12:operation soapAction="https://www.lendersoffice.com/los/webservices/RetrieveLoanFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LoansPQ_x0020_Web_x0020_Service">
+    <wsdl:port name="LoansPQ_x0020_Web_x0020_ServiceSoap" binding="tns:LoansPQ_x0020_Web_x0020_ServiceSoap">
+      <soap:address location="http://localhost/lendersofficeapp/los/webservice/LoansPQ.asmx" />
+    </wsdl:port>
+    <wsdl:port name="LoansPQ_x0020_Web_x0020_ServiceSoap12" binding="tns:LoansPQ_x0020_Web_x0020_ServiceSoap12">
+      <soap12:address location="http://localhost/lendersofficeapp/los/webservice/LoansPQ.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

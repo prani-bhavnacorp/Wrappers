@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns="http://www.fisglobal.com/soa/riskfraudcomplianceRqst"     
+    targetNamespace="http://www.fisglobal.com/soa/riskfraudcomplianceRqst" 
+    elementFormDefault="unqualified" attributeFormDefault="unqualified">
+    
+	<xs:include schemaLocation="BizChexTypes_v1.2.xsd" />
+
+	<!-- ************************ -->
+	<!-- COMPONENT REQUEST TYPES  -->
+	<!-- ************************ -->
+	<xs:complexType name="tBizChexRqst">
+		<xs:sequence>
+			<xs:element name="CustId" type="tCustId" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="ProdCde" type="tProdCde" minOccurs="1"
+				maxOccurs="1" />			
+			<xs:element name="TxnTyp" type="tTxnTyp" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="ChnlId" type="tChnlId" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="CustIdentfn" type="tCustIdentfn"
+				minOccurs="1" maxOccurs="1" />
+			<xs:element name="BizChexInqry" type="tBizChexInqry"
+				minOccurs="1" maxOccurs="1" />
+		</xs:sequence>
+		<xs:attribute name="service" use="required" fixed="BizChexSvc" />
+		<xs:attribute name="version" type="tVersion" use="required" />
+	</xs:complexType>
+
+	<xs:complexType name="tAddIDVOverrideRqst">
+		<xs:sequence>
+			<xs:element name="CustId" type="tCustId" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="ProdCde" type="tProdCde" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="ChnlId" type="tChnlId" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="TxnTyp" type="tTxnTyp" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="AddIDVOverrideRqst" type="tAddRqst"
+				minOccurs="1" maxOccurs="1" />
+		</xs:sequence>
+		<xs:attribute name="service" use="required" fixed="BizChexSvc" />
+		<xs:attribute name="version" type="tVersion" use="required" />
+	</xs:complexType>
+
+	<xs:complexType name="tAddOFACOverrideRqst">
+		<xs:sequence>			
+			<xs:element name="CustId" type="tCustId" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="ProdCde" type="tProdCde" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="ChnlId" type="tChnlId" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="TxnTyp" type="tTxnTyp" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="AddOFACOverrideRqst" type="tAddRqst"
+				minOccurs="1" maxOccurs="1" />
+		</xs:sequence>
+		<xs:attribute name="service" use="required" fixed="BizChexSvc" />
+		<xs:attribute name="version" type="tVersion" use="required" />
+	</xs:complexType>
+
+	<xs:complexType name="tAddActionsRqst">
+		<xs:sequence>			
+			<xs:element name="CustId" type="tCustId" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="ProdCde" type="tProdCde" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="ChnlId" type="tChnlId" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="TxnTyp" type="tTxnTyp" minOccurs="1"
+				maxOccurs="1" />
+			<xs:element name="AddActionsRqst" type="tAddRqst"
+				minOccurs="1" maxOccurs="1" />
+		</xs:sequence>
+		<xs:attribute name="service" use="required" fixed="BizChexSvc" />
+		<xs:attribute name="version" type="tVersion" use="required" />
+	</xs:complexType>
+
+</xs:schema>
