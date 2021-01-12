@@ -7,16 +7,18 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("")> 
-<Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("")> 
-<Assembly: AssemblyCopyright("")> 
-<Assembly: AssemblyTrademark("")> 
-<Assembly: CLSCompliant(False)> 
+<Assembly: AssemblyTitle("")>
+<Assembly: AssemblyDescription("")>
+<Assembly: AssemblyCompany("")>
+<Assembly: AssemblyProduct("")>
+<Assembly: AssemblyCopyright("")>
+<Assembly: AssemblyTrademark("")>
+<Assembly: CLSCompliant(False)>
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
-<Assembly: Guid("519C009D-5B54-461F-A287-98177BC0AE97")> 
+<Assembly: Guid("519C009D-5B54-461F-A287-98177BC0AE97")>
+<Assembly: AssemblyVersion("1.0.0.0")>
+
 
 ' Version information for an assembly consists of the following four values:
 '
