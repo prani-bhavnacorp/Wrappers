@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.Marine" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.Marine" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://www.jdpowerwebservices.com/UsedMarineService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" />
+  <xs:import schemaLocation="https://www.jdpowerwebservices.com/UsedMarineService.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="MarineYearsReturnTO">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="Make" nillable="true" type="q1:MakeReturnTO" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="VersionTO" nillable="true" type="q2:VersionTO" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="Years" nillable="true" type="q3:ArrayOfYearReturnTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MarineYearsReturnTO" nillable="true" type="tns:MarineYearsReturnTO" />
+  <xs:complexType name="MarineUsedModelTrimListReturnTO">
+    <xs:sequence>
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="Make" nillable="true" type="q4:MakeReturnTO" />
+      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="MakeNotes" nillable="true" type="q5:ArrayOfstring" />
+      <xs:element minOccurs="0" name="ModelTrims" nillable="true" type="tns:ArrayOfMarineModelTrimTO" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="VersionTO" nillable="true" type="q6:VersionTO" />
+      <xs:element minOccurs="0" name="Year" type="xs:int" />
+      <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="YearNotes" nillable="true" type="q7:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MarineUsedModelTrimListReturnTO" nillable="true" type="tns:MarineUsedModelTrimListReturnTO" />
+  <xs:complexType name="ArrayOfMarineModelTrimTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MarineModelTrimTO" nillable="true" type="tns:MarineModelTrimTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMarineModelTrimTO" nillable="true" type="tns:ArrayOfMarineModelTrimTO" />
+  <xs:complexType name="MarineModelTrimTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BeamInches" type="xs:int" />
+      <xs:element minOccurs="0" name="CategoryID" type="xs:int" />
+      <xs:element minOccurs="0" name="CategoryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HP" type="xs:double" />
+      <xs:element minOccurs="0" name="HullMaterial" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LengthInches" type="xs:int" />
+      <xs:element minOccurs="0" name="Marines_Axels" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Marines_Brakes" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Marines_FuelType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Marines_ModelType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Marines_ModelTypeID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModelTrimID" type="xs:int" />
+      <xs:element minOccurs="0" name="ModelTrimName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModelTrimNote" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumEngines" type="xs:int" />
+      <xs:element minOccurs="0" name="Series" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Weights" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MarineModelTrimTO" nillable="true" type="tns:MarineModelTrimTO" />
+  <xs:complexType name="MarineUsedOptionListReturnTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Engines" nillable="true" type="tns:ArrayOfMarineEngineReturnTO" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="Make" nillable="true" type="q8:MakeReturnTO" />
+      <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="MakeNotes" nillable="true" type="q9:ArrayOfstring" />
+      <xs:element minOccurs="0" name="ModelTrim" nillable="true" type="tns:MarineModelTrimTO" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="Options" nillable="true" type="q10:ArrayOfOptionReturnTO" />
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="VersionTO" nillable="true" type="q11:VersionTO" />
+      <xs:element minOccurs="0" name="Year" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MarineUsedOptionListReturnTO" nillable="true" type="tns:MarineUsedOptionListReturnTO" />
+  <xs:complexType name="ArrayOfMarineEngineReturnTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MarineEngineReturnTO" nillable="true" type="tns:MarineEngineReturnTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMarineEngineReturnTO" nillable="true" type="tns:ArrayOfMarineEngineReturnTO" />
+  <xs:complexType name="MarineEngineReturnTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DefaultEngine" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EngineId" type="xs:int" />
+      <xs:element minOccurs="0" name="EngineName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EngineNote" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EnginePriceAdjustment" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MarineEngineReturnTO" nillable="true" type="tns:MarineEngineReturnTO" />
+  <xs:complexType name="MarineAddOptionsReturnTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Engines" nillable="true" type="tns:ArrayOfMarineEngineReturnTO" />
+      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="Make" nillable="true" type="q12:MakeReturnTO" />
+      <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="MakeNotes" nillable="true" type="q13:ArrayOfstring" />
+      <xs:element minOccurs="0" name="ModelTrim" nillable="true" type="tns:MarineModelTrimTO" />
+      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="Options" nillable="true" type="q14:ArrayOfOptionAddReturnTO" />
+      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="VersionTO" nillable="true" type="q15:VersionTO" />
+      <xs:element minOccurs="0" name="Year" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MarineAddOptionsReturnTO" nillable="true" type="tns:MarineAddOptionsReturnTO" />
+  <xs:complexType name="MarineUsedConsumerModelTrimReturnTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:MarineModelTrimReturnTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BasePrices" nillable="true" type="tns:MarineUsedConsumerPriceTO" />
+          <xs:element minOccurs="0" name="SelectedOptions" nillable="true" type="tns:ArrayOfMarineUsedConsumerOptionReturnTO" />
+          <xs:element minOccurs="0" name="TotalPrices" nillable="true" type="tns:MarineUsedConsumerPriceTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MarineUsedConsumerModelTrimReturnTO" nillable="true" type="tns:MarineUsedConsumerModelTrimReturnTO" />
+  <xs:complexType name="MarineModelTrimReturnTO">
+    <xs:sequence>
+      <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="Category" nillable="true" type="q16:CategoryReturnTO" />
+      <xs:element minOccurs="0" name="EnginePriceAdjustment" type="xs:int" />
+      <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="Make" nillable="true" type="q17:MakeReturnTO" />
+      <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="MakeNotes" nillable="true" type="q18:ArrayOfstring" />
+      <xs:element minOccurs="0" name="ModelTrim" nillable="true" type="tns:MarineModelTrimTO" />
+      <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="PriceTypes" nillable="true" type="q19:ArrayOfPriceTypeReturnTO" />
+      <xs:element minOccurs="0" name="ReportedEngine" nillable="true" type="tns:MarineEngineReturnTO" />
+      <xs:element minOccurs="0" name="Specs" nillable="true" type="tns:MarineModelTrimSpecTO" />
+      <xs:element minOccurs="0" name="SuggestedList" type="xs:int" />
+      <xs:element minOccurs="0" name="VersionID" type="xs:int" />
+      <xs:element minOccurs="0" name="VersionName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Year" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MarineModelTrimReturnTO" nillable="true" type="tns:MarineModelTrimReturnTO" />
+  <xs:complexType name="MarineModelTrimSpecTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Beam" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Engine" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HullMaterial" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Weight" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MarineModelTrimSpecTO" nillable="true" type="tns:MarineModelTrimSpecTO" />
+  <xs:complexType name="MarineUsedConsumerPriceTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AverageRetail" type="xs:int" />
+      <xs:element minOccurs="0" name="LowRetail" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MarineUsedConsumerPriceTO" nillable="true" type="tns:MarineUsedConsumerPriceTO" />
+  <xs:complexType name="ArrayOfMarineUsedConsumerOptionReturnTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MarineUsedConsumerOptionReturnTO" nillable="true" type="tns:MarineUsedConsumerOptionReturnTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMarineUsedConsumerOptionReturnTO" nillable="true" type="tns:ArrayOfMarineUsedConsumerOptionReturnTO" />
+  <xs:complexType name="MarineUsedConsumerOptionReturnTO">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q20="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" base="q20:OptionReturnTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Prices" nillable="true" type="tns:MarineUsedConsumerPriceTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MarineUsedConsumerOptionReturnTO" nillable="true" type="tns:MarineUsedConsumerOptionReturnTO" />
+  <xs:complexType name="MarineUsedTradeModelTrimReturnTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:MarineModelTrimReturnTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BasePrices" nillable="true" type="tns:MarineUsedTradePriceTO" />
+          <xs:element minOccurs="0" name="SelectedOptions" nillable="true" type="tns:ArrayOfMarineUsedTradeOptionReturnTO" />
+          <xs:element minOccurs="0" name="TotalPrices" nillable="true" type="tns:MarineUsedTradePriceTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MarineUsedTradeModelTrimReturnTO" nillable="true" type="tns:MarineUsedTradeModelTrimReturnTO" />
+  <xs:complexType name="MarineUsedTradePriceTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AverageRetail" type="xs:int" />
+      <xs:element minOccurs="0" name="HighRetail" type="xs:int" />
+      <xs:element minOccurs="0" name="TradeIn" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MarineUsedTradePriceTO" nillable="true" type="tns:MarineUsedTradePriceTO" />
+  <xs:complexType name="ArrayOfMarineUsedTradeOptionReturnTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MarineUsedTradeOptionReturnTO" nillable="true" type="tns:MarineUsedTradeOptionReturnTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMarineUsedTradeOptionReturnTO" nillable="true" type="tns:ArrayOfMarineUsedTradeOptionReturnTO" />
+  <xs:complexType name="MarineUsedTradeOptionReturnTO">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q21="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" base="q21:OptionReturnTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Prices" nillable="true" type="tns:MarineUsedTradePriceTO" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MarineUsedTradeOptionReturnTO" nillable="true" type="tns:MarineUsedTradeOptionReturnTO" />
+  <xs:complexType name="ArrayOfMarineMicReturnTo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MarineMicReturnTo" nillable="true" type="tns:MarineMicReturnTo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMarineMicReturnTo" nillable="true" type="tns:ArrayOfMarineMicReturnTo" />
+  <xs:complexType name="MarineMicReturnTo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MakeId" type="xs:int" />
+      <xs:element minOccurs="0" name="MicCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MarineMicReturnTo" nillable="true" type="tns:MarineMicReturnTo" />
+</xs:schema>

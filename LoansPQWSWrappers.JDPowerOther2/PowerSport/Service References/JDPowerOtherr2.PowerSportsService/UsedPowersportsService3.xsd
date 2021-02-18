@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.Powersports" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.Powersports" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://www.jdpowerwebservices.com/UsedPowersportsService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" />
+  <xs:import schemaLocation="https://www.jdpowerwebservices.com/UsedPowersportsService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="https://www.jdpowerwebservices.com/UsedPowersportsService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.Marine" />
+  <xs:import schemaLocation="https://www.jdpowerwebservices.com/UsedPowersportsService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/NADA.TransferObjects.Powersports" />
+  <xs:complexType name="PowersportsOptionConsumerValue">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PowersportsOptionPrice">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AverageRetail" type="xs:int" />
+          <xs:element minOccurs="0" name="LowRetail" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PowersportsOptionConsumerValue" nillable="true" type="tns:PowersportsOptionConsumerValue" />
+  <xs:complexType name="PowersportsOptionPrice">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PowersportsPrice">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PowersportsOptionPrice" nillable="true" type="tns:PowersportsOptionPrice" />
+  <xs:complexType name="PowersportsPrice">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="PowersportsPrice" nillable="true" type="tns:PowersportsPrice" />
+  <xs:complexType name="PowersportsConsumerValues">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PowersportsPrice">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AverageRetail" type="xs:int" />
+          <xs:element minOccurs="0" name="LowRetail" type="xs:int" />
+          <xs:element minOccurs="0" name="SuggestedListPrice" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PowersportsConsumerValues" nillable="true" type="tns:PowersportsConsumerValues" />
+  <xs:complexType name="PersonalWatercraftTradeValues">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PowersportsPrice">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AverageRetail" type="xs:int" />
+          <xs:element minOccurs="0" name="HighRetail" type="xs:int" />
+          <xs:element minOccurs="0" name="SuggestedListPrice" type="xs:int" />
+          <xs:element minOccurs="0" name="UsedTradeIn" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PersonalWatercraftTradeValues" nillable="true" type="tns:PersonalWatercraftTradeValues" />
+  <xs:complexType name="MotorcycleSnowTradeValues">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PowersportsPrice">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AverageRetail" type="xs:int" />
+          <xs:element minOccurs="0" name="CleanTradeInWholesale" type="xs:int" />
+          <xs:element minOccurs="0" name="RoughTradeInWholesale" type="xs:int" />
+          <xs:element minOccurs="0" name="SuggestedListPrice" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MotorcycleSnowTradeValues" nillable="true" type="tns:MotorcycleSnowTradeValues" />
+  <xs:complexType name="SideCarTrailerTradeValues">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PowersportsPrice">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AverageRetail" type="xs:int" />
+          <xs:element minOccurs="0" name="AverageWholesale" type="xs:int" />
+          <xs:element minOccurs="0" name="SuggestedListPrice" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SideCarTrailerTradeValues" nillable="true" type="tns:SideCarTrailerTradeValues" />
+  <xs:complexType name="VintageValues">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PowersportsPrice">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Excellent" type="xs:int" />
+          <xs:element minOccurs="0" name="VeryGood" type="xs:int" />
+          <xs:element minOccurs="0" name="Good" type="xs:int" />
+          <xs:element minOccurs="0" name="Fair" type="xs:int" />
+          <xs:element minOccurs="0" name="Poor" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="VintageValues" nillable="true" type="tns:VintageValues" />
+  <xs:complexType name="PowersportsOptionTradeValue">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PowersportsOptionPrice">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AverageRetail" type="xs:int" />
+          <xs:element minOccurs="0" name="CleanTrade" type="xs:int" />
+          <xs:element minOccurs="0" name="RoughTrade" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PowersportsOptionTradeValue" nillable="true" type="tns:PowersportsOptionTradeValue" />
+  <xs:complexType name="PWCOptionTradeValue">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PowersportsOptionPrice">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AverageRetail" type="xs:int" />
+          <xs:element minOccurs="0" name="HighRetail" type="xs:int" />
+          <xs:element minOccurs="0" name="UsedTradeIn" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PWCOptionTradeValue" nillable="true" type="tns:PWCOptionTradeValue" />
+  <xs:complexType name="NewOptionValue">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PowersportsOptionPrice">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Price" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="NewOptionValue" nillable="true" type="tns:NewOptionValue" />
+  <xs:complexType name="PowersportsModelTrimSpecs">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Specs">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CC" type="xs:int" />
+          <xs:element minOccurs="0" name="Cylinders" type="xs:int" />
+          <xs:element minOccurs="0" name="Stroke" type="xs:int" />
+          <xs:element minOccurs="0" name="Transmission" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Weight" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PowersportsModelTrimSpecs" nillable="true" type="tns:PowersportsModelTrimSpecs" />
+  <xs:complexType name="Specs">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="Specs" nillable="true" type="tns:Specs" />
+  <xs:complexType name="PWCModelTrimSpecs">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Specs">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BeamInches" type="xs:int" />
+          <xs:element minOccurs="0" name="DisplacementCC" type="xs:int" />
+          <xs:element minOccurs="0" name="HorsePower" type="xs:double" />
+          <xs:element minOccurs="0" name="HullMaterial" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NetWeight" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+          <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PWCModelTrimSpecs" nillable="true" type="tns:PWCModelTrimSpecs" />
+  <xs:complexType name="TrailerModelTrimSpecs">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Specs">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DryWeightLbs" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="TrailerModelTrimSpecs" nillable="true" type="tns:TrailerModelTrimSpecs" />
+  <xs:complexType name="ArrayOfUsedPowersportsMake">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UsedPowersportsMake" nillable="true" type="tns:UsedPowersportsMake" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUsedPowersportsMake" nillable="true" type="tns:ArrayOfUsedPowersportsMake" />
+  <xs:complexType name="UsedPowersportsMake">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="ErrorReturnTO" nillable="true" type="q1:ErrorReturnTO" />
+      <xs:element minOccurs="0" name="MakeDisplayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MakeIDCategories" nillable="true" type="tns:ArrayOfIDCategoryList" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="VersionTO" nillable="true" type="q2:VersionTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UsedPowersportsMake" nillable="true" type="tns:UsedPowersportsMake" />
+  <xs:complexType name="ArrayOfIDCategoryList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IDCategoryList" nillable="true" type="tns:IDCategoryList" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIDCategoryList" nillable="true" type="tns:ArrayOfIDCategoryList" />
+  <xs:complexType name="IDCategoryList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MakeID" type="xs:int" />
+      <xs:element minOccurs="0" name="CategoryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CategoryID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IDCategoryList" nillable="true" type="tns:IDCategoryList" />
+  <xs:complexType name="PowersportsModelYearReturn">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="Make" nillable="true" type="q3:MakeReturnTO" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="VersionTO" nillable="true" type="q4:VersionTO" />
+      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Years" nillable="true" type="q5:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PowersportsModelYearReturn" nillable="true" type="tns:PowersportsModelYearReturn" />
+  <xs:complexType name="PowerSportsYearReturnTO">
+    <xs:sequence>
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="Category" nillable="true" type="q6:CategoryReturnTO" />
+      <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Years" nillable="true" type="q7:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PowerSportsYearReturnTO" nillable="true" type="tns:PowerSportsYearReturnTO" />
+  <xs:complexType name="ModelTypeReturnTO">
+    <xs:sequence>
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="VersionTO" nillable="true" type="q8:VersionTO" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="MakeTO" nillable="true" type="q9:MakeReturnTO" />
+      <xs:element minOccurs="0" name="ModelTypeList" nillable="true" type="tns:ArrayOfModelTypeTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ModelTypeReturnTO" nillable="true" type="tns:ModelTypeReturnTO" />
+  <xs:complexType name="ArrayOfModelTypeTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ModelTypeTO" nillable="true" type="tns:ModelTypeTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfModelTypeTO" nillable="true" type="tns:ArrayOfModelTypeTO" />
+  <xs:complexType name="ModelTypeTO">
+    <xs:sequence>
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="CategoryTO" nillable="true" type="q10:CategoryReturnTO" />
+      <xs:element minOccurs="0" name="ModelTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="ModelTypeName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ModelTypeTO" nillable="true" type="tns:ModelTypeTO" />
+  <xs:complexType name="PowersportsModelTrimsReturn">
+    <xs:sequence>
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="Make" nillable="true" type="q11:MakeReturnTO" />
+      <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="MakeNotes" nillable="true" type="q12:ArrayOfstring" />
+      <xs:element minOccurs="0" name="ModelTrims" nillable="true" type="tns:ArrayOfPowersportsModelTrim" />
+      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="VersionTO" nillable="true" type="q13:VersionTO" />
+      <xs:element minOccurs="0" name="Year" type="xs:int" />
+      <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="YearNotes" nillable="true" type="q14:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PowersportsModelTrimsReturn" nillable="true" type="tns:PowersportsModelTrimsReturn" />
+  <xs:complexType name="ArrayOfPowersportsModelTrim">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PowersportsModelTrim" nillable="true" type="tns:PowersportsModelTrim" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPowersportsModelTrim" nillable="true" type="tns:ArrayOfPowersportsModelTrim" />
+  <xs:complexType name="PowersportsModelTrim">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ModelName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModelID" type="xs:int" />
+      <xs:element minOccurs="0" name="CategoryID" type="xs:int" />
+      <xs:element minOccurs="0" name="CategoryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModelTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="ModelType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PowersportsModelTrim" nillable="true" type="tns:PowersportsModelTrim" />
+  <xs:complexType name="PSModelWithWarranty">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Make" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MakeID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Year" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Model" nillable="true" type="tns:PowersportsModelTrimSpec" />
+      <xs:element minOccurs="0" name="Warranty" nillable="true" type="xs:string" />
+      <xs:element xmlns:q15="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="MakeNotes" nillable="true" type="q15:ArrayOfstring" />
+      <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="YearNotes" nillable="true" type="q16:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PSModelWithWarranty" nillable="true" type="tns:PSModelWithWarranty" />
+  <xs:complexType name="PowersportsModelTrimSpec">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ModelName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModelID" type="xs:int" />
+      <xs:element minOccurs="0" name="CategoryID" type="xs:int" />
+      <xs:element minOccurs="0" name="CategoryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModelTypeID" type="xs:int" />
+      <xs:element minOccurs="0" name="ModelType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Transmission" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Weight" type="xs:int" />
+      <xs:element minOccurs="0" name="LengthInches" type="xs:int" />
+      <xs:element minOccurs="0" name="EngCC" type="xs:int" />
+      <xs:element minOccurs="0" name="Stroke" type="xs:int" />
+      <xs:element minOccurs="0" name="Cylinders" type="xs:int" />
+      <xs:element minOccurs="0" name="Series" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HullCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HullMaterial" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FuelTypeCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FuelType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BeamInches" type="xs:int" />
+      <xs:element minOccurs="0" name="HP" type="xs:int" />
+      <xs:element minOccurs="0" name="NoOfEngines" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PowersportsModelTrimSpec" nillable="true" type="tns:PowersportsModelTrimSpec" />
+  <xs:complexType name="ModelTrimSpecReturnTO">
+    <xs:sequence>
+      <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="Make" nillable="true" type="q17:MakeReturnTO" />
+      <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="MakeNotes" nillable="true" type="q18:ArrayOfstring" />
+      <xs:element minOccurs="0" name="ModelTrims" nillable="true" type="tns:ArrayOfPowersportsModelTrimSpec" />
+      <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="VersionTO" nillable="true" type="q19:VersionTO" />
+      <xs:element minOccurs="0" name="Year" type="xs:int" />
+      <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="YearNotes" nillable="true" type="q20:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ModelTrimSpecReturnTO" nillable="true" type="tns:ModelTrimSpecReturnTO" />
+  <xs:complexType name="ArrayOfPowersportsModelTrimSpec">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PowersportsModelTrimSpec" nillable="true" type="tns:PowersportsModelTrimSpec" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPowersportsModelTrimSpec" nillable="true" type="tns:ArrayOfPowersportsModelTrimSpec" />
+  <xs:complexType name="PowersportsOptionsReturn">
+    <xs:sequence>
+      <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.Marine" minOccurs="0" name="Engines" nillable="true" type="q21:ArrayOfMarineEngineReturnTO" />
+      <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="Options" nillable="true" type="q22:ArrayOfOptionReturnTO" />
+      <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="VersionTO" nillable="true" type="q23:VersionTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PowersportsOptionsReturn" nillable="true" type="tns:PowersportsOptionsReturn" />
+  <xs:complexType name="PSComprehensiveOptions">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ModelTirmID" type="xs:int" />
+      <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/NADA.TransferObjects.Powersports" minOccurs="0" name="PSCrsOptions" nillable="true" type="q24:ArrayOfNewPowersportOptionTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PSComprehensiveOptions" nillable="true" type="tns:PSComprehensiveOptions" />
+  <xs:complexType name="PowersportsModelTrimValueReturn">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Make" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Model" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModelID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModelType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Year" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CategoryID" type="xs:int" />
+      <xs:element minOccurs="0" name="VersionID" type="xs:int" />
+      <xs:element minOccurs="0" name="VersionName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BasePrices" nillable="true" type="tns:PowersportsPrice" />
+      <xs:element minOccurs="0" name="TotalPrices" nillable="true" type="tns:PowersportsPrice" />
+      <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="PriceTypeDefinitions" nillable="true" type="q25:ArrayOfstring" />
+      <xs:element minOccurs="0" name="SelectedOptions" nillable="true" type="tns:ArrayOfPowersportsOption" />
+      <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.Marine" minOccurs="0" name="ReportedEngine" nillable="true" type="q26:MarineEngineReturnTO" />
+      <xs:element minOccurs="0" name="EnginePriceAdjustment" type="xs:int" />
+      <xs:element minOccurs="0" name="Specs" nillable="true" type="tns:Specs" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PowersportsModelTrimValueReturn" nillable="true" type="tns:PowersportsModelTrimValueReturn" />
+  <xs:complexType name="ArrayOfPowersportsOption">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PowersportsOption" nillable="true" type="tns:PowersportsOption" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPowersportsOption" nillable="true" type="tns:ArrayOfPowersportsOption" />
+  <xs:complexType name="PowersportsOption">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q27="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" base="q27:OptionReturnTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Values" nillable="true" type="tns:PowersportsOptionPrice" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PowersportsOption" nillable="true" type="tns:PowersportsOption" />
+  <xs:complexType name="PowersportsEquipmentReturn">
+    <xs:sequence>
+      <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="Equipment" nillable="true" type="q28:ArrayOfEquipmentGroup" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PowersportsEquipmentReturn" nillable="true" type="tns:PowersportsEquipmentReturn" />
+  <xs:complexType name="PowersportsVINReturn">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Status" type="tns:VinStatusEnum" />
+      <xs:element minOccurs="0" name="Models" nillable="true" type="tns:ArrayOfPowersportsVINModelReturn" />
+      <xs:element minOccurs="0" name="VintageModels" nillable="true" type="tns:ArrayOfPowersportsVINVintageModelReturn" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PowersportsVINReturn" nillable="true" type="tns:PowersportsVINReturn" />
+  <xs:simpleType name="VinStatusEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ExactMatch" />
+      <xs:enumeration value="InvalidVINLength" />
+      <xs:enumeration value="NoRecordsFound" />
+      <xs:enumeration value="VIN1to3_10Incorrect" />
+      <xs:enumeration value="VIN4to8Incorrect" />
+      <xs:enumeration value="VIN1to3Incorrect" />
+      <xs:enumeration value="VIN10Incorrect" />
+      <xs:enumeration value="VIN12to14Incorrect" />
+      <xs:enumeration value="ExactMatchButNoMapping" />
+      <xs:enumeration value="UndefinedError" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="VinStatusEnum" nillable="true" type="tns:VinStatusEnum" />
+  <xs:complexType name="ArrayOfPowersportsVINModelReturn">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PowersportsVINModelReturn" nillable="true" type="tns:PowersportsVINModelReturn" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPowersportsVINModelReturn" nillable="true" type="tns:ArrayOfPowersportsVINModelReturn" />
+  <xs:complexType name="PowersportsVINModelReturn">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Make" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MakeID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Year" type="xs:int" />
+      <xs:element minOccurs="0" name="Model" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModelID" type="xs:int" />
+      <xs:element minOccurs="0" name="ModelType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModelNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MSRP" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LowRetail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AverageRetail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LowTrade" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HighTrade" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AverageWholesale" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Transmission" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Weight" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EngineCC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Stroke" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Cylinders" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PowersportsVINModelReturn" nillable="true" type="tns:PowersportsVINModelReturn" />
+  <xs:complexType name="ArrayOfPowersportsVINVintageModelReturn">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PowersportsVINVintageModelReturn" nillable="true" type="tns:PowersportsVINVintageModelReturn" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPowersportsVINVintageModelReturn" nillable="true" type="tns:ArrayOfPowersportsVINVintageModelReturn" />
+  <xs:complexType name="PowersportsVINVintageModelReturn">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Make" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MakeID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Year" type="xs:int" />
+      <xs:element minOccurs="0" name="Model" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModelID" type="xs:int" />
+      <xs:element minOccurs="0" name="ModelNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MSRP" type="xs:int" />
+      <xs:element minOccurs="0" name="Values" nillable="true" type="tns:VintageValues" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PowersportsVINVintageModelReturn" nillable="true" type="tns:PowersportsVINVintageModelReturn" />
+</xs:schema>
