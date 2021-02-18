@@ -14,7 +14,7 @@ Option Explicit On
 Imports System
 Imports System.Runtime.Serialization
 
-Namespace JDPowerOtherr2.PowerSportsService
+Namespace JDPowerOther2.PowerSportsService
     
     <System.Diagnostics.DebuggerStepThroughAttribute(),  _
      System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0"),  _
@@ -29,16 +29,16 @@ Namespace JDPowerOtherr2.PowerSportsService
         Private extensionDataField As System.Runtime.Serialization.ExtensionDataObject
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private ErrorReturnTOField As JDPowerOtherr2.PowerSportsService.ErrorReturnTO
+        Private ErrorReturnTOField As JDPowerOther2.PowerSportsService.ErrorReturnTO
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
         Private MakeDisplayNameField As String
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private MakeIDCategoriesField() As JDPowerOtherr2.PowerSportsService.IDCategoryList
+        Private MakeIDCategoriesField() As JDPowerOther2.PowerSportsService.IDCategoryList
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private VersionTOField As JDPowerOtherr2.PowerSportsService.VersionTO
+        Private VersionTOField As JDPowerOther2.PowerSportsService.VersionTO
         
         <Global.System.ComponentModel.BrowsableAttribute(false)>  _
         Public Property ExtensionData() As System.Runtime.Serialization.ExtensionDataObject Implements System.Runtime.Serialization.IExtensibleDataObject.ExtensionData
@@ -51,7 +51,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property ErrorReturnTO() As JDPowerOtherr2.PowerSportsService.ErrorReturnTO
+        Public Property ErrorReturnTO() As JDPowerOther2.PowerSportsService.ErrorReturnTO
             Get
                 Return Me.ErrorReturnTOField
             End Get
@@ -77,7 +77,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property MakeIDCategories() As JDPowerOtherr2.PowerSportsService.IDCategoryList()
+        Public Property MakeIDCategories() As JDPowerOther2.PowerSportsService.IDCategoryList()
             Get
                 Return Me.MakeIDCategoriesField
             End Get
@@ -90,7 +90,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property VersionTO() As JDPowerOtherr2.PowerSportsService.VersionTO
+        Public Property VersionTO() As JDPowerOther2.PowerSportsService.VersionTO
             Get
                 Return Me.VersionTOField
             End Get
@@ -473,10 +473,10 @@ Namespace JDPowerOtherr2.PowerSportsService
         Private extensionDataField As System.Runtime.Serialization.ExtensionDataObject
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private MakeField As JDPowerOtherr2.PowerSportsService.MakeReturnTO
+        Private MakeField As JDPowerOther2.PowerSportsService.MakeReturnTO
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private VersionTOField As JDPowerOtherr2.PowerSportsService.VersionTO
+        Private VersionTOField As JDPowerOther2.PowerSportsService.VersionTO
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
         Private YearsField() As String
@@ -492,7 +492,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property Make() As JDPowerOtherr2.PowerSportsService.MakeReturnTO
+        Public Property Make() As JDPowerOther2.PowerSportsService.MakeReturnTO
             Get
                 Return Me.MakeField
             End Get
@@ -505,7 +505,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property VersionTO() As JDPowerOtherr2.PowerSportsService.VersionTO
+        Public Property VersionTO() As JDPowerOther2.PowerSportsService.VersionTO
             Get
                 Return Me.VersionTOField
             End Get
@@ -616,7 +616,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         Private extensionDataField As System.Runtime.Serialization.ExtensionDataObject
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private CategoryField As JDPowerOtherr2.PowerSportsService.CategoryReturnTO
+        Private CategoryField As JDPowerOther2.PowerSportsService.CategoryReturnTO
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
         Private YearsField() As String
@@ -632,7 +632,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property Category() As JDPowerOtherr2.PowerSportsService.CategoryReturnTO
+        Public Property Category() As JDPowerOther2.PowerSportsService.CategoryReturnTO
             Get
                 Return Me.CategoryField
             End Get
@@ -680,13 +680,13 @@ Namespace JDPowerOtherr2.PowerSportsService
         Private extensionDataField As System.Runtime.Serialization.ExtensionDataObject
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private VersionTOField As JDPowerOtherr2.PowerSportsService.VersionTO
+        Private VersionTOField As JDPowerOther2.PowerSportsService.VersionTO
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private MakeTOField As JDPowerOtherr2.PowerSportsService.MakeReturnTO
+        Private MakeTOField As JDPowerOther2.PowerSportsService.MakeReturnTO
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private ModelTypeListField() As JDPowerOtherr2.PowerSportsService.ModelTypeTO
+        Private ModelTypeListField() As JDPowerOther2.PowerSportsService.ModelTypeTO
         
         <Global.System.ComponentModel.BrowsableAttribute(false)>  _
         Public Property ExtensionData() As System.Runtime.Serialization.ExtensionDataObject Implements System.Runtime.Serialization.IExtensibleDataObject.ExtensionData
@@ -699,7 +699,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property VersionTO() As JDPowerOtherr2.PowerSportsService.VersionTO
+        Public Property VersionTO() As JDPowerOther2.PowerSportsService.VersionTO
             Get
                 Return Me.VersionTOField
             End Get
@@ -712,7 +712,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute(Order:=1)>  _
-        Public Property MakeTO() As JDPowerOtherr2.PowerSportsService.MakeReturnTO
+        Public Property MakeTO() As JDPowerOther2.PowerSportsService.MakeReturnTO
             Get
                 Return Me.MakeTOField
             End Get
@@ -725,7 +725,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute(Order:=2)>  _
-        Public Property ModelTypeList() As JDPowerOtherr2.PowerSportsService.ModelTypeTO()
+        Public Property ModelTypeList() As JDPowerOther2.PowerSportsService.ModelTypeTO()
             Get
                 Return Me.ModelTypeListField
             End Get
@@ -760,7 +760,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         Private extensionDataField As System.Runtime.Serialization.ExtensionDataObject
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private CategoryTOField As JDPowerOtherr2.PowerSportsService.CategoryReturnTO
+        Private CategoryTOField As JDPowerOther2.PowerSportsService.CategoryReturnTO
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
         Private ModelTypeIDField As Integer
@@ -779,7 +779,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property CategoryTO() As JDPowerOtherr2.PowerSportsService.CategoryReturnTO
+        Public Property CategoryTO() As JDPowerOther2.PowerSportsService.CategoryReturnTO
             Get
                 Return Me.CategoryTOField
             End Get
@@ -840,16 +840,16 @@ Namespace JDPowerOtherr2.PowerSportsService
         Private extensionDataField As System.Runtime.Serialization.ExtensionDataObject
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private MakeField As JDPowerOtherr2.PowerSportsService.MakeReturnTO
+        Private MakeField As JDPowerOther2.PowerSportsService.MakeReturnTO
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
         Private MakeNotesField() As String
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private ModelTrimsField() As JDPowerOtherr2.PowerSportsService.PowersportsModelTrim
+        Private ModelTrimsField() As JDPowerOther2.PowerSportsService.PowersportsModelTrim
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private VersionTOField As JDPowerOtherr2.PowerSportsService.VersionTO
+        Private VersionTOField As JDPowerOther2.PowerSportsService.VersionTO
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
         Private YearField As Integer
@@ -868,7 +868,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property Make() As JDPowerOtherr2.PowerSportsService.MakeReturnTO
+        Public Property Make() As JDPowerOther2.PowerSportsService.MakeReturnTO
             Get
                 Return Me.MakeField
             End Get
@@ -894,7 +894,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property ModelTrims() As JDPowerOtherr2.PowerSportsService.PowersportsModelTrim()
+        Public Property ModelTrims() As JDPowerOther2.PowerSportsService.PowersportsModelTrim()
             Get
                 Return Me.ModelTrimsField
             End Get
@@ -907,7 +907,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property VersionTO() As JDPowerOtherr2.PowerSportsService.VersionTO
+        Public Property VersionTO() As JDPowerOther2.PowerSportsService.VersionTO
             Get
                 Return Me.VersionTOField
             End Get
@@ -1105,7 +1105,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         Private YearField As String
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private ModelField As JDPowerOtherr2.PowerSportsService.PowersportsModelTrimSpec
+        Private ModelField As JDPowerOther2.PowerSportsService.PowersportsModelTrimSpec
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
         Private WarrantyField As String
@@ -1166,7 +1166,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute(Order:=3)>  _
-        Public Property Model() As JDPowerOtherr2.PowerSportsService.PowersportsModelTrimSpec
+        Public Property Model() As JDPowerOther2.PowerSportsService.PowersportsModelTrimSpec
             Get
                 Return Me.ModelField
             End Get
@@ -1608,16 +1608,16 @@ Namespace JDPowerOtherr2.PowerSportsService
         Private extensionDataField As System.Runtime.Serialization.ExtensionDataObject
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private MakeField As JDPowerOtherr2.PowerSportsService.MakeReturnTO
+        Private MakeField As JDPowerOther2.PowerSportsService.MakeReturnTO
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
         Private MakeNotesField() As String
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private ModelTrimsField() As JDPowerOtherr2.PowerSportsService.PowersportsModelTrimSpec
+        Private ModelTrimsField() As JDPowerOther2.PowerSportsService.PowersportsModelTrimSpec
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private VersionTOField As JDPowerOtherr2.PowerSportsService.VersionTO
+        Private VersionTOField As JDPowerOther2.PowerSportsService.VersionTO
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
         Private YearField As Integer
@@ -1636,7 +1636,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property Make() As JDPowerOtherr2.PowerSportsService.MakeReturnTO
+        Public Property Make() As JDPowerOther2.PowerSportsService.MakeReturnTO
             Get
                 Return Me.MakeField
             End Get
@@ -1662,7 +1662,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property ModelTrims() As JDPowerOtherr2.PowerSportsService.PowersportsModelTrimSpec()
+        Public Property ModelTrims() As JDPowerOther2.PowerSportsService.PowersportsModelTrimSpec()
             Get
                 Return Me.ModelTrimsField
             End Get
@@ -1675,7 +1675,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property VersionTO() As JDPowerOtherr2.PowerSportsService.VersionTO
+        Public Property VersionTO() As JDPowerOther2.PowerSportsService.VersionTO
             Get
                 Return Me.VersionTOField
             End Get
@@ -1736,13 +1736,13 @@ Namespace JDPowerOtherr2.PowerSportsService
         Private extensionDataField As System.Runtime.Serialization.ExtensionDataObject
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private EnginesField() As JDPowerOtherr2.PowerSportsService.MarineEngineReturnTO
+        Private EnginesField() As JDPowerOther2.PowerSportsService.MarineEngineReturnTO
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private OptionsField() As JDPowerOtherr2.PowerSportsService.OptionReturnTO
+        Private OptionsField() As JDPowerOther2.PowerSportsService.OptionReturnTO
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private VersionTOField As JDPowerOtherr2.PowerSportsService.VersionTO
+        Private VersionTOField As JDPowerOther2.PowerSportsService.VersionTO
         
         <Global.System.ComponentModel.BrowsableAttribute(false)>  _
         Public Property ExtensionData() As System.Runtime.Serialization.ExtensionDataObject Implements System.Runtime.Serialization.IExtensibleDataObject.ExtensionData
@@ -1755,7 +1755,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property Engines() As JDPowerOtherr2.PowerSportsService.MarineEngineReturnTO()
+        Public Property Engines() As JDPowerOther2.PowerSportsService.MarineEngineReturnTO()
             Get
                 Return Me.EnginesField
             End Get
@@ -1768,7 +1768,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property Options() As JDPowerOtherr2.PowerSportsService.OptionReturnTO()
+        Public Property Options() As JDPowerOther2.PowerSportsService.OptionReturnTO()
             Get
                 Return Me.OptionsField
             End Get
@@ -1781,7 +1781,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property VersionTO() As JDPowerOtherr2.PowerSportsService.VersionTO
+        Public Property VersionTO() As JDPowerOther2.PowerSportsService.VersionTO
             Get
                 Return Me.VersionTOField
             End Get
@@ -1918,7 +1918,7 @@ Namespace JDPowerOtherr2.PowerSportsService
      System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0"),  _
      System.Runtime.Serialization.DataContractAttribute(Name:="OptionReturnTO", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects"),  _
      System.SerializableAttribute(),  _
-     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOtherr2.PowerSportsService.PowersportsOption))>  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOther2.PowerSportsService.PowersportsOption))>  _
     Partial Public Class OptionReturnTO
         Inherits Object
         Implements System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
@@ -2016,13 +2016,13 @@ Namespace JDPowerOtherr2.PowerSportsService
         "s"),  _
      System.SerializableAttribute()>  _
     Partial Public Class PowersportsOption
-        Inherits JDPowerOtherr2.PowerSportsService.OptionReturnTO
+        Inherits JDPowerOther2.PowerSportsService.OptionReturnTO
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private ValuesField As JDPowerOtherr2.PowerSportsService.PowersportsOptionPrice
+        Private ValuesField As JDPowerOther2.PowerSportsService.PowersportsOptionPrice
         
         <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property Values() As JDPowerOtherr2.PowerSportsService.PowersportsOptionPrice
+        Public Property Values() As JDPowerOther2.PowerSportsService.PowersportsOptionPrice
             Get
                 Return Me.ValuesField
             End Get
@@ -2040,12 +2040,12 @@ Namespace JDPowerOtherr2.PowerSportsService
      System.Runtime.Serialization.DataContractAttribute(Name:="PowersportsOptionPrice", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.Powersport"& _ 
         "s"),  _
      System.SerializableAttribute(),  _
-     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOtherr2.PowerSportsService.PowersportsOptionConsumerValue)),  _
-     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOtherr2.PowerSportsService.PowersportsOptionTradeValue)),  _
-     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOtherr2.PowerSportsService.PWCOptionTradeValue)),  _
-     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOtherr2.PowerSportsService.NewOptionValue))>  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOther2.PowerSportsService.PowersportsOptionConsumerValue)),  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOther2.PowerSportsService.PowersportsOptionTradeValue)),  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOther2.PowerSportsService.PWCOptionTradeValue)),  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOther2.PowerSportsService.NewOptionValue))>  _
     Partial Public Class PowersportsOptionPrice
-        Inherits JDPowerOtherr2.PowerSportsService.PowersportsPrice
+        Inherits JDPowerOther2.PowerSportsService.PowersportsPrice
     End Class
     
     <System.Diagnostics.DebuggerStepThroughAttribute(),  _
@@ -2053,16 +2053,16 @@ Namespace JDPowerOtherr2.PowerSportsService
      System.Runtime.Serialization.DataContractAttribute(Name:="PowersportsPrice", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.Powersport"& _ 
         "s"),  _
      System.SerializableAttribute(),  _
-     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOtherr2.PowerSportsService.PowersportsConsumerValues)),  _
-     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOtherr2.PowerSportsService.PersonalWatercraftTradeValues)),  _
-     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOtherr2.PowerSportsService.MotorcycleSnowTradeValues)),  _
-     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOtherr2.PowerSportsService.SideCarTrailerTradeValues)),  _
-     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOtherr2.PowerSportsService.VintageValues)),  _
-     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOtherr2.PowerSportsService.PowersportsOptionPrice)),  _
-     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOtherr2.PowerSportsService.PowersportsOptionConsumerValue)),  _
-     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOtherr2.PowerSportsService.PowersportsOptionTradeValue)),  _
-     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOtherr2.PowerSportsService.PWCOptionTradeValue)),  _
-     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOtherr2.PowerSportsService.NewOptionValue))>  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOther2.PowerSportsService.PowersportsConsumerValues)),  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOther2.PowerSportsService.PersonalWatercraftTradeValues)),  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOther2.PowerSportsService.MotorcycleSnowTradeValues)),  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOther2.PowerSportsService.SideCarTrailerTradeValues)),  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOther2.PowerSportsService.VintageValues)),  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOther2.PowerSportsService.PowersportsOptionPrice)),  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOther2.PowerSportsService.PowersportsOptionConsumerValue)),  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOther2.PowerSportsService.PowersportsOptionTradeValue)),  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOther2.PowerSportsService.PWCOptionTradeValue)),  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOther2.PowerSportsService.NewOptionValue))>  _
     Partial Public Class PowersportsPrice
         Inherits Object
         Implements System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
@@ -2096,7 +2096,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         "s"),  _
      System.SerializableAttribute()>  _
     Partial Public Class PowersportsConsumerValues
-        Inherits JDPowerOtherr2.PowerSportsService.PowersportsPrice
+        Inherits JDPowerOther2.PowerSportsService.PowersportsPrice
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
         Private AverageRetailField As Integer
@@ -2153,7 +2153,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         "s"),  _
      System.SerializableAttribute()>  _
     Partial Public Class PersonalWatercraftTradeValues
-        Inherits JDPowerOtherr2.PowerSportsService.PowersportsPrice
+        Inherits JDPowerOther2.PowerSportsService.PowersportsPrice
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
         Private AverageRetailField As Integer
@@ -2226,7 +2226,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         "s"),  _
      System.SerializableAttribute()>  _
     Partial Public Class MotorcycleSnowTradeValues
-        Inherits JDPowerOtherr2.PowerSportsService.PowersportsPrice
+        Inherits JDPowerOther2.PowerSportsService.PowersportsPrice
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
         Private AverageRetailField As Integer
@@ -2299,7 +2299,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         "s"),  _
      System.SerializableAttribute()>  _
     Partial Public Class SideCarTrailerTradeValues
-        Inherits JDPowerOtherr2.PowerSportsService.PowersportsPrice
+        Inherits JDPowerOther2.PowerSportsService.PowersportsPrice
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
         Private AverageRetailField As Integer
@@ -2356,7 +2356,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         "s"),  _
      System.SerializableAttribute()>  _
     Partial Public Class VintageValues
-        Inherits JDPowerOtherr2.PowerSportsService.PowersportsPrice
+        Inherits JDPowerOther2.PowerSportsService.PowersportsPrice
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
         Private ExcellentField As Integer
@@ -2445,7 +2445,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         "s"),  _
      System.SerializableAttribute()>  _
     Partial Public Class PowersportsOptionConsumerValue
-        Inherits JDPowerOtherr2.PowerSportsService.PowersportsOptionPrice
+        Inherits JDPowerOther2.PowerSportsService.PowersportsOptionPrice
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
         Private AverageRetailField As Integer
@@ -2486,7 +2486,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         "s"),  _
      System.SerializableAttribute()>  _
     Partial Public Class PowersportsOptionTradeValue
-        Inherits JDPowerOtherr2.PowerSportsService.PowersportsOptionPrice
+        Inherits JDPowerOther2.PowerSportsService.PowersportsOptionPrice
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
         Private AverageRetailField As Integer
@@ -2543,7 +2543,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         "s"),  _
      System.SerializableAttribute()>  _
     Partial Public Class PWCOptionTradeValue
-        Inherits JDPowerOtherr2.PowerSportsService.PowersportsOptionPrice
+        Inherits JDPowerOther2.PowerSportsService.PowersportsOptionPrice
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
         Private AverageRetailField As Integer
@@ -2600,7 +2600,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         "s"),  _
      System.SerializableAttribute()>  _
     Partial Public Class NewOptionValue
-        Inherits JDPowerOtherr2.PowerSportsService.PowersportsOptionPrice
+        Inherits JDPowerOther2.PowerSportsService.PowersportsOptionPrice
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
         Private PriceField As Double
@@ -2635,7 +2635,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         Private ModelTirmIDField As Integer
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private PSCrsOptionsField() As JDPowerOtherr2.PowerSportsService.NewPowersportOptionTO
+        Private PSCrsOptionsField() As JDPowerOther2.PowerSportsService.NewPowersportOptionTO
         
         <Global.System.ComponentModel.BrowsableAttribute(false)>  _
         Public Property ExtensionData() As System.Runtime.Serialization.ExtensionDataObject Implements System.Runtime.Serialization.IExtensibleDataObject.ExtensionData
@@ -2661,7 +2661,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property PSCrsOptions() As JDPowerOtherr2.PowerSportsService.NewPowersportOptionTO()
+        Public Property PSCrsOptions() As JDPowerOther2.PowerSportsService.NewPowersportOptionTO()
             Get
                 Return Me.PSCrsOptionsField
             End Get
@@ -2688,7 +2688,7 @@ Namespace JDPowerOtherr2.PowerSportsService
      System.Runtime.Serialization.DataContractAttribute(Name:="NewPowersportOptionTO", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.TransferObjects.Powersports"),  _
      System.SerializableAttribute()>  _
     Partial Public Class NewPowersportOptionTO
-        Inherits JDPowerOtherr2.PowerSportsService.PowersportOptionTO
+        Inherits JDPowerOther2.PowerSportsService.PowersportOptionTO
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
         Private GroupNameField As String
@@ -2711,8 +2711,8 @@ Namespace JDPowerOtherr2.PowerSportsService
      System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0"),  _
      System.Runtime.Serialization.DataContractAttribute(Name:="BaseTO", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.TransferObjects"),  _
      System.SerializableAttribute(),  _
-     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOtherr2.PowerSportsService.PowersportOptionTO)),  _
-     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOtherr2.PowerSportsService.NewPowersportOptionTO))>  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOther2.PowerSportsService.PowersportOptionTO)),  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOther2.PowerSportsService.NewPowersportOptionTO))>  _
     Partial Public Class BaseTO
         Inherits Object
         Implements System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
@@ -2792,9 +2792,9 @@ Namespace JDPowerOtherr2.PowerSportsService
      System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0"),  _
      System.Runtime.Serialization.DataContractAttribute(Name:="PowersportOptionTO", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.TransferObjects.Powersports"),  _
      System.SerializableAttribute(),  _
-     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOtherr2.PowerSportsService.NewPowersportOptionTO))>  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOther2.PowerSportsService.NewPowersportOptionTO))>  _
     Partial Public Class PowersportOptionTO
-        Inherits JDPowerOtherr2.PowerSportsService.BaseTO
+        Inherits JDPowerOther2.PowerSportsService.BaseTO
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
         Private IsStdField As Boolean
@@ -2885,25 +2885,25 @@ Namespace JDPowerOtherr2.PowerSportsService
         Private VersionNameField As String
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private BasePricesField As JDPowerOtherr2.PowerSportsService.PowersportsPrice
+        Private BasePricesField As JDPowerOther2.PowerSportsService.PowersportsPrice
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private TotalPricesField As JDPowerOtherr2.PowerSportsService.PowersportsPrice
+        Private TotalPricesField As JDPowerOther2.PowerSportsService.PowersportsPrice
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
         Private PriceTypeDefinitionsField() As String
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private SelectedOptionsField() As JDPowerOtherr2.PowerSportsService.PowersportsOption
+        Private SelectedOptionsField() As JDPowerOther2.PowerSportsService.PowersportsOption
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private ReportedEngineField As JDPowerOtherr2.PowerSportsService.MarineEngineReturnTO
+        Private ReportedEngineField As JDPowerOther2.PowerSportsService.MarineEngineReturnTO
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
         Private EnginePriceAdjustmentField As Integer
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private SpecsField As JDPowerOtherr2.PowerSportsService.Specs
+        Private SpecsField As JDPowerOther2.PowerSportsService.Specs
         
         <Global.System.ComponentModel.BrowsableAttribute(false)>  _
         Public Property ExtensionData() As System.Runtime.Serialization.ExtensionDataObject Implements System.Runtime.Serialization.IExtensibleDataObject.ExtensionData
@@ -3033,7 +3033,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute(Order:=9)>  _
-        Public Property BasePrices() As JDPowerOtherr2.PowerSportsService.PowersportsPrice
+        Public Property BasePrices() As JDPowerOther2.PowerSportsService.PowersportsPrice
             Get
                 Return Me.BasePricesField
             End Get
@@ -3046,7 +3046,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute(Order:=10)>  _
-        Public Property TotalPrices() As JDPowerOtherr2.PowerSportsService.PowersportsPrice
+        Public Property TotalPrices() As JDPowerOther2.PowerSportsService.PowersportsPrice
             Get
                 Return Me.TotalPricesField
             End Get
@@ -3072,7 +3072,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute(Order:=12)>  _
-        Public Property SelectedOptions() As JDPowerOtherr2.PowerSportsService.PowersportsOption()
+        Public Property SelectedOptions() As JDPowerOther2.PowerSportsService.PowersportsOption()
             Get
                 Return Me.SelectedOptionsField
             End Get
@@ -3085,7 +3085,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute(Order:=13)>  _
-        Public Property ReportedEngine() As JDPowerOtherr2.PowerSportsService.MarineEngineReturnTO
+        Public Property ReportedEngine() As JDPowerOther2.PowerSportsService.MarineEngineReturnTO
             Get
                 Return Me.ReportedEngineField
             End Get
@@ -3111,7 +3111,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute(Order:=15)>  _
-        Public Property Specs() As JDPowerOtherr2.PowerSportsService.Specs
+        Public Property Specs() As JDPowerOther2.PowerSportsService.Specs
             Get
                 Return Me.SpecsField
             End Get
@@ -3138,9 +3138,9 @@ Namespace JDPowerOtherr2.PowerSportsService
      System.Runtime.Serialization.DataContractAttribute(Name:="Specs", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.Powersport"& _ 
         "s"),  _
      System.SerializableAttribute(),  _
-     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOtherr2.PowerSportsService.PowersportsModelTrimSpecs)),  _
-     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOtherr2.PowerSportsService.PWCModelTrimSpecs)),  _
-     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOtherr2.PowerSportsService.TrailerModelTrimSpecs))>  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOther2.PowerSportsService.PowersportsModelTrimSpecs)),  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOther2.PowerSportsService.PWCModelTrimSpecs)),  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(JDPowerOther2.PowerSportsService.TrailerModelTrimSpecs))>  _
     Partial Public Class Specs
         Inherits Object
         Implements System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged
@@ -3174,7 +3174,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         "s"),  _
      System.SerializableAttribute()>  _
     Partial Public Class PowersportsModelTrimSpecs
-        Inherits JDPowerOtherr2.PowerSportsService.Specs
+        Inherits JDPowerOther2.PowerSportsService.Specs
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
         Private CCField As Integer
@@ -3263,7 +3263,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         "s"),  _
      System.SerializableAttribute()>  _
     Partial Public Class PWCModelTrimSpecs
-        Inherits JDPowerOtherr2.PowerSportsService.Specs
+        Inherits JDPowerOther2.PowerSportsService.Specs
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
         Private BeamInchesField As Integer
@@ -3384,7 +3384,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         "s"),  _
      System.SerializableAttribute()>  _
     Partial Public Class TrailerModelTrimSpecs
-        Inherits JDPowerOtherr2.PowerSportsService.Specs
+        Inherits JDPowerOther2.PowerSportsService.Specs
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
         Private DryWeightLbsField As String
@@ -3416,7 +3416,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         Private extensionDataField As System.Runtime.Serialization.ExtensionDataObject
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private EquipmentField() As JDPowerOtherr2.PowerSportsService.EquipmentGroup
+        Private EquipmentField() As JDPowerOther2.PowerSportsService.EquipmentGroup
         
         <Global.System.ComponentModel.BrowsableAttribute(false)>  _
         Public Property ExtensionData() As System.Runtime.Serialization.ExtensionDataObject Implements System.Runtime.Serialization.IExtensibleDataObject.ExtensionData
@@ -3429,7 +3429,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property Equipment() As JDPowerOtherr2.PowerSportsService.EquipmentGroup()
+        Public Property Equipment() As JDPowerOther2.PowerSportsService.EquipmentGroup()
             Get
                 Return Me.EquipmentField
             End Get
@@ -3466,7 +3466,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         Private GroupNameField As String
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private DetailsField() As JDPowerOtherr2.PowerSportsService.Equipment
+        Private DetailsField() As JDPowerOther2.PowerSportsService.Equipment
         
         <Global.System.ComponentModel.BrowsableAttribute(false)>  _
         Public Property ExtensionData() As System.Runtime.Serialization.ExtensionDataObject Implements System.Runtime.Serialization.IExtensibleDataObject.ExtensionData
@@ -3492,7 +3492,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute(Order:=1)>  _
-        Public Property Details() As JDPowerOtherr2.PowerSportsService.Equipment()
+        Public Property Details() As JDPowerOther2.PowerSportsService.Equipment()
             Get
                 Return Me.DetailsField
             End Get
@@ -3590,13 +3590,13 @@ Namespace JDPowerOtherr2.PowerSportsService
         Private extensionDataField As System.Runtime.Serialization.ExtensionDataObject
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private StatusField As JDPowerOtherr2.PowerSportsService.VinStatusEnum
+        Private StatusField As JDPowerOther2.PowerSportsService.VinStatusEnum
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private ModelsField() As JDPowerOtherr2.PowerSportsService.PowersportsVINModelReturn
+        Private ModelsField() As JDPowerOther2.PowerSportsService.PowersportsVINModelReturn
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private VintageModelsField() As JDPowerOtherr2.PowerSportsService.PowersportsVINVintageModelReturn
+        Private VintageModelsField() As JDPowerOther2.PowerSportsService.PowersportsVINVintageModelReturn
         
         <Global.System.ComponentModel.BrowsableAttribute(false)>  _
         Public Property ExtensionData() As System.Runtime.Serialization.ExtensionDataObject Implements System.Runtime.Serialization.IExtensibleDataObject.ExtensionData
@@ -3609,7 +3609,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property Status() As JDPowerOtherr2.PowerSportsService.VinStatusEnum
+        Public Property Status() As JDPowerOther2.PowerSportsService.VinStatusEnum
             Get
                 Return Me.StatusField
             End Get
@@ -3622,7 +3622,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute(Order:=1)>  _
-        Public Property Models() As JDPowerOtherr2.PowerSportsService.PowersportsVINModelReturn()
+        Public Property Models() As JDPowerOther2.PowerSportsService.PowersportsVINModelReturn()
             Get
                 Return Me.ModelsField
             End Get
@@ -3635,7 +3635,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute(Order:=2)>  _
-        Public Property VintageModels() As JDPowerOtherr2.PowerSportsService.PowersportsVINVintageModelReturn()
+        Public Property VintageModels() As JDPowerOther2.PowerSportsService.PowersportsVINVintageModelReturn()
             Get
                 Return Me.VintageModelsField
             End Get
@@ -4047,7 +4047,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         Private MSRPField As Integer
         
         <System.Runtime.Serialization.OptionalFieldAttribute()>  _
-        Private ValuesField As JDPowerOtherr2.PowerSportsService.VintageValues
+        Private ValuesField As JDPowerOther2.PowerSportsService.VintageValues
         
         <Global.System.ComponentModel.BrowsableAttribute(false)>  _
         Public Property ExtensionData() As System.Runtime.Serialization.ExtensionDataObject Implements System.Runtime.Serialization.IExtensibleDataObject.ExtensionData
@@ -4151,7 +4151,7 @@ Namespace JDPowerOtherr2.PowerSportsService
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute(Order:=7)>  _
-        Public Property Values() As JDPowerOtherr2.PowerSportsService.VintageValues
+        Public Property Values() As JDPowerOther2.PowerSportsService.VintageValues
             Get
                 Return Me.ValuesField
             End Get
@@ -4174,91 +4174,91 @@ Namespace JDPowerOtherr2.PowerSportsService
     End Class
     
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0"),  _
-     System.ServiceModel.ServiceContractAttribute(ConfigurationName:="JDPowerOtherr2.PowerSportsService.IUsedPowersportsService")>  _
+     System.ServiceModel.ServiceContractAttribute(ConfigurationName:="JDPowerOther2.PowerSportsService.IUsedPowersportsService")>  _
     Public Interface IUsedPowersportsService
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IUsedPowersportsService/GetMakes", ReplyAction:="http://tempuri.org/IUsedPowersportsService/GetMakesResponse"),  _
-         System.ServiceModel.FaultContractAttribute(GetType(JDPowerOtherr2.PowerSportsService.WcfFault), Action:="http://tempuri.org/IUsedPowersportsService/GetMakesWcfFaultFault", Name:="WcfFault", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.WcfService")>  _
-        Function GetMakes(ByVal fromYear As String, ByVal toYear As String, ByVal categoryIDs As String) As JDPowerOtherr2.PowerSportsService.UsedPowersportsMake()
+         System.ServiceModel.FaultContractAttribute(GetType(JDPowerOther2.PowerSportsService.WcfFault), Action:="http://tempuri.org/IUsedPowersportsService/GetMakesWcfFaultFault", Name:="WcfFault", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.WcfService")>  _
+        Function GetMakes(ByVal fromYear As String, ByVal toYear As String, ByVal categoryIDs As String) As JDPowerOther2.PowerSportsService.UsedPowersportsMake()
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IUsedPowersportsService/GetCategories", ReplyAction:="http://tempuri.org/IUsedPowersportsService/GetCategoriesResponse"),  _
-         System.ServiceModel.FaultContractAttribute(GetType(JDPowerOtherr2.PowerSportsService.WcfFault), Action:="http://tempuri.org/IUsedPowersportsService/GetCategoriesWcfFaultFault", Name:="WcfFault", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.WcfService")>  _
-        Function GetCategories(ByVal makeID As String, ByVal year As String) As JDPowerOtherr2.PowerSportsService.CategoryReturnTO()
+         System.ServiceModel.FaultContractAttribute(GetType(JDPowerOther2.PowerSportsService.WcfFault), Action:="http://tempuri.org/IUsedPowersportsService/GetCategoriesWcfFaultFault", Name:="WcfFault", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.WcfService")>  _
+        Function GetCategories(ByVal makeID As String, ByVal year As String) As JDPowerOther2.PowerSportsService.CategoryReturnTO()
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IUsedPowersportsService/GetYears", ReplyAction:="http://tempuri.org/IUsedPowersportsService/GetYearsResponse"),  _
-         System.ServiceModel.FaultContractAttribute(GetType(JDPowerOtherr2.PowerSportsService.WcfFault), Action:="http://tempuri.org/IUsedPowersportsService/GetYearsWcfFaultFault", Name:="WcfFault", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.WcfService")>  _
-        Function GetYears(ByVal makeID As String) As JDPowerOtherr2.PowerSportsService.PowersportsModelYearReturn
+         System.ServiceModel.FaultContractAttribute(GetType(JDPowerOther2.PowerSportsService.WcfFault), Action:="http://tempuri.org/IUsedPowersportsService/GetYearsWcfFaultFault", Name:="WcfFault", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.WcfService")>  _
+        Function GetYears(ByVal makeID As String) As JDPowerOther2.PowerSportsService.PowersportsModelYearReturn
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IUsedPowersportsService/GetYearsByCategory", ReplyAction:="http://tempuri.org/IUsedPowersportsService/GetYearsByCategoryResponse"),  _
-         System.ServiceModel.FaultContractAttribute(GetType(JDPowerOtherr2.PowerSportsService.WcfFault), Action:="http://tempuri.org/IUsedPowersportsService/GetYearsByCategoryWcfFaultFault", Name:="WcfFault", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.WcfService")>  _
-        Function GetYearsByCategory(ByVal categoryID As String) As JDPowerOtherr2.PowerSportsService.PowerSportsYearReturnTO
+         System.ServiceModel.FaultContractAttribute(GetType(JDPowerOther2.PowerSportsService.WcfFault), Action:="http://tempuri.org/IUsedPowersportsService/GetYearsByCategoryWcfFaultFault", Name:="WcfFault", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.WcfService")>  _
+        Function GetYearsByCategory(ByVal categoryID As String) As JDPowerOther2.PowerSportsService.PowerSportsYearReturnTO
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IUsedPowersportsService/GetModelTypes", ReplyAction:="http://tempuri.org/IUsedPowersportsService/GetModelTypesResponse"),  _
-         System.ServiceModel.FaultContractAttribute(GetType(JDPowerOtherr2.PowerSportsService.WcfFault), Action:="http://tempuri.org/IUsedPowersportsService/GetModelTypesWcfFaultFault", Name:="WcfFault", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.WcfService")>  _
-        Function GetModelTypes(ByVal makeID As String, ByVal year As String, ByVal categoryID As String) As JDPowerOtherr2.PowerSportsService.ModelTypeReturnTO
+         System.ServiceModel.FaultContractAttribute(GetType(JDPowerOther2.PowerSportsService.WcfFault), Action:="http://tempuri.org/IUsedPowersportsService/GetModelTypesWcfFaultFault", Name:="WcfFault", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.WcfService")>  _
+        Function GetModelTypes(ByVal makeID As String, ByVal year As String, ByVal categoryID As String) As JDPowerOther2.PowerSportsService.ModelTypeReturnTO
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IUsedPowersportsService/GetModelTrims", ReplyAction:="http://tempuri.org/IUsedPowersportsService/GetModelTrimsResponse"),  _
-         System.ServiceModel.FaultContractAttribute(GetType(JDPowerOtherr2.PowerSportsService.WcfFault), Action:="http://tempuri.org/IUsedPowersportsService/GetModelTrimsWcfFaultFault", Name:="WcfFault", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.WcfService")>  _
-        Function GetModelTrims(ByVal makeID As String, ByVal year As String, ByVal categoryID As String) As JDPowerOtherr2.PowerSportsService.PowersportsModelTrimsReturn
+         System.ServiceModel.FaultContractAttribute(GetType(JDPowerOther2.PowerSportsService.WcfFault), Action:="http://tempuri.org/IUsedPowersportsService/GetModelTrimsWcfFaultFault", Name:="WcfFault", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.WcfService")>  _
+        Function GetModelTrims(ByVal makeID As String, ByVal year As String, ByVal categoryID As String) As JDPowerOther2.PowerSportsService.PowersportsModelTrimsReturn
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IUsedPowersportsService/GetMaufacturerWarranty", ReplyAction:="http://tempuri.org/IUsedPowersportsService/GetMaufacturerWarrantyResponse"),  _
-         System.ServiceModel.FaultContractAttribute(GetType(JDPowerOtherr2.PowerSportsService.WcfFault), Action:="http://tempuri.org/IUsedPowersportsService/GetMaufacturerWarrantyWcfFaultFault", Name:="WcfFault", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.WcfService")>  _
-        Function GetMaufacturerWarranty(ByVal modelTrimId As String) As JDPowerOtherr2.PowerSportsService.PSModelWithWarranty
+         System.ServiceModel.FaultContractAttribute(GetType(JDPowerOther2.PowerSportsService.WcfFault), Action:="http://tempuri.org/IUsedPowersportsService/GetMaufacturerWarrantyWcfFaultFault", Name:="WcfFault", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.WcfService")>  _
+        Function GetMaufacturerWarranty(ByVal modelTrimId As String) As JDPowerOther2.PowerSportsService.PSModelWithWarranty
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IUsedPowersportsService/GetModelTrimsByModelTypes", ReplyAction:="http://tempuri.org/IUsedPowersportsService/GetModelTrimsByModelTypesResponse"),  _
-         System.ServiceModel.FaultContractAttribute(GetType(JDPowerOtherr2.PowerSportsService.WcfFault), Action:="http://tempuri.org/IUsedPowersportsService/GetModelTrimsByModelTypesWcfFaultFault"& _ 
+         System.ServiceModel.FaultContractAttribute(GetType(JDPowerOther2.PowerSportsService.WcfFault), Action:="http://tempuri.org/IUsedPowersportsService/GetModelTrimsByModelTypesWcfFaultFault"& _ 
             "", Name:="WcfFault", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.WcfService")>  _
-        Function GetModelTrimsByModelTypes(ByVal makeID As String, ByVal year As String, ByVal modelTypes As String) As JDPowerOtherr2.PowerSportsService.PowersportsModelTrimsReturn
+        Function GetModelTrimsByModelTypes(ByVal makeID As String, ByVal year As String, ByVal modelTypes As String) As JDPowerOther2.PowerSportsService.PowersportsModelTrimsReturn
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IUsedPowersportsService/GetModelTrimsWithSpecs", ReplyAction:="http://tempuri.org/IUsedPowersportsService/GetModelTrimsWithSpecsResponse"),  _
-         System.ServiceModel.FaultContractAttribute(GetType(JDPowerOtherr2.PowerSportsService.WcfFault), Action:="http://tempuri.org/IUsedPowersportsService/GetModelTrimsWithSpecsWcfFaultFault", Name:="WcfFault", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.WcfService")>  _
-        Function GetModelTrimsWithSpecs(ByVal makeID As String, ByVal year As String, ByVal categoryID As String) As JDPowerOtherr2.PowerSportsService.ModelTrimSpecReturnTO
+         System.ServiceModel.FaultContractAttribute(GetType(JDPowerOther2.PowerSportsService.WcfFault), Action:="http://tempuri.org/IUsedPowersportsService/GetModelTrimsWithSpecsWcfFaultFault", Name:="WcfFault", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.WcfService")>  _
+        Function GetModelTrimsWithSpecs(ByVal makeID As String, ByVal year As String, ByVal categoryID As String) As JDPowerOther2.PowerSportsService.ModelTrimSpecReturnTO
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IUsedPowersportsService/GetOptions", ReplyAction:="http://tempuri.org/IUsedPowersportsService/GetOptionsResponse"),  _
-         System.ServiceModel.FaultContractAttribute(GetType(JDPowerOtherr2.PowerSportsService.WcfFault), Action:="http://tempuri.org/IUsedPowersportsService/GetOptionsWcfFaultFault", Name:="WcfFault", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.WcfService")>  _
-        Function GetOptions(ByVal modelID As String) As JDPowerOtherr2.PowerSportsService.PowersportsOptionsReturn
+         System.ServiceModel.FaultContractAttribute(GetType(JDPowerOther2.PowerSportsService.WcfFault), Action:="http://tempuri.org/IUsedPowersportsService/GetOptionsWcfFaultFault", Name:="WcfFault", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.WcfService")>  _
+        Function GetOptions(ByVal modelID As String) As JDPowerOther2.PowerSportsService.PowersportsOptionsReturn
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IUsedPowersportsService/GetComprehensiveOptions", ReplyAction:="http://tempuri.org/IUsedPowersportsService/GetComprehensiveOptionsResponse"),  _
-         System.ServiceModel.FaultContractAttribute(GetType(JDPowerOtherr2.PowerSportsService.WcfFault), Action:="http://tempuri.org/IUsedPowersportsService/GetComprehensiveOptionsWcfFaultFault", Name:="WcfFault", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.WcfService")>  _
-        Function GetComprehensiveOptions(ByVal modelID As String) As JDPowerOtherr2.PowerSportsService.PSComprehensiveOptions
+         System.ServiceModel.FaultContractAttribute(GetType(JDPowerOther2.PowerSportsService.WcfFault), Action:="http://tempuri.org/IUsedPowersportsService/GetComprehensiveOptionsWcfFaultFault", Name:="WcfFault", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.WcfService")>  _
+        Function GetComprehensiveOptions(ByVal modelID As String) As JDPowerOther2.PowerSportsService.PSComprehensiveOptions
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IUsedPowersportsService/GetConsumerPrices", ReplyAction:="http://tempuri.org/IUsedPowersportsService/GetConsumerPricesResponse"),  _
-         System.ServiceModel.FaultContractAttribute(GetType(JDPowerOtherr2.PowerSportsService.WcfFault), Action:="http://tempuri.org/IUsedPowersportsService/GetConsumerPricesWcfFaultFault", Name:="WcfFault", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.WcfService")>  _
-        Function GetConsumerPrices(ByVal modelTrimID As String, ByVal selectedOptions As String, ByVal engineID As String) As JDPowerOtherr2.PowerSportsService.PowersportsModelTrimValueReturn
+         System.ServiceModel.FaultContractAttribute(GetType(JDPowerOther2.PowerSportsService.WcfFault), Action:="http://tempuri.org/IUsedPowersportsService/GetConsumerPricesWcfFaultFault", Name:="WcfFault", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.WcfService")>  _
+        Function GetConsumerPrices(ByVal modelTrimID As String, ByVal selectedOptions As String, ByVal engineID As String) As JDPowerOther2.PowerSportsService.PowersportsModelTrimValueReturn
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IUsedPowersportsService/GetComprehensiveConsumerPrice", ReplyAction:="http://tempuri.org/IUsedPowersportsService/GetComprehensiveConsumerPriceResponse"),  _
-         System.ServiceModel.FaultContractAttribute(GetType(JDPowerOtherr2.PowerSportsService.WcfFault), Action:="http://tempuri.org/IUsedPowersportsService/GetComprehensiveConsumerPriceWcfFaultF"& _ 
+         System.ServiceModel.FaultContractAttribute(GetType(JDPowerOther2.PowerSportsService.WcfFault), Action:="http://tempuri.org/IUsedPowersportsService/GetComprehensiveConsumerPriceWcfFaultF"& _ 
             "ault", Name:="WcfFault", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.WcfService")>  _
-        Function GetComprehensiveConsumerPrice(ByVal modelTrimID As String, ByVal selectedOptions As String, ByVal engineID As String) As JDPowerOtherr2.PowerSportsService.PowersportsModelTrimValueReturn
+        Function GetComprehensiveConsumerPrice(ByVal modelTrimID As String, ByVal selectedOptions As String, ByVal engineID As String) As JDPowerOther2.PowerSportsService.PowersportsModelTrimValueReturn
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IUsedPowersportsService/GetTradePrices", ReplyAction:="http://tempuri.org/IUsedPowersportsService/GetTradePricesResponse"),  _
-         System.ServiceModel.FaultContractAttribute(GetType(JDPowerOtherr2.PowerSportsService.WcfFault), Action:="http://tempuri.org/IUsedPowersportsService/GetTradePricesWcfFaultFault", Name:="WcfFault", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.WcfService")>  _
-        Function GetTradePrices(ByVal modelTrimID As String, ByVal selectedOptions As String, ByVal engineID As String) As JDPowerOtherr2.PowerSportsService.PowersportsModelTrimValueReturn
+         System.ServiceModel.FaultContractAttribute(GetType(JDPowerOther2.PowerSportsService.WcfFault), Action:="http://tempuri.org/IUsedPowersportsService/GetTradePricesWcfFaultFault", Name:="WcfFault", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.WcfService")>  _
+        Function GetTradePrices(ByVal modelTrimID As String, ByVal selectedOptions As String, ByVal engineID As String) As JDPowerOther2.PowerSportsService.PowersportsModelTrimValueReturn
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IUsedPowersportsService/GetComprehensiveTradePrices", ReplyAction:="http://tempuri.org/IUsedPowersportsService/GetComprehensiveTradePricesResponse"),  _
-         System.ServiceModel.FaultContractAttribute(GetType(JDPowerOtherr2.PowerSportsService.WcfFault), Action:="http://tempuri.org/IUsedPowersportsService/GetComprehensiveTradePricesWcfFaultFau"& _ 
+         System.ServiceModel.FaultContractAttribute(GetType(JDPowerOther2.PowerSportsService.WcfFault), Action:="http://tempuri.org/IUsedPowersportsService/GetComprehensiveTradePricesWcfFaultFau"& _ 
             "lt", Name:="WcfFault", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.WcfService")>  _
-        Function GetComprehensiveTradePrices(ByVal modelTrimID As String, ByVal selectedOptions As String, ByVal engineID As String) As JDPowerOtherr2.PowerSportsService.PowersportsModelTrimValueReturn
+        Function GetComprehensiveTradePrices(ByVal modelTrimID As String, ByVal selectedOptions As String, ByVal engineID As String) As JDPowerOther2.PowerSportsService.PowersportsModelTrimValueReturn
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IUsedPowersportsService/GetStandardEquipment", ReplyAction:="http://tempuri.org/IUsedPowersportsService/GetStandardEquipmentResponse"),  _
-         System.ServiceModel.FaultContractAttribute(GetType(JDPowerOtherr2.PowerSportsService.WcfFault), Action:="http://tempuri.org/IUsedPowersportsService/GetStandardEquipmentWcfFaultFault", Name:="WcfFault", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.WcfService")>  _
-        Function GetStandardEquipment(ByVal makeID As String, ByVal year As String, ByVal modelTrimID As String) As JDPowerOtherr2.PowerSportsService.PowersportsEquipmentReturn
+         System.ServiceModel.FaultContractAttribute(GetType(JDPowerOther2.PowerSportsService.WcfFault), Action:="http://tempuri.org/IUsedPowersportsService/GetStandardEquipmentWcfFaultFault", Name:="WcfFault", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.WcfService")>  _
+        Function GetStandardEquipment(ByVal makeID As String, ByVal year As String, ByVal modelTrimID As String) As JDPowerOther2.PowerSportsService.PowersportsEquipmentReturn
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IUsedPowersportsService/GetModelsByVIN", ReplyAction:="http://tempuri.org/IUsedPowersportsService/GetModelsByVINResponse"),  _
-         System.ServiceModel.FaultContractAttribute(GetType(JDPowerOtherr2.PowerSportsService.WcfFault), Action:="http://tempuri.org/IUsedPowersportsService/GetModelsByVINWcfFaultFault", Name:="WcfFault", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.WcfService")>  _
-        Function GetModelsByVIN(ByVal vinID As String) As JDPowerOtherr2.PowerSportsService.PowersportsVINReturn
+         System.ServiceModel.FaultContractAttribute(GetType(JDPowerOther2.PowerSportsService.WcfFault), Action:="http://tempuri.org/IUsedPowersportsService/GetModelsByVINWcfFaultFault", Name:="WcfFault", [Namespace]:="http://schemas.datacontract.org/2004/07/NADA.WcfService")>  _
+        Function GetModelsByVIN(ByVal vinID As String) As JDPowerOther2.PowerSportsService.PowersportsVINReturn
     End Interface
     
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")>  _
     Public Interface IUsedPowersportsServiceChannel
-        Inherits JDPowerOtherr2.PowerSportsService.IUsedPowersportsService, System.ServiceModel.IClientChannel
+        Inherits JDPowerOther2.PowerSportsService.IUsedPowersportsService, System.ServiceModel.IClientChannel
     End Interface
     
     <System.Diagnostics.DebuggerStepThroughAttribute(),  _
      System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")>  _
     Partial Public Class UsedPowersportsServiceClient
-        Inherits System.ServiceModel.ClientBase(Of JDPowerOtherr2.PowerSportsService.IUsedPowersportsService)
-        Implements JDPowerOtherr2.PowerSportsService.IUsedPowersportsService
+        Inherits System.ServiceModel.ClientBase(Of JDPowerOther2.PowerSportsService.IUsedPowersportsService)
+        Implements JDPowerOther2.PowerSportsService.IUsedPowersportsService
         
         Public Sub New()
             MyBase.New
@@ -4280,71 +4280,71 @@ Namespace JDPowerOtherr2.PowerSportsService
             MyBase.New(binding, remoteAddress)
         End Sub
         
-        Public Function GetMakes(ByVal fromYear As String, ByVal toYear As String, ByVal categoryIDs As String) As JDPowerOtherr2.PowerSportsService.UsedPowersportsMake() Implements JDPowerOtherr2.PowerSportsService.IUsedPowersportsService.GetMakes
+        Public Function GetMakes(ByVal fromYear As String, ByVal toYear As String, ByVal categoryIDs As String) As JDPowerOther2.PowerSportsService.UsedPowersportsMake() Implements JDPowerOther2.PowerSportsService.IUsedPowersportsService.GetMakes
             Return MyBase.Channel.GetMakes(fromYear, toYear, categoryIDs)
         End Function
         
-        Public Function GetCategories(ByVal makeID As String, ByVal year As String) As JDPowerOtherr2.PowerSportsService.CategoryReturnTO() Implements JDPowerOtherr2.PowerSportsService.IUsedPowersportsService.GetCategories
+        Public Function GetCategories(ByVal makeID As String, ByVal year As String) As JDPowerOther2.PowerSportsService.CategoryReturnTO() Implements JDPowerOther2.PowerSportsService.IUsedPowersportsService.GetCategories
             Return MyBase.Channel.GetCategories(makeID, year)
         End Function
         
-        Public Function GetYears(ByVal makeID As String) As JDPowerOtherr2.PowerSportsService.PowersportsModelYearReturn Implements JDPowerOtherr2.PowerSportsService.IUsedPowersportsService.GetYears
+        Public Function GetYears(ByVal makeID As String) As JDPowerOther2.PowerSportsService.PowersportsModelYearReturn Implements JDPowerOther2.PowerSportsService.IUsedPowersportsService.GetYears
             Return MyBase.Channel.GetYears(makeID)
         End Function
         
-        Public Function GetYearsByCategory(ByVal categoryID As String) As JDPowerOtherr2.PowerSportsService.PowerSportsYearReturnTO Implements JDPowerOtherr2.PowerSportsService.IUsedPowersportsService.GetYearsByCategory
+        Public Function GetYearsByCategory(ByVal categoryID As String) As JDPowerOther2.PowerSportsService.PowerSportsYearReturnTO Implements JDPowerOther2.PowerSportsService.IUsedPowersportsService.GetYearsByCategory
             Return MyBase.Channel.GetYearsByCategory(categoryID)
         End Function
         
-        Public Function GetModelTypes(ByVal makeID As String, ByVal year As String, ByVal categoryID As String) As JDPowerOtherr2.PowerSportsService.ModelTypeReturnTO Implements JDPowerOtherr2.PowerSportsService.IUsedPowersportsService.GetModelTypes
+        Public Function GetModelTypes(ByVal makeID As String, ByVal year As String, ByVal categoryID As String) As JDPowerOther2.PowerSportsService.ModelTypeReturnTO Implements JDPowerOther2.PowerSportsService.IUsedPowersportsService.GetModelTypes
             Return MyBase.Channel.GetModelTypes(makeID, year, categoryID)
         End Function
         
-        Public Function GetModelTrims(ByVal makeID As String, ByVal year As String, ByVal categoryID As String) As JDPowerOtherr2.PowerSportsService.PowersportsModelTrimsReturn Implements JDPowerOtherr2.PowerSportsService.IUsedPowersportsService.GetModelTrims
+        Public Function GetModelTrims(ByVal makeID As String, ByVal year As String, ByVal categoryID As String) As JDPowerOther2.PowerSportsService.PowersportsModelTrimsReturn Implements JDPowerOther2.PowerSportsService.IUsedPowersportsService.GetModelTrims
             Return MyBase.Channel.GetModelTrims(makeID, year, categoryID)
         End Function
         
-        Public Function GetMaufacturerWarranty(ByVal modelTrimId As String) As JDPowerOtherr2.PowerSportsService.PSModelWithWarranty Implements JDPowerOtherr2.PowerSportsService.IUsedPowersportsService.GetMaufacturerWarranty
+        Public Function GetMaufacturerWarranty(ByVal modelTrimId As String) As JDPowerOther2.PowerSportsService.PSModelWithWarranty Implements JDPowerOther2.PowerSportsService.IUsedPowersportsService.GetMaufacturerWarranty
             Return MyBase.Channel.GetMaufacturerWarranty(modelTrimId)
         End Function
         
-        Public Function GetModelTrimsByModelTypes(ByVal makeID As String, ByVal year As String, ByVal modelTypes As String) As JDPowerOtherr2.PowerSportsService.PowersportsModelTrimsReturn Implements JDPowerOtherr2.PowerSportsService.IUsedPowersportsService.GetModelTrimsByModelTypes
+        Public Function GetModelTrimsByModelTypes(ByVal makeID As String, ByVal year As String, ByVal modelTypes As String) As JDPowerOther2.PowerSportsService.PowersportsModelTrimsReturn Implements JDPowerOther2.PowerSportsService.IUsedPowersportsService.GetModelTrimsByModelTypes
             Return MyBase.Channel.GetModelTrimsByModelTypes(makeID, year, modelTypes)
         End Function
         
-        Public Function GetModelTrimsWithSpecs(ByVal makeID As String, ByVal year As String, ByVal categoryID As String) As JDPowerOtherr2.PowerSportsService.ModelTrimSpecReturnTO Implements JDPowerOtherr2.PowerSportsService.IUsedPowersportsService.GetModelTrimsWithSpecs
+        Public Function GetModelTrimsWithSpecs(ByVal makeID As String, ByVal year As String, ByVal categoryID As String) As JDPowerOther2.PowerSportsService.ModelTrimSpecReturnTO Implements JDPowerOther2.PowerSportsService.IUsedPowersportsService.GetModelTrimsWithSpecs
             Return MyBase.Channel.GetModelTrimsWithSpecs(makeID, year, categoryID)
         End Function
         
-        Public Function GetOptions(ByVal modelID As String) As JDPowerOtherr2.PowerSportsService.PowersportsOptionsReturn Implements JDPowerOtherr2.PowerSportsService.IUsedPowersportsService.GetOptions
+        Public Function GetOptions(ByVal modelID As String) As JDPowerOther2.PowerSportsService.PowersportsOptionsReturn Implements JDPowerOther2.PowerSportsService.IUsedPowersportsService.GetOptions
             Return MyBase.Channel.GetOptions(modelID)
         End Function
         
-        Public Function GetComprehensiveOptions(ByVal modelID As String) As JDPowerOtherr2.PowerSportsService.PSComprehensiveOptions Implements JDPowerOtherr2.PowerSportsService.IUsedPowersportsService.GetComprehensiveOptions
+        Public Function GetComprehensiveOptions(ByVal modelID As String) As JDPowerOther2.PowerSportsService.PSComprehensiveOptions Implements JDPowerOther2.PowerSportsService.IUsedPowersportsService.GetComprehensiveOptions
             Return MyBase.Channel.GetComprehensiveOptions(modelID)
         End Function
         
-        Public Function GetConsumerPrices(ByVal modelTrimID As String, ByVal selectedOptions As String, ByVal engineID As String) As JDPowerOtherr2.PowerSportsService.PowersportsModelTrimValueReturn Implements JDPowerOtherr2.PowerSportsService.IUsedPowersportsService.GetConsumerPrices
+        Public Function GetConsumerPrices(ByVal modelTrimID As String, ByVal selectedOptions As String, ByVal engineID As String) As JDPowerOther2.PowerSportsService.PowersportsModelTrimValueReturn Implements JDPowerOther2.PowerSportsService.IUsedPowersportsService.GetConsumerPrices
             Return MyBase.Channel.GetConsumerPrices(modelTrimID, selectedOptions, engineID)
         End Function
         
-        Public Function GetComprehensiveConsumerPrice(ByVal modelTrimID As String, ByVal selectedOptions As String, ByVal engineID As String) As JDPowerOtherr2.PowerSportsService.PowersportsModelTrimValueReturn Implements JDPowerOtherr2.PowerSportsService.IUsedPowersportsService.GetComprehensiveConsumerPrice
+        Public Function GetComprehensiveConsumerPrice(ByVal modelTrimID As String, ByVal selectedOptions As String, ByVal engineID As String) As JDPowerOther2.PowerSportsService.PowersportsModelTrimValueReturn Implements JDPowerOther2.PowerSportsService.IUsedPowersportsService.GetComprehensiveConsumerPrice
             Return MyBase.Channel.GetComprehensiveConsumerPrice(modelTrimID, selectedOptions, engineID)
         End Function
         
-        Public Function GetTradePrices(ByVal modelTrimID As String, ByVal selectedOptions As String, ByVal engineID As String) As JDPowerOtherr2.PowerSportsService.PowersportsModelTrimValueReturn Implements JDPowerOtherr2.PowerSportsService.IUsedPowersportsService.GetTradePrices
+        Public Function GetTradePrices(ByVal modelTrimID As String, ByVal selectedOptions As String, ByVal engineID As String) As JDPowerOther2.PowerSportsService.PowersportsModelTrimValueReturn Implements JDPowerOther2.PowerSportsService.IUsedPowersportsService.GetTradePrices
             Return MyBase.Channel.GetTradePrices(modelTrimID, selectedOptions, engineID)
         End Function
         
-        Public Function GetComprehensiveTradePrices(ByVal modelTrimID As String, ByVal selectedOptions As String, ByVal engineID As String) As JDPowerOtherr2.PowerSportsService.PowersportsModelTrimValueReturn Implements JDPowerOtherr2.PowerSportsService.IUsedPowersportsService.GetComprehensiveTradePrices
+        Public Function GetComprehensiveTradePrices(ByVal modelTrimID As String, ByVal selectedOptions As String, ByVal engineID As String) As JDPowerOther2.PowerSportsService.PowersportsModelTrimValueReturn Implements JDPowerOther2.PowerSportsService.IUsedPowersportsService.GetComprehensiveTradePrices
             Return MyBase.Channel.GetComprehensiveTradePrices(modelTrimID, selectedOptions, engineID)
         End Function
         
-        Public Function GetStandardEquipment(ByVal makeID As String, ByVal year As String, ByVal modelTrimID As String) As JDPowerOtherr2.PowerSportsService.PowersportsEquipmentReturn Implements JDPowerOtherr2.PowerSportsService.IUsedPowersportsService.GetStandardEquipment
+        Public Function GetStandardEquipment(ByVal makeID As String, ByVal year As String, ByVal modelTrimID As String) As JDPowerOther2.PowerSportsService.PowersportsEquipmentReturn Implements JDPowerOther2.PowerSportsService.IUsedPowersportsService.GetStandardEquipment
             Return MyBase.Channel.GetStandardEquipment(makeID, year, modelTrimID)
         End Function
         
-        Public Function GetModelsByVIN(ByVal vinID As String) As JDPowerOtherr2.PowerSportsService.PowersportsVINReturn Implements JDPowerOtherr2.PowerSportsService.IUsedPowersportsService.GetModelsByVIN
+        Public Function GetModelsByVIN(ByVal vinID As String) As JDPowerOther2.PowerSportsService.PowersportsVINReturn Implements JDPowerOther2.PowerSportsService.IUsedPowersportsService.GetModelsByVIN
             Return MyBase.Channel.GetModelsByVIN(vinID)
         End Function
     End Class
