@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.ClassicCars" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.ClassicCars" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="https://www.nadaguideswebservices.com/ClassicCarsService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" />
+  <xs:import schemaLocation="https://www.jdpowerwebservices.com/ClassicCarsService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" />
   <xs:complexType name="ArrayOfClassicCarModelReturnTO">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="ClassicCarModelReturnTO" nillable="true" type="tns:ClassicCarModelReturnTO" />
@@ -17,6 +17,22 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ClassicCarModelReturnTO" nillable="true" type="tns:ClassicCarModelReturnTO" />
+  <xs:complexType name="ArrayOfClassicCarModelCatReturnTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ClassicCarModelCatReturnTO" nillable="true" type="tns:ClassicCarModelCatReturnTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClassicCarModelCatReturnTO" nillable="true" type="tns:ArrayOfClassicCarModelCatReturnTO" />
+  <xs:complexType name="ClassicCarModelCatReturnTO">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="ModelReturnTO" nillable="true" type="q2:ModelReturnTO" />
+      <xs:element minOccurs="0" name="VehicleID" type="xs:int" />
+      <xs:element minOccurs="0" name="VehicleDisplayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MakeNotes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="YearNotes" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClassicCarModelCatReturnTO" nillable="true" type="tns:ClassicCarModelCatReturnTO" />
   <xs:complexType name="ClassicCarReturnTO">
     <xs:sequence>
       <xs:element minOccurs="0" name="MakeID" nillable="true" type="xs:string" />
@@ -48,7 +64,7 @@
   <xs:element name="ArrayOfClassicCarPriceReturnTO" nillable="true" type="tns:ArrayOfClassicCarPriceReturnTO" />
   <xs:complexType name="ClassicCarPriceReturnTO">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" base="q2:PriceTypeReturnTO">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" base="q3:PriceTypeReturnTO">
         <xs:sequence>
           <xs:element minOccurs="0" name="Price" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Weight" nillable="true" type="xs:string" />
@@ -69,7 +85,7 @@
       <xs:element minOccurs="0" name="PriceTypeDisplayName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="OptionPrice" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IsPercent" type="xs:boolean" />
-      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="OptionReturnTO" nillable="true" type="q3:OptionReturnTO" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="OptionReturnTO" nillable="true" type="q4:OptionReturnTO" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ClassCarOptionPriceReturnTO" nillable="true" type="tns:ClassCarOptionPriceReturnTO" />

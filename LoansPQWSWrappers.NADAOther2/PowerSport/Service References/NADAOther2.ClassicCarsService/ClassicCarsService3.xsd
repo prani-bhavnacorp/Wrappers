@@ -26,6 +26,20 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="YearReturnTO" nillable="true" type="tns:YearReturnTO" />
+  <xs:complexType name="ArrayOfCategoryReturnTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CategoryReturnTO" nillable="true" type="tns:CategoryReturnTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCategoryReturnTO" nillable="true" type="tns:ArrayOfCategoryReturnTO" />
+  <xs:complexType name="CategoryReturnTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CategoryID" type="xs:int" />
+      <xs:element minOccurs="0" name="CategoryDisplayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CategoryName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CategoryReturnTO" nillable="true" type="tns:CategoryReturnTO" />
   <xs:complexType name="ModelReturnTO">
     <xs:sequence>
       <xs:element minOccurs="0" name="c_ModelID" type="xs:int" />

@@ -27,13 +27,13 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="https://www.nadaguideswebservices.com/UsedMarineService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="https://www.nadaguideswebservices.com/UsedMarineService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfService" />
-      <xsd:import schemaLocation="https://www.nadaguideswebservices.com/UsedMarineService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="https://www.nadaguideswebservices.com/UsedMarineService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" />
-      <xsd:import schemaLocation="https://www.nadaguideswebservices.com/UsedMarineService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.Marine" />
-      <xsd:import schemaLocation="https://www.nadaguideswebservices.com/UsedMarineService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.Powersports" />
-      <xsd:import schemaLocation="https://www.nadaguideswebservices.com/UsedMarineService.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="https://www.jdpowerwebservices.com/UsedMarineService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://www.jdpowerwebservices.com/UsedMarineService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfService" />
+      <xsd:import schemaLocation="https://www.jdpowerwebservices.com/UsedMarineService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://www.jdpowerwebservices.com/UsedMarineService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" />
+      <xsd:import schemaLocation="https://www.jdpowerwebservices.com/UsedMarineService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.Marine" />
+      <xsd:import schemaLocation="https://www.jdpowerwebservices.com/UsedMarineService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.Powersports" />
+      <xsd:import schemaLocation="https://www.jdpowerwebservices.com/UsedMarineService.svc?xsd=xsd6" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IUsedMarineService_GetMakes_InputMessage">
@@ -99,6 +99,15 @@
   <wsdl:message name="IUsedMarineService_GetOptions_WcfFaultFault_FaultMessage">
     <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q7:WcfFault" />
   </wsdl:message>
+  <wsdl:message name="IUsedMarineService_GetOptionsWithType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOptionsWithType" />
+  </wsdl:message>
+  <wsdl:message name="IUsedMarineService_GetOptionsWithType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOptionsWithTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsedMarineService_GetOptionsWithType_WcfFaultFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q8:WcfFault" />
+  </wsdl:message>
   <wsdl:message name="IUsedMarineService_GetConsumerPrices_InputMessage">
     <wsdl:part name="parameters" element="tns:GetConsumerPrices" />
   </wsdl:message>
@@ -106,7 +115,16 @@
     <wsdl:part name="parameters" element="tns:GetConsumerPricesResponse" />
   </wsdl:message>
   <wsdl:message name="IUsedMarineService_GetConsumerPrices_WcfFaultFault_FaultMessage">
-    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q8:WcfFault" />
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q9:WcfFault" />
+  </wsdl:message>
+  <wsdl:message name="IUsedMarineService_GetConsumerPricesPost_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetConsumerPricesPost" />
+  </wsdl:message>
+  <wsdl:message name="IUsedMarineService_GetConsumerPricesPost_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetConsumerPricesPostResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsedMarineService_GetConsumerPricesPost_WcfFaultFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q10:WcfFault" />
   </wsdl:message>
   <wsdl:message name="IUsedMarineService_GetTradePrices_InputMessage">
     <wsdl:part name="parameters" element="tns:GetTradePrices" />
@@ -115,7 +133,25 @@
     <wsdl:part name="parameters" element="tns:GetTradePricesResponse" />
   </wsdl:message>
   <wsdl:message name="IUsedMarineService_GetTradePrices_WcfFaultFault_FaultMessage">
-    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q9:WcfFault" />
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q11:WcfFault" />
+  </wsdl:message>
+  <wsdl:message name="IUsedMarineService_GetTradePricesPost_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTradePricesPost" />
+  </wsdl:message>
+  <wsdl:message name="IUsedMarineService_GetTradePricesPost_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTradePricesPostResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsedMarineService_GetTradePricesPost_WcfFaultFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q12:WcfFault" />
+  </wsdl:message>
+  <wsdl:message name="IUsedMarineService_GetMICCodeMakeIDMapping_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMICCodeMakeIDMapping" />
+  </wsdl:message>
+  <wsdl:message name="IUsedMarineService_GetMICCodeMakeIDMapping_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMICCodeMakeIDMappingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsedMarineService_GetMICCodeMakeIDMapping_WcfFaultFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q13:WcfFault" />
   </wsdl:message>
   <wsdl:portType name="IUsedMarineService">
     <wsdl:operation name="GetMakes">
@@ -153,15 +189,35 @@
       <wsdl:output wsaw:Action="http://tempuri.org/IUsedMarineService/GetOptionsResponse" message="tns:IUsedMarineService_GetOptions_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IUsedMarineService/GetOptionsWcfFaultFault" name="WcfFaultFault" message="tns:IUsedMarineService_GetOptions_WcfFaultFault_FaultMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetOptionsWithType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsedMarineService/GetOptionsWithType" message="tns:IUsedMarineService_GetOptionsWithType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsedMarineService/GetOptionsWithTypeResponse" message="tns:IUsedMarineService_GetOptionsWithType_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUsedMarineService/GetOptionsWithTypeWcfFaultFault" name="WcfFaultFault" message="tns:IUsedMarineService_GetOptionsWithType_WcfFaultFault_FaultMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetConsumerPrices">
       <wsdl:input wsaw:Action="http://tempuri.org/IUsedMarineService/GetConsumerPrices" message="tns:IUsedMarineService_GetConsumerPrices_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUsedMarineService/GetConsumerPricesResponse" message="tns:IUsedMarineService_GetConsumerPrices_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IUsedMarineService/GetConsumerPricesWcfFaultFault" name="WcfFaultFault" message="tns:IUsedMarineService_GetConsumerPrices_WcfFaultFault_FaultMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetConsumerPricesPost">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsedMarineService/GetConsumerPricesPost" message="tns:IUsedMarineService_GetConsumerPricesPost_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsedMarineService/GetConsumerPricesPostResponse" message="tns:IUsedMarineService_GetConsumerPricesPost_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUsedMarineService/GetConsumerPricesPostWcfFaultFault" name="WcfFaultFault" message="tns:IUsedMarineService_GetConsumerPricesPost_WcfFaultFault_FaultMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetTradePrices">
       <wsdl:input wsaw:Action="http://tempuri.org/IUsedMarineService/GetTradePrices" message="tns:IUsedMarineService_GetTradePrices_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUsedMarineService/GetTradePricesResponse" message="tns:IUsedMarineService_GetTradePrices_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IUsedMarineService/GetTradePricesWcfFaultFault" name="WcfFaultFault" message="tns:IUsedMarineService_GetTradePrices_WcfFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTradePricesPost">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsedMarineService/GetTradePricesPost" message="tns:IUsedMarineService_GetTradePricesPost_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsedMarineService/GetTradePricesPostResponse" message="tns:IUsedMarineService_GetTradePricesPost_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUsedMarineService/GetTradePricesPostWcfFaultFault" name="WcfFaultFault" message="tns:IUsedMarineService_GetTradePricesPost_WcfFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMICCodeMakeIDMapping">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsedMarineService/GetMICCodeMakeIDMapping" message="tns:IUsedMarineService_GetMICCodeMakeIDMapping_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsedMarineService/GetMICCodeMakeIDMappingResponse" message="tns:IUsedMarineService_GetMICCodeMakeIDMapping_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUsedMarineService/GetMICCodeMakeIDMappingWcfFaultFault" name="WcfFaultFault" message="tns:IUsedMarineService_GetMICCodeMakeIDMapping_WcfFaultFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="soap" type="tns:IUsedMarineService">
@@ -251,8 +307,32 @@
         <soap:fault use="literal" name="WcfFaultFault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
+    <wsdl:operation name="GetOptionsWithType">
+      <soap:operation soapAction="http://tempuri.org/IUsedMarineService/GetOptionsWithType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="WcfFaultFault">
+        <soap:fault use="literal" name="WcfFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
     <wsdl:operation name="GetConsumerPrices">
       <soap:operation soapAction="http://tempuri.org/IUsedMarineService/GetConsumerPrices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="WcfFaultFault">
+        <soap:fault use="literal" name="WcfFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetConsumerPricesPost">
+      <soap:operation soapAction="http://tempuri.org/IUsedMarineService/GetConsumerPricesPost" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -275,10 +355,34 @@
         <soap:fault use="literal" name="WcfFaultFault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
+    <wsdl:operation name="GetTradePricesPost">
+      <soap:operation soapAction="http://tempuri.org/IUsedMarineService/GetTradePricesPost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="WcfFaultFault">
+        <soap:fault use="literal" name="WcfFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetMICCodeMakeIDMapping">
+      <soap:operation soapAction="http://tempuri.org/IUsedMarineService/GetMICCodeMakeIDMapping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="WcfFaultFault">
+        <soap:fault use="literal" name="WcfFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="UsedMarineService">
     <wsdl:port name="soap" binding="tns:soap">
-      <soap:address location="https://www.nadaguideswebservices.com/UsedMarineService.svc/soap" />
+      <soap:address location="https://www.jdpowerwebservices.com/UsedMarineService.svc/soap" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

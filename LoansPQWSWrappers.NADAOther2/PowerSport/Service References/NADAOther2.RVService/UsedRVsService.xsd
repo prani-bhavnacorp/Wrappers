@@ -1,215 +1,182 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.RVs" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.RVs" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="https://www.nadaguideswebservices.com/UsedRVsService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" />
-  <xs:import schemaLocation="https://www.nadaguideswebservices.com/UsedRVsService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-  <xs:complexType name="RVYearsReturnTO">
-    <xs:sequence>
-      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="Make" nillable="true" type="q1:MakeReturnTO" />
-      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="VersionTO" nillable="true" type="q2:VersionTO" />
-      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="Years" nillable="true" type="q3:ArrayOfYearReturnTO" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="RVYearsReturnTO" nillable="true" type="tns:RVYearsReturnTO" />
-  <xs:complexType name="RVModelTrimListReturnTO">
-    <xs:sequence>
-      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="Make" nillable="true" type="q4:MakeReturnTO" />
-      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="MakeNotes" nillable="true" type="q5:ArrayOfstring" />
-      <xs:element minOccurs="0" name="ModelTrims" nillable="true" type="tns:ArrayOfRVModelTrimTO" />
-      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="VersionTO" nillable="true" type="q6:VersionTO" />
-      <xs:element minOccurs="0" name="Year" type="xs:int" />
-      <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="YearNotes" nillable="true" type="q7:ArrayOfstring" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="RVModelTrimListReturnTO" nillable="true" type="tns:RVModelTrimListReturnTO" />
-  <xs:complexType name="ArrayOfRVModelTrimTO">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="RVModelTrimTO" nillable="true" type="tns:RVModelTrimTO" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfRVModelTrimTO" nillable="true" type="tns:ArrayOfRVModelTrimTO" />
-  <xs:complexType name="RVModelTrimTO">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="CategoryID" type="xs:int" />
-      <xs:element minOccurs="0" name="CategoryName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FuelType" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="LengthInches" type="xs:int" />
-      <xs:element minOccurs="0" name="ModelSeries" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ModelTrimID" type="xs:int" />
-      <xs:element minOccurs="0" name="ModelTrimName" nillable="true" type="xs:string" />
-      <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ModelTrimNotes" nillable="true" type="q8:ArrayOfstring" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="RVModelTrimTO" nillable="true" type="tns:RVModelTrimTO" />
-  <xs:complexType name="RVUsedOptionListReturnTO">
-    <xs:sequence>
-      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="Make" nillable="true" type="q9:MakeReturnTO" />
-      <xs:element minOccurs="0" name="ModelTrim" nillable="true" type="tns:RVModelTrimTO" />
-      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="Options" nillable="true" type="q10:ArrayOfOptionReturnTO" />
-      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="VersionTO" nillable="true" type="q11:VersionTO" />
-      <xs:element minOccurs="0" name="Year" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="RVUsedOptionListReturnTO" nillable="true" type="tns:RVUsedOptionListReturnTO" />
-  <xs:complexType name="RVUsedConsumerModelTrimReturnTO">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:RVModelTrimReturnTO">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="BasePrices" nillable="true" type="tns:RVUsedConsumerPriceTO" />
-          <xs:element minOccurs="0" name="MileageAdjustments" nillable="true" type="tns:RVUsedConsumerPriceTO" />
-          <xs:element minOccurs="0" name="SelectedOptions" nillable="true" type="tns:ArrayOfRVUsedConsumerOptionReturnTO" />
-          <xs:element minOccurs="0" name="TotalPrices" nillable="true" type="tns:RVUsedConsumerPriceTO" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="RVUsedConsumerModelTrimReturnTO" nillable="true" type="tns:RVUsedConsumerModelTrimReturnTO" />
-  <xs:complexType name="RVModelTrimReturnTO">
-    <xs:sequence>
-      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="Category" nillable="true" type="q12:CategoryReturnTO" />
-      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="Make" nillable="true" type="q13:MakeReturnTO" />
-      <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="MakeNotes" nillable="true" type="q14:ArrayOfstring" />
-      <xs:element minOccurs="0" name="ModelTrim" nillable="true" type="tns:RVModelTrimTO" />
-      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="PriceTypes" nillable="true" type="q15:ArrayOfPriceTypeReturnTO" />
-      <xs:element minOccurs="0" name="Specs" nillable="true" type="tns:RVModelTrimSpecTO" />
-      <xs:element minOccurs="0" name="SuggestedList" type="xs:int" />
-      <xs:element minOccurs="0" name="VersionID" type="xs:int" />
-      <xs:element minOccurs="0" name="VersionName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Year" type="xs:int" />
-      <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="YearNotes" nillable="true" type="q16:ArrayOfstring" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="RVModelTrimReturnTO" nillable="true" type="tns:RVModelTrimReturnTO" />
-  <xs:complexType name="RVModelTrimSpecTO">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="CoachDesign" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FloorPlan" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FuelType" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="SelfContained" nillable="true" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Slides" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="RVModelTrimSpecTO" nillable="true" type="tns:RVModelTrimSpecTO" />
-  <xs:complexType name="RVUsedConsumerPriceTO">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="AverageRetail" type="xs:int" />
-      <xs:element minOccurs="0" name="LowRetail" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="RVUsedConsumerPriceTO" nillable="true" type="tns:RVUsedConsumerPriceTO" />
-  <xs:complexType name="ArrayOfRVUsedConsumerOptionReturnTO">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="RVUsedConsumerOptionReturnTO" nillable="true" type="tns:RVUsedConsumerOptionReturnTO" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfRVUsedConsumerOptionReturnTO" nillable="true" type="tns:ArrayOfRVUsedConsumerOptionReturnTO" />
-  <xs:complexType name="RVUsedConsumerOptionReturnTO">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q17="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" base="q17:OptionReturnTO">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Prices" nillable="true" type="tns:RVUsedConsumerPriceTO" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="RVUsedConsumerOptionReturnTO" nillable="true" type="tns:RVUsedConsumerOptionReturnTO" />
-  <xs:complexType name="RVUsedTradeModelTrimReturnTO">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:RVModelTrimReturnTO">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="BasePrices" nillable="true" type="tns:RVUsedTradePriceTO" />
-          <xs:element minOccurs="0" name="MileageAdjustments" nillable="true" type="tns:RVUsedTradePriceTO" />
-          <xs:element minOccurs="0" name="SelectedOptions" nillable="true" type="tns:ArrayOfRVUsedTradeOptionReturnTO" />
-          <xs:element minOccurs="0" name="TotalPrices" nillable="true" type="tns:RVUsedTradePriceTO" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="RVUsedTradeModelTrimReturnTO" nillable="true" type="tns:RVUsedTradeModelTrimReturnTO" />
-  <xs:complexType name="RVUsedTradePriceTO">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="TradeIn" type="xs:int" />
-      <xs:element minOccurs="0" name="UsedRetail" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="RVUsedTradePriceTO" nillable="true" type="tns:RVUsedTradePriceTO" />
-  <xs:complexType name="ArrayOfRVUsedTradeOptionReturnTO">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="RVUsedTradeOptionReturnTO" nillable="true" type="tns:RVUsedTradeOptionReturnTO" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfRVUsedTradeOptionReturnTO" nillable="true" type="tns:ArrayOfRVUsedTradeOptionReturnTO" />
-  <xs:complexType name="RVUsedTradeOptionReturnTO">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q18="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" base="q18:OptionReturnTO">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Prices" nillable="true" type="tns:RVUsedTradePriceTO" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="RVUsedTradeOptionReturnTO" nillable="true" type="tns:RVUsedTradeOptionReturnTO" />
-  <xs:complexType name="RVSpecReturnTO">
-    <xs:sequence>
-      <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="VersionTO" nillable="true" type="q19:VersionTO" />
-      <xs:element minOccurs="0" name="ModelTrimID" type="xs:int" />
-      <xs:element minOccurs="0" name="ModelDisplayName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ModelName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ModelYear" type="xs:int" />
-      <xs:element minOccurs="0" name="ModelSeries" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="LengthInches" type="xs:int" />
-      <xs:element minOccurs="0" name="WidthInches" type="xs:int" />
-      <xs:element minOccurs="0" name="Trans" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Gears" type="xs:int" />
-      <xs:element minOccurs="0" name="Torque" type="xs:int" />
-      <xs:element minOccurs="0" name="Rv_ModelTypeID" type="xs:int" />
-      <xs:element minOccurs="0" name="ModelType" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CoachDesign" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Rv_FloorPlanID" type="xs:int" />
-      <xs:element minOccurs="0" name="PlanCode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FloorPlan" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Rv_FuelTypeID" type="xs:int" />
-      <xs:element minOccurs="0" name="FuelType" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="FuelCode" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Weight" type="xs:int" />
-      <xs:element minOccurs="0" name="Axles" type="xs:int" />
-      <xs:element minOccurs="0" name="SelfContained" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Slides" type="xs:int" />
-      <xs:element minOccurs="0" name="Depth" type="xs:int" />
-      <xs:element minOccurs="0" name="Sleep" type="xs:int" />
-      <xs:element minOccurs="0" name="TrimPhoto" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="RVSpecReturnTO" nillable="true" type="tns:RVSpecReturnTO" />
-  <xs:complexType name="ArrayOfManufactureToModelTO">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="ManufactureToModelTO" nillable="true" type="tns:ManufactureToModelTO" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfManufactureToModelTO" nillable="true" type="tns:ArrayOfManufactureToModelTO" />
-  <xs:complexType name="ManufactureToModelTO">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="MakeID" type="xs:int" />
-      <xs:element minOccurs="0" name="CorpName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="MakeDisplayName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CategoryID" type="xs:int" />
-      <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ManufactureToModelTO" nillable="true" type="tns:ManufactureToModelTO" />
-  <xs:complexType name="ArrayOfModelToManufactureTO">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="ModelToManufactureTO" nillable="true" type="tns:ModelToManufactureTO" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfModelToManufactureTO" nillable="true" type="tns:ArrayOfModelToManufactureTO" />
-  <xs:complexType name="ModelToManufactureTO">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="ModelSeries" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="MakeID" type="xs:int" />
-      <xs:element minOccurs="0" name="MakeDisplayName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="CategoryID" type="xs:int" />
-      <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ModelToManufactureTO" nillable="true" type="tns:ModelToManufactureTO" />
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://www.jdpowerwebservices.com/UsedRVsService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" />
+  <xs:import schemaLocation="https://www.jdpowerwebservices.com/UsedRVsService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.RVs" />
+  <xs:element name="GetMakes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="categories" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fromYear" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="toYear" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetMakesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="GetMakesResult" nillable="true" type="q1:RVMakeCategoryReturnTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetYears">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="makeID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetYearsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.RVs" minOccurs="0" name="GetYearsResult" nillable="true" type="q2:RVYearsReturnTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCategories">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="makeID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="year" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCategoriesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" minOccurs="0" name="GetCategoriesResult" nillable="true" type="q3:ArrayOfCategoryReturnTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetModelTrims">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="makeID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="year" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="categories" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetModelTrimsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.RVs" minOccurs="0" name="GetModelTrimsResult" nillable="true" type="q4:RVModelTrimListReturnTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOptions">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="modelTrimID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOptionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.RVs" minOccurs="0" name="GetOptionsResult" nillable="true" type="q5:RVUsedOptionListReturnTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConsumerPrices">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="modelTrimID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="optionCodes" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="mileage" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConsumerPricesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.RVs" minOccurs="0" name="GetConsumerPricesResult" nillable="true" type="q6:RVUsedConsumerModelTrimReturnTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConsumerPricesPost">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="modelTrimID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="mileage" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="optionCodes" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConsumerPricesPostResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.RVs" minOccurs="0" name="GetConsumerPricesPostResult" nillable="true" type="q7:RVUsedConsumerModelTrimReturnTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTradePrices">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="modelTrimID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="optionCodes" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="mileage" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTradePricesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.RVs" minOccurs="0" name="GetTradePricesResult" nillable="true" type="q8:RVUsedTradeModelTrimReturnTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTradePricesPost">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="modelTrimID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="mileage" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="optionCodes" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTradePricesPostResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.RVs" minOccurs="0" name="GetTradePricesPostResult" nillable="true" type="q9:RVUsedTradeModelTrimReturnTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSpecifications">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="modelTrimID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSpecificationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.RVs" minOccurs="0" name="GetSpecificationsResult" nillable="true" type="q10:RVSpecReturnTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetManufactureToModel">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetManufactureToModelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.RVs" minOccurs="0" name="GetManufactureToModelResult" nillable="true" type="q11:ArrayOfManufactureToModelTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetModelToManufacture">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetModelToManufactureResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.RVs" minOccurs="0" name="GetModelToManufactureResult" nillable="true" type="q12:ArrayOfModelToManufactureTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

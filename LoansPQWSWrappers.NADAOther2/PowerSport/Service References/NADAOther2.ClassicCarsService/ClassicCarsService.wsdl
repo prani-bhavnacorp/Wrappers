@@ -27,11 +27,11 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="https://www.nadaguideswebservices.com/ClassicCarsService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="https://www.nadaguideswebservices.com/ClassicCarsService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfService" />
-      <xsd:import schemaLocation="https://www.nadaguideswebservices.com/ClassicCarsService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="https://www.nadaguideswebservices.com/ClassicCarsService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" />
-      <xsd:import schemaLocation="https://www.nadaguideswebservices.com/ClassicCarsService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.ClassicCars" />
+      <xsd:import schemaLocation="https://www.jdpowerwebservices.com/ClassicCarsService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://www.jdpowerwebservices.com/ClassicCarsService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfService" />
+      <xsd:import schemaLocation="https://www.jdpowerwebservices.com/ClassicCarsService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://www.jdpowerwebservices.com/ClassicCarsService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" />
+      <xsd:import schemaLocation="https://www.jdpowerwebservices.com/ClassicCarsService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.ClassicCars" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IClassicCarsService_GetMakes_InputMessage">
@@ -43,6 +43,15 @@
   <wsdl:message name="IClassicCarsService_GetMakes_WcfFaultFault_FaultMessage">
     <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q1:WcfFault" />
   </wsdl:message>
+  <wsdl:message name="IClassicCarsService_GetMakesByYear_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMakesByYear" />
+  </wsdl:message>
+  <wsdl:message name="IClassicCarsService_GetMakesByYear_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMakesByYearResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClassicCarsService_GetMakesByYear_WcfFaultFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q2:WcfFault" />
+  </wsdl:message>
   <wsdl:message name="IClassicCarsService_GetYears_InputMessage">
     <wsdl:part name="parameters" element="tns:GetYears" />
   </wsdl:message>
@@ -50,7 +59,16 @@
     <wsdl:part name="parameters" element="tns:GetYearsResponse" />
   </wsdl:message>
   <wsdl:message name="IClassicCarsService_GetYears_WcfFaultFault_FaultMessage">
-    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q2:WcfFault" />
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q3:WcfFault" />
+  </wsdl:message>
+  <wsdl:message name="IClassicCarsService_GetCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategories" />
+  </wsdl:message>
+  <wsdl:message name="IClassicCarsService_GetCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClassicCarsService_GetCategories_WcfFaultFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q4:WcfFault" />
   </wsdl:message>
   <wsdl:message name="IClassicCarsService_GetModelTrims_InputMessage">
     <wsdl:part name="parameters" element="tns:GetModelTrims" />
@@ -59,7 +77,16 @@
     <wsdl:part name="parameters" element="tns:GetModelTrimsResponse" />
   </wsdl:message>
   <wsdl:message name="IClassicCarsService_GetModelTrims_WcfFaultFault_FaultMessage">
-    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q3:WcfFault" />
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q5:WcfFault" />
+  </wsdl:message>
+  <wsdl:message name="IClassicCarsService_GetModelTrimsByBodyStyle_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetModelTrimsByBodyStyle" />
+  </wsdl:message>
+  <wsdl:message name="IClassicCarsService_GetModelTrimsByBodyStyle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetModelTrimsByBodyStyleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClassicCarsService_GetModelTrimsByBodyStyle_WcfFaultFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q6:WcfFault" />
   </wsdl:message>
   <wsdl:message name="IClassicCarsService_GetOptions_InputMessage">
     <wsdl:part name="parameters" element="tns:GetOptions" />
@@ -68,7 +95,7 @@
     <wsdl:part name="parameters" element="tns:GetOptionsResponse" />
   </wsdl:message>
   <wsdl:message name="IClassicCarsService_GetOptions_WcfFaultFault_FaultMessage">
-    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q4:WcfFault" />
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q7:WcfFault" />
   </wsdl:message>
   <wsdl:message name="IClassicCarsService_GetPrices_InputMessage">
     <wsdl:part name="parameters" element="tns:GetPrices" />
@@ -77,7 +104,7 @@
     <wsdl:part name="parameters" element="tns:GetPricesResponse" />
   </wsdl:message>
   <wsdl:message name="IClassicCarsService_GetPrices_WcfFaultFault_FaultMessage">
-    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q5:WcfFault" />
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q8:WcfFault" />
   </wsdl:message>
   <wsdl:portType name="IClassicCarsService">
     <wsdl:operation name="GetMakes">
@@ -85,15 +112,30 @@
       <wsdl:output wsaw:Action="http://tempuri.org/IClassicCarsService/GetMakesResponse" message="tns:IClassicCarsService_GetMakes_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IClassicCarsService/GetMakesWcfFaultFault" name="WcfFaultFault" message="tns:IClassicCarsService_GetMakes_WcfFaultFault_FaultMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetMakesByYear">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClassicCarsService/GetMakesByYear" message="tns:IClassicCarsService_GetMakesByYear_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClassicCarsService/GetMakesByYearResponse" message="tns:IClassicCarsService_GetMakesByYear_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IClassicCarsService/GetMakesByYearWcfFaultFault" name="WcfFaultFault" message="tns:IClassicCarsService_GetMakesByYear_WcfFaultFault_FaultMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetYears">
       <wsdl:input wsaw:Action="http://tempuri.org/IClassicCarsService/GetYears" message="tns:IClassicCarsService_GetYears_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IClassicCarsService/GetYearsResponse" message="tns:IClassicCarsService_GetYears_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IClassicCarsService/GetYearsWcfFaultFault" name="WcfFaultFault" message="tns:IClassicCarsService_GetYears_WcfFaultFault_FaultMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClassicCarsService/GetCategories" message="tns:IClassicCarsService_GetCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClassicCarsService/GetCategoriesResponse" message="tns:IClassicCarsService_GetCategories_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IClassicCarsService/GetCategoriesWcfFaultFault" name="WcfFaultFault" message="tns:IClassicCarsService_GetCategories_WcfFaultFault_FaultMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetModelTrims">
       <wsdl:input wsaw:Action="http://tempuri.org/IClassicCarsService/GetModelTrims" message="tns:IClassicCarsService_GetModelTrims_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IClassicCarsService/GetModelTrimsResponse" message="tns:IClassicCarsService_GetModelTrims_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IClassicCarsService/GetModelTrimsWcfFaultFault" name="WcfFaultFault" message="tns:IClassicCarsService_GetModelTrims_WcfFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetModelTrimsByBodyStyle">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClassicCarsService/GetModelTrimsByBodyStyle" message="tns:IClassicCarsService_GetModelTrimsByBodyStyle_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClassicCarsService/GetModelTrimsByBodyStyleResponse" message="tns:IClassicCarsService_GetModelTrimsByBodyStyle_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IClassicCarsService/GetModelTrimsByBodyStyleWcfFaultFault" name="WcfFaultFault" message="tns:IClassicCarsService_GetModelTrimsByBodyStyle_WcfFaultFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetOptions">
       <wsdl:input wsaw:Action="http://tempuri.org/IClassicCarsService/GetOptions" message="tns:IClassicCarsService_GetOptions_InputMessage" />
@@ -121,6 +163,18 @@
         <soap:fault use="literal" name="WcfFaultFault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
+    <wsdl:operation name="GetMakesByYear">
+      <soap:operation soapAction="http://tempuri.org/IClassicCarsService/GetMakesByYear" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="WcfFaultFault">
+        <soap:fault use="literal" name="WcfFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
     <wsdl:operation name="GetYears">
       <soap:operation soapAction="http://tempuri.org/IClassicCarsService/GetYears" style="document" />
       <wsdl:input>
@@ -133,8 +187,32 @@
         <soap:fault use="literal" name="WcfFaultFault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
+    <wsdl:operation name="GetCategories">
+      <soap:operation soapAction="http://tempuri.org/IClassicCarsService/GetCategories" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="WcfFaultFault">
+        <soap:fault use="literal" name="WcfFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
     <wsdl:operation name="GetModelTrims">
       <soap:operation soapAction="http://tempuri.org/IClassicCarsService/GetModelTrims" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="WcfFaultFault">
+        <soap:fault use="literal" name="WcfFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetModelTrimsByBodyStyle">
+      <soap:operation soapAction="http://tempuri.org/IClassicCarsService/GetModelTrimsByBodyStyle" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -172,7 +250,7 @@
   </wsdl:binding>
   <wsdl:service name="ClassicCarsService">
     <wsdl:port name="soap" binding="tns:soap">
-      <soap:address location="https://www.nadaguideswebservices.com/ClassicCarsService.svc/soap" />
+      <soap:address location="https://www.jdpowerwebservices.com/ClassicCarsService.svc/soap" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

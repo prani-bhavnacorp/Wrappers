@@ -27,12 +27,12 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="https://www.nadaguideswebservices.com/UsedRVsService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="https://www.nadaguideswebservices.com/UsedRVsService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfService" />
-      <xsd:import schemaLocation="https://www.nadaguideswebservices.com/UsedRVsService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="https://www.nadaguideswebservices.com/UsedRVsService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" />
-      <xsd:import schemaLocation="https://www.nadaguideswebservices.com/UsedRVsService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.RVs" />
-      <xsd:import schemaLocation="https://www.nadaguideswebservices.com/UsedRVsService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="https://www.jdpowerwebservices.com/UsedRVsService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://www.jdpowerwebservices.com/UsedRVsService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfService" />
+      <xsd:import schemaLocation="https://www.jdpowerwebservices.com/UsedRVsService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://www.jdpowerwebservices.com/UsedRVsService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" />
+      <xsd:import schemaLocation="https://www.jdpowerwebservices.com/UsedRVsService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.RVs" />
+      <xsd:import schemaLocation="https://www.jdpowerwebservices.com/UsedRVsService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IUsedRVsService_GetMakes_InputMessage">
@@ -89,6 +89,15 @@
   <wsdl:message name="IUsedRVsService_GetConsumerPrices_WcfFaultFault_FaultMessage">
     <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q6:WcfFault" />
   </wsdl:message>
+  <wsdl:message name="IUsedRVsService_GetConsumerPricesPost_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetConsumerPricesPost" />
+  </wsdl:message>
+  <wsdl:message name="IUsedRVsService_GetConsumerPricesPost_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetConsumerPricesPostResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsedRVsService_GetConsumerPricesPost_WcfFaultFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q7:WcfFault" />
+  </wsdl:message>
   <wsdl:message name="IUsedRVsService_GetTradePrices_InputMessage">
     <wsdl:part name="parameters" element="tns:GetTradePrices" />
   </wsdl:message>
@@ -96,7 +105,16 @@
     <wsdl:part name="parameters" element="tns:GetTradePricesResponse" />
   </wsdl:message>
   <wsdl:message name="IUsedRVsService_GetTradePrices_WcfFaultFault_FaultMessage">
-    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q7:WcfFault" />
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q8:WcfFault" />
+  </wsdl:message>
+  <wsdl:message name="IUsedRVsService_GetTradePricesPost_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTradePricesPost" />
+  </wsdl:message>
+  <wsdl:message name="IUsedRVsService_GetTradePricesPost_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTradePricesPostResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsedRVsService_GetTradePricesPost_WcfFaultFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q9:WcfFault" />
   </wsdl:message>
   <wsdl:message name="IUsedRVsService_GetSpecifications_InputMessage">
     <wsdl:part name="parameters" element="tns:GetSpecifications" />
@@ -105,7 +123,7 @@
     <wsdl:part name="parameters" element="tns:GetSpecificationsResponse" />
   </wsdl:message>
   <wsdl:message name="IUsedRVsService_GetSpecifications_WcfFaultFault_FaultMessage">
-    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q8:WcfFault" />
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q10:WcfFault" />
   </wsdl:message>
   <wsdl:message name="IUsedRVsService_GetManufactureToModel_InputMessage">
     <wsdl:part name="parameters" element="tns:GetManufactureToModel" />
@@ -114,7 +132,7 @@
     <wsdl:part name="parameters" element="tns:GetManufactureToModelResponse" />
   </wsdl:message>
   <wsdl:message name="IUsedRVsService_GetManufactureToModel_WcfFaultFault_FaultMessage">
-    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q9:WcfFault" />
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q11:WcfFault" />
   </wsdl:message>
   <wsdl:message name="IUsedRVsService_GetModelToManufacture_InputMessage">
     <wsdl:part name="parameters" element="tns:GetModelToManufacture" />
@@ -123,7 +141,7 @@
     <wsdl:part name="parameters" element="tns:GetModelToManufactureResponse" />
   </wsdl:message>
   <wsdl:message name="IUsedRVsService_GetModelToManufacture_WcfFaultFault_FaultMessage">
-    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q10:WcfFault" />
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q12:WcfFault" />
   </wsdl:message>
   <wsdl:portType name="IUsedRVsService">
     <wsdl:operation name="GetMakes">
@@ -156,10 +174,20 @@
       <wsdl:output wsaw:Action="http://tempuri.org/IUsedRVsService/GetConsumerPricesResponse" message="tns:IUsedRVsService_GetConsumerPrices_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IUsedRVsService/GetConsumerPricesWcfFaultFault" name="WcfFaultFault" message="tns:IUsedRVsService_GetConsumerPrices_WcfFaultFault_FaultMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetConsumerPricesPost">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsedRVsService/GetConsumerPricesPost" message="tns:IUsedRVsService_GetConsumerPricesPost_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsedRVsService/GetConsumerPricesPostResponse" message="tns:IUsedRVsService_GetConsumerPricesPost_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUsedRVsService/GetConsumerPricesPostWcfFaultFault" name="WcfFaultFault" message="tns:IUsedRVsService_GetConsumerPricesPost_WcfFaultFault_FaultMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetTradePrices">
       <wsdl:input wsaw:Action="http://tempuri.org/IUsedRVsService/GetTradePrices" message="tns:IUsedRVsService_GetTradePrices_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUsedRVsService/GetTradePricesResponse" message="tns:IUsedRVsService_GetTradePrices_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IUsedRVsService/GetTradePricesWcfFaultFault" name="WcfFaultFault" message="tns:IUsedRVsService_GetTradePrices_WcfFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTradePricesPost">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsedRVsService/GetTradePricesPost" message="tns:IUsedRVsService_GetTradePricesPost_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsedRVsService/GetTradePricesPostResponse" message="tns:IUsedRVsService_GetTradePricesPost_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUsedRVsService/GetTradePricesPostWcfFaultFault" name="WcfFaultFault" message="tns:IUsedRVsService_GetTradePricesPost_WcfFaultFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetSpecifications">
       <wsdl:input wsaw:Action="http://tempuri.org/IUsedRVsService/GetSpecifications" message="tns:IUsedRVsService_GetSpecifications_InputMessage" />
@@ -252,8 +280,32 @@
         <soap:fault use="literal" name="WcfFaultFault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
+    <wsdl:operation name="GetConsumerPricesPost">
+      <soap:operation soapAction="http://tempuri.org/IUsedRVsService/GetConsumerPricesPost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="WcfFaultFault">
+        <soap:fault use="literal" name="WcfFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
     <wsdl:operation name="GetTradePrices">
       <soap:operation soapAction="http://tempuri.org/IUsedRVsService/GetTradePrices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="WcfFaultFault">
+        <soap:fault use="literal" name="WcfFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetTradePricesPost">
+      <soap:operation soapAction="http://tempuri.org/IUsedRVsService/GetTradePricesPost" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -303,7 +355,7 @@
   </wsdl:binding>
   <wsdl:service name="UsedRVsService">
     <wsdl:port name="soap" binding="tns:soap">
-      <soap:address location="https://www.nadaguideswebservices.com/UsedRVsService.svc/soap" />
+      <soap:address location="https://www.jdpowerwebservices.com/UsedRVsService.svc/soap" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

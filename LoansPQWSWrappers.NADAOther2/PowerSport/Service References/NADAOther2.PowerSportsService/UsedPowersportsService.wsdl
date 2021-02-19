@@ -27,13 +27,15 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="https://www.nadaguideswebservices.com/UsedPowersportsService.svc?xsd=xsd2" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="https://www.nadaguideswebservices.com/UsedPowersportsService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfService" />
-      <xsd:import schemaLocation="https://www.nadaguideswebservices.com/UsedPowersportsService.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="https://www.nadaguideswebservices.com/UsedPowersportsService.svc?xsd=xsd1" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.Powersports" />
-      <xsd:import schemaLocation="https://www.nadaguideswebservices.com/UsedPowersportsService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" />
-      <xsd:import schemaLocation="https://www.nadaguideswebservices.com/UsedPowersportsService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-      <xsd:import schemaLocation="https://www.nadaguideswebservices.com/UsedPowersportsService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.Marine" />
+      <xsd:import schemaLocation="https://www.jdpowerwebservices.com/UsedPowersportsService.svc?xsd=xsd2" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://www.jdpowerwebservices.com/UsedPowersportsService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfService" />
+      <xsd:import schemaLocation="https://www.jdpowerwebservices.com/UsedPowersportsService.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://www.jdpowerwebservices.com/UsedPowersportsService.svc?xsd=xsd1" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.Powersports" />
+      <xsd:import schemaLocation="https://www.jdpowerwebservices.com/UsedPowersportsService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects" />
+      <xsd:import schemaLocation="https://www.jdpowerwebservices.com/UsedPowersportsService.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="https://www.jdpowerwebservices.com/UsedPowersportsService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/NADA.WcfServiceTransferObjects.Marine" />
+      <xsd:import schemaLocation="https://www.jdpowerwebservices.com/UsedPowersportsService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/NADA.TransferObjects.Powersports" />
+      <xsd:import schemaLocation="https://www.jdpowerwebservices.com/UsedPowersportsService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/NADA.TransferObjects" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IUsedPowersportsService_GetMakes_InputMessage">
@@ -90,6 +92,15 @@
   <wsdl:message name="IUsedPowersportsService_GetModelTrims_WcfFaultFault_FaultMessage">
     <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q6:WcfFault" />
   </wsdl:message>
+  <wsdl:message name="IUsedPowersportsService_GetMaufacturerWarranty_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaufacturerWarranty" />
+  </wsdl:message>
+  <wsdl:message name="IUsedPowersportsService_GetMaufacturerWarranty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMaufacturerWarrantyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsedPowersportsService_GetMaufacturerWarranty_WcfFaultFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q7:WcfFault" />
+  </wsdl:message>
   <wsdl:message name="IUsedPowersportsService_GetModelTrimsByModelTypes_InputMessage">
     <wsdl:part name="parameters" element="tns:GetModelTrimsByModelTypes" />
   </wsdl:message>
@@ -97,7 +108,7 @@
     <wsdl:part name="parameters" element="tns:GetModelTrimsByModelTypesResponse" />
   </wsdl:message>
   <wsdl:message name="IUsedPowersportsService_GetModelTrimsByModelTypes_WcfFaultFault_FaultMessage">
-    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q7:WcfFault" />
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q8:WcfFault" />
   </wsdl:message>
   <wsdl:message name="IUsedPowersportsService_GetModelTrimsWithSpecs_InputMessage">
     <wsdl:part name="parameters" element="tns:GetModelTrimsWithSpecs" />
@@ -106,7 +117,7 @@
     <wsdl:part name="parameters" element="tns:GetModelTrimsWithSpecsResponse" />
   </wsdl:message>
   <wsdl:message name="IUsedPowersportsService_GetModelTrimsWithSpecs_WcfFaultFault_FaultMessage">
-    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q8:WcfFault" />
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q9:WcfFault" />
   </wsdl:message>
   <wsdl:message name="IUsedPowersportsService_GetOptions_InputMessage">
     <wsdl:part name="parameters" element="tns:GetOptions" />
@@ -115,7 +126,16 @@
     <wsdl:part name="parameters" element="tns:GetOptionsResponse" />
   </wsdl:message>
   <wsdl:message name="IUsedPowersportsService_GetOptions_WcfFaultFault_FaultMessage">
-    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q9:WcfFault" />
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q10:WcfFault" />
+  </wsdl:message>
+  <wsdl:message name="IUsedPowersportsService_GetComprehensiveOptions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetComprehensiveOptions" />
+  </wsdl:message>
+  <wsdl:message name="IUsedPowersportsService_GetComprehensiveOptions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetComprehensiveOptionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsedPowersportsService_GetComprehensiveOptions_WcfFaultFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q11:WcfFault" />
   </wsdl:message>
   <wsdl:message name="IUsedPowersportsService_GetConsumerPrices_InputMessage">
     <wsdl:part name="parameters" element="tns:GetConsumerPrices" />
@@ -124,7 +144,16 @@
     <wsdl:part name="parameters" element="tns:GetConsumerPricesResponse" />
   </wsdl:message>
   <wsdl:message name="IUsedPowersportsService_GetConsumerPrices_WcfFaultFault_FaultMessage">
-    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q10:WcfFault" />
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q12:WcfFault" />
+  </wsdl:message>
+  <wsdl:message name="IUsedPowersportsService_GetComprehensiveConsumerPrice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetComprehensiveConsumerPrice" />
+  </wsdl:message>
+  <wsdl:message name="IUsedPowersportsService_GetComprehensiveConsumerPrice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetComprehensiveConsumerPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsedPowersportsService_GetComprehensiveConsumerPrice_WcfFaultFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q13:WcfFault" />
   </wsdl:message>
   <wsdl:message name="IUsedPowersportsService_GetTradePrices_InputMessage">
     <wsdl:part name="parameters" element="tns:GetTradePrices" />
@@ -133,7 +162,16 @@
     <wsdl:part name="parameters" element="tns:GetTradePricesResponse" />
   </wsdl:message>
   <wsdl:message name="IUsedPowersportsService_GetTradePrices_WcfFaultFault_FaultMessage">
-    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q11:WcfFault" />
+    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q14:WcfFault" />
+  </wsdl:message>
+  <wsdl:message name="IUsedPowersportsService_GetComprehensiveTradePrices_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetComprehensiveTradePrices" />
+  </wsdl:message>
+  <wsdl:message name="IUsedPowersportsService_GetComprehensiveTradePrices_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetComprehensiveTradePricesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IUsedPowersportsService_GetComprehensiveTradePrices_WcfFaultFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q15:WcfFault" />
   </wsdl:message>
   <wsdl:message name="IUsedPowersportsService_GetStandardEquipment_InputMessage">
     <wsdl:part name="parameters" element="tns:GetStandardEquipment" />
@@ -142,7 +180,7 @@
     <wsdl:part name="parameters" element="tns:GetStandardEquipmentResponse" />
   </wsdl:message>
   <wsdl:message name="IUsedPowersportsService_GetStandardEquipment_WcfFaultFault_FaultMessage">
-    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q12:WcfFault" />
+    <wsdl:part xmlns:q16="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q16:WcfFault" />
   </wsdl:message>
   <wsdl:message name="IUsedPowersportsService_GetModelsByVIN_InputMessage">
     <wsdl:part name="parameters" element="tns:GetModelsByVIN" />
@@ -151,7 +189,7 @@
     <wsdl:part name="parameters" element="tns:GetModelsByVINResponse" />
   </wsdl:message>
   <wsdl:message name="IUsedPowersportsService_GetModelsByVIN_WcfFaultFault_FaultMessage">
-    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q13:WcfFault" />
+    <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/NADA.WcfService" name="detail" element="q17:WcfFault" />
   </wsdl:message>
   <wsdl:portType name="IUsedPowersportsService">
     <wsdl:operation name="GetMakes">
@@ -184,6 +222,11 @@
       <wsdl:output wsaw:Action="http://tempuri.org/IUsedPowersportsService/GetModelTrimsResponse" message="tns:IUsedPowersportsService_GetModelTrims_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IUsedPowersportsService/GetModelTrimsWcfFaultFault" name="WcfFaultFault" message="tns:IUsedPowersportsService_GetModelTrims_WcfFaultFault_FaultMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetMaufacturerWarranty">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsedPowersportsService/GetMaufacturerWarranty" message="tns:IUsedPowersportsService_GetMaufacturerWarranty_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsedPowersportsService/GetMaufacturerWarrantyResponse" message="tns:IUsedPowersportsService_GetMaufacturerWarranty_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUsedPowersportsService/GetMaufacturerWarrantyWcfFaultFault" name="WcfFaultFault" message="tns:IUsedPowersportsService_GetMaufacturerWarranty_WcfFaultFault_FaultMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetModelTrimsByModelTypes">
       <wsdl:input wsaw:Action="http://tempuri.org/IUsedPowersportsService/GetModelTrimsByModelTypes" message="tns:IUsedPowersportsService_GetModelTrimsByModelTypes_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUsedPowersportsService/GetModelTrimsByModelTypesResponse" message="tns:IUsedPowersportsService_GetModelTrimsByModelTypes_OutputMessage" />
@@ -199,15 +242,30 @@
       <wsdl:output wsaw:Action="http://tempuri.org/IUsedPowersportsService/GetOptionsResponse" message="tns:IUsedPowersportsService_GetOptions_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IUsedPowersportsService/GetOptionsWcfFaultFault" name="WcfFaultFault" message="tns:IUsedPowersportsService_GetOptions_WcfFaultFault_FaultMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetComprehensiveOptions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsedPowersportsService/GetComprehensiveOptions" message="tns:IUsedPowersportsService_GetComprehensiveOptions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsedPowersportsService/GetComprehensiveOptionsResponse" message="tns:IUsedPowersportsService_GetComprehensiveOptions_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUsedPowersportsService/GetComprehensiveOptionsWcfFaultFault" name="WcfFaultFault" message="tns:IUsedPowersportsService_GetComprehensiveOptions_WcfFaultFault_FaultMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetConsumerPrices">
       <wsdl:input wsaw:Action="http://tempuri.org/IUsedPowersportsService/GetConsumerPrices" message="tns:IUsedPowersportsService_GetConsumerPrices_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUsedPowersportsService/GetConsumerPricesResponse" message="tns:IUsedPowersportsService_GetConsumerPrices_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IUsedPowersportsService/GetConsumerPricesWcfFaultFault" name="WcfFaultFault" message="tns:IUsedPowersportsService_GetConsumerPrices_WcfFaultFault_FaultMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetComprehensiveConsumerPrice">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsedPowersportsService/GetComprehensiveConsumerPrice" message="tns:IUsedPowersportsService_GetComprehensiveConsumerPrice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsedPowersportsService/GetComprehensiveConsumerPriceResponse" message="tns:IUsedPowersportsService_GetComprehensiveConsumerPrice_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUsedPowersportsService/GetComprehensiveConsumerPriceWcfFaultFault" name="WcfFaultFault" message="tns:IUsedPowersportsService_GetComprehensiveConsumerPrice_WcfFaultFault_FaultMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetTradePrices">
       <wsdl:input wsaw:Action="http://tempuri.org/IUsedPowersportsService/GetTradePrices" message="tns:IUsedPowersportsService_GetTradePrices_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUsedPowersportsService/GetTradePricesResponse" message="tns:IUsedPowersportsService_GetTradePrices_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IUsedPowersportsService/GetTradePricesWcfFaultFault" name="WcfFaultFault" message="tns:IUsedPowersportsService_GetTradePrices_WcfFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetComprehensiveTradePrices">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsedPowersportsService/GetComprehensiveTradePrices" message="tns:IUsedPowersportsService_GetComprehensiveTradePrices_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsedPowersportsService/GetComprehensiveTradePricesResponse" message="tns:IUsedPowersportsService_GetComprehensiveTradePrices_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IUsedPowersportsService/GetComprehensiveTradePricesWcfFaultFault" name="WcfFaultFault" message="tns:IUsedPowersportsService_GetComprehensiveTradePrices_WcfFaultFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetStandardEquipment">
       <wsdl:input wsaw:Action="http://tempuri.org/IUsedPowersportsService/GetStandardEquipment" message="tns:IUsedPowersportsService_GetStandardEquipment_InputMessage" />
@@ -295,6 +353,18 @@
         <soap:fault use="literal" name="WcfFaultFault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
+    <wsdl:operation name="GetMaufacturerWarranty">
+      <soap:operation soapAction="http://tempuri.org/IUsedPowersportsService/GetMaufacturerWarranty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="WcfFaultFault">
+        <soap:fault use="literal" name="WcfFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
     <wsdl:operation name="GetModelTrimsByModelTypes">
       <soap:operation soapAction="http://tempuri.org/IUsedPowersportsService/GetModelTrimsByModelTypes" style="document" />
       <wsdl:input>
@@ -331,6 +401,18 @@
         <soap:fault use="literal" name="WcfFaultFault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
+    <wsdl:operation name="GetComprehensiveOptions">
+      <soap:operation soapAction="http://tempuri.org/IUsedPowersportsService/GetComprehensiveOptions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="WcfFaultFault">
+        <soap:fault use="literal" name="WcfFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
     <wsdl:operation name="GetConsumerPrices">
       <soap:operation soapAction="http://tempuri.org/IUsedPowersportsService/GetConsumerPrices" style="document" />
       <wsdl:input>
@@ -343,8 +425,32 @@
         <soap:fault use="literal" name="WcfFaultFault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
+    <wsdl:operation name="GetComprehensiveConsumerPrice">
+      <soap:operation soapAction="http://tempuri.org/IUsedPowersportsService/GetComprehensiveConsumerPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="WcfFaultFault">
+        <soap:fault use="literal" name="WcfFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
     <wsdl:operation name="GetTradePrices">
       <soap:operation soapAction="http://tempuri.org/IUsedPowersportsService/GetTradePrices" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="WcfFaultFault">
+        <soap:fault use="literal" name="WcfFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetComprehensiveTradePrices">
+      <soap:operation soapAction="http://tempuri.org/IUsedPowersportsService/GetComprehensiveTradePrices" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -382,7 +488,7 @@
   </wsdl:binding>
   <wsdl:service name="UsedPowersportsService">
     <wsdl:port name="BasicHttpBinding_IUsedPowersportsService" binding="tns:BasicHttpBinding_IUsedPowersportsService">
-      <soap:address location="https://www.nadaguideswebservices.com/UsedPowersportsService.svc/soap" />
+      <soap:address location="https://www.jdpowerwebservices.com/UsedPowersportsService.svc/soap" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
