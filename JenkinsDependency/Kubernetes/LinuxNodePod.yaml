@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+    - name: node
+      image: node:14-stretch
+      tty: true
+      command:
+        - cat
+  nodeSelector:
+    kubernetes.io/os: linux
