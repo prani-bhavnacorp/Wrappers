@@ -1,20 +1,12 @@
 pipeline {
-  agent {
-    kubernetes {
-      yamlFile 'JenkinsDependency/Kubernetes/JenkinsAgentAndNetFrameworkPod.yaml'
-    }
-  }
+  agent any
   environment {
     NUGET_REPOSITORY = 'https://meridianlink.jfrog.io/artifactory/api/nuget/nuget'
     ARTIFACTORY_ID = 'artifactory'
   }
   stages {
     stage('Pre-Pipeline Checks') {
-      agent {
-        kubernetes {
-          yamlFile 'JenkinsDependency/Kubernetes/LinuxNodePod.yaml'
-        }
-      }
+      agent any
       steps {
         script {
           env.CI_SKIP = 'false'
