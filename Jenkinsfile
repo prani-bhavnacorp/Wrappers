@@ -57,11 +57,7 @@ pipeline {
         stage('Create Build Tag or Deploy Nuget Package') {
           stages {
             stage('Create Build Tag') {
-              agent {
-                kubernetes {
-                  yamlFile 'JenkinsDependency/Kubernetes/LinuxNodePod.yaml'
-                }
-              }
+              agent any
               when {
                 beforeAgent true
                 not {
