@@ -1,16 +1,12 @@
-@Library('jenkins-shared-libraries@v0.4.14') _
 pipeline {
   agent {
     kubernetes {
-      yaml podYamlWindows(['jnlp', 'dotnet-framework', 'docker-jfrog-cli'])
+      yamlFile 'JenkinsDependency/Kubernetes/JenkinsAgentAndNetFrameworkPod.yaml'
     }
   }
   environment {
     NUGET_REPOSITORY = 'https://meridianlink.jfrog.io/artifactory/api/nuget/nuget'
     ARTIFACTORY_ID = 'artifactory'
-	BUILD_NAME = "LPQ-WRAPPERSTEST"
-	BRANCH_NAME = "LPQ-27663"
-	NUGET_UPLOAD_PATH = "lpq-nuget-local/LoansPQWSWrappersTest/"
   }
   stages {
     stage('Pre-Pipeline Checks') {
@@ -49,7 +45,7 @@ pipeline {
       stages {
         stage('Install Dependencies') {
           steps {
-            container('windows-dotnet') {
+            container('dotnet-framework') {
               withCredentials([string(credentialsId: 'artifactory', variable: 'NUGET_API_TOKEN')]) {
                 bat 'nuget sources Add -Name Artifactory -Source %NUGET_REPOSITORY% -username jenkins -password %NUGET_API_TOKEN%'
               }
@@ -61,8 +57,8 @@ pipeline {
         }
         stage('Compile') {
           steps {
-            container('windows-dotnet') {
-              bat 'msbuild LoansPQ2_WSWrappers.sln /p:Configuration=release '
+            container('dotnet-framework') {
+              bat 'msbuild .sln /p:Configuration=release '
             }
           }
         }
@@ -92,7 +88,7 @@ pipeline {
                   withCredentials([usernamePassword(credentialsId: 'Svc-Az-CICD', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]){
                     sh('''
                       git config --local credential.helper "!f() { echo username=\\$GIT_USERNAME; echo password=\\$GIT_PASSWORD; }; f"
-                      git push --follow-tags origin HEAD:${BRANCH_NAME}
+                      git push --follow-tags origin HEAD:master
                     ''')
                   }
                 }
@@ -104,18 +100,28 @@ pipeline {
                 buildingTag()
               }
               steps {
-                container('windows-dotnet') {
+                container('dotnet-framework') {
                   bat "nuget pack LoansPQWSWrappers\\LoansPQWSWrappers.vbproj -Version ${env.SEMANTIC_VERSION} -Build -Verbosity detailed -Properties Platform=AnyCPU;Configuration=Release"
                 }
-                uploadToArtifactoryWindows(
-					sourcePath: "LoansPQWSWrappers.${env.SEMANTIC_VERSION}.nupkg",
-                    targetPath: NUGET_UPLOAD_PATH,
-                    buildName: BUILD_NAME
-				)
-				
-				publishBuildAndGitInfoWindows(
-					 buildName: BUILD_NAME
-				)
+				rtUpload (
+                  serverId: ARTIFACTORY_ID,
+                  spec: '''{
+                          "files": [
+                            {
+                              "pattern": "LoansPQWSWrappers.*.nupkg",
+                              "target": "lpq-nuget-local/LoansPQWSWrappersTest/"
+                            }
+                          ]
+                        }''',
+                  buildName: "LPQ-WRAPPERSTEST-${currentBuild.projectName}",
+                  buildNumber: "${currentBuild.number}"
+                )
+                  
+                rtPublishBuildInfo (
+                  serverId: ARTIFACTORY_ID,
+                  buildName: "LPQ-WRAPPERSTEST-${currentBuild.projectName}",
+                  buildNumber: "${currentBuild.number}"
+                )
               }
             }
           }
